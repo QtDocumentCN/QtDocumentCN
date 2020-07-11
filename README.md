@@ -1,5 +1,13 @@
 # QtDocument_CN
 
+# License
+
+本项目为翻译Qt官方文档
+
+本项目所有的文档遵循协议 CC BY-NC-ND 4.0  
+
+协议链接 https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh  
+
 ## 介绍
 
 本项目本意是来根据官方文档翻译对应的中文文档
