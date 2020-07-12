@@ -11,13 +11,13 @@ QTcpSocket 提供了一个 TCP 类型的套接字。
 | 头文件 | \#include <QTcpSocket>                                       |
 | qmake  | QT += network                                                |
 | 父类   | [QAbstractSocket](../../A/QAbstractSocket/QAbstractSocket.md) |
-| 子类   | QSctpSocket 和 QSslSocket                                    |
+| 子类   | [QSctpSocket](../../S/QSctpSocket/QSctpSocket.md) 和 [QSslSocket](../../S/QSslSocket/QSslSocket.md) |
 
 **注意：** QTcpSocket类中所有的函数都是可重入函数。
 
 
 
-## 公共函数
+## 公共成员函数
 
 | 类型    | 函数名                                                       |
 | ------- | ------------------------------------------------------------ |
@@ -34,7 +34,7 @@ TCP（传输控制协议）是一种可靠的，面向流，面向连接的传�
 
 ​    **注意：** 无法在 *QIODevice::Unbuffered* 模式下打开 TCP 套接字。
 
-​    您也可以在 QTcpServer, QUdpSocket 和 QNetworkAccessManager 类文档以及 Fortune Server Example, Fortune Client Example, Threaded Fortune Server Example, Blocking Fortune Client Example, Loopback Example 和 Torrent Example 示例文档中找到相关信息。
+​    您也可以在 [QTcpServer](../../T/QTcpServer/QTcpServer.md), [QUdpSocket](../../U/QUdpSocket/QUdpSocket.md) 和 [QNetworkAccessManager](../../N/QNetworkAccessManager/QNetworkAccessManager.md) 类文档以及 Fortune Server Example, Fortune Client Example, Threaded Fortune Server Example, Blocking Fortune Client Example, Loopback Example 和 Torrent Example 示例文档中找到相关信息。
 
 
 
@@ -44,7 +44,7 @@ TCP（传输控制协议）是一种可靠的，面向流，面向连接的传�
 
 构造函数。创建一个 QTcpSocket 类型的对象。该对象创建后初始状态为*未连接*（ *UnconnectedState* ）状态。
 
-​    函数中父对象参数 *parent* 传递给 QObject 的构造函数。
+​    函数中父对象参数 *parent* 传递给 [QObject](../../O/QObject/QObject.md) 的构造函数。
 
 ​    另外您也可以在 [socketType()](../../A/QAbstractSocket/QAbstractSocket.md#qabstractsocketsockettype-qabstractsocketsockettype-const) 函数介绍中找到相关信息。
 
