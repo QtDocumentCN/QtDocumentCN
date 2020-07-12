@@ -46,7 +46,7 @@ TCP（传输控制协议）是一种可靠的，面向流，面向连接的传�
 
 ​    函数中父对象参数 *parent* 传递给 QObject 的构造函数。
 
-​    另外您也可以在 [socketType()](../../A/QAbstractSocket/QAbstractSocket.md#qabstractsocketsockettype-qabstractsocketsockettype-const-div-idqabstractsocket-sockettypediv) 函数介绍中找到相关信息。
+​    另外您也可以在 [socketType()](../../A/QAbstractSocket/QAbstractSocket.md#qabstractsocketsockettype-qabstractsocketsockettype-const) 函数介绍中找到相关信息。
 
 ### *[virtual]* QTcpSocket::~QTcpSocket()
 
