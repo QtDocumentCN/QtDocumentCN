@@ -102,4 +102,9 @@ bool ok = db.open();
 QSqlDatabase db = QSqlDatabase::database();
 ```
 `QSqlDatabase`是一个值类。通过一个 `QSqlDatabase` 实例对数据库连接所做的操作将影响表示相同连接的其他 `QSqlDatabase` 实例。
-使用 `cloneDatabase()`  在基于已存在数据库的连接 来 创建 独立的数据库的连接
+使用 `cloneDatabase()`  在基于已存在数据库的连接 来 创建 独立的数据库的连接。
+
+警告：强烈建议不要将QSqlDatabase的拷贝作为类成员，因为这将阻止关闭时正确清理实例。
+如果需要访问已经存在QSqlDatabase，应该使用database()访问。如果你选择使用作为成员变量的QSqlDatabase，则需要在删除QCoreApplication实例之前删除它，否则可能会导致未定义的行为。
+
+如果你想创建多个数据库连接，可以调用 `addDatabase()`, 并且给一个独一无二的参数(即：连接名称)。使用 带有连接名的`database() ` 函数，来获取该连接。使用 带有连接名的`removeDatabase()` 函数，来删除 一个连接。
