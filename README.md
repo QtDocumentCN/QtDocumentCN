@@ -51,6 +51,7 @@
 | [QAbstractSocket](A/QAbstractSocket/QAbstractSocket.md)      | [skykeyjoker](https://github.com/skykeyjoker) | **开放** | 跨页跳转需待对应页面完成后进行校正 |
 | [QSslSocket](S/QSslSocket/QSslSocket.md)                     | [skykeyjoker](https://github.com/skykeyjoker) | 关闭     | 占位中，待填充，截止时间2020-07-31 |
 | [QTcpSocket](T/QTcpSocket/QTcpSocket.md)                     | [skykeyjoker](https://github.com/skykeyjoker) | **开放** | 跨页跳转需待对应页面完成后进行校正 |
+| [QTcpServer](T/QTcpServer/QTcpServer.md)                     | [skykeyjoker](https://github.com/skykeyjoker) | 关闭     | 编写中                             |
 | [QUdpSocket](U/QUdpSocket/QUdpSocket.md)                     | [skykeyjoker](https://github.com/skykeyjoker) | **开放** | 跨页跳转需待对应页面完成后进行校正 |
 | [Model_View_Programming](M/Model_View_Programming/Model_View_Programming.md) | [FlyWM](https://github.com/FlyWM)             | 关闭     | 占位中，待填充，截止时间2020-07-31 |
 | [Model_View_Tutorial](M/Model_View_Tutorial/Model_View_Tutorial.md) | [FlyWM](https://github.com/FlyWM)             | 关闭     | 占位中，待填充，截止时间2020-07-31 |
