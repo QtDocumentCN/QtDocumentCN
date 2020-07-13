@@ -127,4 +127,13 @@ QSqlDatabase db = QSqlDatabase::database();
 
 **注意：** 使用事务时，必须在创建查询之前启动事务。
 
-  ### **成员函数文档**
+### **成员函数文档**
+### QSqlDatabase::QSqlDatabase(QSqlDriver *driver)  `[受保护] `   
+
+这是一个重载函数
+
+使用给定驱动程序来创建连接
+
+### QSqlDatabase::QSqlDatabase(const QString &type)  `[受保护] `   
+
+这是一个重载函数
