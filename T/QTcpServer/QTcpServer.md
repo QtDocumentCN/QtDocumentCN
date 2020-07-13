@@ -21,26 +21,26 @@ QTcpServer 类提供了一个基于 TCP 协议的服务器。
 
 | 类型                         | 函数名                                                       |
 | :--------------------------- | ------------------------------------------------------------ |
-|                              | **[ QTcpServer](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qtcpserver.html#QTcpServer)**(QObject **parent* = nullptr) |
-| virtual                      | **[~QTcpServer](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qtcpserver.html#dtor.QTcpServer)**() |
-| void                         | **[close](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qtcpserver.html#close)**() |
-| QString                      | **[errorString](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qtcpserver.html#errorString)**() const |
-| virtual bool                 | **[hasPendingConnections](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qtcpserver.html#hasPendingConnections)**() const |
-| bool                         | **[isListening](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qtcpserver.html#isListening)**() const |
-| bool                         | **[listen](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qtcpserver.html#listen)**(const QHostAddress &*address* = QHostAddress::Any, quint16 *port* = 0) |
-| int                          | **[maxPendingConnections](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qtcpserver.html#maxPendingConnections)**() const |
-| virtual QTcpSocket *         | **[nextPendingConnection](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qtcpserver.html#nextPendingConnection)**() |
-| void                         | **[pauseAccepting](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qtcpserver.html#pauseAccepting)**() |
-| QNetworkProxy                | **[proxy](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qtcpserver.html#proxy)**() const |
-| void                         | **[resumeAccepting](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qtcpserver.html#resumeAccepting)**() |
-| QHostAddress                 | **[serverAddress](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qtcpserver.html#serverAddress)**() const |
-| QAbstractSocket::SocketError | **[serverError](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qtcpserver.html#serverError)**() const |
-| quint16                      | **[serverPort](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qtcpserver.html#serverPort)**() const |
-| void                         | **[setMaxPendingConnections](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qtcpserver.html#setMaxPendingConnections)**(int *numConnections*) |
-| void                         | **[setProxy](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qtcpserver.html#setProxy)**(const QNetworkProxy &*networkProxy*) |
-| bool                         | **[setSocketDescriptor](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qtcpserver.html#setSocketDescriptor)**(qintptr *socketDescriptor*) |
-| qintptr                      | **[socketDescriptor](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qtcpserver.html#socketDescriptor)**() const |
-| bool                         | **[waitForNewConnection](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qtcpserver.html#waitForNewConnection)**(int *msec* = 0, bool **timedOut* = nullptr) |
+|                              | **[ QTcpServer](#qtcpserverqtcpserverqobject-parent--nullptr)**(QObject **parent* = nullptr) |
+| virtual                      | **[~QTcpServer](#virtual-qtcpserverqtcpserver)**()           |
+| void                         | **[close](#void-qtcpserverclose)**()                         |
+| QString                      | **[errorString](#qstring-qtcpservererrorstring-const)**() const |
+| virtual bool                 | **[hasPendingConnections](#virtual-bool-qtcpserverhaspendingconnections-const)**() const |
+| bool                         | **[isListening](#bool-qtcpserverislistening-const)**() const |
+| bool                         | **[listen](#bool-qtcpserverlistenconst-qhostaddress-address--qhostaddressany-quint16-port--0)**(const QHostAddress &*address* = QHostAddress::Any, quint16 *port* = 0) |
+| int                          | **[maxPendingConnections](#int-qtcpservermaxpendingconnections-const)**() const |
+| virtual QTcpSocket *         | **[nextPendingConnection](#virtual-qtcpsocket-qtcpservernextpendingconnection)**() |
+| void                         | **[pauseAccepting](#void-qtcpserverpauseaccepting)**()       |
+| QNetworkProxy                | **[proxy](#qnetworkproxy-qtcpserverproxy-const)**() const    |
+| void                         | **[resumeAccepting](#void-qtcpserverresumeaccepting)**()     |
+| QHostAddress                 | **[serverAddress](#qhostaddress-qtcpserverserveraddress-const)**() const |
+| QAbstractSocket::SocketError | **[serverError](#qabstractsocketsocketerror-qtcpserverservererror-const)**() const |
+| quint16                      | **[serverPort](#quint16-qtcpserverserverport-const)**() const |
+| void                         | **[setMaxPendingConnections](#void-qtcpserversetmaxpendingconnectionsint-numconnections)**(int *numConnections*) |
+| void                         | **[setProxy](#void-qtcpserversetproxyconst-qnetworkproxy-networkproxy)**(const QNetworkProxy &*networkProxy*) |
+| bool                         | **[setSocketDescriptor](#bool-qtcpserversetsocketdescriptorqintptr-socketdescriptor)**(qintptr *socketDescriptor*) |
+| qintptr                      | **[socketDescriptor](#qintptr-qtcpserversocketdescriptor-const)**() const |
+| bool                         | **[waitForNewConnection](#bool-qtcpserverwaitfornewconnectionint-msec--0-bool-timedout--nullptr)**(int *msec* = 0, bool **timedOut* = nullptr) |
 
 
 
@@ -48,8 +48,8 @@ QTcpServer 类提供了一个基于 TCP 协议的服务器。
 
 | 类型 | 函数名                                                       |
 | ---- | ------------------------------------------------------------ |
-| void | **[acceptError](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qtcpserver.html#acceptError)**(QAbstractSocket::SocketError *socketError*) |
-| void | **[newConnection](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qtcpserver.html#newConnection)**() |
+| void | **[acceptError](#signal-void-qtcpserveraccepterrorqabstractsocketsocketerror-socketerror)**(QAbstractSocket::SocketError *socketError*) |
+| void | **[newConnection](#signal-void-qtcpservernewconnection)**()  |
 
 
 
@@ -57,8 +57,8 @@ QTcpServer 类提供了一个基于 TCP 协议的服务器。
 
 | 类型         | 函数名                                                       |
 | :----------- | :----------------------------------------------------------- |
-| void         | **[addPendingConnection](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qtcpserver.html#addPendingConnection)**(QTcpSocket **socket*) |
-| virtual void | **[incomingConnection](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qtcpserver.html#incomingConnection)**(qintptr *socketDescriptor*) |
+| void         | **[addPendingConnection](#protected-void-qtcpserveraddpendingconnectionqtcpsocket-socket)**(QTcpSocket **socket*) |
+| virtual void | **[incomingConnection](#virtual-protected-void-qtcpserverincomingconnectionqintptrsocketdescriptor)**(qintptr *socketDescriptor*) |
 
 
 
