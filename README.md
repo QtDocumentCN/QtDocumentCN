@@ -68,6 +68,16 @@ git pull --rebase
 
 此时，段内代码自动提供了文字分隔视觉效果，无需再在英文内容前后增加空格。
 
+### 图片
+
+可直接使用Qt官方文档图片。
+
+但官方文档图片为png/jpg格式，分辨率有限，且对主题样式无法自适应，因此推荐使用 [draw.io](https://app.diagrams.net/) 绘制的矢量图形，并将其保存为`.drawio.svg`格式，以便支持`.md`引用的同时，依然可以作为工程文件供 [draw.io](https://app.diagrams.net/) 编辑。
+
+可使用 VSCode 插件 [hediet.vscode-drawio](https://marketplace.visualstudio.com/items?itemName=hediet.vscode-drawio) 直接在 VSCode 中编辑图形。
+
+范例参见 [信号与槽](S/Signals_and_Slots/Signals_and_Slots.md)。
+
 ## Markdown 编辑器
 
 ### Typora
