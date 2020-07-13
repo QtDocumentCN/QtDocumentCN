@@ -101,3 +101,5 @@ bool ok = db.open();
 ```CPP
 QSqlDatabase db = QSqlDatabase::database();
 ```
+`QSqlDatabase`是一个值类。通过一个 `QSqlDatabase` 实例对数据库连接所做的操作将影响表示相同连接的其他 `QSqlDatabase` 实例。
+使用 `cloneDatabase()`  在基于已存在数据库的连接 来 创建 独立的数据库的连接
