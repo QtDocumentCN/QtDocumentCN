@@ -81,4 +81,15 @@ QSqlDatabase 类提供接口用于数据库的连接 。一个 QSqlDatabase 实�
 这个连接提供  数据库 所需要的 驱动，这个驱动来自于  QSqlDriver。
 换而言之，你可以实现自己的数据库驱动，通过继承 QSqlDriver。查看 [如何实现自己的数据库驱动](https://doc.qt.io/qt-5/sql-driver.html#how-to-write-your-own-database-driver) 来获取更多的信息。
 
-创建一个连接（即：实例化一个QSqlDatabase类）通过调用一个函态的 ` addDatabase() `函数，并且可以指定驱动或者驱动类型去使用（依赖于数据库的类型 ）和 一个连接的名称。
+创建一个连接（即：实例化一个QSqlDatabase类）通过调用一个静态的 ` addDatabase() `函数，并且可以指定驱动或者驱动类型去使用（依赖于数据库的类型 ）和 一个连接的名称。
+一个连接是通过它自已的名称，而不是通过数据库的名称去连接的。对于一个数据库你可以有多个连接。`QSqlDatabase` 也支持默认连接，你可以不
+传递连接名参数给 `addDatabase()` 来创建 它。随后，这个默认连接假定你 在调用任何静态函数情况下，而不去指定连接名称。
+下面的一段代码片段展示了 如何去创建 和打开一个默认连接，去连接 `PostgreSQL `数据库：
+```cpp
+QSqlDatabase db = QSqlDatabase::addDatabase("QPSQL");
+db.setHostName("acidalia");
+db.setDatabaseName("customdb");
+db.setUserName("mojito");
+db.setPassword("J0a1m8");
+bool ok = db.open();
+```
