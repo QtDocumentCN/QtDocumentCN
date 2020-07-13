@@ -177,7 +177,7 @@ UDP（用户数据报协议）是一种轻量级，不可靠，面向数据报�
 
 返回第一个待处理的 UDP 数据报的大小。如果没有可获取的数据报，函数将会返回-1。
 
-[hasPendingDatagrams()](#bool-qudpsockethaspendingdatagrams-const) 和 [readDatagram()](#qint64-qudpsocketreaddatagramchar-data-qint64-maxsize-qhostaddress-address--nullptr-quint16-port--nullptr) 函数介绍中找到相关信息。
+​	另外您也可以在 [hasPendingDatagrams()](#bool-qudpsockethaspendingdatagrams-const) 和 [readDatagram()](#qint64-qudpsocketreaddatagramchar-data-qint64-maxsize-qhostaddress-address--nullptr-quint16-port--nullptr) 函数介绍中找到相关信息。
 
 
 
