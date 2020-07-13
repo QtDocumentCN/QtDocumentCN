@@ -153,3 +153,7 @@ QSqlDatabase db = QSqlDatabase::database();
 |QSQLITE|	SQLite 第三版本 或者 以上|
 |QSQLITE2|	SQLite 第二版本|
 |QTDS|	Sybase Adaptive Server|
+
+其他第三方驱动程序，包括自己自定义的驱动程序，都可以动态加载。
+
+请参阅 [SQL Database Drivers](https://doc.qt.io/qt-5/sql-driver.html), [registerSqlDriver()](https://doc.qt.io/qt-5/qsqldatabase.html#registerSqlDriver) 和 drivers(https://doc.qt.io/qt-5/qsqldatabase.html#drivers)。
