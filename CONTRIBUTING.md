@@ -82,15 +82,15 @@ git pull --rebase
 
 编写引用链接时，Markdown 支持直接链接跳转至目标页面的标题，语法如下：
 ```Markdown
-跨页跳转：[真实范例](S/Signals_and_Slots/Signals_and_Slots.md#user-content-真实范例)
+跨页跳转：[真实范例](S/Signals_and_Slots/Signals_and_Slots.md#真实范例)
 ```
-跨页跳转：[真实范例](S/Signals_and_Slots/Signals_and_Slots.md#user-content-真实范例)
+跨页跳转：[真实范例](S/Signals_and_Slots/Signals_and_Slots.md#真实范例)
 ```Markdown
-页内跳转：[中英混排](CONTRIBUTING.md#user-content-中英混排)
+页内跳转：[中英混排](CONTRIBUTING.md#中英混排)
 ```
-页内跳转：[中英混排](CONTRIBUTING.md#user-content-中英混排)
+页内跳转：[中英混排](CONTRIBUTING.md#中英混排)
 
-`#`后的标题名称，并非标题文本内容，需将`.md`导出至`.html`或提交至 GitHub 后，在标题处右键——检查元素，使用该元素的 html tag 中`id`字段值。
+`#`后的标题名称，与文本可能并不一致，需将`.md`导出至`.html`或提交至 GitHub 后，在标题处右键——检查元素，使用该元素的 html tag 中`id`字段值。
 
 ## Markdown 编辑器
 
