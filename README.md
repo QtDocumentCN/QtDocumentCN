@@ -21,6 +21,41 @@
 
 此外，我们组建了[QtDocumentCN-社区组]微信群，可以添加[@CryFeiFei](https://github.com/CryFeiFei) 的微信`Perfect_Cheung`，备注QtDoc，待邀请入群后在群里详细聊。
 
+## 完成度追踪
+
+此表格用于追踪待完成或有待进一步维护的文档状态。
+
+| 文档                                                         | 维护者                                        | 修改权限 | 备注                               |
+| ------------------------------------------------------------ | --------------------------------------------- | -------- | ---------------------------------- |
+| [QAbstractBarSeries](A/QAbstractBarSeries/QAbstractBarSeries.md) | [CryFeiFei](https://github.com/CryFeiFei)     | 关闭     | 编写中                             |
+| [QAbstractAxis](A/QAbstractAxis/QAbstractAxis.md)            | [CryFeiFei](https://github.com/CryFeiFei)     | 关闭     | 编写中                             |
+| [QAbstractAudioOutput](A/QAbstractAudioOutput/QAbstractAudioOutput.md) | [CryFeiFei](https://github.com/CryFeiFei)     | **开放** | see also部分待添加链接             |
+| [QAbstractAudioInput](A/QAbstractAudioInput/QAbstractAudioInput.md) | [CryFeiFei](https://github.com/CryFeiFei)     | **开放** | see also部分待添加链接             |
+| [QAbstractAnimation](A/QAbstractAnimation/QAbstractAnimation.md) | [CryFeiFei](https://github.com/CryFeiFei)     | **开放** | see also部分待添加链接             |
+| [QX11Info](X/QX11Info/QX11Info.md)                           | [CryFeiFei](https://github.com/CryFeiFei)     | **开放** | see also跳转待补充                 |
+| [QtGlobal](G/QtGlobal/QtGlobal.md)                           | [ZgblKylin](https://github.com/ZgblKylin)     | 关闭     | 占位中，待填充，截止时间2020-07-31 |
+| [QMetaMethod](M/QMetaMethod/QMetaMethod.md)                  | [ZgblKylin](https://github.com/ZgblKylin)     | 关闭     | 占位中，待填充，截止时间2020-07-31 |
+| [QMetaObject](M/QMetaObject/QMetaObject.md)                  | [ZgblKylin](https://github.com/ZgblKylin)     | 关闭     | 占位中，待填充，截止时间2020-07-31 |
+| [QMetaType](M/QMetaType/QMetaType.md)                        | [ZgblKylin](https://github.com/ZgblKylin)     | 关闭     | 占位中，待填充，截止时间2020-07-31 |
+| [Using_the_Meta-Object_Compiler_moc](M/Using_the_Meta-Object_Compiler_moc/Using_the_Meta-Object_Compiler_moc.md) | [ZgblKylin](https://github.com/ZgblKylin)     | 关闭     | 占位中，待填充，截止时间2020-07-31 |
+| [Why_Does_Qt_Use_Moc_for_Signals_and_Slots](M/Why_Does_Qt_Use_Moc_for_Signals_and_Slots/Why_Does_Qt_Use_Moc_for_Signals_and_Slots.md) | [ZgblKylin](https://github.com/ZgblKylin)     | 关闭     | 占位中，待填充，截止时间2020-07-31 |
+| [Qt_Namespace](N/Qt_Namespace/Qt_Namespace.md)               | [ZgblKylin](https://github.com/ZgblKylin)     | 关闭     | 占位中，待填充，截止时间2020-07-31 |
+| [QObject](O/QObject/QObject.md)                              | [ZgblKylin](https://github.com/ZgblKylin)     | 关闭     | 占位中，待填充，截止时间2020-07-31 |
+| [The_Property_System](P/The_Property_System/The_Property_System.md) | [ZgblKylin](https://github.com/ZgblKylin)     | 关闭     | 占位中，待填充，截止时间2020-07-31 |
+| [Signals_and_Slots](S/Signals_and_Slots/Signals_and_Slots.md) | [ZgblKylin](https://github.com/ZgblKylin)     | **开放** | 跨页跳转需待对应页面完成后进行校正 |
+| [QVariant](V/QVariant/QVariant.md)                           | [ZgblKylin](https://github.com/ZgblKylin)     | 关闭     | 占位中，待填充，截止时间2020-07-31 |
+| [QIODevice](I/QIODevice/QIODevice.md)                        | [skykeyjoker](https://github.com/skykeyjoker) | 关闭     | 占位中，待填充，截止时间2020-07-31 |
+| [QSctpSocket](S/QSctpSocket/QSctpSocket.md)                  | [skykeyjoker](https://github.com/skykeyjoker) | 关闭     | 占位中，待填充，截止时间2020-07-31 |
+| [QSql](S/QSql/QSql.md)                                       | [skykeyjoker](https://github.com/skykeyjoker) | **开放** | 内容不完整                         |
+| [QSqlDatabase](S/QSqlDatabase/QSqlDatabase.md)               | [skykeyjoker](https://github.com/skykeyjoker) | 关闭     | 编写中                             |
+| [QSslSocket](S/QSslSocket/QSslSocket.md)                     | [skykeyjoker](https://github.com/skykeyjoker) | 关闭     | 占位中，待填充，截止时间2020-07-31 |
+| [QTcpSocket](T/QTcpSocket/QTcpSocket.md)                     | [skykeyjoker](https://github.com/skykeyjoker) | 关闭     | 编写中                             |
+| [QUdpSocket](U/QUdpSocket/QUdpSocket.md)                     | [skykeyjoker](https://github.com/skykeyjoker) | 关闭     | 编写中                             |
+| [Model_View_Programming](M/Model_View_Programming/Model_View_Programming.md) | [FlyWM](https://github.com/FlyWM)             | 关闭     | 占位中，待填充，截止时间2020-07-31 |
+| [Model_View_Tutorial](M/Model_View_Tutorial/Model_View_Tutorial.md) | [FlyWM](https://github.com/FlyWM)             | 关闭     | 占位中，待填充，截止时间2020-07-31 |
+
+
+
 ## 路线图
 1. 使用 GitBook 生成 GitHub Pages，作为实际发布页面。
 2. 通过 Gitee 等平台建立国内镜像。
