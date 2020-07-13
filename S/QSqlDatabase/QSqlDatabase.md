@@ -137,3 +137,19 @@ QSqlDatabase db = QSqlDatabase::database();
 ### QSqlDatabase::QSqlDatabase(const QString &type)  `[受保护] `   
 
 这是一个重载函数
+
+通过引用所给的数据库驱动类型来创建一个连接。如果不给定 数据库驱动类型 ，那么这个数据库连接将会没有什么作用。
+
+当前可用的驱动类型：
+
+| 驱动类别|介绍|
+|------:|:------|
+|QDB2|	IBM DB2|
+|QIBASE|	Borland InterBase 驱动|
+|QMYSQL|	MySQL 驱动|
+|QOCI	|Oracle 调用的接口驱动|
+|QODBC|	ODBC 驱动 (包含 Microsoft SQL Server)|
+|QPSQL|	PostgreSQL 驱动|
+|QSQLITE|	SQLite 第三版本 或者 以上|
+|QSQLITE2|	SQLite 第二版本|
+|QTDS|	Sybase Adaptive Server|
