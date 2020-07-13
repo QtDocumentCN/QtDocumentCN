@@ -95,3 +95,5 @@ git pull --rebase
 ## 路线图
 
 1. 使用 GitBook 生成 GitHub Pages，作为实际发布页面。
+2. 通过 Gitee 等平台建立国内镜像。
+3. 通过知乎专栏等形式在社区进行发布。
