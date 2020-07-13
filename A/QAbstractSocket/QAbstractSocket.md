@@ -335,9 +335,9 @@ forever {
 
 ### **QAbstractSocket**::QAbstractSocket(**QAbstractSocket**::SocketType *socketType*, QObject **parent*)
 
-创建一个新抽象套接字 socketType 。 函数中父对象的参数传递给 [QObject](../../O/QObject/Qobject.md) 的构造函数。
+创建一个新抽象套接字 socketType 。 函数中父对象的参数传递给 [QObject](../../O/QObject/QObject.md) 的构造函数。
 
-​    这就是它的构造函数嘛，没啥好说的。另外由于 QAbstractSocket 类继承自 [QObject](../../O/QObject/Qobject.md) 类，应注意在 QAbstractSocket 类构造函数中调用一下父类 [QObject](../../O/QObject/Qobject.md) 类的构造函数。
+​    这就是它的构造函数嘛，没啥好说的。另外由于 QAbstractSocket 类继承自 [QObject](../../O/QObject/QObject.md) 类，应注意在 QAbstractSocket 类构造函数中调用一下父类 [QObject](../../O/QObject/QObject.md) 类的构造函数。
 
 ​    另外您也可以在 [socketType()](#qabstractsocketsockettype-qabstractsocketsockettype-const) 成员函数文档，以及 [QTcpSocket](../../T/QTcpSocket/QTcpSocket.md) 和 [QUdpSocket](../../U/QUdpSocket/QUdpSocket.md) 类文档找到相关信息。
 
