@@ -1,4 +1,4 @@
-# Signals & Slots
+# 信号与槽
 
 信号(Signals)和槽(Slots)被用于在 Qt 对象之间通信。信号槽机制是 Qt 的核心特性，同时也可能是与其他框架的类似特性区别最大的一部分。信号槽使得 Qt 的[元对象系统](../../M/The_Meta-Object_System/The_Meta-Object_System.md)成为可能。
 
