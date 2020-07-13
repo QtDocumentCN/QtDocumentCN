@@ -122,3 +122,9 @@ QSqlDatabase db = QSqlDatabase::database();
 |drivers()|返回可用的数据库驱动名称|
 |isDriverAvailable()|检查特定驱动程序是否可用|
 |registerSqlDriver()|	注册自定义驱动程序|
+
+**注意：** `QSqlDatabase::exec() ` 方法已经被弃用。请使用 `QSqlQuery::exec() `
+
+**注意：** 使用事务时，必须在创建查询之前启动事务。
+
+  ### **成员函数文档**
