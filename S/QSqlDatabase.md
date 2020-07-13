@@ -80,3 +80,5 @@ QSqlDatabase 类 用于处理数据库的连接
 QSqlDatabase 类提供接口用于数据库的连接 。一个 QSqlDatabase 实例对象表示连接。
 这个连接提供  数据库 所需要的 驱动，这个驱动来自于  QSqlDriver。
 换而言之，你可以实现自己的数据库驱动，通过继承 QSqlDriver。查看 [如何实现自己的数据库驱动](https://doc.qt.io/qt-5/sql-driver.html#how-to-write-your-own-database-driver) 来获取更多的信息。
+
+创建一个连接（即：实例化一个QSqlDatabase类）通过调用一个函态的 ` addDatabase() `函数，并且可以指定驱动或者驱动类型去使用（依赖于数据库的类型 ）和 一个连接的名称。
