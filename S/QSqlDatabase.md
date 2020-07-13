@@ -66,3 +66,13 @@ QSqlDatabase 类 用于处理数据库的连接
  |bool	|isDriverAvailable(const QString &name)|
  |void	|registerSqlDriver(const QString &name, QSqlDriverCreatorBase *creator)|
  |void	|removeDatabase(const QString &connectionName)|
+
+ ----------
+  ### **受保护的成员函数**
+  |  返回值  | 函数名|
+  |------:|:------|
+  |	|QSqlDatabase(QSqlDriver *driver)|
+  |	|QSqlDatabase(const QString &type)|
+
+  -----------
+  ### **详细的介绍**
