@@ -25,7 +25,8 @@ git pull --rebase
 为避免编辑冲突，在完成第一版翻译前，请尽量不要多人修改同一个页面。
 
 正在为某页面编写第一版翻译的参与者，可提交一个空文档作为占位符，并且在其中注明编写者和 deadline，如：
-> Reserved by ZgblKylin util 2020-07-31
+> Reserved by ZgblKylin util 2020-07-31.
+
 超过 deadline 后尚未完成第一版提交的页面，或已经完成第一版提交的页面，均被视作**开放状态**，其它参与者可对其进行修改。
 
 # Markdown 格式规范
