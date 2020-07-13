@@ -107,4 +107,18 @@ QSqlDatabase db = QSqlDatabase::database();
 警告：强烈建议不要将QSqlDatabase的拷贝作为类成员，因为这将阻止关闭时正确清理实例。
 如果需要访问已经存在QSqlDatabase，应该使用database()访问。如果你选择使用作为成员变量的QSqlDatabase，则需要在删除QCoreApplication实例之前删除它，否则可能会导致未定义的行为。
 
-如果你想创建多个数据库连接，可以调用 `addDatabase()`, 并且给一个独一无二的参数(即：连接名称)。使用 带有连接名的`database() ` 函数，来获取该连接。使用 带有连接名的`removeDatabase()` 函数，来删除 一个连接。
+如果你想创建多个数据库连接，可以调用 `addDatabase()`, 并且给一个独一无二的参数(即：连接名称)。使用 带有连接名的`database() ` 函数，来获取该连接。使用 带有连接名的`removeDatabase()` 函数，来删除 一个连接。如果尝试删除由其他`QSqlDatabase`对象引用的连接，`QSqlDatabase`将输出警告。可以使用`contains()`查看给定的连接名是否在连接列表中。
+
+| |一些实用的方法|
+|------:|:------|
+|tables()|	返回 数据表的列表|
+|primaryIndex()|	返回数据表的主索引|
+|record()	|返回数据表字段的元信息|
+|transaction()|开始一个事务|
+|commit()|保存并完成一个事务|
+|rollback()|取消一个事务|
+|hasFeature()|	检查驱动程序是否支持事务|
+|lastError()|	返回有关上一个错误的信息|
+|drivers()|返回可用的数据库驱动名称|
+|isDriverAvailable()|检查特定驱动程序是否可用|
+|registerSqlDriver()|	注册自定义驱动程序|
