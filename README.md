@@ -45,7 +45,7 @@
 | [Signals_and_Slots](S/Signals_and_Slots/Signals_and_Slots.md) | [ZgblKylin](https://github.com/ZgblKylin)     | **开放** | 跨页跳转需待对应页面完成后进行校正 |
 | [QVariant](V/QVariant/QVariant.md)                           | [ZgblKylin](https://github.com/ZgblKylin)     | 关闭     | 占位中，待填充，截止时间2020-07-31 |
 | [QIODevice](I/QIODevice/QIODevice.md)                        | [skykeyjoker](https://github.com/skykeyjoker) | 关闭     | 占位中，待填充，截止时间2020-07-31 |
-| [QSctpSocket](S/QSctpSocket/QSctpSocket.md)                  | [skykeyjoker](https://github.com/skykeyjoker) | 关闭     | 占位中，待填充，截止时间2020-07-31 |
+| [QSctpSocket](S/QSctpSocket/QSctpSocket.md)                  | [skykeyjoker](https://github.com/skykeyjoker) | 关闭     | 编写中                             |
 | [QSctpServer](S/QSctpServer/QSctpServer.md)                  | [skykeyjoker](https://github.com/skykeyjoker) | 关闭     | 占位中，待填充，截止时间2020-07-31 |
 | [QSql](S/QSql/QSql.md)                                       | [JackLovel](https://github.com/JackLovel)     | **开放** | 内容不完整                         |
 | [QSqlDatabase](S/QSqlDatabase/QSqlDatabase.md)               | [JackLovel](https://github.com/JackLovel)     | 关闭     | 编写中                             |
