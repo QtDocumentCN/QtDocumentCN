@@ -8,7 +8,7 @@ QTcpSocket 提供了一个 TCP 类型的套接字。
 
 | 属性   | 方法                                                         |
 | ------ | ------------------------------------------------------------ |
-| 头文件 | \#include <QTcpSocket>                                       |
+| 头文件 | \#include \<QTcpSocket\>                                     |
 | qmake  | QT += network                                                |
 | 父类   | [QAbstractSocket](../../A/QAbstractSocket/QAbstractSocket.md) |
 | 子类   | [QSctpSocket](../../S/QSctpSocket/QSctpSocket.md) 和 [QSslSocket](../../S/QSslSocket/QSslSocket.md) |

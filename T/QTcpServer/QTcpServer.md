@@ -8,7 +8,7 @@ QTcpServer 类提供了一个基于 TCP 协议的服务器。
 
 | 属性   | 方法                                              |
 | ------ | ------------------------------------------------- |
-| 头文件 | \#include <QTcpServer>                            |
+| 头文件 | \#include \<QTcpServer\>                          |
 | qmake  | QT += network                                     |
 | 父类   | [QObject](../../O/QObject/QObject.md)             |
 | 子类   | [QSctpServer](../../S/QSctpServer/QSctpServer.md) |

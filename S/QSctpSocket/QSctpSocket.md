@@ -8,7 +8,7 @@ QSctpSocket 类提供了一个 SCTP 类型的套接字。
 
 | 属性   | 方法                                           |
 | ------ | ---------------------------------------------- |
-| 头文件 | #include<QSctpSocket>                          |
+| 头文件 | #include\<QSctpSocket\>                        |
 | qmake  | QT += network                                  |
 | 引入   | Qt5.8                                          |
 | 父类   | [QTcpSocket](../../T/QTcpSocket/QTcpSocket.md) |

@@ -8,7 +8,7 @@ QAbstractSocket 类是Qt中 Socket 通信类的基类，被 [QTcpSocket](../../T
 
 | 属性      | 方法                                                         |
 | --------- | ------------------------------------------------------------ |
-| 头文件    | \#include <QAbstractSocket>                                  |
+| 头文件    | \#include \<QAbstractSocket\>                                |
 | qmake参数 | QT += network                                                |
 | 父类      | [QIODevice](../../I/QIODevice/QIODevice.md)                  |
 | 子类      | [QTcpSocket](../../T/QTcpSocket/QTcpSocket.md)、[QUdpSocket](../../U/QUdpSocket/QUdpSocket.md) |
