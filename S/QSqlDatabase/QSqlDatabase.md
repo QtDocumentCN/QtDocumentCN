@@ -172,3 +172,14 @@ QSqlDatabase db = QSqlDatabase::database();
 **注意：**  当最后的连接被销毁，这个折构函数就会暗中的调用 `close()`函数，去删除这个数据库的其他连接。
 
 查阅 [close()](https://doc.qt.io/qt-5/qsqldatabase.html#close)。
+
+### QSqlDatabase QSqlDatabase::addDatabase(const QString &type, const QString &connectionName = QLatin1String(defaultConnection)) `[静态] `   
+
+使用驱动程序类型和连接名称，将数据库添加到数据库连接列表中。如果存在相同的连接名，那么这个连接将会被删除。
+
+通过引用连接名，来返回一个新的连接。
+
+如果数据库的类别不存在或者没有被加载，那么 `isValid()`函数将会返回 `false`
+
+如果我们没有指定连接名参数，那么应用程序就会返回默认连接。
+如果我们提供了连接名参数，那么可以使用`database(connectionName)` 函数来获取该连接。
