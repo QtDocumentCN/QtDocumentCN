@@ -129,11 +129,77 @@ QSqlDatabase db = QSqlDatabase::database();
 
 ### **成员函数文档**
 ### QSqlDatabase::QSqlDatabase(QSqlDriver *driver)  `[受保护] `   
+----------------------------------------------
 
 这是一个重载函数
 
 使用给定驱动程序来创建连接
 
 ### QSqlDatabase::QSqlDatabase(const QString &type)  `[受保护] `   
+-----------------------------------------------------
 
 这是一个重载函数
+
+通过引用所给的数据库驱动类型来创建一个连接。如果不给定 数据库驱动类型 ，那么这个数据库连接将会没有什么作用。
+
+当前可用的驱动类型：
+
+| 驱动类别|介绍|
+|------:|:------|
+|QDB2|	IBM DB2|
+|QIBASE|	Borland InterBase 驱动|
+|QMYSQL|	MySQL 驱动|
+|QOCI	|Oracle 调用的接口驱动|
+|QODBC|	ODBC 驱动 (包含 Microsoft SQL Server)|
+|QPSQL|	PostgreSQL 驱动|
+|QSQLITE|	SQLite 第三版本 或者 以上|
+|QSQLITE2|	SQLite 第二版本|
+|QTDS|	Sybase Adaptive Server|
+
+其他第三方驱动程序，包括自己自定义的驱动程序，都可以动态加载。
+
+请参阅 [SQL Database Drivers](https://doc.qt.io/qt-5/sql-driver.html), [registerSqlDriver()](https://doc.qt.io/qt-5/qsqldatabase.html#registerSqlDriver) 和 [drivers()](https://doc.qt.io/qt-5/qsqldatabase.html#drivers)。
+
+### QSqlDatabase::QSqlDatabase(const QSqlDatabase &other)   
+-----------------------------------------
+创建一个其它的副本
+
+### QSqlDatabase::QSqlDatabase()
+--------------------------------------------
+创建一个 无效的 `QSqlDatabase` 空对象。使用 [addDatabase()](https://doc.qt.io/qt-5/qsqldatabase.html#addDatabase), [removeDatabase()](https://doc.qt.io/qt-5/qsqldatabase.html#removeDatabase) 和 [database()](https://doc.qt.io/qt-5/qsqldatabase.html#database) 来获得一个有效的 `QSqlDatabase` 对象。
+
+### QSqlDatabase &QSqlDatabase::operator=(const QSqlDatabase &other)
+----------------------------------------------------
+给这个对象赋一个其他其他对象的值
+
+### QSqlDatabase::~QSqlDatabase()
+----------------------------------------
+销毁这个对象，并且释放所有配置的资源
+**注意：**  当最后的连接被销毁，这个折构函数就会暗中的调用 `close()`函数，去删除这个数据库的其他连接。
+
+查阅 [close()](https://doc.qt.io/qt-5/qsqldatabase.html#close)。
+
+### QSqlDatabase QSqlDatabase::addDatabase(const QString &type, const QString &connectionName = QLatin1String(defaultConnection)) `[静态] `   
+----------------------------
+
+使用驱动程序类型和连接名称，将数据库添加到数据库连接列表中。如果存在相同的连接名，那么这个连接将会被删除。
+
+通过引用连接名，来返回一个新的连接。
+
+如果数据库的类别不存在或者没有被加载，那么 `isValid()`函数将会返回 `false`
+
+如果我们没有指定连接名参数，那么应用程序就会返回默认连接。
+如果我们提供了连接名参数，那么可以使用`database(connectionName)` 函数来获取该连接。
+
+**警告：** 如果你指定了 相同的连接名参数，那么就会替换之前的那个相同的连接。如果你多次调用这个函数而不指定 `连接名参数`，则默认连接将被替换。
+
+在使用连接之前，它必须经过初始化。比如：
+调用下面一些或者全部 [ setDatabaseName()](https://doc.qt.io/qt-5/qsqldatabase.html#setDatabaseName)、
+[setUserName()](https://doc.qt.io/qt-5/qsqldatabase.html#setUserName)、 [setPassword()](https://doc.qt.io/qt-5/qsqldatabase.html#setPassword) 、
+[setHostName()](https://doc.qt.io/qt-5/qsqldatabase.html#setHostName)、
+[setPort()](https://doc.qt.io/qt-5/qsqldatabase.html#setPort)
+和 [setConnectOptions()](https://doc.qt.io/qt-5/qsqldatabase.html#setConnectOptions)，并最终调用 [open()](https://doc.qt.io/qt-5/qsqldatabase.html#open)
+
+**注意：** 这个函数是线程安全的
+
+请查看 [database()](https://doc.qt.io/qt-5/qsqldatabase.html#database), [removeDatabase()](https://doc.qt.io/qt-5/qsqldatabase.html#removeDatabase) 以及 [线程和SQL 单元](https://doc.qt.io/qt-5/threads-modules.html#threads-and-the-sql-module)。
