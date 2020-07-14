@@ -203,3 +203,6 @@ QSqlDatabase db = QSqlDatabase::database();
 **注意：** 这个函数是线程安全的
 
 请查看 [database()](https://doc.qt.io/qt-5/qsqldatabase.html#database), [removeDatabase()](https://doc.qt.io/qt-5/qsqldatabase.html#removeDatabase) 以及 [线程和SQL 单元](https://doc.qt.io/qt-5/threads-modules.html#threads-and-the-sql-module)。
+
+### QSqlDatabase QSqlDatabase::addDatabase(QSqlDriver *driver, const QString &connectionName = QLatin1String(defaultConnection)) `[静态] `   
+----------------------------
