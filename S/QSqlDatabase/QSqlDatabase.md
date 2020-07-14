@@ -210,7 +210,8 @@ QSqlDatabase db = QSqlDatabase::database();
 ```CPP
 PGconn *con = PQconnectdb("host=server user=bart password=simpson dbname=springfield");
 QPSQLDriver *drv = new QPSQLDriver(con);
-QSqlDatabase db = QSqlDatabase::addDatabase(drv); // becomes the new default connection
+QSqlDatabase db = QSqlDatabase::addDatabase(drv); // 产生成新的默认连接
 QSqlQuery query;
 query.exec("SELECT NAME, ID FROM STAFF");
 ```
+上面的代码用于设置一个 PostgreSQL 连接和实例化一个 QPSQLDriver 对象。接下来，`addDatabase()` 被调用产生一个已知的连接，以便于它可以使用 `Qt SQL` 相关的类。Qt假定您已经打开了数据库连接，当使用连接句柄（或一组句柄）实例化驱动程序时，
