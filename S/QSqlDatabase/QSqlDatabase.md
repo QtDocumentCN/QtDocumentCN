@@ -206,3 +206,11 @@ QSqlDatabase db = QSqlDatabase::database();
 
 ### QSqlDatabase QSqlDatabase::addDatabase(QSqlDriver *driver, const QString &connectionName = QLatin1String(defaultConnection)) `[静态] `   
 ----------------------------
+这个重载函数是非常有用的，当你想创建一个带有[驱动](https://doc.qt.io/qt-5/qsqldriver.html) 连接时，你可以实例化它。有可能你想拥有自己的数据库驱动，或者去实例化 Qt自带的驱动。如果你真的想这样做，我非常建议你把驱动的代码导入到你的应用程序中。例如，你可用自已的  QPSQL 驱动来创建一个 PostgreSQL 连接，像下面这样：
+```CPP
+PGconn *con = PQconnectdb("host=server user=bart password=simpson dbname=springfield");
+QPSQLDriver *drv = new QPSQLDriver(con);
+QSqlDatabase db = QSqlDatabase::addDatabase(drv); // becomes the new default connection
+QSqlQuery query;
+query.exec("SELECT NAME, ID FROM STAFF");
+```
