@@ -129,12 +129,14 @@ QSqlDatabase db = QSqlDatabase::database();
 
 ### **成员函数文档**
 ### QSqlDatabase::QSqlDatabase(QSqlDriver *driver)  `[受保护] `   
+----------------------------------------------
 
 这是一个重载函数
 
 使用给定驱动程序来创建连接
 
 ### QSqlDatabase::QSqlDatabase(const QString &type)  `[受保护] `   
+-----------------------------------------------------
 
 这是一个重载函数
 
@@ -159,21 +161,26 @@ QSqlDatabase db = QSqlDatabase::database();
 请参阅 [SQL Database Drivers](https://doc.qt.io/qt-5/sql-driver.html), [registerSqlDriver()](https://doc.qt.io/qt-5/qsqldatabase.html#registerSqlDriver) 和 [drivers()](https://doc.qt.io/qt-5/qsqldatabase.html#drivers)。
 
 ### QSqlDatabase::QSqlDatabase(const QSqlDatabase &other)   
+-----------------------------------------
 创建一个其它的副本
 
 ### QSqlDatabase::QSqlDatabase()
+--------------------------------------------
 创建一个 无效的 `QSqlDatabase` 空对象。使用 [addDatabase()](https://doc.qt.io/qt-5/qsqldatabase.html#addDatabase), [removeDatabase()](https://doc.qt.io/qt-5/qsqldatabase.html#removeDatabase) 和 [database()](https://doc.qt.io/qt-5/qsqldatabase.html#database) 来获得一个有效的 `QSqlDatabase` 对象。
 
 ### QSqlDatabase &QSqlDatabase::operator=(const QSqlDatabase &other)
+----------------------------------------------------
 给这个对象赋一个其他其他对象的值
 
 ### QSqlDatabase::~QSqlDatabase()
+----------------------------------------
 销毁这个对象，并且释放所有配置的资源
 **注意：**  当最后的连接被销毁，这个折构函数就会暗中的调用 `close()`函数，去删除这个数据库的其他连接。
 
 查阅 [close()](https://doc.qt.io/qt-5/qsqldatabase.html#close)。
 
 ### QSqlDatabase QSqlDatabase::addDatabase(const QString &type, const QString &connectionName = QLatin1String(defaultConnection)) `[静态] `   
+----------------------------
 
 使用驱动程序类型和连接名称，将数据库添加到数据库连接列表中。如果存在相同的连接名，那么这个连接将会被删除。
 
@@ -186,3 +193,13 @@ QSqlDatabase db = QSqlDatabase::database();
 
 **警告：** 如果你指定了 相同的连接名参数，那么就会替换之前的那个相同的连接。如果你多次调用这个函数而不指定 `连接名参数`，则默认连接将被替换。
 
+在使用连接之前，它必须经过初始化。比如：
+调用下面一些或者全部 [ setDatabaseName()](https://doc.qt.io/qt-5/qsqldatabase.html#setDatabaseName)、
+[setUserName()](https://doc.qt.io/qt-5/qsqldatabase.html#setUserName)、 [setPassword()](https://doc.qt.io/qt-5/qsqldatabase.html#setPassword) 、
+[setHostName()](https://doc.qt.io/qt-5/qsqldatabase.html#setHostName)、
+[setPort()](https://doc.qt.io/qt-5/qsqldatabase.html#setPort)
+和 [setConnectOptions()](https://doc.qt.io/qt-5/qsqldatabase.html#setConnectOptions)，并最终调用 [open()](https://doc.qt.io/qt-5/qsqldatabase.html#open)
+
+**注意：** 这个函数是线程安全的
+
+请查看 [database()](https://doc.qt.io/qt-5/qsqldatabase.html#database), [removeDatabase()](https://doc.qt.io/qt-5/qsqldatabase.html#removeDatabase) 以及 [线程和SQL 单元](https://doc.qt.io/qt-5/threads-modules.html#threads-and-the-sql-module)。
