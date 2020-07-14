@@ -38,7 +38,7 @@
 | [QMetaObject](M/QMetaObject/QMetaObject.md)                  | [ZgblKylin](https://github.com/ZgblKylin)     | 关闭     | 占位中，待填充，截止时间2020-07-31 |
 | [QMetaType](M/QMetaType/QMetaType.md)                        | [ZgblKylin](https://github.com/ZgblKylin)     | 关闭     | 占位中，待填充，截止时间2020-07-31 |
 | [Using_the_Meta-Object_Compiler_moc](M/Using_the_Meta-Object_Compiler_moc/Using_the_Meta-Object_Compiler_moc.md) | [ZgblKylin](https://github.com/ZgblKylin)     | 关闭     | 占位中，待填充，截止时间2020-07-31 |
-| [Why_Does_Qt_Use_Moc_for_Signals_and_Slots](M/Why_Does_Qt_Use_Moc_for_Signals_and_Slots/Why_Does_Qt_Use_Moc_for_Signals_and_Slots.md) | [ZgblKylin](https://github.com/ZgblKylin)     | 关闭     | 占位中，待填充，截止时间2020-07-31 |
+| [Resource_Compiler_rcc](R/Resource_Compiler_rcc/Resource_Compiler_rcc.md) | [ZgblKylin](https://github.com/ZgblKylin)     | 关闭     | 占位中，待填充，截止时间2020-07-31 |
 | [Qt_Namespace](N/Qt_Namespace/Qt_Namespace.md)               | [ZgblKylin](https://github.com/ZgblKylin)     | 关闭     | 占位中，待填充，截止时间2020-07-31 |
 | [QObject](O/QObject/QObject.md)                              | [ZgblKylin](https://github.com/ZgblKylin)     | 关闭     | 占位中，待填充，截止时间2020-07-31 |
 | [The_Property_System](P/The_Property_System/The_Property_System.md) | [ZgblKylin](https://github.com/ZgblKylin)     | 关闭     | 占位中，待填充，截止时间2020-07-31 |
