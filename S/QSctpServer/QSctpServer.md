@@ -45,3 +45,35 @@ QSctpServer 提供了一个基于 QSCTP 协议的服务器。
 
 ## 成员函数文档
 
+### **QSctpServer**::QSctpServer([QObject](../../O/QObject/QObject.md) **parent* = nullptr)
+
+
+
+
+
+### *[virtual]* **QSctpServer**::~QSctpServer()
+
+
+
+
+
+### *[override virtual protected]* void **QSctpServer**::incomingConnection(qintptr *socketDescriptor*)
+
+
+
+
+
+### int **QSctpServer**::maximumChannelCount() const
+
+
+
+
+
+### [QSctpSocket](../QSctpSocket/QSctpSocket.md) ***QSctpServer**::nextPendingDatagramConnection()
+
+
+
+### void **QSctpServer**::setMaximumChannelCount(int *count*)
+
+
+
