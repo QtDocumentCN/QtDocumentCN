@@ -35,3 +35,6 @@
 | [Model View Programming](M/Model_View_Programming/Model_View_Programming.md) | [FlyWM](https://github.com/FlyWM)             | 关闭     | 占位中，待填充，截止时间2020-07-31 |
 | [Model View Tutorial](M/Model_View_Tutorial/Model_View_Tutorial.md) | [FlyWM](https://github.com/FlyWM)             | 关闭     | 占位中，待填充，截止时间2020-07-31 |
 | [Container Classes](C/Container_Classes/Container_Classes.md) | [xyz1001](https://github.com/xyz1001)         | 关闭     | 占位中，待填充，截止时间2020-07-20 |
+| [QCheckBox](C/QCheckBox/QCheckBox.md)                         | [leytou](https://github.com/leytou)           | 关闭     | 占位中，待填充，截止时间2020-07-31 |
+| [QComboBox](C/QComboBox/QComboBox.md)                         | [leytou](https://github.com/leytou)           | 关闭     | 占位中，待填充，截止时间2020-07-31 |
+| [QLabel](L/QLabel/QLabel.md)                                  | [leytou](https://github.com/leytou)           | 关闭     | 占位中，待填充，截止时间2020-07-31 |
