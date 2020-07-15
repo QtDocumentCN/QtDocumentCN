@@ -274,4 +274,8 @@ qt5.13中引入了这个函数。
 
 如果驱动支持事务和一个[transaction()](https://doc.qt.io/qt-5/qsqldatabase.html#transaction)已经被启动，那就可以提交一个事务到这个数据库中。如果这个操作成功，就会返回 `true`。否则返回 `false`。
 
-**注意：**
+**注意：** 对于一些数据库，如果对数据库使用`SELECT`进行查询操作，将会提交失败并且返回`false`。在执行提交之前，使查询处于非活动状态。
+
+调用 [lastError()](https://doc.qt.io/qt-5/qsqldatabase.html#lastError) 函数获取错误信息。
+
+**查阅**  [QSqlQuery::isActive()](https://doc.qt.io/qt-5/qsqlquery.html#isActive)， [QSqlDriver::hasFeature()](https://doc.qt.io/qt-5/qsqldriver.html#hasFeature)，和 [rollback()](https://doc.qt.io/qt-5/qsqldatabase.html#rollback)。
