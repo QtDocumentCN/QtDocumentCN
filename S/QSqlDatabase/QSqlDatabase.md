@@ -251,3 +251,27 @@ win32:LIBS += libpqdll.lib
 
 ## QSqlDatabase QSqlDatabase::cloneDatabase(const QString &other, const QString &connectionName) `[静态]`
 ------------------------------------
+这是个重载函数。
+
+克隆其他数据库连接并将其存储为`connectionName`。原始数据库中的所有设置，例如[databaseName()](https://doc.qt.io/qt-5/qsqldatabase.html#databaseName)、[hostName()](https://doc.qt.io/qt-5/qsqldatabase.html#hostName)等，都会被复制。如果其他数据库无效，则不执行任何操作。返回最新被创建的数据库连接。
+
+**注意：** 这个新的连接不能被打开。你必须调用 [open()](https://doc.qt.io/qt-5/qsqldatabase.html#open),才能使用这个新的连接。
+
+当我们在另一个线程克隆这个数据库，这个重载是非常有用的。
+
+qt5.13中引入了这个函数。
+
+## void QSqlDatabase::close()
+-----------
+关闭数据库连接，释放获取的所有资源，并使与数据库一起使用的任何现有QSqlQuery对象无效
+
+这个函数也会影响它的[QSqlDatabase](https://doc.qt.io/qt-5/qsqldatabase.html)对象副本。
+
+**查阅** [removeDatabase()](https://doc.qt.io/qt-5/qsqldatabase.html#removeDatabase)
+
+## bool QSqlDatabase::commit()
+------------------------------
+
+如果驱动支持事务和一个[transaction()](https://doc.qt.io/qt-5/qsqldatabase.html#transaction)已经被启动，那就可以提交一个事务到这个数据库中。如果这个操作成功，就会返回 `true`。否则返回 `false`。
+
+**注意：**
