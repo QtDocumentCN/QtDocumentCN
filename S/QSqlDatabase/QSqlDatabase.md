@@ -245,6 +245,9 @@ win32:LIBS += libpqdll.lib
 
 ### QSqlDatabase QSqlDatabase::cloneDatabase(const QString &other, const QString &connectionName `[受保护] `   
 -----------------------------------------------------
+克隆其他数据库连接并将其存储为`connectionName`。原始数据库中的所有设置，例如[databaseName()](https://doc.qt.io/qt-5/qsqldatabase.html#databaseName)、[hostName()](https://doc.qt.io/qt-5/qsqldatabase.html#hostName)等，都会被复制。如果其他数据库无效，则不执行任何操作。返回最新被创建的数据库连接。
 
+**注意：** 这个新的连接不能被打开。你必须调用 [open()](https://doc.qt.io/qt-5/qsqldatabase.html#open),才能使用这个新的连接。
 
-
+## QSqlDatabase QSqlDatabase::cloneDatabase(const QString &other, const QString &connectionName) `[静态]`
+------------------------------------
