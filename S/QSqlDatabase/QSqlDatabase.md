@@ -236,3 +236,15 @@ win32:LIBS += libpqdll.lib
 |QTDS|	QTDSDriver|	LOGINREC *loginRecord, DBPROCESS *dbProcess, const [QString](https://doc.qt.io/qt-5/qstring.html) &[hostName](https://doc.qt.io/qt-5/qsqldatabase.html#hostName)|	qsql_tds.cpp|
 |QSQLITE|	QSQLiteDriver|	sqlite *connection|	qsql_sqlite.cpp|
 |QIBASE|	QIBaseDriver|	isc_db_handle connection|	qsql_ibase.cpp|
+
+当构造用于为内部查询创建新连接的`QTDSDriver`时，需要主机名（或服务名）。这是为了防止在同时使用多个`QSqlQuery`对象时发生阻塞。
+
+**警告：** 添加一个存在连接名的连接时，这个新添加的连接将会替换另一个。
+**警告：** SQL框架拥有驱动程序的所有权。它不能被删除。可以使用[removeDatabase()](https://doc.qt.io/qt-5/qsqldatabase.html#removeDatabase)，去删除这个连接。
+**查阅**[drivers()](https://doc.qt.io/qt-5/qsqldatabase.html#drivers) 
+
+### QSqlDatabase QSqlDatabase::cloneDatabase(const QString &other, const QString &connectionName `[受保护] `   
+-----------------------------------------------------
+
+
+
