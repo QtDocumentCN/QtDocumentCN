@@ -19,6 +19,7 @@
 | [Qt Namespace](N/Qt_Namespace/Qt_Namespace.md)               | [ZgblKylin](https://github.com/ZgblKylin)     | 关闭     | 占位中，待填充，截止时间2020-07-31 |
 | [QObject](O/QObject/QObject.md)                              | [ZgblKylin](https://github.com/ZgblKylin)     | 关闭     | 占位中，待填充，截止时间2020-07-31 |
 | [The Property System](P/The_Property_System/The_Property_System.md) | [ZgblKylin](https://github.com/ZgblKylin)     | 关闭     | 占位中，待填充，截止时间2020-07-31 |
+| [Qt Overviews](Q/Qt_Overviews/Qt_Overviews.md)               | [ZgblKylin](https://github.com/ZgblKylin)     | **开放** | 跨页跳转引用的页面待填充           |
 | [Signals and Slots](S/Signals_and_Slots/Signals_and_Slots.md) | [ZgblKylin](https://github.com/ZgblKylin)     | **开放** | 跨页跳转需待对应页面完成后进行校正 |
 | [QVariant](V/QVariant/QVariant.md)                           | [ZgblKylin](https://github.com/ZgblKylin)     | 关闭     | 占位中，待填充，截止时间2020-07-31 |
 | [QIODevice](I/QIODevice/QIODevice.md)                        | [skykeyjoker](https://github.com/skykeyjoker) | 关闭     | 占位中，待填充，截止时间2020-07-31 |
@@ -33,4 +34,4 @@
 | [QUdpSocket](U/QUdpSocket/QUdpSocket.md)                     | [skykeyjoker](https://github.com/skykeyjoker) | **开放** | 跨页跳转需待对应页面完成后进行校正 |
 | [Model View Programming](M/Model_View_Programming/Model_View_Programming.md) | [FlyWM](https://github.com/FlyWM)             | 关闭     | 占位中，待填充，截止时间2020-07-31 |
 | [Model View Tutorial](M/Model_View_Tutorial/Model_View_Tutorial.md) | [FlyWM](https://github.com/FlyWM)             | 关闭     | 占位中，待填充，截止时间2020-07-31 |
-| [Container Classes](C/Container_Classes/Container_Classes.md) | [xyz1001](https://github.com/xyz1001)             | 关闭     | 占位中，待填充，截止时间2020-07-20 |
+| [Container Classes](C/Container_Classes/Container_Classes.md) | [xyz1001](https://github.com/xyz1001)         | 关闭     | 占位中，待填充，截止时间2020-07-20 |
