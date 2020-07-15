@@ -147,14 +147,14 @@ Markdown 页内标题跳转较为简便，语法如下：
    > 原标题：
    >
    > ```markdown
-   > ### *[virtual]* qintptr **QAbstractSocket**::socketDescriptor() const
+   > ### *[override virtual]* bool **QAbstractSocket**::waitForBytesWritten(int *msecs* = 30000)
    > ### bool **QAbstractSocket**::bind(const QHostAddress &*address*, quint16 *port* = 0, QAbstractSocket::BindMode *mode* = DefaultForPlatform)
    > ```
    >
    > 跳转路径：
    >
    > ```
-   > #qabstractsocketsockettype-qabstractsocketsockettype-const
+   > #override-virtual-bool-qabstractsocketwaitforbyteswrittenint-msecs--30000
    > #bool-qabstractsocketbindconst-qhostaddress-address-quint16-port--0-qabstractsocketbindmode-mode--defaultforplatform
    > ```
    >
@@ -162,7 +162,7 @@ Markdown 页内标题跳转较为简便，语法如下：
    >
    > * `* ：() & []` 等特殊字符直接省略（也就是说，标题中的加粗、斜体等样式并不会影响到跳转连接）。
    > * `空格`改为`-`。
-   > * `=`改为`--`
+   > * `=`改为`-`。
 
    
 
