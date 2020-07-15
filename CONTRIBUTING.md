@@ -41,6 +41,22 @@ git pull --rebase
 
 可参考模板文件[Template.md](Template.md) ，抑或参考其它的翻译文档。
 
+### 类成员或实现方法标题
+
+在对类成员或实现方法进行讲解时，我们决定采用 Qt 官方文档的命名方式。
+
+以成员函数标题为例： `[修饰符]+空格+函数类型+空格+函数名及参数+空格+const修饰符`
+
+示例：
+
+```markdown
+### *[static]* int QString::compare(const QString &*s1*, const QString &*s2*, Qt::CaseSensitivity *cs* = Qt::CaseSensitive)
+### *[virtual protected]* void QObject::childEvent(QChildEvent *\*event*)
+### *[override virtual]* qint64 QAbstractSocket::bytesAvailable() const
+```
+
+注：以上函数标题为了实现区分度，对修饰符和参数名增加了斜体效果。
+
 ### 注解
 
 当翻译者需要添加额外的资料或吐槽时，需有明确的标注与官方文档区分开。
@@ -86,19 +102,69 @@ git pull --rebase
 
 ### 引用链接
 
+#### 页内跳转
+
+Markdown 页内标题跳转较为简便，语法如下：
+
+```markdown
+[页内跳转](#页内跳转标题)
+```
+
+页内跳转：[中英混排](#中英混排)
+
+#### 跨页跳转
+
 编写引用链接时，Markdown 支持直接链接跳转至目标页面的标题，语法如下：
+
+相对路径：
+
 ```Markdown
 跨页跳转：[真实范例](S/Signals_and_Slots/Signals_and_Slots.md#真实范例)
 ```
 跨页跳转：[真实范例](S/Signals_and_Slots/Signals_and_Slots.md#真实范例)
+
+注：在相对路径中您可以使用`../`进行上层目录访问。
+
+绝对路径：
+
 ```Markdown
-页内跳转：[中英混排](CONTRIBUTING.md#中英混排)
+跨页跳转：[QAbstractSocket::socketDescriptor()](https://github.com/QtDocumentCN/QtDocumentCN/blob/master/A/QAbstractSocket/QAbstractSocket.md#qabstractsocketsockettype-qabstractsocketsockettype-const)
 ```
-页内跳转：[中英混排](CONTRIBUTING.md#中英混排)
+跨页跳转：[QAbstractSocket::socketDescriptor()](https://github.com/QtDocumentCN/QtDocumentCN/blob/master/A/QAbstractSocket/QAbstractSocket.md#qabstractsocketsockettype-qabstractsocketsockettype-const)
 
 注意：
-1. `#`后的标题名称，与文本可能并不一致。若直接使用标题文本无法成功跳转，可尝试将`.md`导出至`.html`或提交至 GitHub 后，在标题处右键——检查元素，使用该元素的 html tag 中`id`字段值。
+1. `#`后的标题名称，与文本可能并不一致。若直接使用标题文本无法成功跳转，可尝试
+
+   1. 将`.md`导出至`.html`，在标题处右键——检查元素，使用该元素的 html tag 中`id`字段值。
+   2. （推荐此种方法）提交至 GitHub 后，直接复制标题左方的超链接图标所指向的地址并进行修改。
+
 2. 不同工具导出的 html 标签字段并不一致，GitHub 生成的标签会比 Typora 的多`user-content-`前缀。实测无需该前缀也能完成跳转，因此建议不添加此前缀。待本项目发布至 GitBook 后，需要再次检查跳转链接是否能正确运作。
+
+3. 若要跨页跳转的目标页尚未完成，可以先采用规则进行目标地址的推算，待目标页完成后再进行检查。
+
+   > 跳转规则：
+   >
+   > 原标题：
+   >
+   > ```markdown
+   > ### *[virtual]* qintptr **QAbstractSocket**::socketDescriptor() const
+   > ### bool **QAbstractSocket**::bind(const QHostAddress &*address*, quint16 *port* = 0, QAbstractSocket::BindMode *mode* = DefaultForPlatform)
+   > ```
+   >
+   > 跳转路径：
+   >
+   > ```
+   > #qabstractsocketsockettype-qabstractsocketsockettype-const
+   > #bool-qabstractsocketbindconst-qhostaddress-address-quint16-port--0-qabstractsocketbindmode-mode--defaultforplatform
+   > ```
+   >
+   > 从以上示例我们可以推导出跳转规则：
+   >
+   > * `* ：() & []` 等特殊字符直接省略（也就是说，标题中的加粗、斜体等样式并不会影响到跳转连接）。
+   > * `空格`改为`-`。
+   > * `=`改为`--`
+
+   
 
 
 ## Markdown 编辑器
