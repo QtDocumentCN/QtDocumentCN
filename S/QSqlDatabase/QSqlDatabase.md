@@ -279,3 +279,27 @@ qt5.13中引入了这个函数。
 调用 [lastError()](https://doc.qt.io/qt-5/qsqldatabase.html#lastError) 函数获取错误信息。
 
 **查阅**  [QSqlQuery::isActive()](https://doc.qt.io/qt-5/qsqlquery.html#isActive)， [QSqlDriver::hasFeature()](https://doc.qt.io/qt-5/qsqldriver.html#hasFeature)，和 [rollback()](https://doc.qt.io/qt-5/qsqldatabase.html#rollback)。
+
+## QString QSqlDatabase::connectOptions() const
+-------------------------
+返回用于此连接的连接选项字符串。这个字符串可能是空。
+
+**查阅** [setConnectOptions()](https://doc.qt.io/qt-5/qsqldatabase.html#setConnectOptions)
+
+## QString QSqlDatabase::connectionName() const
+--------------------------
+返回连接名，它有可能为空。
+
+**注意：** 这个连接名不是 [数据库名](https://doc.qt.io/qt-5/qsqldatabase.html#databaseName)
+
+`qt4.4` 中引入了这个函数。
+
+**查阅** [addDatabase()](https://doc.qt.io/qt-5/qsqldatabase.html#addDatabase)
+
+## QStringList QSqlDatabase::connectionNames() `[静态]`
+----------------------
+返回包含所有连接名称的列表。
+
+**注意：** 这个函数是[线程安全](https://doc.qt.io/qt-5/threads-reentrancy.html)的。
+
+**查阅** [contains()]()，[database()]()， 和 [线程和SQL模块](https://doc.qt.io/qt-5/threads-modules.html#threads-and-the-sql-module) 
