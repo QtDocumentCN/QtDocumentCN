@@ -214,4 +214,25 @@ QSqlDatabase db = QSqlDatabase::addDatabase(drv); // 产生成新的默认连接
 QSqlQuery query;
 query.exec("SELECT NAME, ID FROM STAFF");
 ```
-上面的代码用于设置一个 PostgreSQL 连接和实例化一个 QPSQLDriver 对象。接下来，`addDatabase()` 被调用产生一个已知的连接，以便于它可以使用 `Qt SQL` 相关的类。Qt假定你已经打开了数据库连接，当使用连接句柄（或一组句柄）实例化驱动程序时，
+上面的代码用于设置一个 PostgreSQL 连接和实例化一个 QPSQLDriver 对象。接下来，`addDatabase()` 被调用产生一个已知的连接，以便于它可以使用 `Qt SQL` 相关的类。Qt假定你已经打开了数据库连接，当使用连接句柄（或一组句柄）实例化驱动程序时。
+
+**注意：** 我们假设qtdir是安装Qt的目录。假定你的`PostgreSQL`头文件己经包含在搜索路径中，然后这里才能引用所需要的`PostgreSQL`客户端库和去实例化`QPSQLDriver`对象。
+
+请记住，必须将数据库客户端库到你的程序里。确保客户端库在你的链接器的搜索路径中，并且像下面这样添加到你的 `.pro` 文件里：
+```
+unix:LIBS += -lpq
+win32:LIBS += libpqdll.lib
+```
+这里介绍了所有驱动支持的方法。只有驱动的构造参数有所不同。列举了一个关于 Qt附带的程序，以及它们的源代码文件，和它们的构造函数参数的列表：
+
+
+| 驱动|类名|构造器参数|用于导入的文件|
+|:------|:------|:------|:------|
+|QPSQL|QPSQLDriver|PGconn *connection	|qsql_psql.cpp|
+|QMYSQL|	QMYSQLDriver|	MYSQL *connection|	qsql_mysql.cpp|
+|QOCI|	QOCIDriver|	OCIEnv *environment, OCISvcCtx *serviceContext|	qsql_oci.cpp|
+|QODBC|	QODBCDriver|	SQLHANDLE environment, SQLHANDLE connection|	qsql_odbc.cpp|
+|QDB2|	QDB2|	SQLHANDLE environment, SQLHANDLE connection|	qsql_db2.cpp|
+|QTDS|	QTDSDriver|	LOGINREC *loginRecord, DBPROCESS *dbProcess, const [QString](https://doc.qt.io/qt-5/qstring.html) &[hostName](https://doc.qt.io/qt-5/qsqldatabase.html#hostName)|	qsql_tds.cpp|
+|QSQLITE|	QSQLiteDriver|	sqlite *connection|	qsql_sqlite.cpp|
+|QIBASE|	QIBaseDriver|	isc_db_handle connection|	qsql_ibase.cpp|
