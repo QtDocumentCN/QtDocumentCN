@@ -39,9 +39,15 @@ git pull --rebase
 
 修改一篇已存在翻译文档时，请先检查追踪表中**开放修改**一项。
 
+## 翻译对照表
+
+翻译名词可参考[对照表](Comparison_Table.md)。
+
 ## Markdown 格式规范
 
 可参考模板文件[Template.md](Template.md) ，抑或参考其它的翻译文档。
+
+翻译名词可参考[对照表](Comparison_Table.md)。
 
 ### 类成员或实现方法标题
 

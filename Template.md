@@ -1,5 +1,7 @@
 这里是文档翻译的模板，详情请见[贡献指南](https://github.com/QtDocumentCN/QtDocumentCN/blob/master/CONTRIBUTING.md)。
 
+文档翻译的名词对照表可见[对照表](Comparison_Table.md)。
+
 翻译文档结构为三层目录结构。
 
 ```markdown
