@@ -15,8 +15,8 @@
 | Reentrant                         | 重入             |
 | Signals                           | 信号             |
 | Slots                             | 槽               |
-|                                   |                  |
-|                                   |                  |
+| Static Public Member              | 静态公共成员     |
+| Related Non-Members               | 相关非成员函数   |
 |                                   |                  |
 |                                   |                  |
 
