@@ -1,3 +1,21 @@
+这里是文档翻译的模板，详情请见[贡献指南](https://github.com/QtDocumentCN/QtDocumentCN/blob/master/CONTRIBUTING.md)。
+
+翻译文档结构为三层目录结构。
+
+```markdown
+# 类名
+	## 公共成员类型
+	## 公有成员函数
+	## 成员类型文档
+		### 类型1
+		### 类型2
+	## 成员函数文档
+		### 函数1
+		### 函数2
+```
+
+
+
 # **类名**
 
 这里填一些简述。
