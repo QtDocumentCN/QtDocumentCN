@@ -1,5 +1,3 @@
-
-
 [TOC]
 
 # QDate Class

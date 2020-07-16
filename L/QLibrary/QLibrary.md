@@ -1,3 +1,6 @@
+还是正在编写
+Reserved by 顾晓 until 2020-08-16
+
 # QLibrary Class
 
 Qlibrary用于运行时加载库。
