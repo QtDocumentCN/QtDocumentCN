@@ -8,7 +8,7 @@ QUdpSocket 类提供了 UDP 类型的套接字。
 
 | 属性   | 方法                                                         |
 | ------ | ------------------------------------------------------------ |
-| 头文件 | \#include <QUdpSocket>                                       |
+| 头文件 | \#include \<QUdpSocket\>                                     |
 | qmake  | QT += network                                                |
 | 基类   | [QAbstractSocket](../../A/QAbstractSocket/QAbstractSocket.md) |
 
