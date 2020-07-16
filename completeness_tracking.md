@@ -38,6 +38,7 @@
 | [QSsl_Obsolete](S/QSsl_Obsolete/QSsl_Obsolete.md) | [skykeyjoker](https://github.com/skykeyjoker) | **已完成** | 已完成 |
 | [QSslCertificate](S/QSslCertificate/QSslCertificate.md) | [skykeyjoker](https://github.com/skykeyjoker) | 编写中 | 占位中，待填充，截止时间2020-07-31 |
 | [QSslCipher](S/QSslCipher/QSslCipher.md) | [skykeyjoker](https://github.com/skykeyjoker) | 编写中 | 占位中，待填充，截止时间2020-07-31 |
+| [QSslConfiguration](S/QSslConfiguration/QSslConfiguration.md) | [skykeyjoker](https://github.com/skykeyjoker) | 编写中 | 占位中，待填充，截止时间2020-07-31 |
 | [QSslError](S/QSslError/QSslError.md) | [skykeyjoker](https://github.com/skykeyjoker) | 编写中 | 编写中，截止时间2020-07-31 |
 | [QSslKey](S/QSslKey/QSslKey.md) | [skykeyjoker](https://github.com/skykeyjoker) | 编写中 | 占位中，待填充，截止时间2020-07-31 |
 | [QSslSocket](S/QSslSocket/QSslSocket.md)                     | [skykeyjoker](https://github.com/skykeyjoker) | 编写中    | 编写中 |
