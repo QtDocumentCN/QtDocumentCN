@@ -148,9 +148,9 @@ QAbstractSocket 提供了一组函数，这些函数可以挂起调用线程，�
 
 * [waitForConnected()](#virtual-bool-qabstractsocketwaitforconnectedint-msecs--30000) 阻塞套接字直到一个新的连接建立
 
-   * [waitForReadyRead()](#override-virtual-bool-qabstractsocketwaitforreadyreadint-msecs--30000) 阻塞套接字直到有新的数据可以读取
-   * [waitForBytesWritten()](#override-virtual-bool-qabstractsocketwaitforbyteswrittenint-msecs--30000) 阻塞套接字直到一个有效的荷载数据写入到了套接字
-   * [waitForDisconnected()](#virtual-bool-qabstractsocketwaitfordisconnectedint-msecs--30000) 阻塞套接字直到连接已经关闭
+* [waitForReadyRead()](#override-virtual-bool-qabstractsocketwaitforreadyreadint-msecs--30000) 阻塞套接字直到有新的数据可以读取
+* [waitForBytesWritten()](#override-virtual-bool-qabstractsocketwaitforbyteswrittenint-msecs--30000) 阻塞套接字直到一个有效的荷载数据写入到了套接字
+* [waitForDisconnected()](#virtual-bool-qabstractsocketwaitfordisconnectedint-msecs--30000) 阻塞套接字直到连接已经关闭
 
 Qt官方提供了如下示例：
 
