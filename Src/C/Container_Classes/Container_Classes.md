@@ -8,7 +8,7 @@ Qt 提供了一系列基于模板的通用容器类，可以用于存储指定�
 
 这些类都是[隐式共享]()和[可重入]()的，并且针对几个方面做了优化，一是速度，二是较低的内存占用，三是尽可能少的内联代码，减少生成程序的体积。另外，在所有线程都以只读的方式访问容器时，这些类是线程安全的。
 
-要遍历容器中的元素，你可以使用两种风格的迭代器：[Java 风格的迭代器]()和[ STL 风格的迭代器]()。Java 风格的迭代器有更好的易用性和更高级的函数，而 STL 风格的迭代器则在效率上会略有优势，并且可以用于 Qt 和 STL 提供的[泛型算法]()中。
+要遍历容器中的元素，你可以使用两种风格迭代器：[Java 风格迭代器]()和[ STL 风格迭代器]()。Java 风格迭代器有更好的易用性和更高级的函数，而 STL 风格迭代器则在效率上会略有优势，并且可以用于 Qt 和 STL 提供的[泛型算法]()中。
 
 Qt 还提供了[foreach]()关键字，可以方便地遍历容器。
 
@@ -108,11 +108,11 @@ QDataStream &operator>>(QDataStream &in, Movie &movie)
 
 # 迭代器类
 
-迭代器提供了一个统一的方式去访问容器中的元素。Qt 容器类提供了两种风格的迭代器：Java 风格的迭代器和 STL 风格的迭代器。两种迭代器均会在容器中的数据被修改或因调用非 const 成员函数导致数据从隐式共享拷贝中分离后失效。
+迭代器提供了一个统一的方式去访问容器中的元素。Qt 容器类提供了两种风格迭代器：Java 风格迭代器和 STL 风格迭代器。两种迭代器均会在容器中的数据被修改或因调用非 const 成员函数导致数据从隐式共享拷贝中分离后失效。
 
-## Java 风格的迭代器
+## Java 风格迭代器
 
-Java 风格的迭代器在 Qt4 中引入，作为标准使用在Qt应用中。和 STL 风格的迭代器相比，其易用性更高，代价是性能略低。该风格的迭代器 API 以 Java 迭代器类为原型。
+Java 风格迭代器在 Qt4 中引入，作为标准使用在Qt应用中。和 STL 风格迭代器相比，其易用性更高，代价是性能略低。该风格迭代器 API 以 Java 迭代器类为原型设计。
 
 对于每一个容器类，同时提供了两种数据类型的Java风格迭代器：一种支持只读访问，另一种支持读写访问。
 
@@ -127,11 +127,11 @@ Java 风格的迭代器在 Qt4 中引入，作为标准使用在Qt应用中。�
 
 在接下来的讨论中，我们将重点关注QList和QMap。QLinkedList，QVector和QSet的迭代器类型和QList有完全一样的接口，类似的，QHash和QMap的迭代器类型的接口也是相同的。
 
-和 STL 风格的迭代器（下一节介绍）不同，Java 风格的迭代器指向的是元素间隙而不是元素本身。因此，Java 风格的迭代器可以指向容器最前（在第一个元素之前），也可以指向容器最后（在最后一个元素之后），还可以指向两个元素之间。下图用红色箭头展示了一个四个元素的列表容器合法的位置迭代器。
+和 STL 风格迭代器（下一节介绍）不同，Java 风格迭代器指向的是元素间隙而不是元素本身。因此，Java 风格迭代器可以指向容器最前（在第一个元素之前），也可以指向容器最后（在最后一个元素之后），还可以指向两个元素之间。下图用红色箭头展示了一个四个元素的列表容器合法的迭代器位置。
 
 ![Java style iterator](./java_style_iterator.svg)
 
-这是一个通过循环迭代有序遍历QList<QString>中的所有元素并打印到终端的经典写法：
+这是一个通过循环迭代有序遍历QList<QString>中的所有元素并打印到终端的常用写法：
 
 ``` cpp
 QList<QString> list;
@@ -254,3 +254,145 @@ QMutableMapIterator<int, QWidget *> i(map);
 while (i.findNext(widget))
     i.remove();
 ```
+
+## STL风格迭代器
+
+STL 风格迭代器在 Qt 2.0 中被引入，可用于 Qt 和 STL 的泛型算法，且为速度做了优化。
+
+对于每一个容器类，同时提供了两种类型的 STL 风格迭代器：一种支持只读访问，另一种支持读写访问。
+
+|容器|只读迭代器|读写迭代器|
+|---|---|---|
+|QList<T>, QQueue<T>|QList<T>::const_iterator|QList<T>::iterator|
+|QLinkedList<T>|QLinkedList<T>::const_iterator|QLinkedList<T>::iterator|
+|QVector<T>, QStack<T>|QVector<T>::const_iterator|QVector<T>::iterator|
+|QSet<T>|QSet<T>::const_iterator|QSet<T>::iterator|
+|QMap<Key, T>, QMultiMap<Key, T>|QMap<Key, T>::const_iterator|QMap<Key, T>::iterator|
+|QHash<Key, T>, QMultiHash<Key, T>|QHash<Key, T>::const_iterator|QHash<Key, T>::iterator|
+
+STL 风格迭代器的 API 以 数组指针为原型设计。例如，`++`运算符将迭代器向前移动至下一个元素，`*`运算符返回迭代器指向的元素。实际上，对于QVector和QStack这类元素存储在连续内存的容器来说，读写迭代器类型仅仅是`T *`的别名，只读迭代器是`const T *`的一个别名。
+
+在接下来的讨论中，我们将重点关注QList和QMap。QLinkedList，QVector和QSet的迭代器类型和QList有完全一样的接口，类似的，QHash和QMap的迭代器类型的接口也是相同的。
+
+这是一个通过循环迭代有序遍历QList<QString>中的所有元素并将它们转成小写的常见写法：
+
+``` cpp
+QList<QString> list;
+list << "A" << "B" << "C" << "D";
+
+QList<QString>::iterator i;
+for (i = list.begin(); i != list.end(); ++i)
+    *i = (*i).toLower();
+```
+
+和 Java 风格迭代器不同，STL 风格迭代器直接指向元素本身。容器的begin()方法会返回一个指向容器第一个元素的迭代器，end() 方法返回的迭代器指向一个虚拟的元素，该元素位于容器最后一个元素的下一个位置。end() 标记了一个非法的位置，永远不要对其解引用。其通常被用作循环的结束条件。对于空列表，begin() 和 end()是相等的，因此我们永远不会执行循环。
+
+下图用红色箭头展示了一个四个元素的列表容器中合法的迭代器位置。
+
+![STL Style Iterator](./stl_style_iterator.svg)
+
+使用 STL 风格迭代器反向遍历可以通过反向迭代器实现
+
+``` cpp
+QList<QString> list;
+list << "A" << "B" << "C" << "D";
+
+QList<QString>::reverse_iterator i;
+for (i = list.rbegin(); i != list.rend(); ++i)
+    *i = i->toLower();
+}
+```
+
+上面的代码片段中，我们通过一元运算符`*`来获取保存在指定迭代器位置的元素（此处类型为QString），并对其调用了 QString::toLower() 方法。大部分C++编译器也同时支持`i->toLower()`这种写法，但也有一些不支持。
+
+对于只读访问，你可以使用const_iterator, constBegin(), and constEnd()。例如：
+
+``` cpp
+QList<QString>::const_iterator i;
+for (i = list.constBegin(); i != list.constEnd(); ++i)
+    qDebug() << *i;
+```
+
+下表整理了STL风格迭代器的API
+
+
+
+|表达式|行为|
+|---|---|
+|*i|返回当前元素|
+|++i|向前移动迭代器至下一元素|
+|i += n|向前移动迭代器 n 次|
+|--i|向后移动迭代器至前一个元素|
+|i -= n|向后移动迭代器 n 次|
+|i - j|返回迭代器 i 和 j 间隔的元素个数|
+
+`++`和`--`运算符既可以作为前缀(`++i`，`--i`) ，也可以作为后缀(`i++`，`i--`)运算符。前缀版本先修改迭代器，然后返回修改后的迭代器的引用。后缀版本在修改迭代器之前先将其复制一份，然后返回副本。在返回值被忽略的表达式中，我们建议使用前缀版本，因为这样会略快一点。
+
+对于非常量迭代器类型，一元运算符`*`的返回值可以作为赋值运算符的左侧。
+
+对于QMap和QHash，`*`运算符返回一个元素的值，如果你想获取键，可以调用迭代器的key()方法。相对应的，迭代器类型也提供了value()用于获取值。下面是一个将QMap中所有元素打印到终端的例子：
+
+``` cpp
+QMap<int, int> map;
+...
+QMap<int, int>::const_iterator i;
+for (i = map.constBegin(); i != map.constEnd(); ++i)
+    qDebug() << i.key() << ':' << i.value();
+```
+
+正是因为隐式共享，调用一个返回容器的函数的开销不会很大。Qt API 中包含几十个返回一个QList或QStringList的函数（例如QSplitter::sizes()）。如果需要通过 STL 迭代器遍历这些返回值，你应当总是将返回的容器复制一份然后迭代其副本。例如：
+
+``` cpp
+// 正确
+const QList<int> sizes = splitter->sizes();
+QList<int>::const_iterator i;
+for (i = sizes.begin(); i != sizes.end(); ++i)
+    ...
+
+// 错误
+QList<int>::const_iterator i;
+for (i = splitter->sizes().begin();
+        i != splitter->sizes().end(); ++i)
+    ...
+```
+
+如果函数返回的是一个容器的常量或非常量引用，那么是不存在这个问题的。
+
+### 隐式共享迭代器问题
+
+隐式共享给 STL 风格迭代器带来了另一个后果是：当一个容器的迭代器在使用时你应当避免复制该容器。迭代器指向了一个内部结构，当你复制容器时你需要特别小心的处理迭代器。比如：
+
+``` cpp
+QVector<int> a, b;
+a.resize(100000); // 创建一个填充0的大数组.
+
+QVector<int>::iterator i = a.begin();
+// 迭代器i的错误用法:
+b = a;
+/*
+    现在我们应当小心地使用迭代器`i`，因为 i 指向的是共享的数据。
+    如果我们执行 *i = 4 那么我们可能改变共享的实例（两个数组共享）
+    这个行为和 STL 容器是不同的。在 Qt 中不要这样做。
+*/
+
+a[0] = 5;
+/*
+    容器 a 现在已经和共享数据脱离，
+    即使 i 之前是容器 a 的迭代器，但现在它是作为 b 的迭代器而存在。
+    此时 (*i) == 0
+*/
+
+b.clear(); // 此时 i 彻底失效
+
+int j = *i; // 未定义行为!
+/*
+    b 中的数据（即i 指向的）已经被释放，
+    在 STL 容器中这是有明确定义的（(*i) == 5），
+    但对于 QVector 来说这样做很有可能导致崩溃。
+*/
+```
+
+> 译注：STL 容器`std::vector`在调用clear()方法后内存不会被释放，因此迭代器并不会立即失效
+
+上面的例子仅仅说明了QVector的问题，但实际上所有支持隐式共享的容器都存在该问题。
+
