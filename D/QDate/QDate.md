@@ -5,10 +5,10 @@
 # QDate Class
 
 
-| 属性   | 方法              |
-| ------ | ----------------- |
-| 头文件 | \#include <QDate> |
-| qmake  | QT += core        |
+| 属性   | 方法               |
+| ------ | ------------------ |
+| 头文件 | #include `<QDate>` |
+| qmake  | QT += core         |
 
 **注意：** 该类提供的所有函数都是可重入的。
 
@@ -24,52 +24,52 @@
 
 ## 公共成员函数
 
-| 类型      | 函数名                                                       |
-| --------- | ------------------------------------------------------------ |
-|           | **[QDate]()**(int *y*, int *m*, int *d*)                     |
-|           | **[QDate](https://doc.qt.io/qt-5/qdate.html#QDate-1)**()     |
-| QDate     | **[addDays](https://doc.qt.io/qt-5/qdate.html#QDate-1)**(qint64 *ndays*) const |
-| QDate     | **[addMonths](https://doc.qt.io/qt-5/qdate.html#addMonths)**(int *nmonths*, QCalendar *cal*) const |
-| QDate     | **[addMonths](https://doc.qt.io/qt-5/qdate.html#addMonths-1)**(int *nmonths*) const |
-| QDate     | **[addYears](https://doc.qt.io/qt-5/qdate.html#addYears)**(int *nyears*, QCalendar *cal*) const |
-| QDate     | **[addYears](https://doc.qt.io/qt-5/qdate.html#addYears-1)**(int *nyears*) const |
-| int       | **[day](https://doc.qt.io/qt-5/qdate.html#day)**(QCalendar *cal*) const |
-| int       | **[day](https://doc.qt.io/qt-5/qdate.html#day-1)**() const   |
-| int       | **[dayOfWeek](https://doc.qt.io/qt-5/qdate.html#dayOfWeek)**(QCalendar *cal*) const |
-| int       | **[dayOfWeek](https://doc.qt.io/qt-5/qdate.html#dayOfWeek-1)**() const |
-| int       | **[dayOfYear](https://doc.qt.io/qt-5/qdate.html#dayOfYear)**(QCalendar *cal*) const |
-| int       | **[dayOfYear](https://doc.qt.io/qt-5/qdate.html#dayOfYear-1)**() const |
-| int       | **[daysInMonth](https://doc.qt.io/qt-5/qdate.html#daysInMonth)**(QCalendar *cal*) const |
-| int       | **[daysInMonth](https://doc.qt.io/qt-5/qdate.html#daysInMonth-1)**() const |
-| int       | **[daysInYear](https://doc.qt.io/qt-5/qdate.html#daysInYear)**(QCalendar *cal*) const |
-| int       | **[daysInYear](https://doc.qt.io/qt-5/qdate.html#daysInYear-1)**() const |
-| qint64    | **[daysTo](https://doc.qt.io/qt-5/qdate.html#daysTo)**(const QDate &*d*) const |
-| QDateTime | **[endOfDay](https://doc.qt.io/qt-5/qdate.html#endOfDay)**(Qt::TimeSpec *spec* = Qt::LocalTime, int *offsetSeconds* = 0) const |
-| QDateTime | **[endOfDay](https://doc.qt.io/qt-5/qdate.html#endOfDay-1)**(const QTimeZone &*zone*) const |
-| void      | **[getDate](https://doc.qt.io/qt-5/qdate.html#getDate)**(int *\*year*, int *\*month*, int *\*day*) const |
-| bool      | **[isNull](https://doc.qt.io/qt-5/qdate.html#isNull)**() const |
-| bool      | **[isValid](https://doc.qt.io/qt-5/qdate.html#isValid)**() const |
-| int       | **[month](https://doc.qt.io/qt-5/qdate.html#month)**(QCalendar *cal*) const |
-| int       | **[month](https://doc.qt.io/qt-5/qdate.html#month-1)**() const |
-| bool      | **[setDate](https://doc.qt.io/qt-5/qdate.html#setDate)**(int *year*, int *month*, int *day*) |
-| bool      | **[setDate](https://doc.qt.io/qt-5/qdate.html#setDate-1)**(int *year*, int *month*, int *day*, QCalendar *cal*) |
+| 类型      | 函数名                                                                                                                             |
+| --------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+|           | **[QDate]()**(int *y*, int *m*, int *d*)                                                                                           |
+|           | **[QDate](https://doc.qt.io/qt-5/qdate.html#QDate-1)**()                                                                           |
+| QDate     | **[addDays](https://doc.qt.io/qt-5/qdate.html#QDate-1)**(qint64 *ndays*) const                                                     |
+| QDate     | **[addMonths](https://doc.qt.io/qt-5/qdate.html#addMonths)**(int *nmonths*, QCalendar *cal*) const                                 |
+| QDate     | **[addMonths](https://doc.qt.io/qt-5/qdate.html#addMonths-1)**(int *nmonths*) const                                                |
+| QDate     | **[addYears](https://doc.qt.io/qt-5/qdate.html#addYears)**(int *nyears*, QCalendar *cal*) const                                    |
+| QDate     | **[addYears](https://doc.qt.io/qt-5/qdate.html#addYears-1)**(int *nyears*) const                                                   |
+| int       | **[day](https://doc.qt.io/qt-5/qdate.html#day)**(QCalendar *cal*) const                                                            |
+| int       | **[day](https://doc.qt.io/qt-5/qdate.html#day-1)**() const                                                                         |
+| int       | **[dayOfWeek](https://doc.qt.io/qt-5/qdate.html#dayOfWeek)**(QCalendar *cal*) const                                                |
+| int       | **[dayOfWeek](https://doc.qt.io/qt-5/qdate.html#dayOfWeek-1)**() const                                                             |
+| int       | **[dayOfYear](https://doc.qt.io/qt-5/qdate.html#dayOfYear)**(QCalendar *cal*) const                                                |
+| int       | **[dayOfYear](https://doc.qt.io/qt-5/qdate.html#dayOfYear-1)**() const                                                             |
+| int       | **[daysInMonth](https://doc.qt.io/qt-5/qdate.html#daysInMonth)**(QCalendar *cal*) const                                            |
+| int       | **[daysInMonth](https://doc.qt.io/qt-5/qdate.html#daysInMonth-1)**() const                                                         |
+| int       | **[daysInYear](https://doc.qt.io/qt-5/qdate.html#daysInYear)**(QCalendar *cal*) const                                              |
+| int       | **[daysInYear](https://doc.qt.io/qt-5/qdate.html#daysInYear-1)**() const                                                           |
+| qint64    | **[daysTo](https://doc.qt.io/qt-5/qdate.html#daysTo)**(const QDate &*d*) const                                                     |
+| QDateTime | **[endOfDay](https://doc.qt.io/qt-5/qdate.html#endOfDay)**(Qt::TimeSpec *spec* = Qt::LocalTime, int *offsetSeconds* = 0) const     |
+| QDateTime | **[endOfDay](https://doc.qt.io/qt-5/qdate.html#endOfDay-1)**(const QTimeZone &*zone*) const                                        |
+| void      | **[getDate](https://doc.qt.io/qt-5/qdate.html#getDate)**(int *\*year*, int *\*month*, int *\*day*) const                           |
+| bool      | **[isNull](https://doc.qt.io/qt-5/qdate.html#isNull)**() const                                                                     |
+| bool      | **[isValid](https://doc.qt.io/qt-5/qdate.html#isValid)**() const                                                                   |
+| int       | **[month](https://doc.qt.io/qt-5/qdate.html#month)**(QCalendar *cal*) const                                                        |
+| int       | **[month](https://doc.qt.io/qt-5/qdate.html#month-1)**() const                                                                     |
+| bool      | **[setDate](https://doc.qt.io/qt-5/qdate.html#setDate)**(int *year*, int *month*, int *day*)                                       |
+| bool      | **[setDate](https://doc.qt.io/qt-5/qdate.html#setDate-1)**(int *year*, int *month*, int *day*, QCalendar *cal*)                    |
 | QDateTime | **[startOfDay](https://doc.qt.io/qt-5/qdate.html#startOfDay)**(Qt::TimeSpec *spec* = Qt::LocalTime, int *offsetSeconds* = 0) const |
-| QDateTime | **[startOfDay](https://doc.qt.io/qt-5/qdate.html#startOfDay-1)**(const QTimeZone &*zone*) const |
-| qint64    | **[toJulianDay](https://doc.qt.io/qt-5/qdate.html#toJulianDay)**() const |
-| QString   | **[toString](https://doc.qt.io/qt-5/qdate.html#toString-1)**(Qt::DateFormat *format* = Qt::TextDate) const |
-| QString   | **[toString](https://doc.qt.io/qt-5/qdate.html#toString-2)**(const QString &*format*) const |
-| QString   | **[toString](https://doc.qt.io/qt-5/qdate.html#toString-3)**(const QString &*format*, QCalendar *cal*) const |
-| QString   | **[toString](###toString)**(QStringView *format*) const      |
-| QString   | **[toString](https://doc.qt.io/qt-5/qdate.html#toString-5)**(QStringView *format*, QCalendar *cal*) const |
-| int       | **[weekNumber](https://doc.qt.io/qt-5/qdate.html#weekNumber)**(int **yearNumber* = nullptr) const |
-| int       | **[year](https://doc.qt.io/qt-5/qdate.html#year)**(QCalendar *cal*) const |
-| int       | **[year](https://doc.qt.io/qt-5/qdate.html#year-1)**() const |
-| bool      | **[operator!=](https://doc.qt.io/qt-5/qdate.html#operator-not-eq)**(const QDate &*d*) const |
-| bool      | **[operator<](https://doc.qt.io/qt-5/qdate.html#operator-lt)**(const QDate &*d*) const |
-| bool      | **[operator<=](https://doc.qt.io/qt-5/qdate.html#operator-lt-eq)**(const QDate &*d*) const |
-| bool      | **[operator==](https://doc.qt.io/qt-5/qdate.html#operator-eq-eq)**(const QDate &*d*) const |
-| bool      | **[operator>](https://doc.qt.io/qt-5/qdate.html#operator-gt)**(const QDate &*d*) const |
-| bool      | **[operator>=](https://doc.qt.io/qt-5/qdate.html#operator-gt-eq)**(const QDate &*d*) const |
+| QDateTime | **[startOfDay](https://doc.qt.io/qt-5/qdate.html#startOfDay-1)**(const QTimeZone &*zone*) const                                    |
+| qint64    | **[toJulianDay](https://doc.qt.io/qt-5/qdate.html#toJulianDay)**() const                                                           |
+| QString   | **[toString](https://doc.qt.io/qt-5/qdate.html#toString-1)**(Qt::DateFormat *format* = Qt::TextDate) const                         |
+| QString   | **[toString](https://doc.qt.io/qt-5/qdate.html#toString-2)**(const QString &*format*) const                                        |
+| QString   | **[toString](https://doc.qt.io/qt-5/qdate.html#toString-3)**(const QString &*format*, QCalendar *cal*) const                       |
+| QString   | **[toString](###toString)**(QStringView *format*) const                                                                            |
+| QString   | **[toString](https://doc.qt.io/qt-5/qdate.html#toString-5)**(QStringView *format*, QCalendar *cal*) const                          |
+| int       | **[weekNumber](https://doc.qt.io/qt-5/qdate.html#weekNumber)**(int **yearNumber* = nullptr) const                                  |
+| int       | **[year](https://doc.qt.io/qt-5/qdate.html#year)**(QCalendar *cal*) const                                                          |
+| int       | **[year](https://doc.qt.io/qt-5/qdate.html#year-1)**() const                                                                       |
+| bool      | **[operator!=](https://doc.qt.io/qt-5/qdate.html#operator-not-eq)**(const QDate &*d*) const                                        |
+| bool      | **[operator<](https://doc.qt.io/qt-5/qdate.html#operator-lt)**(const QDate &*d*) const                                             |
+| bool      | **[operator<=](https://doc.qt.io/qt-5/qdate.html#operator-lt-eq)**(const QDate &*d*) const                                         |
+| bool      | **[operator==](https://doc.qt.io/qt-5/qdate.html#operator-eq-eq)**(const QDate &*d*) const                                         |
+| bool      | **[operator>](https://doc.qt.io/qt-5/qdate.html#operator-gt)**(const QDate &*d*) const                                             |
+| bool      | **[operator>=](https://doc.qt.io/qt-5/qdate.html#operator-gt-eq)**(const QDate &*d*) const                                         |
 
 
 
@@ -131,8 +131,8 @@ daysInMonth() 和 daysInYear() 函数返回一个月、一年里有几天。isLe
 
 | 常量                      | 数值 | 描述                                                               |
 | ------------------------- | ---- | ------------------------------------------------------------------ |
-|`QDate::DateFormat`      |`0` | 用于日期到字符串格式化。                                           |
-|`QDate::StandaloneFormat`|`1` | 用于枚举月份和一周七天。通常单独的名字用首字母大写的单数形式书写。 |
+| `QDate::DateFormat`       | `0`  | 用于日期到字符串格式化。                                           |
+| `QDate::StandaloneFormat` | `1`  | 用于枚举月份和一周七天。通常单独的名字用首字母大写的单数形式书写。 |
 
 此枚举在Qt 4.5中引入或修改。
 
