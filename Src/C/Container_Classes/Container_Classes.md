@@ -105,3 +105,152 @@ QDataStream &operator>>(QDataStream &in, Movie &movie)
 ```
 
 某些容器类的文档中会提到`默认值`；举个例子，QVector会自动使用默认值初始化其元素；QMap::value() 在指定键不存在时会返回一个默认值。对于大部分的值类型，这就是简单地代表通过默认构造函数创建的值（例如对于QString即空字符串）。但是对于基本类型，如 **int** 和 **double** 和指针类型，C++ 语言并没有规定任何的初始化方式，因此在这些情况下，Qt 容器将会自动将其初始化为0。
+
+# 迭代器类
+
+迭代器提供了一个统一的方式去访问容器中的元素。Qt 容器类提供了两种风格的迭代器：Java 风格的迭代器和 STL 风格的迭代器。两种迭代器均会在容器中的数据被修改或因调用非 const 成员函数导致数据从隐式共享拷贝中分离后失效。
+
+## Java 风格的迭代器
+
+Java 风格的迭代器在 Qt4 中引入，作为标准使用在Qt应用中。和 STL 风格的迭代器相比，其易用性更高，代价是性能略低。该风格的迭代器 API 以 Java 迭代器类为原型。
+
+对于每一个容器类，同时提供了两种数据类型的Java风格迭代器：一种支持只读访问，另一种支持读写访问。
+
+|Containers|Read-only iterator|Read-write iterator|
+|---|---|---|
+|QList<T>, QQueue<T>|QListIterator<T>|QMutableListIterator<T>|
+|QLinkedList<T>|QLinkedListIterator<T>|QMutableLinkedListIterator<T>|
+|QVector<T>, QStack<T>|QVectorIterator<T>|QMutableVectorIterator<T>|
+|QSet<T>|QSetIterator<T>|QMutableSetIterator<T>|
+|QMap<Key, T>, QMultiMap<Key, T>|QMapIterator<Key, T>|QMutableMapIterator<Key, T>|
+|QHash<Key, T>, QMultiHash<Key, T>|QHashIterator<Key, T>|QMutableHashIterator<Key, T>|
+
+在接下来的讨论中，我们将重点关注QList和QMap。QLinkedList，QVector和QSet的迭代器类型和QList有完全一样的接口，类似的，QHash和QMap的迭代器类型的接口也是相同的。
+
+和 STL 风格的迭代器（下一节介绍）不同，Java 风格的迭代器指向的是元素间隙而不是元素本身。因此，Java 风格的迭代器可以指向容器最前（在第一个元素之前），也可以指向容器最后（在最后一个元素之后），还可以指向两个元素之间。下图用红色箭头展示了一个四个元素的列表容器合法的位置迭代器。
+
+![Java style iterator](./java_style_iterator.svg)
+
+这是一个通过循环迭代有序遍历QList<QString>中的所有元素并打印到终端的经典写法：
+
+``` cpp
+QList<QString> list;
+list << "A" << "B" << "C" << "D";
+
+QListIterator<QString> i(list);
+while (i.hasNext())
+    qDebug() << i.next();
+```
+
+它的工作原理如下：需要被迭代的QList对象作为参数传递给QListIterator的构造函数。此时迭代器位于列表中第一个元素的前面（位于元素“A“之前）。接着我们调用hasNext()检查迭代器之后是否有元素，如果有，我们调用next()跳过这个元素。next()方法会返回其跳过的元素。对于QList<QString>类型，元素的类型为QString。
+
+下列代码展示了如何反向迭代一个QList：
+
+``` cpp
+QListIterator<QString> i(list);
+i.toBack();
+while (i.hasPrevious())
+    qDebug() << i.previous();
+```
+
+这段代码的逻辑和前向迭代是对称的除了在开始我们调用了toBack()将迭代器移动到列表中最后一个元素之后。
+
+下图说明了在迭代器上调用next()和previous()产生的效果：
+
+![list iterator](./list_iterator.svg)
+
+下表总结了QListIterator的 API：
+
+|Function|Behavior|
+|---|---|
+|toFront()|移动迭代器到列表最前（第一个元素之前）|
+|toBack()|移动迭代器到列表最后（最后一个元素之后）|
+|hasNext()|如果迭代器不在列表最后则返回真|
+|next()|返回下一个元素并将迭代器前移一位|
+|peekNext()|不移动迭代器，仅返回迭代器下一个元素|
+|hasPrevious()|如果迭代器不在列表最前则返回真|
+|previous()|返回前一个元素并将迭代器后移一位|
+|peekPrevious()|不移动迭代器，仅返回迭代器前一个元素|
+
+QListIterator没有提供任何在迭代列表时插入或删除元素的方法。要实现这一点，你必须使用QMutableListIterator。这是一个使用QMutableListIterator从QList<init>中移除所有奇数的例子：
+
+``` cpp
+QMutableListIterator<int> i(list);
+while (i.hasNext()) {
+    if (i.next() % 2 != 0)
+        i.remove();
+}
+```
+
+next()方法会在每次循环时调用，用于跳过下一个元素。remove()方法用于移除上一个我们跳过的元素。对remove()方法的调用不会导致迭代器的失效，因此继续使用迭代器是安全的。这种方式在反向迭代时也是没问题的。
+
+``` cpp
+QMutableListIterator<int> i(list);
+i.toBack();
+while (i.hasPrevious()) {
+    if (i.previous() % 2 != 0)
+        i.remove();
+}
+```
+
+如果仅仅想修改已存在元素的值，我们可以使用setValue()。下列代码中，我们将所有大于128的值替换成128：
+
+``` cpp
+QMutableListIterator<int> i(list);
+while (i.hasNext()) {
+    if (i.next() > 128)
+        i.setValue(128);
+}
+```
+
+正如remove()，setValue()对我们跳过的最后一个元素进行操作。如果我们向前迭代，这个元素就是迭代器之前的元素；如果我们向后迭代，这个元素就是迭代器之后的元素。
+
+next() 方法返回的是列表中元素的非常量引用，对于简单的操作，我们并不需要调用setValue()。
+
+``` cpp
+QMutableListIterator<int> i(list);
+while (i.hasNext())
+    i.next() *= 2;
+```
+
+正如上面提到的，QLinkedList，QVector和QSet的迭代器的API和QList的完全一致。接下来我们来看看在某些方面不太一样的QMapIterator，因为其用于迭代（键，值）对。
+
+和QListIterator一样，QMapIterator提供了 toFront(), toBack(), hasNext(), next(), peekNext(), hasPrevious(), previous() 和 peekPrevious()方法。我们可以对next(), peekNext(), previous() 或 peekPrevious()返回的对象调用key()和value()方法来获得键和值。
+
+下列代码用于移除所有首都名以”`city`“结尾的（首都名，国家名）键值对。
+
+```
+QMap<QString, QString> map;
+map.insert("Paris", "France");
+map.insert("Guatemala City", "Guatemala");
+map.insert("Mexico City", "Mexico");
+map.insert("Moscow", "Russia");
+...
+
+QMutableMapIterator<QString, QString> i(map);
+while (i.hasNext()) {
+    if (i.next().key().endsWith("City"))
+        i.remove();
+}
+```
+
+QMapIterator也提供了key()和value()方法用于操作迭代器及迭代器上一个跳过的元素的键和值。举个例子，下列代码用于将QMap的内容拷贝到QHash中。
+
+``` cpp
+QMap<int, QWidget *> map;
+QHash<int, QWidget *> hash;
+
+QMapIterator<int, QWidget *> i(map);
+while (i.hasNext()) {
+    i.next();
+    hash.insert(i.key(), i.value());
+}
+```
+
+如果想要迭代遍历所有值相同的元素，我们可以使用findNext()和findPrevious()。这里的例子用于移除带有指定值的元素。
+
+``` cpp
+QMutableMapIterator<int, QWidget *> i(map);
+while (i.findNext(widget))
+    i.remove();
+```
