@@ -55,3 +55,4 @@
 | [QDate](D/QDate/QDate.md)                                     | [顾晓](https://github.com/chenyanzz)          | 编写中    |  正在完善                             |
 | [QLibrary](L/QLibrary/QLibrary.md)                            | [顾晓](https://github.com/chenyanzz)          | 编写中    |  占位中，待填充，截止时间2020-08-16                            |
 | [QFile](F/QFile/QFile.md)                                     | [顾晓](https://github.com/chenyanzz)          | 编写中    |  占位中，待填充，截止时间2020-08-16                          |
+| [QMainWindow](M/QMainWindow/QMainWindow.md)        | [吴冬亮](https://github.com/abc881858)        | 编写中 | 占位中，待填充，截止时间2020-07-31 |
