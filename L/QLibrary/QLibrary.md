@@ -196,7 +196,7 @@ Unless [unload](https://doc.qt.io/qt-5/qlibrary.html#unload)() was called explic
 
 Returns a text string with the description of the last error that occurred. Currently, errorString will only be set if [load](https://doc.qt.io/qt-5/qlibrary.html#load)(), [unload](https://doc.qt.io/qt-5/qlibrary.html#unload)() or [resolve](https://doc.qt.io/qt-5/qlibrary.html#resolve)() for some reason fails.
 
-This function was introduced in Qt 4.2.
+此函数引入自：Qt 4.2.
 
 ### `[static]`bool QLibrary::isLibrary(const [QString](https://doc.qt.io/qt-5/qstring.html) &*fileName*)
 
@@ -287,7 +287,7 @@ Loads the library *fileName* with full version number *version* and returns the 
 
 The function returns `nullptr` if the symbol could not be resolved or if the library could not be loaded.
 
-This function was introduced in Qt 4.4.
+此函数引入自：Qt 4.4.
 
 **看看别的：** [resolve](https://doc.qt.io/qt-5/qlibrary.html#resolve)().
 
@@ -301,7 +301,7 @@ Sets the [fileName](https://doc.qt.io/qt-5/qlibrary.html#fileName-prop) property
 
 Sets the [fileName](https://doc.qt.io/qt-5/qlibrary.html#fileName-prop) property and full version number to *fileName* and *version* respectively. The *version* parameter is ignored on Windows.
 
-This function was introduced in Qt 4.4.
+此函数引入自：Qt 4.4.
 
 **看看别的：** [setFileName](https://doc.qt.io/qt-5/qlibrary.html#fileName-prop)().
 
