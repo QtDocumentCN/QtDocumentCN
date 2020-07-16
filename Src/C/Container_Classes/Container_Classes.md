@@ -481,3 +481,12 @@ forever {
 ```
 CONFIG += no_keywords
 ```
+
+# 其他类似容器类
+
+Qt 包含了在某些方面和容器相似的其他模板类。这些类没有提供迭代器，也无法在`foreach`关键字中使用。
+
+QCache<Key, T> 提供了一个缓存，用于保存与键类型Key相关联的类型T的对象。
+QContiguousCache<T>提供了一个高效的方式用于缓存那些通常以连续的方式访问的数据。
+QPair<T1, T2> 保存了一对元素。
+其他基于 Qt 的模板容器实现的非模板类型有QBitArray, QByteArray, QString 和 QStringList。
