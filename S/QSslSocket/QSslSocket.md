@@ -23,8 +23,8 @@ QSslSocket 类为客户端和服务端提供了一个 SSL 加密的套接字。
 
 | 类型 | 属性                                                         |
 | ---- | ------------------------------------------------------------ |
-| enum | **[PeerVerifyMode](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslsocket.html#PeerVerifyMode-enum)** { VerifyNone, QueryPeer, VerifyPeer, AutoVerifyPeer } |
-| enum | **[SslMode](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslsocket.html#SslMode-enum)** { UnencryptedMode, SslClientMode, SslServerMode } |
+| enum | **[PeerVerifyMode](#enum-qsslsocketpeerverifymode)** { VerifyNone, QueryPeer, VerifyPeer, AutoVerifyPeer } |
+| enum | **[SslMode](#enum-qsslsocketsslmode)** { UnencryptedMode, SslClientMode, SslServerMode } |
 
 
 
@@ -32,26 +32,26 @@ QSslSocket 类为客户端和服务端提供了一个 SSL 加密的套接字。
 
 | 类型                       | 函数名                                                       |
 | -------------------------- | ------------------------------------------------------------ |
-|                            | **[QSslSocket](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslsocket.html#QSslSocket)**(QObject **parent* = nullptr) |
-| virtual                    | **[~QSslSocket](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslsocket.html#dtor.QSslSocket)**() |
-| void                       | **[abort](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslsocket.html#abort)**() |
-| void                       | **[connectToHostEncrypted](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslsocket.html#connectToHostEncrypted)**(const QString &*hostName*, quint16 *port*, QIODevice::OpenMode *mode* = ReadWrite, QAbstractSocket::NetworkLayerProtocol *protocol* = AnyIPProtocol) |
-| void                       | **[connectToHostEncrypted](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslsocket.html#connectToHostEncrypted-1)**(const QString &*hostName*, quint16 *port*, const QString &*sslPeerName*, QIODevice::OpenMode *mode* = ReadWrite, QAbstractSocket::NetworkLayerProtocol *protocol* = AnyIPProtocol) |
-| qint64                     | **[encryptedBytesAvailable](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslsocket.html#encryptedBytesAvailable)**() const |
-| qint64                     | **[encryptedBytesToWrite](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslsocket.html#encryptedBytesToWrite)**() const |
-| bool                       | **[flush](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslsocket.html#flush)**() |
-| void                       | **[ignoreSslErrors](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslsocket.html#ignoreSslErrors-1)**(const QList\<QSslError\> &*errors*) |
-| bool                       | **[isEncrypted](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslsocket.html#isEncrypted)**() const |
-| QSslCertificate            | **[localCertificate](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslsocket.html#localCertificate)**() const |
-| QList\<QSslCertificate\>   | **[localCertificateChain](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslsocket.html#localCertificateChain)**() const |
-| QSslSocket::SslMode        | **[mode](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslsocket.html#mode)**() const |
-| QVector\<QOcspResponse\>   | **[ocspResponses](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslsocket.html#ocspResponses)**() const |
-| QSslCertificate            | **[peerCertificate](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslsocket.html#peerCertificate)**() const |
-| QList\<QSslCertificate\>   | **[peerCertificateChain](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslsocket.html#peerCertificateChain)**() const |
-| int                        | **[peerVerifyDepth](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslsocket.html#peerVerifyDepth)**() const |
-| QSslSocket::PeerVerifyMode | **[peerVerifyMode](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslsocket.html#peerVerifyMode)**() const |
-| QString                    | **[peerVerifyName](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslsocket.html#peerVerifyName)**() const |
-| QSslKey                    | **[privateKey](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslsocket.html#privateKey)**() const |
+|                            | **[QSslSocket](#qsslsocketqsslsocketqobject-parent--nullptr)**(QObject **parent* = nullptr) |
+| virtual                    | **[~QSslSocket](#virtual-qsslsocketqsslsocket)**()           |
+| void                       | **[abort](#void-qsslsocketabort)**()                         |
+| void                       | **[connectToHostEncrypted](#void-qsslsocketconnecttohostencryptedconst-qstring-hostname-quint16-port-qiodeviceopenmode-mode--readwrite-qabstractsocketnetworklayerprotocol-protocol--anyipprotocol)**(const QString &*hostName*, quint16 *port*, QIODevice::OpenMode *mode* = ReadWrite, QAbstractSocket::NetworkLayerProtocol *protocol* = AnyIPProtocol) |
+| void                       | **[connectToHostEncrypted](#void-qsslsocketconnecttohostencryptedconst-qstring-hostname-quint16-port-const-qstring-sslpeername-qiodeviceopenmode-mode--readwrite-qabstractsocketnetworklayerprotocol-protocol--anyipprotocol)**(const QString &*hostName*, quint16 *port*, const QString &*sslPeerName*, QIODevice::OpenMode *mode* = ReadWrite, QAbstractSocket::NetworkLayerProtocol *protocol* = AnyIPProtocol) |
+| qint64                     | **[encryptedBytesAvailable](#qint64-qsslsocketencryptedbytesavailable-const)**() const |
+| qint64                     | **[encryptedBytesToWrite](#qint64-qsslsocketencryptedbytestowrite-const)**() const |
+| bool                       | **[flush](#bool-qsslsocketflush)**()                         |
+| void                       | **[ignoreSslErrors](#void-qsslsocketignoresslerrorsconst-qlistqsslerror-errors)**(const QList\<QSslError\> &*errors*) |
+| bool                       | **[isEncrypted](https://github.com/QtDocumentCN/QtDocumentCN/blob/master/S/QSslSocket/QSslSocket.md#bool-qsslsocketisencrypted-const)**() const |
+| QSslCertificate            | **[localCertificate](#qsslcertificate-qsslsocketlocalcertificate-const)**() const |
+| QList\<QSslCertificate\>   | **[localCertificateChain](#qlistqsslcertificate-qsslsocketlocalcertificatechain-const)**() const |
+| QSslSocket::SslMode        | **[mode](#qsslsocketsslmode-qsslsocketmode-const)**() const  |
+| QVector\<QOcspResponse\>   | **[ocspResponses](#qvectorqocspresponse-qsslsocketocspresponses-const)**() const |
+| QSslCertificate            | **[peerCertificate](#qsslcertificate-qsslsocketpeercertificate-const)**() const |
+| QList\<QSslCertificate\>   | **[peerCertificateChain](#qlistqsslcertificate-qsslsocketpeercertificatechain-const)**() const |
+| int                        | **[peerVerifyDepth](#int-qsslsocketpeerverifydepth-const)**() const |
+| QSslSocket::PeerVerifyMode | **[peerVerifyMode](#qsslsocketpeerverifymode-qsslsocketpeerverifymode-const)**() const |
+| QString                    | **[peerVerifyName](#qstring-qsslsocketpeerverifyname-const)**() const |
+| QSslKey                    | **[privateKey](#qsslkey-qsslsocketprivatekey-const)**() const |
 | QSsl::SslProtocol          | **[protocol](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslsocket.html#protocol)**() const |
 | QSslCipher                 | **[sessionCipher](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslsocket.html#sessionCipher)**() const |
 | QSsl::SslProtocol          | **[sessionProtocol](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslsocket.html#sessionProtocol)**() const |
@@ -294,6 +294,10 @@ QSslSocket 类为客户端和服务端提供了一个 SSL 加密的套接字。
 
 
 ### [QSslKey](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslkey.html) **QSslSocket**::privateKey() const
+
+
+
+### [QSsl::SslProtocol](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qssl.html#SslProtocol-enum) **QSslSocket**::protocol() const
 
 
 
