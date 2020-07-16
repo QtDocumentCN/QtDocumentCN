@@ -4,7 +4,7 @@ Qt 提供了覆盖广泛领域的各类技术。以下话题关键功能领域�
 
 - [开发工具](../../D/Development_Tools/Development_Tools.md)
 - [用户界面](../../U/User_Interfaces/User_Interfaces.md)
-- [核心内部](../../C/Core_Internals/Core_Internals.md)
+- [核心内部构件](../../C/Core_Internals/Core_Internals.md)
 - [数据存储](../../D/Data_Storage/Data_Storage.md)
 - [多媒体](../../M/Multimedia/Multimedia.md)
 - [网络和连接](../../N/Networking_and_Connectivity/Networking_and_Connectivity.md)

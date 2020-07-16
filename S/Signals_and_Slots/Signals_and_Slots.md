@@ -258,4 +258,4 @@ Qt 中可以使用第三方的信号槽机制。您可以在项目中同时使�
 
 
 
-您也可以在 [QLCDNumber](../../L/QLCDNumber/QLCDNumber.md)、[QObject::connect()](../../O/QObject/QObject.md#connect)、[Digital Clock Example](../../D/Digital_Clock_Example/Digital_Clock_Example.md)、[Tetrix Example](../../T/Tetrix_Example/Tetrix_Example.md)、[Meta-Object_System](../../M/The_Meta-Object_System/The_Meta-Object_System.md)，以及 [Qt 属性系统](../../P/The_Property_System/The_Property_System.md) 中查阅其它相关内容。
+另请参阅： [QLCDNumber](../../L/QLCDNumber/QLCDNumber.md)、[QObject::connect()](../../O/QObject/QObject.md#connect)、[Digital Clock Example](../../D/Digital_Clock_Example/Digital_Clock_Example.md)、[Tetrix Example](../../T/Tetrix_Example/Tetrix_Example.md)、[Meta-Object_System](../../M/The_Meta-Object_System/The_Meta-Object_System.md)，以及 [Qt 属性系统](../../P/The_Property_System/The_Property_System.md)。
