@@ -22,13 +22,13 @@ QSsl 命名空间为所有的 SSL 类声明了通用的枚举类型。
 
 | 类型  | 属性                                                         |
 | ----- | ------------------------------------------------------------ |
-| enum  | **[AlternativeNameEntryType](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qssl.html#AlternativeNameEntryType-enum)** { EmailEntry, DnsEntry, IpAddressEntry } |
-| enum  | **[EncodingFormat](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qssl.html#EncodingFormat-enum)** { Pem, Der } |
-| enum  | **[KeyAlgorithm](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qssl.html#KeyAlgorithm-enum)** { Rsa, Dsa, Ec, Dh, Opaque } |
-| enum  | **[KeyType](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qssl.html#KeyType-enum)** { PrivateKey, PublicKey } |
-| enum  | **[SslOption](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qssl.html#SslOption-enum)** { SslOptionDisableEmptyFragments, SslOptionDisableSessionTickets, SslOptionDisableCompression, SslOptionDisableServerNameIndication, SslOptionDisableLegacyRenegotiation, …, SslOptionDisableServerCipherPreference } |
-| flags | **[SslOptions](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qssl.html#SslOption-enum)** |
-| enum  | **[SslProtocol](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qssl.html#SslProtocol-enum)** { SslV3, SslV2, TlsV1_0, TlsV1_0OrLater, TlsV1, …, SecureProtocols } |
+| enum  | **[AlternativeNameEntryType](#enum-qsslalternativenameentrytype)** { EmailEntry, DnsEntry, IpAddressEntry } |
+| enum  | **[EncodingFormat](#enum-qsslencodingformat)** { Pem, Der }  |
+| enum  | **[KeyAlgorithm](#enum-qsslkeyalgorithm)** { Rsa, Dsa, Ec, Dh, Opaque } |
+| enum  | **[KeyType](#enum-qsslkeytype)** { PrivateKey, PublicKey }   |
+| enum  | **[SslOption](h#enum-qsslssloption-flags-qsslssloptions)** { SslOptionDisableEmptyFragments, SslOptionDisableSessionTickets, SslOptionDisableCompression, SslOptionDisableServerNameIndication, SslOptionDisableLegacyRenegotiation, …, SslOptionDisableServerCipherPreference } |
+| flags | **[SslOptions](#enum-qsslssloption-flags-qsslssloptions)**   |
+| enum  | **[SslProtocol](#enum-qsslsslprotocol)** { SslV3, SslV2, TlsV1_0, TlsV1_0OrLater, TlsV1, …, SecureProtocols } |
 
 
 
@@ -42,103 +42,103 @@ QSsl 命名空间为所有的 SSL 类声明了通用的枚举类型。
 
 ### enum **QSsl**::AlternativeNameEntryType
 
-Describes the key types for alternative name entries in [QSslCertificate](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcertificate.html).
+描述 [QSslCertificate](../QSslCertificate/QSslCertificate.md) 中条目的可替代名称的键类型。
 
-| Constant             | Value | Description                                                  |
-| :------------------- | :---- | :----------------------------------------------------------- |
-| QSsl::EmailEntry     | 0     | An email entry; the entry contains an email address that the certificate is valid for. |
-| QSsl::DnsEntry       | 1     | A DNS host name entry; the entry contains a host name entry that the certificate is valid for. The entry may contain wildcards. |
-| QSsl::IpAddressEntry | 2     | An IP address entry; the entry contains an IP address entry that the certificate is valid for, introduced in Qt 5.13. |
+| 常量                 | 值   | 描述                                                         |
+| :------------------- | :--- | :----------------------------------------------------------- |
+| QSsl::EmailEntry     | 0    | 电子邮件条目。该条目中包含证书有效的电子邮件地址。           |
+| QSsl::DnsEntry       | 1    | DNS 主机名条目。 该条目包含证书有效的主机名条目。 该条目也可能包含通配符。 |
+| QSsl::IpAddressEntry | 2    | IP 地址条目。 该条目包含 Qt 5.13 中引入的证书有效的IP地址条目。 |
 
-**Note:** In Qt 4, this enum was called `AlternateNameEntryType`. That name is deprecated in Qt 5.
+**注意：** 在 Qt 4中，这个枚举被叫做 `AlternateNameEntryType`。 这个名称在 Qt 5 中已不被推荐使用。
 
-**See also** [QSslCertificate::subjectAlternativeNames](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcertificate.html#subjectAlternativeNames)().
+另外您也可以在 [QSslCertificate::subjectAlternativeNames](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcertificate.html#subjectAlternativeNames)() 函数介绍中找到相关信息。
 
 
 
 ### enum **QSsl**::EncodingFormat
 
-Describes supported encoding formats for certificates and keys.
+描述证书和密钥支持的编码类型。
 
-| Constant  | Value | Description     |
-| :-------- | :---- | :-------------- |
-| QSsl::Pem | 0     | The PEM format. |
-| QSsl::Der | 1     | The DER format. |
+| 常量      | 值   | 描述     |
+| :-------- | :--- | :------- |
+| QSsl::Pem | 0    | PEM 格式 |
+| QSsl::Der | 1    | DER 格式 |
 
 
 
 ### enum **QSsl**::KeyAlgorithm
 
-Describes the different key algorithms supported by [QSslKey](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslkey.html).
+描述了 [QSslKey](../QSslKey/QSslKey.md) 支持的不同的密钥加密算法。
 
-| Constant     | Value | Description                                                  |
-| :----------- | :---- | :----------------------------------------------------------- |
-| QSsl::Rsa    | 1     | The RSA algorithm.                                           |
-| QSsl::Dsa    | 2     | The DSA algorithm.                                           |
-| QSsl::Ec     | 3     | The Elliptic Curve algorithm.                                |
-| QSsl::Dh     | 4     | The Diffie-Hellman algorithm.                                |
-| QSsl::Opaque | 0     | A key that should be treated as a 'black box' by [QSslKey](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslkey.html). |
+| 常量         | 值   | 描述                                                   |
+| :----------- | :--- | :----------------------------------------------------- |
+| QSsl::Rsa    | 1    | RSA 算法。                                             |
+| QSsl::Dsa    | 2    | DSA 算法。                                             |
+| QSsl::Ec     | 3    | 椭圆曲线算法。                                         |
+| QSsl::Dh     | 4    | Diffie-Hellman算法。                                   |
+| QSsl::Opaque | 0    | 密钥将被 [QSslKey](../QSslKey/QSslKey.md) 作为黑匣子。 |
 
-The opaque key facility allows applications to add support for facilities such as PKCS#11 that Qt does not currently offer natively.
+不透明的密钥功能（ QSsl::Opaque ）允许应用程序添加对 Qt 当前不提供的功能（例如 PKCS＃11 ）的支持。
 
 
 
 ### enum **QSsl**::KeyType
 
-Describes the two types of keys [QSslKey](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslkey.html) supports.
+描述了 [QSslKey](../QSslKey/QSslKey.md) 支持的两种密钥类型。
 
-| Constant         | Value | Description    |
-| :--------------- | :---- | :------------- |
-| QSsl::PrivateKey | 0     | A private key. |
-| QSsl::PublicKey  | 1     | A public key.  |
+| 常量             | 值   | 描述 |
+| :--------------- | :--- | :--- |
+| QSsl::PrivateKey | 0    | 私钥 |
+| QSsl::PublicKey  | 1    | 公钥 |
 
 
 
 ### enum **QSsl**::SslOption flags **QSsl**::SslOptions
 
-Describes the options that can be used to control the details of SSL behaviour. These options are generally used to turn features off to work around buggy servers.
+描述可用于控制 SSL 详细行为的选项。 这些选项通常用于关闭功能以解决有问题的服务器。
 
-| Constant                                     | Value | Description                                                  |
-| :------------------------------------------- | :---- | :----------------------------------------------------------- |
-| QSsl::SslOptionDisableEmptyFragments         | 0x01  | Disables the insertion of empty fragments into the data when using block ciphers. When enabled, this prevents some attacks (such as the BEAST attack), however it is incompatible with some servers. |
-| QSsl::SslOptionDisableSessionTickets         | 0x02  | Disables the SSL session ticket extension. This can cause slower connection setup, however some servers are not compatible with the extension. |
-| QSsl::SslOptionDisableCompression            | 0x04  | Disables the SSL compression extension. When enabled, this allows the data being passed over SSL to be compressed, however some servers are not compatible with this extension. |
-| QSsl::SslOptionDisableServerNameIndication   | 0x08  | Disables the SSL server name indication extension. When enabled, this tells the server the virtual host being accessed allowing it to respond with the correct certificate. |
-| QSsl::SslOptionDisableLegacyRenegotiation    | 0x10  | Disables the older insecure mechanism for renegotiating the connection parameters. When enabled, this option can allow connections for legacy servers, but it introduces the possibility that an attacker could inject plaintext into the SSL session. |
-| QSsl::SslOptionDisableSessionSharing         | 0x20  | Disables SSL session sharing via the session ID handshake attribute. |
-| QSsl::SslOptionDisableSessionPersistence     | 0x40  | Disables storing the SSL session in ASN.1 format as returned by [QSslConfiguration::sessionTicket](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslconfiguration.html#sessionTicket)(). Enabling this feature adds memory overhead of approximately 1K per used session ticket. |
-| QSsl::SslOptionDisableServerCipherPreference | 0x80  | Disables selecting the cipher chosen based on the servers preferences rather than the order ciphers were sent by the client. This option is only relevant to server sockets, and is only honored by the OpenSSL backend. |
+| 常量                                         | 值   | 描述                                                         |
+| :------------------------------------------- | :--- | :----------------------------------------------------------- |
+| QSsl::SslOptionDisableEmptyFragments         | 0x01 | 使用分组密码时，禁止将空片段插入数据中。 启用该选项后，这可以防止某些攻击（例如 BEAST 攻击），但是与某些服务器不兼容。 |
+| QSsl::SslOptionDisableSessionTickets         | 0x02 | 禁用 SSL 会话票证扩展。 这可能会导致连接设置变慢，但是某些服务器不兼容该扩展。 |
+| QSsl::SslOptionDisableCompression            | 0x04 | 禁用 SSL 压缩扩展。 启用该功能后，这将允许压缩通过 SSL 传递的数据，但是某些服务器与此扩展不兼容。 |
+| QSsl::SslOptionDisableServerNameIndication   | 0x08 | 禁用SSL服务器名称指示扩展名。 启用后，它会告知服务器正在访问的虚拟主机，从而使其可以使用正确的证书进行响应。 |
+| QSsl::SslOptionDisableLegacyRenegotiation    | 0x10 | 禁用用于重新协商连接参数的较旧的不安全机制。 启用后，此选项可以允许旧服务器连接，但是它带来了攻击者可能将纯文本注入 SSL 会话的可能性。 |
+| QSsl::SslOptionDisableSessionSharing         | 0x20 | 通过会话 ID 握手属性禁用 SSL 会话共享。                      |
+| QSsl::SslOptionDisableSessionPersistence     | 0x40 | 禁用以 [QSslConfiguration::sessionTicket](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslconfiguration.html#sessionTicket)() 返回的 ASN.1 格式存储 SSL 会话。 启用此功能会为每个使用的会话票证增加大约1K的内存开销。 |
+| QSsl::SslOptionDisableServerCipherPreference | 0x80 | 禁用基于服务器首选项而非客户端发送的顺序密码来选择所选密码的功能。 此选项仅与服务器套接字相关，并且仅由 OpenSSL 后端使用。 |
 
-By default, SslOptionDisableEmptyFragments is turned on since this causes problems with a large number of servers. SslOptionDisableLegacyRenegotiation is also turned on, since it introduces a security risk. SslOptionDisableCompression is turned on to prevent the attack publicised by CRIME. SslOptionDisableSessionPersistence is turned on to optimize memory usage. The other options are turned off.
+默认情况下，SslOptionDisableEmptyFragments 选项处于启用状态，因为这会导致大量服务器出现问题。 SslOptionDisableLegacyRenegotiation 选项也处于启用状态，因为它带来了安全风险。 启用 SslOptionDisableCompression 可以防止 CRIME 公开攻击。  SslOptionDisableSessionPersistence 也处于启用状态以优化内存使用。 其他选项处于关闭状态。
 
-**Note:** Availability of above options depends on the version of the SSL backend in use.
+**注意：**以上选项的可用性取决于所使用的 SSL 后端的版本。
 
-The SslOptions type is a typedef for [QFlags](qthelp://org.qt-project.qtnetwork.5150/qtcore/qflags.html)<SslOption>. It stores an OR combination of SslOption values.
+SslOptions 类型是由 typedef [QFlags](qthelp://org.qt-project.qtnetwork.5150/qtcore/qflags.html)\<SslOption\>  定义的用户自定义类型。它储存着  SslOption 值的OR组合。
 
 
 
 ### enum **QSsl**::SslProtocol
 
-Describes the protocol of the cipher.
+描述密码的协议。
 
-| Constant              | Value           | Description                                                  |
+| 常量                  | 值              | 描述                                                         |
 | :-------------------- | :-------------- | :----------------------------------------------------------- |
-| QSsl::SslV3           | 0               | SSLv3; not supported by [QSslSocket](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslsocket.html). |
-| QSsl::SslV2           | 1               | SSLv2; not supported by [QSslSocket](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslsocket.html). |
-| QSsl::TlsV1_0         | 2               | TLSv1.0                                                      |
-| QSsl::TlsV1_0OrLater  | 8               | TLSv1.0 and later versions. This option is not available when using the WinRT backend due to platform limitations. |
-| QSsl::TlsV1           | TlsV1_0         | Obsolete, means the same as TlsV1_0                          |
-| QSsl::TlsV1_1         | 3               | TLSv1.1. When using the WinRT backend this option will also enable TLSv1.0. |
-| QSsl::TlsV1_1OrLater  | 9               | TLSv1.1 and later versions. This option is not available when using the WinRT backend due to platform limitations. |
-| QSsl::TlsV1_2         | 4               | TLSv1.2. When using the WinRT backend this option will also enable TLSv1.0 and TLSv1.1. |
-| QSsl::TlsV1_2OrLater  | 10              | TLSv1.2 and later versions. This option is not available when using the WinRT backend due to platform limitations. |
-| QSsl::DtlsV1_0        | 11              | DTLSv1.0                                                     |
-| QSsl::DtlsV1_0OrLater | 12              | DTLSv1.0 and later versions.                                 |
-| QSsl::DtlsV1_2        | 13              | DTLSv1.2                                                     |
-| QSsl::DtlsV1_2OrLater | 14              | DTLSv1.2 and later versions.                                 |
-| QSsl::TlsV1_3         | 15              | TLSv1.3. (Since Qt 5.12)                                     |
-| QSsl::TlsV1_3OrLater  | 16              | TLSv1.3 and later versions. (Since Qt 5.12)                  |
-| QSsl::UnknownProtocol | -1              | The cipher's protocol cannot be determined.                  |
-| QSsl::AnyProtocol     | 5               | Any supported protocol. This value is used by [QSslSocket](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslsocket.html) only. |
-| QSsl::TlsV1SslV3      | 6               | Same as TlsV1_0. This enumerator is deprecated, use TlsV1_0 instead. |
-| QSsl::SecureProtocols | AnyProtocol + 2 | The default option, using protocols known to be secure.      |
+| QSsl::SslV3           | 0               | SSLv3。不被 [QSslSocket](../QSslSocket/QSslSocket.md) 支持。 |
+| QSsl::SslV2           | 1               | SSLv2。不被 [QSslSocket](../QSslSocket/QSslSocket.md) 支持。 |
+| QSsl::TlsV1_0         | 2               | TLSv1.0。                                                    |
+| QSsl::TlsV1_0OrLater  | 8               | TLSv1.0 和之后的版本。由于平台限制，在使用 WinRT 后端时，此选项不可用。 |
+| QSsl::TlsV1           | TlsV1_0         | 已过时，与 TlsV1_0 意义相同。                                |
+| QSsl::TlsV1_1         | 3               | TLSv1.1。当使用WinRT 后端时，这个选项也会启用 TLSv1.0 选项。 |
+| QSsl::TlsV1_1OrLater  | 9               | TLSv1.1 和之后的版本。由于平台限制，在使用 WinRT 后端时，此选项不可用。 |
+| QSsl::TlsV1_2         | 4               | TLSv1.2。当使用WinRT 后端时，这个选项也会启用 TLSv1.0 和 TLSv1.1 选项。 |
+| QSsl::TlsV1_2OrLater  | 10              | TLSv1.2 和之后的版本。由于平台限制，在使用 WinRT 后端时，此选项不可用。 |
+| QSsl::DtlsV1_0        | 11              | DTLSv1.0。                                                   |
+| QSsl::DtlsV1_0OrLater | 12              | DTLSv1.0 和之后的版本。                                      |
+| QSsl::DtlsV1_2        | 13              | DTLSv1.2。                                                   |
+| QSsl::DtlsV1_2OrLater | 14              | DTLSv1.2 和之后的版本。                                      |
+| QSsl::TlsV1_3         | 15              | TLSv1.3。（在 Qt 5.12 版本引入）                             |
+| QSsl::TlsV1_3OrLater  | 16              | TLSv1.3 和之后的版本。（在 Qt 5.12 版本引入）                |
+| QSsl::UnknownProtocol | -1              | 不能甄别密码的协议。                                         |
+| QSsl::AnyProtocol     | 5               | 任何支持的协议。 该选项仅被 [QSslSocket](../QSslSocket/QSslSocket.md)  使用。 |
+| QSsl::TlsV1SslV3      | 6               | 与 TlsV1_0 相同。 该枚举成员已不被推荐使用，您应该使用 TlsV1_0 来替代。 |
+| QSsl::SecureProtocols | AnyProtocol + 2 | 默认选项，使用已知是安全的协议。                             |
