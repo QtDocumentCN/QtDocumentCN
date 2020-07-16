@@ -12,15 +12,15 @@
 
 | 类型                                  | 函数名                                                       |
 | ------------------------------------- | ------------------------------------------------------------ |
-| *(obsolete)* void                     | **[addCaCertificate](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslsocket-obsolete.html#addCaCertificate)**(const QSslCertificate &*certificate*) |
-| *(obsolete)* bool                     | **[addCaCertificates](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslsocket-obsolete.html#addCaCertificates)**(const QString &*path*, QSsl::EncodingFormat *format* = QSsl::Pem, QRegExp::PatternSyntax *syntax* = QRegExp::FixedString) |
-| *(obsolete)* void                     | **[addCaCertificates](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslsocket-obsolete.html#addCaCertificates-1)**(const QList<\QSslCertificate\> &*certificates*) |
-| *(obsolete)* QList\<QSslCertificate\> | **[caCertificates](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslsocket-obsolete.html#caCertificates)**() const |
-| *(obsolete)* QList\<QSslCipher\>      | **[ciphers](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslsocket-obsolete.html#ciphers)**() const |
-| *(obsolete)* void                     | **[setCaCertificates](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslsocket-obsolete.html#setCaCertificates)**(const QList\<QSslCertificate\> &*certificates*) |
-| *(obsolete)* void                     | **[setCiphers](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslsocket-obsolete.html#setCiphers)**(const QList\<QSslCipher\> &*ciphers*) |
-| *(obsolete)* void                     | **[setCiphers](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslsocket-obsolete.html#setCiphers-1)**(const QString &*ciphers*) |
-| *(obsolete)* QList\<QSslError\>       | **[sslErrors](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslsocket-obsolete.html#sslErrors)**() const |
+| *(obsolete)* void                     | **[addCaCertificate](#void-qsslsocketaddcacertificateconst-qsslcertificate-certificate)**(const QSslCertificate &*certificate*) |
+| *(obsolete)* bool                     | **[addCaCertificates](#bool-qsslsocketaddcacertificatesconst-qstring-path-qsslencodingformat-format--qsslpem-qregexppatternsyntax-syntax--qregexpfixedstring)**(const QString &*path*, QSsl::EncodingFormat *format* = QSsl::Pem, QRegExp::PatternSyntax *syntax* = QRegExp::FixedString) |
+| *(obsolete)* void                     | **[addCaCertificates](#void-qsslsocketaddcacertificatesconst-qlistqsslcertificate-certificates)**(const QList<\QSslCertificate\> &*certificates*) |
+| *(obsolete)* QList\<QSslCertificate\> | **[caCertificates](#qlistqsslcertificate-qsslsocketcacertificates-const)**() const |
+| *(obsolete)* QList\<QSslCipher\>      | **[ciphers](#qlistqsslcipher-qsslsocketciphers-const)**() const |
+| *(obsolete)* void                     | **[setCaCertificates](#void-qsslsocketsetcacertificatesconst-qlistqsslcertificate-certificates)**(const QList\<QSslCertificate\> &*certificates*) |
+| *(obsolete)* void                     | **[setCiphers](#void-qsslsocketsetciphersconst-qlistqsslcipher-ciphers)**(const QList\<QSslCipher\> &*ciphers*) |
+| *(obsolete)* void                     | **[setCiphers](#void-qsslsocketsetciphersconst-qstring-ciphers)**(const QString &*ciphers*) |
+| *(obsolete)* QList\<QSslError\>       | **[sslErrors](#qlistqsslerror-qsslsocketsslerrors-const)**() const |
 
 
 
@@ -28,15 +28,15 @@
 
 | 类型                                  | 函数名                                                       |
 | ------------------------------------- | ------------------------------------------------------------ |
-| *(obsolete)* void                     | **[addDefaultCaCertificate](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslsocket-obsolete.html#addDefaultCaCertificate)**(const QSslCertificate &*certificate*) |
-| *(obsolete)* bool                     | **[addDefaultCaCertificates](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslsocket-obsolete.html#addDefaultCaCertificates)**(const QString &*path*, QSsl::EncodingFormat *encoding* = QSsl::Pem, QRegExp::PatternSyntax *syntax* = QRegExp::FixedString) |
-| *(obsolete)* void                     | **[addDefaultCaCertificates](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslsocket-obsolete.html#addDefaultCaCertificates-1)**(const QList\<QSslCertificate\> &*certificates*) |
-| *(obsolete)* QList\<QSslCertificate\> | **[defaultCaCertificates](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslsocket-obsolete.html#defaultCaCertificates)**() |
-| *(obsolete)* QList\<QSslCipher\>      | **[defaultCiphers](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslsocket-obsolete.html#defaultCiphers)**() |
-| *(obsolete)* void                     | **[setDefaultCaCertificates](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslsocket-obsolete.html#setDefaultCaCertificates)**(const QList\<QSslCertificate\> &*certificates*) |
-| *(obsolete)* void                     | **[setDefaultCiphers](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslsocket-obsolete.html#setDefaultCiphers)**(const QList\<QSslCipher\> &*ciphers*) |
-| *(obsolete)* QList\<QSslCipher\>      | **[supportedCiphers](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslsocket-obsolete.html#supportedCiphers)**() |
-| *(obsolete)* QList\<QSslCertificate\> | **[systemCaCertificates](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslsocket-obsolete.html#systemCaCertificates)**() |
+| *(obsolete)* void                     | **[addDefaultCaCertificate](#static-void-qsslsocketadddefaultcacertificateconst-qsslcertificate-certificate)**(const QSslCertificate &*certificate*) |
+| *(obsolete)* bool                     | **[addDefaultCaCertificates](#static-bool-qsslsocketadddefaultcacertificatesconst-qstring-path-qsslencodingformat-encoding--qsslpem-qregexppatternsyntax-syntax--qregexpfixedstring)**(const QString &*path*, QSsl::EncodingFormat *encoding* = QSsl::Pem, QRegExp::PatternSyntax *syntax* = QRegExp::FixedString) |
+| *(obsolete)* void                     | **[addDefaultCaCertificates](#static-void-qsslsocketadddefaultcacertificatesconst-qlistqsslcertificate-certificates)**(const QList\<QSslCertificate\> &*certificates*) |
+| *(obsolete)* QList\<QSslCertificate\> | **[defaultCaCertificates](#static-qlistqsslcertificate-qsslsocketdefaultcacertificates)**() |
+| *(obsolete)* QList\<QSslCipher\>      | **[defaultCiphers](#static-qlistqsslcipher-qsslsocketdefaultciphers)**() |
+| *(obsolete)* void                     | **[setDefaultCaCertificates](#static-void-qsslsocketsetdefaultcacertificatesconst-qlistqsslcertificate-certificates)**(const QList\<QSslCertificate\> &*certificates*) |
+| *(obsolete)* void                     | **[setDefaultCiphers](#static-void-qsslsocketsetdefaultciphersconst-qlistqsslcipher-ciphers)**(const QList\<QSslCipher\> &*ciphers*) |
+| *(obsolete)* QList\<QSslCipher\>      | **[supportedCiphers](#static-qlistqsslcipher-qsslsocketsupportedciphers)**() |
+| *(obsolete)* QList\<QSslCertificate\> | **[systemCaCertificates](#static-qlistqsslcertificate-qsslsocketsystemcacertificates)**() |
 
 
 
