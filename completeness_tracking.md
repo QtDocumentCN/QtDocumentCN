@@ -39,3 +39,6 @@
 | [QCheckBox](C/QCheckBox/QCheckBox.md)                         | [leytou](https://github.com/leytou)           | 关闭     | 占位中，待填充，截止时间2020-07-31 |
 | [QComboBox](C/QComboBox/QComboBox.md)                         | [leytou](https://github.com/leytou)           | 关闭     | 占位中，待填充，截止时间2020-07-31 |
 | [QLabel](L/QLabel/QLabel.md)                                  | [leytou](https://github.com/leytou)           | 关闭     | 占位中，待填充，截止时间2020-07-31 |
+| [QDate](D/QDate/QDate.md)                                     | [顾晓](https://github.com/chenyanzz)          | 关闭     |  正在完善                             |
+| [QLibrary](L/QLibrary/QLibrary.md)                            | [顾晓](https://github.com/chenyanzz)          | 关闭     |  占位中，待填充，截止时间2020-08-16                            |
+| [QFile](F/QFile/QFile.md)                                     | [顾晓](https://github.com/chenyanzz)          | 关闭     |  占位中，待填充，截止时间2020-08-16                          |
