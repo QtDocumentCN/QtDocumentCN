@@ -396,3 +396,88 @@ int j = *i; // 未定义行为!
 
 上面的例子仅仅说明了QVector的问题，但实际上所有支持隐式共享的容器都存在该问题。
 
+# foreach 关键字
+
+
+如果仅仅是需要有序迭代容器中的每个元素，你可以使用 Qt 提供的关键字 `foreach`。这个关键字对 C++ 语言的一个特定于 Qt 的补充，其通过预处理器实现。
+
+使用的语法是：`foreach(变量，容器) 语句`。下面是一个使用`foreach`迭代QLinkedList<QString>的例子：
+
+``` cpp
+QLinkedList<QString> list;
+...
+QString str;
+foreach (str, list)
+    qDebug() << str;
+```
+
+和使用迭代器实现相同功能的代码相比，使用`foreach`的代码明显简洁很多。
+
+``` cpp
+QLinkedList<QString> list;
+...
+QLinkedListIterator<QString> i(list);
+while (i.hasNext())
+    qDebug() << i.next();
+```
+
+除了数据类型包含逗号（例如 QPair<int, int>）以外，用于迭代的变量可以在`foreach`语句中被定义：
+
+``` cpp
+QLinkedList<QString> list;
+...
+foreach (const QString &str, list)
+    qDebug() << str;
+```
+
+和其他 C++ 循环结构类似，你可以使用大括号将循环体包围，也可以使用`break`跳出循环。
+
+``` cpp
+QLinkedList<QString> list;
+...
+foreach (const QString &str, list) {
+    if (str.isEmpty())
+        break;
+    qDebug() << str;
+}
+```
+
+对于 QMap 和 QHash，`foreach` 会自动访问（键，值）对中的值，因此你不需要再调用容器的 values() 方法（这样可能会产生不必要的复制，见后续说明）。如果你想要同时迭代键和值，可以使用迭代器（会更快），或者也可以先获取所有的键，再通过它们获取对应的值：
+
+``` cpp
+QMap<QString, int> map;
+...
+foreach (const QString &str, map.keys())
+    qDebug() << str << ':' << map.value(str);
+```
+
+对于一个多值映射：
+
+``` cpp
+QMultiMap<QString, int> map;
+...
+foreach (const QString &str, map.uniqueKeys()) {
+    foreach (int i, map.values(str))
+        qDebug() << str << ':' << i;
+}
+```
+
+当进入一个`foreach`循环，Qt 会自动产生一个容器的副本。如果在迭代过程中修改了容器，并不会影响到这次循环。（如果没有修改容器，副本依然会占用空间，但由于隐式共享的缘故，复制一个容器是非常快的）。
+
+因为`foreach`会产生容器的副本，使用是个变量的非常量引用也是无法修改原容器的，它仅仅会影响副本，这可能不是你想要的。
+
+一个对 Qt 的`foreach`循环的替代方案是 C++ 11 或更新标准中引入的基于范围的`for`循环。然而，基于范围的`for`循环可能强行导致 Qt 容器脱离，但`foreach`不会。由于使用`foreach`总是会复制一份容器，对 STL 容器来说这通常会导致一定的开销。如果不知道用哪个，建议对 Qt 容器选择`foreach`，而对 STL 容器选择基于范围的`for`循环。
+
+除了`foreach`，Qt 还提供了一个`forever`伪关键字用于执行无限循环。
+
+``` cpp
+forever {
+    ...
+}
+```
+
+如果你担心命名空间污染，你可以在`.pro`文件中添加以下代码以禁用这些宏：
+
+```
+CONFIG += no_keywords
+```
