@@ -7,6 +7,7 @@
 | Marshall                          | 序列化           |
 | Member Function Documentation     | 成员函数文档     |
 | Member Type Documentation         | 成员类型文档     |
+| Obsolete                          | 过时的           |
 | Post                              | 投送             |
 | Protected Functions               | 保护成员函数     |
 | Public Functions                  | 公共成员函数     |
