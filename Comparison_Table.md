@@ -27,4 +27,5 @@
 | Signals                           | 信号             |
 | Slots                             | 槽               |
 | Static Public Member              | 静态公共成员     |
+| You                               | 您               |
 
