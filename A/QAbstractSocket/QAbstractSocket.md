@@ -146,10 +146,11 @@ QAbstractSocket 的 API 统一了这两种协议之间的大部分差异。 例�
 
 QAbstractSocket 提供了一组函数，这些函数可以挂起调用线程，直到发出某些信号为止。 这些函数可用于实现阻塞套接字：
 
-    * [waitForConnected()](#virtual-bool-qabstractsocketwaitforconnectedint-msecs--30000) 阻塞套接字直到一个新的连接建立
-   * [waitForReadyRead()](#override-virtual-bool-qabstractsocketwaitforreadyreadint-msecs--30000) 阻塞套接字直到有新的数据可以读取
-   * [waitForBytesWritten()](#override-virtual-bool-qabstractsocketwaitforbyteswrittenint-msecs--30000) 阻塞套接字直到一个有效的荷载数据写入到了套接字
-   * [waitForDisconnected()](#virtual-bool-qabstractsocketwaitfordisconnectedint-msecs--30000) 阻塞套接字直到连接已经关闭
+* [waitForConnected()](#virtual-bool-qabstractsocketwaitforconnectedint-msecs--30000) 阻塞套接字直到一个新的连接建立
+
+* [waitForReadyRead()](#override-virtual-bool-qabstractsocketwaitforreadyreadint-msecs--30000) 阻塞套接字直到有新的数据可以读取
+* [waitForBytesWritten()](#override-virtual-bool-qabstractsocketwaitforbyteswrittenint-msecs--30000) 阻塞套接字直到一个有效的荷载数据写入到了套接字
+* [waitForDisconnected()](#virtual-bool-qabstractsocketwaitfordisconnectedint-msecs--30000) 阻塞套接字直到连接已经关闭
 
 Qt官方提供了如下示例：
 
@@ -172,7 +173,7 @@ forever {
 
 使用阻塞套接字进行编程与使用非阻塞套接字进行编程完全不同。 阻塞套接字不需要有一个事件循环，这通常可以简化代码。 但是，在GUI应用程序中，阻塞套接字只能在非GUI线程中使用，以避免冻结用户界面。 有关这两种方法的概述，请参见 fortuneclien 和 blockingfortuneclient 示例。
 
-**注意：**Qt官方并不推荐将阻塞函数与信号一起使用。
+**注意：** Qt官方并不推荐将阻塞函数与信号一起使用。
 
 QAbstractSocket 可以与 [QTextStream](../../T/QTextStream/QTextStream.md) 和 [QDataStream](../../D/QDataStream/QDataStream.md) 的流运算符（operator<<() 和operator>>()）一起使用。 但是，有一个问题需要注意：在尝试使用operator>>() 读取数据之前，必须确保有足够的数据可用。
 
