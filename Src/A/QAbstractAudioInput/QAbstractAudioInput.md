@@ -20,7 +20,7 @@
 
 | 类型| 方法|
 | ------: |:------|
-|virtual int|    [bufferSize()](int-QAbstractAudioInputbufferSize-const-纯虚函数) const = 0|
+|virtual int|    [bufferSize()](int-qabstractaudioinputbuffersize-const-纯虚函数) const = 0|
 |virtual int|    bytesReady() const = 0|
 |virtual qint64|    elapsedUSecs() const = 0|
 |virtual QAudio::Error|    error() const = 0|
