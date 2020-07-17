@@ -83,7 +83,7 @@
 
 创建一个新抽象套接字 *socketType*。 函数中父对象的参数传递给 [QObject](../../O/QObject/QObject.md) 的构造函数。
 
-**敬请查阅：** [socketType()](#qabstractsocketsockettype-qabstractsocketsockettype-const)、[QTcpSocket](../../T/QTcpSocket/QTcpSocket.md) 和 [QUdpSocket](../../U/QUdpSocket/QUdpSocket.md)。
+**敬请参阅：** [socketType()](#qabstractsocketsockettype-qabstractsocketsockettype-const)、[QTcpSocket](../../T/QTcpSocket/QTcpSocket.md) 和 [QUdpSocket](../../U/QUdpSocket/QUdpSocket.md)。
 
 ----
 
@@ -95,5 +95,5 @@
 
 **警告：** 这里填警告事项。
 
-**敬请查阅：**xxx、yyy 和 zzz。
+**敬请参阅：**xxx、yyy 和 zzz。
 
