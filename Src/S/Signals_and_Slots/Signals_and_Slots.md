@@ -4,7 +4,7 @@
 
 ## 介绍
 
-在 GUI 编程中，当我们修改某个控件后，我们通常希望另一个控件可以收到通知。更普遍地，我们希望任何类型的对象都可以和另一个对象进行通信。例如，如果用户点击了**关闭**按钮，我们可能希望该窗口的 [close()](../../W/QWidget/QWidget.md#close) 函数被调用。
+在 GUI 编程中，当我们修改某个控件后，我们通常希望另一个控件可以收到通知。更普遍地，我们希望任何类型的对象都可以和另一个对象进行通信。例如，如果用户点击了**关闭**按钮，我们可能希望该窗口的 [close](../../W/QWidget/QWidget.md#close)() 函数被调用。
 
 其它开发工具中，使用回调来实现此类通信。回调是指函数指针——当您希望某个处理函数通知您某些事件时，通过传递一个函数指针（即回调）至该处理函数来实现，处理函数会在适合的时机调用这个回调。尽管许多优秀的框架的确在使用此方法，但回调依然是一种非常不直观的手段，而且可能会遭遇回调参数类型正确性校验等方面的问题。
 
@@ -14,7 +14,7 @@
 
 ![Signals & Slots](Signals_and_Slots.drawio.svg)
 
-信号槽机制是**类型安全**的：信号的函数签名必须与接收它的槽函数签名一致（事实上，槽可以具有比它接收的信号更短的签名，因为允许忽略尾部的额外参数）。鉴于函数签名需要兼容，当我们使用函数指针格式的 [connect()](../../O/QObject/QObject.md#connect) 时，编译器可以帮助我们识别它们的参数类型中的不匹配。信号槽之间是松耦合关系：发射信号的类无需知晓也无需关心是哪个槽接收了这个信号。Qt 的信号槽机制确保了，如果将一个信号连接至一个槽，则槽会在正确的时机被调用，并传入信号所携带的参数。信号槽可以携带任意类型、任意个数的参数，它们是完全类型安全的。
+信号槽机制是**类型安全**的：信号的函数签名必须与接收它的槽函数签名一致（事实上，槽可以具有比它接收的信号更短的签名，因为允许忽略尾部的额外参数）。鉴于函数签名需要兼容，当我们使用函数指针格式的 [connect](../../O/QObject/QObject.md#connect)() 时，编译器可以帮助我们识别它们的参数类型中的不匹配。信号槽之间是松耦合关系：发射信号的类无需知晓也无需关心是哪个槽接收了这个信号。Qt 的信号槽机制确保了，如果将一个信号连接至一个槽，则槽会在正确的时机被调用，并传入信号所携带的参数。信号槽可以携带任意类型、任意个数的参数，它们是完全类型安全的。
 
 所有继承自 [QObject](../../O/QObject/QObject.md) 或它的任意子类型（如 [QWidget](../../W/QWidget/QWidget.md)）的类都可以包含信号槽。对象在修改了可能会被其它对象感兴趣的状态时，会发射信号，但并不需要知晓或关心是否有人接收了这个信号。这是真正的信息封装，确保了该对象可以被当作软件中的一个组件所使用。
 
@@ -34,7 +34,7 @@
 
 信号会通过 [moc](../../M/Using_the_Meta-Object_Compiler_moc/Using_the_Meta-Object_Compiler_moc.md) 自动生成定义，不能在`.cpp`中手动编写定义。信号不具备返回类型（即`void`）。（译者注：事实上，非队列连接的信号可以具有返回类型，返回类型与槽返回类型相同，也可用 [QVariant](../../V/QVariant/QVariant.md) 接收任意类型返回，但此机制不保证会被后续版本继续支持。Qt 在`qobjectdefs_impl.h`中，通过`operator,`和`ApplyReturnValue`实现此机制，有兴趣的读者可自行查阅。）
 
-关于函数参数：我们的经验是，若信号槽参数不使用特殊类型，则可以具备更广的泛用性。如果 [QScrollBar::valueChanged()](../../S/QScrollBar/QScrollBar.md#valueChanged) 中使用了特殊类型，假设命名为`QScrollBar::Range`，则它只能被连接至专门为 [QScrollBar](../../S/QScrollBar/QScrollBar.md) 设计的槽函数上，而将不同的输入控件互相连接则是不可能的。
+关于函数参数：我们的经验是，若信号槽参数不使用特殊类型，则可以具备更广的泛用性。如果 [QScrollBar::valueChanged](../../S/QScrollBar/QScrollBar.md#valueChanged)() 中使用了特殊类型，假设命名为`QScrollBar::Range`，则它只能被连接至专门为 [QScrollBar](../../S/QScrollBar/QScrollBar.md) 设计的槽函数上，而将不同的输入控件互相连接则是不可能的。
 
 ## 槽
 
@@ -110,7 +110,7 @@
 
 `emit`一行从该对象发射`valueChanged()`信号，并携带新的值作为参数。
 
-在下方代码片段中，我们创建了两个`Counter`对象，使用 [QObject::connect()](../../O/QObject/QObject.md#connect) 将第一个对象的`valueChanged()`信号连接至第二个对象的`setValue()`槽。
+在下方代码片段中，我们创建了两个`Counter`对象，使用 [QObject::connect](../../O/QObject/QObject.md#connect)() 将第一个对象的`valueChanged()`信号连接至第二个对象的`setValue()`槽。
 
 ```c++
      Counter a, b;
@@ -125,9 +125,9 @@
 
 注意，`setValue()`函数当且仅当`value != m_value`时才会修改数值并发射信号。这样避免了环形连接（如`b.valueChanged()`又被连接回`a.setValue()`时）时的无限循环。
 
-默认下，每有一个连接，信号会被发射一次；若创建了两个连接，则信号会被发射两次。您可以使用一次 [disconnect()](../../O/QObject/QObject.md#disconnect) 来断开所有连接。如果在连接时传递了 [Qt::UniqueConnection](../../N/Qt_Namespace/Qt_Namespace.md#enum_QtConnectionType)  类型，则连接只会被创建一次而非多次。如果已经有存在的重复连接（即对象的相同的信号，被连接至相同对象的相同的槽），则新连接会失败并返回`false`。
+默认下，每有一个连接，信号会被发射一次；若创建了两个连接，则信号会被发射两次。您可以使用一次 [disconnect](../../O/QObject/QObject.md#disconnect)() 来断开所有连接。如果在连接时传递了 [Qt::UniqueConnection](../../N/Qt_Namespace/Qt_Namespace.md#enum_QtConnectionType)  类型，则连接只会被创建一次而非多次。如果已经有存在的重复连接（即对象的相同的信号，被连接至相同对象的相同的槽），则新连接会失败并返回`false`。
 
-本范例说明了，对象之间无需了解对彼此的任何信息，便可共同协作。为实现此目的，对象们只需要通过一些简单的 [connect()](../../O/QObject/QObject.md#connect) 调用连接至彼此，或通过 [uic](../../U/User_Interface_Compiler_uic/User_Interface_Compiler_uic.md) 的[自动连接](../../U/Using_a_Designer_UI_File_in_Your_Application/Using_a_Designer_UI_File_in_Your_Application.md#自动连接)特性完成。
+本范例说明了，对象之间无需了解对彼此的任何信息，便可共同协作。为实现此目的，对象们只需要通过一些简单的 [connect](../../O/QObject/QObject.md#connect)() 调用连接至彼此，或通过 [uic](../../U/User_Interface_Compiler_uic/User_Interface_Compiler_uic.md) 的[自动连接](../../U/Using_a_Designer_UI_File_in_Your_Application/Using_a_Designer_UI_File_in_Your_Application.md#自动连接)特性完成。
 
 ## 真实范例
 
@@ -179,31 +179,31 @@
 
 槽是指接收信号的函数，用于获取其它控件状态改变的信息。如上述代码所示，`LcdNumber`使用槽来设置被显示的数字。由于`display()`同时也是该类在程序中的接口之一，这个槽是公共(`public`)的。
 
-范例程序将 [QScrollBar](../../S/QScrollBar/QScrollBar.md) 的`valueChanged()`信号连接至此处的`display()`槽，于是 LCD 数字会持续显示为滚动条的数值。
+范例程序将 [QScrollBar](../../S/QScrollBar/QScrollBar.md) 的 [valueChanged](../../A/QAbstractSlider/QAbstractSlider.md#valueChanged)() 信号连接至此处的`display()`槽，于是 LCD 数字会持续显示为滚动条的数值。
 
 注意，`display()`函数被重载；当连接信号至这个槽时，Qt 会选取适合的版本。在回调时，您需要自行查询多个不同的名称并跟踪它们的类型。
 
 ## 信号槽与默认参数
 
-信号槽可以包含默认参数，即具有默认值的参数。如 [QObject::destroyed()](../../O/QObject/QObject.md#destroyed)：
+信号槽可以包含默认参数，即具有默认值的参数。如 [QObject::destroyed](../../O/QObject/QObject.md#destroyed)()：
 
 ```c++
  void destroyed(QObject* = nullptr);
 ```
 
-当一个 [QObject](../../O/QObject/QObject.md) 对象被删除时，它会发射 [QObject::destroyed()](../../O/QObject/QObject.md#destroyed) 信号。我们可以捕获此信号，此时我们可能仍持有被删除的 [QObject](../../O/QObject/QObject.md) 对象的悬空引用，则可以将其清理掉。一个对应的槽函数签名可能为：
+当一个 [QObject](../../O/QObject/QObject.md) 对象被删除时，它会发射 [QObject::destroyed](../../O/QObject/QObject.md#destroyed)() 信号。我们可以捕获此信号，此时我们可能仍持有被删除的 [QObject](../../O/QObject/QObject.md) 对象的悬空引用，则可以将其清理掉。一个对应的槽函数签名可能为：
 
 ```c++
  void objectDestroyed(QObject* obj = nullptr);
 ```
 
-为了将该信号连接至此槽，我们使用 [QObject::connect()](../../O/QObject/QObject.md#connect)。有多种方式可以连接信号槽，首先是使用函数指针：
+为了将该信号连接至此槽，我们使用 [QObject::connect](../../O/QObject/QObject.md#connect)()。有多种方式可以连接信号槽，首先是使用函数指针：
 
 ```c++
  connect(sender, &QObject::destroyed, this, &MyObject::objectDestroyed);
 ```
 
-使用函数指针来执行 [QObject::connect()](../../O/QObject/QObject.md#connect) 有诸多优点。首先，这允许编译器检查信号的参数是否与槽的参数相匹配；同时，如果有必要，编译器可以对参数进行隐式转换（译者注：如将信号的`int`参数转换为槽的`double`参数）。
+使用函数指针来执行 [QObject::connect](../../O/QObject/QObject.md#connect)() 有诸多优点。首先，这允许编译器检查信号的参数是否与槽的参数相匹配；同时，如果有必要，编译器可以对参数进行隐式转换（译者注：如将信号的`int`参数转换为槽的`double`参数）。
 
 您也可以使用仿函数(`functor`)或 C++11 的匿名函数(`lambda`)：
 
@@ -215,7 +215,7 @@
 
 仿函数/匿名函数可以在发送者或上下文对象被销毁时断开连接。您需要注意确保仿函数/匿名函数中用到的所有对象，在信号发射时保持可用。
 
-另一种连接信号槽的方法，是通过`SIGNAL`和`SLOT`宏使用 [QObject::connect()](../../O/QObject/QObject.md#connect)。若参数列表中包含默认值，则`SIGNAL()`和`SLOT()`中是否包含该参数的规则是，传递给`SIGNAL()`宏的参数列表必须**不少于**传递给`SLOT()`宏的参数列表。
+另一种连接信号槽的方法，是通过`SIGNAL`和`SLOT`宏使用 [QObject::connect](../../O/QObject/QObject.md#connect)()。若参数列表中包含默认值，则`SIGNAL()`和`SLOT()`中是否包含该参数的规则是，传递给`SIGNAL()`宏的参数列表必须**不少于**传递给`SLOT()`宏的参数列表。
 
 以下方式都可以生效：
 
@@ -233,11 +233,11 @@
 
 ——因为槽希望获得一个 [QObject](../../O/QObject/QObject.md) 对象，但信号并不会发送它。这个连接会在运行时汇报一条错误信息。
 
-注意，使用这个 [QObject::connect()](../../O/QObject/QObject.md#connect) 重载时，信号和槽的参数并不会被编译器进行检查。（译者注：即使用`SIGNAL()`/`SLOT()`的连接方式）
+注意，使用这个 [QObject::connect](../../O/QObject/QObject.md#connect)() 重载时，信号和槽的参数并不会被编译器进行检查。（译者注：即使用`SIGNAL()`/`SLOT()`的连接方式）
 
 ## 信号槽的进阶应用
 
-对于想要获取信号发送方信息的的场景，Qt 提供了 [QObject::sender()](../../O/QObject/QObject.md#sender) 函数，该函数返回发送信号的对象的指针。
+对于想要获取信号发送方信息的的场景，Qt 提供了 [QObject::sender](../../O/QObject/QObject.md#sender)() 函数，该函数返回发送信号的对象的指针。
 
 匿名表达式(`lambda`)可以用更简单的方法来将自定义参数传递至槽（译者注：使用捕获列表）：
 
@@ -258,4 +258,4 @@ Qt 中可以使用第三方的信号槽机制。您可以在项目中同时使�
 
 
 
-另请参阅： [QLCDNumber](../../L/QLCDNumber/QLCDNumber.md)、[QObject::connect()](../../O/QObject/QObject.md#connect)、[Digital Clock Example](../../D/Digital_Clock_Example/Digital_Clock_Example.md)、[Tetrix Example](../../T/Tetrix_Example/Tetrix_Example.md)、[Meta-Object_System](../../M/The_Meta-Object_System/The_Meta-Object_System.md)，以及 [Qt 属性系统](../../P/The_Property_System/The_Property_System.md)。
+**另请参阅：** [QLCDNumber](../../L/QLCDNumber/QLCDNumber.md)、[QObject::connect](../../O/QObject/QObject.md#connect)()、[Digital Clock Example](../../D/Digital_Clock_Example/Digital_Clock_Example.md)、[Tetrix Example](../../T/Tetrix_Example/Tetrix_Example.md)、[Meta-Object_System](../../M/The_Meta-Object_System/The_Meta-Object_System.md)，以及 [Qt 属性系统](../../P/The_Property_System/The_Property_System.md)。
