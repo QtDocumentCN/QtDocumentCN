@@ -490,3 +490,39 @@ QCache<Key, T> 提供了一个缓存，用于保存与键类型Key相关联的�
 QContiguousCache<T>提供了一个高效的方式用于缓存那些通常以连续的方式访问的数据。
 QPair<T1, T2> 保存了一对元素。
 其他基于 Qt 的模板容器实现的非模板类型有QBitArray, QByteArray, QString 和 QStringList。
+
+
+# 算法复杂度
+
+算法复杂度关注的是当容器中元素数量增加时，每个函数有多快（或者说多慢）。例如，无论QLinkedList中的元素数量有多少，在其中间插入一个元素是一个极快的操作，然而在一个具有非常多的元素的QVector中间插入一个元素可能会非常慢，因为半数的元素需要在内存中移动一个位置。
+
+为了描述算法复杂度，我们使用以下基于“大O”符号的术语：
+
+- 常量时间：O(1)。函数有常量时间复杂度表示无论容器中有多少元素，执行该函数的时间都是相等的。一个例子是QLinkedList::insert()；
+- 对数时间：O(log n)。函数有对数时间复杂度表示该函数的运行时间和容器中元素个数的对数成正比。一个例子是二分查找算法。
+- 线性时间：O(n)。函数有线性时间复杂度表示该函数的运行时间和容器中元素的个数成正比。一个例子是 QVector::insert()。
+- 线性对数时间：O(n log n)。线性对数时间复杂度的函数要比线性复杂度的函数慢，且随着数量的增加差距会越来越大，但依然比平方时间的函数快。
+- 平方时间：O(n²)。函数有平方时间复杂度表示该函数的运行时间和容器中元素的个数的平方成正比。
+
+
+下表总结了 Qt 线性容器类的算法复杂度。
+
+|线性查找|插入|头部追加|尾部追加|
+|---|---|---|---|
+|QLinkedList<T>|O(n)|O(1)|O(1)|O(1)|
+|QList<T>|O(1)|O(n)|Amort. O(1)|Amort. O(1)|
+|QVector<T>|O(1)|O(n)|O(n)|Amort. O(1)|
+
+表中的“Amort. ”表示“均摊行为”。例如，“Amort. O(1)”表示如果仅调用一次该方法，你可能耗费O(n)的时间，但如果多次调用（假设调用 n 次），平均下来复杂度将会是 O(1)。
+
+下表总结了 Qt 关联容器的算法复杂度。
+
+||Key lookup||Insertion||
+|---|---|---|---|---|
+||Average|Worst case|Average|Worst case
+|QMap<Key, T>|O(log n)|O(log n)|O(log n)|O(log n)|
+|QMultiMap<Key, T>|O(log n)|O(log n)|O(log n)|O(log n)|
+|QHash<Key, T>|Amort. O(1)|O(n)|Amort. O(1)|O(n)|
+|QSet<Key>|Amort. O(1)|O(n)|Amort. O(1)|O(n)|
+
+对于 QVector，QHash和QSet，在尾部追加元素的时间复杂度均摊下来是O(log n)。但如果在插入元素之前以计划插入的元素个数 n为参数调用QVector::reserve(), QHash::reserve() 或 QSet::reserve()，复杂度将会降低至 O(1) 。下一节将会针对该问题做更深入的讨论。
