@@ -14,7 +14,6 @@
 
 本项目所有的文档遵循协议 [CC BY-NC-ND 4.0](https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh)
 
-
 ---
 
 # 重要
@@ -22,7 +21,7 @@
 ## 参与编写与完成度追踪
 关于本项目的目录结构、文件管理、格式规范等，详见[贡献指南](CONTRIBUTING.md)。
 
-[完成度追踪表](completeness_tracking.md),用于追踪待完成或有待进一步维护的文档状态。
+[完成度追踪表](completeness_tracking.md)，用于追踪待完成或有待进一步维护的文档状态。
 
 ---
 
@@ -38,8 +37,9 @@
 
 项目初期有可能有很多不完善的地方，希望各位开发提出不合理的地方
 
+---
 
-## TODO
+# TODO
 
 - [x] 使用 mdbook 生成 GitHub Pages，作为实际发布页面。
 - [ ] 通过 Gitee 等平台建立国内镜像。
