@@ -79,11 +79,11 @@ QSqlDatabase 类 用于处理数据库的连接
 
 QSqlDatabase 类提供接口用于数据库的连接 。一个 QSqlDatabase 实例对象表示连接。
 这个连接提供  数据库 所需要的 驱动，这个驱动来自于  QSqlDriver。
-换而言之，你可以实现自己的数据库驱动，通过继承 QSqlDriver。查看 [如何实现自己的数据库驱动](https://doc.qt.io/qt-5/sql-driver.html#how-to-write-your-own-database-driver) 来获取更多的信息。
+换而言之，您可以实现自己的数据库驱动，通过继承 QSqlDriver。查看 [如何实现自己的数据库驱动](https://doc.qt.io/qt-5/sql-driver.html#how-to-write-your-own-database-driver) 来获取更多的信息。
 
 通过调用一个静态的 ` addDatabase() `函数，来创建一个连接（即：实例化一个QSqlDatabase类）,并且可以指定驱动或者驱动类型去使用（依赖于数据库的类型 ）和 一个连接的名称。
-一个连接是通过它自已的名称，而不是通过数据库的名称去连接的。对于一个数据库你可以有多个连接。`QSqlDatabase` 也支持默认连接，你可以不
-传递连接名参数给 `addDatabase()` 来创建 它。随后，这个默认连接假定你 在调用任何静态函数情况下，而不去指定连接名称。
+一个连接是通过它自已的名称，而不是通过数据库的名称去连接的。对于一个数据库您可以有多个连接。`QSqlDatabase` 也支持默认连接，您可以不
+传递连接名参数给 `addDatabase()` 来创建 它。随后，这个默认连接假定您 在调用任何静态函数情况下，而不去指定连接名称。
 下面的一段代码片段展示了 如何去创建 和打开一个默认连接，去连接 `PostgreSQL `数据库：
 ```cpp
 QSqlDatabase db = QSqlDatabase::addDatabase("QPSQL");
@@ -94,10 +94,10 @@ db.setPassword("J0a1m8");
 bool ok = db.open();
 ```
 
-当你创建  `QSqlDatabase` 对象后，你就可以通过 `setDatabaseName()`、`setUserName()`、`setPassword()`、`setHostName()`,`setPort()` 以及 `setConnectOptions()`来设置连接的相关的参数。最后，通过调用 `open()`函数来实现数据库的连接。这里，你只有通过调用 `open()` 函数 才能 连接到数据库。
+当您创建  `QSqlDatabase` 对象后，您就可以通过 `setDatabaseName()`、`setUserName()`、`setPassword()`、`setHostName()`,`setPort()` 以及 `setConnectOptions()`来设置连接的相关的参数。最后，通过调用 `open()`函数来实现数据库的连接。这里，您只有通过调用 `open()` 函数 才能 连接到数据库。
 
-经过上面一系列的操作，最终实现的是默认连接，因为你没有给`addDatabase()`函数 传递 一个叫 连接名 的参数。
-最终，你可以调用 `addDatabase()`并且没有传递参数（即：连接名）来实现默认连接：
+经过上面一系列的操作，最终实现的是默认连接，因为您没有给`addDatabase()`函数 传递 一个叫 连接名 的参数。
+最终，您可以调用 `addDatabase()`并且没有传递参数（即：连接名）来实现默认连接：
 ```CPP
 QSqlDatabase db = QSqlDatabase::database();
 ```
@@ -105,9 +105,9 @@ QSqlDatabase db = QSqlDatabase::database();
 使用 `cloneDatabase()`  在基于已存在数据库的连接 来 创建 独立的数据库的连接。
 
 警告：强烈建议不要将QSqlDatabase的拷贝作为类成员，因为这将阻止关闭时正确清理实例。
-如果需要访问已经存在QSqlDatabase，应该使用database()访问。如果你选择使用作为成员变量的QSqlDatabase，则需要在删除QCoreApplication实例之前删除它，否则可能会导致未定义的行为。
+如果需要访问已经存在QSqlDatabase，应该使用database()访问。如果您选择使用作为成员变量的QSqlDatabase，则需要在删除QCoreApplication实例之前删除它，否则可能会导致未定义的行为。
 
-如果你想创建多个数据库连接，可以调用 `addDatabase()`, 并且给一个独一无二的参数(即：连接名称)。使用 带有连接名的`database() ` 函数，来获取该连接。使用 带有连接名的`removeDatabase()` 函数，来删除 一个连接。如果尝试删除由其他`QSqlDatabase`对象引用的连接，`QSqlDatabase`将输出警告。可以使用`contains()`查看给定的连接名是否在连接列表中。
+如果您想创建多个数据库连接，可以调用 `addDatabase()`, 并且给一个独一无二的参数(即：连接名称)。使用 带有连接名的`database() ` 函数，来获取该连接。使用 带有连接名的`removeDatabase()` 函数，来删除 一个连接。如果尝试删除由其他`QSqlDatabase`对象引用的连接，`QSqlDatabase`将输出警告。可以使用`contains()`查看给定的连接名是否在连接列表中。
 
 | |一些实用的方法|
 |------:|:------|
@@ -128,14 +128,14 @@ QSqlDatabase db = QSqlDatabase::database();
 **注意：** 使用事务时，必须在创建查询之前启动事务。
 
 ### **成员函数文档**
-### QSqlDatabase::QSqlDatabase(QSqlDriver *driver)  `[受保护] `   
+### QSqlDatabase::QSqlDatabase(QSqlDriver *driver)  `[受保护] `
 ----------------------------------------------
 
 这是一个重载函数
 
 使用给定驱动程序来创建连接
 
-### QSqlDatabase::QSqlDatabase(const QString &type)  `[受保护] `   
+### QSqlDatabase::QSqlDatabase(const QString &type)  `[受保护] `
 -----------------------------------------------------
 
 这是一个重载函数
@@ -160,7 +160,7 @@ QSqlDatabase db = QSqlDatabase::database();
 
 请参阅 [SQL Database Drivers](https://doc.qt.io/qt-5/sql-driver.html), [registerSqlDriver()](https://doc.qt.io/qt-5/qsqldatabase.html#registerSqlDriver) 和 [drivers()](https://doc.qt.io/qt-5/qsqldatabase.html#drivers)。
 
-### QSqlDatabase::QSqlDatabase(const QSqlDatabase &other)   
+### QSqlDatabase::QSqlDatabase(const QSqlDatabase &other)
 -----------------------------------------
 创建一个其它的副本
 
@@ -179,7 +179,7 @@ QSqlDatabase db = QSqlDatabase::database();
 
 查阅 [close()](https://doc.qt.io/qt-5/qsqldatabase.html#close)。
 
-### QSqlDatabase QSqlDatabase::addDatabase(const QString &type, const QString &connectionName = QLatin1String(defaultConnection)) `[静态] `   
+### QSqlDatabase QSqlDatabase::addDatabase(const QString &type, const QString &connectionName = QLatin1String(defaultConnection)) `[静态] `
 ----------------------------
 
 使用驱动程序类型和连接名称，将数据库添加到数据库连接列表中。如果存在相同的连接名，那么这个连接将会被删除。
@@ -191,7 +191,7 @@ QSqlDatabase db = QSqlDatabase::database();
 如果我们没有指定连接名参数，那么应用程序就会返回默认连接。
 如果我们提供了连接名参数，那么可以使用`database(connectionName)` 函数来获取该连接。
 
-**警告：** 如果你指定了 相同的连接名参数，那么就会替换之前的那个相同的连接。如果你多次调用这个函数而不指定 `连接名参数`，则默认连接将被替换。
+**警告：** 如果您指定了 相同的连接名参数，那么就会替换之前的那个相同的连接。如果您多次调用这个函数而不指定 `连接名参数`，则默认连接将被替换。
 
 在使用连接之前，它必须经过初始化。比如：
 调用下面一些或者全部 [ setDatabaseName()](https://doc.qt.io/qt-5/qsqldatabase.html#setDatabaseName)、
@@ -204,9 +204,9 @@ QSqlDatabase db = QSqlDatabase::database();
 
 请查看 [database()](https://doc.qt.io/qt-5/qsqldatabase.html#database), [removeDatabase()](https://doc.qt.io/qt-5/qsqldatabase.html#removeDatabase) 以及 [线程和SQL 单元](https://doc.qt.io/qt-5/threads-modules.html#threads-and-the-sql-module)。
 
-### QSqlDatabase QSqlDatabase::addDatabase(QSqlDriver *driver, const QString &connectionName = QLatin1String(defaultConnection)) `[静态] `   
+### QSqlDatabase QSqlDatabase::addDatabase(QSqlDriver *driver, const QString &connectionName = QLatin1String(defaultConnection)) `[静态] `
 ----------------------------
-这个重载函数是非常有用的，当你想创建一个带有[驱动](https://doc.qt.io/qt-5/qsqldriver.html) 连接时，你可以实例化它。有可能你想拥有自己的数据库驱动，或者去实例化 Qt自带的驱动。如果你真的想这样做，我非常建议你把驱动的代码导入到你的应用程序中。例如，你可用自已的  QPSQL 驱动来创建一个 PostgreSQL 连接，像下面这样：
+这个重载函数是非常有用的，当您想创建一个带有[驱动](https://doc.qt.io/qt-5/qsqldriver.html) 连接时，您可以实例化它。有可能您想拥有自己的数据库驱动，或者去实例化 Qt自带的驱动。如果您真的想这样做，我非常建议您把驱动的代码导入到您的应用程序中。例如，您可用自已的  QPSQL 驱动来创建一个 PostgreSQL 连接，像下面这样：
 ```CPP
 PGconn *con = PQconnectdb("host=server user=bart password=simpson dbname=springfield");
 QPSQLDriver *drv = new QPSQLDriver(con);
@@ -214,11 +214,11 @@ QSqlDatabase db = QSqlDatabase::addDatabase(drv); // 产生成新的默认连接
 QSqlQuery query;
 query.exec("SELECT NAME, ID FROM STAFF");
 ```
-上面的代码用于设置一个 PostgreSQL 连接和实例化一个 QPSQLDriver 对象。接下来，`addDatabase()` 被调用产生一个已知的连接，以便于它可以使用 `Qt SQL` 相关的类。Qt假定你已经打开了数据库连接，当使用连接句柄（或一组句柄）实例化驱动程序时。
+上面的代码用于设置一个 PostgreSQL 连接和实例化一个 QPSQLDriver 对象。接下来，`addDatabase()` 被调用产生一个已知的连接，以便于它可以使用 `Qt SQL` 相关的类。Qt假定您已经打开了数据库连接，当使用连接句柄（或一组句柄）实例化驱动程序时。
 
-**注意：** 我们假设qtdir是安装Qt的目录。假定你的`PostgreSQL`头文件己经包含在搜索路径中，然后这里才能引用所需要的`PostgreSQL`客户端库和去实例化`QPSQLDriver`对象。
+**注意：** 我们假设qtdir是安装Qt的目录。假定您的`PostgreSQL`头文件己经包含在搜索路径中，然后这里才能引用所需要的`PostgreSQL`客户端库和去实例化`QPSQLDriver`对象。
 
-请记住，必须将数据库客户端库到你的程序里。确保客户端库在你的链接器的搜索路径中，并且像下面这样添加到你的 `.pro` 文件里：
+请记住，必须将数据库客户端库到您的程序里。确保客户端库在您的链接器的搜索路径中，并且像下面这样添加到您的 `.pro` 文件里：
 ```
 unix:LIBS += -lpq
 win32:LIBS += libpqdll.lib
@@ -241,13 +241,13 @@ win32:LIBS += libpqdll.lib
 
 **警告：** 添加一个存在连接名的连接时，这个新添加的连接将会替换另一个。
 **警告：** SQL框架拥有驱动程序的所有权。它不能被删除。可以使用[removeDatabase()](https://doc.qt.io/qt-5/qsqldatabase.html#removeDatabase)，去删除这个连接。
-**查阅**[drivers()](https://doc.qt.io/qt-5/qsqldatabase.html#drivers) 
+**查阅**[drivers()](https://doc.qt.io/qt-5/qsqldatabase.html#drivers)
 
-### QSqlDatabase QSqlDatabase::cloneDatabase(const QString &other, const QString &connectionName `[受保护] `   
+### QSqlDatabase QSqlDatabase::cloneDatabase(const QString &other, const QString &connectionName `[受保护] `
 -----------------------------------------------------
 克隆其他数据库连接并将其存储为`connectionName`。原始数据库中的所有设置，例如[databaseName()](https://doc.qt.io/qt-5/qsqldatabase.html#databaseName)、[hostName()](https://doc.qt.io/qt-5/qsqldatabase.html#hostName)等，都会被复制。如果其他数据库无效，则不执行任何操作。返回最新被创建的数据库连接。
 
-**注意：** 这个新的连接不能被打开。你必须调用 [open()](https://doc.qt.io/qt-5/qsqldatabase.html#open),才能使用这个新的连接。
+**注意：** 这个新的连接不能被打开。您必须调用 [open()](https://doc.qt.io/qt-5/qsqldatabase.html#open),才能使用这个新的连接。
 
 ## QSqlDatabase QSqlDatabase::cloneDatabase(const QString &other, const QString &connectionName) `[静态]`
 ------------------------------------
@@ -255,7 +255,7 @@ win32:LIBS += libpqdll.lib
 
 克隆其他数据库连接并将其存储为`connectionName`。原始数据库中的所有设置，例如[databaseName()](https://doc.qt.io/qt-5/qsqldatabase.html#databaseName)、[hostName()](https://doc.qt.io/qt-5/qsqldatabase.html#hostName)等，都会被复制。如果其他数据库无效，则不执行任何操作。返回最新被创建的数据库连接。
 
-**注意：** 这个新的连接不能被打开。你必须调用 [open()](https://doc.qt.io/qt-5/qsqldatabase.html#open),才能使用这个新的连接。
+**注意：** 这个新的连接不能被打开。您必须调用 [open()](https://doc.qt.io/qt-5/qsqldatabase.html#open),才能使用这个新的连接。
 
 当我们在另一个线程克隆这个数据库，这个重载是非常有用的。
 
@@ -303,4 +303,4 @@ qt5.13中引入了这个函数。
 
 **注意：** 这个函数是[线程安全](https://doc.qt.io/qt-5/threads-reentrancy.html)的。
 
-**查阅** [contains()]()，[database()]()， 和 [线程和SQL模块](https://doc.qt.io/qt-5/threads-modules.html#threads-and-the-sql-module) 
+**查阅** [contains()]()，[database()]()， 和 [线程和SQL模块](https://doc.qt.io/qt-5/threads-modules.html#threads-and-the-sql-module)

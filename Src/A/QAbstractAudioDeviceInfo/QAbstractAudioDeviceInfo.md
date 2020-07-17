@@ -39,7 +39,7 @@
 
 QAbstractAudioDeviceInfo是音频后端的基类。
 
-该类实现了QAudioDeviceInfo的音频功能，即QAudioDeviceInfo类中会保留一个QAbstractAudioDeviceInfo，并对其进行调用。关于QAbstractAudioDeviceInfo的实现的其它功能，你可以参考QAudioDeviceInfo的类与函数文档
+该类实现了QAudioDeviceInfo的音频功能，即QAudioDeviceInfo类中会保留一个QAbstractAudioDeviceInfo，并对其进行调用。关于QAbstractAudioDeviceInfo的实现的其它功能，您可以参考QAudioDeviceInfo的类与函数文档
 
 ----------
 

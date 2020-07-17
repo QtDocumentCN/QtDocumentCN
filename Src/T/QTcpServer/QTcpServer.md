@@ -215,7 +215,7 @@ QTcpServer 类提供了一个基于 TCP 协议的服务器。
 
 如果没有待处理的连接，该函数会返回 `nullptr` 。
 
-**注意：** 返回的 QTcpSocket 对象不能在其他线程中使用。如果您想在其他的线程中使用到达的连接，你需要重写 [incomingConnection](#virtual-protected-void-qtcpserverincomingconnectionqintptrsocketdescriptor)() 函数。
+**注意：** 返回的 QTcpSocket 对象不能在其他线程中使用。如果您想在其他的线程中使用到达的连接，您需要重写 [incomingConnection](#virtual-protected-void-qtcpserverincomingconnectionqintptrsocketdescriptor)() 函数。
 
 另外您也可以在 [hasPendingConnections](#virtual-bool-qtcpserverhaspendingconnections-const)() 函数介绍中找到相关信息。
 

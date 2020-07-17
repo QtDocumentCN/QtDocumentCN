@@ -125,7 +125,7 @@ QAbstractSocket 类是Qt中 Socket 通信类的基类，被 [QTcpSocket](../../T
 
 ## 详细介绍
 
-QAbstractSocket 类是 [QTcpSocket](../../T/QTcpSocket/QTcpSocket.md) 类和 QUdpSocket 类的基类，包含了这两个类所有的常规功能。你可以通过以下两种方法使用一个套接字( Socket )：
+QAbstractSocket 类是 [QTcpSocket](../../T/QTcpSocket/QTcpSocket.md) 类和 QUdpSocket 类的基类，包含了这两个类所有的常规功能。您可以通过以下两种方法使用一个套接字( Socket )：
 
 * 实例化一个 [QTcpSocket](../../T/QTcpSocket/QTcpSocket.md) 或者 QUdpSocket 对象
 * 声明一个自定义套接字描述符，实例化 QAbstractSocket ，然后调用 [setSocketDescriptor()](#virtual-bool-qabstractsocketsetsocketdescriptorqintptr-socketdescriptor-qabstractsocketsocketstate-socketstate--connectedstate-qiodeviceopenmode-openmode--readwrite) 函数包装该自定义套接字描述符。
@@ -947,7 +947,7 @@ readyRead() 信号发出后该函数返回值为 true，偶则返回 false （�
 
 **注意：** 在 Windows 上，此功能可能会随机性地失败。 如果您的软件将在 Windows 上运行，请考虑使用事件循环和 readyRead() 信号。
 
-另外您也可以在 [waitForBytesWritten()](#override-virtual-bool-qabstractsocketwaitforbyteswrittenint-msecs--30000)() 函数介绍中找到相关信息。    
+另外您也可以在 [waitForBytesWritten()](#override-virtual-bool-qabstractsocketwaitforbyteswrittenint-msecs--30000)() 函数介绍中找到相关信息。
 
 
 

@@ -46,7 +46,7 @@ UDP（用户数据报协议）是一种轻量级，不可靠，面向数据报�
 
 每次将数据报写入网络后，套接字都会发出 bytesWritten() 信号。 如果只想发送数据报，则不需要调用 [bind()](../../A/QAbstractSocket/QAbstractSocket.md#bool-qabstractsocketbindconst-qhostaddress-address-quint16-port--0-qabstractsocketbindmode-mode--defaultforplatform) 。
 
-每次有数据报到达时，套接字都会发出 readyRead() 信号。 在有新数据报到达时，成员函数 [hasPendingDatagrams()](#bool-qudpsockethaspendingdatagrams-const) 的返回值为真。您可以调用 [pendingDatagramSize()](#qint64-qudpsocketpendingdatagramsize-const) 获得第一个待处理的数据报的大小。 
+每次有数据报到达时，套接字都会发出 readyRead() 信号。 在有新数据报到达时，成员函数 [hasPendingDatagrams()](#bool-qudpsockethaspendingdatagrams-const) 的返回值为真。您可以调用 [pendingDatagramSize()](#qint64-qudpsocketpendingdatagramsize-const) 获得第一个待处理的数据报的大小。
 
 **注意：** 当您收到 readyRead() 信号时必须将到达的数据报读入，否则在接下来新的数据报到达后不会将发送 readyRead() 信号。
 
@@ -73,7 +73,7 @@ Qt官方示例如下：
 
 QUdpSocket 还支持 UDP 多播功能。您可以使用 [joinMulticastGroup()](#bool-qudpsocketjoinmulticastgroupconst-qhostaddress-groupaddress) 和 [LeaveMulticastGroup()](#bool-qudpsocketleavemulticastgroupconst-qhostaddress-groupaddress) 函数来控制组成员身份，并使用 [QAbstractSocket :: MulticastTtlOption](../../A/QAbstractSocket/QAbstractSocket.md#enum-qabstractsocketsocketoption) 和 [QAbstractSocket :: MulticastLoopbackOption](../../A/QAbstractSocket/QAbstractSocket.md#enum-qabstractsocketsocketoption) 来设置 TTL 和回送套接字选项。您也可以使用 [setMulticastInterface()](#void-qudpsocketsetmulticastinterfaceconst-qnetworkinterface-iface) 函数控制多播数据报的传出接口，并使用 [multicastInterface()](#qnetworkinterface-qudpsocketmulticastinterface-const) 函数来查询传出接口。
 
-使用 QUdpSocket 时，你可以使用 [connectToHost()](../../A/QAbstractSocket/QAbstractSocket.md#virtual-void-qabstractsocketconnecttohostconst-qstring-hostname-quint16-port-qiodeviceopenmode-openmode--readwrite-qabstractsocketnetworklayerprotocol-protocol--anyipprotocol) 函数建立一个虚拟连接到 UDP 服务器。虚拟连接建立后，您可以用 read() 和 write() 函数来交换数据报而不用指定每个数据报的接收者。
+使用 QUdpSocket 时，您可以使用 [connectToHost()](../../A/QAbstractSocket/QAbstractSocket.md#virtual-void-qabstractsocketconnecttohostconst-qstring-hostname-quint16-port-qiodeviceopenmode-openmode--readwrite-qabstractsocketnetworklayerprotocol-protocol--anyipprotocol) 函数建立一个虚拟连接到 UDP 服务器。虚拟连接建立后，您可以用 read() 和 write() 函数来交换数据报而不用指定每个数据报的接收者。
 
 Qt官方提供了如下几个在您的应用中使用 QUdpSocket 的示例： Broadcast Sender，Broadcast Receiver， Multicast Sender 和  Multicast Receiver。
 
@@ -111,7 +111,7 @@ Qt官方提供了如下几个在您的应用中使用 QUdpSocket 的示例： Br
 
 该函数会让套接字在操作系统选择的默认接口上加入由 *groupAddress* 指定的多播组。要加入多播组，套接字必须处于*已绑定* （ [*BoundState*](../../A/QAbstractSocket/QAbstractSocket.md#enum-qabstractsocketsocketstate) ）状态，否则将会出现错误。
 
-请注意如果你想加入一个 IPv4 组，您的套接字不能使用 IPv6 协议绑定到主机（使用 QHostAddress::Any 双重模式也不行）。您必须使用 QHostAddress::AnyIPv4。
+请注意如果您想加入一个 IPv4 组，您的套接字不能使用 IPv6 协议绑定到主机（使用 QHostAddress::Any 双重模式也不行）。您必须使用 QHostAddress::AnyIPv4。
 
 成功加入多播组后后函数返回 true ，否则返回 false 。
 
@@ -235,7 +235,7 @@ Qt官方提供了如下几个在您的应用中使用 QUdpSocket 的示例： Br
 
 操作成功则该函数返回发送的字节数，否则返回-1。
 
-​	**警告：** 在一个已连接的 UDP 套接字中调用该函数可能会产生错误并且不能发出任何包。如果你正在使用一个已连接的套接字，请调用 write() 函数发送数据报。
+​	**警告：** 在一个已连接的 UDP 套接字中调用该函数可能会产生错误并且不能发出任何包。如果您正在使用一个已连接的套接字，请调用 write() 函数发送数据报。
 
 该函数在最初在Qt5.8版本引入。
 
