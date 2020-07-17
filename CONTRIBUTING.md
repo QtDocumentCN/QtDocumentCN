@@ -53,14 +53,16 @@ git pull --rebase
 
 在对类成员或实现方法进行讲解时，我们决定采用 Qt 官方文档的命名方式。
 
-以成员函数标题为例： `[修饰符]+空格+函数类型+空格+函数名及参数+空格+const修饰符`
+以成员函数标题为例： `[修饰符] 返回类型 函数名(参数类型 参数名) const/volatile修饰符`。
+
+其中，`修饰符`、`函数名`加粗，`参数名`斜体。
 
 示例：
 
 ```markdown
 ### *[static]* int QString::compare(const QString &*s1*, const QString &*s2*, Qt::CaseSensitivity *cs* = Qt::CaseSensitive)
 ### *[virtual protected]* void QObject::childEvent(QChildEvent *\*event*)
-### *[override virtual]* qint64 QAbstractSocket::bytesAvailable() const
+### *[override virtual]* qint64 QAbstractSocket::bytesAvailable() **const**
 ```
 
 注：以上函数标题为了实现区分度，对修饰符和参数名增加了斜体效果。
