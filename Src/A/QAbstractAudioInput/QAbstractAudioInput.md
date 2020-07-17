@@ -21,12 +21,12 @@
 | 类型| 方法|
 | ------: |:------|
 |virtual int|    [bufferSize()](#int-qabstractaudioinputbuffersize-const-纯虚函数) const = 0|
-|virtual int|    bytesReady() const = 0|
-|virtual qint64|    elapsedUSecs() const = 0|
-|virtual QAudio::Error|    error() const = 0|
-|virtual QAudioFormat|    format() const = 0|
-|virtual int|    notifyInterval() const = 0|
-|virtual int|    periodSize() const = 0|
+|virtual int|    [bytesReady()](#int-qabstractaudioinputbytesReady-const-纯虚函数) const = 0|
+|virtual qint64|    [elapsedUSecs()](#qint64-qabstractaudioinputelapsedusecs-const-纯虚函数) const = 0|
+|virtual QAudio::Error|    [error()](#qaudioerror-qabstractaudioinputerror-const-纯虚函数) const = 0|
+|virtual QAudioFormat|    [format()](#qaudioformat-qabstractaudioinputformat-const-纯虚函数) const = 0|
+|virtual int|    [notifyInterval()](#int-qabstractaudioinputnotifyinterval-const-纯虚函数) const = 0|
+|virtual int|    [periodSize()](#int-qabstractaudioinputperiodsize-const-纯虚函数) const = 0|
 |virtual qint64|    processedUSecs() const = 0|
 |virtual void|    reset() = 0|
 |virtual void|    resume() = 0|
@@ -56,8 +56,12 @@
 ----------
 
 ## **详细描述**
-QAbstractAudioInput类为QAudioInput类提供了访问音频设备的方法。（通过插件的形式）
-QAudioDeviceInput类中保留了一个QAbstractAudioInput的实例，并且调用的函数与QAbstractAudioInput的一致（也就是说QAudioDeviceInput调用的函数实际上是QAbstractAudioInput的函数，就封装了一层相同函数名吧。可以自己看看源码。）。这意味着QAbstractAudioInput是实现音频功能的。有关功能的描述，可以参考QAudioInput类。
+`QAbstractAudioInput`类为QAudioInput类提供了访问音频设备的方法。（通过插件的形式）
+`QAudioDeviceInput`类中保留了一个`QAbstractAudioInput`的实例，并且调用的函数与`QAbstractAudioInput`的一致。
+
+> 译者注：也就是说QAudioDeviceInput调用的函数实际上是QAbstractAudioInput的函数，就封装了一层相同函数名吧。可以自己看看源码。）
+
+这意味着QAbstractAudioInput是实现音频功能的。有关功能的描述，可以参考QAudioInput类。
 另见QAudioInput函数
 
 ----------
