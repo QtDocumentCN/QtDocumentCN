@@ -1,6 +1,3 @@
-还是正在编写
-Reserved by 顾晓 until 2020-08-16
-
 # QLibrary Class
 
 Qlibrary用于运行时加载库。
@@ -9,7 +6,7 @@ Qlibrary用于运行时加载库。
 | ------- | ---------------------------------------------- |
 | 头文件: | `#include <QLibrary>`                            |
 | qmake:  | QT += core                                     |
-| 继承于: | [QObject](https://doc.qt.io/qt-5/qobject.html) |
+| 继承于: | [QObject](../../S/QObject/QQbject.md) |
 
 **注意：** 此类中全部函数可重入。
 
@@ -18,15 +15,15 @@ Qlibrary用于运行时加载库。
 ## 公共成员类型
 |  类型  | 名称 |
 | ----- | ------------------------------------------------------------ |
-| enum  | **[LoadHint](https://doc.qt.io/qt-5/qlibrary.html#LoadHint-enum)** { ResolveAllSymbolsHint, ExportExternalSymbolsHint, LoadArchiveMemberHint, PreventUnloadHint, DeepBindHint } |
-| flags | **[LoadHints](https://doc.qt.io/qt-5/qlibrary.html#LoadHint-enum)** |
+| enum  | **[LoadHint](#LoadHint-enum)** { ResolveAllSymbolsHint, ExportExternalSymbolsHint, LoadArchiveMemberHint, PreventUnloadHint, DeepBindHint } |
+| flags | **[LoadHints](#LoadHint-enum)** |
 
 
 
 ## 属性
 
-- **[fileName](https://doc.qt.io/qt-5/qlibrary.html#fileName-prop)** : QString
-- **[loadHints](https://doc.qt.io/qt-5/qlibrary.html#loadHints-prop)** : LoadHints
+- **[fileName](#fileName-prop)** : QString
+- **[loadHints](#loadHints-prop)** : LoadHints
 
 
 
@@ -34,22 +31,22 @@ Qlibrary用于运行时加载库。
 
 | 类型 | 函数名 |
 | ---- | ------ |
-|                     | **[QLibrary](https://doc.qt.io/qt-5/qlibrary.html#QLibrary-3)**(const QString &*fileName*, const QString &*version*, QObject **parent* = nullptr) |
-|                     | **[QLibrary](https://doc.qt.io/qt-5/qlibrary.html#QLibrary-2)**(const QString &*fileName*, int *verNum*, QObject **parent* = nullptr) |
-|                     | **[QLibrary](https://doc.qt.io/qt-5/qlibrary.html#QLibrary-1)**(const QString &*fileName*, QObject **parent* = nullptr) |
-|                     | **[QLibrary](https://doc.qt.io/qt-5/qlibrary.html#QLibrary)**(QObject **parent* = nullptr) |
-| virtual             | **[~QLibrary](https://doc.qt.io/qt-5/qlibrary.html#dtor.QLibrary)**() |
-| QString             | **[errorString](https://doc.qt.io/qt-5/qlibrary.html#errorString)**() const |
-| QString             | **[fileName](https://doc.qt.io/qt-5/qlibrary.html#fileName-prop)**() const |
-| bool                | **[isLoaded](https://doc.qt.io/qt-5/qlibrary.html#isLoaded)**() const |
-| bool                | **[load](https://doc.qt.io/qt-5/qlibrary.html#load)**()      |
-| QLibrary::LoadHints | **[loadHints](https://doc.qt.io/qt-5/qlibrary.html#loadHints-prop)**() const |
-| QFunctionPointer    | **[resolve](https://doc.qt.io/qt-5/qlibrary.html#resolve)**(const char **symbol*) |
-| void                | **[setFileName](https://doc.qt.io/qt-5/qlibrary.html#fileName-prop)**(const QString &*fileName*) |
-| void                | **[setFileNameAndVersion](https://doc.qt.io/qt-5/qlibrary.html#setFileNameAndVersion)**(const QString &*fileName*, int *versionNumber*) |
-| void                | **[setFileNameAndVersion](https://doc.qt.io/qt-5/qlibrary.html#setFileNameAndVersion-1)**(const QString &*fileName*, const QString &*version*) |
-| void                | **[setLoadHints](https://doc.qt.io/qt-5/qlibrary.html#loadHints-prop)**(QLibrary::LoadHints *hints*) |
-| bool                | **[unload](https://doc.qt.io/qt-5/qlibrary.html#unload)**()  |
+|                     | **[QLibrary](#QLibrary-3)**(const QString &*fileName*, const QString &*version*, QObject **parent* = nullptr) |
+|                     | **[QLibrary](#QLibrary-2)**(const QString &*fileName*, int *verNum*, QObject **parent* = nullptr) |
+|                     | **[QLibrary](#QLibrary-1)**(const QString &*fileName*, QObject **parent* = nullptr) |
+|                     | **[QLibrary](#QLibrary)**(QObject **parent* = nullptr) |
+| virtual             | **[~QLibrary](#dtor.QLibrary)**() |
+| QString             | **[errorString](#errorString)**() const |
+| QString             | **[fileName](#fileName-prop)**() const |
+| bool                | **[isLoaded](#isLoaded)**() const |
+| bool                | **[load](#load)**()      |
+| QLibrary::LoadHints | **[loadHints](#loadHints-prop)**() const |
+| QFunctionPointer    | **[resolve](#resolve)**(const char **symbol*) |
+| void                | **[setFileName](#fileName-prop)**(const QString &*fileName*) |
+| void                | **[setFileNameAndVersion](#setFileNameAndVersion)**(const QString &*fileName*, int *versionNumber*) |
+| void                | **[setFileNameAndVersion](#setFileNameAndVersion-1)**(const QString &*fileName*, const QString &*version*) |
+| void                | **[setLoadHints](#loadHints-prop)**(QLibrary::LoadHints *hints*) |
+| bool                | **[unload](#unload)**()  |
 
 
 
@@ -57,28 +54,28 @@ Qlibrary用于运行时加载库。
 
 |  类型  | 函数名|
 |---|---|
-| bool             | **[isLibrary](https://doc.qt.io/qt-5/qlibrary.html#isLibrary)**(const QString &*fileName*) |
-| QFunctionPointer | **[resolve](https://doc.qt.io/qt-5/qlibrary.html#resolve-1)**(const QString &*fileName*, const char **symbol*) |
-| QFunctionPointer | **[resolve](https://doc.qt.io/qt-5/qlibrary.html#resolve-2)**(const QString &*fileName*, int *verNum*, const char **symbol*) |
-| QFunctionPointer | **[resolve](https://doc.qt.io/qt-5/qlibrary.html#resolve-3)**(const QString &*fileName*, const QString &*version*, const char **symbol*) |
+| bool             | **[isLibrary](#isLibrary)**(const QString &*fileName*) |
+| QFunctionPointer | **[resolve](#resolve-1)**(const QString &*fileName*, const char **symbol*) |
+| QFunctionPointer | **[resolve](#resolve-2)**(const QString &*fileName*, int *verNum*, const char **symbol*) |
+| QFunctionPointer | **[resolve](#resolve-3)**(const QString &*fileName*, const QString &*version*, const char **symbol*) |
 
 
 
 ## 详细描述
 
-An instance of a QLibrary object operates on a single shared object file (which we call a "library", but is also known as a "DLL"). A QLibrary provides access to the functionality in the library in a platform independent way. You can either pass a file name in the constructor, or set it explicitly with [setFileName](https://doc.qt.io/qt-5/qlibrary.html#fileName-prop)(). When loading the library, QLibrary searches in all the system-specific library locations (例如： `LD_LIBRARY_PATH`on Unix), unless the file name has an absolute path.
+QLibrary的实例用于操作一个动态链接库文件（文中称为库，也就是DLL）。QLibrary提供访问库中函数的一种平台无关方式。你可以在构造时传递库文件名，也可以通过 [setFileName](#fileName-prop)() 给对象显式设置。加载库时，QLibrary在所有系统指定的位置搜索 (例如： Unix上的 `LD_LIBRARY_PATH`), 除非文件名是绝对路径。
 
-If the file name is an absolute path then an attempt is made to load this path first. If the file cannot be found, QLibrary tries the name with different platform-specific file prefixes, like "lib" on Unix and Mac, and suffixes, like ".so" on Unix, ".dylib" on the Mac, or ".dll" on Windows.
+如果文件路径是绝对路径，则会首先尝试在这个位置加载。如果找不到，QLibrary尝试不同系统相关的前后缀的文件名，比如Unix系的前缀“lib”，后缀“.so”，Mac及IOS的后缀".dylib"，Windows的后缀".dll"。
 
-If the file path is not absolute then QLibrary modifies the search order to try the system-specific prefixes and suffixes first, followed by the file path specified.
+如果文件路径不是绝对路径，Qlibrary改变搜索顺序，首先尝试系统特定的前后缀，之后是特定文件路径。
 
-This makes it possible to specify shared libraries that are only identified by their basename (i.e. without their suffix), so the same code will work on different operating systems yet still minimise the number of attempts to find the library.
+这让使用除去前后缀的库基本名称来指定库文件变得可能。因此代码可以在不同操作系统里执行，但不用太多代码尝试各种文件名称。
 
-The most important functions are [load](https://doc.qt.io/qt-5/qlibrary.html#load)() to dynamically load the library file, [isLoaded](https://doc.qt.io/qt-5/qlibrary.html#isLoaded)() to check whether loading was successful, and [resolve](https://doc.qt.io/qt-5/qlibrary.html#resolve)() to resolve a symbol in the library. The [resolve](https://doc.qt.io/qt-5/qlibrary.html#resolve)() function implicitly tries to load the library if it has not been loaded yet. Multiple instances of QLibrary can be used to access the same physical library. Once loaded, libraries remain in memory until the application terminates. You can attempt to unload a library using [unload](https://doc.qt.io/qt-5/qlibrary.html#unload)(), but if other instances of QLibrary are using the same library, the call will fail, and unloading will only happen when every instance has called [unload](https://doc.qt.io/qt-5/qlibrary.html#unload)().
+最重要的函数是 [load](#load)() 用于动态加载库，[isLoaded](#isLoaded)() 用于检查是否加载成功，以及 [resolve](#resolve)() 来解析库中的符号。如果库还没加载，[resolve](#resolve)() 函数隐式地加载这个库。多个QLibrary实例访问同一个物理库文件是可行的。一旦被加载，库在内存中一直保留到程序结束。你可以通过 [unload](#unload)() 尝试卸载一个库，但如果有其他QLibrary实例在使用同一个库文件，调用会失败。只有在每一个实例都调用过 [unload](#unload)() 后，库才会真正卸载。
 
-A typical use of QLibrary is to resolve an exported symbol in a library, and to call the C function that this symbol represents. This is called "explicit linking" in contrast to "implicit linking", which is done by the link step in the build process when linking an executable against a library.
+Qlibrary 的一种典型用法是解析库中的导出符号，并调用其对应的C语言函数。这叫做显式链接，对应于隐式链接。隐式链接是构建中的链接可执行文件和静态库的步骤。
 
-The following code snippet loads a library, resolves the symbol "mysymbol", and calls the function if everything succeeded. If something goes wrong, 例如： the library file does not exist or the symbol is not defined, the function pointer will be `nullptr` and won't be called.
+下面的代码片段加载了个库，解析"mysymbol"符号，并在一切就绪的情况下调用这个函数。如果出现了问题， 例如库文件不存在或者符号未定义，函数指针将会是`nullptr`，且不会调用。
 
 ```
 QLibrary myLib("mylib");
@@ -88,7 +85,9 @@ if (myFunction)
     myFunction();
 ```
 
-The symbol must be exported as a C function from the library for [resolve](https://doc.qt.io/qt-5/qlibrary.html#resolve)() to work. This means that the function must be wrapped in an `extern "C"` block if the library is compiled with a C++ compiler. On Windows, this also requires the use of a `dllexport` macro; see [resolve](https://doc.qt.io/qt-5/qlibrary.html#resolve)() for the details of how this is done. For convenience, there is a static [resolve](https://doc.qt.io/qt-5/qlibrary.html#resolve)() function which you can use if you just want to call a function in a library without explicitly loading the library first:
+
+
+符号必须作为C函数导出，[resolve](#resolve)()才能工作。这意味着用C++编译器编译的函数必须由`extern "C"`块包裹。在Windows上，还要求导出函数要使用`dllexport`宏；实现详情见 [resolve](#resolve)()。方便起见，[resolve](#resolve)() 函数有静态形式，你可以在不现实加载库的情况下使用：
 
 ```
 typedef void (*MyPrototype)();
@@ -98,111 +97,135 @@ if (myFunction)
     myFunction();
 ```
 
-**看看别的：** [QPluginLoader](https://doc.qt.io/qt-5/qpluginloader.html).
+**另参考：** [QPluginLoader](https://doc.qt.io/qt-5/qpluginloader.html).
+
+
 
 ## 成员类型介绍
 
 ### enum QLibrary::LoadHint flags QLibrary::LoadHints
 
-This enum describes the possible hints that can be used to change the way libraries are handled when they are loaded. These values indicate how symbols are resolved when libraries are loaded, and are specified using the [setLoadHints](https://doc.qt.io/qt-5/qlibrary.html#loadHints-prop)() function.
+这个枚举描述了可能的可以用来改变库的加载行为的指示。这些取值指示在库加载后如何解析符号，通过 [setLoadHints](#loadHints-prop)() 指定。
 
-| Constant                              | Value  | Description                                                  |
+| 常量                                  | 值     | 描述                                                         |
 | ------------------------------------- | ------ | ------------------------------------------------------------ |
-| `QLibrary::ResolveAllSymbolsHint`     | `0x01` | Causes all symbols in a library to be resolved when it is loaded, not simply when [resolve](https://doc.qt.io/qt-5/qlibrary.html#resolve)() is called. |
-| `QLibrary::ExportExternalSymbolsHint` | `0x02` | Exports unresolved and external symbols in the library so that they can be resolved in other dynamically-loaded libraries loaded later. |
-| `QLibrary::LoadArchiveMemberHint`     | `0x04` | Allows the file name of the library to specify a particular object file within an archive file. If this hint is given, the filename of the library consists of a path, which is a reference to an archive file, followed by a reference to the archive member. |
-| `QLibrary::PreventUnloadHint`         | `0x08` | Prevents the library from being unloaded from the address space if close() is called. The library's static variables are not reinitialized if open() is called at a later time. |
-| `QLibrary::DeepBindHint`              | `0x10` | Instructs the linker to prefer definitions in the loaded library over exported definitions in the loading application when resolving external symbols in the loaded library. This option is only supported on Linux. |
+| `QLibrary::ResolveAllSymbolsHint`     | `0x01` | 在加载库的时候解析符号，而不是简单等到 [resolve](#resolve)() 调用。 |
+| `QLibrary::ExportExternalSymbolsHint` | `0x02` | 导出库中未解析的符号和外部符号，这些符号可以在后续动态加载的库中解析。 |
+| `QLibrary::LoadArchiveMemberHint`     | `0x04` | 运行库的文件名指定压缩包中的特定对象。如果设置了这个指示，文件名包含一个路径，其指向归档文件，接着是其中的成员名称。 |
+| `QLibrary::PreventUnloadHint`         | `0x08` | 阻止库从地址空间通过close()卸载。如果之后再有open()调用，库中的静态变量不会重新初始化。 |
+| `QLibrary::DeepBindHint`              | `0x10` | Instructs the linker to prefer definitions in the loaded library over exported definitions in the loading application when resolving external symbols in the loaded library. This option is only supported on Linux.<br />命令链接器在解析加载过的库中的外部符号时，优先使用加载了的库中的定义，而不是在应用程序加载中的定义。【译者注：翻译存疑，故保留原文参考，详情参考globc--dlopen()--RTLD_DEEPBIND】 |
 
-The LoadHints type is a typedef for [QFlags](https://doc.qt.io/qt-5/qflags.html)<LoadHint>. It stores an OR combination of LoadHint values.
+LoadHints是一个 [QFlags](https://doc.qt.io/qt-5/qflags.html)`<LoadHint>` 类型的typedef。 它储存了LoadHint取值的**OR**（位或）方式的组合。
 
-**看看别的：** [loadHints](https://doc.qt.io/qt-5/qlibrary.html#loadHints-prop).
+**另参考：** [loadHints](#loadHints-prop).
 
-## Property Documentation
 
-### fileName : [QString](https://doc.qt.io/qt-5/qstring.html)
 
-This property holds the file name of the library
+## 属性文档
 
-We recommend omitting the file's suffix in the file name, since [QLibrary](https://doc.qt.io/qt-5/qlibrary.html) will automatically look for the file with the appropriate suffix (see [isLibrary](https://doc.qt.io/qt-5/qlibrary.html#isLibrary)()).
+### fileName : [QString](../../S/QString/QString.md)
 
-When loading the library, [QLibrary](https://doc.qt.io/qt-5/qlibrary.html) searches in all system-specific library locations (for example, `LD_LIBRARY_PATH` on Unix), unless the file name has an absolute path. After loading the library successfully, fileName() returns the fully-qualified file name of the library, including the full path to the library if one was given in the constructor or passed to setFileName().
+这个属性容纳库的文件名。
 
-For example, after successfully loading the "GL" library on Unix platforms, fileName() will return "libGL.so". If the file name was originally passed as "/usr/lib/libGL", fileName() will return "/usr/lib/libGL.so".
+我们建议忽略库的后缀名，因为Qlibrary会自动寻找带有合适后缀名的文件。 (参见 [isLibrary](#isLibrary)())
 
-**Access functions:**
+当加载库时，在所有系统指定的位置搜索 (例如： Unix上的 `LD_LIBRARY_PATH`)，除非文件名是绝对路径。加载成功后，fileName() 返回返回库文件的全名。如果在构造对象或setFileName() 中包含路径，讲返回文件的全路径。
 
-| QString | **fileName**() const                       |
+例如在Unix平台成功加载"GL"库后，fileName() 会返回 "libGL.so"。如果传递参数的文件路径是 "/usr/lib/libGL", fileName() 会返回 "/usr/lib/libGL.so"。
+
+**访问函数:**
+
+|类型|函数名|
 | ------- | ------------------------------------------ |
+| QString | **fileName**() const                       |
 | void    | **setFileName**(const QString &*fileName*) |
 
-### loadHints : [LoadHints](https://doc.qt.io/qt-5/qlibrary.html#LoadHint-enum)
+----
 
-Give the [load](https://doc.qt.io/qt-5/qlibrary.html#load)() function some hints on how it should behave.
+### loadHints : [LoadHints](#LoadHint-enum)
 
-You can give some hints on how the symbols are resolved. Usually, the symbols are not resolved at load time, but resolved lazily, (that is, when [resolve](https://doc.qt.io/qt-5/qlibrary.html#resolve)() is called). If you set the loadHints to [ResolveAllSymbolsHint](https://doc.qt.io/qt-5/qlibrary.html#LoadHint-enum), then all symbols will be resolved at load time if the platform supports it.
+给 [load](#load)() 函数一些关于如何执行的指示。
 
-Setting [ExportExternalSymbolsHint](https://doc.qt.io/qt-5/qlibrary.html#LoadHint-enum) will make the external symbols in the library available for resolution in subsequent loaded libraries.
+你可以对于符号如何解析做指示。通常来说，符号不是在加载库时解析的，而是惰性解析的（也就是调用 [resolve](#resolve)() 时）。如果你设置loadHints 为[ResolveAllSymbolsHint](#LoadHint-enum)，那么如果平台支持，所有符号会在库加载时一齐解析。
 
-If [LoadArchiveMemberHint](https://doc.qt.io/qt-5/qlibrary.html#LoadHint-enum) is set, the file name is composed of two components: A path which is a reference to an archive file followed by the second component which is the reference to the archive member. For instance, the [fileName](https://doc.qt.io/qt-5/qlibrary.html#fileName-prop) `libGL.a(shr_64.o)` will refer to the library `shr_64.o` in the archive file named `libGL.a`. This is only supported on the AIX platform.
+设置 [ExportExternalSymbolsHint](#LoadHint-enum) 会使库中的外部符号在后续库解析中可用。
 
-The interpretation of the load hints is platform dependent, and if you use it you are probably making some assumptions on which platform you are compiling for, so use them only if you understand the consequences of them.
 
-By default, none of these flags are set, so libraries will be loaded with lazy symbol resolution, and will not export external symbols for resolution in other dynamically-loaded libraries.
 
-**注意：** Setting this property after the library has been loaded has no effect and loadHints() will not reflect those changes.
+如果设置了 [LoadArchiveMemberHint](#LoadHint-enum) ，文件名会被分解为两部分：归档文件的路径和归档成员的名称. 例如,  [fileName](#fileName-prop) `libGL.a(shr_64.o)` 指向归档文件 `libGL.a`中的库文件 `shr_64.o` . 这个特性只在AIX平台生效。
 
-**注意：** This property is shared among all [QLibrary](https://doc.qt.io/qt-5/qlibrary.html) instances that refer to the same library.
+loadHints 的解释是平台相关的，如果你用这些特效，你大概已经对编译的系统平台做了一些假设。因此请仅在你明白你这些操作的结果的情况下设置这些指示。
 
-**Access functions:**
+默认情况下，此属性没有设置任何flag，所有库文件会惰性加载，并且不会导出共其他动态链接库使用的外部符号。
 
+**注意：** 在库已经加载后设置这个属性没有效果。 并且 loadHints() 不会体现出这些修改。
+
+**注意：** 这个属性是所有指向同一个库的 [QLibrary](#QLibrary-Class) 实例共享的。
+
+**访问函数：**
+
+|类型|函数名|
+| ------- | ------------------------------------------ |
 | QLibrary::LoadHints | **loadHints**() const                         |
-| ------------------- | --------------------------------------------- |
 | void                | **setLoadHints**(QLibrary::LoadHints *hints*) |
 
-## Member Function Documentation
 
-### QLibrary::QLibrary(const [QString](https://doc.qt.io/qt-5/qstring.html) &*fileName*, const [QString](https://doc.qt.io/qt-5/qstring.html) &*version*, [QObject](https://doc.qt.io/qt-5/qobject.html#QObject) **parent* = nullptr)
 
-Constructs a library object with the given *parent* that will load the library specified by *fileName* and full version number *version*. Currently, the version number is ignored on Windows.
+## 成员函数文档
 
-We recommend omitting the file's suffix in *fileName*, since QLibrary will automatically look for the file with the appropriate suffix in accordance with the platform, 例如： ".so" on Unix, ".dylib" on macOS and iOS, and ".dll" on Windows. (See [fileName](https://doc.qt.io/qt-5/qlibrary.html#fileName-prop).)
+### QLibrary::QLibrary(const [QString](../../S/QString/QString.md) &*fileName*, const [QString](../../S/QString/QString.md) &*version*, [QObject](../../S/QObject/QQbject.md#QObject) **parent* = nullptr)
 
-### QLibrary::QLibrary(const [QString](https://doc.qt.io/qt-5/qstring.html) &*fileName*, int *verNum*, [QObject](https://doc.qt.io/qt-5/qobject.html#QObject) **parent* = nullptr)
+基于给定的父对象 *parent* 构造一个库对象。它会加载文件名*fileName*、完整版本号 *version* 指定的库文件。如今，版本号在Windows上被忽略。
 
-Constructs a library object with the given *parent* that will load the library specified by *fileName* and major version number *verNum*. Currently, the version number is ignored on Windows.
+我们建议在 *fileName* 中忽略文件名的前后缀，因为QLibrary会基于不同平台自动寻找合适的前后缀。比如Unix系的前缀“lib”，后缀“.so”，Mac及IOS的后缀".dylib"，Windows的后缀".dll"。（参见[fileName](#fileName-prop) ）
 
-We recommend omitting the file's suffix in *fileName*, since QLibrary will automatically look for the file with the appropriate suffix in accordance with the platform, 例如： ".so" on Unix, ".dylib" on macOS and iOS, and ".dll" on Windows. (See [fileName](https://doc.qt.io/qt-5/qlibrary.html#fileName-prop).)
+----
 
-### QLibrary::QLibrary(const [QString](https://doc.qt.io/qt-5/qstring.html) &*fileName*, [QObject](https://doc.qt.io/qt-5/qobject.html#QObject) **parent* = nullptr)
+### QLibrary::QLibrary(const [QString](../../S/QString/QString.md) &*fileName*, int *verNum*, [QObject](../../S/QObject/QQbject.md#QObject) **parent* = nullptr)
 
-Constructs a library object with the given *parent* that will load the library specified by *fileName*.
+基于给定的父对象 *parent* 构造一个库对象。它会加载文件名*fileName*、主版本号 *verNum* 指定的库文件。如今，版本号在Windows上被忽略。
 
-We recommend omitting the file's suffix in *fileName*, since QLibrary will automatically look for the file with the appropriate suffix in accordance with the platform, 例如： ".so" on Unix, ".dylib" on macOS and iOS, and ".dll" on Windows. (See [fileName](https://doc.qt.io/qt-5/qlibrary.html#fileName-prop).)
+我们建议在 *fileName* 中忽略文件名的前后缀，因为QLibrary会基于不同平台自动寻找合适的前后缀。比如Unix系的前缀“lib”，后缀“.so”，Mac及IOS的后缀".dylib"，Windows的后缀".dll"。（参见[fileName](#fileName-prop) ）
 
-### QLibrary::QLibrary([QObject](https://doc.qt.io/qt-5/qobject.html#QObject) **parent* = nullptr)
+----
 
-Constructs a library with the given *parent*.
+### QLibrary::QLibrary(const [QString](../../S/QString/QString.md) &*fileName*, [QObject](../../S/QObject/QQbject.md#QObject) **parent* = nullptr)
+
+基于给定的父对象 *parent* 构造一个库对象。它会加载文件名*fileName* 指定的库文件。
+
+我们建议在 *fileName* 中忽略文件名的前后缀，因为QLibrary会基于不同平台自动寻找合适的前后缀。比如Unix系的前缀“lib”，后缀“.so”，Mac及IOS的后缀".dylib"，Windows的后缀".dll"。（参见[fileName](#fileName-prop) ）
+
+----
+
+### QLibrary::QLibrary([QObject](../../S/QObject/QQbject.md#QObject) **parent* = nullptr)
+
+基于给定的父对象 *parent* 构造一个库对象。
+
+----
 
 ### `[virtual]`QLibrary::~QLibrary()
 
-Destroys the [QLibrary](https://doc.qt.io/qt-5/qlibrary.html) object.
+删除此QLibrary对象。
 
-Unless [unload](https://doc.qt.io/qt-5/qlibrary.html#unload)() was called explicitly, the library stays in memory until the application terminates.
+除非显式调用 [unload](#unload)()，库会在一直驻留在内存中，知道应用结束。
 
-**看看别的：** [isLoaded](https://doc.qt.io/qt-5/qlibrary.html#isLoaded)() and [unload](https://doc.qt.io/qt-5/qlibrary.html#unload)().
+**另参考：** [isLoaded](#isLoaded)() 和 [unload](#unload)().
 
-### [QString](https://doc.qt.io/qt-5/qstring.html) QLibrary::errorString() const
+----
 
-Returns a text string with the description of the last error that occurred. Currently, errorString will only be set if [load](https://doc.qt.io/qt-5/qlibrary.html#load)(), [unload](https://doc.qt.io/qt-5/qlibrary.html#unload)() or [resolve](https://doc.qt.io/qt-5/qlibrary.html#resolve)() for some reason fails.
+### [QString](../../S/QString/QString.md) QLibrary::errorString() const
+
+返回一个描述上一个发生的错误的文本字符串。现在，errorString 只会在 [load](#load)(), [unload](#unload)() 或 [resolve](#resolve)() 调用由于一些原因失败时才会设置。
 
 此函数引入自：Qt 4.2.
 
-### `[static]`bool QLibrary::isLibrary(const [QString](https://doc.qt.io/qt-5/qstring.html) &*fileName*)
+----
 
-Returns `true` if *fileName* has a valid suffix for a loadable library; otherwise returns `false`.
+### `[static]`bool QLibrary::isLibrary(const [QString](../../S/QString/QString.md) &*fileName*)
 
-|   Platform    |       Valid suffixes       |
+如果 *fileName* 包含一个合法的可加载的后缀，返回true；否则返回false。
+
+|     平台      |          合法后缀          |
 | :-----------: | :------------------------: |
 |    Windows    |       `.dll`, `.DLL`       |
 |  Unix/Linux   |           `.so`            |
@@ -210,19 +233,27 @@ Returns `true` if *fileName* has a valid suffix for a loadable library; otherwis
 |     HP-UX     |   `.sl`, `.so` (HP-UXi)    |
 | macOS and iOS | `.dylib`, `.bundle`, `.so` |
 
-Trailing versioning numbers on Unix are ignored.
+Unix平台上的名字后的版本号会被忽略。
+
+----
 
 ### bool QLibrary::isLoaded() const
 
-Returns `true` if the library is loaded; otherwise returns `false`.
+如果库已经被加载，返回true，否则返回false。
 
-**看看别的：** [load](https://doc.qt.io/qt-5/qlibrary.html#load)().
+**另参考：** [load](#load)().
+
+----
 
 ### bool QLibrary::load()
 
-Loads the library and returns `true` if the library was loaded successfully; otherwise returns `false`. Since [resolve](https://doc.qt.io/qt-5/qlibrary.html#resolve)() always calls this function before resolving any symbols it is not necessary to call it explicitly. In some situations you might want the library loaded in advance, in which case you would use this function.
+加载一个库，如果成功加载则返回true；否则返回false。因为 [resolve](#resolve)() 
 
-**看看别的：** [unload](https://doc.qt.io/qt-5/qlibrary.html#unload)().
+Loads the library and returns `true` if the library was loaded successfully; otherwise returns `false`. Since [resolve](#resolve)() always calls this function before resolving any symbols it is not necessary to call it explicitly. In some situations you might want the library loaded in advance, in which case you would use this function.
+
+**另参考：** [unload](#unload)().
+
+----
 
 ### [QFunctionPointer](https://doc.qt.io/qt-5/qtglobal.html#QFunctionPointer-typedef) QLibrary::resolve(const char **symbol*)
 
@@ -259,51 +290,63 @@ with `MY_EXPORT` defined as
 #endif
 ```
 
-### `[static]`[QFunctionPointer](https://doc.qt.io/qt-5/qtglobal.html#QFunctionPointer-typedef) QLibrary::resolve(const [QString](https://doc.qt.io/qt-5/qstring.html) &*fileName*, const char **symbol*)
+----
+
+### `[static]`[QFunctionPointer](https://doc.qt.io/qt-5/qtglobal.html#QFunctionPointer-typedef) QLibrary::resolve(const [QString](../../S/QString/QString.md) &*fileName*, const char **symbol*)
 
 This is an overloaded function.
 
-Loads the library *fileName* and returns the address of the exported symbol *symbol*. Note that *fileName* should not include the platform-specific file suffix; (see [fileName](https://doc.qt.io/qt-5/qlibrary.html#fileName-prop)). The library remains loaded until the application exits.
+Loads the library *fileName* and returns the address of the exported symbol *symbol*. Note that *fileName* should not include the platform-specific file suffix; (see [fileName](#fileName-prop)). The library remains loaded until the application exits.
 
 The function returns `nullptr` if the symbol could not be resolved or if the library could not be loaded.
 
-**看看别的：** [resolve](https://doc.qt.io/qt-5/qlibrary.html#resolve)().
+**另参考：** [resolve](#resolve)().
 
-### `[static]`[QFunctionPointer](https://doc.qt.io/qt-5/qtglobal.html#QFunctionPointer-typedef) QLibrary::resolve(const [QString](https://doc.qt.io/qt-5/qstring.html) &*fileName*, int *verNum*, const char**symbol*)
+----
+
+### `[static]`[QFunctionPointer](https://doc.qt.io/qt-5/qtglobal.html#QFunctionPointer-typedef) QLibrary::resolve(const [QString](../../S/QString/QString.md) &*fileName*, int *verNum*, const char**symbol*)
 
 This is an overloaded function.
 
-Loads the library *fileName* with major version number *verNum* and returns the address of the exported symbol *symbol*. Note that *fileName*should not include the platform-specific file suffix; (see [fileName](https://doc.qt.io/qt-5/qlibrary.html#fileName-prop)). The library remains loaded until the application exits. *verNum* is ignored on Windows.
+Loads the library *fileName* with major version number *verNum* and returns the address of the exported symbol *symbol*. Note that *fileName*should not include the platform-specific file suffix; (see [fileName](#fileName-prop)). The library remains loaded until the application exits. *verNum* is ignored on Windows.
 
 The function returns `nullptr` if the symbol could not be resolved or if the library could not be loaded.
 
-**看看别的：** [resolve](https://doc.qt.io/qt-5/qlibrary.html#resolve)().
+**另参考：** [resolve](#resolve)().
 
-### `[static]`[QFunctionPointer](https://doc.qt.io/qt-5/qtglobal.html#QFunctionPointer-typedef) QLibrary::resolve(const [QString](https://doc.qt.io/qt-5/qstring.html) &*fileName*, const [QString](https://doc.qt.io/qt-5/qstring.html) &*version*, const char **symbol*)
+----
+
+### `[static]`[QFunctionPointer](https://doc.qt.io/qt-5/qtglobal.html#QFunctionPointer-typedef) QLibrary::resolve(const [QString](../../S/QString/QString.md) &*fileName*, const [QString](../../S/QString/QString.md) &*version*, const char **symbol*)
 
 This is an overloaded function.
 
-Loads the library *fileName* with full version number *version* and returns the address of the exported symbol *symbol*. Note that *fileName* should not include the platform-specific file suffix; (see [fileName](https://doc.qt.io/qt-5/qlibrary.html#fileName-prop)). The library remains loaded until the application exits. *version* is ignored on Windows.
+Loads the library *fileName* with full version number *version* and returns the address of the exported symbol *symbol*. Note that *fileName* should not include the platform-specific file suffix; (see [fileName](#fileName-prop)). The library remains loaded until the application exits. *version* is ignored on Windows.
 
 The function returns `nullptr` if the symbol could not be resolved or if the library could not be loaded.
 
 此函数引入自：Qt 4.4.
 
-**看看别的：** [resolve](https://doc.qt.io/qt-5/qlibrary.html#resolve)().
+**另参考：** [resolve](#resolve)().
 
-### void QLibrary::setFileNameAndVersion(const [QString](https://doc.qt.io/qt-5/qstring.html) &*fileName*, int *versionNumber*)
 
-Sets the [fileName](https://doc.qt.io/qt-5/qlibrary.html#fileName-prop) property and major version number to *fileName* and *versionNumber* respectively. The *versionNumber* is ignored on Windows.
 
-**看看别的：** [setFileName](https://doc.qt.io/qt-5/qlibrary.html#fileName-prop)().
+### void QLibrary::setFileNameAndVersion(const [QString](../../S/QString/QString.md) &*fileName*, int *versionNumber*)
 
-### void QLibrary::setFileNameAndVersion(const [QString](https://doc.qt.io/qt-5/qstring.html) &*fileName*, const [QString](https://doc.qt.io/qt-5/qstring.html) &*version*)
+Sets the [fileName](#fileName-prop) property and major version number to *fileName* and *versionNumber* respectively. The *versionNumber* is ignored on Windows.
 
-Sets the [fileName](https://doc.qt.io/qt-5/qlibrary.html#fileName-prop) property and full version number to *fileName* and *version* respectively. The *version* parameter is ignored on Windows.
+**另参考：** [setFileName](#fileName-prop)().
+
+
+
+### void QLibrary::setFileNameAndVersion(const [QString](../../S/QString/QString.md) &*fileName*, const [QString](../../S/QString/QString.md) &*version*)
+
+Sets the [fileName](#fileName-prop) property and full version number to *fileName* and *version* respectively. The *version* parameter is ignored on Windows.
 
 此函数引入自：Qt 4.4.
 
-**看看别的：** [setFileName](https://doc.qt.io/qt-5/qlibrary.html#fileName-prop)().
+**另参考：** [setFileName](#fileName-prop)().
+
+
 
 ### bool QLibrary::unload()
 
@@ -311,8 +354,8 @@ Unloads the library and returns `true` if the library could be unloaded; otherwi
 
 This happens automatically on application termination, so you shouldn't normally need to call this function.
 
-If other instances of [QLibrary](https://doc.qt.io/qt-5/qlibrary.html) are using the same library, the call will fail, and unloading will only happen when every instance has called unload().
+If other instances of [QLibrary](#QLibrary-Class) are using the same library, the call will fail, and unloading will only happen when every instance has called unload().
 
 Note that on Mac OS X 10.3 (Panther), dynamic libraries cannot be unloaded.
 
-**看看别的：** [resolve](https://doc.qt.io/qt-5/qlibrary.html#resolve)() and [load](https://doc.qt.io/qt-5/qlibrary.html#load)().
+**另参考：** [resolve](#resolve)() and [load](#load)().

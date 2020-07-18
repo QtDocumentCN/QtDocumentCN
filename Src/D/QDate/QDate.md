@@ -117,7 +117,7 @@ daysInMonth() 和 daysInYear() 函数返回一个月、一年里有几天。isLe
   日期内部存储为儒略日天号，每天对应一个连续的整数，公元前4714年11月24日是格里高利历第0天（儒略历的公元前4713年1月1日）。除了可以准确有效地表示绝对日期，此类也可以用来做不同日历系统的转换。儒略历天数可以通过 QDate::toJulianDay() 和 QDate::fromJulianDay() 读写。
   由于技术原因，储存的儒略历天号在-784350574879~784354017364之间，大概是公元前2亿年到公元后2亿年之间。
 
-看看别的：[QTime](https://doc.qt.io/qt-5/qtime.html) , [QDateTime](https://doc.qt.io/qt-5/qdatetime.html) , [QCalendar](../../C/QCalendar/QCalendar.md) , [QDateTime::YearRange](https://doc.qt.io/qt-5/qdatetime.html#YearRange-enum) , [QDateEdit](https://doc.qt.io/qt-5/qdateedit.html) , [QDateTimeEdit](https://doc.qt.io/qt-5/qdatetimeedit.html) , and [QCalendarWidget](https://doc.qt.io/qt-5/qcalendarwidget.html)。
+另参考：[QTime](https://doc.qt.io/qt-5/qtime.html) , [QDateTime](https://doc.qt.io/qt-5/qdatetime.html) , [QCalendar](../../C/QCalendar/QCalendar.md) , [QDateTime::YearRange](https://doc.qt.io/qt-5/qdatetime.html#YearRange-enum) , [QDateEdit](https://doc.qt.io/qt-5/qdateedit.html) , [QDateTimeEdit](https://doc.qt.io/qt-5/qdatetimeedit.html) , and [QCalendarWidget](https://doc.qt.io/qt-5/qcalendarwidget.html)。
 
 
 
@@ -177,9 +177,9 @@ daysInMonth() 和 daysInYear() 函数返回一个月、一年里有几天。isLe
 
 如果日期非法，返回空字符串。
 
-**注意：** 如果需要本地化的日期表达, 请使用 [QLocale::system](https://doc.qt.io/qt-5/qlocale.html#system)().[toString](#qstring-qdatetostringconst-qstring-format-const)(), 因为 QDate 将在 Qt 6使用英文表达 (C语言风格) 。
+**注意：** 如果需要本地化的月份日期表达, 请使用 [QLocale::system](https://doc.qt.io/qt-5/qlocale.html#system)().[toString](#qstring-qdatetostringconst-qstring-format-const)(), 因为 QDate 将在 Qt 6使用英文表达 (C语言风格) 。
 
-**看看别的：** [fromString](#staticqdate-qdatefromstringconst-qstring-string-const-qstring-format)() , [QDateTime::toString](https://doc.qt.io/qt-5/qdatetime.html#toString)() , [QTime::toString](https://doc.qt.io/qt-5/qtime.html#toString)(), and [QLocale::toString](https://doc.qt.io/qt-5/qlocale.html#toString)()。
+**另参考：** [fromString](#staticqdate-qdatefromstringconst-qstring-string-const-qstring-format)() , [QDateTime::toString](https://doc.qt.io/qt-5/qdatetime.html#toString)() , [QTime::toString](https://doc.qt.io/qt-5/qtime.html#toString)(), and [QLocale::toString](https://doc.qt.io/qt-5/qlocale.html#toString)()。
 
 ----
 
@@ -195,7 +195,7 @@ daysInMonth() 和 daysInYear() 函数返回一个月、一年里有几天。isLe
 
 函数在 Qt 5.14 中引入。
 
-**看看别的：** [startOfDay](#qdatetime-qdateendofdayqttimespec-spec--qtlocaltime-int-offsetseconds--0-const)()。
+**另参考：** [startOfDay](#qdatetime-qdateendofdayqttimespec-spec--qtlocaltime-int-offsetseconds--0-const)()。
 
 ----
 
@@ -213,7 +213,7 @@ daysInMonth() 和 daysInYear() 函数返回一个月、一年里有几天。isLe
 
 函数在 Qt 5.14 中引入。
 
-**看看别的：** [endOfDay](#qdatetime-qdateendofdayqttimespec-spec--qtlocaltime-int-offsetseconds--0-const)()。
+**另参考：** [endOfDay](#qdatetime-qdateendofdayqttimespec-spec--qtlocaltime-int-offsetseconds--0-const)()。
 
 ----
 
@@ -223,7 +223,7 @@ daysInMonth() 和 daysInYear() 函数返回一个月、一年里有几天。isLe
 
 **警告：** 1~99年就对应于它本身，不会偏移。第0年是非法的。
 
-**看看别的：** [isValid](#bool-qdateisvalid-const)() and [QCalendar::dateFromParts](../../C/QCalendar/QCalendar.md#dateFromParts)()。
+**另参考：** [isValid](#bool-qdateisvalid-const)() and [QCalendar::dateFromParts](../../C/QCalendar/QCalendar.md#dateFromParts)()。
 
 
 
@@ -231,7 +231,7 @@ daysInMonth() 和 daysInYear() 函数返回一个月、一年里有几天。isLe
 
 构造一个空的日期，也是不可用的。
 
-**看看别的：** [isNull](#bool-qdateisnull-const)() and [isValid](#bool-qdateisvalid-const)()。
+**另参考：** [isNull](#bool-qdateisnull-const)() and [isValid](#bool-qdateisvalid-const)()。
 
 ----
 
@@ -241,7 +241,7 @@ daysInMonth() 和 daysInYear() 函数返回一个月、一年里有几天。isLe
 
 当当前日期或新日期是非法日期时，返回非法日期。
 
-**看看别的：** [addMonths](#qdate-qdateaddmonthsint-nmonths-const)() , [addYears](#qdate-qdateaddyearsint-nyears-const)(), and [daysTo](#qint64-qdatedaystoconst-qdate-d-const)()。
+**另参考：** [addMonths](#qdate-qdateaddmonthsint-nmonths-const)() , [addYears](#qdate-qdateaddyearsint-nyears-const)(), and [daysTo](#qint64-qdatedaystoconst-qdate-d-const)()。
 
 ----
 
@@ -255,7 +255,7 @@ daysInMonth() 和 daysInYear() 函数返回一个月、一年里有几天。isLe
 
 **注意：** 如果新的日期超出年、月的合理范围，函数讲返回那个月中最接近的日期。
 
-**看看别的：** [addDays](#qdate-qdateadddaysqint64-ndays-const)() and [addYears](#qdate-qdateaddyearsint-nyears-const)()。
+**另参考：** [addDays](#qdate-qdateadddaysqint64-ndays-const)() and [addYears](#qdate-qdateaddyearsint-nyears-const)()。
 
 ----
 
@@ -269,7 +269,7 @@ daysInMonth() 和 daysInYear() 函数返回一个月、一年里有几天。isLe
 
 **注意：** 如果新的日期超出年、月的合理范围，函数讲返回那个月中最接近的日期。
 
-**看看别的：** [addDays](#qdate-qdateadddaysqint64-ndays-const)() and [addMonths](#qdate-qdateaddmonthsint-nmonths-const)()。
+**另参考：** [addDays](#qdate-qdateadddaysqint64-ndays-const)() and [addMonths](#qdate-qdateaddmonthsint-nmonths-const)()。
 
 ----
 
@@ -277,7 +277,7 @@ daysInMonth() 和 daysInYear() 函数返回一个月、一年里有几天。isLe
 
 返回系统时钟所示的今天的日期对象。
 
-**看看别的：** [QTime::currentTime](https://doc.qt.io/qt-5/qtime.html#currentTime)() and [QDateTime::currentDateTime](https://doc.qt.io/qt-5/qdatetime.html#currentDateTime)()。
+**另参考：** [QTime::currentTime](https://doc.qt.io/qt-5/qtime.html#currentTime)() and [QDateTime::currentDateTime](https://doc.qt.io/qt-5/qdatetime.html#currentDateTime)()。
 
 ----
 
@@ -291,7 +291,7 @@ daysInMonth() 和 daysInYear() 函数返回一个月、一年里有几天。isLe
 
 一些日历系统中，返回值可能大于7。
 
-**看看别的：** [year](#int-qdateyear-const)() , [month](#int-qdatemonth-const)() , and [dayOfWeek](#int-qdatedayofweek-const)()。
+**另参考：** [year](#int-qdateyear-const)() , [month](#int-qdatemonth-const)() , and [dayOfWeek](#int-qdatedayofweek-const)()。
 
 ----
 
@@ -305,7 +305,7 @@ daysInMonth() 和 daysInYear() 函数返回一个月、一年里有几天。isLe
 
 一些日历系统中，返回值可能大于7。
 
-**看看别的：** [day](#int-qdateday-const)() , [dayOfYear](#int-qdatedayofyear-const)() , and [Qt::DayOfWeek](https://doc.qt.io/qt-5/qt.html#DayOfWeek-enum)。
+**另参考：** [day](#int-qdateday-const)() , [dayOfYear](#int-qdatedayofyear-const)() , and [Qt::DayOfWeek](https://doc.qt.io/qt-5/qt.html#DayOfWeek-enum)。
 
 ----
 
@@ -317,7 +317,7 @@ daysInMonth() 和 daysInYear() 函数返回一个月、一年里有几天。isLe
 
 如果传入 *cal* 参数，会使用此日历系统，否则使用格里高利历。非法日期则返回0。
 
-**看看别的：** [day](#int-qdateday-const)() and [dayOfWeek](#int-qdatedayofweek-const)()。
+**另参考：** [day](#int-qdateday-const)() and [dayOfWeek](#int-qdatedayofweek-const)()。
 
 ----
 
@@ -329,7 +329,7 @@ daysInMonth() 和 daysInYear() 函数返回一个月、一年里有几天。isLe
 
 如果传入 *cal* 参数，会使用此日历系统，否则使用格里高利历 (返回值是 28~31)。非法日期则返回0。
 
-**看看别的：** [day](#int-qdateday-const)() and [daysInYear](#int-qdatedaysinyear-const)()。
+**另参考：** [day](#int-qdateday-const)() and [daysInYear](#int-qdatedaysinyear-const)()。
 
 ----
 
@@ -341,7 +341,7 @@ daysInMonth() 和 daysInYear() 函数返回一个月、一年里有几天。isLe
 
 如果传入 *cal* 参数，会使用此日历系统，否则使用格里高利历 (返回值是 365 或 366)。非法日期则返回0。
 
-**看看别的：** [day](#int-qdateday-const)() and [daysInMonth](#int-qdatedaysinmonth-const)()。
+**另参考：** [day](#int-qdateday-const)() and [daysInMonth](#int-qdatedaysinmonth-const)()。
 
 ----
 
@@ -360,7 +360,7 @@ d1.daysTo(d2);          // returns 3
 d2.daysTo(d1);          // returns -3
 ```
 
-**看看别的：** [addDays](#qdate-qdateadddaysqint64-ndays-const)()。
+**另参考：** [addDays](#qdate-qdateadddaysqint64-ndays-const)()。
 
 ----
 
@@ -368,7 +368,7 @@ d2.daysTo(d1);          // returns -3
 
 将jd表示的儒略日解析为日期并返回。
 
-**看看别的：** [toJulianDay](#qint64-qdatetojulianday-const)()。
+**另参考：** [toJulianDay](#qint64-qdatetojulianday-const)()。
 
 ----
 
@@ -376,11 +376,11 @@ d2.daysTo(d1);          // returns -3
 
 返回  *string* 表示的  QDate 对象，非法字符串不会被解析。
 
-注意 [Qt::TextDate](https://doc.qt.io/qt-5/qt.html#DateFormat-enum): 建议使用英文的简写月份名称(例如 "Jan")。Although localized month names can also be used in Qt 5, they depend on the user's locale settings。
+注意 [Qt::TextDate](https://doc.qt.io/qt-5/qt.html#DateFormat-enum): 建议使用英文的简写月份名称(例如 "Jan")。尽管本地化的月份名在Qt5在也可以使用，但这依赖于用户的地域设置。
 
-**注意：** Support for localized dates, including the format options [Qt::SystemLocaleDate](https://doc.qt.io/qt-5/qt.html#DateFormat-enum) , [Qt::SystemLocaleShortDate](https://doc.qt.io/qt-5/qt.html#DateFormat-enum) , [Qt::SystemLocaleLongDate](https://doc.qt.io/qt-5/qt.html#DateFormat-enum) , [Qt::LocaleDate](https://doc.qt.io/qt-5/qt.html#DateFormat-enum), [Qt::DefaultLocaleShortDate](https://doc.qt.io/qt-5/qt.html#DateFormat-enum) , and [Qt::DefaultLocaleLongDate](https://doc.qt.io/qt-5/qt.html#DateFormat-enum) , shall be removed in Qt 6。Use [QLocale::toDate](https://doc.qt.io/qt-5/qlocale.html#toDate)() instead。
+**注意：** 对于本地化日期的支持，包括以下日期格式—— [Qt::SystemLocaleDate](https://doc.qt.io/qt-5/qt.html#DateFormat-enum) , [Qt::SystemLocaleShortDate](https://doc.qt.io/qt-5/qt.html#DateFormat-enum) , [Qt::SystemLocaleLongDate](https://doc.qt.io/qt-5/qt.html#DateFormat-enum) , [Qt::LocaleDate](https://doc.qt.io/qt-5/qt.html#DateFormat-enum), [Qt::DefaultLocaleShortDate](https://doc.qt.io/qt-5/qt.html#DateFormat-enum) 和[Qt::DefaultLocaleLongDate](https://doc.qt.io/qt-5/qt.html#DateFormat-enum) , 将会在Qt6中移除。使用 [QLocale::toDate](https://doc.qt.io/qt-5/qlocale.html#toDate)() 来代替。
 
-**看看别的：** [toString](#qstring-qdatetostringconst-qstring-format-const)() and [QLocale::toDate](https://doc.qt.io/qt-5/qlocale.html#toDate)()。
+**另参考：** [toString](#qstring-qdatetostringconst-qstring-format-const)() 和 [QLocale::toDate](https://doc.qt.io/qt-5/qlocale.html#toDate)()。
 
 ----
 
@@ -416,7 +416,7 @@ QDate date = QDate::fromString("1MM12car2003", "d'MM'MMcaryyyy");
 // date is 1 December 2003
 ```
 
-如果字符串不符合格式，一个将返回一个非法的 QDate。不需要前面补0的格式是贪婪的，这意味着他们会读取两位数，尽管数字大小超出日期合法范围，并且会占据给后续格式读取的数字位置。例如，下面的日期可以表示1月30日，但M格式会捕获俩数字，导致日期返回非法：
+如果字符串不符合格式，一个将返回一个非法的 QDate。不需要前面补0的格式是贪婪的，这意味着他们会读取两位数，尽管数字大小超出日期合法范围，并且会占据给后续格式读取的数字位置。例如，下面的日期可以表示1月30日，但M格式会捕获两位数字，导致日期返回非法：
 
 ```
 QDate date = QDate::fromString("130", "Md"); // invalid
@@ -438,9 +438,9 @@ QDate::fromString("20000110", "yyyyMMdd");  // January 10, 2000
 QDate::fromString("20000110", "yyyyMd");    // January 10, 2000
 ```
 
-**注意：** 如果使用本地化的日期表达, 请使用 [QLocale::system](https://doc.qt.io/qt-5/qlocale.html#system)().toDate() , 因为 QDate 将在 Qt 6使用英文表达 (C语言风格) 。
+**注意：** 如果使用本地化的日期月份名称, 请使用 [QLocale::system](https://doc.qt.io/qt-5/qlocale.html#system)().toDate() , 因为 QDate 将在 Qt 6 中仅接受英文表达 (C语言风格) 。
 
-**看看别的：** [toString](#qstring-qdatetostringconst-qstring-format-const)() , [QDateTime::fromString](https://doc.qt.io/qt-5/qdatetime.html#fromString)() , [QTime::fromString](https://doc.qt.io/qt-5/qtime.html#fromString)() , and [QLocale::toDate](https://doc.qt.io/qt-5/qlocale.html#toDate)()。
+**另参考：** [toString](#qstring-qdatetostringconst-qstring-format-const)() , [QDateTime::fromString](https://doc.qt.io/qt-5/qdatetime.html#fromString)() , [QTime::fromString](https://doc.qt.io/qt-5/qtime.html#fromString)() , and [QLocale::toDate](https://doc.qt.io/qt-5/qlocale.html#toDate)()。
 
 ----
 
@@ -454,7 +454,7 @@ QDate::fromString("20000110", "yyyyMd");    // January 10, 2000
 
 此函数在 Qt 4.5 中引入。
 
-**看看别的：** [year](#int-qdateyear-const)() , [month](#int-qdatemonth-const)() , [day](#int-qdateday-const)() , [isValid](#bool-qdateisvalid-const)() , and [QCalendar::partsFromDate](../../C/QCalendar/QCalendar.md#partsFromDate)()。
+**另参考：** [year](#int-qdateyear-const)() , [month](#int-qdatemonth-const)() , [day](#int-qdateday-const)() , [isValid](#bool-qdateisvalid-const)() , and [QCalendar::partsFromDate](../../C/QCalendar/QCalendar.md#partsFromDate)()。
 
 ----
 
@@ -462,7 +462,7 @@ QDate::fromString("20000110", "yyyyMd");    // January 10, 2000
 
 判断是否是格里高利历的闰年，是则返回true。
 
-**看看别的：** [QCalendar::isLeapYear](../../C/QCalendar/QCalendar.md#isLeapYear)()。
+**另参考：** [QCalendar::isLeapYear](../../C/QCalendar/QCalendar.md#isLeapYear)()。
 
 ----
 
@@ -472,7 +472,7 @@ QDate::fromString("20000110", "yyyyMd");    // January 10, 2000
 
 **注意：** 行为与 [isValid](#bool-qdateisvalid-const)() 等价。
 
-**看看别的：** [isValid](#bool-qdateisvalid-const)()。
+**另参考：** [isValid](#bool-qdateisvalid-const)()。
 
 ----
 
@@ -480,7 +480,7 @@ QDate::fromString("20000110", "yyyyMd");    // January 10, 2000
 
 判断日期是否合法，合法返回true。
 
-**看看别的：** [isNull](#bool-qdateisnull-const)() and [QCalendar::isDateValid](../../C/QCalendar/QCalendar.md#isDateValid)()。
+**另参考：** [isNull](#bool-qdateisnull-const)() and [QCalendar::isDateValid](../../C/QCalendar/QCalendar.md#isDateValid)()。
 
 ----
 
@@ -502,7 +502,7 @@ QDate::isValid(2100, 2, 29);  // false (不是闰年)
 QDate::isValid(1202, 6, 6);   // true (即使这一年在格里高利历之前)
 ```
 
-**看看别的：** [isNull](#bool-qdateisnull-const)() , [setDate](#setDate)() , and [QCalendar::isDateValid](../../C/QCalendar/QCalendar.md#isDateValid)()。
+**另参考：** [isNull](#bool-qdateisnull-const)() , [setDate](#setDate)() , and [QCalendar::isDateValid](../../C/QCalendar/QCalendar.md#isDateValid)()。
 
 ----
 
@@ -518,7 +518,7 @@ QDate::isValid(1202, 6, 6);   // true (即使这一年在格里高利历之前)
 
 对于非法日期返回0。注意有一些日历中，月份可能多于12个。
 
-**看看别的：** [year](#int-qdateyear-const)() and [day](#int-qdateday-const)()。
+**另参考：** [year](#int-qdateyear-const)() and [day](#int-qdateday-const)()。
 
 ----
 
@@ -528,7 +528,7 @@ QDate::isValid(1202, 6, 6);   // true (即使这一年在格里高利历之前)
 
 此函数在 Qt 4.2 中引入。
 
-**看看别的：** [isValid](#bool-qdateisvalid-const)() and [QCalendar::dateFromParts](../../C/QCalendar/QCalendar.md#dateFromParts)()。
+**另参考：** [isValid](#bool-qdateisvalid-const)() and [QCalendar::dateFromParts](../../C/QCalendar/QCalendar.md#dateFromParts)()。
 
 ----
 
@@ -538,7 +538,7 @@ QDate::isValid(1202, 6, 6);   // true (即使这一年在格里高利历之前)
 
 函数在 Qt 5.14 中引入。
 
-**看看别的：** [isValid](#bool-qdateisvalid-const)() and [QCalendar::dateFromParts](../../C/QCalendar/QCalendar.md#dateFromParts)()。
+**另参考：** [isValid](#bool-qdateisvalid-const)() and [QCalendar::dateFromParts](../../C/QCalendar/QCalendar.md#dateFromParts)()。
 
 ----
 
@@ -546,7 +546,7 @@ QDate::isValid(1202, 6, 6);   // true (即使这一年在格里高利历之前)
 
 将日期转换为儒略日。
 
-**看看别的：** [fromJulianDay](#staticqdate-qdatefromjuliandayqint64-jd)()。
+**另参考：** [fromJulianDay](#staticqdate-qdatefromjuliandayqint64-jd)()。
 
 ----
 
@@ -558,9 +558,9 @@ QDate::isValid(1202, 6, 6);   // true (即使这一年在格里高利历之前)
 
 如果 *format* 是 [Qt::ISODate](https://doc.qt.io/qt-5/qt.html#DateFormat-enum), 字符串按照 ISO 8601 格式展开, 格式形如 yyyy-MM-dd。例如2002-01-05
 
-*format* 中的 [Qt::SystemLocaleDate](https://doc.qt.io/qt-5/qt.html#DateFormat-enum), [Qt::SystemLocaleShortDate](https://doc.qt.io/qt-5/qt.html#DateFormat-enum) 和[Qt::SystemLocaleLongDate](https://doc.qt.io/qt-5/qt.html#DateFormat-enum) 将在 Qt 6 中删除。这些应当由 [QLocale::system().toString(date, QLocale::ShortFormat)](https://doc.qt.io/qt-5/qlocale.html#toString) 或 [QLocale::system().toString(date, QLocale::LongFormat)](https://doc.qt.io/qt-5/qlocale.html#toString).替代。
+*format* 中的 [Qt::SystemLocaleDate](https://doc.qt.io/qt-5/qt.html#DateFormat-enum), [Qt::SystemLocaleShortDate](https://doc.qt.io/qt-5/qt.html#DateFormat-enum) 和[Qt::SystemLocaleLongDate](https://doc.qt.io/qt-5/qt.html#DateFormat-enum) 将在 Qt 6 中删除。这些应当由 [QLocale::system().toString(date, QLocale::ShortFormat)](https://doc.qt.io/qt-5/qlocale.html#toString) 或 [QLocale::system().toString(date, QLocale::LongFormat)](https://doc.qt.io/qt-5/qlocale.html#toString)替代。
 
-*format* 中的 [Qt::LocaleDate](https://doc.qt.io/qt-5/qt.html#DateFormat-enum), [Qt::DefaultLocaleShortDate](https://doc.qt.io/qt-5/qt.html#DateFormat-enum) 和[Qt::DefaultLocaleLongDate](https://doc.qt.io/qt-5/qt.html#DateFormat-enum) 将在 Qt 6 中删除。这些应当由  [QLocale().toString(date, QLocale::ShortFormat)](https://doc.qt.io/qt-5/qlocale.html#toString) 或[QLocale().toString(date, QLocale::LongFormat)](https://doc.qt.io/qt-5/qlocale.html#toString) 替代。
+*format* 中的 [Qt::LocaleDate](https://doc.qt.io/qt-5/qt.html#DateFormat-enum), [Qt::DefaultLocaleShortDate](https://doc.qt.io/qt-5/qt.html#DateFormat-enum) 和[Qt::DefaultLocaleLongDate](https://doc.qt.io/qt-5/qt.html#DateFormat-enum) 将在 Qt 6 中删除。这些应当由  [QLocale().toString(date, QLocale::ShortFormat)](https://doc.qt.io/qt-5/qlocale.html#toString) 或 [QLocale().toString(date, QLocale::LongFormat)](https://doc.qt.io/qt-5/qlocale.html#toString) 替代。
 
 如果 *format* 是 [Qt::RFC2822Date](https://doc.qt.io/qt-5/qt.html#DateFormat-enum), 字符串会转换成 [RFC 2822](http://www.rfc-editor.org/rfc/rfc2822.txt) 兼容的格式。示例其一是 "20 May 1995"。
 
@@ -568,7 +568,7 @@ QDate::isValid(1202, 6, 6);   // true (即使这一年在格里高利历之前)
 
 **警告：**  [Qt::ISODate](https://doc.qt.io/qt-5/qt.html#DateFormat-enum) 格式只在0~9999年可用。
 
-**看看别的：** [fromString](#staticqdate-qdatefromstringconst-qstring-string-const-qstring-format)() and [QLocale::toString](https://doc.qt.io/qt-5/qlocale.html#toString)()。
+**另参考：** [fromString](#staticqdate-qdatefromstringconst-qstring-string-const-qstring-format)() and [QLocale::toString](https://doc.qt.io/qt-5/qlocale.html#toString)()。
 
 ----
 
@@ -578,11 +578,11 @@ QDate::isValid(1202, 6, 6);   // true (即使这一年在格里高利历之前)
 
 如果 *yearNumber* 不是`nullptr`(默认参数), 年号返回值存于`*yearNumber`。
 
-根据 ISO 8601, 格里高利历中，跨年的周属于天数更多的那年。 由于 ISO 8601 规定一周始于周一，周三在哪一年这周就属于哪一年。 大多数年有52周，但也有53周。
+根据 ISO 8601, 格里高利历中，跨年的周属于天数更多的那年。 由于 ISO 8601 规定一周始于周一，周三在哪一年这周就属于哪一年。 大多数年有52周，但也有53周的年份。
 
-**注意：** **yearNumber* 不总是与 [year](#int-qdateyear-const)() 相等。例如, 2000.1.1是1999年第52周, 2002.12.31是2003年第1周。
+**注意：** *\*yearNumber* 不总是与 [year](#int-qdateyear-const)() 相等。例如, 2000.1.1是1999年第52周, 2002.12.31是2003年第1周。
 
-**看看别的：** [isValid](#bool-qdateisvalid-const)()。
+**另参考：** [isValid](#bool-qdateisvalid-const)()。
 
 ----
 
@@ -596,11 +596,11 @@ QDate::isValid(1202, 6, 6);   // true (即使这一年在格里高利历之前)
 
 如果日期不合法，返回0。在一些日历系统中，比第一年早的年份非法。
 
-如果使用包含第0年的日历系统，在返回0时通过 [isValid](#bool-qdateisvalid-const)() 判断是否合法。这些个日历正常的使用负年份，-1年的下一年是0年，再下一年是1年。
+如果使用包含第0年的日历系统，在返回0时通过 [isValid](#bool-qdateisvalid-const)() 判断是否合法。这些日历正常的使用负年份，-1年的下一年是0年，再下一年是1年。
 
 一些日历中，没有0年份但是有负数年份。例如格里高利历，公元前x年就是年份-x。
 
-**看看别的：** [month](#int-qdatemonth-const)() , [day](#int-qdateday-const)() , [QCalendar::hasYearZero](../../C/QCalendar/QCalendar.md#hasYearZero)() , and [QCalendar::isProleptic](../../C/QCalendar/QCalendar.md#isProleptic)()。
+**另参考：** [month](#int-qdatemonth-const)() , [day](#int-qdateday-const)() , [QCalendar::hasYearZero](../../C/QCalendar/QCalendar.md#hasYearZero)() , and [QCalendar::isProleptic](../../C/QCalendar/QCalendar.md#isProleptic)()。
 
 ### bool QDate::operator!=(const QDate &*d*) const
 
@@ -614,7 +614,7 @@ QDate::isValid(1202, 6, 6);   // true (即使这一年在格里高利历之前)
 
 ### bool QDate::operator>=(const QDate &*d*) const
 
-对于日期A和B，大于意味着如期靠后，小于意味着日期靠前，相等就是同一天。
+对于日期A和B，大于意味着日期靠后，小于意味着日期靠前，相等就是同一天。
 
 
 
@@ -624,10 +624,10 @@ QDate::isValid(1202, 6, 6);   // true (即使这一年在格里高利历之前)
 
 向数据流写入日期
 
-**看看别的：** [Serializing Qt Data Types](https://doc.qt.io/qt-5/datastreamformat.html)。
+**另参考：** [Serializing Qt Data Types](https://doc.qt.io/qt-5/datastreamformat.html)。
 
 ### [QDataStream](../QDataStream/QDataStream.md) &operator>>([QDataStream](../QDataStream/QDataStream.md) &*in*, QDate &*date*)
 
 从数据流读出日期
 
-**看看别的：** [Serializing Qt Data Types](https://doc.qt.io/qt-5/datastreamformat.html)。
+**另参考：** [Serializing Qt Data Types](https://doc.qt.io/qt-5/datastreamformat.html)。
