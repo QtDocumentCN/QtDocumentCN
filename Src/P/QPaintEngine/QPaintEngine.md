@@ -50,3 +50,20 @@ QPaintEngine类为[QPainter](../../P/QPainter/QPainter.md)提供了如何在指�
 |virtual QPaintEngine::Type	|type() const = 0|
 |virtual void	|updateState(const QPaintEngineState &state) = 0|
 
+
+## 详细介绍
+
+Qt为不同的painter后端提供了一些预设实现的QPaintEngine
+
+> 译者注：提供一个更加好理解的说法。QPainter的Qt实现一般默认调用的是QPaintEngine的方法。
+
+现在QPaintEngine主要提供的是Qt自带的光栅化引擎(raster engine),Qt在他所有支持的平台上，提供了一个功能完备的光栅化引擎。
+
+在Windows, X11 和 macOS平台上，Qt自带的光栅化引擎都是QWidget这个基础类的默认的绘制方法的提供者，亦或是QImage的绘制方法的提供者。当然有一些特殊的绘制设备的绘制引擎不提供对应的绘制方法，这时候就会调用默认的光栅化引擎。
+
+当然，我们也为OpenGL(可通过QOpenGLWidget访问)跟打印(允许QPainter在QPrinter对象上绘制，用于生成pdf之类的)也提供了对应的QPaintEngine的实现。
+
+> 译者注： QPainter,QPainterEngine，QPaintDevice三个是相辅相成的。
+> - QPainter为开发者提供外部接口方法用于绘制
+> - QPaintEngine为QPainter提供一些绘制的具体实现
+> - QPaintDevice为QPainter提供一个绘图设备，用于显示亦或储存。
