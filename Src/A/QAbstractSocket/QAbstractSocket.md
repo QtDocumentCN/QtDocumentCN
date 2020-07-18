@@ -183,7 +183,7 @@ QAbstractSocket 可以与 [QTextStream](../../T/QTextStream/QTextStream.md) 和 
 
 ## 成员类型文档
 
-### enum **QAbstractSocket**::BindFlag | flags **QAbstractSocket**::BindMode
+### enum QAbstractSocket::**BindFlag** | flags QAbstractSocket::**BindMode**
 
 该枚举描述了一些不同的标志，这些标志可以传递为 [bind()](#bool-qabstractsocketbindconst-qhostaddress-address-quint16-port--0-qabstractsocketbindmode-mode--defaultforplatform) 成员函数的参数，指定了不同的主机绑定模式。
 
@@ -198,9 +198,9 @@ QAbstractSocket 可以与 [QTextStream](../../T/QTextStream/QTextStream.md) 和 
 
 BindMode 类型是 typedef QFlags \<BindFlag\> 生成的用户自定义类型。 它存储着 BindFlag 值的 OR 组合。
 
+---
 
-
-### enum **QAbstractSocket**::NetworkLayerProtocol
+### enum QAbstractSocket::**NetworkLayerProtocol**
 
 该枚举描述了Qt中可以使用的网络层协议。
 
@@ -213,9 +213,9 @@ BindMode 类型是 typedef QFlags \<BindFlag\> 生成的用户自定义类型。
 
 您也可以在 QHostAddress::protocol() 中找到有关网络层协议的相关知识。
 
+---
 
-
-### enum **QAbstractSocket**::PauseMode | flags **QAbstractSocket**::PauseModes
+### enum QAbstractSocket::**PauseMode** | flags QAbstractSocket::**PauseModes**
 
 该枚举描述了套接字在什么情况下该停止传输中的数据。 当前Qt支持的唯一通知是 QSslSocket :: sslErrors() 。
 
@@ -228,9 +228,9 @@ BindMode 类型是 typedef QFlags \<BindFlag\> 生成的用户自定义类型。
 
 PauseModes 类型是 typedef QFlags\<PauseMode\> 生成的用户自定义类型。它储存着 PauseMode 值的 OR 组合。
 
+---
 
-
-### enum **QAbstractSocket**::SocketError
+### enum QAbstractSocket::**SocketError**
 
 该枚举描述了常见的套接字错误。
 
@@ -263,9 +263,9 @@ PauseModes 类型是 typedef QFlags\<PauseMode\> 生成的用户自定义类型�
 
 您也可以在 [QAbstractSocket::error()](#qabstractsocketsocketerror-qabstractsocketerror-const)  和 [QAbstractSocket::errorOccurred()](#signal-void-qabstractsocketerroroccurredqabstractsocketsocketerror-socketerror) 成员函数的详细介绍中找到一部分套接字错误的介绍。
 
+---
 
-
-### enum **QAbstractSocket**::SocketOption
+### enum QAbstractSocket::**SocketOption**
 
 该枚举表示可以在套接字上设置的选项。 如果需要设置这些选项，您可以在套接字接收到 [connectd()](#signal-void-qabstractsocketconnected) 信号之后，或者在 [QTcpServer](../../QTcpServer/QTcpServer.md) 接收到新的套接字之后，对它们进行设置。
 
@@ -297,9 +297,9 @@ PauseModes 类型是 typedef QFlags\<PauseMode\> 生成的用户自定义类型�
 
 您也可以在 [QAbstractSocket::setSocketOption()](#virtual-void-qabstractsocketsetsocketoptionqabstractsocketsocketoption-option-const-qvariant-value) 和 [QAbstractSocket::socketOption()](#virtual-qvariant-qabstractsocketsocketoptionqabstractsocketsocketoption-option) 函数介绍中找到相关内容。
 
+---
 
-
-### enum **QAbstractSocket**::SocketState
+### enum QAbstractSocket::**SocketState**
 
 该枚举描述了套接字不同的状态。
 
@@ -315,9 +315,9 @@ PauseModes 类型是 typedef QFlags\<PauseMode\> 生成的用户自定义类型�
 
 您也可以在 [QAbstractSocket::state()](#qabstractsocketsocketstate-qabstractsocketstate-const) 成员函数介绍中找到相关内容。
 
+---
 
-
-### enum **QAbstractSocket**::SocketType
+### enum QAbstractSocket::**SocketType**
 
 该枚举描述了传输层的协议。
 
@@ -330,11 +330,11 @@ PauseModes 类型是 typedef QFlags\<PauseMode\> 生成的用户自定义类型�
 
 您也可以在 [QAbstractSocket::socketType()](#qabstractsocketsockettype-qabstractsocketsockettype-const) 成员函数介绍中找到相关内容。
 
-
+---
 
 ## 成员函数文档
 
-### **QAbstractSocket**::QAbstractSocket(**QAbstractSocket**::SocketType *socketType*, QObject **parent*)
+### QAbstractSocket::**QAbstractSocket**(**QAbstractSocket**::SocketType *socketType*, QObject **parent*)
 
 创建一个新抽象套接字 socketType 。 函数中父对象的参数传递给 [QObject](../../O/QObject/QObject.md) 的构造函数。
 
@@ -342,9 +342,9 @@ PauseModes 类型是 typedef QFlags\<PauseMode\> 生成的用户自定义类型�
 
 另外您也可以在 [socketType()](#qabstractsocketsockettype-qabstractsocketsockettype-const) 成员函数文档，以及 [QTcpSocket](../../T/QTcpSocket/QTcpSocket.md) 和 [QUdpSocket](../../U/QUdpSocket/QUdpSocket.md) 类文档找到相关信息。
 
+---
 
-
-### *[SIGNAL]* void **QAbstractSocket**::connected()
+### *[SIGNAL]* void QAbstractSocket::**connected**()
 
 [connectToHost()](#virtual-void-qabstractsocketconnecttohostconst-qhostaddress-address-quint16-port-qiodeviceopenmode-openmode--readwrite) 调用并成功建立一个连接后，QAbstractSocket 类将发送 connectd() 信号。
 
@@ -352,9 +352,9 @@ PauseModes 类型是 typedef QFlags\<PauseMode\> 生成的用户自定义类型�
 
 另外您也可以在 [connectToHost()](#virtual-void-qabstractsocketconnecttohostconst-qhostaddress-address-quint16-port-qiodeviceopenmode-openmode--readwrite) 和 [disconnected()](#signal-void-qabstractsocketdisconnected) 成员函数文档中找到相关信息。
 
+---
 
-
-### *[SIGNAL]* void **QAbstractSocket**::disconnected()
+### *[SIGNAL]* void QAbstractSocket::**disconnected**()
 
 套接字断开后会发送该信号。
 
@@ -362,9 +362,9 @@ PauseModes 类型是 typedef QFlags\<PauseMode\> 生成的用户自定义类型�
 
 另外您也可以在 [connectToHost()](#virtual-void-qabstractsocketconnecttohostconst-qhostaddress-address-quint16-port-qiodeviceopenmode-openmode--readwrite) ，[disconnectFromHost()](#virtual-void-qabstractsocketdisconnectfromhost) 和 [abort()](#void-qabstractsocketabort) 函数介绍中找到相关信息。
 
+---
 
-
-### *[SIGNAL]* void **QAbstractSocket**::errorOccurred(**QAbstractSocket**::SocketError *socketError*)
+### *[SIGNAL]* void QAbstractSocket::**errorOccurred**(**QAbstractSocket**::SocketError *socketError*)
 
 当套接字遇到错误时会发送该信号。*socketError* 参数描述了该错误类型。
 
@@ -376,9 +376,9 @@ PauseModes 类型是 typedef QFlags\<PauseMode\> 生成的用户自定义类型�
 
 另外您也可以在 [error()](#qabstractsocketsocketerror-qabstractsocketerror-const) 和 errorString() 函数介绍以及 Creating Custom Qt Types 文档中找到相关信息。
 
+---
 
-
-### *[SIGNAL]* void **QAbstractSocket**::hostFound()
+### *[SIGNAL]* void QAbstractSocket::**hostFound**()
 
 在 QAbstractSocket 调用 [connectToHost()](#virtual-void-qabstractsocketconnecttohostconst-qhostaddress-address-quint16-port-qiodeviceopenmode-openmode--readwrite) 函数并成功找到主机后，它将发送该消息。
 
@@ -386,9 +386,9 @@ PauseModes 类型是 typedef QFlags\<PauseMode\> 生成的用户自定义类型�
 
 另外您也可以在 [connectd()](#signal-void-qabstractsocketconnected) 函数介绍中找到相关信息。
 
+---
 
-
-### *[SIGNAL]* void **QAbstractSocket**::proxyAuthenticationRequired(const QNetworkProxy &*proxy*, QAuthenticator **authenticator*)
+### *[SIGNAL]* void QAbstractSocket::**proxyAuthenticationRequired**(const QNetworkProxy &*proxy*, QAuthenticator **authenticator*)
 
 套接字连接的代理服务期需要身份验证时会发送该消息。您可以用所需的详细信息填充 *authenticator* 对象，以便代理服务期进行身份验证并继续连接。
 
@@ -398,9 +398,9 @@ PauseModes 类型是 typedef QFlags\<PauseMode\> 生成的用户自定义类型�
 
 另外您也可以在 [QAuthenticator](../../A/QAuthenticator/QAuthenticator.md) 和 [QNetworkProxy](../../N/QAuthenticator/QAuthenticator.md) 文档中找到相关信息。
 
+---
 
-
-### [SIGNAL] void **QAbstractSocket**::stateChanged(**QAbstractSocket**::SocketState *socketState*)
+### [SIGNAL] void QAbstractSocket::**stateChanged**(**QAbstractSocket**::SocketState *socketState*)
 
 QAbstractSocket 状态发生改变后会发送该信号。*socketState* 参数记录了新的状态。
 
@@ -408,23 +408,23 @@ QAbstractSocket 状态发生改变后会发送该信号。*socketState* 参数�
 
 另外您也可以在 [state()](#qabstractsocketsocketstate-qabstractsocketstate-const) 成员函数介绍和 Create Custom Qt Types 文档中找到相关信息。
 
+---
 
-
-### [virtual] **QAbstractSocket**::~QAbstractSocket()
+### [virtual] QAbstractSocket::~**QAbstractSocket**()
 
 析构函数，销毁套接字。
 
+---
 
-
-### void **QAbstractSocket**::abort()
+### void QAbstractSocket::**abort**()
 
 中止当前连接并重置套接字。 与 [disconnectFromHost()](#virtual-void-qabstractsocketdisconnectfromhost) 不同，此函数会立即关闭套接字，并丢弃写缓冲区中的所有未处理数据。
 
 另外您也可以在 [disconnectFromHost()](#virtual-void-qabstractsocketdisconnectfromhost) 和 [close()](#override-virtual-void-qabstractsocketclose) 函数介绍中找到相关信息。
 
+---
 
-
-### *[override virtual]* bool **QAbstractSocket**::atEnd() const
+### *[override virtual]* bool QAbstractSocket::**atEnd**() const
 
 该函数重写了父类 [QIODevice](../../I/QIODevice/QIODevice.md) 的类成员函数 *QIODevice::atEnd() const* 。
 
@@ -445,9 +445,9 @@ void SocketClass::readyReadSlot()
 
 另外您也可以在 [bytesAvailable()](#override-virtual-qint64-qabstractsocketbytesavailable-const) 和 readyRead() 函数介绍中找到相关信息。
 
+---
 
-
-### bool **QAbstractSocket**::bind(const QHostAddress &*address*, quint16] *port* = 0, **QAbstractSocket**::BindMode *mode* = DefaultForPlatform)
+### bool QAbstractSocket::**bind**(const QHostAddress &*address*, quint16] *port* = 0, **QAbstractSocket**::BindMode *mode* = DefaultForPlatform)
 
 使用 *mode* 指定的 [*QAbstractSocket::BindMode*](#enum-qabstractsocketbindflag--flags-qabstractsocketbindmode) 模式绑定到 *address* 和 *port* 指定的地址和端口上。
 
@@ -461,9 +461,9 @@ void SocketClass::readyReadSlot()
 
 该函数最初在Qt5.0版本引入。
 
+---
 
-
-### bool **QAbstractSocket**::bind(quint16 *port* = 0, **QAbstractSocket**::BindMode *mode* = DefaultForPlatform)
+### bool QAbstractSocket::**bind**(quint16 *port* = 0, **QAbstractSocket**::BindMode *mode* = DefaultForPlatform)
 
 重载 bind() 函数。
 
@@ -473,9 +473,9 @@ void SocketClass::readyReadSlot()
 
 该函数最初在Qt5.0版本引入。
 
+---
 
-
-### *[override virtual]* qint64 **QAbstractSocket**::bytesAvailable() const
+### *[override virtual]* qint64 QAbstractSocket::**bytesAvailable**() const
 
 该函数重写了父类 QIODevice 的类成员函数 *QIODevice::bytesAvailable() const* 。
 
@@ -483,9 +483,9 @@ void SocketClass::readyReadSlot()
 
 另外您也可以在 [bytesToWrite()](#override-virtual-qint64-qabstractsocketbytestowrite-const) 和 read() 函数介绍中找到相关信息。
 
+---
 
-
-### *[override virtual]* qint64 **QAbstractSocket**::bytesToWrite() const
+### *[override virtual]* qint64 QAbstractSocket::**bytesToWrite**() const
 
 该函数重写了父类 QIODevice 的类成员函数 *QIODevice::bytesToWrite() const* 。
 
@@ -493,9 +493,9 @@ void SocketClass::readyReadSlot()
 
 另外您也可以在 [bytesAvailable()](#override-virtual-qint64-qabstractsocketbytesavailable-const) 和 [flush()](#bool-qabstractsocketflush) 函数介绍中找到相关信息。
 
+---
 
-
-### *[override virtual]* bool **QAbstractSocket**::canReadLine() const
+### *[override virtual]* bool QAbstractSocket::**canReadLine**() const
 
 该函数重写了父类 QIODevice 的类成员函数 *QIODevice::canReadLine() const* 。
 
@@ -503,9 +503,9 @@ void SocketClass::readyReadSlot()
 
 另外您也可以在 readLine() 函数介绍中找到相关信息。
 
+---
 
-
-### *[override virtual]* void **QAbstractSocket**::close()
+### *[override virtual]* void QAbstractSocket::**close**()
 
 该函数重写了父类 QIODevice 的类成员函数 *QIODevice::close()* 。
 
@@ -515,9 +515,9 @@ void SocketClass::readyReadSlot()
 
 另外您也可以在 [abort()](#void-qabstractsocketabort) 函数介绍中找到相关信息。
 
+---
 
-
-### *[virtual]* void **QAbstractSocket**::connectToHost(const QString &*hostName*, quint16 *port*, QIODevice::OpenMode *openMode* = ReadWrite, **QAbstractSocket**::NetworkLayerProtocol *protocol* = AnyIPProtocol)
+### *[virtual]* void QAbstractSocket::**connectToHost**(const QString &*hostName*, quint16 *port*, QIODevice::OpenMode *openMode* = ReadWrite, **QAbstractSocket**::NetworkLayerProtocol *protocol* = AnyIPProtocol)
 
 尝试连接到远程主机 *hostname* 的给定端口 *port* 。 *protocol* 参数可用于指定要使用的网络协议（例如IPv4或IPv6）。
 
@@ -529,33 +529,33 @@ void SocketClass::readyReadSlot()
 
 另外您也可以在 [state()](#qabstractsocketsocketstate-qabstractsocketstate-const)，[peerName()](#qstring-qabstractsocketpeername-const)，[peerAddress()](#qhostaddress-qabstractsocketpeeraddress-const)，[peerPort()](#quint16-qabstractsocketpeerport-const) 和 [waitForConnected()](#virtual-bool-qabstractsocketwaitforconnectedint-msecs--30000) 函数介绍中找到相关信息。
 
+---
 
-
-### *[virtual]* void **QAbstractSocket**::connectToHost(const QHostAddress &*address*, quint16 *port*, QIODevice::OpenMode *openMode* = ReadWrite)
+### *[virtual]* void QAbstractSocket::**connectToHost**(const QHostAddress &*address*, quint16 *port*, QIODevice::OpenMode *openMode* = ReadWrite)
 
 重载 connectToHost() 函数。
 
 尝试连接到远程主机 *hostname* 的给定端口 *port* 。
 
+---
 
-
-### *[virtual]* void **QAbstractSocket**::disconnectFromHost()
+### *[virtual]* void QAbstractSocket::**disconnectFromHost**()
 
 尝试关闭套接字。如果还有未处理的数据等待写入，QAbstractSocket 会进入*正在关闭*（ [*ClosingState*](#enum-qabstractsocketsocketstate) ）状态并等待所有数据被写入后再关闭套接字。最终 QAbstractSocket 会进入*未连接*（ [*UnconnectedState*](#enum-qabstractsocketsocketstate) ）状态并发送 [disconnected()](#signal-void-qabstractsocketdisconnected) 信号。
 
 另外您也可以在 [connectToHost()](#virtual-void-qabstractsocketconnecttohostconst-qhostaddress-address-quint16-port-qiodeviceopenmode-openmode--readwrite) 函数介绍中找到相关信息。
 
+---
 
-
-### **QAbstractSocket**::SocketError **QAbstractSocket**::error() const
+### QAbstractSocket::SocketError QAbstractSocket::**error**() const
 
 返回最后一个错误的类型。
 
 另外您也可以在 [state()](#qabstractsocketsocketstate-qabstractsocketstate-const) 和 errorString() 函数介绍中找到相关信息。
 
+---
 
-
-### bool **QAbstractSocket**::flush()
+### bool QAbstractSocket::**flush**()
 
 该函数尽可能多的在不阻塞套接字的前提下将数据从内部写入缓冲区写入基础网络套接字。 如果写入了任何数据，则此函数返回 true ， 否则返回 false 。
 
@@ -563,15 +563,15 @@ void SocketClass::readyReadSlot()
 
 另外您也可以在 write() 和 [waitForBytesWritten()](#override-virtual-bool-qabstractsocketwaitforbyteswrittenint-msecs--30000) 函数介绍中找到相关信息。
 
+---
 
-
-### *[override virtual]* bool **QAbstractSocket**::isSequential() const
+### *[override virtual]* bool QAbstractSocket::**isSequential**() const
 
 该函数重写了父类 [QIODevice](../../I/QIODevice/QIODevice.md) 的类成员函数 *QIODevice::isSequential()* 。
 
+---
 
-
-### bool **QAbstractSocket**::isValid() const
+### bool QAbstractSocket::**isValid**() const
 
 如果套接字有效并且可以使用，则返回 true ，否则返回 false 。
 
@@ -579,9 +579,9 @@ void SocketClass::readyReadSlot()
 
 另外您也可以在 [state()](#qabstractsocketsocketstate-qabstractsocketstate-const) 函数介绍中找到相关信息。
 
+---
 
-
-### QHostAddress **QAbstractSocket**::localAddress() const
+### QHostAddress QAbstractSocket::**localAddress**() const
 
 如果本地套接字则可用返回主机地址，否则返回 *QHostAddress::Null* 。
 
@@ -589,17 +589,17 @@ void SocketClass::readyReadSlot()
 
 另外您也可以在 [localPort()](#quint16-qabstractsocketlocalport-const)，[peerAddress()](#qhostaddress-qabstractsocketpeeraddress-const) 和 [setLocalAddress()](#protected-void-qabstractsocketsetlocaladdressconst-qhostaddress-address) 函数介绍中找到相关信息。
 
+---
 
-
-### quint16 **QAbstractSocket**::localPort() const
+### quint16 QAbstractSocket::**localPort**() const
 
 如果本地套接字可用则按照本地字节顺序返回主机端口，否则返回0。
 
 另外您也可以在 [localAddress()](#qhostaddress-qabstractsocketlocaladdress-const)，[peerPort()](#quint16-qabstractsocketpeerport-const) 和 [setLocalPort()](#protected-void-qabstractsocketsetlocalportquint16-port) 函数介绍中找到相关信息。
 
+---
 
-
-### **QAbstractSocket**::PauseModes **QAbstractSocket**::pauseMode() const
+### QAbstractSocket::**PauseModes** QAbstractSocket::**pauseMode**() const
 
 返回该套接字的数据传输暂停模式。
 
@@ -607,33 +607,33 @@ void SocketClass::readyReadSlot()
 
 另外您也可以在 [setPauseMode()](#void-qabstractsocketsetpausemodeqabstractsocketpausemodes-pausemode) 和 [resume()](#virtual-void-qabstractsocketresume) 函数介绍中找到相关信息。
 
+---
 
-
-### QHostAddress **QAbstractSocket**::peerAddress() const
+### QHostAddress QAbstractSocket::**peerAddress**() const
 
 如果套接字处于*已连接*（ [*ConnectedState*](#enum-qabstractsocketsocketstate) ）状态则返回对等端的地址，否则返回 *QHostAddress::Null* 。
 
 另外您也可以在 [peerName()](#qstring-qabstractsocketpeername-const)，[peerPort()](#quint16-qabstractsocketpeerport-const)，[localAddress()](#qhostaddress-qabstractsocketlocaladdress-const) 和 [setPeerAddress()](#protected-void-qabstractsocketsetpeeraddressconst-qhostaddress-address) 函数介绍中找到相关信息。
 
+---
 
-
-### QString **QAbstractSocket**::peerName() const
+### QString QAbstractSocket::**peerName**() const
 
 返回在 [connectToHost()](#virtual-void-qabstractsocketconnecttohostconst-qhostaddress-address-quint16-port-qiodeviceopenmode-openmode--readwrite) 函数中指定的主机名。如果 [connectToHost()](#virtual-void-qabstractsocketconnecttohostconst-qhostaddress-address-quint16-port-qiodeviceopenmode-openmode--readwrite) 函数未被调用过则返回一个空的 QString 。
 
 另外您也可以在 [peerAddress()](#qhostaddress-qabstractsocketpeeraddress-const)，[peerPort()](#quint16-qabstractsocketpeerport-const) 和 [setPeerName()](#protected-void-qabstractsocketsetpeernameconst-qstring-name) 函数介绍中找到相关信息。
 
+---
 
-
-### quint16 **QAbstractSocket**::peerPort() const
+### quint16 QAbstractSocket::**peerPort**() const
 
 如果套接字处于*已连接*（ [*ConnectedState*](#enum-qabstractsocketsocketstate) ）状态则返回对等端的端口，否则返回0。
 
 另外您也可以在 [peerAddress()](#qhostaddress-qabstractsocketpeeraddress-const)，[localPort()](#quint16-qabstractsocketlocalport-const) 和 [setPeerPort()](#protected-void-qabstractsocketsetpeerportquint16-port) 函数介绍中找到相关信息。
 
+---
 
-
-### QString **QAbstractSocket**::protocolTag() const
+### QString QAbstractSocket::**protocolTag**() const
 
 返回此套接字的协议标签。 如果设置了协议标签，则在 QAbstractSocket 内部创建协议标签时将其传递给[QNetworkProxyQuery](../../N/QNetworkProxyQuery/QNetworkProxyQuery.md)，以指示要使用的协议标签。
 
@@ -641,9 +641,9 @@ void SocketClass::readyReadSlot()
 
 另外您也可以在 [setProtocolTag()](#void-qabstractsocketsetprotocoltagconst-qstring-tag) 函数介绍和 [QNetworkProxyQuery](../../N/QNetworkProxyQuery/QNetworkProxyQuery.md) 文档中找到相关信息。
 
+---
 
-
-### QNetworkProxy **QAbstractSocket**::proxy() const
+### QNetworkProxy QAbstractSocket::**proxy**() const
 
 返回该套接字的网络代理。默认情况下套接字会使用 *QNetworkProxy::DefaultProxy* ，套接字会查询应用程序的默认网络代理设置。
 
@@ -651,9 +651,9 @@ void SocketClass::readyReadSlot()
 
 另外您也可以在 [setProxy()](#void-qabstractsocketsetproxyconst-qnetworkproxy-networkproxy-) 函数介绍以及 [QNetworkProxy](../../N/QNetworkProxy/QNetworkProxy.md) 和 [QNetworkProxyFactory](../../N/QNetworkProxyFactory/QNetworkProxyFactory.md) 文档中找到相关信息。
 
+---
 
-
-### qint64 **QAbstractSocket**::readBufferSize() const
+### qint64 QAbstractSocket::**readBufferSize**() const
 
 返回内部读取缓冲区的大小。 这限制了客户端在调用 read() 或 readAll() 之前可以接收的数据量。
 
@@ -661,21 +661,21 @@ void SocketClass::readyReadSlot()
 
 另外您也可以在 [setReadBufferSize()](#virtual-void-qabstractsocketsetreadbuffersizeqint64-size) 和 read() 函数介绍中找到相关信息。
 
+---
 
-
-### *[override virtual protected]* qint64 **QAbstractSocket**::readData(char **data*, qint64 *maxSize*)
+### *[override virtual protected]* qint64 QAbstractSocket::**readData**(char **data*, qint64 *maxSize*)
 
 该函数重写了父类 [QIODevice](../../I/QIODevice/QIODevice.md) 的类成员函数 *QIODevice::readData()* 。
 
+---
 
-
-### *[override virtual protected]* qint64 **QAbstractSocket**::readLineData(char **data*, qint64 *maxlen*)
+### *[override virtual protected]* qint64 QAbstractSocket::**readLineData**(char **data*, qint64 *maxlen*)
 
 该函数重写了父类 [QIODevice](../../I/QIODevice/QIODevice.md) 的类成员函数 *QIODevice::readLineData()* 。
 
+---
 
-
-### *[virtual]* void **QAbstractSocket**::resume()
+### *[virtual]* void QAbstractSocket::**resume**()
 
 继续套接字数据传输。 仅当将套接字设置为收到暂停的消息后暂停数据传输，并接收到暂停的消息后暂停了数据传输，才能使用此方法。 当前支持的唯一通知是 *QSslSocket :: sslErrors()* 。 如果套接字未暂停，则调用此方法将导致 *未定义的行为*（ *undefined behavior* ）。
 
@@ -683,9 +683,9 @@ void SocketClass::readyReadSlot()
 
 另外您也可以在 [pauseMode()](#qabstractsocketpausemodes-qabstractsocketpausemode-const) 和 [setPauseMode()](#void-qabstractsocketsetpausemodeqabstractsocketpausemodes-pausemode) 函数介绍中找到相关信息。
 
+---
 
-
-### *[protected]* void **QAbstractSocket**::setLocalAddress(const QHostAddress &*address*)
+### *[protected]* void QAbstractSocket::**setLocalAddress**(const QHostAddress &*address*)
 
 将套接字连接中本地的地址设置为 *address* 。
 
@@ -697,9 +697,9 @@ void SocketClass::readyReadSlot()
 
 另外您也可以在 [localAddress()](#qhostaddress-qabstractsocketlocaladdress-const)，[setLocalPort()](#protected-void-qabstractsocketsetlocalportquint16-port) 和 [setPeerAddress()](#protected-void-qabstractsocketsetpeeraddressconst-qhostaddress-address) 函数介绍中找到相关知识。
 
+---
 
-
-### *[protected]* void **QAbstractSocket**::setLocalPort(quint16 *port*)
+### *[protected]* void QAbstractSocket::**setLocalPort**(quint16 *port*)
 
 将套接字连接中本地的端口设置为 *port* 。
 
@@ -711,9 +711,9 @@ void SocketClass::readyReadSlot()
 
 另外您也可以在 [localPort()](#quint16-qabstractsocketlocalport-const)， [localAddress()](#qhostaddress-qabstractsocketlocaladdress-const)，[setLocalPort()](#protected-void-qabstractsocketsetlocalportquint16-port)[setPeerAddress()](#protected-void-qabstractsocketsetpeeraddressconst-qhostaddress-address)
 
+---
 
-
-### void **QAbstractSocket**::setPauseMode(**QAbstractSocket**::PauseModes *pauseMode*)
+### void QAbstractSocket::**setPauseMode**(**QAbstractSocket**::PauseModes *pauseMode*)
 
 设置套接字是否在收到通知后暂停数据传输。 *pauseMouse* 参数指定套接字暂停的条件。目前唯一支持的暂停套接字数据传输的信号是 *QSslSocket::sslErrors()* 。如果将套接字暂停模式设置为 [*PauseOnSslErrors*](#enum-qabstractsocketpausemode--flags-qabstractsocketpausemodes) ，在接收到 *QSslSocket::sslErrors()* 信号后套接字上的数据传输将被暂停，并且需要通过调用 [resume()](#virtual-void-qabstractsocketresume) 再次显式启用。默认情况下 QAbstractSocket 暂停模式为 [*PauseNever*](\#enum-qabstractsocketpausemode--flags-qabstractsocketpausemodes) 。 若要修改暂停模式，您必须在连接服务器前调用此函数，否则对此函数的调用将被视为未定义行为。
 
@@ -721,9 +721,9 @@ void SocketClass::readyReadSlot()
 
 另外您也可以在 [pauseMode()](#qabstractsocketpausemodes-qabstractsocketpausemode-const) 和 [resume()](#virtual-void-qabstractsocketresume) 函数介绍中找到相关信息。
 
+---
 
-
-### *[protected]* void **QAbstractSocket**::setPeerAddress(const QHostAddress &*address*)
+### *[protected]* void QAbstractSocket::**setPeerAddress**(const QHostAddress &*address*)
 
 设将套接字连接中远程的地址设置为 *address* 。
 
@@ -733,9 +733,9 @@ void SocketClass::readyReadSlot()
 
 另外您也可以在 [peerAddress()](#qhostaddress-qabstractsocketpeeraddress-const)，[setPeerPort()](#protected-void-qabstractsocketsetpeerportquint16-port) 和 [setLocalAddress()](#protected-void-qabstractsocketsetlocaladdressconst-qhostaddress-address) 函数介绍中找到相关信息。
 
+---
 
-
-### *[protected]* void **QAbstractSocket**::setPeerName(const QString &*name*)
+### *[protected]* void QAbstractSocket::**setPeerName**(const QString &*name*)
 
 设将套接字连接中远程的主机名设置为 *name* 。
 
@@ -745,9 +745,9 @@ void SocketClass::readyReadSlot()
 
 另外您也可以在 [peerName()](#qstring-qabstractsocketpeername-const)函数介绍中找到相关信息。
 
+---
 
-
-### *[protected]* void **QAbstractSocket**::setPeerPort(quint16 *port*)
+### *[protected]* void QAbstractSocket::**setPeerPort**(quint16 *port*)
 
 设将套接字连接中远程的端口设置为 *port* 。
 
@@ -757,9 +757,9 @@ void SocketClass::readyReadSlot()
 
 另外您也可以在 [peerPort()](#quint16-qabstractsocketpeerport-const) 函数介绍中找到相关信息。
 
+---
 
-
-### void **QAbstractSocket**::setProtocolTag(const QString &*tag*)
+### void QAbstractSocket::**setProtocolTag**(const QString &*tag*)
 
 将此套接字的协议标签设置为 *tag* 。
 
@@ -767,9 +767,9 @@ void SocketClass::readyReadSlot()
 
 另外您也可以在 [protocolTag()](#qstring-qabstractsocketprotocoltag-const) 函数介绍中找到相关信息。
 
+---
 
-
-### void **QAbstractSocket**::setProxy(const QNetworkProxy &*networkProxy* )
+### void QAbstractSocket::**setProxy**(const QNetworkProxy &*networkProxy* )
 
 将此套接字的显式网络代理设置为 *networkProxy* 。
 
@@ -785,9 +785,9 @@ socket->setProxy(QNetworkProxy::NoProxy);
 
 另外您也可以在 [proxy()](#qnetworkproxy-qabstractsocketproxy-const) 函数介绍以及 [QNetworkProxy](../../N/QNetworkProxy)  和 QNetworkProxyFactory::queryProxy() 文档中找到相关信息。
 
+---
 
-
-### *[virtual]* void **QAbstractSocket**::setReadBufferSize(qint64 *size*)
+### *[virtual]* void QAbstractSocket::**setReadBufferSize**(qint64 *size*)
 
 设置 QAbstractSocket 内部读入缓冲区的大小（字节为单位）。
 
@@ -799,9 +799,9 @@ socket->setProxy(QNetworkProxy::NoProxy);
 
 另外您也可以在 [readBufferSize()](#qint64-qabstractsocketreadbuffersize-const) 和 read() 函数介绍中找到相关信息。
 
+---
 
-
-### *[virtual]* bool **QAbstractSocket**::setSocketDescriptor(qintptr *socketDescriptor*, **QAbstractSocket**::SocketState *socketState* = ConnectedState, QIODevice::OpenMode *openMode* = ReadWrite)
+### *[virtual]* bool QAbstractSocket::**setSocketDescriptor**(qintptr *socketDescriptor*, **QAbstractSocket**::SocketState *socketState* = ConnectedState, QIODevice::OpenMode *openMode* = ReadWrite)
 
 使用本机套接字描述符 *socketDescriptor* 初始化 QAbstractSocket 。 如果 *socketDescriptor* 为有效的套接字描述符，则返回 true ，否则返回 false 。 套接字以 *openMode* 指定的模式打开，并进入由 *socketState* 指定的套接字状态。 读取和写入缓冲区将会丢弃所有未决数据并清空。
 
@@ -809,17 +809,17 @@ socket->setProxy(QNetworkProxy::NoProxy);
 
 另外您也可以在 [socketDescriptor()](#virtual-qintptr-qabstractsocketsocketdescriptor-const) 函数介绍中找到相关信息。
 
+---
 
-
-### *[proteched]* void **QAbstractSocket**::setSocketError(**QAbstractSocket**::SocketError *socketError*)
+### *[proteched]* void QAbstractSocket::**setSocketError**(**QAbstractSocket**::SocketError *socketError*)
 
 将套接字最后一个出现的错误的类型设置为 *socketError* 。
 
 另外您也可以在 [setSocketState()](#protected-void-qabstractsocketsetsocketstateqabstractsocketsocketstate-state) 和 setErrorString() 函数中找到相关信息。
 
+---
 
-
-### *[virtual]* void **QAbstractSocket**::setSocketOption(**QAbstractSocket**::SocketOption *option*, const QVariant &*value*)
+### *[virtual]* void QAbstractSocket::**setSocketOption**(**QAbstractSocket**::SocketOption *option*, const QVariant &*value*)
 
 将 *option* 指定的套接字选项设置为 *value* 指定的值。
 
@@ -829,17 +829,17 @@ socket->setProxy(QNetworkProxy::NoProxy);
 
 另外您也可以在 [socketOption()](#virtual-qvariant-qabstractsocketsocketoptionqabstractsocketsocketoption-option) 函数介绍中找到相关信息。
 
+---
 
-
-### *[protected]* void **QAbstractSocket**::setSocketState(**QAbstractSocket**::SocketState *state*)
+### *[protected]* void QAbstractSocket::**setSocketState**(**QAbstractSocket**::SocketState *state*)
 
 将套接字的状态设置为 *state* 。
 
 另外您也可以在[state()](#qabstractsocketsocketstate-qabstractsocketstate-const) 函数介绍中找到相关信息。
 
+---
 
-
-### *[virtual]* qintptr **QAbstractSocket**::socketDescriptor() const
+### *[virtual]* qintptr QAbstractSocket::**socketDescriptor**() const
 
 当 QAbstractSocket 类对象的本地套接字描述符可用时，则返回该描述符，否则返回-1。
 
@@ -849,9 +849,9 @@ socket->setProxy(QNetworkProxy::NoProxy);
 
 另外您也可以在 [setSocketDescriptor()](#virtual-bool-qabstractsocketsetsocketdescriptorqintptr-socketdescriptor-qabstractsocketsocketstate-socketstate--connectedstate-qiodeviceopenmode-openmode--readwrite) 函数介绍中找到相关信息。
 
+---
 
-
-### *[virtual]* QVariant **QAbstractSocket**::socketOption(**QAbstractSocket**::SocketOption) *option*)
+### *[virtual]* QVariant QAbstractSocket::**socketOption**(**QAbstractSocket**::SocketOption) *option*)
 
 返回 *option* 指定的套接字选项的值。
 
@@ -859,25 +859,25 @@ socket->setProxy(QNetworkProxy::NoProxy);
 
 另外您也可以在 [setSocketDescriptor()](#virtual-bool-qabstractsocketsetsocketdescriptorqintptr-socketdescriptor-qabstractsocketsocketstate-socketstate--connectedstate-qiodeviceopenmode-openmode--readwrite) 函数介绍中找到相关信息。
 
+---
 
-
-### **QAbstractSocket**::SocketType **QAbstractSocket**::socketType() const
+### QAbstractSocket::**SocketType** QAbstractSocket::**socketType**() const
 
 返回套接字类型（ TCP，UDP，或者其他）。
 
 另外您也可以在 [QTcpSocket](../../T/QTcpSocket/QTcpSocket.md) 和 [QUdpSocket](../../U/QUdpSocket/QUdpSocket.md) 文档中找到相关信息。
 
+---
 
-
-### **QAbstractSocket**::SocketState **QAbstractSocket**::state() const
+### QAbstractSocket::**SocketState** QAbstractSocket::**state**() const
 
 返回套接字的当前状态。
 
 另外您也可以在 [error()](#qabstractsocketsocketerror-qabstractsocketerror-const) 函数介绍中找到相关信息。
 
+---
 
-
-### *[override virtual]* bool **QAbstractSocket**::waitForBytesWritten(int *msecs* = 30000)
+### *[override virtual]* bool QAbstractSocket::**waitForBytesWritten**(int *msecs* = 30000)
 
 该函数重写了父类 [QIODevice](../../I/QIODevice/QIODevice.md) 的类成员函数 *QIODevice::waitForBytesWritten(int msecs)* 。
 
@@ -889,9 +889,9 @@ bytesWritten() 信号发出后该函数返回值为 true，偶则返回 false �
 
 另外您也可以在 [waitForReadyRead()](#override-virtual-bool-qabstractsocketwaitforreadyreadint-msecs--30000) 函数介绍中找到相关信息。
 
+---
 
-
-### *[virtual]* bool **QAbstractSocket**::waitForConnected(int *msecs* = 30000)
+### *[virtual]* bool QAbstractSocket::**waitForConnected**(int *msecs* = 30000)
 
 在 *msecs* 指定的时间内等待套接字连接到主机。如果连接成功建立，则返回 true ，否则返回 false 。如果该函数返回 false ，您可以调用 [error()](#qabstractsocketsocketerror-qabstractsocketerror-const) 函数来确定连接中出现的错误的类型。
 
@@ -913,9 +913,9 @@ if (socket->waitForConnected(1000))
 
 另外您也可以在 [connectToHost()](#virtual-void-qabstractsocketconnecttohostconst-qhostaddress-address-quint16-port-qiodeviceopenmode-openmode--readwrite) 和 [connected()](#signal-void-qabstractsocketconnected) 函数中找到相关信息。
 
+---
 
-
-### *[virtual]* bool **QAbstractSocket**::waitForDisconnected(int *msecs* = 30000)
+### *[virtual]* bool QAbstractSocket::**waitForDisconnected**(int *msecs* = 30000)
 
 在 *msecs* 指定的时间内等待套接字从主机断开连接。 如果连接成功断开，则返回 true ，否则返回 false （操作超时，出现错误，或者已经断开连接）。 如果该函数返回 false ，您可以调用 [error()](#qabstractsocketsocketerror-qabstractsocketerror-const) 函数来确定断开连接时出现的错误的类型。
 
@@ -935,9 +935,9 @@ if (socket->state() == QAbstractSocket::UnconnectedState
 
 另外您也可以在 [disconnectFromHost()](#virtual-void-qabstractsocketdisconnectfromhost) 和 close() 函数介绍中找到相关信息。
 
+---
 
-
-### *[override virtual]* bool **QAbstractSocket**::waitForReadyRead(int *msecs* = 30000)
+### *[override virtual]* bool QAbstractSocket::**waitForReadyRead**(int *msecs* = 30000)
 
 该函数重写了父类 [QIODevice](../../I/QIODevice/QIODevice.md) 的类成员函数 *QIODevice::waitForReadyRead(int msecs)* 。
 
@@ -949,8 +949,8 @@ readyRead() 信号发出后该函数返回值为 true，偶则返回 false （�
 
 另外您也可以在 [waitForBytesWritten()](#override-virtual-bool-qabstractsocketwaitforbyteswrittenint-msecs--30000)() 函数介绍中找到相关信息。
 
+---
 
-
-### *[overrude virtual protected]* qint64 **QAbstractSocket**::writeData(const char **data*, qint64 *size*)
+### *[overrude virtual protected]* qint64 QAbstractSocket::**writeData**(const char **data*, qint64 *size*)
 
 该函数重写了父类 [QIODevice](../../I/QIODevice/QIODevice.md) 的类成员函数 QIODevice::writeData(const char *data*, qint64 *size*)。

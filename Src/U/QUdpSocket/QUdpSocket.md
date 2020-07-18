@@ -81,7 +81,7 @@ Qt官方提供了如下几个在您的应用中使用 QUdpSocket 的示例： Br
 
 ## 成员函数文档
 
-### **QUdpSocket**::QUdpSocket(QObject **parent* = nullptr)
+### QUdpSocket::**QUdpSocket**(QObject **parent* = nullptr)
 
 构造函数。构造一个 QUdpSocket 类型的对象。
 
@@ -89,25 +89,25 @@ Qt官方提供了如下几个在您的应用中使用 QUdpSocket 的示例： Br
 
 另外您也可以在 [socketType()](../../A/QAbstractSocket/QAbstractSocket.md#qabstractsocketsockettype-qabstractsocketsockettype-const) 中找到相关信息。
 
+---
 
-
-### *[virtual]* **QUdpSocket**::~QUdpSocket()
+### *[virtual]* QUdpSocket::~**QUdpSocket**()
 
 析构函数。销毁套接字，必要的话关闭连接。
 
 另外您也可以在 [close()](../../A/QAbstractSocket/QAbstractSocket.md#override-virtual-void-qabstractsocketclose) 中找到相关信息。
 
+---
 
-
-### bool **QUdpSocket**::hasPendingDatagrams() const
+### bool QUdpSocket::**hasPendingDatagrams**() const
 
 当至少有一个数据报等待读取时，该函数返回 true ，否则返回 false 。
 
 另外您也可以在 [pendingDatagramSize()](#qint64-qudpsocketpendingdatagramsize-const) 和 [readDatagram()](#qint64-qudpsocketreaddatagramchar-data-qint64-maxsize-qhostaddress-address--nullptr-quint16-port--nullptr) 函数介绍中找到相关信息。
 
+---
 
-
-### bool **QUdpSocket**::joinMulticastGroup(const QHostAddress &*groupAddress*)
+### bool QUdpSocket::**joinMulticastGroup**(const QHostAddress &*groupAddress*)
 
 该函数会让套接字在操作系统选择的默认接口上加入由 *groupAddress* 指定的多播组。要加入多播组，套接字必须处于*已绑定* （ [*BoundState*](../../A/QAbstractSocket/QAbstractSocket.md#enum-qabstractsocketsocketstate) ）状态，否则将会出现错误。
 
@@ -121,9 +121,9 @@ Qt官方提供了如下几个在您的应用中使用 QUdpSocket 的示例： Br
 
 另外您也可以在 [LeaveMulticastGroup()](#bool-qudpsocketleavemulticastgroupconst-qhostaddress-groupaddress) 函数介绍中找到相关信息。
 
+---
 
-
-### bool **QUdpSocket**::joinMulticastGroup(const QHostAddress &*groupAddress*, const QNetworkInterface &*iface*)
+### bool QUdpSocket::**joinMulticastGroup**(const QHostAddress &*groupAddress*, const QNetworkInterface &*iface*)
 
 重载函数。
 
@@ -133,9 +133,9 @@ Qt官方提供了如下几个在您的应用中使用 QUdpSocket 的示例： Br
 
 另外您也可以在 [LeaveMulticastGroup()](#bool-qudpsocketleavemulticastgroupconst-qhostaddress-groupaddress) 函数介绍中找到相关信息。
 
+---
 
-
-### bool **QUdpSocket**::leaveMulticastGroup(const QHostAddress &*groupAddress*)
+### bool QUdpSocket::**leaveMulticastGroup**(const QHostAddress &*groupAddress*)
 
 使用操作系统指定的默认接口离开 *groupAddress* 指定的多播组。要退出多播组，套接字必须处于*已绑定* （ [*BoundState*](../../A/QAbstractSocket/QAbstractSocket.md#enum-qabstractsocketsocketstate) ）状态，否则将会出现错误。
 
@@ -147,9 +147,9 @@ Qt官方提供了如下几个在您的应用中使用 QUdpSocket 的示例： Br
 
 另外您也可以在 [joinMulticastGroup()](#bool-qudpsocketjoinmulticastgroupconst-qhostaddress-groupaddress) 函数介绍中找到相关信息。
 
+---
 
-
-### bool **QUdpSocket**::leaveMulticastGroup(const QHostAddress &*groupAddress*, const QNetworkInterface &*iface*)
+### bool QUdpSocket::**leaveMulticastGroup**(const QHostAddress &*groupAddress*, const QNetworkInterface &*iface*)
 
 重载函数。
 
@@ -161,9 +161,9 @@ Qt官方提供了如下几个在您的应用中使用 QUdpSocket 的示例： Br
 
 另外您也可以在 [joinMulticastGroup()](#bool-qudpsocketjoinmulticastgroupconst-qhostaddress-groupaddress) 函数介绍中找到相关信息。
 
+---
 
-
-### QNetworkInterface **QUdpSocket**::multicastInterface() const
+### QNetworkInterface QUdpSocket::**multicastInterface**() const
 
 返回多播数据报的传出接口的接口信息。这与 IPv4 套接字的 IP_MULTICAST_IF 套接字选项和 IPv6 套接字的 IPV6_MULTICAST_IF 套接字选项相对应。如果此前并没有设置一个接口， 函数将返回一个无效的 [QNetworkInterface](../../N/QNetworkInterface/QNetworkInterface.md) 。要退出多播组，套接字必须处于*已绑定* （ [*BoundState*](../../A/QAbstractSocket/QAbstractSocket.md#enum-qabstractsocketsocketstate) ）状态，否则将会返回一个无效的 [QNetworkInterface](../../N/QNetworkInterface/QNetworkInterface.md)。
 
@@ -171,17 +171,17 @@ Qt官方提供了如下几个在您的应用中使用 QUdpSocket 的示例： Br
 
 另外您也可以在 [setMulticastInterface()](#void-qudpsocketsetmulticastinterfaceconst-qnetworkinterface-iface) 函数介绍中找到相关信息。
 
+---
 
-
-### qint64 **QUdpSocket**::pendingDatagramSize() const
+### qint64 QUdpSocket::**pendingDatagramSize**() const
 
 返回第一个待处理的 UDP 数据报的大小。如果没有可获取的数据报，函数将会返回-1。
 
 另外您也可以在 [hasPendingDatagrams()](#bool-qudpsockethaspendingdatagrams-const) 和 [readDatagram()](#qint64-qudpsocketreaddatagramchar-data-qint64-maxsize-qhostaddress-address--nullptr-quint16-port--nullptr) 函数介绍中找到相关信息。
 
+---
 
-
-### qint64 **QUdpSocket**::readDatagram(char \**data*, qint64 *maxSize*, QHostAddress \**address* = nullptr, quint16 \**port* = nullptr)
+### qint64 QUdpSocket::**readDatagram**(char \**data*, qint64 *maxSize*, QHostAddress \**address* = nullptr, quint16 \**port* = nullptr)
 
 接收一个不超过 *maxsize* 字节大小数据报并将其储存在 *data* 中。 发送端的主机地址和端口将分别储存在 \**address* 和 \**port* 中（某值为空指针时除外）。
 
@@ -191,9 +191,9 @@ Qt官方提供了如下几个在您的应用中使用 QUdpSocket 的示例： Br
 
 另外您也可以在 [writeDatagram()](#qint64-qudpsocketwritedatagramconst-char-data-qint64-size-const-qhostaddress-address-quint16-port)，[hasPendingDatagrams()](#bool-qudpsockethaspendingdatagrams-const) 和 [pendingDatagramSize()](#qint64-qudpsocketpendingdatagramsize-const) 函数介绍中找到相关信息。
 
+---
 
-
-### QNetworkDatagram **QUdpSocket**::receiveDatagram(qint64 *maxSize* = -1)
+### QNetworkDatagram QUdpSocket::**receiveDatagram**(qint64 *maxSize* = -1)
 
 接收一个不超过 *maxsize* 字节大小的数字报并将它的内容以及发送者的主机地址和端口一起放在一个 [QNetworkDatagram](../../N/QNetworkDatagram/QNetworkDatagram.md) 对象中返回。如果可能，该函数还将尝试确定数据报的目标地址，端口以及接收时的跳数计数。
 
@@ -205,9 +205,9 @@ Qt官方提供了如下几个在您的应用中使用 QUdpSocket 的示例： Br
 
 另外您也可以在 [writeDatagram()](#qint64-qudpsocketwritedatagramconst-char-data-qint64-size-const-qhostaddress-address-quint16-port)，[hasPendingDatagrams()](#bool-qudpsockethaspendingdatagrams-const) 和 [pendingDatagramSize()](#qint64-qudpsocketpendingdatagramsize-const) 函数介绍中找到相关信息。
 
+---
 
-
-### void **QUdpSocket**::setMulticastInterface(const QNetworkInterface &*iface*)
+### void QUdpSocket::**setMulticastInterface**(const QNetworkInterface &*iface*)
 
 将多播数据报的传出接口设置为接口 *iface* 。 这与 IPv4 套接字的 IP_MULTICAST_IF 套接字选项和 IPv6 套接字的 IPV6_MULTICAST_IF 套接字选项相对应。要设定一个接口，套接字必须处于*已绑定* （ [*BoundState*](../../A/QAbstractSocket/QAbstractSocket.md#enum-qabstractsocketsocketstate) ）状态，否则函数将不会进行任何操作。
 
@@ -215,17 +215,17 @@ Qt官方提供了如下几个在您的应用中使用 QUdpSocket 的示例： Br
 
 另外您也可以在 [multicastInterface()](#qnetworkinterface-qudpsocketmulticastinterface-const)，[joinMulticastGroup()](#bool-qudpsocketjoinmulticastgroupconst-qhostaddress-groupaddress) 和 [LeaveMulticastGroup()](#bool-qudpsocketleavemulticastgroupconst-qhostaddress-groupaddress) 函数介绍中找到相关信息。
 
+---
 
-
-### qint64 **QUdpSocket**::writeDatagram(const char **data*, qint64 *size*, const QHostAddress &*address*, quint16 *port*)
+### qint64 QUdpSocket::**writeDatagram**(const char **data*, qint64 *size*, const QHostAddress &*address*, quint16 *port*)
 
 向 *address* 指定的主机的 *port* 指定的端口上发送 *size* 字节大小的 *data* 中的数据。操作成功则返回发送的字节数，否则返回-1。
 
 数据报始终作为一个块写入。 数据报的最大大小与平台高度相关，但可以低至8192字节。 如果数据报太大，则此函数将返回-1，并且 [error()](#qabstractsocketsocketerror-qabstractsocketerror-const) 将返回 [DatagramTooLargeError](#enum-qabstractsocketsocketerror) 。
 
+---
 
-
-### qint64 **QUdpSocket**::writeDatagram(const QNetworkDatagram &*datagram*)
+### qint64 QUdpSocket::**writeDatagram**(const QNetworkDatagram &*datagram*)
 
 重载函数。
 
@@ -241,9 +241,9 @@ Qt官方提供了如下几个在您的应用中使用 QUdpSocket 的示例： Br
 
 另外您也可以在 QNetworkDatagram::setDestination()，QNetworkDatagram::setHopLimit() 和 QNetworkDatagram::setInterfaceIndex() 函数介绍中找到相关信息。
 
+---
 
-
-### qint64 QUdpSocket::writeDatagram(const QByteArray &*datagram*, const QHostAddress &*host*, quint16 *port*)
+### qint64 QUdpSocket::**writeDatagram**(const QByteArray &*datagram*, const QHostAddress &*host*, quint16 *port*)
 
 重载函数。
 

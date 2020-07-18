@@ -40,7 +40,7 @@ QSsl 命名空间为所有的 SSL 类声明了通用的枚举类型。
 
 ## 类型文档
 
-### enum **QSsl**::AlternativeNameEntryType
+### enum QSsl::**AlternativeNameEntryType**
 
 描述 [QSslCertificate](../QSslCertificate/QSslCertificate.md) 中条目的可替代名称的键类型。
 
@@ -54,9 +54,9 @@ QSsl 命名空间为所有的 SSL 类声明了通用的枚举类型。
 
 另外您也可以在 [QSslCertificate::subjectAlternativeNames](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcertificate.html#subjectAlternativeNames)() 函数介绍中找到相关信息。
 
+---
 
-
-### enum **QSsl**::EncodingFormat
+### enum QSsl::**EncodingFormat**
 
 描述证书和密钥支持的编码类型。
 
@@ -65,9 +65,9 @@ QSsl 命名空间为所有的 SSL 类声明了通用的枚举类型。
 | QSsl::Pem | 0    | PEM 格式 |
 | QSsl::Der | 1    | DER 格式 |
 
+---
 
-
-### enum **QSsl**::KeyAlgorithm
+### enum QSsl::**KeyAlgorithm**
 
 描述了 [QSslKey](../QSslKey/QSslKey.md) 支持的不同的密钥加密算法。
 
@@ -81,9 +81,9 @@ QSsl 命名空间为所有的 SSL 类声明了通用的枚举类型。
 
 不透明的密钥功能（ QSsl::Opaque ）允许应用程序添加对 Qt 当前不提供的功能（例如 PKCS＃11 ）的支持。
 
+---
 
-
-### enum **QSsl**::KeyType
+### enum QSsl::**KeyType**
 
 描述了 [QSslKey](../QSslKey/QSslKey.md) 支持的两种密钥类型。
 
@@ -92,9 +92,9 @@ QSsl 命名空间为所有的 SSL 类声明了通用的枚举类型。
 | QSsl::PrivateKey | 0    | 私钥 |
 | QSsl::PublicKey  | 1    | 公钥 |
 
+---
 
-
-### enum **QSsl**::SslOption flags **QSsl**::SslOptions
+### enum QSsl::**SslOption** flags QSsl::**SslOptions**
 
 描述可用于控制 SSL 详细行为的选项。 这些选项通常用于关闭功能以解决有问题的服务器。
 
@@ -115,9 +115,9 @@ QSsl 命名空间为所有的 SSL 类声明了通用的枚举类型。
 
 SslOptions 类型是由 typedef [QFlags](qthelp://org.qt-project.qtnetwork.5150/qtcore/qflags.html)\<SslOption\>  定义的用户自定义类型。它储存着  SslOption 值的OR组合。
 
+---
 
-
-### enum **QSsl**::SslProtocol
+### enum QSsl::**SslProtocol**
 
 描述密码的协议。
 
