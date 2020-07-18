@@ -22,121 +22,153 @@ QSslCipher 类提供了 SSL 密钥的支持。
 
 | 属性              | 方法                                                         |
 | ----------------- | ------------------------------------------------------------ |
-|                   | **[QSslCipher](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcipher.html#QSslCipher-3)**(const QSslCipher &*other*) |
-|                   | **[QSslCipher](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcipher.html#QSslCipher-2)**(const QString &*name*, QSsl::SslProtocol *protocol*) |
-|                   | **[QSslCipher](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcipher.html#QSslCipher-1)**(const QString &*name*) |
-|                   | **[QSslCipher](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcipher.html#QSslCipher)**() |
-| QSslCipher &      | **[operator=](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcipher.html#operator-eq-1)**(const QSslCipher &*other*) |
-|                   | **[~QSslCipher](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcipher.html#dtor.QSslCipher)**() |
-| QString           | **[authenticationMethod](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcipher.html#authenticationMethod)**() const |
-| QString           | **[encryptionMethod](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcipher.html#encryptionMethod)**() const |
-| bool              | **[isNull](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcipher.html#isNull)**() const |
-| QString           | **[keyExchangeMethod](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcipher.html#keyExchangeMethod)**() const |
-| QString           | **[name](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcipher.html#name)**() const |
-| QSsl::SslProtocol | **[protocol](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcipher.html#protocol)**() const |
-| QString           | **[protocolString](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcipher.html#protocolString)**() const |
-| int               | **[supportedBits](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcipher.html#supportedBits)**() const |
-| void              | **[swap](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcipher.html#swap)**(QSslCipher &*other*) |
-| int               | **[usedBits](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcipher.html#usedBits)**() const |
-| bool              | **[operator!=](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcipher.html#operator-not-eq)**(const QSslCipher &*other*) const |
-| bool              | **[operator==](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcipher.html#operator-eq-eq)**(const QSslCipher &*other*) const |
+|                   | **[QSslCipher](#qsslcipherqsslcipherconst-qsslcipher-other)**(const QSslCipher &*other*) |
+|                   | **[QSslCipher](#qsslcipherqsslcipherconst-qstring-name-qsslsslprotocol-protocol)**(const QString &*name*, QSsl::SslProtocol *protocol*) |
+|                   | **[QSslCipher](#qsslcipherqsslcipherconst-qstring-name)**(const QString &*name*) |
+|                   | **[QSslCipher](#qsslcipherqsslcipher)**()                    |
+| QSslCipher &      | **[operator=](#qsslcipher-qsslcipheroperatorconst-qsslcipher-other)**(const QSslCipher &*other*) |
+|                   | **[~QSslCipher](#qsslcipherqsslcipher-1)**()                 |
+| QString           | **[authenticationMethod](#qstring-qsslcipherauthenticationmethod-const)**() const |
+| QString           | **[encryptionMethod](#qstring-qsslcipherencryptionmethod-const)**() const |
+| bool              | **[isNull](#bool-qsslcipherisnull-const)**() const           |
+| QString           | **[keyExchangeMethod](#qstring-qsslcipherkeyexchangemethod-const)**() const |
+| QString           | **[name](#qstring-qsslciphername-const)**() const            |
+| QSsl::SslProtocol | **[protocol](#qsslsslprotocol-qsslcipherprotocol-const)**() const |
+| QString           | **[protocolString](#qstring-qsslcipherprotocolstring-const)**() const |
+| int               | **[supportedBits](#int-qsslciphersupportedbits-const)**() const |
+| void              | **[swap](#void-qsslcipherswapqsslcipher-other)**(QSslCipher &*other*) |
+| int               | **[usedBits](#int-qsslcipherusedbits-const)**() const        |
+| bool              | **[operator!=](#bool-qsslcipheroperatorconst-qsslcipher-other-const)**(const QSslCipher &*other*) const |
+| bool              | **[operator==](#bool-qsslcipheroperatorconst-qsslcipher-other-const-1)**(const QSslCipher &*other*) const |
 
 
 
 ## 详细描述
 
+QSslCipher 储存着一个密钥的信息。该类型的对象通常被 [QSslSocket](../QSslSocket/QSslSocket.md) 用来指定某套接字可以使用哪种密钥或者展现某套接字所使用的密钥。
 
-
-
+另外您也可以在 [QSslSocket](../QSslSocket/QSslSocket.md) 和 [QSslKey](../QSslKey/QSslKey.md) 类文档中找到相关信息。
 
 ## 成员函数文档
 
-### QSslCipher::QSslCipher(const [QSslCipher](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcipher.html#QSslCipher) &*other*)
+### QSslCipher::**QSslCipher**(const [QSslCipher](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcipher.html#QSslCipher) &*other*)
 
-Constructs an identical copy of the *other* cipher.
+拷贝构造函数。由 *other* 拷贝出一个相同的 QSslCipher 对象。
 
-### QSslCipher::QSslCipher(const [QString](qthelp://org.qt-project.qtnetwork.5150/qtcore/qstring.html) &*name*, [QSsl::SslProtocol](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qssl.html#SslProtocol-enum) *protocol*)
+---
 
-Constructs a QSslCipher object for the cipher determined by *name* and *protocol*. The constructor accepts only supported ciphers (i.e., the *name* and *protocol* must identify a cipher in the list of ciphers returned by QSslSocket::supportedCiphers()).
+### QSslCipher::**QSslCipher**(const [QString](qthelp://org.qt-project.qtnetwork.5150/qtcore/qstring.html) &*name*, [QSsl::SslProtocol](../QSsl/QSsl.md#enum-qsslsslprotocol) *protocol*)
 
-You can call [isNull](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcipher.html#isNull)() after construction to check if *name* and *protocol* correctly identified a supported cipher.
+构造函数。通过鉴定 *name* 和 *protocol* 来构造一个 QSslCipher 对象来储存密钥信息。该构造函数仅接受受支持的密钥（即您指定的 *name* 和 *protocol* 所鉴定出的密钥必须位于 QSslSocket::supportedCiphers() 函数返回的列表中）。
 
-### QSslCipher::QSslCipher(const [QString](qthelp://org.qt-project.qtnetwork.5150/qtcore/qstring.html) &*name*)
+构造后，您可以调用 [isNull](#bool-qsslcipherisnull-const)() 函数检查 *name* 和 *protocol* 是否能正确地鉴定出一个支持的密钥。
 
-Constructs a QSslCipher object for the cipher determined by *name*. The constructor accepts only supported ciphers (i.e., the *name* must identify a cipher in the list of ciphers returned by QSslSocket::supportedCiphers()).
+---
 
-You can call [isNull](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcipher.html#isNull)() after construction to check if *name* correctly identified a supported cipher.
+### QSslCipher::**QSslCipher**(const [QString](qthelp://org.qt-project.qtnetwork.5150/qtcore/qstring.html) &*name*)
 
-This function was introduced in Qt 5.3.
+构造函数。通过判断 *name* 参数构造一个 QSslCipher 对象储存密钥信息。该构造函数仅接受受支持的密钥（即您指定的 *name* 所鉴定出的密钥必须位于 QSslSocket::supportedCiphers() 函数返回的列表中）。
 
-### QSslCipher::QSslCipher()
+构造后，可以调用 [isNull](#bool-qsslcipherisnull-const)() 函数检查 *name* 是否正确标识了受支持的密码。
 
-Constructs an empty QSslCipher object.
+该函数最初在 Qt 5.3 版本中引入。
 
-### [QSslCipher](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcipher.html#QSslCipher) &QSslCipher::operator=(const [QSslCipher](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcipher.html#QSslCipher) &*other*)
+---
 
-Copies the contents of *other* into this cipher, making the two ciphers identical.
+### QSslCipher::**QSslCipher**()
 
-### QSslCipher::~QSslCipher()
+构造函数。构造一个空的 QSslCipher 对象。
 
-Destroys the [QSslCipher](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcipher.html) object.
+---
 
-### [QString](qthelp://org.qt-project.qtnetwork.5150/qtcore/qstring.html) QSslCipher::authenticationMethod() const
+### [QSslCipher](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcipher.html#QSslCipher) &QSslCipher::**operator=**(const [QSslCipher](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcipher.html#QSslCipher) &*other*)
 
-Returns the cipher's authentication method as a [QString](qthelp://org.qt-project.qtnetwork.5150/qtcore/qstring.html).
+将 *other* 的内容拷贝到等式左值，是两个密钥相同。
 
-### [QString](qthelp://org.qt-project.qtnetwork.5150/qtcore/qstring.html) QSslCipher::encryptionMethod() const
+---
 
-Returns the cipher's encryption method as a [QString](qthelp://org.qt-project.qtnetwork.5150/qtcore/qstring.html).
+### QSslCipher::~**QSslCipher**()
 
-### bool QSslCipher::isNull() const
+析构函数。销毁 QSslCipher 对象。
 
-Returns `true` if this is a null cipher; otherwise returns `false`.
+---
 
-### [QString](qthelp://org.qt-project.qtnetwork.5150/qtcore/qstring.html) QSslCipher::keyExchangeMethod() const
+### [QString](qthelp://org.qt-project.qtnetwork.5150/qtcore/qstring.html) QSslCipher::**authenticationMethod**() const
 
-Returns the cipher's key exchange method as a [QString](qthelp://org.qt-project.qtnetwork.5150/qtcore/qstring.html).
+以 QString 格式返回密钥的身份验证方式。
 
-### [QString](qthelp://org.qt-project.qtnetwork.5150/qtcore/qstring.html) QSslCipher::name() const
+---
 
-Returns the name of the cipher, or an empty [QString](qthelp://org.qt-project.qtnetwork.5150/qtcore/qstring.html) if this is a null cipher.
+### [QString](qthelp://org.qt-project.qtnetwork.5150/qtcore/qstring.html) QSslCipher::**encryptionMethod**() const
 
-**See also** [isNull](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcipher.html#isNull)().
+以 QString 格式返回密钥的加密方式。
 
-### [QSsl::SslProtocol](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qssl.html#SslProtocol-enum) QSslCipher::protocol() const
+---
 
-Returns the cipher's protocol type, or [QSsl::UnknownProtocol](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qssl.html#SslProtocol-enum) if [QSslCipher](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcipher.html) is unable to determine the protocol ([protocolString](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcipher.html#protocolString)() may contain more information).
+### bool QSslCipher::**isNull**() const
+
+如果该密钥未空，函数返回 *true* ，否则返回 *false* 。
+
+---
+
+### [QString](qthelp://org.qt-project.qtnetwork.5150/qtcore/qstring.html) QSslCipher::**keyExchangeMethod**() const
+
+以 QString 格式返回该密钥的密钥交换方法。
+
+---
+
+### [QString](qthelp://org.qt-project.qtnetwork.5150/qtcore/qstring.html) QSslCipher::**name**() const
+
+返回该密钥的名称。如果密钥未空，函数将返回一个空的 QString 对象。
+
+另外您也可以在 [isNull](#bool-qsslcipherisnull-const)() 函数介绍中找到相关信息。
+
+---
+
+### [QSsl::SslProtocol](../QSsl/QSsl.md#enum-qsslsslprotocol) QSslCipher::**protocol**() const
+
+返回该协议使用的密钥。如果不能判断 QSslCipher 使用的协议，函数将返回 [QSsl::UnknownProtocol](../QSsl/QSsl.md#enum-qsslsslprotocol) （您可以使用 [protocolString](#qstring-qsslcipherprotocolstring-const)() 函数来获取更多的信息）。
 
 **See also** [protocolString](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcipher.html#protocolString)().
 
-### [QString](qthelp://org.qt-project.qtnetwork.5150/qtcore/qstring.html) QSslCipher::protocolString() const
+### [QString](qthelp://org.qt-project.qtnetwork.5150/qtcore/qstring.html) QSslCipher::**protocolString**() const
 
-Returns the cipher's protocol as a [QString](qthelp://org.qt-project.qtnetwork.5150/qtcore/qstring.html).
+以 QString 的形式返回该密钥使用的协议。
 
-**See also** [protocol](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcipher.html#protocol)().
+另外您也可以在 [protocol](#qsslsslprotocol-qsslcipherprotocol-const)() 函数介绍中找到相关信息。
 
-### int QSslCipher::supportedBits() const
+---
 
-Returns the number of bits supported by the cipher.
+### int QSslCipher::**supportedBits**() const
 
-**See also** [usedBits](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcipher.html#usedBits)().
+返回该密钥支持的字节数。
 
-### void QSslCipher::swap([QSslCipher](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcipher.html#QSslCipher) &*other*)
+另外您也可以在 [usedBits](#int-qsslcipherusedbits-const)() 函数介绍中找到相关信息。
 
-Swaps this cipher instance with *other*. This function is very fast and never fails.
+---
 
-This function was introduced in Qt 5.0.
+### void QSslCipher::**swap**([QSslCipher](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcipher.html#QSslCipher) &*other*)
 
-### int QSslCipher::usedBits() const
+与 *other* 快速交换密钥信息。该函数操作速度飞快并保证操作成功。
 
-Returns the number of bits used by the cipher.
+该函数最初在 Qt 5.0 版本引入。
 
-**See also** [supportedBits](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcipher.html#supportedBits)().
+---
 
-### bool QSslCipher::operator!=(const [QSslCipher](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcipher.html#QSslCipher) &*other*) const
+### int QSslCipher::**usedBits**() const
 
-Returns `true` if this cipher is not the same as *other*; otherwise, false is returned.
+返回密钥所用的字节数。
 
-### bool QSslCipher::operator==(const [QSslCipher](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcipher.html#QSslCipher) &*other*) const
+另外您也可以在 [supportedBits](#int-qsslciphersupportedbits-const)() 函数介绍中找到相关信息。
 
-Returns `true` if this cipher is the same as *other*; otherwise, false is returned.
+---
+
+### bool QSslCipher::**operator!=**(const QSslCipher &*other*) const
+
+如果当前密钥与 *other* 不同则返回 *true* ，否则返回 *false* 。
+
+---
+
+### bool QSslCipher::**operator==**(const QSslCipher &*other*) const
+
+如果当前密钥与 *other* 相同则返回 *true* ，否则返回 *false* 。
