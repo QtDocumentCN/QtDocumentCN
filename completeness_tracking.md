@@ -16,6 +16,9 @@
 | [QAbstractAudioInput](A/QAbstractAudioInput/QAbstractAudioInput.md) | [CryFeiFei](https://github.com/CryFeiFei)     | **待完善** | see also部分待添加链接             |
 | [QAbstractAnimation](A/QAbstractAnimation/QAbstractAnimation.md) | [CryFeiFei](https://github.com/CryFeiFei)     | **待完善** | see also部分待添加链接             |
 | [QX11Info](X/QX11Info/QX11Info.md)                           | [CryFeiFei](https://github.com/CryFeiFei)     | **待完善** | see also跳转待补充                 |
+| [QPainter](P/QPainter)                           | [CryFeiFei](https://github.com/CryFeiFei)     | 编写中    | 占位中，待填充，截止时间2020-08-31 |
+| [QPaintEngine](P/QPaintEngine)                           | [CryFeiFei](https://github.com/CryFeiFei)     | 编写中    | 占位中，待填充，截止时间2020-08-31 |
+| [QPaintDevice](P/QPaintDevice)                           | [CryFeiFei](https://github.com/CryFeiFei)     | 编写中    | 占位中，待填充，截止时间2020-08-31 |
 | [QtGlobal](G/QtGlobal/QtGlobal.md)                           | [ZgblKylin](https://github.com/ZgblKylin)     | 编写中    | 占位中，待填充，截止时间2020-07-31 |
 | [QMetaMethod](M/QMetaMethod/QMetaMethod.md)                  | [ZgblKylin](https://github.com/ZgblKylin)     | 编写中    | 占位中，待填充，截止时间2020-07-31 |
 | [QMetaObject](M/QMetaObject/QMetaObject.md)                  | [ZgblKylin](https://github.com/ZgblKylin)     | 编写中    | 占位中，待填充，截止时间2020-07-31 |
