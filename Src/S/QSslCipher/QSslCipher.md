@@ -129,7 +129,7 @@ QSslCipher 储存着一个密钥的信息。该类型的对象通常被 [QSslSoc
 
 返回该协议使用的密钥。如果不能判断 QSslCipher 使用的协议，函数将返回 [QSsl::UnknownProtocol](../QSsl/QSsl.md#enum-qsslsslprotocol) （您可以使用 [protocolString](#qstring-qsslcipherprotocolstring-const)() 函数来获取更多的信息）。
 
-**See also** [protocolString](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcipher.html#protocolString)().
+另外您也可以在 [protocolString](#qstring-qsslcipherprotocolstring-const)() 函数介绍中找到相关信息。
 
 ### [QString](qthelp://org.qt-project.qtnetwork.5150/qtcore/qstring.html) QSslCipher::**protocolString**() const
 
