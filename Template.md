@@ -187,7 +187,7 @@ xxx
 
 每当当前循环发生变化时，[QAbstractAnimation](A/QAbstractAnimation/QAbstractAnimation.md) 会发射该信号。`currentLoop` 为当前循环。
 
-**注意：**属性 `currentLoop` 的通知信号。
+**注意：** 属性 `currentLoop` 的通知信号。
 
-**另请参阅：**[currentLoop](A/QAbstractAnimation/QAbstractAnimation.md#currentloop--const-int)() 和 [loopCount](A/QAbstractAnimation/QAbstractAnimation.md#loopcount--int)()。
+**另请参阅：** [currentLoop](A/QAbstractAnimation/QAbstractAnimation.md#currentloop--const-int)() 和 [loopCount](A/QAbstractAnimation/QAbstractAnimation.md#loopcount--int)()。
 
