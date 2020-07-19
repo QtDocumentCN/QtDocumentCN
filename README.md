@@ -18,10 +18,12 @@
 
 # 重要
 
-## 参与编写与完成度追踪
+## 参与编写
 关于本项目的目录结构、文件管理、格式规范等，详见[贡献指南](CONTRIBUTING.md)。
 
 [完成度追踪表](completeness_tracking.md)，用于追踪待完成或有待进一步维护的文档状态。
+
+辅助中文文档编写的脚本和工具，详见[辅助工具](https://github.com/QtDocumentCN/Tools)。
 
 ---
 
