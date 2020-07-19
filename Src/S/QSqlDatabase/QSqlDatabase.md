@@ -25,16 +25,16 @@ QSqlDatabase 类 用于处理数据库的连接
 |QString|	[connectionName](QSqlDatabase.md#qstring-qsqldatabaseconnectionname-const)() const|
 |QString|	[databaseName](QSqlDatabase.md#qstring-qsqldatabasedatabasename-const)() const|
 |QSqlDriver * |[driver()](QSqlDatabase.md#qsqldriver-qsqldatabasedriver-const) const|
-|QString|	[driverName()]() const|
-|QSqlQuery|	[exec]()(const QString &query = QString()) const|
-|QString|[hostName()]() const|
-|bool|	[isOpen]()() const|
-|bool	|[isOpenError]()() const|
-|bool	|[isValid]()() const|
-|QSqlError|[lastError]()() const|
-|QSql::NumericalPrecisionPolicy|[numericalPrecisionPolicy]()() const|
-|bool|	[open]()()|
-|bool|[open]()(const QString &user, const QString &password)|
+|QString|	[driverName()](QSqlDatabase.md#qstring-qsqldatabasedrivername-const) const|
+|QSqlQuery|	[exec](QSqlDatabase.md#qsqlquery-qsqldatabaseexecconst-qstring-query--qstring-const)(const QString &query = QString()) const|
+|QString|[hostName()](QSqlDatabase.md#qstring-qsqldatabasehostname-const) const|
+|bool|	[isOpen](QSqlDatabase.md#bool-qsqldatabaseisopen-const)() const|
+|bool	|[isOpenError](QSqlDatabase.md#bool-qsqldatabaseisopenerror-const)() const|
+|bool	|[isValid](QSqlDatabase.md#bool-qsqldatabaseisvalid-const)() const|
+|QSqlError|[lastError](QSqlDatabase.md#qsqlerror-qsqldatabaselasterror-const)() const|
+|QSql::NumericalPrecisionPolicy|[numericalPrecisionPolicy](QSqlDatabase.md#qsqlnumericalprecisionpolicy-qsqldatabasenumericalprecisionpolicy-const)() const|
+|bool|	[open](QSqlDatabase.md#bool-qsqldatabaseopen)()|
+|bool|[open](QSqlDatabase.md#bool-qsqldatabaseopenconst-qstring-user-const-qstring-password)(const QString &user, const QString &password)|
 |QString|	[password]()() const|
 |int|	[port]()() const|
 |QSqlIndex|	[primaryIndex]()(const QString &tablename) const|
