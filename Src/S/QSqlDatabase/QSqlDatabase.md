@@ -35,13 +35,13 @@ QSqlDatabase 类 用于处理数据库的连接
 |QSql::NumericalPrecisionPolicy|[numericalPrecisionPolicy](QSqlDatabase.md#qsqlnumericalprecisionpolicy-qsqldatabasenumericalprecisionpolicy-const)() const|
 |bool|	[open](QSqlDatabase.md#bool-qsqldatabaseopen)()|
 |bool|[open](QSqlDatabase.md#bool-qsqldatabaseopenconst-qstring-user-const-qstring-password)(const QString &user, const QString &password)|
-|QString|	[password]()() const|
-|int|	[port]()() const|
-|QSqlIndex|	[primaryIndex]()(const QString &tablename) const|
-|QSqlRecord|[record]()(const QString &tablename) const|
-|bool	|[rollback]()()|
-|void	|[setConnectOptions]()(const QString &options = QString())|
-|void	|[setDatabaseName]()(const QString &name)|
+|QString|	[password](QSqlDatabase.md#qstring-qsqldatabasepassword-const)() const|
+|int|	[port](QSqlDatabase.md#int-qsqldatabaseport-const)() const|
+|QSqlIndex|	[primaryIndex](QSqlDatabase.md#qsqlindex-qsqldatabaseprimaryindexconst-qstring-tablename-const)(const QString &tablename) const|
+|QSqlRecord|[record](QSqlDatabase.md#qsqlrecord-qsqldatabaserecordconst-qstring-tablename-const)(const QString &tablename) const|
+|bool	|[rollback](QSqlDatabase.md#bool-qsqldatabaserollback)()|
+|void	|[setConnectOptions](QSqlDatabase.md#void-qsqldatabasesetconnectoptionsconst-qstring-options--qstring)(const QString &options = QString())|
+|void	|[setDatabaseName](QSqlDatabase.md#void-qsqldatabasesetdatabasenameconst-qstring-name)(const QString &name)|
 |void	|[setHostName]()(const QString &host)|
 |void	|[setNumericalPrecisionPolicy]()(QSql::NumericalPrecisionPolicy precisionPolicy)|
 |void	|[setPassword]()(const QString &password)|
