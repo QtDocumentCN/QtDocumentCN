@@ -18,13 +18,13 @@ QSqlDatabase 类 用于处理数据库的连接
 ||QSqlDatabase(const [QSqlDatabase](QSqlDatabase.md#qsqldatabaseqsqldatabaseconst-qsqldatabase-other) &other)|
 ||[QSqlDatabase](QSqlDatabase.md#qsqldatabaseqsqldatabase)()|
  |QSqlDatabase &|[operator=](QSqlDatabase.md#qsqldatabase-qsqldatabaseoperatorconst-qsqldatabase-other)(const QSqlDatabase &other)|
-||[~QSqlDatabase]()()|
-|void|	[close]()()|
-|bool|	[commit]()()|
-|QString|	[connectOptions]()() const|
-|QString|	[connectionName]()() const|
-|QString|	[databaseName]()() const|
-|QSqlDriver * |[driver()]() const|
+||[~QSqlDatabase](QSqlDatabase.md#qsqldatabase-qsqldatabaseoperatorconst-qsqldatabase-other)()|
+|void|	[close](QSqlDatabase.md#void-qsqldatabaseclose)()|
+|bool|	[commit](QSqlDatabase.md#bool-qsqldatabasecommit)()|
+|QString|	[connectOptions](QSqlDatabase.md#qstring-qsqldatabaseconnectoptions-const)() const|
+|QString|	[connectionName](QSqlDatabase.md#qstring-qsqldatabaseconnectionname-const)() const|
+|QString|	[databaseName](QSqlDatabase.md#qstring-qsqldatabasedatabasename-const)() const|
+|QSqlDriver * |[driver()](QSqlDatabase.md#qsqldriver-qsqldatabasedriver-const) const|
 |QString|	[driverName()]() const|
 |QSqlQuery|	[exec]()(const QString &query = QString()) const|
 |QString|[hostName()]() const|
