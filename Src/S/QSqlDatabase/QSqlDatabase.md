@@ -17,7 +17,7 @@ QSqlDatabase 类 用于处理数据库的连接
 |------:|:------|
 ||QSqlDatabase(const [QSqlDatabase](QSqlDatabase.md#qsqldatabaseqsqldatabaseconst-qsqldatabase-other) &other)|
 ||[QSqlDatabase](QSqlDatabase.md#qsqldatabaseqsqldatabase)()|
- |QSqlDatabase &|[operator=](QSqlDatabase.md#qsqldatabaseqsqldatabase-1)(const QSqlDatabase &other)|
+ |QSqlDatabase &|[operator=](QSqlDatabase.md#qsqldatabase-qsqldatabaseoperatorconst-qsqldatabase-other)(const QSqlDatabase &other)|
 ||[~QSqlDatabase]()()|
 |void|	[close]()()|
 |bool|	[commit]()()|
