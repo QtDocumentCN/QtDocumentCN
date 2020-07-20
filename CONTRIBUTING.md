@@ -33,11 +33,11 @@ git pull --rebase
 
 ## 完成度追踪
 
-每当添加一个占位页面，或已完成的页面有需要继续完善的内容，维护者有责任在[完成度追踪表](completeness_tracking.md)中更新对应信息。
+每添加一个页面，需在[完成度追踪表](completeness_tracking.md)中增加相应条目。
 
-已完成编写，无需进一步维护的页面，需从该表格中删除。
+当页面完成编辑、完成维护等状态改变时，维护者有责任在[完成度追踪表](completeness_tracking.md)中更新对应信息。
 
-修改一篇已存在翻译文档时，请先检查追踪表中**开放修改**一项。
+需要新增或修改一篇文档时，请先检索追踪表中是否已存在该文档，和该文档的翻译进度。
 
 ## 翻译对照表
 
@@ -53,14 +53,16 @@ git pull --rebase
 
 在对类成员或实现方法进行讲解时，我们决定采用 Qt 官方文档的命名方式。
 
-以成员函数标题为例： `[修饰符]+空格+函数类型+空格+函数名及参数+空格+const修饰符`
+以成员函数标题为例： `[修饰符] 返回类型 函数名(参数类型 参数名) const/volatile修饰符`。
+
+其中，`函数名`加粗，`修饰符`、`参数名`斜体。
 
 示例：
 
 ```markdown
 ### *[static]* int QString::compare(const QString &*s1*, const QString &*s2*, Qt::CaseSensitivity *cs* = Qt::CaseSensitive)
 ### *[virtual protected]* void QObject::childEvent(QChildEvent *\*event*)
-### *[override virtual]* qint64 QAbstractSocket::bytesAvailable() const
+### *[override virtual]* qint64 QAbstractSocket::bytesAvailable() **const**
 ```
 
 注：以上函数标题为了实现区分度，对修饰符和参数名增加了斜体效果。
@@ -92,17 +94,15 @@ git pull --rebase
 
 文本字段落中的编程关键字，需用段内代码格式包裹，如：
 ```text
-比如我想翻译`QX11Info`类。
+比如我想翻译 `QX11Info` 类。
 ```
-比如我想翻译`QX11Info`类。
-
-此时，段内代码自动提供了文字分隔视觉效果和前后间隔，无需再在英文内容前后增加空格。
+比如我想翻译 `QX11Info` 类。
 
 ### 图片
 
-可直接使用Qt官方文档图片。
+可直接使用 Qt 官方文档图片。
 
-但官方文档图片为png/jpg格式，分辨率有限，且对主题样式无法自适应，因此推荐使用 [draw.io](https://app.diagrams.net/) 绘制的矢量图形，并将其保存为`.drawio.svg`格式，以便支持`.md`引用的同时，依然可以作为工程文件供 [draw.io](https://app.diagrams.net/) 编辑。
+但官方文档图片为 png/jpg 格式，分辨率有限，且对主题样式无法自适应，因此推荐使用 [draw.io](https://app.diagrams.net/) 绘制的矢量图形，并将其保存为`.drawio.svg`格式，以便支持`.md`引用的同时，依然可以作为工程文件供 [draw.io](https://app.diagrams.net/) 编辑。
 
 可使用 VSCode 插件 [hediet.vscode-drawio](https://marketplace.visualstudio.com/items?itemName=hediet.vscode-drawio) 直接在 VSCode 中编辑图形。
 
@@ -115,10 +115,12 @@ git pull --rebase
 Markdown 页内标题跳转较为简便，语法如下：
 
 ```markdown
-[页内跳转](#页内跳转标题)
+[页内跳转](本文档名#页内跳转标题)
 ```
 
-页内跳转：[中英混排](#中英混排)
+页内跳转：[中英混排](CONTRIBUTING.md#中英混排)
+
+省略本文件名称时，通常也可进行跳转，但有的场景会无法正确生成跳转链接，因此不建议省略。
 
 #### 跨页跳转
 
@@ -141,12 +143,14 @@ Markdown 页内标题跳转较为简便，语法如下：
 跨页跳转：[QAbstractSocket::socketDescriptor()](https://github.com/QtDocumentCN/QtDocumentCN/blob/master/A/QAbstractSocket/QAbstractSocket.md#qabstractsocketsockettype-qabstractsocketsockettype-const)
 
 注意：
-1. `#`后的标题名称，与文本可能并不一致。若直接使用标题文本无法成功跳转，可尝试
+1. `#`后的标题名称，与文本可能并不一致。若直接使用标题文本无法成功跳转，可尝试：
 
-   1. 将`.md`导出至`.html`，在标题处右键——检查元素，使用该元素的 html tag 中`id`字段值。
+   1. 将`.md`导出至`.html`，在标题处右键——检查元素，使用该元素的 html tag 中`id`字段值；
    2. （推荐此种方法）提交至 GitHub 后，直接复制标题左方的超链接图标所指向的地址并进行修改。
 
-2. 不同工具导出的 html 标签字段并不一致，GitHub 生成的标签会比 Typora 的多`user-content-`前缀。实测无需该前缀也能完成跳转，因此建议不添加此前缀。待本项目发布至 GitBook 后，需要再次检查跳转链接是否能正确运作。
+2. 为方便生成其它不依赖 GitHub 的发布页面，建议使用相对路径跳转而非绝对路径。
+
+2. 不同工具导出的 html 标签字段并不一致，GitHub 生成的中文标题标签会比 Typora 的多`user-content-`前缀。实测无需该前缀也能完成跳转，因此建议不添加此前缀，以减少对特定导出工具的依赖。待本项目发布至 GitBook 后，需要再次检查跳转链接是否能正确运作。
 
 3. 若要跨页跳转的目标页尚未完成，可以先采用规则进行目标地址的推算，待目标页完成后再进行检查。
 
