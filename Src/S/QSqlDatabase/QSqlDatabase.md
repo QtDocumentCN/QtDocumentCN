@@ -646,7 +646,7 @@ qt4.6中引入了这个函数。
 
 ### void QSqlDatabase::setPort(int port)    
 ----------------
-通过`port`参数设置连接的端口号。为了生效，您必须在[打开](https://doc.qt.io/qt-5/qsqldatabase.html#open)连接之前，进行端口号的设置。或者，您可以调用[close()](https://doc.qt.io/qt-5/qsqldatabase.html#close)关闭连接，然后设置端口号，再次调用[open()](https://doc.qt.io/qt-5/qsqldatabase.html#open)函数
+通过`port`参数设置连接的端口号。为了生效，您必须在[打开](QSqlDatabase.md#bool-qsqldatabaseopen)连接之前，进行端口号的设置。或者，您可以调用[close()](QSqlDatabase.md#void-qsqldatabaseclose)关闭连接，然后设置端口号，再次调用[open()](QSqlDatabase.md#bool-qsqldatabaseopen)函数
 
 这个没有默认的值。
 
