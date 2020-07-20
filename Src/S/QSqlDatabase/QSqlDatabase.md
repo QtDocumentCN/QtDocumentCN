@@ -658,9 +658,9 @@ qt4.6中引入了这个函数。
     
 这个没有默认值。
 
-**另请查阅** [userName()](https://doc.qt.io/qt-5/qsqldatabase.html#userName)，[setDatabaseName()](https://doc.qt.io/qt-5/qsqldatabase.html#setDatabaseName)，[setPassword()](https://doc.qt.io/qt-5/qsqldatabase.html#setPassword)， [setHostName()](https://doc.qt.io/qt-5/qsqldatabase.html#setHostName)，[setPort()](https://doc.qt.io/qt-5/qsqldatabase.html#setPort)，[setConnectOptions()](https://doc.qt.io/qt-5/qsqldatabase.html#setConnectOptions) 和 [open()](https://doc.qt.io/qt-5/qsqldatabase.html#open)。
+**另请查阅** [userName()](QSqlDatabase.md#qstring-qsqldatabaseusername-const)，[setDatabaseName()](QSqlDatabase.md#void-qsqldatabasesetdatabasenameconst-qstring-name)，[setPassword()](QSqlDatabase.md#void-qsqldatabasesetpasswordconst-qstring-password)， [setHostName()](QSqlDatabase.md#void-qsqldatabasesethostnameconst-qstring-host)，[setPort()](QSqlDatabase.md#void-qsqldatabasesetportint-port)，[setConnectOptions()](QSqlDatabase.md#void-qsqldatabasesetconnectoptionsconst-qstring-options--qstring) 和 [open()](QSqlDatabase.md#bool-qsqldatabaseopen)。
 
-### [QStringList](https://doc.qt.io/qt-5/qstringlist.html) QSqlDatabase::tables([QSql::TableType](https://doc.qt.io/qt-5/qsql.html#TableType-enum) type = QSql::Tables) const
+### [QStringList](S/QStringList/QStringList.md) QSqlDatabase::tables([QSql::TableType](https://doc.qt.io/qt-5/qsql.html#TableType-enum) type = QSql::Tables) const
 --------------------------
 返回由 `parameter type` 参数 指定的数据库的表格、系统表和视图的列表。
 
