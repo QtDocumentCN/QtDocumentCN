@@ -111,12 +111,12 @@ QSqlDatabase db = QSqlDatabase::database();
 
 | |一些实用的方法|
 |------:|:------|
-|[tables]()()|	返回 数据表的列表|
-|[primaryIndex]()()|	返回数据表的主索引|
-|[record]()()	|返回数据表字段的元信息|
-|[transaction]()()|开始一个事务|
-|[commit]()()|保存并完成一个事务|
-|[rollback]()()|取消一个事务|
+|[tables](QSqlDatabase.md#qstringlist-qsqldatabasetablesqsqltabletype-type--qsqltables-const)()|	返回 数据表的列表|
+|[primaryIndex](QSqlDatabase.md#qsqlindex-qsqldatabaseprimaryindexconst-qstring-tablename-const)()|	返回数据表的主索引|
+|[record](QSqlDatabase.md#qsqlrecord-qsqldatabaserecordconst-qstring-tablename-const)()	|返回数据表字段的元信息|
+|[transaction](QSqlDatabase.md#bool-qsqldatabasetransaction)()|开始一个事务|
+|[commit](QSqlDatabase.md#bool-qsqldatabasecommit)()|保存并完成一个事务|
+|[rollback](QSqlDatabase.md#bool-qsqldatabaserollback)()|取消一个事务|
 |hasFeature()|	检查驱动程序是否支持事务|
 |[lastError]()()|	返回有关上一个错误的信息|
 |[drivers]()()|返回可用的数据库驱动名称|
