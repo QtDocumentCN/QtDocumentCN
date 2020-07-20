@@ -44,12 +44,12 @@ QSqlDatabase 类 用于处理数据库的连接
 |void	|[setDatabaseName](QSqlDatabase.md#void-qsqldatabasesetdatabasenameconst-qstring-name)(const QString &name)|
 |void	|[setHostName](QSqlDatabase.md#void-qsqldatabasesethostnameconst-qstring-host)(const QString &host)|
 |void	|[setNumericalPrecisionPolicy](https://github.com/JackLovel/QtDocumentCN/blob/master/Src/S/QSqlDatabase/QSqlDatabase.md#void-qsqldatabasesetnumericalprecisionpolicyqsqlnumericalprecisionpolicy-precisionpolicy)(QSql::NumericalPrecisionPolicy precisionPolicy)|
-|void	|[setPassword]()(const QString &password)|
-|void	|[setPort]()(int port)|
-|void	|[setUserName]()(const QString &name)|
-|QStringList	|[tables]()(QSql::TableType type = QSql::Tables) const|
-|bool|	[transaction]()()|
-|QString|	[userName()]() const|
+|void	|[setPassword](QSqlDatabase.md#void-qsqldatabasesetpasswordconst-qstring-password)(const QString &password)|
+|void	|[setPort](QSqlDatabase.md#void-qsqldatabasesetportint-port)(int port)|
+|void	|[setUserName](QSqlDatabase.md#void-qsqldatabasesetusernameconst-qstring-name)(const QString &name)|
+|QStringList	|[tables](QSqlDatabase.md#qstringlist-qsqldatabasetablesqsqltabletype-type--qsqltables-const)(QSql::TableType type = QSql::Tables) const|
+|bool|[transaction](https://github.com/JackLovel/QtDocumentCN/blob/master/Src/S/QSqlDatabase/QSqlDatabase.md#bool-qsqldatabasetransaction)()|
+|QString|[userName](QSqlDatabase.md#qstring-qsqldatabaseusername-const)() const|
 
 ----------
  ### **静态公共成员**
