@@ -55,8 +55,8 @@ QSqlDatabase 类 用于处理数据库的连接
  ### **静态公共成员**
  |  返回值  | 函数名|
  |------:|:------|
- |QSqlDatabase	|[addDatabase]()(const QString &type, const QString &connectionName = QLatin1String(defaultConnection))|
- |QSqlDatabase	|[addDatabase]()(QSqlDriver *driver, const QString &connectionName = QLatin1String(defaultConnection))|
+ |QSqlDatabase	|[addDatabase](QSqlDatabase.md#static-qsqldatabase-qsqldatabaseadddatabaseconst-qstring-type-const-qstring-connectionname--qlatin1stringdefaultconnection)(const QString &type, const QString &connectionName = QLatin1String(defaultConnection))|
+ |QSqlDatabase	|[addDatabase](QSqlDatabase.md#static-qsqldatabase-qsqldatabaseadddatabaseqsqldriver-driver-const-qstring-connectionname--qlatin1stringdefaultconnection)(QSqlDriver *driver, const QString &connectionName = QLatin1String(defaultConnection))|
  |QSqlDatabase	|[cloneDatabase]()(const QSqlDatabase &other, const QString &connectionName)|
  |QSqlDatabase	|[cloneDatabase]()(const QString &other, const QString &connectionName)|
  |QStringList|[connectionNames]()()|
@@ -71,8 +71,8 @@ QSqlDatabase 类 用于处理数据库的连接
   ### **受保护的成员函数**
   |  返回值  | 函数名|
   |------:|:------|
-  |	|[QSqlDatabase]()(QSqlDriver **driver*)|
-  |	|[QSqlDatabase]()(const QString &*type*)|
+  |	|[QSqlDatabase](QSqlDatabase.md#protected-qsqldatabaseqsqldatabaseqsqldriver-driver)(QSqlDriver **driver*)|
+  |	|[QSqlDatabase](QSqlDatabase.md#protected-qsqldatabaseqsqldatabaseconst-qstring-type)(const QString &*type*)|
 
   -----------
   ### **详细的介绍**
