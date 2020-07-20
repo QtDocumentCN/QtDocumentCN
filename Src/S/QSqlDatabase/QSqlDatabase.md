@@ -57,11 +57,11 @@ QSqlDatabase 类 用于处理数据库的连接
  |------:|:------|
  |QSqlDatabase	|[addDatabase](QSqlDatabase.md#static-qsqldatabase-qsqldatabaseadddatabaseconst-qstring-type-const-qstring-connectionname--qlatin1stringdefaultconnection)(const QString &type, const QString &connectionName = QLatin1String(defaultConnection))|
  |QSqlDatabase	|[addDatabase](QSqlDatabase.md#static-qsqldatabase-qsqldatabaseadddatabaseqsqldriver-driver-const-qstring-connectionname--qlatin1stringdefaultconnection)(QSqlDriver *driver, const QString &connectionName = QLatin1String(defaultConnection))|
- |QSqlDatabase	|[cloneDatabase]()(const QSqlDatabase &other, const QString &connectionName)|
- |QSqlDatabase	|[cloneDatabase]()(const QString &other, const QString &connectionName)|
- |QStringList|[connectionNames]()()|
- |bool	|[contains]()(const QString &connectionName = QLatin1String(defaultConnection))|
- |QSqlDatabase	|[database]()(const QString &connectionName = QLatin1String(defaultConnection), bool open = true)|
+ |QSqlDatabase	|[cloneDatabase](QSqlDatabase.md#protected-qsqldatabase-qsqldatabaseclonedatabaseconst-qstring-other-const-qstring-connectionname)(const QSqlDatabase &other, const QString &connectionName)|
+ |QSqlDatabase	|[cloneDatabase](QSqlDatabase.md#static-qsqldatabase-qsqldatabaseclonedatabaseconst-qstring-other-const-qstring-connectionname)(const QString &other, const QString &connectionName)|
+ |QStringList|[connectionNames](QSqlDatabase.md#static-qstringlist-qsqldatabaseconnectionnames)()|
+ |bool	|[contains](QSqlDatabase.md#static-bool-qsqldatabasecontainsconst-qstring-connectionname--qlatin1stringdefaultconnection)(const QString &connectionName = QLatin1String(defaultConnection))|
+ |QSqlDatabase	|[database](QSqlDatabase.md#static-qsqldatabase-qsqldatabasedatabaseconst-qstring-connectionname--qlatin1stringdefaultconnection-bool-open--true)(const QString &connectionName = QLatin1String(defaultConnection), bool open = true)|
  |QStringList|[drivers()](QSqlDatabase.md#static-qstringlist-qsqldatabasedrivers)|
  |bool	|[isDriverAvailable](QSqlDatabase.md#static-bool-qsqldatabaseisdriveravailableconst-qstring-name)(const QString &name)|
  |void	|[registerSqlDriver](QSqlDatabase.md#static-void-qsqldatabaseregistersqldriverconst-qstring-name-qsqldrivercreatorbase-creator)(const QString &name, QSqlDriverCreatorBase *creator)|
