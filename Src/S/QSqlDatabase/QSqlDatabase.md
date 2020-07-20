@@ -42,8 +42,8 @@ QSqlDatabase 类 用于处理数据库的连接
 |bool	|[rollback](QSqlDatabase.md#bool-qsqldatabaserollback)()|
 |void	|[setConnectOptions](QSqlDatabase.md#void-qsqldatabasesetconnectoptionsconst-qstring-options--qstring)(const QString &options = QString())|
 |void	|[setDatabaseName](QSqlDatabase.md#void-qsqldatabasesetdatabasenameconst-qstring-name)(const QString &name)|
-|void	|[setHostName]()(const QString &host)|
-|void	|[setNumericalPrecisionPolicy]()(QSql::NumericalPrecisionPolicy precisionPolicy)|
+|void	|[setHostName](QSqlDatabase.md#void-qsqldatabasesethostnameconst-qstring-host)(const QString &host)|
+|void	|[setNumericalPrecisionPolicy](https://github.com/JackLovel/QtDocumentCN/blob/master/Src/S/QSqlDatabase/QSqlDatabase.md#void-qsqldatabasesetnumericalprecisionpolicyqsqlnumericalprecisionpolicy-precisionpolicy)(QSql::NumericalPrecisionPolicy precisionPolicy)|
 |void	|[setPassword]()(const QString &password)|
 |void	|[setPort]()(int port)|
 |void	|[setUserName]()(const QString &name)|
