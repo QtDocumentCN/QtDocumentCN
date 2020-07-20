@@ -672,8 +672,8 @@ qt4.6中引入了这个函数。
 
 **另请查阅** [QSqlDriver::hasFeature()](https://doc.qt.io/qt-5/qsqldriver.html#hasFeature)， [commit()](https://doc.qt.io/qt-5/qsqldatabase.html#commit) 和 [rollback()](https://doc.qt.io/qt-5/qsqldatabase.html#rollback)。
 
-### [QString](https://doc.qt.io/qt-5/qstring.html) QSqlDatabase::userName() const
+### [QString](S/QString/QString.md) QSqlDatabase::userName() const
 --------------
 返回连接的用户名; 它也许为空。
 
-**另请查阅** [setUserName()](https://doc.qt.io/qt-5/qsqldatabase.html#setUserName)。
+**另请查阅** [setUserName()](QSqlDatabase.md#void-qsqldatabasesetusernameconst-qstring-name)。
