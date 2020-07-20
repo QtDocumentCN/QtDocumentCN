@@ -664,13 +664,13 @@ qt4.6中引入了这个函数。
 --------------------------
 返回由 `parameter type` 参数 指定的数据库的表格、系统表和视图的列表。
 
-**另请查阅** [primaryIndex()](https://doc.qt.io/qt-5/qsqldatabase.html#primaryIndex) and [record()](https://doc.qt.io/qt-5/qsqldatabase.html#record)。
+**另请查阅** [primaryIndex()](QSqlDatabase.md#qsqlindex-qsqldatabaseprimaryindexconst-qstring-tablename-const) 和 [record()](QSqlDatabase.md#qsqlrecord-qsqldatabaserecordconst-qstring-tablename-const)。
 
 ### bool QSqlDatabase::transaction()
 ----------------
 如果驱动程序支持事务，则在数据库上开始事务。如果操作成功的话，返回 `true`, 否则返回 `false`。
 
-**另请查阅** [QSqlDriver::hasFeature()](https://doc.qt.io/qt-5/qsqldriver.html#hasFeature)， [commit()](https://doc.qt.io/qt-5/qsqldatabase.html#commit) 和 [rollback()](https://doc.qt.io/qt-5/qsqldatabase.html#rollback)。
+**另请查阅** [QSqlDriver::hasFeature()](https://doc.qt.io/qt-5/qsqldriver.html#hasFeature)， [commit()](QSqlDatabase.md#bool-qsqldatabasecommit) 和 [rollback()](QSqlDatabase.md#bool-qsqldatabaserollback)。
 
 ### [QString](S/QString/QString.md) QSqlDatabase::userName() const
 --------------
