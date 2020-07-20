@@ -652,9 +652,9 @@ qt4.6中引入了这个函数。
 
 **另请查阅** [port()](https://doc.qt.io/qt-5/qsqldatabase.html#port), [setUserName()](https://doc.qt.io/qt-5/qsqldatabase.html#setUserName)， [setPassword()](https://doc.qt.io/qt-5/qsqldatabase.html#setPassword), [setHostName()](https://doc.qt.io/qt-5/qsqldatabase.html#setHostName)，[setDatabaseName()](https://doc.qt.io/qt-5/qsqldatabase.html#setDatabaseName), [setConnectOptions()](https://doc.qt.io/qt-5/qsqldatabase.html#setConnectOptions) 和 [open()](https://doc.qt.io/qt-5/qsqldatabase.html#open)。
 
-### void QSqlDatabase::setUserName(const [QString](https://doc.qt.io/qt-5/qstring.html) &name)
+### void QSqlDatabase::setUserName(const [QString](S/QString/QString.md) &name)
 --------------------
-通过 `name` 参数来设置连接的用户名。为了生效，必须在[打开](https://doc.qt.io/qt-5/qsqldatabase.html#open)连接之前设置用户名。或者，您可以调用 [close()](https://doc.qt.io/qt-5/qsqldatabase.html#close)函数来关闭连接，设置用户，然后再次调用 [open()](https://doc.qt.io/qt-5/qsqldatabase.html#open)
+通过 `name` 参数来设置连接的用户名。为了生效，必须在[打开](QSqlDatabase.md#bool-qsqldatabaseopen)连接之前设置用户名。或者，您可以调用 [close()](QSqlDatabase.md#void-qsqldatabaseclose)函数来关闭连接，设置用户，然后再次调用 [open()](QSqlDatabase.md#bool-qsqldatabaseopen)
     
 这个没有默认值。
 
