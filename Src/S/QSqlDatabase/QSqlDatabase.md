@@ -118,10 +118,10 @@ QSqlDatabase db = QSqlDatabase::database();
 |[commit](QSqlDatabase.md#bool-qsqldatabasecommit)()|保存并完成一个事务|
 |[rollback](QSqlDatabase.md#bool-qsqldatabaserollback)()|取消一个事务|
 |hasFeature()|	检查驱动程序是否支持事务|
-|[lastError]()()|	返回有关上一个错误的信息|
-|[drivers]()()|返回可用的数据库驱动名称|
-|[isDriverAvailable]()()|检查特定驱动程序是否可用|
-|[registerSqlDriver]()()|	注册自定义驱动程序|
+|[lastError](QSqlDatabase.md#qsqlerror-qsqldatabaselasterror-const)()|	返回有关上一个错误的信息|
+|[drivers](QSqlDatabase.md#static-qstringlist-qsqldatabasedrivers)()|返回可用的数据库驱动名称|
+|[isDriverAvailable](QSqlDatabase.md#static-bool-qsqldatabaseisdriveravailableconst-qstring-name)()|检查特定驱动程序是否可用|
+|[registerSqlDriver](QSqlDatabase.md#static-void-qsqldatabaseregistersqldriverconst-qstring-name-qsqldrivercreatorbase-creator)()|	注册自定义驱动程序|
 
 **注意：** `QSqlDatabase::exec() ` 方法已经被弃用。请使用 `QSqlQuery::exec() `
 
