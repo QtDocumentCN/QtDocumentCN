@@ -35,9 +35,9 @@
 
 该函数已经过时。为了保证旧代码仍能运行，Qt 官方保留了这个过时的函数。但是 Qt 官方强烈建议不要在新的代码中使用它。
 
-Searches all files in the *path* for certificates encoded in the specified *format* and returns them in a list. *path* must be a file or a pattern matching one or more files, as specified by *syntax*.
+搜索路径 *path* 中所有 *format* 编码格式的证书，并返回这些证书的列表。*path* 必须是一个文件，*syntax* 指定的正则表达式必须能检测到至少一个文件。
 
-Example:
+Qt 官方示例如下：
 
 ```cpp
  const auto certs = QSslCertificate::fromPath("C:/ssl/certificate.*.pem",
@@ -53,8 +53,8 @@ Example:
 
 该函数已经过时。为了保证旧代码仍能运行，Qt 官方保留了这个过时的函数。但是 Qt 官方强烈建议不要在新的代码中使用它。
 
-To verify a certificate, use [verify](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcertificate.html#verify)(). To check if a certificate is blacklisted, use [isBlacklisted](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcertificate.html#isBlacklisted)(). To check if a certificate has expired or is not yet valid, compare [expiryDate](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcertificate.html#expiryDate)() and [effectiveDate](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcertificate.html#effectiveDate)() with [QDateTime::currentDateTime](qthelp://org.qt-project.qtnetwork.5150/qtcore/qdatetime.html#currentDateTime)()
+验证证书的有效性请使用 [verify](../QSslCertificate/QSslCertificate.md#static-qlistqsslerror-qsslcertificateverifyqlistqsslcertificate-certificatechain-const-qstring-hostname--qstring)() 函数。查看证书是否被列入黑名单，请使用 [isBlacklisted](../QSslCertificate/QSslCertificate.md#bool-qsslcertificateisblacklisted-const)() 函数。检查证书是否已经过期或者是否尚未生效，请结合 [expiryDate](../QSslCertificate/QSslCertificate.md#qdatetime-qsslcertificateexpirydate-const)() 、[effectiveDate](../QSslCertificate/QSslCertificate.md#qdatetime-qsslcertificateeffectivedate-const)() 和 QDateTime::currentDateTime() 使用。
 
-This function checks that the current date-time is within the date-time range during which the certificate is considered valid, and checks that the certificate is not in a blacklist of fraudulent certificates.
+该函数检查当前日期是否处于证书的有效日期内以及是否被列入黑名单。
 
-**See also** [isNull](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcertificate.html#isNull)(), [verify](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcertificate.html#verify)(), [isBlacklisted](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcertificate.html#isBlacklisted)(), [expiryDate](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcertificate.html#expiryDate)(), and [effectiveDate](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcertificate.html#effectiveDate)().
+另外您也可以在 [isNull](../QSslCertificate/QSslCertificate.md#bool-qsslcertificateisnull-const)() ，[verify](../QSslCertificate/QSslCertificate.md#static-qlistqsslerror-qsslcertificateverifyqlistqsslcertificate-certificatechain-const-qstring-hostname--qstring)() ，[isBlacklisted](../QSslCertificate/QSslCertificate.md#bool-qsslcertificateisblacklisted-const)() ， [expiryDate](../QSslCertificate/QSslCertificate.md#qdatetime-qsslcertificateexpirydate-const)() 和 [effectiveDate](../QSslCertificate/QSslCertificate.md#qdatetime-qsslcertificateeffectivedate-const)() 函数介绍中找到相关信息。
