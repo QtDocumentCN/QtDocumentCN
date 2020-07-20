@@ -62,10 +62,10 @@ QSqlDatabase 类 用于处理数据库的连接
  |QStringList|[connectionNames]()()|
  |bool	|[contains]()(const QString &connectionName = QLatin1String(defaultConnection))|
  |QSqlDatabase	|[database]()(const QString &connectionName = QLatin1String(defaultConnection), bool open = true)|
- |QStringList|[drivers()]()|
- |bool	|[isDriverAvailable]()(const QString &name)|
- |void	|[registerSqlDriver]()(const QString &name, QSqlDriverCreatorBase *creator)|
- |void	|[removeDatabase]()(const QString &connectionName)|
+ |QStringList|[drivers()](QSqlDatabase.md#static-qstringlist-qsqldatabasedrivers)|
+ |bool	|[isDriverAvailable](QSqlDatabase.md#static-bool-qsqldatabaseisdriveravailableconst-qstring-name)(const QString &name)|
+ |void	|[registerSqlDriver](QSqlDatabase.md#static-void-qsqldatabaseregistersqldriverconst-qstring-name-qsqldrivercreatorbase-creator)(const QString &name, QSqlDriverCreatorBase *creator)|
+ |void	|[removeDatabase](QSqlDatabase.md#static-void-qsqldatabaseremovedatabaseconst-qstring-connectionname)(const QString &connectionName)|
 
  ----------
   ### **受保护的成员函数**
