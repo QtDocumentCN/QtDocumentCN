@@ -650,7 +650,7 @@ qt4.6中引入了这个函数。
 
 这个没有默认的值。
 
-**另请查阅** [port()](https://doc.qt.io/qt-5/qsqldatabase.html#port), [setUserName()](https://doc.qt.io/qt-5/qsqldatabase.html#setUserName)， [setPassword()](QSqlDatabase.md#void-qsqldatabasesetpasswordconst-qstring-password), [setHostName()](QSqlDatabase.md#void-qsqldatabasesethostnameconst-qstring-host)，[setDatabaseName()](QSqlDatabase.md#void-qsqldatabasesetdatabasenameconst-qstring-name), [setConnectOptions()](QSqlDatabase.md#void-qsqldatabasesetconnectoptionsconst-qstring-options--qstring) 和 [open()](QSqlDatabase.md#bool-qsqldatabaseopen)。
+**另请查阅** [port()](QSqlDatabase.md#int-qsqldatabaseport-const), [setUserName()](QSqlDatabase.md#void-qsqldatabasesetusernameconst-qstring-name)， [setPassword()](QSqlDatabase.md#void-qsqldatabasesetpasswordconst-qstring-password), [setHostName()](QSqlDatabase.md#void-qsqldatabasesethostnameconst-qstring-host)，[setDatabaseName()](QSqlDatabase.md#void-qsqldatabasesetdatabasenameconst-qstring-name), [setConnectOptions()](QSqlDatabase.md#void-qsqldatabasesetconnectoptionsconst-qstring-options--qstring) 和 [open()](QSqlDatabase.md#bool-qsqldatabaseopen)。
 
 ### void QSqlDatabase::setUserName(const [QString](S/QString/QString.md) &name)
 --------------------
