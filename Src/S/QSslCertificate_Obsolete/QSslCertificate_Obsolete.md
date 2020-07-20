@@ -10,8 +10,8 @@
 
 | 类型                                                        | 函数名                                                       |
 | ----------------------------------------------------------- | ------------------------------------------------------------ |
-| (obsolete) QMultiMap<QSsl::AlternateNameEntryType, QString> | **[alternateSubjectNames](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcertificate-obsolete.html#alternateSubjectNames)**() const |
-| (obsolete) bool                                             | **[isValid](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcertificate-obsolete.html#isValid)**() const |
+| (obsolete) QMultiMap<QSsl::AlternateNameEntryType, QString> | **[alternateSubjectNames](#qmultimapqsslalternativenameentrytype-qstring-qsslcertificatealternatesubjectnames-const)**() const |
+| (obsolete) bool                                             | **[isValid](#bool-qsslcertificateisvalid-const)**() const    |
 
 
 
@@ -19,7 +19,7 @@
 
 | 类型                               | 函数名                                                       |
 | ---------------------------------- | ------------------------------------------------------------ |
-| (obsolete)QList\<QSslCertificate\> | **[fromPath](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcertificate-obsolete.html#fromPath)**(const QString &*path*, QSsl::EncodingFormat *format*, QRegExp::PatternSyntax *syntax*) |
+| (obsolete)QList\<QSslCertificate\> | **[fromPath](#static-qlistqsslcertificate-qsslcertificatefrompathconst-qstring-path-qsslencodingformat-format-qregexppatternsyntax-syntax)**(const QString &*path*, QSsl::EncodingFormat *format*, QRegExp::PatternSyntax *syntax*) |
 
 
 
@@ -30,6 +30,8 @@
 该函数已经过时。为了保证旧代码仍能运行，Qt 官方保留了这个过时的函数。但是 Qt 官方强烈建议不要在新的代码中使用它。
 
 请使用 [QSslCertificate::subjectAlternativeNames](#qmultimapqsslalternativenameentrytype-qstring-qsslcertificatesubjectalternativenames-const)() 函数。
+
+---
 
 ### *[static]* [QList](../L/QList/QList.md)\<[QSslCertificate](../QSslCertificate/QSslCertificate.md)\> QSslCertificate::**fromPath**(const [QString](../../S/QString/QString.md) &*path*, [QSsl::EncodingFormat](../QSsl/QSsl.md#enum-qsslencodingformat) *format*, [QRegExp::PatternSyntax](qthelp://org.qt-project.qtnetwork.5150/qtcore/qregexp.html#PatternSyntax-enum) *syntax*)
 
@@ -48,6 +50,8 @@ Qt 官方示例如下：
 ```
 
 另外您也可以在 [fromData](#static-qlistqsslcertificate-qsslcertificatefromdataconst-qbytearray-data-qsslencodingformat-format--qsslpem)() 函数介绍中找到相关信息。
+
+---
 
 ### bool QSslCertificate::**isValid**() const
 
