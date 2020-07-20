@@ -5,6 +5,8 @@
 | Access functions:                 | 存取函数         |
 | Detailed Description              | 详细描述         |
 | Emit                              | 发射             |
+| Invokable                         | 可动态调用       |
+| Invoke                            | 动态调用         |
 | Marshall                          | 序列化           |
 | Member Function Documentation     | 成员函数文档     |
 | Member Type Documentation         | 成员类型文档     |
