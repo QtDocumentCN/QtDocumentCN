@@ -24,7 +24,7 @@ QSslCertificate 类为 X509 证书提供了便捷的 API 集成。
 
 | 属性 | 方法                                                         |
 | ---- | ------------------------------------------------------------ |
-| enum | **[SubjectInfo](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcertificate.html#SubjectInfo-enum)** { Organization, CommonName, LocalityName, OrganizationalUnitName, CountryName, …, EmailAddress } |
+| enum | **[SubjectInfo](#enum-qsslcertificatesubjectinfo)** { Organization, CommonName, LocalityName, OrganizationalUnitName, CountryName, …, EmailAddress } |
 
 
 
@@ -32,38 +32,38 @@ QSslCertificate 类为 X509 证书提供了便捷的 API 集成。
 
 | 类型                                               | 函数名                                                       |
 | -------------------------------------------------- | ------------------------------------------------------------ |
-|                                                    | **[ QSslCertificate](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcertificate.html#QSslCertificate-2)**(const QSslCertificate &*other*) |
-|                                                    | **[QSslCertificate](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcertificate.html#QSslCertificate-1)**(const QByteArray &*data* = QByteArray(), QSsl::EncodingFormat *format* = QSsl::Pem) |
-|                                                    | **[QSslCertificate](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcertificate.html#QSslCertificate)**(QIODevice **device*, QSsl::EncodingFormat *format* = QSsl::Pem) |
-| QSslCertificate &                                  | **[operator=](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcertificate.html#operator-eq-1)**(const QSslCertificate &*other*) |
-|                                                    | **[~QSslCertificate](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcertificate.html#dtor.QSslCertificate)**() |
-| void                                               | **[clear](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcertificate.html#clear)**() |
-| QByteArray                                         | **[digest](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcertificate.html#digest)**(QCryptographicHash::Algorithm *algorithm* = QCryptographicHash::Md5) const |
-| QDateTime                                          | **[effectiveDate](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcertificate.html#effectiveDate)**() const |
-| QDateTime                                          | **[expiryDate](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcertificate.html#expiryDate)**() const |
-| QList\<QSslCertificateExtension\>                  | **[extensions](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcertificate.html#extensions)**() const |
-| Qt::HANDLE                                         | **[handle](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcertificate.html#handle)**() const |
-| bool                                               | **[isBlacklisted](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcertificate.html#isBlacklisted)**() const |
-| bool                                               | **[isNull](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcertificate.html#isNull)**() const |
-| bool                                               | **[isSelfSigned](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcertificate.html#isSelfSigned)**() const |
-| QString                                            | **[issuerDisplayName](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcertificate.html#issuerDisplayName)**() const |
-| QStringList                                        | **[issuerInfo](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcertificate.html#issuerInfo)**(QSslCertificate::SubjectInfo *subject*) const |
-| QStringList                                        | **[issuerInfo](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcertificate.html#issuerInfo-1)**(const QByteArray &*attribute*) const |
-| QList\<QByteArray\>                                | **[issuerInfoAttributes](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcertificate.html#issuerInfoAttributes)**() const |
-| QSslKey                                            | **[publicKey](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcertificate.html#publicKey)**() const |
-| QByteArray                                         | **[serialNumber](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcertificate.html#serialNumber)**() const |
-| QMultiMap<QSsl::AlternativeNameEntryType, QString> | **[subjectAlternativeNames](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcertificate.html#subjectAlternativeNames)**() const |
-| QString                                            | **[subjectDisplayName](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcertificate.html#subjectDisplayName)**() const |
-| QStringList                                        | **[subjectInfo](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcertificate.html#subjectInfo)**(QSslCertificate::SubjectInfo *subject*) const |
-| QStringList                                        | **[subjectInfo](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcertificate.html#subjectInfo-1)**(const QByteArray &*attribute*) const |
-| QList\<QByteArray\>                                | **[subjectInfoAttributes](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcertificate.html#subjectInfoAttributes)**() const |
-| void                                               | **[swap](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcertificate.html#swap)**(QSslCertificate &*other*) |
-| QByteArray                                         | **[toDer](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcertificate.html#toDer)**() const |
-| QByteArray                                         | **[toPem](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcertificate.html#toPem)**() const |
-| QString                                            | **[toText](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcertificate.html#toText)**() const |
-| QByteArray                                         | **[version](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcertificate.html#version)**() const |
-| bool                                               | **[operator!=](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcertificate.html#operator-not-eq)**(const QSslCertificate &*other*) const |
-| bool                                               | **[operator==](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcertificate.html#operator-eq-eq)**(const QSslCertificate &*other*) const |
+|                                                    | **[ QSslCertificate](#qsslcertificateqsslcertificateconst-qsslcertificate-other)**(const QSslCertificate &*other*) |
+|                                                    | **[QSslCertificate](#qsslcertificateqsslcertificateconst-qbytearray-data--qbytearray-qsslencodingformat-format--qsslpem)**(const QByteArray &*data* = QByteArray(), QSsl::EncodingFormat *format* = QSsl::Pem) |
+|                                                    | **[QSslCertificate](#qsslcertificateqsslcertificateqiodevice-device-qsslencodingformat-format--qsslpem)**(QIODevice **device*, QSsl::EncodingFormat *format* = QSsl::Pem) |
+| QSslCertificate &                                  | **[operator=](#qsslcertificate-qsslcertificateoperatorconst-qsslcertificate-other)**(const QSslCertificate &*other*) |
+|                                                    | **[~QSslCertificate](#qsslcertificateqsslcertificate)**()    |
+| void                                               | **[clear](#void-qsslcertificateclear)**()                    |
+| QByteArray                                         | **[digest](#qbytearray-qsslcertificatedigestqcryptographichashalgorithm-algorithm--qcryptographichashmd5-const)**(QCryptographicHash::Algorithm *algorithm* = QCryptographicHash::Md5) const |
+| QDateTime                                          | **[effectiveDate](#qdatetime-qsslcertificateeffectivedate-const)**() const |
+| QDateTime                                          | **[expiryDate](#qdatetime-qsslcertificateexpirydate-const)**() const |
+| QList\<QSslCertificateExtension\>                  | **[extensions](#qlistqsslcertificateextension-qsslcertificateextensions-const)**() const |
+| Qt::HANDLE                                         | **[handle](#qthandle-qsslcertificatehandle-const)**() const  |
+| bool                                               | **[isBlacklisted](#bool-qsslcertificateisblacklisted-const)**() const |
+| bool                                               | **[isNull](#bool-qsslcertificateisnull-const)**() const      |
+| bool                                               | **[isSelfSigned](#bool-qsslcertificateisselfsigned-const)**() const |
+| QString                                            | **[issuerDisplayName](#qstring-qsslcertificateissuerdisplayname-const)**() const |
+| QStringList                                        | **[issuerInfo](#qstringlist-qsslcertificateissuerinfoqsslcertificatesubjectinfo-subject-const)**(QSslCertificate::SubjectInfo *subject*) const |
+| QStringList                                        | **[issuerInfo](#qstringlist-qsslcertificateissuerinfoconst-qbytearray-attribute-const)**(const QByteArray &*attribute*) const |
+| QList\<QByteArray\>                                | **[issuerInfoAttributes](#qlistqbytearray-qsslcertificateissuerinfoattributes-const)**() const |
+| QSslKey                                            | **[publicKey](#qsslkey-qsslcertificatepublickey-const)**() const |
+| QByteArray                                         | **[serialNumber](#qbytearray-qsslcertificateserialnumber-const)**() const |
+| QMultiMap<QSsl::AlternativeNameEntryType, QString> | **[subjectAlternativeNames](#qmultimapqsslalternativenameentrytype-qstring-qsslcertificatesubjectalternativenames-const)**() const |
+| QString                                            | **[subjectDisplayName](#qstring-qsslcertificatesubjectdisplayname-const)**() const |
+| QStringList                                        | **[subjectInfo](#qstringlist-qsslcertificatesubjectinfoqsslcertificatesubjectinfo-subject-const)**(QSslCertificate::SubjectInfo *subject*) const |
+| QStringList                                        | **[subjectInfo](#qstringlist-qsslcertificatesubjectinfoconst-qbytearray-attribute-const)**(const QByteArray &*attribute*) const |
+| QList\<QByteArray\>                                | **[subjectInfoAttributes](#qlistqbytearray-qsslcertificatesubjectinfoattributes-const)**() const |
+| void                                               | **[swap](#void-qsslcertificateswapqsslcertificate-other)**(QSslCertificate &*other*) |
+| QByteArray                                         | **[toDer](#qbytearray-qsslcertificatetoder-const)**() const  |
+| QByteArray                                         | **[toPem](#qbytearray-qsslcertificatetopem-const)**() const  |
+| QString                                            | **[toText](#qstring-qsslcertificatetotext-const)**() const   |
+| QByteArray                                         | **[version](#qbytearray-qsslcertificateversion-const)**() const |
+| bool                                               | **[operator!=](#bool-qsslcertificateoperatorconst-qsslcertificate-other-const)**(const QSslCertificate &*other*) const |
+| bool                                               | **[operator==](#bool-qsslcertificateoperatorconst-qsslcertificate-other-const-1)**(const QSslCertificate &*other*) const |
 
 
 
@@ -71,11 +71,11 @@ QSslCertificate 类为 X509 证书提供了便捷的 API 集成。
 
 | 类型                     | 函数名                                                       |
 | ------------------------ | ------------------------------------------------------------ |
-| QList\<QSslCertificate\> | **[fromData](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcertificate.html#fromData)**(const QByteArray &*data*, QSsl::EncodingFormat *format* = QSsl::Pem) |
-| QList\<QSslCertificate\> | **[fromDevice](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcertificate.html#fromDevice)**(QIODevice **device*, QSsl::EncodingFormat *format* = QSsl::Pem) |
-| QList\<QSslCertificate\> | **[fromPath](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcertificate.html#fromPath-1)**(const QString &*path*, QSsl::EncodingFormat *format* = QSsl::Pem, QSslCertificate::PatternSyntax *syntax* = PatternSyntax::FixedString) |
-| bool                     | **[importPkcs12](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcertificate.html#importPkcs12)**(QIODevice \**device*, QSslKey \**key*, QSslCertificate \**certificate*, QList\<QSslCertificate\> \**caCertificates* = nullptr, const QByteArray &*passPhrase* = QByteArray()) |
-| QList\<QSslError\>       | **[verify](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcertificate.html#verify)**(QList\<QSslCertificate\> *certificateChain*, const QString &*hostName* = QString()) |
+| QList\<QSslCertificate\> | **[fromData](#static-qlistqsslcertificate-qsslcertificatefromdataconst-qbytearray-data-qsslencodingformat-format--qsslpem)**(const QByteArray &*data*, QSsl::EncodingFormat *format* = QSsl::Pem) |
+| QList\<QSslCertificate\> | **[fromDevice](#static-qlistqsslcertificate-qsslcertificatefromdeviceqiodevice-device-qsslencodingformat-format--qsslpem)**(QIODevice **device*, QSsl::EncodingFormat *format* = QSsl::Pem) |
+| QList\<QSslCertificate\> | **[fromPath](#static-qlistqsslcertificate-qsslcertificatefrompathconst-qstring-path-qsslencodingformat-format--qsslpem-qsslcertificatepatternsyntax-syntax--patternsyntaxfixedstring)**(const QString &*path*, QSsl::EncodingFormat *format* = QSsl::Pem, QSslCertificate::PatternSyntax *syntax* = PatternSyntax::FixedString) |
+| bool                     | **[importPkcs12](#static-bool-qsslcertificateimportpkcs12qiodevice-device-qsslkey-key-qsslcertificate-certificate-qlistqsslcertificate-cacertificates--nullptr-const-qbytearraypassphrase--qbytearray)**(QIODevice \**device*, QSslKey \**key*, QSslCertificate \**certificate*, QList\<QSslCertificate\> \**caCertificates* = nullptr, const QByteArray &*passPhrase* = QByteArray()) |
+| QList\<QSslError\>       | **[verify](#static-qlistqsslerror-qsslcertificateverifyqlistqsslcertificate-certificatechain-const-qstring-hostname--qstring)**(QList\<QSslCertificate\> *certificateChain*, const QString &*hostName* = QString()) |
 
 
 
@@ -87,19 +87,19 @@ QSslCertificate 类为 X509 证书提供了便捷的 API 集成。
 
 ### enum QSslCertificate::**SubjectInfo**
 
-Describes keys that you can pass to [QSslCertificate::issuerInfo](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcertificate.html#issuerInfo)() or [QSslCertificate::subjectInfo](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcertificate.html#subjectInfo)() to get information about the certificate issuer or subject.
+描述了您可以传递到 [QSslCertificate::issuerInfo](#qstringlist-qsslcertificateissuerinfoqsslcertificatesubjectinfo-subject-const)() 和 [QSslCertificate::subjectInfo](#qstringlist-qsslcertificatesubjectinfoqsslcertificatesubjectinfo-subject-const)() 函数的键。您可以通过这些键查找出对应的发行人、主题的有关信息。
 
-| Constant                                    | Value | Description                                                  |
-| :------------------------------------------ | :---- | :----------------------------------------------------------- |
-| QSslCertificate::Organization               | 0     | "O" The name of the organization.                            |
-| QSslCertificate::CommonName                 | 1     | "CN" The common name; most often this is used to store the host name. |
-| QSslCertificate::LocalityName               | 2     | "L" The locality.                                            |
-| QSslCertificate::OrganizationalUnitName     | 3     | "OU" The organizational unit name.                           |
-| QSslCertificate::CountryName                | 4     | "C" The country.                                             |
-| QSslCertificate::StateOrProvinceName        | 5     | "ST" The state or province.                                  |
-| QSslCertificate::DistinguishedNameQualifier | 6     | The distinguished name qualifier                             |
-| QSslCertificate::SerialNumber               | 7     | The certificate's serial number                              |
-| QSslCertificate::EmailAddress               | 8     | The email address associated with the certificate            |
+| 常量                                        | 值   | 描述                               |
+| :------------------------------------------ | :--- | :--------------------------------- |
+| QSslCertificate::Organization               | 0    | "O"：组织。                        |
+| QSslCertificate::CommonName                 | 1    | "CN"：常用名，通常用来储存主机名。 |
+| QSslCertificate::LocalityName               | 2    | "L"：地区。                        |
+| QSslCertificate::OrganizationalUnitName     | 3    | "OU" ：组织单位。                  |
+| QSslCertificate::CountryName                | 4    | "C" ：国家。                       |
+| QSslCertificate::StateOrProvinceName        | 5    | "ST" ：州或省。                    |
+| QSslCertificate::DistinguishedNameQualifier | 6    | 专有名称修饰符。                   |
+| QSslCertificate::SerialNumber               | 7    | 证书系列号。                       |
+| QSslCertificate::EmailAddress               | 8    | 邮件地址。                         |
 
 
 
@@ -107,95 +107,99 @@ Describes keys that you can pass to [QSslCertificate::issuerInfo](qthelp://org.q
 
 ### QSslCertificate::**QSslCertificate**(const QSslCertificate &*other*)
 
-Constructs an identical copy of *other*.
+拷贝构造函数。由 *other* 拷贝出新的一份 QSslCertificate 对象。
 
 ---
 
-### QSslCertificate::**QSslCertificate**(const [QByteArray](qthelp://org.qt-project.qtnetwork.5150/qtcore/qbytearray.html) &*data* = QByteArray(), [QSsl::EncodingFormat](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qssl.html#EncodingFormat-enum) *format* = QSsl::Pem)
+### QSslCertificate::**QSslCertificate**(const [QByteArray](../../B/QByteArray/QByteArray.md) &*data* = QByteArray(), [QSsl::EncodingFormat](../QSsl/QSsl.md#enum-qsslencodingformat) *format* = QSsl::Pem)
 
-Constructs a QSslCertificate by parsing the *format* encoded *data* and using the first available certificate found. You can later call [isNull](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcertificate.html#isNull)() to see if *data* contained a certificate, and if this certificate was loaded successfully.
+构造函数。使用 *format* 指定的编码格式对 *data* 进行编码作为证书数据，并使用第一个找到的可用证书构造一个 QSslCertificate 对象。
 
----
-
-### QSslCertificate::**QSslCertificate**([QIODevice](qthelp://org.qt-project.qtnetwork.5150/qtcore/qiodevice.html) **device*, [QSsl::EncodingFormat](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qssl.html#EncodingFormat-enum) *format* = QSsl::Pem)
-
-Constructs a QSslCertificate by reading *format* encoded data from *device* and using the first certificate found. You can later call [isNull](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcertificate.html#isNull)() to see if *device* contained a certificate, and if this certificate was loaded successfully.
+构造后，您可以使用 [isNull](#bool-qsslcertificateisnull-const)() 函数来检查 *data* 是否包含一个证书或者该证书是否已经成功载入。
 
 ---
 
-### [QSslCertificate](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcertificate.html#QSslCertificate) &QSslCertificate::**operator=**(const [QSslCertificate](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcertificate.html#QSslCertificate) &*other*)
+### QSslCertificate::**QSslCertificate**([QIODevice](../../I/QIODevice/QIODevice.md) **device*, [QSsl::EncodingFormat](../QSsl/QSsl.md#enum-qsslencodingformat) *format* = QSsl::Pem)
 
-Copies the contents of *other* into this certificate, making the two certificates identical.
+构造函数。从 *device* 指定的 IO 设备中读取以 *format* 格式编码的数据，并使用第一个找到的可用证书构造一个 QSslCertificate 对象。
+
+构造后，您可以使用 [isNull](#bool-qsslcertificateisnull-const)() 函数来检查 *data* 是否包含一个证书或者该证书是否已经成功载入。
+
+---
+
+### QSslCertificate &QSslCertificate::**operator=**(const QSslCertificate &*other*)
+
+将 *other* 的内容拷贝到此证书，使等式左右值相等。
 
 ---
 
 ### QSslCertificate::**~QSslCertificate**()
 
-Destroys the [QSslCertificate](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcertificate.html).
+析构函数。销毁 QSslCertificate 对象。
 
 ---
 
 ### void QSslCertificate::**clear**()
 
-Clears the contents of this certificate, making it a null certificate.
+清除该证书的内容，使其变为空证书。
 
-**See also** [isNull](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcertificate.html#isNull)().
-
----
-
-### [QByteArray](qthelp://org.qt-project.qtnetwork.5150/qtcore/qbytearray.html) QSslCertificate::**digest**([QCryptographicHash::Algorithm](qthelp://org.qt-project.qtnetwork.5150/qtcore/qcryptographichash.html#Algorithm-enum) *algorithm* = QCryptographicHash::Md5) const
-
-Returns a cryptographic digest of this certificate. By default, an MD5 digest will be generated, but you can also specify a custom *algorithm*.
+另外您也可以在 [isNull](#bool-qsslcertificateisnull-const)() 函数介绍中找到相关内容。
 
 ---
 
-### [QDateTime](qthelp://org.qt-project.qtnetwork.5150/qtcore/qdatetime.html) QSslCertificate::**effectiveDate**() const
+### [QByteArray](../../B/QByteArray/QByteArray.md) QSslCertificate::**digest**([QCryptographicHash::Algorithm](qthelp://org.qt-project.qtnetwork.5150/qtcore/qcryptographichash.html#Algorithm-enum) *algorithm* = QCryptographicHash::Md5) const
 
-Returns the date-time that the certificate becomes valid, or an empty [QDateTime](qthelp://org.qt-project.qtnetwork.5150/qtcore/qdatetime.html) if this is a null certificate.
-
-**See also** [expiryDate](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcertificate.html#expiryDate)().
+返回该证书的加密摘要。默认情况下将会使用 MD5 算法生成数字摘要，您也可以指定使用 *algorithm* 摘要算法。
 
 ---
 
-### [QDateTime](qthelp://org.qt-project.qtnetwork.5150/qtcore/qdatetime.html) QSslCertificate::**expiryDate**() const
+### [QDateTime](../../D/QDateTime/QDateTime.md) QSslCertificate::**effectiveDate**() const
 
-Returns the date-time that the certificate expires, or an empty [QDateTime](qthelp://org.qt-project.qtnetwork.5150/qtcore/qdatetime.html) if this is a null certificate.
+返回该证书的生效日期。若该证书为空，则返回一个空的 QDateTime 对象。
 
-**See also** [effectiveDate](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcertificate.html#effectiveDate)().
-
----
-
-### [QList](qthelp://org.qt-project.qtnetwork.5150/qtcore/qlist.html)\<[QSslCertificateExtension](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcertificateextension.html)\> QSslCertificate::**extensions**() const
-
-Returns a list containing the X509 extensions of this certificate.
-
-This function was introduced in Qt 5.0.
+另外您也可以在 [expiryDate](#qdatetime-qsslcertificateexpirydate-const)() 函数介绍中找到相关信息。
 
 ---
 
-### *[static]* [QList](qthelp://org.qt-project.qtnetwork.5150/qtcore/qlist.html)\<[QSslCertificate](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcertificate.html#QSslCertificate)\> QSslCertificate::**fromData**(const [QByteArray](qthelp://org.qt-project.qtnetwork.5150/qtcore/qbytearray.html) &*data*, [QSsl::EncodingFormat](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qssl.html#EncodingFormat-enum) *format* = QSsl::Pem)
+### [QDateTime](../../D/QDateTime/QDateTime.md) QSslCertificate::**expiryDate**() const
 
-Searches for and parses all certificates in *data* that are encoded in the specified *format* and returns them in a list of certificates.
+返回该证书过期日期。若该证书为空，则返回一个空的 QDateTime 对象。
 
-**See also** [fromDevice](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcertificate.html#fromDevice)().
-
----
-
-### *[static]* [QList](qthelp://org.qt-project.qtnetwork.5150/qtcore/qlist.html)\<[QSslCertificate](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcertificate.html#QSslCertificate)\> QSslCertificate::**fromDevice**([QIODevice](qthelp://org.qt-project.qtnetwork.5150/qtcore/qiodevice.html) **device*, [QSsl::EncodingFormat](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qssl.html#EncodingFormat-enum) *format* = QSsl::Pem)
-
-Searches for and parses all certificates in *device* that are encoded in the specified *format* and returns them in a list of certificates.
-
-**See also** [fromData](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcertificate.html#fromData)().
+另外您也可以在 [effectiveDate](#qdatetime-qsslcertificateeffectivedate-const)() 函数介绍中找到相关信息。
 
 ---
 
-### *[static]* [QList](qthelp://org.qt-project.qtnetwork.5150/qtcore/qlist.html)\<[QSslCertificate](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcertificate.html#QSslCertificate)\> QSslCertificate::**fromPath**(const [QString](qthelp://org.qt-project.qtnetwork.5150/qtcore/qstring.html) &*path*, [QSsl::EncodingFormat](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qssl.html#EncodingFormat-enum) *format* = QSsl::Pem, QSslCertificate::PatternSyntax *syntax* = PatternSyntax::FixedString)
+### [QList](../../L/QList/QList.md)\<[QSslCertificateExtension](../QSslCertificateExtension/QSslCertificateExtension.md)\> QSslCertificate::**extensions**() const
 
-Searches all files in the *path* for certificates encoded in the specified *format* and returns them in a list. *path* must be a file or a pattern matching one or more files, as specified by *syntax*.
+返回此证书所包含的 X509 扩展列表。
 
-Example:
+该函数最早在 Qt 5.0 版本引入。
 
-```
+---
+
+### *[static]* [QList](../../L/QList/QList.md)\<QSslCertificate\> QSslCertificate::**fromData**(const [QByteArray](../../B/QByteArray/QByteArray.md) &*data*, [QSsl::EncodingFormat](../QSsl/QSsl.md#enum-qsslencodingformat) *format* = QSsl::Pem)
+
+搜索 *data* 中所有 *format* 编码格式的证书，并返回这些证书的列表。
+
+另外您也可以在 [fromDevice](#static-qlistqsslcertificate-qsslcertificatefromdeviceqiodevice-device-qsslencodingformat-format--qsslpem)() 函数介绍中找到相关信息。
+
+---
+
+### *[static]* [QList](../../L/QList/QList.md)\<QSslCertificate> QSslCertificate::**fromDevice**([QIODevice](../../I/QIODevice/QIODevice.md) **device*, [QSsl::EncodingFormat](../QSsl/QSsl.md#enum-qsslencodingformat) *format* = QSsl::Pem)
+
+搜索设备 *device* 中所有 *format* 编码格式的证书，并返回这些证书的列表。
+
+另外您也可以在 [fromData](#static-qlistqsslcertificate-qsslcertificatefromdataconst-qbytearray-data-qsslencodingformat-format--qsslpem)() 函数介绍中找到相关信息。
+
+---
+
+### *[static]* [QList](../../L/QList/QList.md)\<QSslCertificate> QSslCertificate::**fromPath**(const [QString](../../S/QString/QString.md) &*path*, [QSsl::EncodingFormat](../QSsl/QSsl.md#enum-qsslencodingformat) *format* = QSsl::Pem, QSslCertificate::PatternSyntax *syntax* = PatternSyntax::FixedString)
+
+搜索路径 *path* 中所有 *format* 编码格式的证书，并返回这些证书的列表。 *path* 必须是一个文件，*pattern* 指定的模式必须能检测到至少一个文件。
+
+Qt 官方示例如下：
+
+```cpp
  const auto certs = QSslCertificate::fromPath("C:/ssl/certificate.*.pem",
                                               QSsl::Pem, QSslCertificate::Wildcard);
  for (const QSslCertificate &cert : certs) {
@@ -203,27 +207,29 @@ Example:
  }
 ```
 
-This function was introduced in Qt 5.15.
+该函数最初在 Qt 5.15版本引入。
 
-**See also** [fromData](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcertificate.html#fromData)().
+另外您也可以在 [fromData](#static-qlistqsslcertificate-qsslcertificatefromdataconst-qbytearray-data-qsslencodingformat-format--qsslpem)() 函数介绍中找到相关信息。
 
 ---
 
 ### [Qt::HANDLE](qthelp://org.qt-project.qtnetwork.5150/qtcore/qt.html#HANDLE-typedef) QSslCertificate::**handle**() const
 
-Returns a pointer to the native certificate handle, if there is one, else `nullptr`.
+返回证书的本地句柄，若该证书没有句柄则返回 *nullptr* 。
 
-You can use this handle, together with the native API, to access extended information about the certificate.
+您可以结合本地 API 来使用本句柄，这样便可获取该证书的拓展信息。
 
-**Warning:** Use of this function has a high probability of being non-portable, and its return value may vary from platform to platform or change from minor release to minor release.
+**警告：** 使用此功能很有可能无法移植，其返回值可能因平台而异，或因次要发行版而异。
 
 ---
 
-### *[static]* bool QSslCertificate::**importPkcs12**([QIODevice](qthelp://org.qt-project.qtnetwork.5150/qtcore/qiodevice.html) \**device*, [QSslKey](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslkey.html) \**key*, [QSslCertificate](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcertificate.html#QSslCertificate) \**certificate*, [QList](qthelp://org.qt-project.qtnetwork.5150/qtcore/qlist.html)\<[QSslCertificate](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcertificate.html#QSslCertificate)\> **caCertificates* = nullptr, const [QByteArray](qthelp://org.qt-project.qtnetwork.5150/qtcore/qbytearray.html)&*passPhrase* = QByteArray())
+### *[static]* bool QSslCertificate::**importPkcs12**([QIODevice](../../I/QIODevice/QIODevice.md) \**device*, [QSslKey](../QSslKey/QSslKey.md) \**key*, QSslCertificate \**certificate*, [QList](../../L/QList/QList.md)\<QSslCertificate> **caCertificates* = nullptr, const [QByteArray](../../B/QByteArray/QByteArray.md) &*passPhrase* = QByteArray())
 
-Imports a PKCS#12 (pfx) file from the specified *device*. A PKCS#12 file is a bundle that can contain a number of certificates and keys. This method reads a single *key*, its *certificate* and any associated *caCertificates* from the bundle. If a *passPhrase* is specified then this will be used to decrypt the bundle. Returns `true` if the PKCS#12 file was successfully loaded.
+从指定的设备 *device* 中导入 PKCS#12 (pfx) 文件。一个 PKCS#12 是一个包含了众多证书和私钥的包。这个函数会读取一条私钥 *key* ，和与这个私钥的证书 *certificate* 以及这个包中任何相关的证书 *caCertificates* 。 如果指定了 *passPhrase* ，该函数会使用 *passPhrase* 去解码该包。如果 PKCS#12 文件成功导入则返回 *true* 。
 
-**Note:** The *device* must be open and ready to be read from.
+**注意：** 设备 *device* 必须已经打开并追被好从中读取数据。
+
+该函数最初在 Qt 5.4版本引入。
 
 This function was introduced in Qt 5.4.
 
@@ -231,176 +237,176 @@ This function was introduced in Qt 5.4.
 
 ### bool QSslCertificate::**isBlacklisted**() const
 
-Returns `true` if this certificate is blacklisted; otherwise returns `false`.
+如果该证书被列入黑名单则返回 *true* ，否则返回 *false* 。
 
-**See also** [isNull](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcertificate.html#isNull)().
+另外您也可以在 [isNull](#bool-qsslcertificateisnull-const)() 函数介绍中找到相关信息。
 
 ---
 
 ### bool QSslCertificate::**isNull**() const
 
-Returns `true` if this is a null certificate (i.e., a certificate with no contents); otherwise returns `false`.
+如果该证书为空则返回 *true* ，否则返回 *false* 。
 
-By default, [QSslCertificate](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcertificate.html) constructs a null certificate.
+默认情况下，QSslCertificate 对象会构造一个空的证书。
 
-**See also** [clear](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcertificate.html#clear)().
+另外你您也可以在 [clear](#void-qsslcertificateclear)() 函数介绍中找到相关信息。
 
 ---
 
 ### bool QSslCertificate::**isSelfSigned**() const
 
-Returns `true` if this certificate is self signed; otherwise returns `false`.
+如果该证书为自签名证书则返回 *true* ，否则返回 *false* 。
 
-A certificate is considered self-signed its issuer and subject are identical.
+如果该证书的发行人和主题相同，则会被认为是一个自签名证书。
 
-This function was introduced in Qt 5.4.
-
----
-
-### [QString](qthelp://org.qt-project.qtnetwork.5150/qtcore/qstring.html) QSslCertificate::**issuerDisplayName**() const
-
-Returns a name that describes the issuer. It returns the [QSslCertificate::CommonName](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcertificate.html#SubjectInfo-enum) if available, otherwise falls back to the first [QSslCertificate::Organization](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcertificate.html#SubjectInfo-enum) or the first [QSslCertificate::OrganizationalUnitName](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcertificate.html#SubjectInfo-enum).
-
-This function was introduced in Qt 5.12.
-
-**See also** [issuerInfo](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcertificate.html#issuerInfo)().
+该函数最初在 Qt 5.4版本引入。
 
 ---
 
-### [QStringList](qthelp://org.qt-project.qtnetwork.5150/qtcore/qstringlist.html) QSslCertificate::**issuerInfo**([QSslCertificate::SubjectInfo](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcertificate.html#SubjectInfo-enum) *subject*) const
+### [QString](../../S/QString/QString.md) QSslCertificate::**issuerDisplayName**() const
 
-Returns the issuer information for the *subject* from the certificate, or an empty list if there is no information for *subject* in the certificate. There can be more than one entry of each type.
+返回发行者的名称。如果可获得 [QSslCertificate::CommonName ](#enum-qsslcertificatesubjectinfo) 则将返回该值，否则将返回首个 [QSslCertificate::Organization](#enum-qsslcertificatesubjectinfo) 或者首个 [QSslCertificate::OrganizationalUnitName](#enum-qsslcertificatesubjectinfo) 。
 
-**See also** [subjectInfo](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcertificate.html#subjectInfo)().
+该函数最初在 Qt 5.12版本引入。
 
----
-
-### [QStringList](qthelp://org.qt-project.qtnetwork.5150/qtcore/qstringlist.html) QSslCertificate::**issuerInfo**(const [QByteArray](qthelp://org.qt-project.qtnetwork.5150/qtcore/qbytearray.html) &*attribute*) const
-
-Returns the issuer information for *attribute* from the certificate, or an empty list if there is no information for *attribute* in the certificate. There can be more than one entry for an attribute.
-
-**See also** [subjectInfo](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcertificate.html#subjectInfo)().
+另外您也可以在 [issuerInfo()](#qstringlist-qsslcertificateissuerinfoqsslcertificatesubjectinfo-subject-const) 函数介绍中找到相关信息。
 
 ---
 
-### [QList](qthelp://org.qt-project.qtnetwork.5150/qtcore/qlist.html)\<[QByteArray](qthelp://org.qt-project.qtnetwork.5150/qtcore/qbytearray.html)\> QSslCertificate::**issuerInfoAttributes**() const
+### [QStringList](../../S/QStringList/QStringList.md) QSslCertificate::**issuerInfo**([QSslCertificate::SubjectInfo](#enum-qsslcertificatesubjectinfo) *subject*) const
 
-Returns a list of the attributes that have values in the issuer information of this certificate. The information associated with a given attribute can be accessed using the [issuerInfo](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcertificate.html#issuerInfo)() method. Note that this list may include the OIDs for any elements that are not known by the SSL backend.
+返回 *subject* 指定的发行信息，若 *subject* 指定的发行信息为空贼返回一个空的列表。每种类型可能不止有一条记录。
 
-This function was introduced in Qt 5.0.
-
-**See also** [subjectInfo](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcertificate.html#subjectInfo)().
+另外您也可以在 [subjectInfo](#qstringlist-qsslcertificatesubjectinfoconst-qbytearray-attribute-const)() 函数介绍中找到相关信息。
 
 ---
 
-### [QSslKey](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslkey.html) QSslCertificate::**publicKey**() const
+### [QStringList](../../S/QStringList/QStringList.md) QSslCertificate::**issuerInfo**(const [QByteArray](../../B/QByteArray/QByteArray.md) &*attribute*) const
 
-Returns the certificate subject's public key.
+返回证书中 *attribute* 指定的属性的发行信息。若该属性指定的发行信息为空则返回一个空列表。每种属性可能不止有一条记录。
 
----
-
-### [QByteArray](qthelp://org.qt-project.qtnetwork.5150/qtcore/qbytearray.html) QSslCertificate::**serialNumber**() const
-
-Returns the certificate's serial number string in hexadecimal format.
+另外您也可以在 [subjectInfo](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcertificate.html#subjectInfo)() 函数介绍中找到相关信息。
 
 ---
 
-### [QMultiMap](qthelp://org.qt-project.qtnetwork.5150/qtcore/qmultimap.html)<[QSsl::AlternativeNameEntryType](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qssl.html#AlternativeNameEntryType-enum), [QString](qthelp://org.qt-project.qtnetwork.5150/qtcore/qstring.html)> QSslCertificate::**subjectAlternativeNames**() const
+### [QList](../../L/QList/QList.md)\<[QByteArray](../../B/QByteArray/QByteArray.md)\> QSslCertificate::**issuerInfoAttributes**() const
 
-Returns the list of alternative subject names for this certificate. The alternative names typically contain host names, optionally with wildcards, that are valid for this certificate.
+返回发行信息中有值的属性的列表。与一个给定属性先关联的信息可以使用 [issuerInfo()](#qstringlist-qsslcertificateissuerinfoqsslcertificatesubjectinfo-subject-const)() 函数来查看。请注意，此列表可能包含 SSL 后端未知的任何元素的 OID 。
 
-These names are tested against the connected peer's host name, if either the subject information for [CommonName](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcertificate.html#SubjectInfo-enum) doesn't define a valid host name, or the subject info name doesn't match the peer's host name.
+该函数最初在 Qt 5.0版本引入。
 
-**See also** [subjectInfo](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcertificate.html#subjectInfo)().
-
----
-
-### [QString](qthelp://org.qt-project.qtnetwork.5150/qtcore/qstring.html) QSslCertificate::**subjectDisplayName**() const
-
-Returns a name that describes the subject. It returns the [QSslCertificate::CommonName](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcertificate.html#SubjectInfo-enum) if available, otherwise falls back to the first [QSslCertificate::Organization](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcertificate.html#SubjectInfo-enum) or the first [QSslCertificate::OrganizationalUnitName](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcertificate.html#SubjectInfo-enum).
-
-This function was introduced in Qt 5.12.
-
-**See also** [subjectInfo](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcertificate.html#subjectInfo)().
+另外您也可以在 [subjectInfo](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcertificate.html#subjectInfo)() 函数介绍中找到相关信息。
 
 ---
 
-### [QStringList](qthelp://org.qt-project.qtnetwork.5150/qtcore/qstringlist.html) QSslCertificate::**subjectInfo**([QSslCertificate::SubjectInfo](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcertificate.html#SubjectInfo-enum) *subject*) const
+### [QSslKey](../QSslKey/QSslKey.md) QSslCertificate::**publicKey**() const
 
-Returns the information for the *subject*, or an empty list if there is no information for *subject* in the certificate. There can be more than one entry of each type.
-
-**See also** [issuerInfo](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcertificate.html#issuerInfo)().
+返回证书的公钥。
 
 ---
 
-### [QStringList](qthelp://org.qt-project.qtnetwork.5150/qtcore/qstringlist.html) QSslCertificate::**subjectInfo**(const [QByteArray](qthelp://org.qt-project.qtnetwork.5150/qtcore/qbytearray.html) &*attribute*) const
+### [QByteArray](../../B/QByteArray/QByteArray.md) QSslCertificate::**serialNumber**() const
 
-Returns the subject information for *attribute*, or an empty list if there is no information for *attribute* in the certificate. There can be more than one entry for an attribute.
-
-**See also** [issuerInfo](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcertificate.html#issuerInfo)().
+返回十六进制形式的该证书的系列号。
 
 ---
 
-### [QList](qthelp://org.qt-project.qtnetwork.5150/qtcore/qlist.html)<[QByteArray](qthelp://org.qt-project.qtnetwork.5150/qtcore/qbytearray.html)> QSslCertificate::**subjectInfoAttributes**() const
+### [QMultiMap](../../QMultiMap/QMultiMap.md)<[QSsl::AlternativeNameEntryType](../QSsl/QSsl.md#enum-qsslalternativenameentrytype), [QString](../../S/QString/QString.md)> QSslCertificate::**subjectAlternativeNames**() const
 
-Returns a list of the attributes that have values in the subject information of this certificate. The information associated with a given attribute can be accessed using the [subjectInfo](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcertificate.html#subjectInfo)() method. Note that this list may include the OIDs for any elements that are not known by the SSL backend.
+返回该证书可选主题的名称列表。可选名称通常来说包含该证书的主机名，有时候会包含通配符。
 
-This function was introduced in Qt 5.0.
+如果 [CommonName](#enum-qsslcertificatesubjectinfo) 的主题信息未定义一个有效的主机名或者主题信息名称不能匹配对等端的主机名，则将这些名称与连接的对等方的主机名进行测试。 
 
-**See also** [subjectInfo](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcertificate.html#subjectInfo)().
-
----
-
-### void QSslCertificate::**swap**([QSslCertificate](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcertificate.html#QSslCertificate) &*other*)
-
-Swaps this certificate instance with *other*. This function is very fast and never fails.
-
-This function was introduced in Qt 5.0.
+另外您也可以在 [subjectInfo](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcertificate.html#subjectInfo)() 函数介绍中找到相关信息。
 
 ---
 
-### [QByteArray](qthelp://org.qt-project.qtnetwork.5150/qtcore/qbytearray.html) QSslCertificate::**toDer**() const
+### [QString](../../S/QString/QString.md) QSslCertificate::**subjectDisplayName**() const
 
-Returns this certificate converted to a DER (binary) encoded representation.
+返回主题的名称。如果可获得 [QSslCertificate::CommonName ](#enum-qsslcertificatesubjectinfo) 则将返回该值，否则将返回首个 [QSslCertificate::Organization](#enum-qsslcertificatesubjectinfo) 或者首个 [QSslCertificate::OrganizationalUnitName](#enum-qsslcertificatesubjectinfo) 。
 
----
+该函数最初在 Qt 5.12版本引入。
 
-### [QByteArray](qthelp://org.qt-project.qtnetwork.5150/qtcore/qbytearray.html) QSslCertificate::**toPem**() const
-
-Returns this certificate converted to a PEM (Base64) encoded representation.
+另外您也可以在 [subjectInfo](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcertificate.html#subjectInfo)() 函数介绍中找到相关信息。
 
 ---
 
-### [QString](qthelp://org.qt-project.qtnetwork.5150/qtcore/qstring.html) QSslCertificate::**toText**() const
+### [QStringList](../../S/QStringList/QStringList.md) QSslCertificate::**subjectInfo**([QSslCertificate::SubjectInfo](#enum-qsslcertificatesubjectinfo) *subject*) const
 
-Returns this certificate converted to a human-readable text representation.
+返回证书中 *subject* 指定的主题的信息。若该主题指定的主题信息为空则返回一个空列表。每种主题可能不止有一条记录。
 
-This function was introduced in Qt 5.0.
-
----
-
-### *[static]* [QList](qthelp://org.qt-project.qtnetwork.5150/qtcore/qlist.html)\<[QSslError](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslerror.html)\> QSslCertificate::**verify**([QList](qthelp://org.qt-project.qtnetwork.5150/qtcore/qlist.html)\<[QSslCertificate](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcertificate.html#QSslCertificate)\> *certificateChain*, const [QString](qthelp://org.qt-project.qtnetwork.5150/qtcore/qstring.html) &*hostName* = QString())
-
-Verifies a certificate chain. The chain to be verified is passed in the *certificateChain* parameter. The first certificate in the list should be the leaf certificate of the chain to be verified. If *hostName* is specified then the certificate is also checked to see if it is valid for the specified host name.
-
-Note that the root (CA) certificate should not be included in the list to be verified, this will be looked up automatically either using the CA list specified by QSslSocket::defaultCaCertificates() or, if possible, it will be loaded on demand on Unix.
-
-This function was introduced in Qt 5.0.
+另外您也可以在 [issuerInfo()](#qstringlist-qsslcertificateissuerinfoqsslcertificatesubjectinfo-subject-const) 函数介绍中找到相关信息。
 
 ---
 
-### [QByteArray](qthelp://org.qt-project.qtnetwork.5150/qtcore/qbytearray.html) QSslCertificate::**version**() const
+### [QStringList](../../S/QStringList/QStringList.md) QSslCertificate::**subjectInfo**(const [QByteArray](../../B/QByteArray/QByteArray.md) &*attribute*) const
 
-Returns the certificate's version string.
+返回证书中 *attribute* 指定的主题的发行信息。若该属性指定的主题信息为空则返回一个空列表。每种属性可能不止有一条记录。
 
----
-
-### bool QSslCertificate::**operator!=**(const [QSslCertificate](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcertificate.html#QSslCertificate) &*other*) const
-
-Returns `true` if this certificate is not the same as *other*; otherwise returns `false`.
+另外您也可以在 [issuerInfo()](#qstringlist-qsslcertificateissuerinfoqsslcertificatesubjectinfo-subject-const) 函数介绍中找到相关信息。
 
 ---
 
-### bool QSslCertificate::**operator==**(const [QSslCertificate](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcertificate.html#QSslCertificate) &*other*) const
+### [QList](../../L/QList/QList.md)\<[QByteArray](../../B/QByteArray/QByteArray.md)\> QSslCertificate::**subjectInfoAttributes**() const
 
-Returns `true` if this certificate is the same as *other*; otherwise returns `false`.
+返回该证书中包含主题信息的属性列表。与给定属性相关的信息可以使用 [subjectInfo](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcertificate.html#subjectInfo)() 函数来获取。请注意，此列表可能包含 SSL 后端未知的任何元素的 OID 。
+
+该函数最初在 Qt 5.0版本引入。
+
+另外您也可以在 [subjectInfo](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcertificate.html#subjectInfo)() 函数介绍中找到相关信息。
+
+---
+
+### void QSslCertificate::**swap**(QSslCertificate &*other*)
+
+将该证书的内容与 *other* 快速交换。该函数执行速度极快并保证操作成功。
+
+该函数最初在 Qt 5.0版本引入。
+
+---
+
+### [QByteArray](../../B/QByteArray/QByteArray.md) QSslCertificate::**toDer**() const
+
+将证书转化为 DER（binary）格式返回。
+
+---
+
+### [QByteArray](../../B/QByteArray/QByteArray.md) QSslCertificate::**toPem**() const
+
+将证书转化为 PEM（Base64）格式返回。
+
+---
+
+### [QString](../../QString/QString.md) QSslCertificate::**toText**() const
+
+将证书转化为易于阅读的形式返回。
+
+该函数最初在 Qt 5.0版本引入。
+
+---
+
+### *[static]* [QList](../../L/QList/QList.md)\<[QSslError](../QSslError/QSslError.md)\> QSslCertificate::**verify**([QList](../../L/QList/QList.md)\<QSslCertificate> *certificateChain*, const [QString](../../QString/QString.md) &*hostName* = QString())
+
+验证 *certificateChain* 参数指定的证书链。列表中的第一个证书应是要验证的链的节点证书。如果 *hostName* 指定了一个主机地址，该函数也会检查该证书是否对主机名有效。
+
+请注意，根（CA）证书不应包含在要验证的列表中，可以使用 QSslSocket::defaultCaCertificates() 指定的CA列表自动查找。在 Unix 平台上也可以在需要时将其加载。
+
+该函数最初在 Qt 5.0版本引入。
+
+---
+
+### [QByteArray](../../B/QByteArray/QByteArray.md) QSslCertificate::**version**() const
+
+以字符串的形式返回该证书的版本。
+
+---
+
+### bool QSslCertificate::**operator!=**(const QSslCertificate &*other*) const
+
+如果该证书不与 *other*  相同返回 *true* ，否则返回 *false* 。
+
+---
+
+### bool QSslCertificate::**operator==**(const QSslCertificate &*other*) const
+
+如果该证书与 *other*  相同返回 *true* ，否则返回 *false* 。
