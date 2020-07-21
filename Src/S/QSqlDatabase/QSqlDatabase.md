@@ -620,9 +620,9 @@ if (db.open()) {
     
 这个没有默认值。
 
-**另请查阅** [hostName()](https://doc.qt.io/qt-5/qsqldatabase.html#hostName)， [setUserName()](https://doc.qt.io/qt-5/qsqldatabase.html#setUserName), [setPassword()](https://doc.qt.io/qt-5/qsqldatabase.html#setPassword)，[setDatabaseName()](https://doc.qt.io/qt-5/qsqldatabase.html#setDatabaseName)，[setPort()](https://doc.qt.io/qt-5/qsqldatabase.html#setPort)， [setConnectOptions()](https://doc.qt.io/qt-5/qsqldatabase.html#setConnectOptions) 和 [open()](https://doc.qt.io/qt-5/qsqldatabase.html#open)。
+**另请查阅** [hostName()](QSqlDatabase.md#qstring-qsqldatabasehostname-const)， [setUserName()](QSqlDatabase.md#void-qsqldatabasesetusernameconst-qstring-name), [setPassword()](QSqlDatabase.md#void-qsqldatabasesetpasswordconst-qstring-password)，[setDatabaseName()](QSqlDatabase.md#void-qsqldatabasesetdatabasenameconst-qstring-nam)，[setPort()](QSqlDatabase.md#void-qsqldatabasesetportint-port)， [setConnectOptions()](QSqlDatabase.md#void-qsqldatabasesetconnectoptionsconst-qstring-options--qstring) 和 [open()](QSqlDatabase.md#bool-qsqldatabaseopen)。
 
-### void QSqlDatabase::setNumericalPrecisionPolicy([QSql::NumericalPrecisionPolicy](https://doc.qt.io/qt-5/qsql.html#NumericalPrecisionPolicy-enum) precisionPolicy)
+### void QSqlDatabase::setNumericalPrecisionPolicy([QSql::NumericalPrecisionPolicy](../S/QSql.md#enum-qsqlnumericalprecisionpolicy) precisionPolicy)
 -----------------------------------
 设置在此数据库连接上创建的查询使用的默认数值精度策略。
 
@@ -632,7 +632,7 @@ if (db.open()) {
 
 qt4.6中引入了这个函数。
 
-**另请查阅** [QSql::NumericalPrecisionPolicy](../QSql/QSql.md#enum-qsqlnumericalprecisionpolicy)， [numericalPrecisionPolicy()](https://doc.qt.io/qt-5/qsqldatabase.html#numericalPrecisionPolicy)，[QSqlQuery::setNumericalPrecisionPolicy](https://doc.qt.io/qt-5/qsqlquery.html#setNumericalPrecisionPolicy) 和 [QSqlQuery::numericalPrecisionPolicy](https://doc.qt.io/qt-5/qsqlquery.html#numericalPrecisionPolicy).
+**另请查阅** [QSql::NumericalPrecisionPolicy](../QSql/QSql.md#enum-qsqlnumericalprecisionpolicy)， [numericalPrecisionPolicy()](QSqlDatabase.md#qsqlnumericalprecisionpolicy-qsqldatabasenumericalprecisionpolicy-const)，[QSqlQuery::setNumericalPrecisionPolicy](https://doc.qt.io/qt-5/qsqlquery.html#setNumericalPrecisionPolicy) 和 [QSqlQuery::numericalPrecisionPolicy](https://doc.qt.io/qt-5/qsqlquery.html#numericalPrecisionPolicy).
    
 ### void QSqlDatabase::setPassword(const [QString](S/QString/QString.md) &password)
 ------------------------
