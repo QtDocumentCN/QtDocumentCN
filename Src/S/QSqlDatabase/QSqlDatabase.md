@@ -614,9 +614,10 @@ if (db.open()) {
 
 **另请查阅** [databaseName()](https://doc.qt.io/qt-5/qsqldatabase.html#databaseName)、[setUserName()](https://doc.qt.io/qt-5/qsqldatabase.html#setUserName)、 [setPassword()](https://doc.qt.io/qt-5/qsqldatabase.html#setPassword)、 [setHostName()](https://doc.qt.io/qt-5/qsqldatabase.html#setHostName)、 [setPort()](https://doc.qt.io/qt-5/qsqldatabase.html#setPort)、[setConnectOptions()](https://doc.qt.io/qt-5/qsqldatabase.html#setConnectOptions) 和 [open()](https://doc.qt.io/qt-5/qsqldatabase.html#open)。
 
-### void QSqlDatabase::setHostName(const [QString](https://doc.qt.io/qt-5/qstring.html) &host)
+### void QSqlDatabase::setHostName(const [QString](S/QString/QString.md) &host)
 ----------------------------------------
-通过 `host` 参数来设置连接的主机名。为了生效，必须在[打开](https://doc.qt.io/qt-5/qsqldatabase.html#open)连接之前，设置主机名。或者，可以调用[close()](https://doc.qt.io/qt-5/qsqldatabase.html#close)关闭连接，然后设置主机名，再次调用[open()](https://doc.qt.io/qt-5/qsqldatabase.html#open)函数。
+通过 `host` 参数来设置连接的主机名。为了生效，必须在[打开](QSqlDatabase.md#bool-qsqldatabaseopen)连接之前，设置主机名。或者，可以调用[close()](QSqlDatabase.md#void-qsqldatabaseclose)关闭连接，然后设置主机名，再次调用[open()](QSqlDatabase.md#bool-qsqldatabaseopen)函数。
+
     
 这个没有默认值。
 
