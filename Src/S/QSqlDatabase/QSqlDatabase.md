@@ -276,7 +276,7 @@ qt5.13中引入了这个函数。
 
 **注意：** 对于一些数据库，如果对数据库使用`SELECT`进行查询操作，将会提交失败并且返回`false`。在执行提交之前，使查询处于非活动状态。
 
-调用 [lastError()](https://doc.qt.io/qt-5/qsqldatabase.html#lastError) 函数获取错误信息。
+调用 [lastError()](QSqlDatabase.md#qsqlerror-qsqldatabaselasterror-const) 函数获取错误信息。
 
 **另请参阅**  [QSqlQuery::isActive()](https://doc.qt.io/qt-5/qsqlquery.html#isActive)， [QSqlDriver::hasFeature()](https://doc.qt.io/qt-5/qsqldriver.html#hasFeature)，和 [rollback()](https://doc.qt.io/qt-5/qsqldatabase.html#rollback)。
 
@@ -351,11 +351,11 @@ qt5.13中引入了这个函数。
 ### QSqlQuery QSqlDatabase::exec(const QString &query = QString()) const
 ------------------------
 
-在这个数据库里执行 `SQL` 表达式和 返回一个 [https://doc.qt.io/qt-5/qsqlquery.html](https://doc.qt.io/qt-5/qsqlquery.html) 对象。使用 [ lastError()](https://doc.qt.io/qt-5/qsqldatabase.html#lastError) 来获取错误的信息。
+在这个数据库里执行 `SQL` 表达式和 返回一个 [https://doc.qt.io/qt-5/qsqlquery.html](https://doc.qt.io/qt-5/qsqlquery.html) 对象。使用 [ lastError()](QSqlDatabase.md#qsqlerror-qsqldatabaselasterror-const) 来获取错误的信息。
 
-如果查询为空，则返回一个空的、无效的查询。并且 [lastError()](https://doc.qt.io/qt-5/qsqldatabase.html#lastError)。
+如果查询为空，则返回一个空的、无效的查询。并且 [lastError()](QSqlDatabase.md#qsqlerror-qsqldatabaselasterror-const)。
 
-**另请参阅** [QSqlQuery]() 和 [lastError()](https://doc.qt.io/qt-5/qsqldatabase.html#lastError)。
+**另请参阅** [QSqlQuery]() 和 [lastError()](QSqlDatabase.md#qsqlerror-qsqldatabaselasterror-const)。
 
 ### QString QSqlDatabase::hostName() const
 -------------------
@@ -376,7 +376,7 @@ qt5.13中引入了这个函数。
 
 ### bool QSqlDatabase::isOpenError() const
 -------------------------------
-如果打开数据库的连接有错误，那么就返回 `true`，否则返回 `false`。可以调用 [lastError()](https://doc.qt.io/qt-5/qsqldatabase.html#lastError) 函数去获取相关的错误信息。
+如果打开数据库的连接有错误，那么就返回 `true`，否则返回 `false`。可以调用 [lastError()](QSqlDatabase.md#qsqlerror-qsqldatabaselasterror-const) 函数去获取相关的错误信息。
 
 ### bool QSqlDatabase::isValid() const
 -------------
@@ -412,19 +412,19 @@ qt4.6中引入了这个函数。
 
 ### bool QSqlDatabase::open()
 ---------------
-使用当前连接值打开数据库连接。如果操作成功就返回 `true`; 反之返回 `false`。可以调用 [lastError()](https://doc.qt.io/qt-5/qsqldatabase.html#lastError)来获取错误的信息。
+使用当前连接值打开数据库连接。如果操作成功就返回 `true`; 反之返回 `false`。可以调用 [lastError()](QSqlDatabase.md#qsqlerror-qsqldatabaselasterror-const)来获取错误的信息。
 
-**另请参阅** [lastError()](https://doc.qt.io/qt-5/qsqldatabase.html#lastError)、 [setDatabaseName()](https://doc.qt.io/qt-5/qsqldatabase.html#setDatabaseName)、[setUserName()](https://doc.qt.io/qt-5/qsqldatabase.html#setUserName)、[setPassword()](https://doc.qt.io/qt-5/qsqldatabase.html#setPassword)、[setHostName()](https://doc.qt.io/qt-5/qsqldatabase.html#setHostName)、[setPort()](https://doc.qt.io/qt-5/qsqldatabase.html#setPort)和 [setConnectOptions()](https://doc.qt.io/qt-5/qsqldatabase.html#setConnectOptions)。
+**另请参阅** [lastError()](QSqlDatabase.md#qsqlerror-qsqldatabaselasterror-const)、 [setDatabaseName()](https://doc.qt.io/qt-5/qsqldatabase.html#setDatabaseName)、[setUserName()](https://doc.qt.io/qt-5/qsqldatabase.html#setUserName)、[setPassword()](https://doc.qt.io/qt-5/qsqldatabase.html#setPassword)、[setHostName()](https://doc.qt.io/qt-5/qsqldatabase.html#setHostName)、[setPort()](https://doc.qt.io/qt-5/qsqldatabase.html#setPort)和 [setConnectOptions()](https://doc.qt.io/qt-5/qsqldatabase.html#setConnectOptions)。
 
 ### bool QSqlDatabase::open(const [QString](https://doc.qt.io/qt-5/qstring.html) &user, const [QString](https://doc.qt.io/qt-5/qstring.html) &password)
 -------------------
 这是一个重载函数。
 
-使用所给的 `username` 和 `password` 两个参数，打开数据连接，如果成功就返回 `true`; 反之返回 `false`。使用 [lastError()](https://doc.qt.io/qt-5/qsqldatabase.html#lastError) 来获取错误的信息。
+使用所给的 `username` 和 `password` 两个参数，打开数据连接，如果成功就返回 `true`; 反之返回 `false`。使用 [lastError()]QSqlDatabase.md#qsqlerror-qsqldatabaselasterror-const) 来获取错误的信息。
 
 这个函数不存放所给的 `password` 参数，相反的它会把 `password` 参数直接传给驱动用于打连接，然后销毁这个参数。
 
-**另请参阅** [lastError()](https://doc.qt.io/qt-5/qsqldatabase.html#lastError)
+**另请参阅** [lastError()](QSqlDatabase.md#qsqlerror-qsqldatabaselasterror-const)
 
 
 ### [QString](https://doc.qt.io/qt-5/qstring.html) QSqlDatabase::password() const
@@ -511,9 +511,9 @@ QSqlDatabase::removeDatabase("sales"); // 正确的
 
 **注意：** 对于某些数据库，如果存在使用数据库进行选择的[活动查询](https://doc.qt.io/qt-5/qsqlquery.html#isActive)，则回滚将失败并返回false。确保在执行回滚操作之前，查询是 [非活动](https://doc.qt.io/qt-5/qsqlquery.html#isActive) 的状态。
 
-调用 [lastError()](https://doc.qt.io/qt-5/qsqldatabase.html#lastError) 操作获得错误的相关信息。
+调用 [lastError()](QSqlDatabase.md#qsqlerror-qsqldatabaselasterror-const) 操作获得错误的相关信息。
 
-**另请查阅**  [QSqlQuery::isActive()](https://doc.qt.io/qt-5/qsqlquery.html#isActive)，[QSqlDriver::hasFeature()](https://doc.qt.io/qt-5/qsqldriver.html#hasFeature) 和 [commit()](https://doc.qt.io/qt-5/qsqldatabase.html#commit)。
+**另请查阅**  [QSqlQuery::isActive()](https://doc.qt.io/qt-5/qsqlquery.html#isActive)，[QSqlDriver::hasFeature()](https://doc.qt.io/qt-5/qsqldriver.html#hasFeature) 和 [commit()](QSqlDatabase.md#bool-qsqldatabasecommit)。
 
 ### void QSqlDatabase::setConnectOptions(const [QString](S/QString/QString.md) &options = QString())
 ----------------------------
