@@ -107,9 +107,9 @@ QMetaObject 在应用编写中通常不需要，但在进行元编程时会非�
 
 ### [static] bool QMetaObject::checkConnectArgs(const char \**signal*, const char \**method*)
 
-如果 *signal* 和 *method* 的参数能够匹配则返回 `true`，否则返回 `false`。
+如果 `signal` 和 `method` 的参数能够匹配则返回 `true`，否则返回 `false`。
 
-*signal* 和 *method* 都被假设是已经标准化的。
+`signal` 和 `method` 都被假设是已经规范化的。
 
 **另请参阅：**[normalizedSignature](#static-qbytearray-qmetaobjectnormalizedsignatureconst-char-method)()。
 
@@ -119,7 +119,7 @@ QMetaObject 在应用编写中通常不需要，但在进行元编程时会非�
 
 这是一个重载函数。
 
-如果 *signal* 和 *method* 的参数能够匹配则返回 `true`，否则返回 `false`。
+如果 `signal` 和 `method` 的参数能够匹配则返回 `true`，否则返回 `false`。
 
 本函数在 Qt 5.0 中被引入。
 
@@ -149,207 +149,210 @@ QMetaObject 在应用编写中通常不需要，但在进行元编程时会非�
 
 ### int QMetaObject::classInfoCount() const
 
-Returns the number of items of class information in this class.
+返回该类信息条目数量。
 
-**另请参阅：**[classInfo](#classInfo)(), [classInfoOffset](#classInfoOffset)(), and [indexOfClassInfo](#indexOfClassInfo)().
+**另请参阅：**[classInfo](#qmetaclassinfo-qmetaobjectclassinfoint-index-const)()、[classInfoOffset](#int-qmetaobjectclassinfooffset-const)() 和 [indexOfClassInfo](#int-qmetaobjectindexofclassinfoconst-char-name-const)()。
 
 ----
 
 ### int QMetaObject::classInfoOffset() const
 
-Returns the class information offset for this class; i.e. the index position of this class's first class information item.
+返回类信息在该类中的偏移量，即第一条类信息的编号。
 
-If the class has no superclasses with class information, the offset is 0; otherwise the offset is the sum of all the class information items in the class's superclasses.
+若该类没有包含类信息的父类，则偏移量为 `0`，否则偏移量是所有父类的类信息数量的总和。
 
-**另请参阅：**[classInfo](#classInfo)(), [classInfoCount](#classInfoCount)(), and [indexOfClassInfo](#indexOfClassInfo)().
-
-----
-
-### const char *QMetaObject::className() const
-
-Returns the class name.
-
-**另请参阅：**[superClass](#superClass)().
+**另请参阅：**[classInfo](#qmetaclassinfo-qmetaobjectclassinfoint-index-const)()、[classInfoCount](#int-qmetaobjectclassinfocount-const)() 和 [indexOfClassInfo](#int-qmetaobjectindexofclassinfoconst-char-name-const)()。
 
 ----
 
-### [static] void QMetaObject::connectSlotsByName([QObject](qobject.html) **object*)
+### const char \*QMetaObject::className() const
 
-Searches recursively for all child objects of the given *object*, and connects matching signals from them to slots of *object* that follow the following form:
+返回该类的名称。
 
+**另请参阅：**[superClass](#const-qmetaobject-qmetaobjectsuperclass-const)()。
+
+----
+
+### [static] void QMetaObject::connectSlotsByName([QObject](../../O/QObject/QObject.md) \**object*)
+
+递归检索 `object` 和所有子对象，将它们的信号连接至 `object` 中匹配的槽，匹配格式如下：
+
+```cpp
+ void on_<对象名>_<信号名>(<信号参数>);
 ```
- void on_<object name>_<signal name>(<signal parameters>);
-```
 
-Let's assume our object has a child object of type QPushButton with the [object name](qobject.html#objectName-prop) button1. The slot to catch the button's clicked() signal would be:
+假设有一个[对象名](../../O/QObject/QObject.md#objectName-prop) 为 `button1` 的 `QPushButton` 类型的子对象，则捕获它的 `clicked()` 信号的槽应为：
 
 ```
  void on_button1_clicked();
 ```
 
-If *object* itself has a properly set object name, its own signals are also connected to its respective slots.
+若 `object` 对象自身的名字已设置，则它自己的信号也会被连接至对应的槽。
 
-**另请参阅：**[QObject::setObjectName](qobject.html#objectName-prop)().
+**另请参阅：**[QObject::setObjectName](../../O/QObject/QObject.md#objectName-prop)().
 
 ----
 
-### [Q](../../M/QMetaMethod/QMetaMethod.md)MetaMethod QMetaObject::constructor(int *index*) const
+### [QMetaMethod](../../M/QMetaMethod/QMetaMethod.md) QMetaObject::constructor(int *index*) const
 
-Returns the meta-data for the constructor with the given *index*.
+返回指定 `index` 的构造函数的元数据。
 
-This function was introduced in Qt 4.5.
+该函数在 Qt 4.5 中被引入。
 
-**另请参阅：**[constructorCount](#constructorCount)() and [newInstance](#newInstance)().
+**另请参阅：**[constructorCount](#int-qmetaobjectconstructorcount-const)() 和 [newInstance](#qobject-qmetaobjectnewinstanceqgenericargument-val0--qgenericargumentnullptr-qgenericargument-val1--qgenericargument-qgenericargument-val2--qgenericargument-qgenericargument-val3--qgenericargument-qgenericargument-val4--qgenericargument-qgenericargument-val5--qgenericargument-qgenericargument-val6--qgenericargument-qgenericargument-val7--qgenericargument-qgenericargument-val8--qgenericargument-qgenericargument-val9--qgenericargument-const)()。
 
 ----
 
 ### int QMetaObject::constructorCount() const
 
-Returns the number of constructors in this class.
+返回此类的构造函数个数。
 
-This function was introduced in Qt 4.5.
+该函数在 Qt 4.5 中被引入。
 
-**另请参阅：**[constructor](#constructor)() and [indexOfConstructor](#indexOfConstructor)().
+**另请参阅：**[constructor](#qmetamethod-qmetaobjectconstructorint-index-const)() 和 [indexOfConstructor](#int-qmetaobjectindexofconstructorconst-char-constructor-const)()。
 
 ----
 
-### [Q](qmetaenum.html)MetaEnum QMetaObject::enumerator(int *index*) const
+### [QMetaEnum](qmetaenum.html) QMetaObject::enumerator(int *index*) const
 
-Returns the meta-data for the enumerator with the given *index*.
+返回指定 `index` 的枚举类型的元数据。
 
-**另请参阅：**[enumeratorCount](#enumeratorCount)(), [enumeratorOffset](#enumeratorOffset)(), and [indexOfEnumerator](#indexOfEnumerator)().
+**另请参阅：**[enumeratorCount](#int-qmetaobjectenumeratorcount-const)()、[enumeratorOffset](#int-qmetaobjectenumeratoroffset-const)() 和 [indexOfEnumerator](#int-qmetaobjectindexofenumeratorconst-char-name-const)()。
 
 ----
 
 ### int QMetaObject::enumeratorCount() const
 
-Returns the number of enumerators in this class.
+返回该类的枚举类型的个数。
 
-**另请参阅：**[enumerator](#enumerator)(), [enumeratorOffset](#enumeratorOffset)(), and [indexOfEnumerator](#indexOfEnumerator)().
+**另请参阅：**[enumerator](#qmetaenum-qmetaobjectenumeratorint-index-const)()、[enumeratorOffset](#int-qmetaobjectenumeratoroffset-const)() 和 [indexOfEnumerator](#int-qmetaobjectindexofenumeratorconst-char-name-const)()。
 
 ----
 
 ### int QMetaObject::enumeratorOffset() const
 
-Returns the enumerator offset for this class; i.e. the index position of this class's first enumerator.
+返回该类的枚举类型偏移量，即首个枚举变量的编号。
 
-If the class has no superclasses with enumerators, the offset is 0; otherwise the offset is the sum of all the enumerators in the class's superclasses.
+若该类没有包含枚举类型的父类，则偏移量为 `0`，否则偏移量是所有父类的枚举类型数量的总和。
 
-**另请参阅：**[enumerator](#enumerator)(), [enumeratorCount](#enumeratorCount)(), and [indexOfEnumerator](#indexOfEnumerator)().
-
-----
-
-### int QMetaObject::indexOfClassInfo(const char **name*) const
-
-Finds class information item *name* and returns its index; otherwise returns -1.
-
-**另请参阅：**[classInfo](#classInfo)(), [classInfoCount](#classInfoCount)(), and [classInfoOffset](#classInfoOffset)().
+**另请参阅：**[enumerator](#qmetaenum-qmetaobjectenumeratorint-index-const)()、[enumeratorCount](#qmetaenum-qmetaobjectenumeratorint-index-constCount)() 和 [indexOfEnumerator](#int-qmetaobjectindexofenumeratorconst-char-name-const)()。
 
 ----
 
-### int QMetaObject::indexOfConstructor(const char **constructor*) const
+### int QMetaObject::indexOfClassInfo(const char \**name*) const
 
-Finds *constructor* and returns its index; otherwise returns -1.
+查找名为 `name` 的类型信息条目并返回其编号，未找到则返回`-1`。
 
-Note that the *constructor* has to be in normalized form, as returned by [normalizedSignature](#normalizedSignature)().
-
-This function was introduced in Qt 4.5.
-
-**另请参阅：**[constructor](#constructor)(), [constructorCount](#constructorCount)(), and [normalizedSignature](#normalizedSignature)().
+**另请参阅：**[classInfo](#qmetaclassinfo-qmetaobjectclassinfoint-index-const)()、[classInfoCount](#qmetaclassinfo-qmetaobjectclassinfoint-index-constCount)() 和 [classInfoOffset](#qmetaclassinfo-qmetaobjectclassinfoint-index-constOffset)()。
 
 ----
 
-### int QMetaObject::indexOfEnumerator(const char **name*) const
+### int QMetaObject::indexOfConstructor(const char \**constructor*) const
 
-Finds enumerator *name* and returns its index; otherwise returns -1.
+查找名为 `constructor` 的构造函数并返回其编号，未找到则返回`-1`。
 
-**另请参阅：**[enumerator](#enumerator)(), [enumeratorCount](#enumeratorCount)(), and [enumeratorOffset](#enumeratorOffset)().
+**注意：**`constructor` 需要为规范化的格式，如 [normalizedSignature](#static-qbytearray-qmetaobjectnormalizedsignatureconst-char-method)() 的返回值。
 
-----
+该函数在 Qt 4.5 中被引入。
 
-### int QMetaObject::indexOfMethod(const char **method*) const
-
-Finds *method* and returns its index; otherwise returns -1.
-
-Note that the *method* has to be in normalized form, as returned by [normalizedSignature](#normalizedSignature)().
-
-**另请参阅：**[method](#method)(), [methodCount](#methodCount)(), [methodOffset](#methodOffset)(), and [normalizedSignature](#normalizedSignature)().
+**另请参阅：**[constructor](#qmetamethod-qmetaobjectconstructorint-index-const)()、[constructorCount](#qmetamethod-qmetaobjectconstructorint-index-constCount)() 和 [normalizedSignature](#static-qbytearray-qmetaobjectnormalizedsignatureconst-char-method)()。
 
 ----
 
-### int QMetaObject::indexOfProperty(const char **name*) const
+### int QMetaObject::indexOfEnumerator(const char \**name*) const
 
-Finds property *name* and returns its index; otherwise returns -1.
+查找名为 `name` 的枚举类型并返回其编号，未找到则返回`-1`。
 
-**另请参阅：**[property](#property)(), [propertyCount](#propertyCount)(), and [propertyOffset](#propertyOffset)().
-
-----
-
-### int QMetaObject::indexOfSignal(const char **signal*) const
-
-Finds *signal* and returns its index; otherwise returns -1.
-
-This is the same as [indexOfMethod](#indexOfMethod)(), except that it will return -1 if the method exists but isn't a signal.
-
-Note that the *signal* has to be in normalized form, as returned by [normalizedSignature](#normalizedSignature)().
-
-**另请参阅：**[indexOfMethod](#indexOfMethod)(), [normalizedSignature](#normalizedSignature)(), [method](#method)(), [methodCount](#methodCount)(), and [methodOffset](#methodOffset)().
+**另请参阅：**[enumerator](#qmetaenum-qmetaobjectenumeratorint-index-const)(), [enumeratorCount](#qmetaenum-qmetaobjectenumeratorint-index-constCount)() 和 [enumeratorOffset](#qmetaenum-qmetaobjectenumeratorint-index-constOffset)().
 
 ----
 
-### int QMetaObject::indexOfSlot(const char **slot*) const
+### int QMetaObject::indexOfMethod(const char \**method*) const
 
-Finds *slot* and returns its index; otherwise returns -1.
+查找名为 `method` 的方法并返回其编号，未找到则返回`-1`。
 
-This is the same as [indexOfMethod](#indexOfMethod)(), except that it will return -1 if the method exists but isn't a slot.
+**注意：**`method` 需要为规范化的格式，如 [normalizedSignature](#static-qbytearray-qmetaobjectnormalizedsignatureconst-char-method)() 的返回值。
 
-**另请参阅：**[indexOfMethod](#indexOfMethod)(), [method](#method)(), [methodCount](#methodCount)(), and [methodOffset](#methodOffset)().
-
-----
-
-### bool QMetaObject::inherits(const [QMetaObject]() **metaObject*) const
-
-Returns true if the class described by this [QMetaObject]() inherits the type described by *metaObject*; otherwise returns false.
-
-A type is considered to inherit itself.
-
-This function was introduced in Qt 5.7.
+**另请参阅：**[method](#qmetamethod-qmetaobjectmethodint-index-const)()、[methodCount](#int-qmetaobjectmethodcount-const)()、[methodOffset](#int-qmetaobjectmethodoffset-const)() 和 [normalizedSignature](#static-qbytearray-qmetaobjectnormalizedsignatureconst-char-method)()。
 
 ----
 
-### [static] bool QMetaObject::invokeMethod([QObject](qobject.html) **obj*, const char **member*, [Qt::ConnectionType](qt.html#ConnectionType-enum) *type*, [QGenericReturnArgument](qgenericreturnargument.html) *ret*, [QGenericArgument](qgenericargument.html) *val0* = QGenericArgument(nullptr), [QGenericArgument](qgenericargument.html) *val1* = QGenericArgument(), [QGenericArgument](qgenericargument.html) *val2* = QGenericArgument(), [QGenericArgument](qgenericargument.html) *val3* = QGenericArgument(), [QGenericArgument](qgenericargument.html) *val4* = QGenericArgument(), [QGenericArgument](qgenericargument.html) *val5* = QGenericArgument(), [QGenericArgument](qgenericargument.html) *val6* = QGenericArgument(), [QGenericArgument](qgenericargument.html) *val7* = QGenericArgument(), [QGenericArgument](qgenericargument.html) *val8* = QGenericArgument(), [QGenericArgument](qgenericargument.html) *val9* = QGenericArgument())
+### int QMetaObject::indexOfProperty(const char \**name*) const
 
-Invokes the *member* (a signal or a slot name) on the object *obj*. Returns true if the member could be invoked. Returns false if there is no such member or the parameters did not match.
+查找名为 `name` 的属性并返回其编号，未找到则返回`-1`。
 
-The invocation can be either synchronous or asynchronous, depending on *type*:
+**另请参阅：**[property](#qmetaproperty-qmetaobjectpropertyint-index-const)()、[propertyCount](#qmetaproperty-qmetaobjectpropertyint-index-constCount)() 和 [propertyOffset](#qmetaproperty-qmetaobjectpropertyint-index-constOffset)()。
 
-- If *type* is [Qt::DirectConnection](qt.html#ConnectionType-enum), the member will be invoked immediately.
-- If *type* is [Qt::QueuedConnection](qt.html#ConnectionType-enum), a [QEvent](qevent.html) will be sent and the member is invoked as soon as the application enters the main event loop.
-- If *type* is [Qt::BlockingQueuedConnection](qt.html#ConnectionType-enum), the method will be invoked in the same way as for [Qt::QueuedConnection](qt.html#ConnectionType-enum), except that the current thread will block until the event is delivered. Using this connection type to communicate between objects in the same thread will lead to deadlocks.
-- If *type* is [Qt::AutoConnection](qt.html#ConnectionType-enum), the member is invoked synchronously if *obj* lives in the same thread as the caller; otherwise it will invoke the member asynchronously.
+----
 
-The return value of the *member* function call is placed in *ret*. If the invocation is asynchronous, the return value cannot be evaluated. You can pass up to ten arguments (*val0*, *val1*, *val2*, *val3*, *val4*, *val5*, *val6*, *val7*, *val8*, and *val9*) to the *member* function.
+### int QMetaObject::indexOfSignal(const char \**signal*) const
 
-[QGenericArgument](qgenericargument.html) and [QGenericReturnArgument](qgenericreturnargument.html) are internal helper classes. Because signals and slots can be dynamically invoked, you must enclose the arguments using the [Q_ARG](#Q_ARG)() and [Q_RETURN_ARG](#Q_RETURN_ARG)() macros. [Q_ARG](#Q_ARG)() takes a type name and a const reference of that type; [Q_RETURN_ARG](#Q_RETURN_ARG)() takes a type name and a non-const reference.
+查找名为 `name` 的信号并返回其编号，未找到则返回`-1`。
 
-You only need to pass the name of the signal or slot to this function, not the entire signature. For example, to asynchronously invoke the [quit()](qthread.html#quit) slot on a [QThread](qthread.html), use the following code:
+此方法与 [indexOfMethod](#int-qmetaobjectindexofmethodconst-char-method-const)() 相似，区别是若该方法存在但并非信号函数，则会返回 `-1`。
 
-```
+**注意：**`signal` 需要为规范化的格式，如 [normalizedSignature](#static-qbytearray-qmetaobjectnormalizedsignatureconst-char-method)() 的返回值。
+
+**另请参阅：**[indexOfMethod](#int-qmetaobjectindexofmethodconst-char-method-const)()、[normalizedSignature](#static-qbytearray-qmetaobjectnormalizedsignatureconst-char-method)(), [method](#qmetamethod-qmetaobjectmethodint-index-const)()、[methodCount](#int-qmetaobjectmethodcount-const)() 和 [methodOffset](#int-qmetaobjectmethodoffset-const)()。
+
+----
+
+### int QMetaObject::indexOfSlot(const char \**slot*) const
+
+查找名为 `name` 的槽并返回其编号，未找到则返回`-1`。
+
+此方法与 [indexOfMethod](#int-qmetaobjectindexofmethodconst-char-method-const)() 相似，区别是若该方法存在但并非槽函数，则会返回 `-1`。
+
+**另请参阅：**[indexOfMethod](#int-qmetaobjectindexofmethodconst-char-method-const)()、[method](#qmetamethod-qmetaobjectmethodint-index-const)()、[methodCount](#int-qmetaobjectmethodcount-const)() 和 [methodOffset](#int-qmetaobjectmethodoffset-const)()。
+
+----
+
+### bool QMetaObject::inherits(const [QMetaObject]() \**metaObject*) const
+
+若该 [QMetaObject](../../M/QMetaObject/QMetaObject.md) 继承自 `metaObject` 描述的类型，则返回 `true`，否则返回 `false`。
+
+一个类型被认为是继承自它自己的。
+
+该函数在 Qt 5.7 中被引入。
+
+----
+
+### [static] bool QMetaObject::invokeMethod([QObject](../../O/QObject/QObject.md) \**obj*, const char \**member*, [Qt::ConnectionType](../../Q/Qt/Qt.md#ConnectionType-enum) *type*, [QGenericReturnArgument](../../G/QGenericReturnArgument/QGenericReturnArgument.md) *ret*, [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val0* = QGenericArgument(nullptr), [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val1* = QGenericArgument(), [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val2* = QGenericArgument(), [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val3* = QGenericArgument(), [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val4* = QGenericArgument(), [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val5* = QGenericArgument(), [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val6* = QGenericArgument(), [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val7* = QGenericArgument(), [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val8* = QGenericArgument(), [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val9* = QGenericArgument())
+
+通过 `obj` 对象动态调用它的 `member` 方法（或者信号和槽），若调用成功则返回 `true`，若该对象没有此方法或参数不匹配则返回 `false`。
+
+该调用可以是同步或异步的，由 `type` 决定：
+
+- 若 `type` 是 [Qt::DirectConnection](../../Q/Qt/Qt.md#ConnectionType-enum)，则该方法会被立即执行。
+
+- 若 `type` 是 [Qt::QueuedConnection](../../Q/Qt/Qt.md#ConnectionType-enum)，则会发送一个 [QEvent](../../E/QEvent/QEvent.md) ，该方法会在应用进入该对象所属线程的主事件循环后执行。
+- 若 `type` 是 [Qt::BlockingQueuedConnection](../../Q/Qt/Qt.md#ConnectionType-enum)，则该方法会通过与 [Qt::QueuedConnection](../../Q/Qt/Qt.md#ConnectionType-enum) 相同的方式执行，此外当前线程会被阻塞，直到该事件被响应。使用此方法在相同线程的对象间通信会导致死锁。
+- 若 `type` 是 [Qt::AutoConnection](../../Q/Qt/Qt.md#ConnectionType-enum)，当 `obj` 与调用者处于相同线程中时，该方法会被同步执行，否则会被异步执行。
+
+`member` 函数的返回值会被存放在 `ret` 中。若调用方式是异步，则返回值无法被获取。最多可以传递十个参数 (`val0`, `val1`, `val2`, `val3`, `val4`, `val5`, `val6`, `val7`, `val8` 和 `val9`) 至 `member` 函数。
+
+[QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) 和 [QGenericReturnArgument](../../G/QGenericReturnArgument/QGenericReturnArgument.md) 是内部的辅助类。为了动态调用信号槽，您需要将参数通过 [Q_ARG](#qgenericargument-qargtype-const-type-&value)() 和 [Q_RETURN_ARG](#qgenericreturnargument-qreturnargtype-type-&value)() 宏进行封装。[Q_ARG](#qgenericargument-qargtype-const-type-&value)() 接受一个类型名称和一个该类型的不可变引用；[Q_RETURN_ARG](#qgenericreturnargument-qreturnargtype-type-&value)() 接受一个类型名称和一个该类型的可变引用。
+
+您只需要将信号槽的名称传递至本函数，无需传递完整的签名。例如，异步调用某个 [QThread](../../T/QThread/QThread.md) 对象的 [quit()](../../T/QThread/QThread.md#quit) 槽需要的代码如下：
+
+```cpp
  QMetaObject::invokeMethod(thread, "quit",
                            Qt::QueuedConnection);
 ```
 
-With asynchronous method invocations, the parameters must be of types that are known to Qt's meta-object system, because Qt needs to copy the arguments to store them in an event behind the scenes. If you try to use a queued connection and get the error message
+当异步调用方法时，传递的参数必须被 Qt 的元对象系统所知悉，因为 Qt 需要在后台事件中拷贝并保存它们。如果您使用队列连接时遇到下述错误信息：
 
-```
+```cpp
  QMetaObject::invokeMethod: Unable to handle unregistered datatype 'MyType'
 ```
 
-call [qRegisterMetaType](qmetatype.html#qRegisterMetaType-1)() to register the data type before you call invokeMethod().
+则在调用 `invokeMethod`() 之前通过 [qRegisterMetaType](../../M/QMetaType/QMetaType.md#qRegisterMetaType-1)() 来注册该数据类型。
+
+若想通过 `obj` 对象同步调用 `compute(QString, int, double)` 槽，则代码如下：
 
 To synchronously invoke the compute(QString, int, double) slot on some arbitrary object obj retrieve its return value:
 
-```
+```cpp
  QString retVal;
  QMetaObject::invokeMethod(obj, "compute", Qt::DirectConnection,
                            Q_RETURN_ARG(QString, retVal),
@@ -358,213 +361,211 @@ To synchronously invoke the compute(QString, int, double) slot on some arbitrary
                            Q_ARG(double, 9.7));
 ```
 
-If the "compute" slot does not take exactly one [QString](qstring.html), one int and one double in the specified order, the call will fail.
+若 `compute` 槽通过特定顺序没有完整获取到一个 [QString](../../S/QString/QString.md)、一个 `int` 和一个 `double`，则此调用会失败。
 
-Note: This function is [thread-safe](../qtdoc/threads-reentrancy.html).
+**注意：**此方法是[线程安全](../../R/Reentrancy_and_Thread-Safety/Reentrancy_and_Thread-Safety.md)的。
 
-**另请参阅：**[Q_ARG](#Q_ARG)(), [Q_RETURN_ARG](#Q_RETURN_ARG)(), [qRegisterMetaType](qmetatype.html#qRegisterMetaType-1)(), and [QMetaMethod::invoke](../../M/QMetaMethod/QMetaMethod.md#invoke)().
-
-----
-
-### [static] bool QMetaObject::invokeMethod([QObject](qobject.html) **obj*, const char **member*, [QGenericReturnArgument](qgenericreturnargument.html) *ret*, [QGenericArgument](qgenericargument.html) *val0* = QGenericArgument(0), [QGenericArgument](qgenericargument.html) *val1* = QGenericArgument(), [QGenericArgument](qgenericargument.html) *val2* = QGenericArgument(), [QGenericArgument](qgenericargument.html) *val3* = QGenericArgument(), [QGenericArgument](qgenericargument.html) *val4* = QGenericArgument(), [QGenericArgument](qgenericargument.html) *val5* = QGenericArgument(), [QGenericArgument](qgenericargument.html) *val6* = QGenericArgument(), [QGenericArgument](qgenericargument.html) *val7* = QGenericArgument(), [QGenericArgument](qgenericargument.html) *val8* = QGenericArgument(), [QGenericArgument](qgenericargument.html) *val9* = QGenericArgument())
-
-This function overloads invokeMethod().
-
-This overload always invokes the member using the connection type [Qt::AutoConnection](qt.html#ConnectionType-enum).
-
-Note: This function is [thread-safe](../qtdoc/threads-reentrancy.html).
+**另请参阅：**[Q_ARG](#qgenericargument-qargtype-const-type-&value)()、[Q_RETURN_ARG](#qgenericreturnargument-qreturnargtype-type-&value)()、[qRegisterMetaType](qmetatype.html#qRegisterMetaType-1)() 和 [QMetaMethod::invoke](../../M/QMetaMethod/QMetaMethod.md#invoke)()。
 
 ----
 
-### [static] bool QMetaObject::invokeMethod([QObject](qobject.html) **obj*, const char **member*, [Qt::ConnectionType](qt.html#ConnectionType-enum) *type*, [QGenericArgument](qgenericargument.html) *val0* = QGenericArgument(0), [QGenericArgument](qgenericargument.html) *val1* = QGenericArgument(), [QGenericArgument](qgenericargument.html) *val2* = QGenericArgument(), [QGenericArgument](qgenericargument.html) *val3* = QGenericArgument(), [QGenericArgument](qgenericargument.html) *val4* = QGenericArgument(), [QGenericArgument](qgenericargument.html) *val5* = QGenericArgument(), [QGenericArgument](qgenericargument.html) *val6* = QGenericArgument(), [QGenericArgument](qgenericargument.html) *val7* = QGenericArgument(), [QGenericArgument](qgenericargument.html) *val8* = QGenericArgument(), [QGenericArgument](qgenericargument.html) *val9* = QGenericArgument())
+### [static] bool QMetaObject::invokeMethod([QObject](../../O/QObject/QObject.md) \**obj*, const char \**member*, [QGenericReturnArgument](../../G/QGenericReturnArgument/QGenericReturnArgument.md) *ret*, [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val0* = QGenericArgument(0), [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val1* = QGenericArgument(), [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val2* = QGenericArgument(), [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val3* = QGenericArgument(), [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val4* = QGenericArgument(), [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val5* = QGenericArgument(), [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val6* = QGenericArgument(), [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val7* = QGenericArgument(), [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val8* = QGenericArgument(), [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val9* = QGenericArgument())
 
-This function overloads invokeMethod().
+此函数是 `invokeMethod`()的重载。
 
-This overload can be used if the return value of the member is of no interest.
+此重载始终通过 [Qt::AutoConnection](../../Q/Qt/Qt.md#ConnectionType-enum) 调用对应方法。
 
-Note: This function is [thread-safe](../qtdoc/threads-reentrancy.html).
-
-----
-
-### [static] bool QMetaObject::invokeMethod([QObject](qobject.html) **obj*, const char **member*, [QGenericArgument](qgenericargument.html) *val0* = QGenericArgument(0), [QGenericArgument](qgenericargument.html) *val1* = QGenericArgument(), [QGenericArgument](qgenericargument.html) *val2* = QGenericArgument(), [QGenericArgument](qgenericargument.html) *val3* = QGenericArgument(), [QGenericArgument](qgenericargument.html) *val4* = QGenericArgument(), [QGenericArgument](qgenericargument.html) *val5* = QGenericArgument(), [QGenericArgument](qgenericargument.html) *val6* = QGenericArgument(), [QGenericArgument](qgenericargument.html) *val7* = QGenericArgument(), [QGenericArgument](qgenericargument.html) *val8* = QGenericArgument(), [QGenericArgument](qgenericargument.html) *val9* = QGenericArgument())
-
-This function overloads invokeMethod().
-
-This overload invokes the member using the connection type [Qt::AutoConnection](qt.html#ConnectionType-enum) and ignores return values.
-
-Note: This function is [thread-safe](../qtdoc/threads-reentrancy.html).
+**注意：**此方法是[线程安全](../../R/Reentrancy_and_Thread-Safety/Reentrancy_and_Thread-Safety.md)的。
 
 ----
 
-### [static] template <typename Functor, typename FunctorReturnType> bool QMetaObject::invokeMethod([QObject](qobject.html) **context*, Functor *function*, [Qt::ConnectionType](qt.html#ConnectionType-enum) *type* = Qt::AutoConnection, FunctorReturnType **ret* = nullptr)
+### [static] bool QMetaObject::invokeMethod([QObject](../../O/QObject/QObject.md) \**obj*, const char \**member*, [Qt::ConnectionType](../../Q/Qt/Qt.md#ConnectionType-enum) *type*, [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val0* = QGenericArgument(0), [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val1* = QGenericArgument(), [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val2* = QGenericArgument(), [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val3* = QGenericArgument(), [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val4* = QGenericArgument(), [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val5* = QGenericArgument(), [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val6* = QGenericArgument(), [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val7* = QGenericArgument(), [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val8* = QGenericArgument(), [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val9* = QGenericArgument())
 
-This is an overloaded function.
+此函数是 `invokeMethod`()的重载。
 
-Invokes the *function* in the event loop of *context*. *function* can be a functor or a pointer to a member function. Returns true if the function could be invoked. Returns false if there is no such function or the parameters did not match. The return value of the function call is placed in *ret*.
+此重载用于不关心对返回值的场合。
 
-Note: This function is [thread-safe](../qtdoc/threads-reentrancy.html).
-
-This function was introduced in Qt 5.10.
+**注意：**此方法是[线程安全](../../R/Reentrancy_and_Thread-Safety/Reentrancy_and_Thread-Safety.md)的。
 
 ----
 
-### [static] template <typename Functor, typename FunctorReturnType> bool QMetaObject::invokeMethod([QObject](qobject.html) **context*, Functor *function*, FunctorReturnType **ret*)
+### [static] bool QMetaObject::invokeMethod([QObject](../../O/QObject/QObject.md) \**obj*, const char \**member*, [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val0* = QGenericArgument(0), [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val1* = QGenericArgument(), [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val2* = QGenericArgument(), [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val3* = QGenericArgument(), [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val4* = QGenericArgument(), [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val5* = QGenericArgument(), [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val6* = QGenericArgument(), [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val7* = QGenericArgument(), [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val8* = QGenericArgument(), [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val9* = QGenericArgument())
 
-This is an overloaded function.
+此函数是 `invokeMethod`()的重载。
 
-Invokes the *function* in the event loop of *context* using the connection type [Qt::AutoConnection](qt.html#ConnectionType-enum). *function* can be a functor or a pointer to a member function. Returns true if the function could be invoked. Returns false if there is no such member or the parameters did not match. The return value of the function call is placed in *ret*.
+此重载通过 [Qt::AutoConnection](../../Q/Qt/Qt.md#ConnectionType-enum) 调用对应方法，并忽略返回值。
 
-Note: This function is [thread-safe](../qtdoc/threads-reentrancy.html).
-
-This function was introduced in Qt 5.10.
+**注意：**此方法是[线程安全](../../R/Reentrancy_and_Thread-Safety/Reentrancy_and_Thread-Safety.md)的。
 
 ----
 
-### [Q](../../M/QMetaMethod/QMetaMethod.md)MetaMethod QMetaObject::method(int *index*) const
+### [static] template <typename Functor, typename FunctorReturnType> bool QMetaObject::invokeMethod([QObject](../../O/QObject/QObject.md) \**context*, Functor *function*, [Qt::ConnectionType](../../Q/Qt/Qt.md#ConnectionType-enum) *type* = Qt::AutoConnection, FunctorReturnType \**ret* = nullptr)
 
-Returns the meta-data for the method with the given *index*.
+此函数是 `invokeMethod`()的重载。
 
-**另请参阅：**[methodCount](#methodCount)(), [methodOffset](#methodOffset)(), and [indexOfMethod](#indexOfMethod)().
+通过 `type` 方式在 `context` 所属的事件循环中动态调用 `function`。`function` 可以是一个仿函数或成员函数指针。若该函数可被动态调用则返回 `true`，当该函数不存在或参数不匹配时返回 `false`。函数的返回值将被保存至 `ret` 中。
+
+**注意：**此方法是[线程安全](../../R/Reentrancy_and_Thread-Safety/Reentrancy_and_Thread-Safety.md)的。
+
+该函数在 Qt 5.10 中被引入。
+
+----
+
+### [static] template <typename Functor, typename FunctorReturnType> bool QMetaObject::invokeMethod([QObject](../../O/QObject/QObject.md) \**context*, Functor *function*, FunctorReturnType \**ret*)
+
+此函数是 `invokeMethod`()的重载。
+
+通过 [Qt::AutoConnection](../../Q/Qt/Qt.md#ConnectionType-enum) 方式动态调用 `function`。`function` 可以是一个仿函数或成员函数指针。若该函数可被动态调用则返回 `true`，当该函数不存在或参数不匹配时返回 `false`。函数的返回值将被保存至 `ret` 中。
+
+**注意：**此方法是[线程安全](../../R/Reentrancy_and_Thread-Safety/Reentrancy_and_Thread-Safety.md)的。
+
+该函数在 Qt 5.10 中被引入。
+
+----
+
+### [QMetaMethod](../../M/QMetaMethod/QMetaMethod.md) QMetaObject::method(int *index*) const
+
+返回指定 `index` 的方法的元数据。
+
+**另请参阅：**[methodCount](#int-qmetaobjectmethodcount-const)(), [methodOffset](#int-qmetaobjectmethodoffset-const)() 和 [indexOfMethod](#int-qmetaobjectindexofmethodconst-char-method-const)().
 
 ----
 
 ### int QMetaObject::methodCount() const
 
+返回该类中方法的数量，包括所有基类的方法个数。除了常规成员函数外，也包含信号函数和槽函数。
+
 Returns the number of methods in this class, including the number of methods provided by each base class. These include signals and slots as well as normal member functions.
 
-Use code like the following to obtain a [QStringList](qstringlist.html) containing the methods specific to a given class:
+使用下述代码来将所给类的所有方法签名存储至 [QStringList](../../S/QStringList/QStringList.md)：
 
-```
+```cpp
  const QMetaObject* metaObject = obj->metaObject();
  QStringList methods;
  for(int i = metaObject->methodOffset(); i < metaObject->methodCount(); ++i)
      methods << QString::fromLatin1(metaObject->method(i).methodSignature());
 ```
 
-**另请参阅：**[method](#method)(), [methodOffset](#methodOffset)(), and [indexOfMethod](#indexOfMethod)().
+**另请参阅：**[method](#qmetamethod-qmetaobjectmethodint-index-const)()、[methodOffset](#int-qmetaobjectmethodoffset-const)() 和 [indexOfMethod](#int-qmetaobjectindexofmethodconst-char-method-const)()。
 
 ----
 
 ### int QMetaObject::methodOffset() const
 
-Returns the method offset for this class; i.e. the index position of this class's first member function.
+返回类方法在该类中的偏移量，即第一个类方法的编号。
 
-The offset is the sum of all the methods in the class's superclasses (which is always positive since [QObject](qobject.html) has the deleteLater() slot and a destroyed() signal).
+该偏移量是所有父类的方法数总和（因此总为正数，因为 [QObject](../../O/QObject/QObject.md) 有 `deleteLater`() 槽和 `destroyed`() 信号）。
 
-**另请参阅：**[method](#method)(), [methodCount](#methodCount)(), and [indexOfMethod](#indexOfMethod)().
-
-----
-
-### [Q](qobject.html)Object *QMetaObject::newInstance([QGenericArgument](qgenericargument.html) *val0* = QGenericArgument(nullptr), [QGenericArgument](qgenericargument.html) *val1* = QGenericArgument(), [QGenericArgument](qgenericargument.html) *val2* = QGenericArgument(), [QGenericArgument](qgenericargument.html) *val3* = QGenericArgument(), [QGenericArgument](qgenericargument.html) *val4* = QGenericArgument(), [QGenericArgument](qgenericargument.html) *val5* = QGenericArgument(), [QGenericArgument](qgenericargument.html) *val6* = QGenericArgument(), [QGenericArgument](qgenericargument.html) *val7* = QGenericArgument(), [QGenericArgument](qgenericargument.html) *val8* = QGenericArgument(), [QGenericArgument](qgenericargument.html) *val9* = QGenericArgument()) const
-
-Constructs a new instance of this class. You can pass up to ten arguments (*val0*, *val1*, *val2*, *val3*, *val4*, *val5*, *val6*, *val7*, *val8*, and *val9*) to the constructor. Returns the new object, or nullptr if no suitable constructor is available.
-
-Note that only constructors that are declared with the [Q_INVOKABLE](qobject.html#Q_INVOKABLE) modifier are made available through the meta-object system.
-
-This function was introduced in Qt 4.5.
-
-**另请参阅：**[Q_ARG](#Q_ARG)() and [constructor](#constructor)().
+**另请参阅：**[method](#qmetamethod-qmetaobjectmethodint-index-const)()、[methodCount](#int-qmetaobjectmethodcount-const)() 和 [indexOfMethod](#int-qmetaobjectindexofmethodconst-char-method-const)()。
 
 ----
 
-### [static] [QByteArray](qbytearray.html) QMetaObject::normalizedSignature(const char **method*)
+### [QObject](../../O/QObject/QObject.md) \*QMetaObject::newInstance([QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val0* = QGenericArgument(nullptr), [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val1* = QGenericArgument(), [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val2* = QGenericArgument(), [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val3* = QGenericArgument(), [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val4* = QGenericArgument(), [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val5* = QGenericArgument(), [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val6* = QGenericArgument(), [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val7* = QGenericArgument(), [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val8* = QGenericArgument(), [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val9* = QGenericArgument()) const
 
-Normalizes the signature of the given *method*.
+构造一个此类的新实例。您可以传递最多十个参数 (`val0`, `val1`, `val2`, `val3`, `val4`, `val5`, `val6`, `val7`, `val8` 和 `val9`) 至构造函数。返回构造的新对象，若没有合适的构造函数则返回 `nullptr`。
 
-Qt uses normalized signatures to decide whether two given signals and slots are compatible. Normalization reduces whitespace to a minimum, moves 'const' to the front where appropriate, removes 'const' from value types and replaces const references with values.
+**注意：**只有通过 [Q_INVOKABLE](../../O/QObject/QObject.md#Q_INVOKABLE) 修饰符声明的构造函数才能在元对象系统中使用。
 
-**另请参阅：**[checkConnectArgs](#checkConnectArgs)() and [normalizedType](#normalizedType)().
+该函数在 Qt 4.5 中被引入。
+
+**另请参阅：**[Q_ARG](#qgenericargument-qargtype-const-type-&value)() 和 [constructor](#qmetamethod-qmetaobjectconstructorint-index-const)()。
 
 ----
 
-### [static] [QByteArray](qbytearray.html) QMetaObject::normalizedType(const char **type*)
+### [static] [QByteArray](../../B/QByteArray/QByteArray.md) QMetaObject::normalizedSignature(const char \**method*)
 
-Normalizes a *type*.
+将给予的 `method` 进行规范化。
 
-See [QMetaObject::normalizedSignature](#normalizedSignature)() for a description on how Qt normalizes.
+Qt 使用规范化的签名来来判断两个给定的信号和槽是否匹配。规范化操作会将空格减到最少，将 `const` 适当前移，移除值类型的 `const`，并将不可变引用替换为值类型。
 
-Example:
+**另请参阅：**[checkConnectArgs](#static-bool-qmetaobjectcheckconnectargsconst-char-signal-const-char-method)() 和 [normalizedType](#static-qbytearray-qmetaobjectnormalizedtypeconst-char-type)()。
 
-```
+----
+
+### [static] [QByteArray](../../B/QByteArray/QByteArray.md) QMetaObject::normalizedType(const char **type*)
+
+将 `type` 规范化。
+
+请参阅 [QMetaObject::normalizedSignature](#static-qbytearray-qmetaobjectnormalizedsignatureconst-char-method)() 中关于 Qt 如何进行规范化的描述。
+
+范例：
+
+```cpp
  QByteArray normType = QMetaObject::normalizedType(" int    const  *");
- // normType is now "const int*"
+ // 规范化的类型将为 "const int*"
 ```
 
-This function was introduced in Qt 4.2.
+该函数在 Qt 4.2 中被引入。
 
-**另请参阅：**[normalizedSignature](#normalizedSignature)().
+**另请参阅：**[normalizedSignature](#static-qbytearray-qmetaobjectnormalizedsignatureconst-char-method)().
 
 ----
 
-### [Q](qmetaproperty.html)MetaProperty QMetaObject::property(int *index*) const
+### [QMetaProperty](../../M/QMetaProperty/QMetaProperty.md) QMetaObject::property(int *index*) const
 
-Returns the meta-data for the property with the given *index*. If no such property exists, a null [QMetaProperty](qmetaproperty.html) is returned.
+返回指定 `index` 的属性的元数据。若该属性不存在，则返回空的 [QMetaProperty](../../M/QMetaProperty/QMetaProperty.md) 对象。
 
-**另请参阅：**[propertyCount](#propertyCount)(), [propertyOffset](#propertyOffset)(), and [indexOfProperty](#indexOfProperty)().
+**另请参阅：**[propertyCount](#qmetaproperty-qmetaobjectpropertyint-index-constCount)()、[propertyOffset](#qmetaproperty-qmetaobjectpropertyint-index-constOffset)() 和 [indexOfProperty](#int-qmetaobjectindexofpropertyconst-char-name-const)()。
 
 ----
 
 ### int QMetaObject::propertyCount() const
 
-Returns the number of properties in this class, including the number of properties provided by each base class.
+返回该类中属性的类型，包括所有基类的属性个数。
 
-Use code like the following to obtain a [QStringList](qstringlist.html) containing the properties specific to a given class:
+使用如下代码来将给定类的所有属性名称保存至 [QStringList](../../S/QStringList/QStringList.md)：
 
-```
+```cpp
  const QMetaObject* metaObject = obj->metaObject();
  QStringList properties;
  for(int i = metaObject->propertyOffset(); i < metaObject->propertyCount(); ++i)
      properties << QString::fromLatin1(metaObject->property(i).name());
 ```
 
-**另请参阅：**[property](#property)(), [propertyOffset](#propertyOffset)(), and [indexOfProperty](#indexOfProperty)().
+**另请参阅：**[property](#qmetaproperty-qmetaobjectpropertyint-index-const)()、[propertyOffset](#qmetaproperty-qmetaobjectpropertyint-index-constOffset)() 和 [indexOfProperty](#int-qmetaobjectindexofpropertyconst-char-name-const)()。
 
 ----
 
 ### int QMetaObject::propertyOffset() const
 
-Returns the property offset for this class; i.e. the index position of this class's first property.
+返回类属性在该类中的偏移量，即第一条类属性的编号。
 
-The offset is the sum of all the properties in the class's superclasses (which is always positive since [QObject](qobject.html) has the name() property).
+该偏移量包含所有父类的类属性数量总和（因此总为正数，因为 [QObject](../../O/QObject/QObject.md) 有 `name`() 属性）。
 
-**另请参阅：**[property](#property)(), [propertyCount](#propertyCount)(), and [indexOfProperty](#indexOfProperty)().
-
-----
-
-### const [QMetaObject]() *QMetaObject::superClass() const
-
-Returns the meta-object of the superclass, or nullptr if there is no such object.
-
-**另请参阅：**[className](#className)().
+**另请参阅：**[property](#qmetaproperty-qmetaobjectpropertyint-index-const)()、[propertyCount](#qmetaproperty-qmetaobjectpropertyint-index-constCount)() 和 [indexOfProperty](#int-qmetaobjectindexofpropertyconst-char-name-const)()。
 
 ----
 
-### [Q](qmetaproperty.html)MetaProperty QMetaObject::userProperty() const
+### const [QMetaObject]() \*QMetaObject::superClass() const
 
-Returns the property that has the USER flag set to true.
+返回父类的元对象，若不存在则返回 `nullptr`。
 
-This function was introduced in Qt 4.2.
+**另请参阅：**[className](#const-char-qmetaobjectclassname-const)()。
 
-**另请参阅：**[QMetaProperty::isUser](qmetaproperty.html#isUser)().
+----
+
+### [QMetaProperty](../../M/QMetaProperty/QMetaProperty.md) QMetaObject::userProperty() const
+
+返回 `USER` 标志位为 `true` 的元属性。
+
+该函数在 Qt 4.2 中被引入。
+
+**另请参阅：**[QMetaProperty::isUser](../../M/QMetaProperty/QMetaProperty.md#isUser)()。
 
 
 
 ## 宏文档
 
-### [Q](qgenericargument.html)GenericArgument Q_ARG(*Type*, const Type &*value*)
+### [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) Q_ARG(*Type*, const Type &*value*)
 
-This macro takes a *Type* and a *value* of that type and returns a [QGenericArgument](qgenericargument.html) object that can be passed to [QMetaObject::invokeMethod](#invokeMethod)().
+该宏接受一个 `type` 和一个该类型的 `value` 参数，返回一个用于传递至 [QMetaObject::invokeMethod](#static-template-<typename-functor-typename-functorreturntype>-bool-qmetaobjectinvokemethodqobject-context-functor-function-functorreturntype-ret)() 的 [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) 对象。
 
-**另请参阅：**[Q_RETURN_ARG](#Q_RETURN_ARG)().
+**另请参阅：**[Q_RETURN_ARG](#qgenericreturnargument-qreturnargtype-type-&value)()。
 
 ----
 
-### [Q](qgenericreturnargument.html)GenericReturnArgument Q_RETURN_ARG(*Type*, Type &*value*)
+### [QGenericReturnArgument](../../G/QGenericReturnArgument/QGenericReturnArgument.md) Q_RETURN_ARG(*Type*, Type &*value*)
 
-This macro takes a *Type* and a non-const reference to a *value* of that type and returns a [QGenericReturnArgument](qgenericreturnargument.html) object that can be passed to [QMetaObject::invokeMethod](#invokeMethod)().
+该宏接受一个 `Type` 和一个该类型的可变引用 `value` 参数，返回一个用于传递至 [QMetaObject::invokeMethod](#static-template-<typename-functor-typename-functorreturntype>-bool-qmetaobjectinvokemethodqobject-context-functor-function-functorreturntype-ret)() 的包含该类型的 [QGenericReturnArgument](../../G/QGenericReturnArgument/QGenericReturnArgument.md) 对象。
 
-**另请参阅：**[Q_ARG](#Q_ARG)(). 
-
-© 2020 The Qt Company Ltd. Documentation contributions included herein are the copyrights of their respective owners.
-The documentation provided herein is licensed under the terms of the [GNU Free Documentation License version 1.3](http://www.gnu.org/licenses/fdl.html) as published by the Free Software Foundation.
-Qt and respective logos are trademarks of The Qt Company Ltd. in Finland and/or other countries worldwide. All other trademarks are property of their respective owners. 
+**另请参阅：**[Q_ARG](#qgenericargument-qargtype-const-type-&value)().。
