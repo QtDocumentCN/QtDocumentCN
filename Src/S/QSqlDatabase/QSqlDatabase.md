@@ -632,15 +632,15 @@ if (db.open()) {
 
 qt4.6中引入了这个函数。
 
-**另请查阅** [QSql::NumericalPrecisionPolicy](https://doc.qt.io/qt-5/qsql.html#NumericalPrecisionPolicy-enum)， [numericalPrecisionPolicy()](https://doc.qt.io/qt-5/qsqldatabase.html#numericalPrecisionPolicy)，[QSqlQuery::setNumericalPrecisionPolicy](https://doc.qt.io/qt-5/qsqlquery.html#setNumericalPrecisionPolicy) 和 [QSqlQuery::numericalPrecisionPolicy](https://doc.qt.io/qt-5/qsqlquery.html#numericalPrecisionPolicy).
+**另请查阅** [QSql::NumericalPrecisionPolicy](https://github.com/JackLovel/QtDocumentCN/blob/master/Src/S/QSql/QSql.md#enum-qsqlnumericalprecisionpolicy)， [numericalPrecisionPolicy()](https://doc.qt.io/qt-5/qsqldatabase.html#numericalPrecisionPolicy)，[QSqlQuery::setNumericalPrecisionPolicy](https://doc.qt.io/qt-5/qsqlquery.html#setNumericalPrecisionPolicy) 和 [QSqlQuery::numericalPrecisionPolicy](https://doc.qt.io/qt-5/qsqlquery.html#numericalPrecisionPolicy).
    
-### void QSqlDatabase::setPassword(const [QString](https://doc.qt.io/qt-5/qstring.html) &password)
+### void QSqlDatabase::setPassword(const [QString](S/QString/QString.md) &password)
 ------------------------
-通过 `password` 参数来设置连接的密码。为了生效，必须在[打开](https://doc.qt.io/qt-5/qsqldatabase.html#open)连接之前来设置密码。或者，您可以调用[close()](https://doc.qt.io/qt-5/qsqldatabase.html#close)关闭连接，然后设置密码，再次调用[open()](https://doc.qt.io/qt-5/qsqldatabase.html#open)函数。
+通过 `password` 参数来设置连接的密码。为了生效，必须在[打开](QSqlDatabase.md#bool-qsqldatabaseopen)连接之前来设置密码。或者，您可以调用[close()](QSqlDatabase.md#void-qsqldatabaseclose)关闭连接，然后设置密码，再次调用[open()](QSqlDatabase.md#bool-qsqldatabaseopen)函数。
 
 这个没有默认值。
 
-**警告：** 这个函数以明文的形式把密码存放到qt里。 将密码作为参数来避免这个行为，然后使用 [open()](https://doc.qt.io/qt-5/qsqldatabase.html#open)进行调用。 
+**警告：** 这个函数以明文的形式把密码存放到qt里。 将密码作为参数来避免这个行为，然后使用 [open()](QSqlDatabase.md#bool-qsqldatabaseopen)进行调用。 
 
 **另请查阅** [password()](QSqlDatabase.md#qstring-qsqldatabasepassword-const)，[setUserName()](QSqlDatabase.md#void-qsqldatabasesetusernameconst-qstring-name)，[setDatabaseName()](QSqlDatabase.md#void-qsqldatabasesetdatabasenameconst-qstring-name)，[setHostName()](QSqlDatabase.md#void-qsqldatabasesethostnameconst-qstring-host), [setPort()](QSqlDatabase.md#void-qsqldatabasesetportint-port), [setConnectOptions()](QSqlDatabase.md#void-qsqldatabasesetconnectoptionsconst-qstring-options--qstring)和 [open()](QSqlDatabase.md#bool-qsqldatabaseopen)。
 
