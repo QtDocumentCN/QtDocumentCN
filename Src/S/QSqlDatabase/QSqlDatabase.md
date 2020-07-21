@@ -642,7 +642,7 @@ qt4.6中引入了这个函数。
 
 **警告：** 这个函数以明文的形式把密码存放到qt里。 将密码作为参数来避免这个行为，然后使用 [open()](https://doc.qt.io/qt-5/qsqldatabase.html#open)进行调用。 
 
-**另请查阅** [password()](https://doc.qt.io/qt-5/qsqldatabase.html#password)，[setUserName()](https://doc.qt.io/qt-5/qsqldatabase.html#setUserName)，[setDatabaseName()](https://doc.qt.io/qt-5/qsqldatabase.html#setDatabaseName)，[setHostName()](https://doc.qt.io/qt-5/qsqldatabase.html#setHostName), [setPort()](https://doc.qt.io/qt-5/qsqldatabase.html#setPort), [setConnectOptions()](https://doc.qt.io/qt-5/qsqldatabase.html#setConnectOptions)和 [open()](https://doc.qt.io/qt-5/qsqldatabase.html#open)。
+**另请查阅** [password()](QSqlDatabase.md#qstring-qsqldatabasepassword-const)，[setUserName()](QSqlDatabase.md#void-qsqldatabasesetusernameconst-qstring-name)，[setDatabaseName()](QSqlDatabase.md#void-qsqldatabasesetdatabasenameconst-qstring-name)，[setHostName()](QSqlDatabase.md#void-qsqldatabasesethostnameconst-qstring-host), [setPort()](QSqlDatabase.md#void-qsqldatabasesetportint-port), [setConnectOptions()](QSqlDatabase.md#void-qsqldatabasesetconnectoptionsconst-qstring-options--qstring)和 [open()](QSqlDatabase.md#bool-qsqldatabaseopen)。
 
 ### void QSqlDatabase::setPort(int port)    
 ----------------
