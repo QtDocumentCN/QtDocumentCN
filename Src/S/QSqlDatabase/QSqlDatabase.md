@@ -632,7 +632,7 @@ if (db.open()) {
 
 qt4.6中引入了这个函数。
 
-**另请查阅** [QSql::NumericalPrecisionPolicy](S/QSql/QSql.md#enum-qsqlnumericalprecisionpolicy)， [numericalPrecisionPolicy()](https://doc.qt.io/qt-5/qsqldatabase.html#numericalPrecisionPolicy)，[QSqlQuery::setNumericalPrecisionPolicy](https://doc.qt.io/qt-5/qsqlquery.html#setNumericalPrecisionPolicy) 和 [QSqlQuery::numericalPrecisionPolicy](https://doc.qt.io/qt-5/qsqlquery.html#numericalPrecisionPolicy).
+**另请查阅** [QSql::NumericalPrecisionPolicy](../QSql/QSql.md#enum-qsqlnumericalprecisionpolicy)， [numericalPrecisionPolicy()](https://doc.qt.io/qt-5/qsqldatabase.html#numericalPrecisionPolicy)，[QSqlQuery::setNumericalPrecisionPolicy](https://doc.qt.io/qt-5/qsqlquery.html#setNumericalPrecisionPolicy) 和 [QSqlQuery::numericalPrecisionPolicy](https://doc.qt.io/qt-5/qsqlquery.html#numericalPrecisionPolicy).
    
 ### void QSqlDatabase::setPassword(const [QString](S/QString/QString.md) &password)
 ------------------------
