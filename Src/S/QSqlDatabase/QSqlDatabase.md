@@ -253,7 +253,7 @@ win32:LIBS += libpqdll.lib
 ------------------------------------
 这是个重载函数。
 
-克隆其他数据库连接并将其存储为`connectionName`。原始数据库中的所有设置，例如[databaseName()](https://doc.qt.io/qt-5/qsqldatabase.html#databaseName)、[hostName()](https://doc.qt.io/qt-5/qsqldatabase.html#hostName)等，都会被复制。如果其他数据库无效，则不执行任何操作。返回最新被创建的数据库连接。
+克隆其他数据库连接并将其存储为`connectionName`。原始数据库中的所有设置，例如[databaseName()](QSqlDatabase.md#qstring-qsqldatabasedatabasename-const)、[hostName()](https://doc.qt.io/qt-5/qsqldatabase.html#hostName)等，都会被复制。如果其他数据库无效，则不执行任何操作。返回最新被创建的数据库连接。
 
 **注意：** 这个新的连接不能被打开。您必须调用 [open()](https://doc.qt.io/qt-5/qsqldatabase.html#open),才能使用这个新的连接。
 
@@ -515,9 +515,9 @@ QSqlDatabase::removeDatabase("sales"); // 正确的
 
 **另请查阅**  [QSqlQuery::isActive()](https://doc.qt.io/qt-5/qsqlquery.html#isActive)，[QSqlDriver::hasFeature()](https://doc.qt.io/qt-5/qsqldriver.html#hasFeature) 和 [commit()](https://doc.qt.io/qt-5/qsqldatabase.html#commit)。
 
-### void QSqlDatabase::setConnectOptions(const [QString](https://doc.qt.io/qt-5/qstring.html) &options = QString())
+### void QSqlDatabase::setConnectOptions(const [QString](S/QString/QString.md) &options = QString())
 ----------------------------
-设置一组数据库的具体的可选项。它必须在打之这个连接之前执行这个操作，否则是无效的。另一个可能的原因是调用 `QSqlDatabase::setConnectOptions()` 去关闭这个连接，并且调用 [open()](https://doc.qt.io/qt-5/qsqldatabase.html#open) 再次关闭这个连接。
+设置一组数据库的具体的可选项。它必须在打之这个连接之前执行这个操作，否则是无效的。另一个可能的原因是调用 `QSqlDatabase::setConnectOptions()` 去关闭这个连接，并且调用 [open()](QSqlDatabase.md#bool-qsqldatabaseopen) 再次关闭这个连接。
 
 选项字符串的格式是以分号分隔的选项名称，或选项=值对的列表。这个选项依赖于所使用的客户端：
 
@@ -581,14 +581,14 @@ if (!db.open()) {
 
 查阅这个客户端库文档，获得更多关于不同可选项的更多信息。
 
-**另请查阅** [connectOptions()](https://doc.qt.io/qt-5/qsqldatabase.html#connectOptions)。
+**另请查阅** [connectOptions()](QSqlDatabase.md#qstring-qsqldatabaseconnectoptions-const)。
     
-### void QSqlDatabase::setDatabaseName(const [QString](https://doc.qt.io/qt-5/qstring.html) &name)
+### void QSqlDatabase::setDatabaseName(const [QString](S/QString/QString.md) &name)
 -------------------
-通过所给的 `name` 参数来设置所连接的数据库名称。必须在[打开](https://doc.qt.io/qt-5/qsqldatabase.html#open)连接之前设置数据库名称。
-或者，可以调用[close()](https://doc.qt.io/qt-5/qsqldatabase.html#close)函数关闭连接，设置数据库名称，然后再次调用[open()](https://doc.qt.io/qt-5/qsqldatabase.html#open) 。
+通过所给的 `name` 参数来设置所连接的数据库名称。必须在[打开](QSqlDatabase.md#bool-qsqldatabaseopen)连接之前设置数据库名称。
+或者，可以调用[close()](QSqlDatabase.md#void-qsqldatabaseclose)函数关闭连接，设置数据库名称，然后再次调用[open()](QSqlDatabase.md#bool-qsqldatabaseopen) 。
 
-**注意：** 这个数据库名不是连接名。必须在创建连接对象时将连接名称传递给 [addDatabase()](https://doc.qt.io/qt-5/qsqldatabase.html#addDatabase)。
+**注意：** 这个数据库名不是连接名。必须在创建连接对象时将连接名称传递给 [addDatabase()](QSqlDatabase.md#static-qsqldatabase-qsqldatabaseadddatabaseconst-qstring-type-const-qstring-connectionname--qlatin1stringdefaultconnection)。
 
 对于 `QSQLITE` 驱动，如果数据库名指定的名字不存在，然后它将会创建这个文件，除非您设置了 `QSQLITE_OPEN_READONLY`
 
@@ -612,7 +612,7 @@ if (db.open()) {
 
 这个没有默认的值
 
-**另请查阅** [databaseName()](https://doc.qt.io/qt-5/qsqldatabase.html#databaseName)、[setUserName()](https://doc.qt.io/qt-5/qsqldatabase.html#setUserName)、 [setPassword()](https://doc.qt.io/qt-5/qsqldatabase.html#setPassword)、 [setHostName()](https://doc.qt.io/qt-5/qsqldatabase.html#setHostName)、 [setPort()](https://doc.qt.io/qt-5/qsqldatabase.html#setPort)、[setConnectOptions()](https://doc.qt.io/qt-5/qsqldatabase.html#setConnectOptions) 和 [open()](https://doc.qt.io/qt-5/qsqldatabase.html#open)。
+**另请查阅** [databaseName()](QSqlDatabase.md#qstring-qsqldatabasedatabasename-const)、[setUserName()](QSqlDatabase.md#void-qsqldatabasesetusernameconst-qstring-name)、 [setPassword()](QSqlDatabase.md#void-qsqldatabasesetpasswordconst-qstring-password)、 [setHostName()](QSqlDatabase.md#void-qsqldatabasesethostnameconst-qstring-host)、 [setPort()](QSqlDatabase.md#void-qsqldatabasesetportint-port)、[setConnectOptions()](QSqlDatabase.md#void-qsqldatabasesetconnectoptionsconst-qstring-options--qstring) 和 [open()](QSqlDatabase.md#bool-qsqldatabaseopen)。
 
 ### void QSqlDatabase::setHostName(const [QString](S/QString/QString.md) &host)
 ----------------------------------------
