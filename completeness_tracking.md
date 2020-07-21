@@ -36,6 +36,7 @@
 | [QObject](Src/O/QObject/QObject.md)                          | [ZgblKylin](https://github.com/ZgblKylin)     | 编写中    | 占位中，待填充，截止时间2020-08-31 |
 | [The Property System](Src/P/The_Property_System/The_Property_System.md) | [ZgblKylin](https://github.com/ZgblKylin)     | 编写中    | 占位中，待填充，截止时间2020-08-31 |
 | [Qt Overviews](Src/Q/Qt_Overviews/Qt_Overviews.md)           | [ZgblKylin](https://github.com/ZgblKylin)     | **待完善** | 跨页跳转引用的页面待填充           |
+| [Reentrancy and Thread-Safety](R/Reentrancy_and_Thread-Safety/Reentrancy_and_Thread-Safety.md) | [ZgblKylin](https://github.com/ZgblKylin) | 编写中 | 占位中，待填充，截止时间2020-08-31 |
 | [Signals and Slots](Src/S/Signals_and_Slots/Signals_and_Slots.md) | [ZgblKylin](https://github.com/ZgblKylin)     | **待完善** | 跨页跳转需待对应页面完成后进行校正 |
 | [QVariant](Src/V/QVariant/QVariant.md)                       | [ZgblKylin](https://github.com/ZgblKylin)     | 编写中    | 占位中，待填充，截止时间2020-07-31 |
 | [QIODevice](Src/I/QIODevice/QIODevice.md)                    | [skykeyjoker](https://github.com/skykeyjoker) | 编写中    | 占位中，待填充，截止时间2020-07-31 |
