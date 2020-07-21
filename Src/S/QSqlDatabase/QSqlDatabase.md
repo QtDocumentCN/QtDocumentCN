@@ -166,7 +166,7 @@ QSqlDatabase db = QSqlDatabase::database();
 
 ### QSqlDatabase::QSqlDatabase()
 --------------------------------------------
-创建一个 无效的 `QSqlDatabase` 空对象。使用 [addDatabase()](https://doc.qt.io/qt-5/qsqldatabase.html#addDatabase), [removeDatabase()](https://doc.qt.io/qt-5/qsqldatabase.html#removeDatabase) 和 [database()](https://doc.qt.io/qt-5/qsqldatabase.html#database) 来获得一个有效的 `QSqlDatabase` 对象。
+创建一个 无效的 `QSqlDatabase` 空对象。使用 [addDatabase()](https://doc.qt.io/qt-5/qsqldatabase.html#addDatabase), [removeDatabase()](https://doc.qt.io/qt-5/qsqldatabase.html#removeDatabase) 和 [database()](QSqlDatabase.md#static-qsqldatabase-qsqldatabasedatabaseconst-qstring-connectionname--qlatin1stringdefaultconnection-bool-open--true) 来获得一个有效的 `QSqlDatabase` 对象。
 
 ### QSqlDatabase &QSqlDatabase::operator=(const QSqlDatabase &other)
 ----------------------------------------------------
@@ -202,7 +202,7 @@ QSqlDatabase db = QSqlDatabase::database();
 
 **注意：** 这个函数是线程安全的
 
-请查看 [database()](https://doc.qt.io/qt-5/qsqldatabase.html#database), [removeDatabase()](https://doc.qt.io/qt-5/qsqldatabase.html#removeDatabase) 以及 [线程和SQL 单元](https://doc.qt.io/qt-5/threads-modules.html#threads-and-the-sql-module)。
+请查看 [database()](QSqlDatabase.md#static-qsqldatabase-qsqldatabasedatabaseconst-qstring-connectionname--qlatin1stringdefaultconnection-bool-open--true), [removeDatabase()](https://doc.qt.io/qt-5/qsqldatabase.html#removeDatabase) 以及 [线程和SQL 单元](https://doc.qt.io/qt-5/threads-modules.html#threads-and-the-sql-module)。
 
 ### *[static]* QSqlDatabase QSqlDatabase::addDatabase(QSqlDriver *driver, const QString &connectionName = QLatin1String(defaultConnection))   
 ----------------------------
@@ -303,7 +303,7 @@ qt5.13中引入了这个函数。
 
 **注意：** 这个函数是[线程安全](https://doc.qt.io/qt-5/threads-reentrancy.html)的。
 
-**另请参阅** [contains()]()，[database()]()， 和 [线程和SQL模块](https://doc.qt.io/qt-5/threads-modules.html#threads-and-the-sql-module) 
+**另请参阅** [contains()]()，[database()](QSqlDatabase.md#static-qsqldatabase-qsqldatabasedatabaseconst-qstring-connectionname--qlatin1stringdefaultconnection-bool-open--true)， 和 [线程和SQL模块](https://doc.qt.io/qt-5/threads-modules.html#threads-and-the-sql-module) 
 
 ### *[static]* bool QSqlDatabase::contains(const QString &connectionName = QLatin1String(defaultConnection))
 ------------------------
@@ -311,7 +311,7 @@ qt5.13中引入了这个函数。
 
 **注意：** 这个函数是 [线程安全的](https://doc.qt.io/qt-5/threads-reentrancy.html)
 
-**另请参阅** [connectionNames()](https://doc.qt.io/qt-5/qsqldatabase.html#connectionNames), [database()](https://doc.qt.io/qt-5/qsqldatabase.html#database) 和 [线程和SQL模块](https://doc.qt.io/qt-5/threads-modules.html#threads-and-the-sql-module)。
+**另请参阅** [connectionNames()](https://doc.qt.io/qt-5/qsqldatabase.html#connectionNames), [database()]QSqlDatabase.md#static-qsqldatabase-qsqldatabasedatabaseconst-qstring-connectionname--qlatin1stringdefaultconnection-bool-open--true) 和 [线程和SQL模块](https://doc.qt.io/qt-5/threads-modules.html#threads-and-the-sql-module)。
 
 ### *[static]* QSqlDatabase QSqlDatabase::database(const QString &connectionName = QLatin1String(defaultConnection), bool open = true)
 ---------------------
@@ -499,7 +499,7 @@ QSqlDatabase::removeDatabase("sales"); // 将会输出警告
 QSqlDatabase::removeDatabase("sales"); // 正确的
 ```
 
-如果要删除默认连接，这个连接可能是通过调用 [addDatabase()](https://doc.qt.io/qt-5/qsqldatabase.html#addDatabase) 函数而创建的，但未指定连接名称，可以通过对[database()](https://doc.qt.io/qt-5/qsqldatabase.html#database)返回的数据库调用[connectionName()](https://doc.qt.io/qt-5/qsqldatabase.html#connectionName) 来检索默认连接名称。注意，如果没有创建默认数据库，将返回一个无效的数据库。
+如果要删除默认连接，这个连接可能是通过调用 [addDatabase()](https://doc.qt.io/qt-5/qsqldatabase.html#addDatabase) 函数而创建的，但未指定连接名称，可以通过对[database()](QSqlDatabase.md#static-qsqldatabase-qsqldatabasedatabaseconst-qstring-connectionname--qlatin1stringdefaultconnection-bool-open--true)返回的数据库调用[connectionName()](https://doc.qt.io/qt-5/qsqldatabase.html#connectionName) 来检索默认连接名称。注意，如果没有创建默认数据库，将返回一个无效的数据库。
 
 **注意：** 这个函数是[线程安全的](https://doc.qt.io/qt-5/threads-reentrancy.html)
 
@@ -507,7 +507,7 @@ QSqlDatabase::removeDatabase("sales"); // 正确的
 
 ### bool QSqlDatabase::rollback()
 ---------------
-在数据库里回滚一个事务，如果驱动支持一个事务以及一个 [transaction()](https://doc.qt.io/qt-5/qsqldatabase.html#transaction) 已经被启动。如果操作成功返回 `true`。否则返回 `false`。
+在数据库里回滚一个事务，如果驱动支持一个事务以及一个 [transaction()](QSqlDatabase.md#bool-qsqldatabasetransaction) 已经被启动。如果操作成功返回 `true`。否则返回 `false`。
 
 **注意：** 对于某些数据库，如果存在使用数据库进行选择的[活动查询](https://doc.qt.io/qt-5/qsqlquery.html#isActive)，则回滚将失败并返回false。确保在执行回滚操作之前，查询是 [非活动](https://doc.qt.io/qt-5/qsqlquery.html#isActive) 的状态。
 
