@@ -20,6 +20,8 @@
 | [QPaintEngine](Src/P/QPaintEngine)                       | [CryFeiFei](https://github.com/CryFeiFei)     | 编写中    | 占位中，待填充，截止时间2020-08-31 |
 | [QPaintDevice](Src/P/QPaintDevice)                       | [CryFeiFei](https://github.com/CryFeiFei)     | 编写中    | 占位中，待填充，截止时间2020-08-31 |
 | [QtGlobal](Src/G/QtGlobal/QtGlobal.md)                       | [ZgblKylin](https://github.com/ZgblKylin)     | 编写中    | 占位中，待填充，截止时间2020-08-31 |
+| [QGenericArgument](G/QGenericArgument/QGenericArgument.md) | [ZgblKylin](https://github.com/ZgblKylin) | 编写中 | 占位中，待填充，截止时间2020-08-31 |
+| [QGenericReturnArgument](G/QGenericReturnArgument/QGenericReturnArgument.md) | [ZgblKylin](https://github.com/ZgblKylin) | 编写中 | 占位中，待填充，截止时间2020-08-31 |
 | [QMetaClassInfo](M/QMetaClassInfo/QMetaClassInfo.md) | [ZgblKylin](https://github.com/ZgblKylin) | 编写中 | 占位中，待填充，截止时间2020-08-31 |
 | [QMetaMethod](Src/M/QMetaMethod/QMetaMethod.md)              | [ZgblKylin](https://github.com/ZgblKylin)     | 编写中    | 占位中，待填充，截止时间2020-08-31 |
 | [QMetaObject](Src/M/QMetaObject/QMetaObject.md)              | [ZgblKylin](https://github.com/ZgblKylin)     | 编写中    | 占位中，待填充，截止时间2020-08-31 |
