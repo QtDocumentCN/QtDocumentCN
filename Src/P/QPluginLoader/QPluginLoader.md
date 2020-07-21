@@ -69,13 +69,13 @@ QPluginLoader对象的实例在被称为插件的单个共享库文件上运行�
 
 最重要的函数有：用来动态加载插件文件的 [load](https://doc.qt.io/qt-5/qpluginloader.html#load)()，用来检查加载是否成功的 [isLoaded](https://doc.qt.io/qt-5/qpluginloader.html#isLoaded)() ， 以及用来访问插件根组件的 [instance](https://doc.qt.io/qt-5/qpluginloader.html#instance)()。如果尚未加载插件，则 [instance](https://doc.qt.io/qt-5/qpluginloader.html#instance)() 函数会隐式尝试加载该插件。 可以使用 QPluginLoader 的多个实例来访问同一个实际的插件。
 
-Once loaded, plugins remain in memory until all instances of QPluginLoader has been unloaded, or until the application terminates. You can attempt to unload a plugin using [unload](https://doc.qt.io/qt-5/qpluginloader.html#unload)(), but if other instances of QPluginLoader are using the same library, the call will fail, and unloading will only happen when every instance has called [unload](https://doc.qt.io/qt-5/qpluginloader.html#unload)(). Right before the unloading happens, the root component will also be deleted.
+加载后，插件将保留在内存中，直到所有 QPluginLoader 实例都已卸载，或者应用程序终止为止。您可以使用 [unload](https://doc.qt.io/qt-5/qpluginloader.html#unload)() 来尝试卸载插件，但如果有其它 QPluginLoader 实例正在使用同一个库，那么这一函数调用会失败，而当所有实例都调用了 [unload](https://doc.qt.io/qt-5/qpluginloader.html#unload)() 后插件才会真正被卸载。在卸载发生之前，根组件也将被删除。
 
-See [How to Create Qt Plugins](https://doc.qt.io/qt-5/plugins-howto.html) for more information about how to make your application extensible through plugins.
+有关如何使应用程序可通过插件扩展的更多信息，请参见[如何创建 Qt 插件](https://doc.qt.io/qt-5/plugins-howto.html)。
 
-Note that the QPluginLoader cannot be used if your application is statically linked against Qt. In this case, you will also have to link to plugins statically. You can use [QLibrary](https://doc.qt.io/qt-5/qlibrary.html) if you need to load dynamic libraries in a statically linked application.
+请注意，如果您的应用程序与 Qt 静态链接，则无法使用 QPluginLoader。在这种情况下，您还必须静态链接到插件。 如果需要在静态链接的应用程序中加载动态库，则可以使用 [QLibrary](https://doc.qt.io/qt-5/qlibrary.html)。
 
-**See also** [QLibrary](https://doc.qt.io/qt-5/qlibrary.html) and [Plug & Paint Example](https://doc.qt.io/qt-5/qtwidgets-tools-plugandpaint-app-example.html).
+**另请参阅** [QLibrary](https://doc.qt.io/qt-5/qlibrary.html) 和 [Plug & Paint Example](https://doc.qt.io/qt-5/qtwidgets-tools-plugandpaint-app-example.html).
 
 ## 属性文档
 
@@ -91,13 +91,14 @@ If the file name does not exist, it will not be set. This property will then con
 
 By default, this property contains an empty string.
 
-**Access functions:**
+**存取函数**
 
-| QString | **fileName**() const                       |
-| ------- | ------------------------------------------ |
-| void    | **setFileName**(const QString &*fileName*) |
+| 返回类型 | 函数名                                     |
+| -------- | ------------------------------------------ |
+| QString  | **fileName**() const                       |
+| void     | **setFileName**(const QString &*fileName*) |
 
-**See also** [load](https://doc.qt.io/qt-5/qpluginloader.html#load)().
+**另请参阅** [load](https://doc.qt.io/qt-5/qpluginloader.html#load)().
 
 ### loadHints : [QLibrary::LoadHints](https://doc.qt.io/qt-5/qlibrary.html#LoadHint-enum)
 
@@ -109,13 +110,14 @@ See the documentation of [QLibrary::loadHints](https://doc.qt.io/qt-5/qlibrary.h
 
 This property was introduced in Qt 4.4.
 
-**Access functions:**
+**存取函数**
 
-| QLibrary::LoadHints | **loadHints**() const                             |
+| 返回类型            | 函数名                                            |
 | ------------------- | ------------------------------------------------- |
+| QLibrary::LoadHints | **loadHints**() const                             |
 | void                | **setLoadHints**(QLibrary::LoadHints *loadHints*) |
 
-**See also** [QLibrary::loadHints](https://doc.qt.io/qt-5/qlibrary.html#loadHints-prop).
+**另请参阅** [QLibrary::loadHints](https://doc.qt.io/qt-5/qlibrary.html#loadHints-prop).
 
 ## 成员函数文档
 
@@ -125,7 +127,7 @@ Constructs a plugin loader with the given *parent* that will load the plugin spe
 
 To be loadable, the file's suffix must be a valid suffix for a loadable library in accordance with the platform, e.g. `.so` on Unix, - `.dylib` on macOS and iOS, and `.dll` on Windows. The suffix can be verified with [QLibrary::isLibrary](https://doc.qt.io/qt-5/qlibrary.html#isLibrary)().
 
-**See also** [setFileName](https://doc.qt.io/qt-5/qpluginloader.html#fileName-prop)().
+**另请参阅** [setFileName](https://doc.qt.io/qt-5/qpluginloader.html#fileName-prop)().
 
 ### QPluginLoader::QPluginLoader([QObject](https://doc.qt.io/qt-5/qobject.html#QObject) **parent* = nullptr)
 
@@ -137,7 +139,7 @@ Destroys the [QPluginLoader](https://doc.qt.io/qt-5/qpluginloader.html) object.
 
 Unless [unload](https://doc.qt.io/qt-5/qpluginloader.html#unload)() was called explicitly, the plugin stays in memory until the application terminates.
 
-**See also** [isLoaded](https://doc.qt.io/qt-5/qpluginloader.html#isLoaded)() and [unload](https://doc.qt.io/qt-5/qpluginloader.html#unload)().
+**另请参阅** [isLoaded](https://doc.qt.io/qt-5/qpluginloader.html#isLoaded)() and [unload](https://doc.qt.io/qt-5/qpluginloader.html#unload)().
 
 ### [QString](https://doc.qt.io/qt-5/qstring.html) QPluginLoader::errorString() const
 
@@ -155,19 +157,19 @@ The root component, returned by this function, is not deleted when the [QPluginL
 
 The component object is a [QObject](https://doc.qt.io/qt-5/qobject.html). Use [qobject_cast](https://doc.qt.io/qt-5/qobject.html#qobject_cast)() to access interfaces you are interested in.
 
-**See also** [load](https://doc.qt.io/qt-5/qpluginloader.html#load)().
+**另请参阅** [load](https://doc.qt.io/qt-5/qpluginloader.html#load)().
 
 ### bool QPluginLoader::isLoaded() const
 
 Returns `true` if the plugin is loaded; otherwise returns `false`.
 
-**See also** [load](https://doc.qt.io/qt-5/qpluginloader.html#load)().
+**另请参阅** [load](https://doc.qt.io/qt-5/qpluginloader.html#load)().
 
 ### bool QPluginLoader::load()
 
 Loads the plugin and returns `true` if the plugin was loaded successfully; otherwise returns `false`. Since [instance](https://doc.qt.io/qt-5/qpluginloader.html#instance)() always calls this function before resolving any symbols it is not necessary to call it explicitly. In some situations you might want the plugin loaded in advance, in which case you would use this function.
 
-**See also** [unload](https://doc.qt.io/qt-5/qpluginloader.html#unload)().
+**另请参阅** [unload](https://doc.qt.io/qt-5/qpluginloader.html#unload)().
 
 ### [QJsonObject](https://doc.qt.io/qt-5/qjsonobject.html) QPluginLoader::metaData() const
 
@@ -179,13 +181,13 @@ The meta data can be queried in a fast and inexpensive way without actually load
 
 Returns a list of static plugin instances (root components) held by the plugin loader.
 
-**See also** [staticPlugins](https://doc.qt.io/qt-5/qpluginloader.html#staticPlugins)().
+**另请参阅** [staticPlugins](https://doc.qt.io/qt-5/qpluginloader.html#staticPlugins)().
 
 ### `[static]`[QVector](https://doc.qt.io/qt-5/qvector.html)<[QStaticPlugin](https://doc.qt.io/qt-5/qstaticplugin.html)> QPluginLoader::staticPlugins()
 
 Returns a list of QStaticPlugins held by the plugin loader. The function is similar to [staticInstances](https://doc.qt.io/qt-5/qpluginloader.html#staticInstances)() with the addition that a [QStaticPlugin](https://doc.qt.io/qt-5/qstaticplugin.html) also contains meta data information.
 
-**See also** [staticInstances](https://doc.qt.io/qt-5/qpluginloader.html#staticInstances)().
+**另请参阅** [staticInstances](https://doc.qt.io/qt-5/qpluginloader.html#staticInstances)().
 
 ### bool QPluginLoader::unload()
 
@@ -197,9 +199,9 @@ If other instances of [QPluginLoader](https://doc.qt.io/qt-5/qpluginloader.html)
 
 Don't try to delete the root component. Instead rely on that unload() will automatically delete it when needed.
 
-**See also** [instance](https://doc.qt.io/qt-5/qpluginloader.html#instance)() and [load](https://doc.qt.io/qt-5/qpluginloader.html#load)().
+**另请参阅** [instance](https://doc.qt.io/qt-5/qpluginloader.html#instance)() and [load](https://doc.qt.io/qt-5/qpluginloader.html#load)().
 
-## Related Non-Members
+## 相关的非成员函数
 
 ### void qRegisterStaticPluginFunction([QStaticPlugin](https://doc.qt.io/qt-5/qstaticplugin.html) *plugin*)
 
