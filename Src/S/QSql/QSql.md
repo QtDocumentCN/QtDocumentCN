@@ -12,11 +12,11 @@ QSql 命名空间 里的 各种名样的标识符，已经被运用在 Qt SQL �
 
 |||
 |------|:------|
-|enum	|[Location](https://doc.qt.io/qt-5/qsql.html#Location-enum) { BeforeFirstRow, AfterLastRow }|
-|enum	|[NumericalPrecisionPolicy](https://doc.qt.io/qt-5/qsql.html#NumericalPrecisionPolicy-enum) { LowPrecisionInt32, LowPrecisionInt64, LowPrecisionDouble, HighPrecision }|
-|flags	|[ParamType](https://doc.qt.io/qt-5/qsql.html#ParamTypeFlag-enum)|
-|enum|	[ParamTypeFlag](https://doc.qt.io/qt-5/qsql.html#ParamTypeFlag-enum) { In, Out, InOut, Binary }|
-|enum	|[TableType](https://doc.qt.io/qt-5/qsql.html#TableType-enum) { Tables, SystemTables, Views, AllTables }|
+|enum	|[Location](QSql.md#enum-qsqllocation) { BeforeFirstRow, AfterLastRow }|
+|enum	|[NumericalPrecisionPolicy](QSql.md#enum-qsqlnumericalprecisionpolicy) { LowPrecisionInt32, LowPrecisionInt64, LowPrecisionDouble, HighPrecision }|
+|flags	|[ParamType](QSql.md#enum-qsqlparamtypeflag)|
+|enum|	[ParamTypeFlag](QSql.md#flags-qsqlparamtype) { In, Out, InOut, Binary }|
+|enum	|[TableType](QSql.md#enum-qsqltabletype) { Tables, SystemTables, Views, AllTables }|
 
 ## 细节的介绍
 查看 [Qt SQL](https://doc.qt.io/qt-5/qtsql-index.html)
@@ -55,7 +55,7 @@ QSql 命名空间 里的 各种名样的标识符，已经被运用在 Qt SQL �
 |QSql::InOut | In \| Out|这个参数被用于向数据库里写入数据;使用 查询 来向数据库里，重写数据|
 |QSql::Binary | 0x00000004|如果您想 显示数据为 原始的二进制数据，那么必须是 OR'd 和其他的标志一 起使用|
 
-类型参数 类型定义为 [QFlags](F/../QFlags/QFlags.md)<ParamTypeFlag>.  它被存放在 一个 `OR`与  类型参数标志的值 的组合。
+类型参数 类型定义为 [QFlags](https://doc.qt.io/qt-5/qflags.html)<ParamTypeFlag>.  它被存放在 一个 `OR`与  类型参数标志的值 的组合。
 
 ### enum QSql::TableType
 这个枚举类型描述 SQL 表格的类型。
