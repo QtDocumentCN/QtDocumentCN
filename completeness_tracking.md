@@ -42,8 +42,8 @@
 | [QIODevice](Src/I/QIODevice/QIODevice.md)                    | [skykeyjoker](https://github.com/skykeyjoker) | 编写中    | 占位中，待填充，截止时间2020-07-31 |
 | [QSctpSocket](Src/S/QSctpSocket/QSctpSocket.md)              | [skykeyjoker](https://github.com/skykeyjoker) | **待完善** | 跨页跳转需待对应页面完成后进行校正 |
 | [QSctpServer](Src/S/QSctpServer/QSctpServer.md)              | [skykeyjoker](https://github.com/skykeyjoker) | **待完善** | 跨页跳转需待对应页面完成后进行校正 |
-| [QSql](Src/S/QSql/QSql.md)                                   | [JackLovel](https://github.com/JackLovel)     | 编写中 | 编写中，截止时间2020-07-31                      |
-| [QSqlDatabase](Src/S/QSqlDatabase/QSqlDatabase.md)           | [JackLovel](https://github.com/JackLovel)     | 编写中    | 编写中，截止时间2020-07-31                             |
+| [QSql](Src/S/QSql/QSql.md)                                   | [JackLovel](https://github.com/JackLovel)     | **已完成** |     已完成                  |
+| [QSqlDatabase](Src/S/QSqlDatabase/QSqlDatabase.md)           | [JackLovel](https://github.com/JackLovel)     | **已完成**    | 已完成                            |
 | [QAbstractSocket](Src/A/QAbstractSocket/QAbstractSocket.md)  | [skykeyjoker](https://github.com/skykeyjoker) | **待完善** | 跨页跳转需待对应页面完成后进行校正 |
 | [QSsl](Src/S/QSsl/QSsl.md) | [skykeyjoker](https://github.com/skykeyjoker) | **待完善** | 跨页跳转需待对应页面完成后进行校正 |
 | [QSsl_Obsolete](Src/S/QSsl_Obsolete/QSsl_Obsolete.md) | [skykeyjoker](https://github.com/skykeyjoker) | **已完成** | 已完成 |
