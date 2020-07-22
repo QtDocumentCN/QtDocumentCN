@@ -158,7 +158,7 @@ QSqlDatabase db = QSqlDatabase::database();
 
 其他第三方驱动程序，包括自己自定义的驱动程序，都可以动态加载。
 
-请参阅 [SQL Database Drivers](https://doc.qt.io/qt-5/sql-driver.html), [registerSqlDriver()](https://doc.qt.io/qt-5/qsqldatabase.html#registerSqlDriver) 和 [drivers()](https://doc.qt.io/qt-5/qsqldatabase.html#drivers)。
+请参阅 [SQL Database Drivers](https://doc.qt.io/qt-5/sql-driver.html), [registerSqlDriver()](https://doc.qt.io/qt-5/qsqldatabase.html#registerSqlDriver) 和 [drivers()](QSqlDatabase.md#static-qstringlist-qsqldatabasedrivers)。
 
 ### QSqlDatabase::QSqlDatabase(const QSqlDatabase &other)   
 -----------------------------------------
@@ -166,7 +166,7 @@ QSqlDatabase db = QSqlDatabase::database();
 
 ### QSqlDatabase::QSqlDatabase()
 --------------------------------------------
-创建一个 无效的 `QSqlDatabase` 空对象。使用 [addDatabase()](https://doc.qt.io/qt-5/qsqldatabase.html#addDatabase), [removeDatabase()](https://doc.qt.io/qt-5/qsqldatabase.html#removeDatabase) 和 [database()](QSqlDatabase.md#static-qsqldatabase-qsqldatabasedatabaseconst-qstring-connectionname--qlatin1stringdefaultconnection-bool-open--true) 来获得一个有效的 `QSqlDatabase` 对象。
+创建一个 无效的 `QSqlDatabase` 空对象。使用 [addDatabase()](https://doc.qt.io/qt-5/qsqldatabase.html#addDatabase), [removeDatabase()](QSqlDatabase.md#static-void-qsqldatabaseremovedatabaseconst-qstring-connectionname) 和 [database()](QSqlDatabase.md#static-qsqldatabase-qsqldatabasedatabaseconst-qstring-connectionname--qlatin1stringdefaultconnection-bool-open--true) 来获得一个有效的 `QSqlDatabase` 对象。
 
 ### QSqlDatabase &QSqlDatabase::operator=(const QSqlDatabase &other)
 ----------------------------------------------------
@@ -202,7 +202,7 @@ QSqlDatabase db = QSqlDatabase::database();
 
 **注意：** 这个函数是线程安全的
 
-请查看 [database()](QSqlDatabase.md#static-qsqldatabase-qsqldatabasedatabaseconst-qstring-connectionname--qlatin1stringdefaultconnection-bool-open--true), [removeDatabase()](https://doc.qt.io/qt-5/qsqldatabase.html#removeDatabase) 以及 [线程和SQL 单元](https://doc.qt.io/qt-5/threads-modules.html#threads-and-the-sql-module)。
+请查看 [database()](QSqlDatabase.md#static-qsqldatabase-qsqldatabasedatabaseconst-qstring-connectionname--qlatin1stringdefaultconnection-bool-open--true), [removeDatabase()](QSqlDatabase.md#static-void-qsqldatabaseremovedatabaseconst-qstring-connectionname) 以及 [线程和SQL 单元](https://doc.qt.io/qt-5/threads-modules.html#threads-and-the-sql-module)。
 
 ### *[static]* QSqlDatabase QSqlDatabase::addDatabase(QSqlDriver *driver, const QString &connectionName = QLatin1String(defaultConnection))   
 ----------------------------
@@ -240,8 +240,8 @@ win32:LIBS += libpqdll.lib
 当构造用于为内部查询创建新连接的`QTDSDriver`时，需要主机名（或服务名）。这是为了防止在同时使用多个`QSqlQuery`对象时发生阻塞。
 
 **警告：** 添加一个存在连接名的连接时，这个新添加的连接将会替换另一个。
-**警告：** SQL框架拥有驱动程序的所有权。它不能被删除。可以使用[removeDatabase()](https://doc.qt.io/qt-5/qsqldatabase.html#removeDatabase)，去删除这个连接。
-**另请参阅**[drivers()](https://doc.qt.io/qt-5/qsqldatabase.html#drivers) 
+**警告：** SQL框架拥有驱动程序的所有权。它不能被删除。可以使用[removeDatabase()](QSqlDatabase.md#static-void-qsqldatabaseremovedatabaseconst-qstring-connectionname)，去删除这个连接。
+**另请参阅**[drivers()](QSqlDatabase.md#static-qstringlist-qsqldatabasedrivers) 
 
 ### *[protected]* QSqlDatabase QSqlDatabase::cloneDatabase(const QString &other, const QString &connectionName    
 -----------------------------------------------------
@@ -267,7 +267,7 @@ qt5.13中引入了这个函数。
 
 这个函数也会影响它的[QSqlDatabase](https://doc.qt.io/qt-5/qsqldatabase.html)对象副本。
 
-**另请参阅** [removeDatabase()](https://doc.qt.io/qt-5/qsqldatabase.html#removeDatabase)
+**另请参阅** [removeDatabase()](QSqlDatabase.md#static-void-qsqldatabaseremovedatabaseconst-qstring-connectionname)
 
 ### bool QSqlDatabase::commit()
 ------------------------------
@@ -334,7 +334,7 @@ qt5.13中引入了这个函数。
 -----------------------------
 返回被使用的数据库连接的所使用的数据库驱动。
 
-**另请参阅** [addDatabase()](https://doc.qt.io/qt-5/qsqldatabase.html#addDatabase) 和 [drivers()](https://doc.qt.io/qt-5/qsqldatabase.html#drivers)
+**另请参阅** [addDatabase()](https://doc.qt.io/qt-5/qsqldatabase.html#addDatabase) 和 [drivers()](QSqlDatabase.md#static-qstringlist-qsqldatabasedrivers)
 
 ### QString QSqlDatabase::driverName() const
 -----------------------------
@@ -368,7 +368,7 @@ qt5.13中引入了这个函数。
 
 如果调用一个叫 `name` 的驱动，是可以使用的，那么就返回 `true`；反之返回 `false`。
 
-**另请参阅** [drivers()](https://doc.qt.io/qt-5/qsqldatabase.html#drivers)。
+**另请参阅** [drivers()](QSqlDatabase.md#static-qstringlist-qsqldatabasedrivers)。
 
 ### bool QSqlDatabase::isOpen() const
 -----------------
@@ -471,7 +471,7 @@ QVERIFY(db.isValid());
 ```
 [QSqlDatabase]()拥有 `creator` 指针的所有权，因此您不能自己删除它。
 
-**另请参阅** [drivers()](https://doc.qt.io/qt-5/qsqldatabase.html#drivers)。
+**另请参阅** [drivers()](QSqlDatabase.md#static-qstringlist-qsqldatabasedrivers)。
 
 ### *[static]* void QSqlDatabase::removeDatabase(const [QString](https://doc.qt.io/qt-5/qstring.html) &connectionName) 
 -------------------------------
