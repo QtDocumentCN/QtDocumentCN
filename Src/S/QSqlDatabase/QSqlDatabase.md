@@ -158,7 +158,7 @@ QSqlDatabase db = QSqlDatabase::database();
 
 其他第三方驱动程序，包括自己自定义的驱动程序，都可以动态加载。
 
-请参阅 [SQL Database Drivers](https://doc.qt.io/qt-5/sql-driver.html), [registerSqlDriver()](https://doc.qt.io/qt-5/qsqldatabase.html#registerSqlDriver) 和 [drivers()](QSqlDatabase.md#static-qstringlist-qsqldatabasedrivers)。
+请参阅 [SQL Database Drivers](https://doc.qt.io/qt-5/sql-driver.html), [registerSqlDriver()](QSqlDatabase.md#static-void-qsqldatabaseregistersqldriverconst-qstring-name-qsqldrivercreatorbase-creator) 和 [drivers()](QSqlDatabase.md#static-qstringlist-qsqldatabasedrivers)。
 
 ### QSqlDatabase::QSqlDatabase(const QSqlDatabase &other)   
 -----------------------------------------
@@ -177,7 +177,7 @@ QSqlDatabase db = QSqlDatabase::database();
 销毁这个对象，并且释放所有配置的资源
 **注意：**  当最后的连接被销毁，这个折构函数就会暗中的调用 `close()`函数，去删除这个数据库的其他连接。
 
-另请参阅 [close()](https://doc.qt.io/qt-5/qsqldatabase.html#close)。
+另请参阅 [close()](QSqlDatabase.md#void-qsqldatabaseclose)。
 
 ### *[static]* QSqlDatabase QSqlDatabase::addDatabase(const QString &type, const QString &connectionName = QLatin1String(defaultConnection))    
 ----------------------------
@@ -195,10 +195,10 @@ QSqlDatabase db = QSqlDatabase::database();
 
 在使用连接之前，它必须经过初始化。比如：
 调用下面一些或者全部 [ setDatabaseName()](QSqlDatabase.md#void-qsqldatabasesetdatabasenameconst-qstring-name)、
-[setUserName()](https://doc.qt.io/qt-5/qsqldatabase.html#setUserName)、 [setPassword()](https://doc.qt.io/qt-5/qsqldatabase.html#setPassword) 、
+[setUserName()](QSqlDatabase.md#void-qsqldatabasesetusernameconst-qstring-name)、 [setPassword()](https://doc.qt.io/qt-5/qsqldatabase.html#setPassword) 、
 [setHostName()](https://doc.qt.io/qt-5/qsqldatabase.html#setHostName)、
 [setPort()](https://doc.qt.io/qt-5/qsqldatabase.html#setPort)
-和 [setConnectOptions()](https://doc.qt.io/qt-5/qsqldatabase.html#setConnectOptions)，并最终调用 [open()](https://doc.qt.io/qt-5/qsqldatabase.html#open)
+和 [setConnectOptions()](QSqlDatabase.md#void-qsqldatabasesetconnectoptionsconst-qstring-options--qstring)，并最终调用 [open()](https://doc.qt.io/qt-5/qsqldatabase.html#open)
 
 **注意：** 这个函数是线程安全的
 
@@ -265,7 +265,7 @@ qt5.13中引入了这个函数。
 -----------
 关闭数据库连接，释放获取的所有资源，并使与数据库一起使用的任何现有QSqlQuery对象无效
 
-这个函数也会影响它的[QSqlDatabase](https://doc.qt.io/qt-5/qsqldatabase.html)对象副本。
+这个函数也会影响它的[QSqlDatabase](QSqlDatabase.md)对象副本。
 
 **另请参阅** [removeDatabase()](QSqlDatabase.md#static-void-qsqldatabaseremovedatabaseconst-qstring-connectionname)
 
@@ -284,13 +284,13 @@ qt5.13中引入了这个函数。
 --------------------------------
 返回用于此连接的连接选项字符串。这个字符串可能是空。
 
-**另请参阅** [setConnectOptions()](https://doc.qt.io/qt-5/qsqldatabase.html#setConnectOptions)
+**另请参阅** [setConnectOptions()](QSqlDatabase.md#void-qsqldatabasesetconnectoptionsconst-qstring-options--qstring)
 
 ### QString QSqlDatabase::connectionName() const
 --------------------------
 返回连接名，它有可能为空。
 
-**注意：** 这个连接名不是 [数据库名](https://doc.qt.io/qt-5/qsqldatabase.html#databaseName)
+**注意：** 这个连接名不是 [数据库名](QSqlDatabase.md#qstring-qsqldatabasedatabasename-const)
 
 `qt4.4` 中引入了这个函数。
 
@@ -346,7 +346,7 @@ qt5.13中引入了这个函数。
 ------------------
 
 返回一个可使用的数据库驱动列表
-**另请参阅** [registerSqlDriver()](https://doc.qt.io/qt-5/qsqldatabase.html#registerSqlDriver)
+**另请参阅** [registerSqlDriver()](QSqlDatabase.md#static-void-qsqldatabaseregistersqldriverconst-qstring-name-qsqldrivercreatorbase-creator)
 
 ### QSqlQuery QSqlDatabase::exec(const QString &query = QString()) const
 ------------------------
@@ -414,7 +414,7 @@ qt4.6中引入了这个函数。
 ---------------
 使用当前连接值打开数据库连接。如果操作成功就返回 `true`; 反之返回 `false`。可以调用 [lastError()](QSqlDatabase.md#qsqlerror-qsqldatabaselasterror-const)来获取错误的信息。
 
-**另请参阅** [lastError()](QSqlDatabase.md#qsqlerror-qsqldatabaselasterror-const)、 [setDatabaseName()](QSqlDatabase.md#void-qsqldatabasesetdatabasenameconst-qstring-name)、[setUserName()](https://doc.qt.io/qt-5/qsqldatabase.html#setUserName)、[setPassword()](https://doc.qt.io/qt-5/qsqldatabase.html#setPassword)、[setHostName()](https://doc.qt.io/qt-5/qsqldatabase.html#setHostName)、[setPort()](https://doc.qt.io/qt-5/qsqldatabase.html#setPort)和 [setConnectOptions()](https://doc.qt.io/qt-5/qsqldatabase.html#setConnectOptions)。
+**另请参阅** [lastError()](QSqlDatabase.md#qsqlerror-qsqldatabaselasterror-const)、 [setDatabaseName()](QSqlDatabase.md#void-qsqldatabasesetdatabasenameconst-qstring-name)、[setUserName()](QSqlDatabase.md#void-qsqldatabasesetusernameconst-qstring-name)、[setPassword()](https://doc.qt.io/qt-5/qsqldatabase.html#setPassword)、[setHostName()](https://doc.qt.io/qt-5/qsqldatabase.html#setHostName)、[setPort()](https://doc.qt.io/qt-5/qsqldatabase.html#setPort)和 [setConnectOptions()](QSqlDatabase.md#void-qsqldatabasesetconnectoptionsconst-qstring-options--qstring)。
 
 ### bool QSqlDatabase::open(const [QString](../QString/QString.md) &user, const [QString](../QString/QString.md) &password)
 -------------------
