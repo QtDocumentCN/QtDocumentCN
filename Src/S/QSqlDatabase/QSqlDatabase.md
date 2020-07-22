@@ -52,30 +52,32 @@ QSqlDatabase 类 用于处理数据库的连接
 |QString|[userName](QSqlDatabase.md#qstring-qsqldatabaseusername-const)() const|
 
 ----------
- ### **静态公共成员**
- |  返回值  | 函数名|
- |------:|:------|
- |QSqlDatabase	|[addDatabase](QSqlDatabase.md#static-qsqldatabase-qsqldatabaseadddatabaseconst-qstring-type-const-qstring-connectionname--qlatin1stringdefaultconnection)(const QString &type, const QString &connectionName = QLatin1String(defaultConnection))|
- |QSqlDatabase	|[addDatabase](QSqlDatabase.md#static-qsqldatabase-qsqldatabaseadddatabaseqsqldriver-driver-const-qstring-connectionname--qlatin1stringdefaultconnection)(QSqlDriver *driver, const QString &connectionName = QLatin1String(defaultConnection))|
- |QSqlDatabase	|[cloneDatabase](QSqlDatabase.md#protected-qsqldatabase-qsqldatabaseclonedatabaseconst-qstring-other-const-qstring-connectionname)(const QSqlDatabase &other, const QString &connectionName)|
- |QSqlDatabase	|[cloneDatabase](QSqlDatabase.md#static-qsqldatabase-qsqldatabaseclonedatabaseconst-qstring-other-const-qstring-connectionname)(const QString &other, const QString &connectionName)|
- |QStringList|[connectionNames](QSqlDatabase.md#static-qstringlist-qsqldatabaseconnectionnames)()|
- |bool	|[contains](QSqlDatabase.md#static-bool-qsqldatabasecontainsconst-qstring-connectionname--qlatin1stringdefaultconnection)(const QString &connectionName = QLatin1String(defaultConnection))|
- |QSqlDatabase	|[database](QSqlDatabase.md#static-qsqldatabase-qsqldatabasedatabaseconst-qstring-connectionname--qlatin1stringdefaultconnection-bool-open--true)(const QString &connectionName = QLatin1String(defaultConnection), bool open = true)|
- |QStringList|[drivers()](QSqlDatabase.md#static-qstringlist-qsqldatabasedrivers)|
- |bool	|[isDriverAvailable](QSqlDatabase.md#static-bool-qsqldatabaseisdriveravailableconst-qstring-name)(const QString &name)|
- |void	|[registerSqlDriver](QSqlDatabase.md#static-void-qsqldatabaseregistersqldriverconst-qstring-name-qsqldrivercreatorbase-creator)(const QString &name, QSqlDriverCreatorBase *creator)|
- |void	|[removeDatabase](QSqlDatabase.md#static-void-qsqldatabaseremovedatabaseconst-qstring-connectionname)(const QString &connectionName)|
+### **静态公共成员**
 
- ----------
-  ### **受保护的成员函数**
-  |  返回值  | 函数名|
-  |------:|:------|
-  |	|[QSqlDatabase](QSqlDatabase.md#protected-qsqldatabaseqsqldatabaseqsqldriver-driver)(QSqlDriver **driver*)|
-  |	|[QSqlDatabase](QSqlDatabase.md#protected-qsqldatabaseqsqldatabaseconst-qstring-type)(const QString &*type*)|
+|  返回值  | 函数名|
+|------:|:------|
+|QSqlDatabase	|[addDatabase](QSqlDatabase.md#static-qsqldatabase-qsqldatabaseadddatabaseconst-qstring-type-const-qstring-connectionname--qlatin1stringdefaultconnection)(const QString &type, const QString &connectionName = QLatin1String(defaultConnection))|
+|QSqlDatabase	|[addDatabase](QSqlDatabase.md#static-qsqldatabase-qsqldatabaseadddatabaseqsqldriver-driver-const-qstring-connectionname--qlatin1stringdefaultconnection)(QSqlDriver *driver, const QString &connectionName = QLatin1String(defaultConnection))|
+|QSqlDatabase	|[cloneDatabase](QSqlDatabase.md#protected-qsqldatabase-qsqldatabaseclonedatabaseconst-qstring-other-const-qstring-connectionname)(const QSqlDatabase &other, const QString &connectionName)|
+|QSqlDatabase	|[cloneDatabase](QSqlDatabase.md#static-qsqldatabase-qsqldatabaseclonedatabaseconst-qstring-other-const-qstring-connectionname)(const QString &other, const QString &connectionName)|
+|QStringList|[connectionNames](QSqlDatabase.md#static-qstringlist-qsqldatabaseconnectionnames)()|
+|bool	|[contains](QSqlDatabase.md#static-bool-qsqldatabasecontainsconst-qstring-connectionname--qlatin1stringdefaultconnection)(const QString &connectionName = QLatin1String(defaultConnection))|
+|QSqlDatabase	|[database](QSqlDatabase.md#static-qsqldatabase-qsqldatabasedatabaseconst-qstring-connectionname--qlatin1stringdefaultconnection-bool-open--true)(const QString &connectionName = QLatin1String(defaultConnection), bool open = true)|
+|QStringList|[drivers()](QSqlDatabase.md#static-qstringlist-qsqldatabasedrivers)|
+|bool	|[isDriverAvailable](QSqlDatabase.md#static-bool-qsqldatabaseisdriveravailableconst-qstring-name)(const QString &name)|
+|void	|[registerSqlDriver](QSqlDatabase.md#static-void-qsqldatabaseregistersqldriverconst-qstring-name-qsqldrivercreatorbase-creator)(const QString &name, QSqlDriverCreatorBase *creator)|
+|void	|[removeDatabase](QSqlDatabase.md#static-void-qsqldatabaseremovedatabaseconst-qstring-connectionname)(const QString &connectionName)|
 
-  -----------
-  ### **详细的介绍**
+
+### **受保护的成员函数**
+
+|返回值|函数名|
+|------:|:------|
+||[QSqlDatabase](QSqlDatabase.md#protected-qsqldatabaseqsqldatabaseqsqldriver-driver)(QSqlDriver **driver*)|
+||[QSqlDatabase](QSqlDatabase.md#protected-qsqldatabaseqsqldatabaseconst-qstring-type)(const QString &*type*)|
+
+
+### **详细的介绍**
 
 QSqlDatabase 类提供接口用于数据库的连接 。一个 QSqlDatabase 实例对象表示连接。
 这个连接提供  数据库 所需要的 驱动，这个驱动来自于  QSqlDriver。
