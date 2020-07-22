@@ -12,11 +12,11 @@ QSql 命名空间 里的 各种名样的标识符，已经被运用在 Qt SQL �
 
 |||
 |------|:------|
-|enum	|[Location](https://doc.qt.io/qt-5/qsql.html#Location-enum) { BeforeFirstRow, AfterLastRow }|
-|enum	|[NumericalPrecisionPolicy](https://doc.qt.io/qt-5/qsql.html#NumericalPrecisionPolicy-enum) { LowPrecisionInt32, LowPrecisionInt64, LowPrecisionDouble, HighPrecision }|
-|flags	|[ParamType](https://doc.qt.io/qt-5/qsql.html#ParamTypeFlag-enum)|
-|enum|	[ParamTypeFlag](https://doc.qt.io/qt-5/qsql.html#ParamTypeFlag-enum) { In, Out, InOut, Binary }|
-|enum	|[TableType](https://doc.qt.io/qt-5/qsql.html#TableType-enum) { Tables, SystemTables, Views, AllTables }|
+|enum	|[Location](QSql.md#enum-qsqllocation) { BeforeFirstRow, AfterLastRow }|
+|enum	|[NumericalPrecisionPolicy](QSql.md#enum-qsqlnumericalprecisionpolicy) { LowPrecisionInt32, LowPrecisionInt64, LowPrecisionDouble, HighPrecision }|
+|flags	|[ParamType](QSql.md#enum-qsqlparamtypeflag)|
+|enum|	[ParamTypeFlag](QSql.md#flags-qsqlparamtype) { In, Out, InOut, Binary }|
+|enum	|[TableType](QSql.md#enum-qsqltabletype) { Tables, SystemTables, Views, AllTables }|
 
 ## 细节的介绍
 查看 [Qt SQL](https://doc.qt.io/qt-5/qtsql-index.html)
