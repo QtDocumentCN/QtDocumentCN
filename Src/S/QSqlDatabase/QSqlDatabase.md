@@ -107,7 +107,7 @@ QSqlDatabase db = QSqlDatabase::database();
 警告：强烈建议不要将QSqlDatabase的拷贝作为类成员，因为这将阻止关闭时正确清理实例。
 如果需要访问已经存在QSqlDatabase，应该使用database()访问。如果您选择使用作为成员变量的QSqlDatabase，则需要在删除QCoreApplication实例之前删除它，否则可能会导致未定义的行为。
 
-如果您想创建多个数据库连接，可以调用 `addDatabase()`, 并且给一个独一无二的参数(即：连接名称)。使用 带有连接名的`database() ` 函数，来获取该连接。使用 带有连接名的`removeDatabase()` 函数，来删除 一个连接。如果尝试删除由其他`QSqlDatabase`对象引用的连接，`QSqlDatabase`将输出警告。可以使用`contains()`查看给定的连接名是否在连接列表中。
+如果您想创建多个数据库连接，可以调用 `addDatabase()`, 并且给一个独一无二的参数(即：连接名称)。使用 带有连接名的`database() ` 函数，来获取该连接。使用 带有连接名的`removeDatabase()` 函数，来删除 一个连接。如果尝试删除由其他`QSqlDatabase`对象引用的连接，`QSqlDatabase`将输出警告。可以使用 [contains()](QSqlDatabase.md#static-bool-qsqldatabasecontainsconst-qstring-connectionname--qlatin1stringdefaultconnection)查看给定的连接名是否在连接列表中。
 
 | |一些实用的方法|
 |------:|:------|
@@ -195,10 +195,10 @@ QSqlDatabase db = QSqlDatabase::database();
 
 在使用连接之前，它必须经过初始化。比如：
 调用下面一些或者全部 [ setDatabaseName()](QSqlDatabase.md#void-qsqldatabasesetdatabasenameconst-qstring-name)、
-[setUserName()](QSqlDatabase.md#void-qsqldatabasesetusernameconst-qstring-name)、 [setPassword()](https://doc.qt.io/qt-5/qsqldatabase.html#setPassword) 、
-[setHostName()](https://doc.qt.io/qt-5/qsqldatabase.html#setHostName)、
-[setPort()](https://doc.qt.io/qt-5/qsqldatabase.html#setPort)
-和 [setConnectOptions()](QSqlDatabase.md#void-qsqldatabasesetconnectoptionsconst-qstring-options--qstring)，并最终调用 [open()](https://doc.qt.io/qt-5/qsqldatabase.html#open)
+[setUserName()](QSqlDatabase.md#void-qsqldatabasesetusernameconst-qstring-name)、 [setPassword()](QSqlDatabase.md#void-qsqldatabasesetpasswordconst-qstring-password) 、
+[setHostName()](QSqlDatabase.md#void-qsqldatabasesethostnameconst-qstring-host)、
+[setPort()](QSqlDatabase.md#void-qsqldatabasesetportint-port)
+和 [setConnectOptions()](QSqlDatabase.md#void-qsqldatabasesetconnectoptionsconst-qstring-options--qstring)，并最终调用 [open()](QSqlDatabase.md#bool-qsqldatabaseopen)
 
 **注意：** 这个函数是线程安全的
 
@@ -233,7 +233,7 @@ win32:LIBS += libpqdll.lib
 |QOCI|	QOCIDriver|	OCIEnv *environment, OCISvcCtx *serviceContext|	qsql_oci.cpp|
 |QODBC|	QODBCDriver|	SQLHANDLE environment, SQLHANDLE connection|	qsql_odbc.cpp|
 |QDB2|	QDB2|	SQLHANDLE environment, SQLHANDLE connection|	qsql_db2.cpp|
-|QTDS|	QTDSDriver|	LOGINREC *loginRecord, DBPROCESS *dbProcess, const [QString](https://doc.qt.io/qt-5/qstring.html) &[hostName](https://doc.qt.io/qt-5/qsqldatabase.html#hostName)|	qsql_tds.cpp|
+|QTDS|	QTDSDriver|	LOGINREC *loginRecord, DBPROCESS *dbProcess, const [QString](../QString/QString.md) &[hostName](QSqlDatabase.md#qstring-qsqldatabasehostname-const)|	qsql_tds.cpp|
 |QSQLITE|	QSQLiteDriver|	sqlite *connection|	qsql_sqlite.cpp|
 |QIBASE|	QIBaseDriver|	isc_db_handle connection|	qsql_ibase.cpp|
 
@@ -245,17 +245,17 @@ win32:LIBS += libpqdll.lib
 
 ### *[protected]* QSqlDatabase QSqlDatabase::cloneDatabase(const QString &other, const QString &connectionName    
 -----------------------------------------------------
-克隆其他数据库连接并将其存储为`connectionName`。原始数据库中的所有设置，例如[databaseName()](https://doc.qt.io/qt-5/qsqldatabase.html#databaseName)、[hostName()](https://doc.qt.io/qt-5/qsqldatabase.html#hostName)等，都会被复制。如果其他数据库无效，则不执行任何操作。返回最新被创建的数据库连接。
+克隆其他数据库连接并将其存储为`connectionName`。原始数据库中的所有设置，例如[databaseName()](QSqlDatabase.md#qstring-qsqldatabasedatabasename-const)、[hostName()](QSqlDatabase.md#qstring-qsqldatabasehostname-const)等，都会被复制。如果其他数据库无效，则不执行任何操作。返回最新被创建的数据库连接。
 
-**注意：** 这个新的连接不能被打开。您必须调用 [open()](https://doc.qt.io/qt-5/qsqldatabase.html#open),才能使用这个新的连接。
+**注意：** 这个新的连接不能被打开。您必须调用 [open()](QSqlDatabase.md#bool-qsqldatabaseopen),才能使用这个新的连接。
 
 ### *[static]* QSqlDatabase QSqlDatabase::cloneDatabase(const QString &other, const QString &connectionName) 
 ------------------------------------
 这是个重载函数。
 
-克隆其他数据库连接并将其存储为`connectionName`。原始数据库中的所有设置，例如[databaseName()](QSqlDatabase.md#qstring-qsqldatabasedatabasename-const)、[hostName()](https://doc.qt.io/qt-5/qsqldatabase.html#hostName)等，都会被复制。如果其他数据库无效，则不执行任何操作。返回最新被创建的数据库连接。
+克隆其他数据库连接并将其存储为`connectionName`。原始数据库中的所有设置，例如[databaseName()](QSqlDatabase.md#qstring-qsqldatabasedatabasename-const)、[hostName()](QSqlDatabase.md#qstring-qsqldatabasehostname-const)等，都会被复制。如果其他数据库无效，则不执行任何操作。返回最新被创建的数据库连接。
 
-**注意：** 这个新的连接不能被打开。您必须调用 [open()](https://doc.qt.io/qt-5/qsqldatabase.html#open),才能使用这个新的连接。
+**注意：** 这个新的连接不能被打开。您必须调用 [open()](QSqlDatabase.md#bool-qsqldatabaseopen),才能使用这个新的连接。
 
 当我们在另一个线程克隆这个数据库，这个重载是非常有用的。
 
@@ -272,7 +272,7 @@ qt5.13中引入了这个函数。
 ### bool QSqlDatabase::commit()
 ------------------------------
 
-如果驱动支持事务和一个[transaction()](https://doc.qt.io/qt-5/qsqldatabase.html#transaction)已经被启动，那就可以提交一个事务到这个数据库中。如果这个操作成功，就会返回 `true`。否则返回 `false`。
+如果驱动支持事务和一个[transaction()](QSqlDatabase.md#bool-qsqldatabasetransaction)已经被启动，那就可以提交一个事务到这个数据库中。如果这个操作成功，就会返回 `true`。否则返回 `false`。
 
 **注意：** 对于一些数据库，如果对数据库使用`SELECT`进行查询操作，将会提交失败并且返回`false`。在执行提交之前，使查询处于非活动状态。
 
@@ -303,7 +303,7 @@ qt5.13中引入了这个函数。
 
 **注意：** 这个函数是[线程安全](https://doc.qt.io/qt-5/threads-reentrancy.html)的。
 
-**另请参阅** [contains()]()，[database()](QSqlDatabase.md#static-qsqldatabase-qsqldatabasedatabaseconst-qstring-connectionname--qlatin1stringdefaultconnection-bool-open--true)， 和 [线程和SQL模块](https://doc.qt.io/qt-5/threads-modules.html#threads-and-the-sql-module) 
+**另请参阅** [contains()](QSqlDatabase.md#static-bool-qsqldatabasecontainsconst-qstring-connectionname--qlatin1stringdefaultconnection)，[database()](QSqlDatabase.md#static-qsqldatabase-qsqldatabasedatabaseconst-qstring-connectionname--qlatin1stringdefaultconnection-bool-open--true)， 和 [线程和SQL模块](https://doc.qt.io/qt-5/threads-modules.html#threads-and-the-sql-module) 
 
 ### *[static]* bool QSqlDatabase::contains(const QString &connectionName = QLatin1String(defaultConnection))
 ------------------------
@@ -319,7 +319,7 @@ qt5.13中引入了这个函数。
 
 **注意：** 这个函数是 [线程安全的](https://doc.qt.io/qt-5/threads-reentrancy.html)
 
-**另请参阅** [isOpen()](https://doc.qt.io/qt-5/qsqldatabase.html#isOpen) 和 [线程和SQL模块](https://doc.qt.io/qt-5/threads-modules.html#threads-and-the-sql-module)。
+**另请参阅** [isOpen()](QSqlDatabase.md#bool-qsqldatabaseisopen-const) 和 [线程和SQL模块](https://doc.qt.io/qt-5/threads-modules.html#threads-and-the-sql-module)。
 
 ### QString QSqlDatabase::databaseName() const
 
@@ -340,7 +340,7 @@ qt5.13中引入了这个函数。
 -----------------------------
 返回连接的驱动名称
 
-**另请参阅** [addDatabase()](QSqlDatabase.md#static-qsqldatabase-qsqldatabaseadddatabaseconst-qstring-type-const-qstring-connectionname--qlatin1stringdefaultconnection) 和 [driver()](https://doc.qt.io/qt-5/qsqldatabase.html#driver)
+**另请参阅** [addDatabase()](QSqlDatabase.md#static-qsqldatabase-qsqldatabaseadddatabaseconst-qstring-type-const-qstring-connectionname--qlatin1stringdefaultconnection) 和 [driver()](QSqlDatabase.md#static-qstringlist-qsqldatabasedrivers)
 
 ### *[static]* QStringList QSqlDatabase::drivers()
 ------------------
@@ -361,7 +361,7 @@ qt5.13中引入了这个函数。
 -------------------
 返回连接的主机名；它有可能为空。
 
-**另请参阅** [setHostName()](https://doc.qt.io/qt-5/qsqldatabase.html#setHostName)
+**另请参阅** [setHostName()](QSqlDatabase.md#void-qsqldatabasesethostnameconst-qstring-host)
 
 ### *[static]* bool QSqlDatabase::isDriverAvailable(const QString &name) 
 ----------------
@@ -380,7 +380,7 @@ qt5.13中引入了这个函数。
 
 ### bool QSqlDatabase::isValid() const
 -------------
-如果 [QSqlDatabase()](https://doc.qt.io/qt-5/qsqldatabase.html) 有一个有效的驱动，那么就返回 `true`。
+如果 [QSqlDatabase()](QSqlDatabase.md) 有一个有效的驱动，那么就返回 `true`。
 
 例子：
 ```CPP
@@ -414,7 +414,7 @@ qt4.6中引入了这个函数。
 ---------------
 使用当前连接值打开数据库连接。如果操作成功就返回 `true`; 反之返回 `false`。可以调用 [lastError()](QSqlDatabase.md#qsqlerror-qsqldatabaselasterror-const)来获取错误的信息。
 
-**另请参阅** [lastError()](QSqlDatabase.md#qsqlerror-qsqldatabaselasterror-const)、 [setDatabaseName()](QSqlDatabase.md#void-qsqldatabasesetdatabasenameconst-qstring-name)、[setUserName()](QSqlDatabase.md#void-qsqldatabasesetusernameconst-qstring-name)、[setPassword()](https://doc.qt.io/qt-5/qsqldatabase.html#setPassword)、[setHostName()](https://doc.qt.io/qt-5/qsqldatabase.html#setHostName)、[setPort()](https://doc.qt.io/qt-5/qsqldatabase.html#setPort)和 [setConnectOptions()](QSqlDatabase.md#void-qsqldatabasesetconnectoptionsconst-qstring-options--qstring)。
+**另请参阅** [lastError()](QSqlDatabase.md#qsqlerror-qsqldatabaselasterror-const)、 [setDatabaseName()](QSqlDatabase.md#void-qsqldatabasesetdatabasenameconst-qstring-name)、[setUserName()](QSqlDatabase.md#void-qsqldatabasesetusernameconst-qstring-name)、[setPassword()](https://doc.qt.io/qt-5/qsqldatabase.html#setPassword)、[setHostName()](QSqlDatabase.md#void-qsqldatabasesethostnameconst-qstring-host)、[setPort()](QSqlDatabase.md#void-qsqldatabasesetportint-port)和 [setConnectOptions()](QSqlDatabase.md#void-qsqldatabasesetconnectoptionsconst-qstring-options--qstring)。
 
 ### bool QSqlDatabase::open(const [QString](../QString/QString.md) &user, const [QString](../QString/QString.md) &password)
 -------------------
@@ -429,17 +429,18 @@ qt4.6中引入了这个函数。
 
 ### [QString](https://doc.qt.io/qt-5/qstring.html) QSqlDatabase::password() const
 ------------------
-返回连接的密码。如果没有使用[setPassword()](https://doc.qt.io/qt-5/qsqldatabase.html#setPassword) 函数进行密码的设置 并且 没有调用 [open()](https://doc.qt.io/qt-5/qsqldatabase.html#open) 以及 没有使用密码，那么就返回空的字符串。
+返回连接的密码。如果没有使用[setPassword()](QSqlDatabase.md#void-qsqldatabasesetpasswordconst-qstring-password) 函数进行密码的设置 并且 没有调用 [open()](QSqlDatabase.md#bool-qsqldatabaseopen) 以及 没有使用密码，那么就返回空的字符串。
 
-**另请参阅** [setPassword()](https://doc.qt.io/qt-5/qsqldatabase.html#setPassword)
+**另请参阅** [setPassword()](QSqlDatabase.md#void-qsqldatabasesetpasswordconst-qstring-password)
 
 ### int QSqlDatabase::port() const
 -----------------
 返回连接的端口号。如果端口号没有设置，那么这个值就是未定义的。
 
-**另请参阅** [setPort()](https://doc.qt.io/qt-5/qsqldatabase.html#setPort)
+**另请参阅** [setPort()](QSqlDatabase.md#void-qsqldatabasesetportint-port)
 
-### [QSqlIndex](https://doc.qt.io/qt-5/qsqlindex.html) QSqlDatabase::primaryIndex(const [QString](../QString/QString.md) &tablename) const
+../QString/QString.md
+### [QSqlIndex](../QSqlIndex/QSqlIndex.md) QSqlDatabase::primaryIndex(const [QString](../QString/QString.md) &tablename) const
 ---------------------------
 
 返回所给表格名的索引。如果索引不存在，那么就返回一个空的 [QSqlIndex](https://doc.qt.io/qt-5/qsqlindex.html)
@@ -448,9 +449,9 @@ qt4.6中引入了这个函数。
 
 查看关于 [Qt SQL driver](https://doc.qt.io/qt-5/sql-driver.html) 文档的更多信息。
 
-**另请参阅**  [tables()](/QSqlDatabase.md#qstringlist-qsqldatabasetablesqsqltabletype-type--qsqltables-const) 和 [record()](QSqlDatabase.md#qsqlrecord-qsqldatabaserecordconst-qstring-tablename-const)。
+**另请参阅**  [tables()](QSqlDatabase.md#qstringlist-qsqldatabasetablesqsqltabletype-type--qsqltables-const) 和 [record()](QSqlDatabase.md#qsqlrecord-qsqldatabaserecordconst-qstring-tablename-const)。
 
-### [QSqlRecord](https://doc.qt.io/qt-5/qsqlrecord.html) QSqlDatabase::record(const [QString](../QString/QString.md) &tablename) const
+### [QSqlRecord](../QSqlRecord/QSqlRecord.md) QSqlDatabase::record(const [QString](../QString/QString.md) &tablename) const
 -----------------------------------
 返回一个[QSqlRecord](https://doc.qt.io/qt-5/qsqlrecord.html)，其中填充了名为tablename的表（或视图）中所有字段的名称。字段在记录中出现的顺序未定义。如果没有这样的表格（或者视图）存在，将会返回一个空的记录。
 
@@ -458,7 +459,7 @@ qt4.6中引入了这个函数。
 
 查看 [Qt SQL driver](https://doc.qt.io/qt-5/sql-driver.html) 文档的更多信息。
 
-### *[static]* void QSqlDatabase::registerSqlDriver(const [QString](../QString/QString.md) &name, [QSqlDriverCreatorBase](https://doc.qt.io/qt-5/qsqldrivercreatorbase.html) *creator) 
+### *[static]* void QSqlDatabase::registerSqlDriver(const [QString](../QString/QString.md) &name, [QSqlDriverCreatorBase](../QSqlDriverCreatorBase/QSqlDriverCreatorBase.md) *creator) 
 ----------------------
 这个函数在 `SQL`框架中注册一个名为 `name` 的新 `SQL` 驱动程序。这个是非常有用的，如果您有一个自定义的驱动，并且您并不想把它编译作为一个插件。
 
