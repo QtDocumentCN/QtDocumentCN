@@ -8,16 +8,14 @@ QList 类是一个用于提供列表支持的模板类。[更多...](QList.md#de
 | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
 | 头文件:       | #include <QList>                                                                                                                      |
 | qmake:        | QT += core                                                                                                                               |
-| 被继承: | [QByteArrayList](../../B/QByteArrayList/QByteArrayList.md), [QItemSelection](../../I/QItemSelection/QItemSelection.md), [QQueue](../../Q/QQueue/QQueue.md), and [QStringList](../../S/QStringList/QStringList.md) |
+| 子类: | [QByteArrayList](../../B/QByteArrayList/QByteArrayList.md), [QItemSelection](../../I/QItemSelection/QItemSelection.md), [QQueue](../../Q/QQueue/QQueue.md) 和 [QStringList](../../S/QStringList/QStringList.md) |
 
-  - [List of all members, including inherited
-    members](qlist-members.html)
-  - [Obsolete members](qlist-obsolete.html)
+- [包括继承而来在内的所有成员列表](QList_Members.md)
+- [已废弃成员](QList_Obsolete.md)
 
-**Note:** All functions in this class are
-[reentrant](threads-reentrancy.html).
+**注意：** 本页面提到的方法都是[可重入的](../../T/Thread_Reentrancy/Thread_Reentrancy.md).
 
-## Public Types[](QList.md#public-types "Direct link to this headline")
+## 公共成员类型
 
 |         |                                                                           |
 | ------- | ------------------------------------------------------------------------- |
@@ -35,7 +33,7 @@ QList 类是一个用于提供列表支持的模板类。[更多...](QList.md#de
 | typedef | **[size_type](QList.md#typedef-qlistsizetype)**                            |
 | typedef | **[value_type](QList.md#typedef-qlistvaluetype)**                          |
 
-## Public Functions[](QList.md#public-functions "Direct link to this headline")
+## 公共成员方法
 
 |                                 |                                                                                    |
 | ------------------------------- | ---------------------------------------------------------------------------------- |
@@ -124,7 +122,7 @@ QList 类是一个用于提供列表支持的模板类。[更多...](QList.md#de
 | T &                             | **[operator[]](QList.md#t-qlistoperator)**(int *i*)                             |
 | const T &                       | **[operator[]](QList.md#const-t-qlistoperator-const)**(int *i*) const                     |
 
-## Static Public Members[](QList.md#static-public-members "Direct link to this headline")
+## 静态公共成员
 
 |            |                                                                         |
 | ---------- | ----------------------------------------------------------------------- |
@@ -132,7 +130,7 @@ QList 类是一个用于提供列表支持的模板类。[更多...](QList.md#de
 | QList<T> | **[fromStdList](QList.md#static-qlistt-qlistfromstdlistconst-stdlistt-list)**(const std::list<T> &*list*) |
 | QList<T> | **[fromVector](QList.md#static-qlistt-qlistfromvectorconst-qvectort-vector)**(const QVector<T> &*vector*)   |
 
-## Related Non-Members[](QList.md#related-non-members "Direct link to this headline")
+## 相关非成员函数
 
 |               |                                                                                                |
 | ------------- | ---------------------------------------------------------------------------------------------- |
@@ -144,115 +142,54 @@ QList 类是一个用于提供列表支持的模板类。[更多...](QList.md#de
 | bool          | **[operator>=](QList.md#template-typename-t-bool-operatorconst-qlistt-lhs-const-qlistt-rhs)**(const QList<T> &*lhs*, const QList<T> &*rhs*) |
 | QDataStream & | **[operator>>](QList.md#template-typename-t-qdatastream-operatorqdatastream-in-qlistt-list)**(QDataStream &*in*, QList<T> &*list*)           |
 
-## Detailed Description[](QList.md#details "Direct link to this headline")
+## 详细描述
 
-QList<T> is one of Qt's generic [container classes](containers.html).
-It stores items in a list that provides fast index-based access and
-index-based insertions and removals.
+QList<T> 是 [Qt 泛型容器](../../C/Container_Classes/Container_Classes.md)之一，通过列表保存元素，提供了基于索引的快速访问以及基于索引的插入和删除。
 
-QList<T>, QLinkedList<T>, and [QVector](../../V/QVector/QVector.md)<T> provide
-similar APIs and functionality. They are often interchangeable, but
-there are performance consequences. Here is an overview of use cases:
+QList<T>, QLinkedList<T> 和 [QVector](../../V/QVector/QVector.md)<T> 提供了类似的接口和功能。 大部分情况下它们之间是可以互相替换的，但可能会带来一些性能问题。张俄里是一个各自适用场景的总结：
 
-  - [QVector](../../V/QVector/QVector.md) should be your default first choice.
-    [QVector](../../V/QVector/QVector.md)<T> will usually give better performance
-    than QList<T>, because [QVector](../../V/QVector/QVector.md)<T> always stores
-    its items sequentially in memory, where QList<T> will allocate its
-    items on the heap unless `sizeof(T) <= sizeof(void*)` and T has been
-    declared to be either a `Q_MOVABLE_TYPE` or a `Q_PRIMITIVE_TYPE`
-    using [Q_DECLARE_TYPEINFO](../../O/TODO/TODO.md#qdeclaretypeinfotype-flags). See
-    the [Pros and Cons of Using
-    QList](http://marcmutz.wordpress.com/effective-qt/containers/#containers-qlist)
-    for an explanation.
-  - However, QList is used throughout the Qt APIs for passing parameters
-    and for returning values. Use QList to interface with those APIs.
-  - If you need a real linked list, which guarantees [constant
-    time](containers.html#algorithmic-complexity) insertions mid-list
-    and uses iterators to items rather than indexes, use QLinkedList.
+- [QVector](../../V/QVector/QVector.md) 应当是你的默认首选。[QVector](../../V/QVector/QVector.md)<T> 的性能通常要优于 QList<T>, 因为 [QVector](../../V/QVector/QVector.md)<T> 总是在内存中连续存储其元素，而 QList<T> 则只会在`sizeof(T) <= sizeof(void*)` 且 T 通过[Q_DECLARE_TYPEINFO](../../O/TODO/TODO.md#qdeclaretypeinfotype-flags)被声明为 `Q_MOVABLE_TYPE` 或 `Q_PRIMITIVE_TYPE` 的情况下才会这么做，否则将会在对上分配其元素的内存。[使用 QList 的利弊](http://marcmutz.wordpress.com/effective-qt/containers/#containers-qlist) 对此做了解释。
+- 然而，QList 在 Qt API 中总是被用来传递参数和保存返回值，和这些 API 交互时请使用 QList。
+- 如果你需要一个真正的基于链表实现的列表，以保证列表中间插入元素是[常量时间复杂度](../../C/Container_Classes/Container_Classes.md#算法复杂度) 以及基于迭代器而不是索引来对元素访问，你可以选择 QLinkedList.
 
-**Note:** [QVector](../../V/QVector/QVector.md) and
-[QVarLengthArray](../../V/QVarLengthArray/QVarLengthArray.md) both guarantee C-compatible
-array layout. QList does not. This might be important if your
-application must interface with a C API.
+**注意:** [QVector](../../V/QVector/QVector.md) 和 [QVarLengthArray](../../V/QVarLengthArray/QVarLengthArray.md) 都提供了对 C 数组内存布局的兼容，但 QList 不保证这一点。这一点在你的应用需要和 C API 交互时可能会非常重要。
 
-**Note:** Iterators into a QLinkedList and references into
-heap-allocating QLists remain valid as long as the referenced items
-remain in the container. This is not true for iterators and references
-into a [QVector](../../V/QVector/QVector.md) and non-heap-allocating QLists.
+**注意:** QLinkedList 和贼了堆上分配内存的 QLinkedList 的迭代器只要其指向的元素还在容器中，将会一直保持有效。但 [QVector](../../V/QVector/QVector.md) 和非在堆上分配内存的的 QLinkedList 的迭代器并不保证这一点。
 
-Internally, QList<T> is represented as an array of T if `sizeof(T) <=
-sizeof(void*)` and T has been declared to be either a `Q_MOVABLE_TYPE`
-or a `Q_PRIMITIVE_TYPE` using
-[Q_DECLARE_TYPEINFO](../../O/TODO/TODO.md#qdeclaretypeinfotype-flags). Otherwise,
-QList<T> is represented as an array of T* and the items are allocated
-on the heap.
+内部实现中，如果 `sizeof(T) <= sizeof(void*)` 且 T 通过[Q_DECLARE_TYPEINFO](../../G/QtGlobal/QtGlobal.md#qdeclaretypeinfotype-flags)被声明为 `Q_MOVABLE_TYPE` 或 `Q_PRIMITIVE_TYPE` 时，QList<T> 表现为一个 T 的数组。否则，QList<T> 表现为一个 T* 的数组，元素实际在堆上分配内存。
 
-The array representation allows very fast insertions and index-based
-access. The [prepend](QList.md#void-qlistprependconst-t-value)() and
-[append](QList.md#void-qlistappendconst-t-value)() operations are also very fast because
-QList preallocates memory at both ends of its internal array. (See
-[Algorithmic Complexity](containers.html#algorithmic-complexity) for
-details.
+基于数组的实现的 QList 支持快速插入和基于索引的访问。[prepend](QList.md#void-qlistprependconst-t-value)() and [append](QList.md#void-qlistappendconst-t-value)() 操作也非常快，因为 QList 在内部数组的头尾均预分配了内存。（详见[算法复杂度](../../C/Container_Classes/Container_Classes.md#算法复杂度)
 
-Note, however, that when the conditions specified above are not met,
-each append or insert of a new item requires allocating the new item on
-the heap, and this per item allocation will make [QVector](../../V/QVector/QVector.md)
-a better choice for use cases that do a lot of appending or inserting,
-because [QVector](../../V/QVector/QVector.md) can allocate memory for many items in a
-single heap allocation.
+注意，如果上面的条件不能满足，每一次追加或插入一个新的元素都需要在堆上分配这个新元素的内存。这会导致在有大量元素的追加和插入时使用 [QVector](../../V/QVector/QVector.md) 成为一个更好的选择，因为 [QVector](../../V/QVector/QVector.md) 可以在一次性为多个元素在堆上分配内存。
 
-Note that the internal array only ever gets bigger over the life of the
-list. It never shrinks. The internal array is deallocated by the
-destructor and by the assignment operator, when one list is assigned to
-another.
+另一个需要注意的是内部数组在列表的整个生命周期内只会不断增大，永远不会缩小。内部数组将会在列表析构时调用的析构函数或一个列表被赋值给另一个时调用的赋值运算符函数中被析构。
 
-Here's an example of a QList that stores integers and a QList that
-stores [QDate](../../D/QDate/QDate.md) values:
+下方是使用 QList 保存整型数字和使用 QList 保存 [QDate](../../D/QDate/QDate.md) 的例子:
 
-``` cpp prettyprint
+``` cpp
 QList<int> integerList;
 QList<QDate> dateList;
 ```
 
-Qt includes a [QStringList](../../S/QStringList/QStringList.md) class that inherits
-QList<[QString](../../S/QString/QString.md)> and adds a few convenience functions,
-such as [QStringList::join](../../S/QStringList/QStringList.md#qstring-qstringlistjoinconst-qstring-separator-const)() and
-[QStringList::filter](../../S/QStringList/QStringList.md#qstringlist-qstringlistfilterconst-qstring-str-qtcasesensitivity-cs--qtcasesensitive-const)().
-[QString::split](../../S/QString/QString.md#qstringlist-qstringsplitconst-qstring-sep-qtsplitbehavior-behavior--qtkeepemptyparts-qtcasesensitivity-cs--qtcasesensitive-const)() creates QStringLists from
-strings.
+Qt 提供了 [QStringList](../../S/QStringList/QStringList.md) 类，其继承于 QList<[QString](../../S/QString/QString.md)> ，提供了一些快捷方法，例如 [QStringList::join](../../S/QStringList/QStringList.md#qstring-qstringlistjoinconst-qstring-separator-const)() 和 [QStringList::filter](../../S/QStringList/QStringList.md#qstringlist-qstringlistfilterconst-qstring-str-qtcasesensitivity-cs--qtcasesensitive-const)()。[QString::split](../../S/QString/QString.md#qstringlist-qstringsplitconst-qstring-sep-qtsplitbehavior-behavior--qtkeepemptyparts-qtcasesensitivity-cs--qtcasesensitive-const)() 用于从 QString 创建 QStringList.
 
-QList stores a list of items. The default constructor creates an empty
-list. You can use the initializer-list constructor to create a list with
-elements:
+QList 以列表的形式保存元素，默认构建函数会创建一个空列表，你可以使用带有初始化列表的构造函数创建出一个带有元素的的列表：
 
-``` cpp prettyprint
+``` cpp
 QList<QString> list = { "one", "two", "three" };
 ```
 
-QList provides these basic functions to add, move, and remove items:
-[insert](QList.md#void-qlistinsertint-i-const-t-value)(), [replace](QList.md#void-qlistreplaceint-i-const-t-value)(),
-[removeAt](QList.md#void-qlistremoveatint-i)(), [move](QList.md#void-qlistmoveint-from-int-to)(), and
-[swap](QList.md#void-qlistswapqlistt-other)(). In addition, it provides the following
-convenience functions: [append](QList.md#void-qlistappendconst-t-value)(),
-[operator<<](QList.md#qlistt-qlistoperatorconst-qlistt-other)(),
-[operator+=](QList.md#qlistt-qlistoperatorconst-qlistt-other)(),
-[prepend](QList.md#void-qlistprependconst-t-value)(),
-[removeFirst](QList.md#void-qlistremovefirst)(), and
-[removeLast](QList.md#void-qlistremovelast)().
+QList 提供了这些基础方法用于添加，移动和删除元素：[insert](QList.md#void-qlistinsertint-i-const-t-value)(), [replace](QList.md#void-qlistreplaceint-i-const-t-value)(), [removeAt](QList.md#void-qlistremoveatint-i)(), [move](QList.md#void-qlistmoveint-from-int-to)(), and [swap](QList.md#void-qlistswapqlistt-other)(). In addition, it provides the following convenience functions: [append](QList.md#void-qlistappendconst-t-value)(), [operator`<<`](QList.md#qlistt-qlistoperatorconst-qlistt-other)(), [operator+=](QList.md#qlistt-qlistoperatorconst-qlistt-other)(), [prepend](QList.md#void-qlistprependconst-t-value)(), [removeFirst](QList.md#void-qlistremovefirst)() 和 [removeLast](QList.md#void-qlistremovelast)().
 
-[operator<<](QList.md#qlistt-qlistoperatorconst-qlistt-other)() allows to conveniently add
-multiple elements to a list:
+[operator`<<`](QList.md#qlistt-qlistoperatorconst-qlistt-other)() 可以方便的添加多个元素到列表中:
 
-``` cpp prettyprint
+``` cpp
 list << "four" << "five";
 ```
 
-QList uses 0-based indexes, just like C++ arrays. To access the item at
-a particular index position, you can use operator[](). On non-const
-lists, operator[]() returns a reference to the item and can be used on
-the left side of an assignment:
+和 C++ 数组一样，QList 使用从0开始的索引。要访问在指定位置的元素，你可以使用 `operator[]()`。对于非常量列表，`operator[]()` 用于返回一个元素的应用，可以被用于赋值运算符的左侧：
 
-``` cpp prettyprint
+``` cpp
 if (list[0] == "Bob")
     list[0] = "Robert";
 ```
@@ -262,7 +199,7 @@ larger than a pointer or are not movable, this operation requires
 ([constant time](containers.html#algorithmic-complexity)). For read-only
 access, an alternative syntax is to use [at](QList.md#const-t-qlistatint-i-const)():
 
-``` cpp prettyprint
+``` cpp
 for (int i = 0; i < list.size(); ++i) {
     if (list.at(i) == "Jane")
         cout << "Found Jane at position " << i << Qt::endl;
@@ -278,7 +215,7 @@ with it. For this, QList provides [takeAt](QList.md#t-qlisttakeatint-i)(),
 [takeLast](QList.md#t-qlisttakelast)(). Here's a loop that removes the items
 from a list one at a time and calls `delete` on them:
 
-``` cpp prettyprint
+``` cpp
 QList<QWidget *> list;
 ...
 while (!list.isEmpty())
@@ -297,7 +234,7 @@ starting from a given index position, the latter searches backward. Both
 return the index of a matching item if they find it; otherwise, they
 return -1. For example:
 
-``` cpp prettyprint
+``` cpp
 int i = list.indexOf("Jane");
 if (i != -1)
     cout << "First occurrence of Jane is at position " << i << Qt::endl;
@@ -351,7 +288,7 @@ If you must pass an index value that might not be in the valid range,
 check that it is less than the value returned by
 [size](QList.md#typedef-qlistsizetype)() but *not* less than 0.
 
-### More Members[](QList.md#more-members "Direct link to this headline")
+### More Members
 
 If T is a [QByteArray](../../B/QByteArray/QByteArray.md), this class has a couple more
 members that can be used. See the documentation for
@@ -363,7 +300,7 @@ members: [filter](../../O/TODO/TODO.md#qstringlist-qstringlistfilterconst-qstrin
 [removeDuplicates](../../O/TODO/TODO.md#int-qstringlistremoveduplicates),
 [sort](../../O/TODO/TODO.md#void-qstringlistsortqtcasesensitivity-cs--qtcasesensitive).
 
-### More Information on Using Qt Containers[](QList.md#more-information-on-using-qt-containers "Direct link to this headline")
+### More Information on Using Qt Containers
 
 For a detailed discussion comparing Qt containers with each other and
 with STL containers, see [Understand the Qt
@@ -375,24 +312,24 @@ Containers](http://marcmutz.wordpress.com/effective-qt/containers/).
 
 ## Member Type Documentation
 
-### typedef QList::ConstIterator[](QList.md#ConstIterator-typedef "Direct link to this headline")
+### typedef QList::ConstIterator
 
 Qt-style synonym for
 [QList::const_iterator](qlist-const-iterator.html).
 
-### typedef QList::Iterator[](QList.md#Iterator-typedef "Direct link to this headline")
+### typedef QList::Iterator
 
 Qt-style synonym for [QList::iterator](qlist-iterator.html).
 
-### typedef QList::const_pointer[](QList.md#const_pointer-typedef "Direct link to this headline")
+### typedef QList::const_pointer
 
 Typedef for const T *. Provided for STL compatibility.
 
-### typedef QList::const_reference[](QList.md#const_reference-typedef "Direct link to this headline")
+### typedef QList::const_reference
 
 Typedef for const T &. Provided for STL compatibility.
 
-### typedef QList::const_reverse_iterator[](QList.md#const_reverse_iterator-typedef "Direct link to this headline")
+### typedef QList::const_reverse_iterator
 
 The QList::const_reverse_iterator typedef provides an STL-style const
 reverse iterator for [QList](../../L/QList/QList.md).
@@ -412,19 +349,19 @@ This typedef was introduced in Qt 5.6.
 [QList::reverse_iterator](QList.md#typedef-qlistreverseiterator), and
 [QList::const_iterator](qlist-const-iterator.html).
 
-### typedef QList::difference_type[](QList.md#difference_type-typedef "Direct link to this headline")
+### typedef QList::difference_type
 
 Typedef for ptrdiff_t. Provided for STL compatibility.
 
-### typedef QList::pointer[](QList.md#pointer-typedef "Direct link to this headline")
+### typedef QList::pointer
 
 Typedef for T *. Provided for STL compatibility.
 
-### typedef QList::reference[](QList.md#reference-typedef "Direct link to this headline")
+### typedef QList::reference
 
 Typedef for T &. Provided for STL compatibility.
 
-### typedef QList::reverse_iterator[](QList.md#reverse_iterator-typedef "Direct link to this headline")
+### typedef QList::reverse_iterator
 
 The QList::reverse_iterator typedef provides an STL-style non-const
 reverse iterator for [QList](../../L/QList/QList.md).
@@ -444,17 +381,17 @@ This typedef was introduced in Qt 5.6.
 [QList::const_reverse_iterator](QList.md#typedef-qlistconstreverseiterator),
 and [QList::iterator](qlist-iterator.html).
 
-### typedef QList::size_type[](QList.md#size_type-typedef "Direct link to this headline")
+### typedef QList::size_type
 
 Typedef for int. Provided for STL compatibility.
 
-### typedef QList::value_type[](QList.md#value_type-typedef "Direct link to this headline")
+### typedef QList::value_type
 
 Typedef for T. Provided for STL compatibility.
 
 ## Member Function Documentation
 
-### template <typename InputIterator> QList::QList(InputIterator *first*, InputIterator *last*)[](QList.md#QList-4 "Direct link to this headline")
+### template <typename InputIterator> QList::QList(InputIterator *first*, InputIterator *last*)
 
 Constructs a QList with the contents in the iterator range [*first*,
 *last*).
@@ -463,7 +400,7 @@ The value type of `InputIterator` must be convertible to `T`.
 
 This function was introduced in Qt 5.14.
 
-### QList::QList(std::initializer_list<T> *args*)[](QList.md#QList-3 "Direct link to this headline")
+### QList::QList(std::initializer_list<T> *args*)
 
 Construct a list from the std::initializer_list specified by *args*.
 
@@ -472,14 +409,14 @@ initializer lists.
 
 This function was introduced in Qt 4.8.
 
-### QList::QList([QList](QList.md#template-typename-inputiterator-qlistqlistinputiterator-first-inputiterator-last)<T> &&*other*)[](QList.md#QList-2 "Direct link to this headline")
+### QList::QList([QList](QList.md#template-typename-inputiterator-qlistqlistinputiterator-first-inputiterator-last)<T> &&*other*)
 
 Move-constructs a QList instance, making it point at the same object
 that *other* was pointing to.
 
 This function was introduced in Qt 5.2.
 
-### QList::QList(const [QList](QList.md#template-typename-inputiterator-qlistqlistinputiterator-first-inputiterator-last)<T> &*other*)[](QList.md#QList-1 "Direct link to this headline")
+### QList::QList(const [QList](QList.md#template-typename-inputiterator-qlistqlistinputiterator-first-inputiterator-last)<T> &*other*)
 
 Constructs a copy of *other*.
 
@@ -492,32 +429,32 @@ time](containers.html#algorithmic-complexity).
 
 **See also** [operator=](QList.md#qlistt-qlistoperatorqlistt-other)().
 
-### QList::QList()[](QList.md#QList "Direct link to this headline")
+### QList::QList()
 
 Constructs an empty list.
 
-### [QList](QList.md#template-typename-inputiterator-qlistqlistinputiterator-first-inputiterator-last)<T> &QList::operator=([QList](QList.md#template-typename-inputiterator-qlistqlistinputiterator-first-inputiterator-last)<T> &&*other*)[](QList.md#operator-eq-1 "Direct link to this headline")
+### [QList](QList.md#template-typename-inputiterator-qlistqlistinputiterator-first-inputiterator-last)<T> &QList::operator=([QList](QList.md#template-typename-inputiterator-qlistqlistinputiterator-first-inputiterator-last)<T> &&*other*)
 
 Move-assigns *other* to this [QList](../../L/QList/QList.md) instance.
 
 This function was introduced in Qt 5.2.
 
-### [QList](QList.md#template-typename-inputiterator-qlistqlistinputiterator-first-inputiterator-last)<T> &QList::operator=(const [QList](QList.md#template-typename-inputiterator-qlistqlistinputiterator-first-inputiterator-last)<T> &*other*)[](QList.md#operator-eq "Direct link to this headline")
+### [QList](QList.md#template-typename-inputiterator-qlistqlistinputiterator-first-inputiterator-last)<T> &QList::operator=(const [QList](QList.md#template-typename-inputiterator-qlistqlistinputiterator-first-inputiterator-last)<T> &*other*)
 
 Assigns *other* to this list and returns a reference to this list.
 
-### QList::~QList()[](QList.md#dtor.QList "Direct link to this headline")
+### QList::~QList()
 
 Destroys the list. References to the values in the list and all
 iterators of this list become invalid.
 
-### void QList::append(const T &*value*)[](QList.md#append "Direct link to this headline")
+### void QList::append(const T &*value*)
 
 Inserts *value* at the end of the list.
 
 Example:
 
-``` cpp prettyprint
+``` cpp
 QList<QString> list;
 list.append("one");
 list.append("two");
@@ -535,7 +472,7 @@ its internal buffer to allow for fast growth at both ends of the list.
 **See also** [operator<<](QList.md#qlistt-qlistoperatorconst-qlistt-other)(),
 [prepend](QList.md#void-qlistprependconst-t-value)(), and [insert](QList.md#void-qlistinsertint-i-const-t-value)().
 
-### void QList::append(const [QList](QList.md#template-typename-inputiterator-qlistqlistinputiterator-first-inputiterator-last)<T> &*value*)[](QList.md#append-1 "Direct link to this headline")
+### void QList::append(const [QList](QList.md#template-typename-inputiterator-qlistqlistinputiterator-first-inputiterator-last)<T> &*value*)
 
 This is an overloaded function.
 
@@ -546,7 +483,7 @@ This function was introduced in Qt 4.5.
 **See also** [operator<<](QList.md#qlistt-qlistoperatorconst-qlistt-other)() and
 [operator+=](QList.md#qlistt-qlistoperatorconst-qlistt-other)().
 
-### const T &QList::at(int *i*) const[](QList.md#at "Direct link to this headline")
+### const T &QList::at(int *i*) const
 
 Returns the item at index position *i* in the list. *i* must be a valid
 index position in the list (i.e., 0 <= *i* <
@@ -558,18 +495,18 @@ time](containers.html#algorithmic-complexity)).
 **See also** [value](QList.md#typedef-qlistvaluetype)() and
 [operator[]](QList.md#t-qlistoperator)().
 
-### T &QList::back()[](QList.md#back "Direct link to this headline")
+### T &QList::back()
 
 This function is provided for STL compatibility. It is equivalent to
 [last](QList.md#t-qlistlast)(). The list must not be empty. If the list can
 be empty, call [isEmpty](QList.md#bool-qlistisempty-const)() before calling this
 function.
 
-### const T &QList::back() const[](QList.md#back-1 "Direct link to this headline")
+### const T &QList::back() const
 
 This is an overloaded function.
 
-### [QList::iterator](qlist-iterator.html) QList::begin()[](QList.md#begin "Direct link to this headline")
+### [QList::iterator](qlist-iterator.html) QList::begin()
 
 Returns an [STL-style iterator](../../O/TODO/TODO.md#stlstyle-iterators)
 pointing to the first item in the list.
@@ -577,11 +514,11 @@ pointing to the first item in the list.
 **See also** [constBegin](QList.md#qlistconstiterator-qlistconstbegin-const)() and
 [end](QList.md#qlistiterator-qlistend)().
 
-### [QList::const_iterator](qlist-const-iterator.html) QList::begin() const[](QList.md#begin-1 "Direct link to this headline")
+### [QList::const_iterator](qlist-const-iterator.html) QList::begin() const
 
 This is an overloaded function.
 
-### [QList::const_iterator](qlist-const-iterator.html) QList::cbegin() const[](QList.md#cbegin "Direct link to this headline")
+### [QList::const_iterator](qlist-const-iterator.html) QList::cbegin() const
 
 Returns a const [STL-style
 iterator](../../O/TODO/TODO.md#stlstyle-iterators) pointing to the first
@@ -591,7 +528,7 @@ This function was introduced in Qt 5.0.
 
 **See also** [begin](QList.md#qlistiterator-qlistbegin)() and [cend](QList.md#qlistconstiterator-qlistcend-const)().
 
-### [QList::const_iterator](qlist-const-iterator.html) QList::cend() const[](QList.md#cend "Direct link to this headline")
+### [QList::const_iterator](qlist-const-iterator.html) QList::cend() const
 
 Returns a const [STL-style
 iterator](../../O/TODO/TODO.md#stlstyle-iterators) pointing to the imaginary
@@ -601,13 +538,13 @@ This function was introduced in Qt 5.0.
 
 **See also** [cbegin](QList.md#qlistconstiterator-qlistcbegin-const)() and [end](QList.md#qlistiterator-qlistend)().
 
-### void QList::clear()[](QList.md#clear "Direct link to this headline")
+### void QList::clear()
 
 Removes all items from the list.
 
 **See also** [removeAll](QList.md#int-qlistremoveallconst-t-value)().
 
-### [QList::const_iterator](qlist-const-iterator.html) QList::constBegin() const[](QList.md#constBegin "Direct link to this headline")
+### [QList::const_iterator](qlist-const-iterator.html) QList::constBegin() const
 
 Returns a const [STL-style
 iterator](../../O/TODO/TODO.md#stlstyle-iterators) pointing to the first
@@ -616,7 +553,7 @@ item in the list.
 **See also** [begin](QList.md#qlistiterator-qlistbegin)() and
 [constEnd](QList.md#qlistconstiterator-qlistconstend-const)().
 
-### [QList::const_iterator](qlist-const-iterator.html) QList::constEnd() const[](QList.md#constEnd "Direct link to this headline")
+### [QList::const_iterator](qlist-const-iterator.html) QList::constEnd() const
 
 Returns a const [STL-style
 iterator](../../O/TODO/TODO.md#stlstyle-iterators) pointing to the imaginary
@@ -625,7 +562,7 @@ item after the last item in the list.
 **See also** [constBegin](QList.md#qlistconstiterator-qlistconstbegin-const)() and
 [end](QList.md#qlistiterator-qlistend)().
 
-### const T &QList::constFirst() const[](QList.md#constFirst "Direct link to this headline")
+### const T &QList::constFirst() const
 
 Returns a const reference to the first item in the list. The list must
 not be empty. If the list can be empty, call
@@ -636,7 +573,7 @@ This function was introduced in Qt 5.6.
 **See also** [constLast](QList.md#const-t-qlistconstlast-const)(),
 [isEmpty](QList.md#bool-qlistisempty-const)(), and [first](QList.md#t-qlistfirst)().
 
-### const T &QList::constLast() const[](QList.md#constLast "Direct link to this headline")
+### const T &QList::constLast() const
 
 Returns a reference to the last item in the list. The list must not be
 empty. If the list can be empty, call [isEmpty](QList.md#bool-qlistisempty-const)()
@@ -647,7 +584,7 @@ This function was introduced in Qt 5.6.
 **See also** [constFirst](QList.md#const-t-qlistconstfirst-const)(),
 [isEmpty](QList.md#bool-qlistisempty-const)(), and [last](QList.md#t-qlistlast)().
 
-### bool QList::contains(const T &*value*) const[](QList.md#contains "Direct link to this headline")
+### bool QList::contains(const T &*value*) const
 
 Returns `true` if the list contains an occurrence of *value*; otherwise
 returns `false`.
@@ -658,7 +595,7 @@ This function requires the value type to have an implementation of
 **See also** [indexOf](QList.md#int-qlistindexofconst-t-value-int-from--0-const)() and
 [count](QList.md#int-qlistcount-const)().
 
-### int QList::count(const T &*value*) const[](QList.md#count "Direct link to this headline")
+### int QList::count(const T &*value*) const
 
 Returns the number of occurrences of *value* in the list.
 
@@ -668,12 +605,12 @@ This function requires the value type to have an implementation of
 **See also** [contains](QList.md#bool-qlistcontainsconst-t-value-const)() and
 [indexOf](QList.md#int-qlistindexofconst-t-value-int-from--0-const)().
 
-### int QList::count() const[](QList.md#count-1 "Direct link to this headline")
+### int QList::count() const
 
 Returns the number of items in the list. This is effectively the same as
 [size](QList.md#typedef-qlistsizetype)().
 
-### [QList::const_reverse_iterator](QList.md#typedef-qlistconstreverseiterator) QList::crbegin() const[](QList.md#crbegin "Direct link to this headline")
+### [QList::const_reverse_iterator](QList.md#typedef-qlistconstreverseiterator) QList::crbegin() const
 
 Returns a const [STL-style](../../O/TODO/TODO.md#stlstyle-iterators) reverse
 iterator pointing to the first item in the list, in reverse order.
@@ -683,7 +620,7 @@ This function was introduced in Qt 5.6.
 **See also** [begin](QList.md#qlistiterator-qlistbegin)(), [rbegin](QList.md#qlistreverseiterator-qlistrbegin)(),
 and [rend](QList.md#qlistreverseiterator-qlistrend)().
 
-### [QList::const_reverse_iterator](QList.md#typedef-qlistconstreverseiterator) QList::crend() const[](QList.md#crend "Direct link to this headline")
+### [QList::const_reverse_iterator](QList.md#typedef-qlistconstreverseiterator) QList::crend() const
 
 Returns a const [STL-style](../../O/TODO/TODO.md#stlstyle-iterators) reverse
 iterator pointing to one past the last item in the list, in reverse
@@ -694,12 +631,12 @@ This function was introduced in Qt 5.6.
 **See also** [end](QList.md#qlistiterator-qlistend)(), [rend](QList.md#qlistreverseiterator-qlistrend)(), and
 [rbegin](QList.md#qlistreverseiterator-qlistrbegin)().
 
-### bool QList::empty() const[](QList.md#empty "Direct link to this headline")
+### bool QList::empty() const
 
 This function is provided for STL compatibility. It is equivalent to
 [isEmpty](QList.md#bool-qlistisempty-const)() and returns `true` if the list is empty.
 
-### [QList::iterator](qlist-iterator.html) QList::end()[](QList.md#end "Direct link to this headline")
+### [QList::iterator](qlist-iterator.html) QList::end()
 
 Returns an [STL-style iterator](../../O/TODO/TODO.md#stlstyle-iterators)
 pointing to the imaginary item after the last item in the list.
@@ -707,11 +644,11 @@ pointing to the imaginary item after the last item in the list.
 **See also** [begin](QList.md#qlistiterator-qlistbegin)() and
 [constEnd](QList.md#qlistconstiterator-qlistconstend-const)().
 
-### [QList::const_iterator](qlist-const-iterator.html) QList::end() const[](QList.md#end-1 "Direct link to this headline")
+### [QList::const_iterator](qlist-const-iterator.html) QList::end() const
 
 This is an overloaded function.
 
-### bool QList::endsWith(const T &*value*) const[](QList.md#endsWith "Direct link to this headline")
+### bool QList::endsWith(const T &*value*) const
 
 Returns `true` if this list is not empty and its last item is equal to
 *value*; otherwise returns `false`.
@@ -721,7 +658,7 @@ This function was introduced in Qt 4.5.
 **See also** [isEmpty](QList.md#bool-qlistisempty-const)() and
 [contains](QList.md#bool-qlistcontainsconst-t-value-const)().
 
-### [QList::iterator](qlist-iterator.html) QList::erase([QList::iterator](qlist-iterator.html) *pos*)[](QList.md#erase "Direct link to this headline")
+### [QList::iterator](qlist-iterator.html) QList::erase([QList::iterator](qlist-iterator.html) *pos*)
 
 Removes the item associated with the iterator *pos* from the list, and
 returns an iterator to the next item in the list (which may be
@@ -730,7 +667,7 @@ returns an iterator to the next item in the list (which may be
 **See also** [insert](QList.md#void-qlistinsertint-i-const-t-value)() and
 [removeAt](QList.md#void-qlistremoveatint-i)().
 
-### [QList::iterator](qlist-iterator.html) QList::erase([QList::iterator](qlist-iterator.html) *begin*, [QList::iterator](qlist-iterator.html) *end*)[](QList.md#erase-1 "Direct link to this headline")
+### [QList::iterator](qlist-iterator.html) QList::erase([QList::iterator](qlist-iterator.html) *begin*, [QList::iterator](qlist-iterator.html) *end*)
 
 This is an overloaded function.
 
@@ -738,7 +675,7 @@ Removes all the items from *begin* up to (but not including) *end*.
 Returns an iterator to the same item that *end* referred to before the
 call.
 
-### T &QList::first()[](QList.md#first "Direct link to this headline")
+### T &QList::first()
 
 Returns a reference to the first item in the list. The list must not be
 empty. If the list can be empty, call [isEmpty](QList.md#bool-qlistisempty-const)()
@@ -747,18 +684,18 @@ before calling this function.
 **See also** [constFirst](QList.md#const-t-qlistconstfirst-const)(),
 [last](QList.md#t-qlistlast)(), and [isEmpty](QList.md#bool-qlistisempty-const)().
 
-### const T &QList::first() const[](QList.md#first-1 "Direct link to this headline")
+### const T &QList::first() const
 
 This is an overloaded function.
 
-### ` [static]  `[QList](QList.md#template-typename-inputiterator-qlistqlistinputiterator-first-inputiterator-last)<T> QList::fromSet(const [QSet](../../S/QSet/QSet.md)<T> &*set*)[](QList.md#fromSet "Direct link to this headline")
+### ` [static]  `[QList](QList.md#template-typename-inputiterator-qlistqlistinputiterator-first-inputiterator-last)<T> QList::fromSet(const [QSet](../../S/QSet/QSet.md)<T> &*set*)
 
 Returns a [QList](../../L/QList/QList.md) object with the data contained in *set*.
 The order of the elements in the [QList](../../L/QList/QList.md) is undefined.
 
 Example:
 
-``` cpp prettyprint
+``` cpp
 QSet<int> set;
 set << 20 << 30 << 40 << ... << 70;
 
@@ -766,14 +703,14 @@ QList<int> list = QList<int>::fromSet(set);
 std::sort(list.begin(), list.end());
 ```
 
-**Note:** Since Qt 5.14, range constructors are available for Qt's
+**注意:** Since Qt 5.14, range constructors are available for Qt's
 generic [container classes](containers.html) and should be used in place
 of this method.
 
 **See also** [fromVector](QList.md#static-qlistt-qlistfromvectorconst-qvectort-vector)(),
 [toSet](QList.md#qsett-qlisttoset-const)(), and [QSet::toList](../../S/QSet/QSet.md#qlistt-qsettolist-const)().
 
-### ` [static]  `[QList](QList.md#template-typename-inputiterator-qlistqlistinputiterator-first-inputiterator-last)<T> QList::fromStdList(const std::list<T> &*list*)[](QList.md#fromStdList "Direct link to this headline")
+### ` [static]  `[QList](QList.md#template-typename-inputiterator-qlistqlistinputiterator-first-inputiterator-last)<T> QList::fromStdList(const std::list<T> &*list*)
 
 Returns a [QList](../../L/QList/QList.md) object with the data contained in *list*.
 The order of the elements in the [QList](../../L/QList/QList.md) is the same as in
@@ -781,7 +718,7 @@ The order of the elements in the [QList](../../L/QList/QList.md) is the same as 
 
 Example:
 
-``` cpp prettyprint
+``` cpp
 std::list<double> stdlist;
 list.push_back(1.2);
 list.push_back(0.5);
@@ -790,21 +727,21 @@ list.push_back(3.14);
 QList<double> list = QList<double>::fromStdList(stdlist);
 ```
 
-**Note:** Since Qt 5.14, range constructors are available for Qt's
+**注意:** Since Qt 5.14, range constructors are available for Qt's
 generic [container classes](containers.html) and should be used in place
 of this method.
 
 **See also** [toStdList](QList.md#stdlistt-qlisttostdlist-const)() and
 [QVector::fromStdVector](../../V/QVector/QVector.md#static-qvectort-qvectorfromstdvectorconst-stdvectort-vector)().
 
-### ` [static]  `[QList](QList.md#template-typename-inputiterator-qlistqlistinputiterator-first-inputiterator-last)<T> QList::fromVector(const [QVector](../../V/QVector/QVector.md)<T> &*vector*)[](QList.md#fromVector "Direct link to this headline")
+### ` [static]  `[QList](QList.md#template-typename-inputiterator-qlistqlistinputiterator-first-inputiterator-last)<T> QList::fromVector(const [QVector](../../V/QVector/QVector.md)<T> &*vector*)
 
 Returns a [QList](../../L/QList/QList.md) object with the data contained in
 *vector*.
 
 Example:
 
-``` cpp prettyprint
+``` cpp
 QVector<double> vect;
 vect << 20.0 << 30.0 << 40.0 << 50.0;
 
@@ -812,7 +749,7 @@ QList<double> list = QVector<T>::fromVector(vect);
 // list: [20.0, 30.0, 40.0, 50.0]
 ```
 
-**Note:** Since Qt 5.14, range constructors are available for Qt's
+**注意:** Since Qt 5.14, range constructors are available for Qt's
 generic [container classes](containers.html) and should be used in place
 of this method.
 
@@ -820,18 +757,18 @@ of this method.
 [toVector](QList.md#qvectort-qlisttovector-const)(), and
 [QVector::toList](../../V/QVector/QVector.md#qlistt-qvectortolist-const)().
 
-### T &QList::front()[](QList.md#front "Direct link to this headline")
+### T &QList::front()
 
 This function is provided for STL compatibility. It is equivalent to
 [first](QList.md#t-qlistfirst)(). The list must not be empty. If the list can
 be empty, call [isEmpty](QList.md#bool-qlistisempty-const)() before calling this
 function.
 
-### const T &QList::front() const[](QList.md#front-1 "Direct link to this headline")
+### const T &QList::front() const
 
 This is an overloaded function.
 
-### int QList::indexOf(const T &*value*, int *from* = 0) const[](QList.md#indexOf "Direct link to this headline")
+### int QList::indexOf(const T &*value*, int *from* = 0) const
 
 Returns the index position of the first occurrence of *value* in the
 list, searching forward from index position *from*. Returns -1 if no
@@ -839,7 +776,7 @@ item matched.
 
 Example:
 
-``` cpp prettyprint
+``` cpp
 QList<QString> list;
 list << "A" << "B" << "C" << "B" << "A";
 list.indexOf("B");          // returns 1
@@ -858,7 +795,7 @@ value mentioned above.
 **See also** [lastIndexOf](QList.md#int-qlistlastindexofconst-t-value-int-from--1-const)() and
 [contains](QList.md#bool-qlistcontainsconst-t-value-const)().
 
-### void QList::insert(int *i*, const T &*value*)[](QList.md#insert "Direct link to this headline")
+### void QList::insert(int *i*, const T &*value*)
 
 Inserts *value* at index position *i* in the list.
 
@@ -867,7 +804,7 @@ If *i* == 0, the value is prepended to the list. If *i* ==
 
 Example:
 
-``` cpp prettyprint
+``` cpp
 QList<QString> list;
 list << "alpha" << "beta" << "delta";
 list.insert(2, "gamma");
@@ -878,7 +815,7 @@ list.insert(2, "gamma");
 [prepend](QList.md#void-qlistprependconst-t-value)(), [replace](QList.md#void-qlistreplaceint-i-const-t-value)(), and
 [removeAt](QList.md#void-qlistremoveatint-i)().
 
-### [QList::iterator](qlist-iterator.html) QList::insert([QList::iterator](qlist-iterator.html) *before*, const T &*value*)[](QList.md#insert-1 "Direct link to this headline")
+### [QList::iterator](qlist-iterator.html) QList::insert([QList::iterator](qlist-iterator.html) *before*, const T &*value*)
 
 This is an overloaded function.
 
@@ -887,13 +824,13 @@ Inserts *value* in front of the item pointed to by the iterator
 the iterator passed to the function will be invalid after the call; the
 returned iterator should be used instead.
 
-### bool QList::isEmpty() const[](QList.md#isEmpty "Direct link to this headline")
+### bool QList::isEmpty() const
 
 Returns `true` if the list contains no items; otherwise returns false.
 
 **See also** [size](QList.md#typedef-qlistsizetype)().
 
-### T &QList::last()[](QList.md#last "Direct link to this headline")
+### T &QList::last()
 
 Returns a reference to the last item in the list. The list must not be
 empty. If the list can be empty, call [isEmpty](QList.md#bool-qlistisempty-const)()
@@ -902,11 +839,11 @@ before calling this function.
 **See also** [constLast](QList.md#const-t-qlistconstlast-const)(),
 [first](QList.md#t-qlistfirst)(), and [isEmpty](QList.md#bool-qlistisempty-const)().
 
-### const T &QList::last() const[](QList.md#last-1 "Direct link to this headline")
+### const T &QList::last() const
 
 This is an overloaded function.
 
-### int QList::lastIndexOf(const T &*value*, int *from* = -1) const[](QList.md#lastIndexOf "Direct link to this headline")
+### int QList::lastIndexOf(const T &*value*, int *from* = -1) const
 
 Returns the index position of the last occurrence of *value* in the
 list, searching backward from index position *from*. If *from* is -1
@@ -915,7 +852,7 @@ matched.
 
 Example:
 
-``` cpp prettyprint
+``` cpp
 QList<QString> list;
 list << "A" << "B" << "C" << "B" << "A";
 list.lastIndexOf("B");      // returns 3
@@ -933,7 +870,7 @@ value mentioned above.
 
 **See also** [indexOf](QList.md#int-qlistindexofconst-t-value-int-from--0-const)().
 
-### int QList::length() const[](QList.md#length "Direct link to this headline")
+### int QList::length() const
 
 This function is identical to [count](QList.md#int-qlistcount-const)().
 
@@ -941,20 +878,20 @@ This function was introduced in Qt 4.5.
 
 **See also** [count](QList.md#int-qlistcount-const)().
 
-### [QList](QList.md#template-typename-inputiterator-qlistqlistinputiterator-first-inputiterator-last)<T> QList::mid(int *pos*, int *length* = -1) const[](QList.md#mid "Direct link to this headline")
+### [QList](QList.md#template-typename-inputiterator-qlistqlistinputiterator-first-inputiterator-last)<T> QList::mid(int *pos*, int *length* = -1) const
 
 Returns a sub-list which includes elements from this list, starting at
 position *pos*. If *length* is -1 (the default), all elements from *pos*
 are included; otherwise *length* elements (or all remaining elements if
 there are less than *length* elements) are included.
 
-### void QList::move(int *from*, int *to*)[](QList.md#move "Direct link to this headline")
+### void QList::move(int *from*, int *to*)
 
 Moves the item at index position *from* to index position *to*.
 
 Example:
 
-``` cpp prettyprint
+``` cpp
 QList<QString> list;
 list << "A" << "B" << "C" << "D" << "E" << "F";
 list.move(1, 4);
@@ -970,27 +907,27 @@ than [size](QList.md#typedef-qlistsizetype)().
 **See also** [swap](QList.md#void-qlistswapqlistt-other)(), [insert](QList.md#void-qlistinsertint-i-const-t-value)(),
 and [takeAt](QList.md#t-qlisttakeatint-i)().
 
-### void QList::pop_back()[](QList.md#pop_back "Direct link to this headline")
+### void QList::pop_back()
 
 This function is provided for STL compatibility. It is equivalent to
 [removeLast](QList.md#void-qlistremovelast)(). The list must not be empty. If
 the list can be empty, call [isEmpty](QList.md#bool-qlistisempty-const)() before
 calling this function.
 
-### void QList::pop_front()[](QList.md#pop_front "Direct link to this headline")
+### void QList::pop_front()
 
 This function is provided for STL compatibility. It is equivalent to
 [removeFirst](QList.md#void-qlistremovefirst)(). The list must not be empty. If
 the list can be empty, call [isEmpty](QList.md#bool-qlistisempty-const)() before
 calling this function.
 
-### void QList::prepend(const T &*value*)[](QList.md#prepend "Direct link to this headline")
+### void QList::prepend(const T &*value*)
 
 Inserts *value* at the beginning of the list.
 
 Example:
 
-``` cpp prettyprint
+``` cpp
 QList<QString> list;
 list.prepend("one");
 list.prepend("two");
@@ -1008,17 +945,17 @@ its internal buffer to allow for fast growth at both ends of the list.
 **See also** [append](QList.md#void-qlistappendconst-t-value)() and
 [insert](QList.md#void-qlistinsertint-i-const-t-value)().
 
-### void QList::push_back(const T &*value*)[](QList.md#push_back "Direct link to this headline")
+### void QList::push_back(const T &*value*)
 
 This function is provided for STL compatibility. It is equivalent to
 [append](QList.md#void-qlistappendconst-t-value)(*value*).
 
-### void QList::push_front(const T &*value*)[](QList.md#push_front "Direct link to this headline")
+### void QList::push_front(const T &*value*)
 
 This function is provided for STL compatibility. It is equivalent to
 [prepend](QList.md#void-qlistprependconst-t-value)(*value*).
 
-### [QList::reverse_iterator](QList.md#typedef-qlistreverseiterator) QList::rbegin()[](QList.md#rbegin "Direct link to this headline")
+### [QList::reverse_iterator](QList.md#typedef-qlistreverseiterator) QList::rbegin()
 
 Returns a [STL-style](../../O/TODO/TODO.md#stlstyle-iterators) reverse
 iterator pointing to the first item in the list, in reverse order.
@@ -1028,20 +965,20 @@ This function was introduced in Qt 5.6.
 **See also** [begin](QList.md#qlistiterator-qlistbegin)(),
 [crbegin](QList.md#qlistconstreverseiterator-qlistcrbegin-const)(), and [rend](QList.md#qlistreverseiterator-qlistrend)().
 
-### [QList::const_reverse_iterator](QList.md#typedef-qlistconstreverseiterator) QList::rbegin() const[](QList.md#rbegin-1 "Direct link to this headline")
+### [QList::const_reverse_iterator](QList.md#typedef-qlistconstreverseiterator) QList::rbegin() const
 
 This is an overloaded function.
 
 This function was introduced in Qt 5.6.
 
-### int QList::removeAll(const T &*value*)[](QList.md#removeAll "Direct link to this headline")
+### int QList::removeAll(const T &*value*)
 
 Removes all occurrences of *value* in the list and returns the number of
 entries removed.
 
 Example:
 
-``` cpp prettyprint
+``` cpp
 QList<QString> list;
 list << "sun" << "cloud" << "sun" << "rain";
 list.removeAll("sun");
@@ -1055,7 +992,7 @@ This function requires the value type to have an implementation of
 [removeAt](QList.md#void-qlistremoveatint-i)(), [takeAt](QList.md#t-qlisttakeatint-i)(), and
 [replace](QList.md#void-qlistreplaceint-i-const-t-value)().
 
-### void QList::removeAt(int *i*)[](QList.md#removeAt "Direct link to this headline")
+### void QList::removeAt(int *i*)
 
 Removes the item at index position *i*. *i* must be a valid index
 position in the list (i.e., 0 <= *i* < [size](QList.md#typedef-qlistsizetype)()).
@@ -1065,7 +1002,7 @@ position in the list (i.e., 0 <= *i* < [size](QList.md#typedef-qlistsizetype)())
 [removeLast](QList.md#void-qlistremovelast)(), and
 [removeOne](QList.md#bool-qlistremoveoneconst-t-value)().
 
-### void QList::removeFirst()[](QList.md#removeFirst "Direct link to this headline")
+### void QList::removeFirst()
 
 Removes the first item in the list. Calling this function is equivalent
 to calling [removeAt](QList.md#void-qlistremoveatint-i)(0). The list must not be
@@ -1075,7 +1012,7 @@ before calling this function.
 **See also** [removeAt](QList.md#void-qlistremoveatint-i)() and
 [takeFirst](QList.md#t-qlisttakefirst)().
 
-### void QList::removeLast()[](QList.md#removeLast "Direct link to this headline")
+### void QList::removeLast()
 
 Removes the last item in the list. Calling this function is equivalent
 to calling [removeAt](QList.md#void-qlistremoveatint-i)([size](QList.md#typedef-qlistsizetype)() -
@@ -1085,14 +1022,14 @@ to calling [removeAt](QList.md#void-qlistremoveatint-i)([size](QList.md#typedef-
 **See also** [removeAt](QList.md#void-qlistremoveatint-i)() and
 [takeLast](QList.md#t-qlisttakelast)().
 
-### bool QList::removeOne(const T &*value*)[](QList.md#removeOne "Direct link to this headline")
+### bool QList::removeOne(const T &*value*)
 
 Removes the first occurrence of *value* in the list and returns true on
 success; otherwise returns `false`.
 
 Example:
 
-``` cpp prettyprint
+``` cpp
 QList<QString> list;
 list << "sun" << "cloud" << "sun" << "rain";
 list.removeOne("sun");
@@ -1108,7 +1045,7 @@ This function was introduced in Qt 4.4.
 [removeAt](QList.md#void-qlistremoveatint-i)(), [takeAt](QList.md#t-qlisttakeatint-i)(), and
 [replace](QList.md#void-qlistreplaceint-i-const-t-value)().
 
-### [QList::reverse_iterator](QList.md#typedef-qlistreverseiterator) QList::rend()[](QList.md#rend "Direct link to this headline")
+### [QList::reverse_iterator](QList.md#typedef-qlistreverseiterator) QList::rend()
 
 Returns a [STL-style](../../O/TODO/TODO.md#stlstyle-iterators) reverse
 iterator pointing to one past the last item in the list, in reverse
@@ -1119,13 +1056,13 @@ This function was introduced in Qt 5.6.
 **See also** [end](QList.md#qlistiterator-qlistend)(), [crend](QList.md#qlistconstreverseiterator-qlistcrend-const)(), and
 [rbegin](QList.md#qlistreverseiterator-qlistrbegin)().
 
-### [QList::const_reverse_iterator](QList.md#typedef-qlistconstreverseiterator) QList::rend() const[](QList.md#rend-1 "Direct link to this headline")
+### [QList::const_reverse_iterator](QList.md#typedef-qlistconstreverseiterator) QList::rend() const
 
 This is an overloaded function.
 
 This function was introduced in Qt 5.6.
 
-### void QList::replace(int *i*, const T &*value*)[](QList.md#replace "Direct link to this headline")
+### void QList::replace(int *i*, const T &*value*)
 
 Replaces the item at index position *i* with *value*. *i* must be a
 valid index position in the list (i.e., 0 <= *i* <
@@ -1134,7 +1071,7 @@ valid index position in the list (i.e., 0 <= *i* <
 **See also** [operator[]](QList.md#t-qlistoperator)() and
 [removeAt](QList.md#void-qlistremoveatint-i)().
 
-### void QList::reserve(int *alloc*)[](QList.md#reserve "Direct link to this headline")
+### void QList::reserve(int *alloc*)
 
 Reserve space for *alloc* elements.
 
@@ -1148,14 +1085,14 @@ pointer array.
 
 This function was introduced in Qt 4.7.
 
-### int QList::size() const[](QList.md#size "Direct link to this headline")
+### int QList::size() const
 
 Returns the number of items in the list.
 
 **See also** [isEmpty](QList.md#bool-qlistisempty-const)() and
 [count](QList.md#int-qlistcount-const)().
 
-### bool QList::startsWith(const T &*value*) const[](QList.md#startsWith "Direct link to this headline")
+### bool QList::startsWith(const T &*value*) const
 
 Returns `true` if this list is not empty and its first item is equal to
 *value*; otherwise returns `false`.
@@ -1165,14 +1102,14 @@ This function was introduced in Qt 4.5.
 **See also** [isEmpty](QList.md#bool-qlistisempty-const)() and
 [contains](QList.md#bool-qlistcontainsconst-t-value-const)().
 
-### void QList::swap([QList](QList.md#template-typename-inputiterator-qlistqlistinputiterator-first-inputiterator-last)<T> &*other*)[](QList.md#swap "Direct link to this headline")
+### void QList::swap([QList](QList.md#template-typename-inputiterator-qlistqlistinputiterator-first-inputiterator-last)<T> &*other*)
 
 Swaps list *other* with this list. This operation is very fast and never
 fails.
 
 This function was introduced in Qt 4.8.
 
-### void QList::swapItemsAt(int *i*, int *j*)[](QList.md#swapItemsAt "Direct link to this headline")
+### void QList::swapItemsAt(int *i*, int *j*)
 
 Exchange the item at index position *i* with the item at index position
 *j*. This function assumes that both *i* and *j* are at least 0 but less
@@ -1181,7 +1118,7 @@ than [size](QList.md#typedef-qlistsizetype)(). To avoid failure, test that both 
 
 Example:
 
-``` cpp prettyprint
+``` cpp
 QList<QString> list;
 list << "A" << "B" << "C" << "D" << "E" << "F";
 list.swapItemsAt(1, 4);
@@ -1192,7 +1129,7 @@ This function was introduced in Qt 5.13.
 
 **See also** [move](QList.md#void-qlistmoveint-from-int-to)().
 
-### T QList::takeAt(int *i*)[](QList.md#takeAt "Direct link to this headline")
+### T QList::takeAt(int *i*)
 
 Removes the item at index position *i* and returns it. *i* must be a
 valid index position in the list (i.e., 0 <= *i* <
@@ -1205,7 +1142,7 @@ more efficient.
 [takeFirst](QList.md#t-qlisttakefirst)(), and
 [takeLast](QList.md#t-qlisttakelast)().
 
-### T QList::takeFirst()[](QList.md#takeFirst "Direct link to this headline")
+### T QList::takeFirst()
 
 Removes the first item in the list and returns it. This is the same as
 [takeAt](QList.md#t-qlisttakeatint-i)(0). This function assumes the list is not
@@ -1222,7 +1159,7 @@ If you don't use the return value,
 [takeAt](QList.md#t-qlisttakeatint-i)(), and
 [removeFirst](QList.md#void-qlistremovefirst)().
 
-### T QList::takeLast()[](QList.md#takeLast "Direct link to this headline")
+### T QList::takeLast()
 
 Removes the last item in the list and returns it. This is the same as
 [takeAt](QList.md#t-qlisttakeatint-i)([size](QList.md#typedef-qlistsizetype)() - 1). This
@@ -1239,7 +1176,7 @@ is more efficient.
 [takeAt](QList.md#t-qlisttakeatint-i)(), and
 [removeLast](QList.md#void-qlistremovelast)().
 
-### [QSet](../../S/QSet/QSet.md)<T> QList::toSet() const[](QList.md#toSet "Direct link to this headline")
+### [QSet](../../S/QSet/QSet.md)<T> QList::toSet() const
 
 Returns a [QSet](../../S/QSet/QSet.md) object with the data contained in this
 [QList](../../L/QList/QList.md). Since [QSet](../../S/QSet/QSet.md) doesn't allow duplicates,
@@ -1248,7 +1185,7 @@ was.
 
 Example:
 
-``` cpp prettyprint
+``` cpp
 QStringList list;
 list << "Julia" << "Mike" << "Mike" << "Julia" << "Julia";
 
@@ -1258,7 +1195,7 @@ set.contains("Mike");   // returns true
 set.size();             // returns 2
 ```
 
-**Note:** Since Qt 5.14, range constructors are available for Qt's
+**注意:** Since Qt 5.14, range constructors are available for Qt's
 generic [container classes](containers.html) and should be used in place
 of this method.
 
@@ -1266,33 +1203,33 @@ of this method.
 [fromSet](QList.md#static-qlistt-qlistfromsetconst-qsett-set)(), and
 [QSet::fromList](../../S/QSet/QSet.md#static-qsett-qsetfromlistconst-qlistt-list)().
 
-### std::list<T> QList::toStdList() const[](QList.md#toStdList "Direct link to this headline")
+### std::list<T> QList::toStdList() const
 
 Returns a std::list object with the data contained in this
 [QList](../../L/QList/QList.md). Example:
 
-``` cpp prettyprint
+``` cpp
 QList<double> list;
 list << 1.2 << 0.5 << 3.14;
 
 std::list<double> stdlist = list.toStdList();
 ```
 
-**Note:** Since Qt 5.14, range constructors are available for Qt's
+**注意:** Since Qt 5.14, range constructors are available for Qt's
 generic [container classes](containers.html) and should be used in place
 of this method.
 
 **See also** [fromStdList](QList.md#static-qlistt-qlistfromstdlistconst-stdlistt-list)() and
 [QVector::toStdVector](../../V/QVector/QVector.md#stdvectort-qvectortostdvector-const)().
 
-### [QVector](../../V/QVector/QVector.md)<T> QList::toVector() const[](QList.md#toVector "Direct link to this headline")
+### [QVector](../../V/QVector/QVector.md)<T> QList::toVector() const
 
 Returns a [QVector](../../V/QVector/QVector.md) object with the data contained in this
 [QList](../../L/QList/QList.md).
 
 Example:
 
-``` cpp prettyprint
+``` cpp
 QStringList list;
 list << "Sven" << "Kim" << "Ola";
 
@@ -1300,7 +1237,7 @@ QVector<QString> vect = list.toVector();
 // vect: ["Sven", "Kim", "Ola"]
 ```
 
-**Note:** Since Qt 5.14, range constructors are available for Qt's
+**注意:** Since Qt 5.14, range constructors are available for Qt's
 generic [container classes](containers.html) and should be used in place
 of this method.
 
@@ -1308,7 +1245,7 @@ of this method.
 [fromVector](QList.md#static-qlistt-qlistfromvectorconst-qvectort-vector)(), and
 [QVector::fromList](../../V/QVector/QVector.md#static-qvectort-qvectorfromlistconst-qlistt-list)().
 
-### T QList::value(int *i*) const[](QList.md#value "Direct link to this headline")
+### T QList::value(int *i*) const
 
 Returns the value at index position *i* in the list.
 
@@ -1320,13 +1257,13 @@ use [at](QList.md#const-t-qlistatint-i-const)() instead, which is slightly faste
 **See also** [at](QList.md#const-t-qlistatint-i-const)() and
 [operator[]](QList.md#t-qlistoperator)().
 
-### T QList::value(int *i*, const T &*defaultValue*) const[](QList.md#value-1 "Direct link to this headline")
+### T QList::value(int *i*, const T &*defaultValue*) const
 
 This is an overloaded function.
 
 If the index *i* is out of bounds, the function returns *defaultValue*.
 
-### bool QList::operator!=(const [QList](QList.md#template-typename-inputiterator-qlistqlistinputiterator-first-inputiterator-last)<T> &*other*) const[](QList.md#operator-not-eq "Direct link to this headline")
+### bool QList::operator!=(const [QList](QList.md#template-typename-inputiterator-qlistqlistinputiterator-first-inputiterator-last)<T> &*other*) const
 
 Returns `true` if *other* is not equal to this list; otherwise returns
 `false`.
@@ -1339,14 +1276,14 @@ This function requires the value type to have an implementation of
 
 **See also** [operator==](QList.md#bool-qlistoperatorconst-qlistt-other-const)().
 
-### [QList](QList.md#template-typename-inputiterator-qlistqlistinputiterator-first-inputiterator-last)<T> QList::operator+(const [QList](QList.md#template-typename-inputiterator-qlistqlistinputiterator-first-inputiterator-last)<T> &*other*) const[](QList.md#operator-2b "Direct link to this headline")
+### [QList](QList.md#template-typename-inputiterator-qlistqlistinputiterator-first-inputiterator-last)<T> QList::operator+(const [QList](QList.md#template-typename-inputiterator-qlistqlistinputiterator-first-inputiterator-last)<T> &*other*) const
 
 Returns a list that contains all the items in this list followed by all
 the items in the *other* list.
 
 **See also** [operator+=](QList.md#qlistt-qlistoperatorconst-qlistt-other)().
 
-### [QList](QList.md#template-typename-inputiterator-qlistqlistinputiterator-first-inputiterator-last)<T> &QList::operator+=(const [QList](QList.md#template-typename-inputiterator-qlistqlistinputiterator-first-inputiterator-last)<T> &*other*)[](QList.md#operator-2b-eq "Direct link to this headline")
+### [QList](QList.md#template-typename-inputiterator-qlistqlistinputiterator-first-inputiterator-last)<T> &QList::operator+=(const [QList](QList.md#template-typename-inputiterator-qlistqlistinputiterator-first-inputiterator-last)<T> &*other*)
 
 Appends the items of the *other* list to this list and returns a
 reference to this list.
@@ -1354,7 +1291,7 @@ reference to this list.
 **See also** [operator+](QList.md#qlistt-qlistoperatorconst-qlistt-other-const)() and
 [append](QList.md#void-qlistappendconst-t-value)().
 
-### [QList](QList.md#template-typename-inputiterator-qlistqlistinputiterator-first-inputiterator-last)<T> &QList::operator+=(const T &*value*)[](QList.md#operator-2b-eq-1 "Direct link to this headline")
+### [QList](QList.md#template-typename-inputiterator-qlistqlistinputiterator-first-inputiterator-last)<T> &QList::operator+=(const T &*value*)
 
 This is an overloaded function.
 
@@ -1363,7 +1300,7 @@ Appends *value* to the list.
 **See also** [append](QList.md#void-qlistappendconst-t-value)() and
 [operator<<](QList.md#qlistt-qlistoperatorconst-qlistt-other)().
 
-### [QList](QList.md#template-typename-inputiterator-qlistqlistinputiterator-first-inputiterator-last)<T> &QList::operator<<(const [QList](QList.md#template-typename-inputiterator-qlistqlistinputiterator-first-inputiterator-last)<T> &*other*)[](QList.md#operator-lt-lt "Direct link to this headline")
+### [QList](QList.md#template-typename-inputiterator-qlistqlistinputiterator-first-inputiterator-last)<T> &QList::operator<<(const [QList](QList.md#template-typename-inputiterator-qlistqlistinputiterator-first-inputiterator-last)<T> &*other*)
 
 Appends the items of the *other* list to this list and returns a
 reference to this list.
@@ -1371,13 +1308,13 @@ reference to this list.
 **See also** [operator+=](QList.md#qlistt-qlistoperatorconst-qlistt-other)() and
 [append](QList.md#void-qlistappendconst-t-value)().
 
-### [QList](QList.md#template-typename-inputiterator-qlistqlistinputiterator-first-inputiterator-last)<T> &QList::operator<<(const T &*value*)[](QList.md#operator-lt-lt-1 "Direct link to this headline")
+### [QList](QList.md#template-typename-inputiterator-qlistqlistinputiterator-first-inputiterator-last)<T> &QList::operator<<(const T &*value*)
 
 This is an overloaded function.
 
 Appends *value* to the list.
 
-### bool QList::operator==(const [QList](QList.md#template-typename-inputiterator-qlistqlistinputiterator-first-inputiterator-last)<T> &*other*) const[](QList.md#operator-eq-eq "Direct link to this headline")
+### bool QList::operator==(const [QList](QList.md#template-typename-inputiterator-qlistqlistinputiterator-first-inputiterator-last)<T> &*other*) const
 
 Returns `true` if *other* is equal to this list; otherwise returns
 false.
@@ -1390,7 +1327,7 @@ This function requires the value type to have an implementation of
 
 **See also** [operator!=](QList.md#bool-qlistoperatorconst-qlistt-other-const)().
 
-### T &QList::operator[](int *i*)[](QList.md#operator-5b-5d "Direct link to this headline")
+### T &QList::operator
 
 Returns the item at index position *i* as a modifiable reference. *i*
 must be a valid index position in the list (i.e., 0 <= *i* <
@@ -1403,7 +1340,7 @@ want to modify the list you should use [QList::at](QList.md#const-t-qlistatint-i
 
 **See also** [at](QList.md#const-t-qlistatint-i-const)() and [value](QList.md#typedef-qlistvaluetype)().
 
-### const T &QList::operator[](int *i*) const[](QList.md#operator-5b-5d-1 "Direct link to this headline")
+### const T &QList::operator
 
 This is an overloaded function.
 
@@ -1412,7 +1349,7 @@ time](containers.html#algorithmic-complexity).
 
 ## Related Non-Members
 
-### template <typename T> [uint](../../O/TODO/TODO.md#typedef-uint) qHash(const [QList](QList.md#template-typename-inputiterator-qlistqlistinputiterator-first-inputiterator-last)<T> &*key*, [uint](../../O/TODO/TODO.md#typedef-uint) *seed* = 0)[](QList.md#qHash "Direct link to this headline")
+### template <typename T> [uint](../../O/TODO/TODO.md#typedef-uint) qHash(const [QList](QList.md#template-typename-inputiterator-qlistqlistinputiterator-first-inputiterator-last)<T> &*key*, [uint](../../O/TODO/TODO.md#typedef-uint) *seed* = 0)
 
 Returns the hash value for *key*, using *seed* to seed the calculation.
 
@@ -1420,7 +1357,7 @@ This function requires qHash() to be overloaded for the value type `T`.
 
 This function was introduced in Qt 5.6.
 
-### template <typename T> bool operator<(const [QList](QList.md#template-typename-inputiterator-qlistqlistinputiterator-first-inputiterator-last)<T> &*lhs*, const [QList](QList.md#template-typename-inputiterator-qlistqlistinputiterator-first-inputiterator-last)<T> &*rhs*)[](QList.md#operator-lt "Direct link to this headline")
+### template <typename T> bool operator<(const [QList](QList.md#template-typename-inputiterator-qlistqlistinputiterator-first-inputiterator-last)<T> &*lhs*, const [QList](QList.md#template-typename-inputiterator-qlistqlistinputiterator-first-inputiterator-last)<T> &*rhs*)
 
 Returns `true` if list *lhs* is [lexicographically less
 than](http://en.cppreference.com/w/cpp/algorithm/lexicographical_compare)
@@ -1431,7 +1368,7 @@ This function requires the value type to have an implementation of
 
 This function was introduced in Qt 5.6.
 
-### template <typename T> [QDataStream](../../D/QDataStream/QDataStream.md) &operator<<([QDataStream](../../D/QDataStream/QDataStream.md) &*out*, const [QList](QList.md#template-typename-inputiterator-qlistqlistinputiterator-first-inputiterator-last)<T> &*list*)[](QList.md#operator-lt-lt-10 "Direct link to this headline")
+### template <typename T> [QDataStream](../../D/QDataStream/QDataStream.md) &operator<<([QDataStream](../../D/QDataStream/QDataStream.md) &*out*, const [QList](QList.md#template-typename-inputiterator-qlistqlistinputiterator-first-inputiterator-last)<T> &*list*)
 
 Writes the list *list* to stream *out*.
 
@@ -1440,7 +1377,7 @@ This function requires the value type to implement `operator<<()`.
 **See also** [Format of the QDataStream
 operators](datastreamformat.html).
 
-### template <typename T> bool operator<=(const [QList](QList.md#template-typename-inputiterator-qlistqlistinputiterator-first-inputiterator-last)<T> &*lhs*, const [QList](QList.md#template-typename-inputiterator-qlistqlistinputiterator-first-inputiterator-last)<T> &*rhs*)[](QList.md#operator-lt-eq "Direct link to this headline")
+### template <typename T> bool operator<=(const [QList](QList.md#template-typename-inputiterator-qlistqlistinputiterator-first-inputiterator-last)<T> &*lhs*, const [QList](QList.md#template-typename-inputiterator-qlistqlistinputiterator-first-inputiterator-last)<T> &*rhs*)
 
 Returns `true` if list *lhs* is [lexicographically less than or equal
 to](http://en.cppreference.com/w/cpp/algorithm/lexicographical_compare)
@@ -1451,7 +1388,7 @@ This function requires the value type to have an implementation of
 
 This function was introduced in Qt 5.6.
 
-### template <typename T> bool operator>(const [QList](QList.md#template-typename-inputiterator-qlistqlistinputiterator-first-inputiterator-last)<T> &*lhs*, const [QList](QList.md#template-typename-inputiterator-qlistqlistinputiterator-first-inputiterator-last)<T> &*rhs*)[](QList.md#operator-gt "Direct link to this headline")
+### template <typename T> bool operator>(const [QList](QList.md#template-typename-inputiterator-qlistqlistinputiterator-first-inputiterator-last)<T> &*lhs*, const [QList](QList.md#template-typename-inputiterator-qlistqlistinputiterator-first-inputiterator-last)<T> &*rhs*)
 
 Returns `true` if list *lhs* is [lexicographically greater
 than](http://en.cppreference.com/w/cpp/algorithm/lexicographical_compare)
@@ -1462,7 +1399,7 @@ This function requires the value type to have an implementation of
 
 This function was introduced in Qt 5.6.
 
-### template <typename T> bool operator>=(const [QList](QList.md#template-typename-inputiterator-qlistqlistinputiterator-first-inputiterator-last)<T> &*lhs*, const [QList](QList.md#template-typename-inputiterator-qlistqlistinputiterator-first-inputiterator-last)<T> &*rhs*)[](QList.md#operator-gt-eq "Direct link to this headline")
+### template <typename T> bool operator>=(const [QList](QList.md#template-typename-inputiterator-qlistqlistinputiterator-first-inputiterator-last)<T> &*lhs*, const [QList](QList.md#template-typename-inputiterator-qlistqlistinputiterator-first-inputiterator-last)<T> &*rhs*)
 
 Returns `true` if list *lhs* is [lexicographically greater than or equal
 to](http://en.cppreference.com/w/cpp/algorithm/lexicographical_compare)
@@ -1473,7 +1410,7 @@ This function requires the value type to have an implementation of
 
 This function was introduced in Qt 5.6.
 
-### template <typename T> [QDataStream](../../D/QDataStream/QDataStream.md) &operator>>([QDataStream](../../D/QDataStream/QDataStream.md) &*in*, [QList](QList.md#template-typename-inputiterator-qlistqlistinputiterator-first-inputiterator-last)<T> &*list*)[](QList.md#operator-gt-gt "Direct link to this headline")
+### template <typename T> [QDataStream](../../D/QDataStream/QDataStream.md) &operator>>([QDataStream](../../D/QDataStream/QDataStream.md) &*in*, [QList](QList.md#template-typename-inputiterator-qlistqlistinputiterator-first-inputiterator-last)<T> &*list*)
 
 Reads a list from stream *in* into *list*.
 
