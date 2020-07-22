@@ -55,7 +55,7 @@ QSql 命名空间 里的 各种名样的标识符，已经被运用在 Qt SQL �
 |QSql::InOut | In \| Out|这个参数被用于向数据库里写入数据;使用 查询 来向数据库里，重写数据|
 |QSql::Binary | 0x00000004|如果您想 显示数据为 原始的二进制数据，那么必须是 OR'd 和其他的标志一 起使用|
 
-类型参数 类型定义为 [QFlags](../QFlags/QFlags.md)<ParamTypeFlag>.  它被存放在 一个 `OR`与  类型参数标志的值 的组合。
+类型参数 类型定义为 [QFlags](../F/QFlags/QFlags.md)<ParamTypeFlag>.  它被存放在 一个 `OR`与  类型参数标志的值 的组合。
 
 ### enum QSql::TableType
 这个枚举类型描述 SQL 表格的类型。
