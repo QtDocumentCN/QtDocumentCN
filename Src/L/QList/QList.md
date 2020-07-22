@@ -194,10 +194,7 @@ if (list[0] == "Bob")
     list[0] = "Robert";
 ```
 
-Because QList is implemented as an array of pointers for types that are
-larger than a pointer or are not movable, this operation requires
-([constant time](containers.html#algorithmic-complexity)). For read-only
-access, an alternative syntax is to use [at](QList.md#const-t-qlistatint-i-const)():
+由于对于大小大于一个指针或不可移动的元素类型，QList 基于该类型的指针数组实现，因此该操作需要([常量时间复杂度](../../C/Container_Classes/Container_Classes.md#算法复杂度))。对于只读访问，一个可替代的语法是使用 [at](QList.md#const-t-qlistatint-i-const)():
 
 ``` cpp
 for (int i = 0; i < list.size(); ++i) {
@@ -206,14 +203,9 @@ for (int i = 0; i < list.size(); ++i) {
 }
 ```
 
-[at](QList.md#const-t-qlistatint-i-const)() can be faster than operator[](), because it
-never causes a [deep copy](implicit-sharing.html#deep-copy) to occur.
+[at](QList.md#const-t-qlistatint-i-const)() 可能会比 `operator[]()` 快，因为其永远不会导致[深拷贝](../../I/Implicit_Sharing/Implicit_Sharing.md#深拷贝) 的发生.
 
-A common requirement is to remove an item from a list and do something
-with it. For this, QList provides [takeAt](QList.md#t-qlisttakeatint-i)(),
-[takeFirst](QList.md#t-qlisttakefirst)(), and
-[takeLast](QList.md#t-qlisttakelast)(). Here's a loop that removes the items
-from a list one at a time and calls `delete` on them:
+一个常用操作是从列表中移除一个元素，然后对其做一些处理。QList 提供了 [takeAt](QList.md#t-qlisttakeatint-i)(), [takeFirst](QList.md#t-qlisttakefirst)() 和 [takeLast](QList.md#t-qlisttakelast)() 来实现操作。下面是一个将元素逐个从列表中移除并对该元素调用 `delete` 的循环：
 
 ``` cpp
 QList<QWidget *> list;
@@ -222,71 +214,27 @@ while (!list.isEmpty())
     delete list.takeFirst();
 ```
 
-Inserting and removing items at either end of the list is very fast
-([constant time](containers.html#algorithmic-complexity) in most cases),
-because QList preallocates extra space on both sides of its internal
-buffer to allow for fast growth at both ends of the list.
+在列表两段插入或删除元素是非常快的（通常是[常量时间复杂度](../../C/Container_Classes/Container_Classes.md#算法复杂度))，因为QList在内部缓存的两段都预分配了额外的内存空间用于支持列表两端的快速增长。
 
-If you want to find all occurrences of a particular value in a list, use
-[indexOf](QList.md#int-qlistindexofconst-t-value-int-from--0-const)() or
-[lastIndexOf](QList.md#int-qlistlastindexofconst-t-value-int-from--1-const)(). The former searches forward
-starting from a given index position, the latter searches backward. Both
-return the index of a matching item if they find it; otherwise, they
-return -1. For example:
+如果需要在列表中查找所有特定值的元素的索引，可以使用 [indexOf](QList.md#int-qlistindexofconst-t-value-int-from--0-const)() 或 [lastIndexOf](QList.md#int-qlistlastindexofconst-t-value-int-from--1-const)()。前一个用于从给定的索引位置向列表尾部方向查找，后一个则相反。二者都会在找到时返回匹配元素的索引，未找到时返回 -1。例如:
 
 ``` cpp
 int i = list.indexOf("Jane");
 if (i != -1)
-    cout << "First occurrence of Jane is at position " << i << Qt::endl;
+    cout << "Jane 首次出现的位置是 " << i << Qt::endl;
 ```
 
-If you simply want to check whether a list contains a particular value,
-use [contains](QList.md#bool-qlistcontainsconst-t-value-const)(). If you want to find out how many
-times a particular value occurs in the list, use
-[count](QList.md#int-qlistcount-const)(). If you want to replace all occurrences of
-a particular value with another, use [replace](QList.md#void-qlistreplaceint-i-const-t-value)().
+如果你仅仅是想简单地检查特定值是否存在与列表中，可以使用 [contains](QList.md#bool-qlistcontainsconst-t-value-const)()。如果你想要统计特定值在列表中出现的次数，可以使用 [count](QList.md#int-qlistcount-const)()。如果你先将所有特定值替换为一个另一个指定值，可以使用 [replace](QList.md#void-qlistreplaceint-i-const-t-value)()。
 
-QList's value type must be an [assignable data
-type](containers.html#assignable-data-type). This covers most data types
-that are commonly used, but the compiler won't let you, for example,
-store a [QWidget](../../W/QWidget/QWidget.md) as a value; instead, store a
-[QWidget](../../W/QWidget/QWidget.md) *. A few functions have additional
-requirements; for example, [indexOf](QList.md#int-qlistindexofconst-t-value-int-from--0-const)() and
-[lastIndexOf](QList.md#int-qlistlastindexofconst-t-value-int-from--1-const)() expect the value type to support
-`operator==()`. These requirements are documented on a per-function
-basis.
+QList 中的元素类型必须是 [可赋值数据类型](../../C/Container_Classes/Container_Classes.md#可赋值类型)。绝大部分常用数据类型都满足这一点，但编译器可能不会让你这么做，例如以值的形式保存 [QWidget](../../W/QWidget/QWidget.md)；可是改成保存 [QWidget](../../W/QWidget/QWidget.md) *。一些函数会有额外的要求，例如，[indexOf](QList.md#int-qlistindexofconst-t-value-int-from--0-const)() 和 [lastIndexOf](QList.md#int-qlistlastindexofconst-t-value-int-from--1-const)() 要求值类型支持 `operator==()` 运算符。这些要求在每个函数的文档中有说明。
 
-Like the other container classes, QList provides [Java-style
-iterators](../../O/TODO/TODO.md#javastyle-iterators)
-([QListIterator](../../L/QListIterator/QListIterator.md) and
-[QMutableListIterator](../../M/QMutableListIterator/QMutableListIterator.md)) and [STL-style
-iterators](../../O/TODO/TODO.md#stlstyle-iterators)
-([QList::const_iterator](qlist-const-iterator.html) and
-[QList::iterator](qlist-iterator.html)). In practice, these are rarely
-used, because you can use indexes into the QList. QList is implemented
-in such a way that direct index-based access is just as fast as using
-iterators.
+正如其他的容器类一样，QList 提供了 [Java风格迭代器](../../O/TODO/TODO.md#javastyle-iterators)([QListIterator](../../L/QListIterator/QListIterator.md) 和 [QMutableListIterator](../../M/QMutableListIterator/QMutableListIterator.md)) 和 [STL-style iterators](../../O/TODO/TODO.md#stlstyle-iterators) ([QList::const_iterator](QList_Const_Iterator.md) 和 [QList::iterator](QList_Iterator.md))。实际使用中，这些很少被使用，因为你可以使用列表索引。QList 的实现使得直接基于索引访问的方式实现和使用迭代器一样快。
 
-QList does *not* support inserting, prepending, appending or replacing
-with references to its own values. Doing so will cause your application
-to abort with an error message.
+QList 并 *不* 支持通过其元素的引用来进行插入，头部追加，尾部追加和替换，这样做会导致你的应用崩溃并显示错误信息。
 
-To make QList as efficient as possible, its member functions don't
-validate their input before using it. Except for
-[isEmpty](QList.md#bool-qlistisempty-const)(), member functions always assume the list
-is *not* empty. Member functions that take index values as parameters
-always assume their index value parameters are in the valid range. This
-means QList member functions can fail. If you define QT_NO_DEBUG when
-you compile, failures will not be detected. If you *don't* define
-QT_NO_DEBUG, failures will be detected using
-[Q_ASSERT](../../O/TODO/TODO.md#void-qasserttest)() or
-[Q_ASSERT_X](../../O/TODO/TODO.md#void-qassertxtest-const-char-where-const-char-what)() with an appropriate message.
+为了使 QList 尽可能高效，其成员函数在使用前并不会对列表进行校验，但 [isEmpty](QList.md#bool-qlistisempty-const)() 例外，成员函数通常会假定列表 *不* 为空。带有索引作为参数的的成员函数总是会假定索引值位于合法的范围内。这意味着 QList 成员函数可能会调用失败。如果在编译时定义了 `QT_NO_DEBUG`，这些错误将不会被检测到。而如果 *没有* 定义 `QT_NO_DEBUG`，此类错误将会通过 [Q_ASSERT](../../G/QtGlobal/QtGlobal.md#void-qasserttest)() 或 [Q_ASSERT_X](../../G/QtGlobal/QtGlobal.md#void-qassertxtest-const-char-where-const-char-what)() 被检测到并显示对应的错误信息。
 
-To avoid failures when your list can be empty, call
-[isEmpty](QList.md#bool-qlistisempty-const)() before calling other member functions.
-If you must pass an index value that might not be in the valid range,
-check that it is less than the value returned by
-[size](QList.md#typedef-qlistsizetype)() but *not* less than 0.
+为了避免在在列表可能为空时报错，在调用其他成员函数前先调用 [isEmpty](QList.md#bool-qlistisempty-const)() 检查。如果你必须传递一个可能不在有效范围内的索引值，先检查其是否小于 [size](QList.md#typedef-qlistsizetype)() 的返回值且 *不* 0。
 
 ### More Members
 
