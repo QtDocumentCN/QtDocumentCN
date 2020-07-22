@@ -81,15 +81,15 @@ QPluginLoader对象的实例在被称为插件的单个共享库文件上运行�
 
 ### fileName : [QString](https://doc.qt.io/qt-5/qstring.html)
 
-This property holds the file name of the plugin
+该属性记录插件的文件名。
 
-We recommend omitting the file's suffix in the file name, since [QPluginLoader](https://doc.qt.io/qt-5/qpluginloader.html) will automatically look for the file with the appropriate suffix (see [QLibrary::isLibrary](https://doc.qt.io/qt-5/qlibrary.html#isLibrary)()).
+我们建议在文件名中省略文件的后缀，因为 [QPluginLoader](https://doc.qt.io/qt-5/qpluginloader.html) 将自动查找具有适当后缀的文件（请参阅 [QLibrary::isLibrary](https://doc.qt.io/qt-5/qlibrary.html#isLibrary)()）。
 
-When loading the plugin, [QPluginLoader](https://doc.qt.io/qt-5/qpluginloader.html) searches in all plugin locations specified by [QCoreApplication::libraryPaths](https://doc.qt.io/qt-5/qcoreapplication.html#libraryPaths)(), unless the file name has an absolute path. After loading the plugin successfully, fileName() returns the fully-qualified file name of the plugin, including the full path to the plugin if one was given in the constructor or passed to setFileName().
+加载插件时，除非文件名具有绝对路径，否则 [QPluginLoader](https://doc.qt.io/qt-5/qpluginloader.html) 会搜索 [QCoreApplication::libraryPaths](https://doc.qt.io/qt-5/qcoreapplication.html#libraryPaths)() 指定的所有插件位置。成功加载插件后，fileName() 返回插件的完全限定文件名，如果在构造函数中已指定或传递给 setFileName()，则包括插件的完整路径。
 
-If the file name does not exist, it will not be set. This property will then contain an empty string.
+如果文件名不存在，改属性将不会设置，并包含一个空字符串。
 
-By default, this property contains an empty string.
+默认情况下，该属性包含一个空字符串。
 
 **存取函数**
 
@@ -102,13 +102,13 @@ By default, this property contains an empty string.
 
 ### loadHints : [QLibrary::LoadHints](https://doc.qt.io/qt-5/qlibrary.html#LoadHint-enum)
 
-Give the [load](https://doc.qt.io/qt-5/qpluginloader.html#load)() function some hints on how it should behave.
+为 [load](https://doc.qt.io/qt-5/qpluginloader.html#load)() 函数提供一些有关其行为方式的提示。
 
-You can give hints on how the symbols in the plugin are resolved. By default since Qt 5.7, [QLibrary::PreventUnloadHint](https://doc.qt.io/qt-5/qlibrary.html#LoadHint-enum) is set.
+您可以提供有关如何解析插件中符号的提示。从 Qt 5.7 起，默认设置为 [QLibrary::PreventUnloadHint](https://doc.qt.io/qt-5/qlibrary.html#LoadHint-enum)。
 
-See the documentation of [QLibrary::loadHints](https://doc.qt.io/qt-5/qlibrary.html#loadHints-prop) for a complete description of how this property works.
+有关该属性如何工作的完整说明，请参阅 [QLibrary::loadHints](https://doc.qt.io/qt-5/qlibrary.html#loadHints-prop) 的文档。
 
-This property was introduced in Qt 4.4.
+该属性在 Qt 4.4 中引入。
 
 **存取函数**
 
