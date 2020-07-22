@@ -673,7 +673,7 @@ qt4.6中引入了这个函数。
 
 **另请查阅** [QSqlDriver::hasFeature()](https://doc.qt.io/qt-5/qsqldriver.html#hasFeature)， [commit()](QSqlDatabase.md#bool-qsqldatabasecommit) 和 [rollback()](QSqlDatabase.md#bool-qsqldatabaserollback)。
 
-### [QString](S/QString/QString.md) QSqlDatabase::userName() const
+### [QString](../S/QString/QString.md) QSqlDatabase::userName() const
 --------------
 返回连接的用户名; 它也许为空。
 
