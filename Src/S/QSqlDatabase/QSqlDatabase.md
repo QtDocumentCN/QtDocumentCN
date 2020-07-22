@@ -303,15 +303,15 @@ qt5.13中引入了这个函数。
 
 **注意：** 这个函数是[线程安全](https://doc.qt.io/qt-5/threads-reentrancy.html)的。
 
-**另请参阅** [contains()](QSqlDatabase.md#static-bool-qsqldatabasecontainsconst-qstring-connectionname--qlatin1stringdefaultconnection)，[database()](QSqlDatabase.md#static-qsqldatabase-qsqldatabasedatabaseconst-qstring-connectionname--qlatin1stringdefaultconnection-bool-open--true)， 和 [线程和SQL模块](https://doc.qt.io/qt-5/threads-modules.html#threads-and-the-sql-module) 
+**另请参阅** [contains](QSqlDatabase.md#static-bool-qsqldatabasecontainsconst-qstring-connectionname--qlatin1stringdefaultconnection)()，[database](QSqlDatabase.md#static-qsqldatabase-qsqldatabasedatabaseconst-qstring-connectionname--qlatin1stringdefaultconnection-bool-open--true)()， 和 [线程和SQL模块](https://doc.qt.io/qt-5/threads-modules.html#threads-and-the-sql-module) 
 
-### *[static]* bool QSqlDatabase::contains(const QString &connectionName = QLatin1String(defaultConnection))
+### *[static]* bool QSqlDatabase::contains(const QString &*connectionName* = QLatin1String(defaultConnection))
 ------------------------
 如果所给的连接名，包含在所给的数据库连接列表里，那么就返回 `true`；否则返回 `false`。
 
 **注意：** 这个函数是 [线程安全的](https://doc.qt.io/qt-5/threads-reentrancy.html)
 
-**另请参阅** [connectionNames()](QSqlDatabase.md#static-qstringlist-qsqldatabaseconnectionnames), [database()]QSqlDatabase.md#static-qsqldatabase-qsqldatabasedatabaseconst-qstring-connectionname--qlatin1stringdefaultconnection-bool-open--true) 和 [线程和SQL模块](https://doc.qt.io/qt-5/threads-modules.html#threads-and-the-sql-module)。
+**另请参阅** [connectionNames()](QSqlDatabase.md#static-qstringlist-qsqldatabaseconnectionnames), [database](QSqlDatabase.md#static-qsqldatabase-qsqldatabasedatabaseconst-qstring-connectionname--qlatin1stringdefaultconnection-bool-open--true)() 和 [线程和SQL模块](https://doc.qt.io/qt-5/threads-modules.html#threads-and-the-sql-module)。
 
 ### *[static]* QSqlDatabase QSqlDatabase::database(const QString &connectionName = QLatin1String(defaultConnection), bool open = true)
 ---------------------
@@ -351,7 +351,7 @@ qt5.13中引入了这个函数。
 ### QSqlQuery QSqlDatabase::exec(const QString &*query* = QString()) const
 ------------------------
 
-在这个数据库里执行 `SQL` 表达式和 返回一个 [https://doc.qt.io/qt-5/qsqlquery.html](https://doc.qt.io/qt-5/qsqlquery.html) 对象。使用 [ lastError()](QSqlDatabase.md#qsqlerror-qsqldatabaselasterror-const) 来获取错误的信息。
+在这个数据库里执行 `SQL` 表达式和 返回一个 QSq[https://doc.qt.io/qt-5/qsqlquery.html](https://doc.qt.io/qt-5/qsqlquery.html) 对象。使用 [ lastError()](QSqlDatabase.md#qsqlerror-qsqldatabaselasterror-const) 来获取错误的信息。
 
 如果查询为空，则返回一个空的、无效的查询。并且 [lastError()](QSqlDatabase.md#qsqlerror-qsqldatabaselasterror-const)。
 
