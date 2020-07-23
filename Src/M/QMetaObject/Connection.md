@@ -1,6 +1,6 @@
 # Connection 类
 
-class [QMetaObject](../../M/QMetaObject/QMetaObject.md)::Connection。
+[QMetaObject](../../M/QMetaObject/QMetaObject.md)::Connection 类。
 
 
 
@@ -25,8 +25,6 @@ class [QMetaObject](../../M/QMetaObject/QMetaObject.md)::Connection。
 此类可被用于检查连接是否有效，或通过 [QObject::disconnect](../../O/QObject/QObject.md#disconnect)() 断开连接。对于不具备上下文对象的 信号-仿函数 连接，这是唯一的断开连接的方式。
 
 由于 `Connection` 仅仅是一个句柄，当被销毁或重新赋值时，底层的信号槽连接不会被影响。
-
-As Connection is just a handle, the underlying signal-slot connection is unaffected when Connection is destroyed or reassigned.
 
 
 
