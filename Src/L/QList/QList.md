@@ -10,7 +10,7 @@ QList 类是一个用于提供列表支持的模板类。[更多...](QList.md#de
 | qmake:        | QT += core                                                                                                                               |
 | 子类: | [QByteArrayList](../../B/QByteArrayList/QByteArrayList.md), [QItemSelection](../../I/QItemSelection/QItemSelection.md), [QQueue](../../Q/QQueue/QQueue.md) 和 [QStringList](../../S/QStringList/QStringList.md) |
 
-- [包括继承而来在内的所有成员列表](QList_Members.md)
+- [包括继承获得在内的所有成员列表](QList_Members.md)
 - [已废弃成员](QList_Obsolete.md)
 
 **注意：** 本页面提到的方法都是[可重入的](../../T/Thread_Reentrancy/Thread_Reentrancy.md)。
@@ -144,11 +144,11 @@ QList 类是一个用于提供列表支持的模板类。[更多...](QList.md#de
 
 ## 详细描述
 
-QList<T> 是 [Qt 泛型容器](../../C/Container_Classes/Container_Classes.md)之一，通过列表保存元素，提供了基于索引的快速访问以及基于索引的插入和删除。
+QList<T> 是 [Qt 泛型容器](../../C/Container_Classes/Container_Classes.md)之一，通过列表保存元素，提供了基于索引的快速访问以及基于索引的插入和删除功能。
 
-QList<T>, QLinkedList<T> 和 [QVector](../../V/QVector/QVector.md)<T> 提供了类似的接口和功能。 大部分情况下它们之间是可以互相替换的，但可能会带来一些性能问题。张俄里是一个各自适用场景的总结：
+QList<T>，QLinkedList<T> 和 [QVector](../../V/QVector/QVector.md)<T> 提供了类似的接口和功能。 大部分情况下它们之间是可以互相替换的，但可能会带来一些性能问题。这里有一个各自适用场景的总结：
 
-- [QVector](../../V/QVector/QVector.md) 应当是你的默认首选。[QVector](../../V/QVector/QVector.md)<T> 的性能通常要优于 QList<T>, 因为 [QVector](../../V/QVector/QVector.md)<T> 总是在内存中连续存储其元素，而 QList<T> 则只会在`sizeof(T) <= sizeof(void*)` 且 T 通过[Q_DECLARE_TYPEINFO](../../O/TODO/TODO.md#qdeclaretypeinfotype-flags)被声明为 `Q_MOVABLE_TYPE` 或 `Q_PRIMITIVE_TYPE` 的情况下才会这么做，否则将会在对上分配其元素的内存。[使用 QList 的利弊](http://marcmutz.wordpress.com/effective-qt/containers/#containers-qlist) 对此做了解释。
+- [QVector](../../V/QVector/QVector.md) 应当是你的默认首选。[QVector](../../V/QVector/QVector.md)<T> 的性能通常要优于 QList<T>, 因为 [QVector](../../V/QVector/QVector.md)<T> 总是在内存中连续存储其元素，而 QList<T> 则只会在`sizeof(T) <= sizeof(void*)` 且 T 通过 [Q_DECLARE_TYPEINFO](../../O/TODO/TODO.md#qdeclaretypeinfotype-flags) 被声明为 `Q_MOVABLE_TYPE` 或 `Q_PRIMITIVE_TYPE` 的情况下才会这么做，否则将会在堆上分配其元素的内存。[使用 QList 的利弊](http://marcmutz.wordpress.com/effective-qt/containers/#containers-qlist) 对此做了解释。
 - 然而，QList 在 Qt API 中总是被用来传递参数和保存返回值，和这些 API 交互时请使用 QList。
 - 如果你需要一个真正的基于链表实现的列表，以保证列表中间插入元素是[常量时间复杂度](../../C/Container_Classes/Container_Classes.md#算法复杂度) 以及基于迭代器而不是索引来对元素访问，你可以选择 QLinkedList。
 
@@ -398,10 +398,7 @@ list.append("three");
 
 ### T &QList::back()
 
-This function is provided for STL compatibility. It is equivalent to
-[last](QList.md#t-qlistlast)(). 列表不能为空。 If the list can
-be empty, call [isEmpty](QList.md#bool-qlistisempty-const)() before calling this
-function。
+该方法用于提供对 STL 的兼容，等同于 [last](QList.md#t-qlistlast)(). 要求列表不能为空， 如果列表可能为空，先调用 [isEmpty](QList.md#bool-qlistisempty-const)() 进行检查。
 
 ### const T &QList::back() const
 
@@ -562,7 +559,7 @@ QList<int> list = QList<int>::fromSet(set);
 std::sort(list.begin(), list.end());
 ```
 
-**注意:** 从 Qt 5.14 开始，Qt 泛型[容器类](../../C/Container_Classes/Container_Classes.md)可以使用范围构造函数，建议用来取代这个方法。
+**注意:** 从 Qt 5.14 开始，Qt 泛型[容器类](../../C/Container_Classes/Container_Classes.md)支持范围构造函数，建议用来取代这个方法。
 
 **另请参阅** [fromVector](QList.md#static-qlistt-qlistfromvectorconst-qvectort-vector)(), [toSet](QList.md#qsett-qlisttoset-const)() 和 [QSet::toList](../../S/QSet/QSet.md#qlistt-qsettolist-const)()。
 
@@ -581,7 +578,7 @@ list.push_back(3.14);
 QList<double> list = QList<double>::fromStdList(stdlist);
 ```
 
-**注意:** 从 Qt 5.14 开始，Qt 泛型[容器类](../../C/Container_Classes/Container_Classes.md)可以使用范围构造函数，建议用来取代这个方法。
+**注意:** 从 Qt 5.14 开始，Qt 泛型[容器类](../../C/Container_Classes/Container_Classes.md)支持范围构造函数，建议用来取代这个方法。
 
 **另请参阅** [toStdList](QList.md#stdlistt-qlisttostdlist-const)() 和 [QVector::fromStdVector](../../V/QVector/QVector.md#static-qvectort-qvectorfromstdvectorconst-stdvectort-vector)()。
 
@@ -599,13 +596,13 @@ QList<double> list = QVector<T>::fromVector(vect);
 // list: [20.0, 30.0, 40.0, 50.0]
 ```
 
-**注意:** 从 Qt 5.14 开始，Qt 泛型[容器类](../../C/Container_Classes/Container_Classes.md)可以使用范围构造函数，建议用来取代这个方法。
+**注意:** 从 Qt 5.14 开始，Qt 泛型[容器类](../../C/Container_Classes/Container_Classes.md)支持范围构造函数，建议用来取代这个方法。
 
 **另请参阅** [fromSet](QList.md#static-qlistt-qlistfromsetconst-qsett-set)(), [toVector](QList.md#qvectort-qlisttovector-const)() 和 [QVector::toList](../../V/QVector/QVector.md#qlistt-qvectortolist-const)()。
 
 ### T &QList::front()
 
-该方法用于提供对 STL 的兼容，等同于 [first](QList.md#t-qlistfirst)()。列表不能为空。 如果列表可能为空，先调用 [isEmpty](QList.md#bool-qlistisempty-const)() 进行检查。
+该方法用于提供对 STL 的兼容，等同于 [first](QList.md#t-qlistfirst)()。要求列表不能为空， 如果列表可能为空，先调用 [isEmpty](QList.md#bool-qlistisempty-const)() 进行检查。
 
 ### const T &QList::front() const
 
@@ -613,7 +610,7 @@ QList<double> list = QVector<T>::fromVector(vect);
 
 ### int QList::indexOf(const T &*value*, int *from* = 0) const
 
-返回从索引位置 *from* 开始向前搜索，在列表中 *value* 第一次出现的索引位置。如果没有找到则返回 -1。
+返回从索引位置 *from* 开始向列表尾部方向搜索，在列表中 *value* 第一次出现的索引位置。如果没有找到则返回 -1。
 
 示例：
 
@@ -628,18 +625,15 @@ list.indexOf("X");          // 返回 -1
 
 该方法要求值类型实现了 `operator==()`。
 
-Note that [QList](../../L/QList/QList.md) uses 0-based indexes, just like C++
-arrays. Negative indexes are not supported with the exception of the
-value mentioned above。
+需要注意的是 [QList](../../L/QList/QList.md) 和 C 数组类似，也是基于从 0 开始的索引。除了上面提到的值，其他的负索引值不被支持。
 
 **另请参阅** [lastIndexOf](QList.md#int-qlistlastindexofconst-t-value-int-from--1-const)() 和 [contains](QList.md#bool-qlistcontainsconst-t-value-const)()。
 
 ### void QList::insert(int *i*, const T &*value*)
 
-Inserts *value* at index position *i* in the list。
+将 *value* 插入到列表的索引位置 *i*。
 
-If *i* == 0, the value is prepended to the list. If *i* ==
-[size](QList.md#typedef-qlistsizetype)(), the value is appended to the list。
+如果 *i* == 0，该值将会被追加到列表头部。如果 *i* == [size](QList.md#typedef-qlistsizetype)()，该值将会被追加到列表尾部。
 
 示例：
 
@@ -650,32 +644,25 @@ list.insert(2, "gamma");
 // list: ["alpha", "beta", "gamma", "delta"]
 ```
 
-**另请参阅** [append](QList.md#void-qlistappendconst-t-value)(),
-[prepend](QList.md#void-qlistprependconst-t-value)(), [replace](QList.md#void-qlistreplaceint-i-const-t-value)() 和
-[removeAt](QList.md#void-qlistremoveatint-i)()。
+**另请参阅** [append](QList.md#void-qlistappendconst-t-value)(), [prepend](QList.md#void-qlistprependconst-t-value)(), [replace](QList.md#void-qlistreplaceint-i-const-t-value)() 和 [removeAt](QList.md#void-qlistremoveatint-i)()。
 
 ### [QList::iterator](qlist-iterator.html) QList::insert([QList::iterator](qlist-iterator.html) *before*, const T &*value*)
 
 这是个重载函数。
 
-Inserts *value* in front of the item pointed to by the iterator
-*before*. Returns an iterator pointing at the inserted item. Note that
-the iterator passed to the function will be invalid after the call; the
-returned iterator should be used instead。
+将 *value* 插入到迭代器 *before* 指向元素的前面，并返回一个指向插入元素的迭代器。需要注意的是传递给该函数的迭代器在调用完成后将会失效，返回的迭代器可以用来来代替它。
 
 ### bool QList::isEmpty() const
 
-Returns `true` if the list contains no items; otherwise returns false。
+如果列表中没有任何元素返回 `true` ，否则返回 `false`。
 
 **另请参阅** [size](QList.md#typedef-qlistsizetype)()。
 
 ### T &QList::last()
 
-Returns a reference to the last item in the list. The list must not be
-empty. 如果列表可能为空，先调用 [isEmpty](QList.md#bool-qlistisempty-const)() 进行检查。
+返回列表最后一个元素的引用，列表必须非空。如果列表可能为空，先调用 [isEmpty](QList.md#bool-qlistisempty-const)() 进行检查。
 
-**另请参阅** [constLast](QList.md#const-t-qlistconstlast-const)(),
-[first](QList.md#t-qlistfirst)() 和 [isEmpty](QList.md#bool-qlistisempty-const)()。
+**另请参阅** [constLast](QList.md#const-t-qlistconstlast-const)(), [first](QList.md#t-qlistfirst)() 和 [isEmpty](QList.md#bool-qlistisempty-const)()。
 
 ### const T &QList::last() const
 
@@ -683,33 +670,28 @@ empty. 如果列表可能为空，先调用 [isEmpty](QList.md#bool-qlistisempty
 
 ### int QList::lastIndexOf(const T &*value*, int *from* = -1) const
 
-Returns the index position of the last occurrence of *value* in the
-list, searching backward from index position *from*. If *from* is -1
-(the default), the search starts at the last item. Returns -1 if no item
-matched。
+返回从索引位置 *from* 开始向列表头部方向搜索，在列表中 *value* 最后一次出现的索引位置。如果 *from* 是 -1，将会从最后一个元素开始搜索。如果没有找到则返回 -1。
 
 示例：
 
 ``` cpp
 QList<QString> list;
 list << "A" << "B" << "C" << "B" << "A";
-list.lastIndexOf("B");      // returns 3
-list.lastIndexOf("B", 3);   // returns 3
-list.lastIndexOf("B", 2);   // returns 1
-list.lastIndexOf("X");      // returns -1
+list.lastIndexOf("B");      // 返回 3
+list.lastIndexOf("B", 3);   // 返回 3
+list.lastIndexOf("B", 2);   // 返回 1
+list.lastIndexOf("X");      // 返回 -1
 ```
 
 该方法要求值类型实现了 `operator==()`。
 
-Note that [QList](../../L/QList/QList.md) uses 0-based indexes, just like C++
-arrays. Negative indexes are not supported with the exception of the
-value mentioned above。
+需要注意的是 [QList](../../L/QList/QList.md) 和 C 数组类似，也是基于从 0 开始的索引。除了上面提到的值，其他的负索引值不被支持。
 
 **另请参阅** [indexOf](QList.md#int-qlistindexofconst-t-value-int-from--0-const)()。
 
 ### int QList::length() const
 
-This function is identical to [count](QList.md#int-qlistcount-const)()。
+该方法等同于 [count](QList.md#int-qlistcount-const)()。
 
 该方法在 Qt 4.5 中引入
 
@@ -717,14 +699,11 @@ This function is identical to [count](QList.md#int-qlistcount-const)()。
 
 ### [QList](QList.md#template-typename-inputiterator-qlistqlistinputiterator-first-inputiterator-last)<T> QList::mid(int *pos*, int *length* = -1) const
 
-Returns a sub-list which includes elements from this list, starting at
-position *pos*. If *length* is -1 (the default), all elements from *pos*
-are included; otherwise *length* elements (or all remaining elements if
-there are less than *length* elements) are included。
+返回一个包含从列表的 *pos* 位置开始的元素的子列表，如果 *length* 为 -1（默认值），那么从 *pos* 开始的所有元素都会被子列表包含，否则子列表将会包含 *length* 个（如果剩余元素个数不足*length* 则为剩下的全部）元素。
 
 ### void QList::move(int *from*, int *to*)
 
-Moves the item at index position *from* to index position *to*。
+将位于索引位置 *from* 的元素移动到索引位置 *to*。
 
 示例：
 
@@ -735,32 +714,21 @@ list.move(1, 4);
 // list: ["A", "C", "D", "E", "B", "F"]
 ```
 
-This is the same as insert(*to*,
-[takeAt](QList.md#t-qlisttakeatint-i)(*from*)).This function assumes that both
-*from* and *to* are at least 0 but less than [size](QList.md#typedef-qlistsizetype)()。
-To avoid failure, test that both *from* and *to* are at least 0 and less
-than [size](QList.md#typedef-qlistsizetype)()。
+等同于 insert(*to*, [takeAt](QList.md#t-qlisttakeatint-i)(*from*))。该方法会假定 *from* 和 *to* 都不小于 0 且小于 [size](QList.md#typedef-qlistsizetype)()。为了避免调用出错，请提前检查 *from* 和 *to* 是否不小于 0 且小于 [size](QList.md#typedef-qlistsizetype)()。
 
-**另请参阅** [swap](QList.md#void-qlistswapqlistt-other)(), [insert](QList.md#void-qlistinsertint-i-const-t-value)(),
-and [takeAt](QList.md#t-qlisttakeatint-i)()。
+**另请参阅** [swap](QList.md#void-qlistswapqlistt-other)(), [insert](QList.md#void-qlistinsertint-i-const-t-value)() 和 [takeAt](QList.md#t-qlisttakeatint-i)()。
 
 ### void QList::pop_back()
 
-This function is provided for STL compatibility. It is equivalent to
-[removeLast](QList.md#void-qlistremovelast)(). 列表不能为空。 If
-the list can be empty, call [isEmpty](QList.md#bool-qlistisempty-const)() before
-calling this function。
+该方法用于提供对 STL 的兼容，等同于 [removeLast](QList.md#void-qlistremovelast)()。要求列表不能为空，如果列表可能为空，先调用 [isEmpty](QList.md#bool-qlistisempty-const)() 进行检查。
 
 ### void QList::pop_front()
 
-This function is provided for STL compatibility. It is equivalent to
-[removeFirst](QList.md#void-qlistremovefirst)(). 列表不能为空。 If
-the list can be empty, call [isEmpty](QList.md#bool-qlistisempty-const)() before
-calling this function。
+该方法用于提供对 STL 的兼容，等同于 [removeFirst](QList.md#void-qlistremovefirst)(). 要求列表不能为空，如果列表可能为空，先调用 [isEmpty](QList.md#bool-qlistisempty-const)() 进行检查。
 
 ### void QList::prepend(const T &*value*)
 
-Inserts *value* at the beginning of the list。
+在列表头部插入 *value* 。
 
 示例：
 
@@ -772,33 +740,27 @@ list.prepend("three");
 // list: ["three", "two", "one"]
 ```
 
-This is the same as list.insert(0, *value*)。
+该方法等同于 list.insert(0, *value*)。
 
-If this list is not shared, this operation is typically very fast
-(amortized [constant time](../../C/Container_Classes/Container_Classes.md#算法复杂度)),
-because [QList](../../L/QList/QList.md) 在内部缓存的两段都预分配了额外的内存空间用于支持列表两端的快速增长。
+如果该列表是非共享的,那么此操作通常会非常快（均摊下来为 [常量时间复杂度](../../C/Container_Classes/Container_Classes.md#算法复杂度)），因为 [QList](../../L/QList/QList.md) 在内部缓存的两段都预分配了额外的内存空间用于支持列表两端的快速增长。
 
 **另请参阅** [append](QList.md#void-qlistappendconst-t-value)() 和 [insert](QList.md#void-qlistinsertint-i-const-t-value)()。
 
 ### void QList::push_back(const T &*value*)
 
-This function is provided for STL compatibility. It is equivalent to
-[append](QList.md#void-qlistappendconst-t-value)(*value*)。
+该方法用于提供对 STL 的兼容，等同于 [append](QList.md#void-qlistappendconst-t-value)(*value*)。
 
 ### void QList::push_front(const T &*value*)
 
-This function is provided for STL compatibility. It is equivalent to
-[prepend](QList.md#void-qlistprependconst-t-value)(*value*)。
+该方法用于提供对 STL 的兼容，等同于 [prepend](QList.md#void-qlistprependconst-t-value)(*value*)。
 
 ### [QList::reverse_iterator](QList.md#typedef-qlistreverseiterator) QList::rbegin()
 
-Returns a [STL 风格](../../C/Container_Classes/Container_Classes.md#STL-风格迭代器) reverse
-iterator pointing to the first item in the list, in reverse order。
+返回一个指向列表在逆序遍历时第一个元素 [STL 风格](../../C/Container_Classes/Container_Classes.md#STL-风格迭代器)的反向迭代器。
 
 该方法在 Qt 5.6 中引入
 
-**另请参阅** [begin](QList.md#qlistiterator-qlistbegin)(),
-[crbegin](QList.md#qlistconstreverseiterator-qlistcrbegin-const)() 和 [rend](QList.md#qlistreverseiterator-qlistrend)()。
+**另请参阅** [begin](QList.md#qlistiterator-qlistbegin)(), [crbegin](QList.md#qlistconstreverseiterator-qlistcrbegin-const)() 和 [rend](QList.md#qlistreverseiterator-qlistrend)()。
 
 ### [QList::const_reverse_iterator](QList.md#typedef-qlistconstreverseiterator) QList::rbegin() const
 
@@ -808,8 +770,7 @@ iterator pointing to the first item in the list, in reverse order。
 
 ### int QList::removeAll(const T &*value*)
 
-Removes all occurrences of *value* in the list and returns the number of
-entries removed。
+移除列表中所有值为 *value* 的元素，然后返回移除的数量。
 
 示例：
 
@@ -822,40 +783,29 @@ list.removeAll("sun");
 
 该方法要求值类型实现了 `operator==()`。
 
-**另请参阅** [removeOne](QList.md#bool-qlistremoveoneconst-t-value)(),
-[removeAt](QList.md#void-qlistremoveatint-i)(), [takeAt](QList.md#t-qlisttakeatint-i)() 和
-[replace](QList.md#void-qlistreplaceint-i-const-t-value)()。
+**另请参阅** [removeOne](QList.md#bool-qlistremoveoneconst-t-value)(), [removeAt](QList.md#void-qlistremoveatint-i)(), [takeAt](QList.md#t-qlisttakeatint-i)() 和 [replace](QList.md#void-qlistreplaceint-i-const-t-value)()。
 
 ### void QList::removeAt(int *i*)
 
-Removes the item at index position *i*. *i* must be a valid index
-position in the list (i.e., 0 <= *i* < [size](QList.md#typedef-qlistsizetype)())。
+移除位于索引位置 *i* 的元素。*i* 必须是列表中的合法索引位置 (即 0 `<=` *i* `<` [size](QList.md#typedef-qlistsizetype)())。
 
-**另请参阅** [takeAt](QList.md#t-qlisttakeatint-i)(),
-[removeFirst](QList.md#void-qlistremovefirst)(),
-[removeLast](QList.md#void-qlistremovelast)() 和
-[removeOne](QList.md#bool-qlistremoveoneconst-t-value)()。
+**另请参阅** [takeAt](QList.md#t-qlisttakeatint-i)(), [removeFirst](QList.md#void-qlistremovefirst)(), [removeLast](QList.md#void-qlistremovelast)() 和 [removeOne](QList.md#bool-qlistremoveoneconst-t-value)()。
 
 ### void QList::removeFirst()
 
-Removes the first item in the list. Calling this function is equivalent
-to calling [removeAt](QList.md#void-qlistremoveatint-i)(0). The list must not be
-empty. 如果列表可能为空，先调用 [isEmpty](QList.md#bool-qlistisempty-const)() 进行检查。
+移除列表中的第一个元素，等同于调用 [removeAt](QList.md#void-qlistremoveatint-i)(0)。列表要求非空，如果列表可能为空，先调用 [isEmpty](QList.md#bool-qlistisempty-const)() 进行检查。
 
 **另请参阅** [removeAt](QList.md#void-qlistremoveatint-i)() 和 [takeFirst](QList.md#t-qlisttakefirst)()。
 
 ### void QList::removeLast()
 
-Removes the last item in the list. Calling this function is equivalent
-to calling [removeAt](QList.md#void-qlistremoveatint-i)([size](QList.md#typedef-qlistsizetype)() -
-1). 列表不能为空。 如果列表可能为空，先调用 [isEmpty](QList.md#bool-qlistisempty-const)() 进行检查。
+移除列表中最后一个元素，等同于调用 [removeAt](QList.md#void-qlistremoveatint-i)([size](QList.md#typedef-qlistsizetype)() - 1). 要求列表不能为空，如果列表可能为空，先调用 [isEmpty](QList.md#bool-qlistisempty-const)() 进行检查。
 
 **另请参阅** [removeAt](QList.md#void-qlistremoveatint-i)() 和 [takeLast](QList.md#t-qlisttakelast)()。
 
 ### bool QList::removeOne(const T &*value*)
 
-Removes the first occurrence of *value* in the list and returns true on
-success; otherwise returns `false`。
+移除列表中第一个值为 *value* 的元素，若找到并移除成功这返回 `true`，否则返回 `false`。
 
 示例：
 
@@ -870,20 +820,15 @@ list.removeOne("sun");
 
 该方法在 Qt 4.4 中引入
 
-**另请参阅** [removeAll](QList.md#int-qlistremoveallconst-t-value)(),
-[removeAt](QList.md#void-qlistremoveatint-i)(), [takeAt](QList.md#t-qlisttakeatint-i)() 和
-[replace](QList.md#void-qlistreplaceint-i-const-t-value)()。
+**另请参阅** [removeAll](QList.md#int-qlistremoveallconst-t-value)(), [removeAt](QList.md#void-qlistremoveatint-i)(), [takeAt](QList.md#t-qlisttakeatint-i)() 和 [replace](QList.md#void-qlistreplaceint-i-const-t-value)()。
 
 ### [QList::reverse_iterator](QList.md#typedef-qlistreverseiterator) QList::rend()
 
-Returns a [STL 风格](../../C/Container_Classes/Container_Classes.md#STL-风格迭代器) reverse
-iterator pointing to one past the last item in the list, in reverse
-order。
+返回一个指向列表在逆序遍历时最后一个元素的后一个元素 [STL 风格](../../C/Container_Classes/Container_Classes.md#STL-风格迭代器)的反向迭代器。
 
 该方法在 Qt 5.6 中引入
 
-**另请参阅** [end](QList.md#qlistiterator-qlistend)(), [crend](QList.md#qlistconstreverseiterator-qlistcrend-const)() 和
-[rbegin](QList.md#qlistreverseiterator-qlistrbegin)()。
+**另请参阅** [end](QList.md#qlistiterator-qlistend)(), [crend](QList.md#qlistconstreverseiterator-qlistcrend-const)() 和 [rbegin](QList.md#qlistreverseiterator-qlistrbegin)()。
 
 ### [QList::const_reverse_iterator](QList.md#typedef-qlistconstreverseiterator) QList::rend() const
 
@@ -893,36 +838,29 @@ order。
 
 ### void QList::replace(int *i*, const T &*value*)
 
-Replaces the item at index position *i* with *value*. *i* must be a
-valid index position in the list (i.e., 0 <= *i* <
-[size](QList.md#typedef-qlistsizetype)())。
+将位于索引位置 *i* 的元素替换为 *value*。*i* 必须是列表中合法的索引位置 (即 0 `<=` *i* `<` [size](QList.md#typedef-qlistsizetype)())。
 
 **另请参阅** [operator[]](QList.md#t-qlistoperator)() 和 [removeAt](QList.md#void-qlistremoveatint-i)()。
 
 ### void QList::reserve(int *alloc*)
 
-Reserve space for *alloc* elements。
+预留 *alloc* 个元素的空位。
 
-If *alloc* is smaller than the current size of the list, nothing will
-happen。
+如果 *alloc* 比当前列表的长度要小，则无事发生。
 
-Use this function to avoid repetetive reallocation of
-[QList](../../L/QList/QList.md)'s internal data if you can predict how many elements
-will be appended. Note that the reservation applies only to the internal
-pointer array。
+如果你可以提前预知接下来将会有多少元素追加到列表中，可以使用该方法避免 [QList](../../L/QList/QList.md) 内部数组重复分配内存。需要注意的是如果内部数组保存的是元素指针，则仅会仅预分配保存指针的数组的内存。
 
 该方法在 Qt 4.7 中引入
 
 ### int QList::size() const
 
-Returns the number of items in the list。
+返回列表中元素的个数。
 
 **另请参阅** [isEmpty](QList.md#bool-qlistisempty-const)() 和 [count](QList.md#int-qlistcount-const)()。
 
 ### bool QList::startsWith(const T &*value*) const
 
-Returns `true` if this list is not empty and its first item is equal to
-*value*; otherwise returns `false`。
+如果列表非空且第一个元素等于 *value* 则返回 `true` ，否则返回 `false`。
 
 该方法在 Qt 4.5 中引入
 
@@ -930,16 +868,13 @@ Returns `true` if this list is not empty and its first item is equal to
 
 ### void QList::swap([QList](QList.md#template-typename-inputiterator-qlistqlistinputiterator-first-inputiterator-last)<T> &*other*)
 
-Swaps list *other* with this list. This operation is very fast and never
-fails。
+交换列表  *other* 和当前列表。该操作非常快且绝对不会失败。
 
 该方法在 Qt 4.8 中引入
 
 ### void QList::swapItemsAt(int *i*, int *j*)
 
-Exchange the item at index position *i* with the item at index position
-*j*. This function assumes that both *i* and *j* are at least 0 but less
-than [size](QList.md#typedef-qlistsizetype)(). To avoid failure, test that both *i* 和 *j* are at least 0 and less than [size](QList.md#typedef-qlistsizetype)()。
+交换位于索引位置 *i* 和 *j* 的元素。该方法会假定 *from* 和 *to* 都不小于 0 且小于 [size](QList.md#typedef-qlistsizetype)()。为了避免调用出错，请提前检查 *from* 和 *to* 是否不小于 0 且小于 [size](QList.md#typedef-qlistsizetype)()。
 
 示例：
 
@@ -956,57 +891,35 @@ list.swapItemsAt(1, 4);
 
 ### T QList::takeAt(int *i*)
 
-Removes the item at index position *i* and returns it. *i* must be a
-valid index position in the list (i.e., 0 <= *i* <
-[size](QList.md#typedef-qlistsizetype)())。
+移除位于索引位置 *i* 的元素并返回该元素。 *i* 必须是列表中合法的索引位置 (即 0 `<=` *i* `<` [size](QList.md#typedef-qlistsizetype)())。
 
-If you don't use the return value, [removeAt](QList.md#void-qlistremoveatint-i)() is
-more efficient。
+如果并不需要返回值，使用 [removeAt](QList.md#void-qlistremoveatint-i)() 会更高效。
 
-**另请参阅** [removeAt](QList.md#void-qlistremoveatint-i)(),
-[takeFirst](QList.md#t-qlisttakefirst)() 和
-[takeLast](QList.md#t-qlisttakelast)()。
+**另请参阅** [removeAt](QList.md#void-qlistremoveatint-i)(), [takeFirst](QList.md#t-qlisttakefirst)() 和 [takeLast](QList.md#t-qlisttakelast)()。
 
 ### T QList::takeFirst()
 
-Removes the first item in the list and returns it. This is the same as
-[takeAt](QList.md#t-qlisttakeatint-i)(0). This function assumes the list is not
-empty. To avoid failure, call [isEmpty](QList.md#bool-qlistisempty-const)() before
-calling this function。
+移除列表中第一个元素并返回该元素，等同于 [takeAt](QList.md#t-qlisttakeatint-i)(0)。该方法会假定列表非空，为了避免调用时标，请提前调用 [isEmpty](QList.md#bool-qlistisempty-const)() 进行检查。
 
-If this list is not shared, this operation takes [constant
-time](../../C/Container_Classes/Container_Classes.md#算法复杂度)。
+如果该列表是非共享的，那么此操作将花费[常量时间](../../C/Container_Classes/Container_Classes.md#算法复杂度)）。
 
-If you don't use the return value,
-[removeFirst](QList.md#void-qlistremovefirst)() is more efficient。
+如果不需要返回值，使用 [removeFirst](QList.md#void-qlistremovefirst)() 会更高效。
 
-**另请参阅** [takeLast](QList.md#t-qlisttakelast)(),
-[takeAt](QList.md#t-qlisttakeatint-i)() 和
-[removeFirst](QList.md#void-qlistremovefirst)()。
+**另请参阅** [takeLast](QList.md#t-qlisttakelast)(), [takeAt](QList.md#t-qlisttakeatint-i)() 和 [removeFirst](QList.md#void-qlistremovefirst)()。
 
 ### T QList::takeLast()
 
-Removes the last item in the list and returns it. This is the same as
-[takeAt](QList.md#t-qlisttakeatint-i)([size](QList.md#typedef-qlistsizetype)() - 1). This
-function assumes the list is not empty. To avoid failure, call
-[isEmpty](QList.md#bool-qlistisempty-const)() before calling this function。
+移除列表中最后一个元素并返回该元素。This is the same as [takeAt](QList.md#t-qlisttakeatint-i)([size](QList.md#typedef-qlistsizetype)() - 1). This function assumes the list is not empty. To avoid failure, call [isEmpty](QList.md#bool-qlistisempty-const)() before calling this function。
 
-If this list is not shared, this operation takes [constant
-time](../../C/Container_Classes/Container_Classes.md#算法复杂度)。
+如果该列表是非共享的，那么此操作将花费[常量时间](../../C/Container_Classes/Container_Classes.md#算法复杂度)）。
 
-If you don't use the return value, [removeLast](QList.md#void-qlistremovelast)()
-is more efficient。
+如果不需要返回值，使用 [removeLast](QList.md#void-qlistremovelast)() 会更高效。
 
-**另请参阅** [takeFirst](QList.md#t-qlisttakefirst)(),
-[takeAt](QList.md#t-qlisttakeatint-i)() 和
-[removeLast](QList.md#void-qlistremovelast)()。
+**另请参阅** [takeFirst](QList.md#t-qlisttakefirst)(), [takeAt](QList.md#t-qlisttakeatint-i)() 和 [removeLast](QList.md#void-qlistremovelast)()。
 
 ### [QSet](../../S/QSet/QSet.md)<T> QList::toSet() const
 
-Returns a [QSet](../../S/QSet/QSet.md) object with the data contained in this
-[QList](../../L/QList/QList.md). Since [QSet](../../S/QSet/QSet.md) doesn't allow duplicates,
-the resulting [QSet](../../S/QSet/QSet.md) might be smaller than the original list
-was。
+返回一个包含该 [QList](../../L/QList/QList.md) 中所有数据的 [QSet](../../S/QSet/QSet.md) 。由于 [QSet](../../S/QSet/QSet.md) 不允许有重复的数据，因此得到的 [QSet](../../S/QSet/QSet.md) 中的元素可能会少于原列表。
 
 示例：
 
@@ -1015,23 +928,20 @@ QStringList list;
 list << "Julia" << "Mike" << "Mike" << "Julia" << "Julia";
 
 QSet<QString> set = list.toSet();
-set.contains("Julia");  // returns true
-set.contains("Mike");   // returns true
-set.size();             // returns 2
+set.contains("Julia");  // 返回 true
+set.contains("Mike");   // 返回 true
+set.size();             // 返回 2
 ```
 
-**注意:** Since Qt 5.14, range constructors are available for Qt's
-generic [container classes](../../C/Container_Classes/Container_Classes.md) and should be used in place
-of this method。
+**注意:** 从 Qt 5.14 开始，Qt 泛型[容器类](../../C/Container_Classes/Container_Classes.md)支持范围构造函数，建议用来取代这个方法。
 
-**另请参阅** [toVector](QList.md#qvectort-qlisttovector-const)(),
-[fromSet](QList.md#static-qlistt-qlistfromsetconst-qsett-set)() 和
-[QSet::fromList](../../S/QSet/QSet.md#static-qsett-qsetfromlistconst-qlistt-list)()。
+**另请参阅** [toVector](QList.md#qvectort-qlisttovector-const)(), [fromSet](QList.md#static-qlistt-qlistfromsetconst-qsett-set)() 和 [QSet::fromList](../../S/QSet/QSet.md#static-qsett-qsetfromlistconst-qlistt-list)()。
 
 ### std::list<T> QList::toStdList() const
 
-Returns a std::list object with the data contained in this
-[QList](../../L/QList/QList.md). 示例：
+返回一个包含该 [QList](../../L/QList/QList.md) 中所有数据的 std::list。
+
+示例：
 
 ``` cpp
 QList<double> list;
@@ -1040,16 +950,13 @@ list << 1.2 << 0.5 << 3.14;
 std::list<double> stdlist = list.toStdList();
 ```
 
-**注意:** Since Qt 5.14, range constructors are available for Qt's
-generic [container classes](../../C/Container_Classes/Container_Classes.md) and should be used in place
-of this method。
+**注意:** 从 Qt 5.14 开始，Qt 泛型[容器类](../../C/Container_Classes/Container_Classes.md)支持范围构造函数，建议用来取代这个方法。
 
 **另请参阅** [fromStdList](QList.md#static-qlistt-qlistfromstdlistconst-stdlistt-list)() 和 [QVector::toStdVector](../../V/QVector/QVector.md#stdvectort-qvectortostdvector-const)()。
 
 ### [QVector](../../V/QVector/QVector.md)<T> QList::toVector() const
 
-Returns a [QVector](../../V/QVector/QVector.md) object with the data contained in this
-[QList](../../L/QList/QList.md)。
+返回一个包含该 [QList](../../L/QList/QList.md) 中所有数据的 [QVector](../../V/QVector/QVector.md) 对象。
 
 示例：
 
@@ -1061,22 +968,15 @@ QVector<QString> vect = list.toVector();
 // vect: ["Sven", "Kim", "Ola"]
 ```
 
-**注意:** Since Qt 5.14, range constructors are available for Qt's
-generic [container classes](../../C/Container_Classes/Container_Classes.md) and should be used in place
-of this method。
+**注意:** 从 Qt 5.14 开始，Qt 泛型[容器类](../../C/Container_Classes/Container_Classes.md)支持范围构造函数，建议用来取代这个方法。
 
-**另请参阅** [toSet](QList.md#qsett-qlisttoset-const)(),
-[fromVector](QList.md#static-qlistt-qlistfromvectorconst-qvectort-vector)() 和
-[QVector::fromList](../../V/QVector/QVector.md#static-qvectort-qvectorfromlistconst-qlistt-list)()。
+**另请参阅** [toSet](QList.md#qsett-qlisttoset-const)(), [fromVector](QList.md#static-qlistt-qlistfromvectorconst-qvectort-vector)() 和 [QVector::fromList](../../V/QVector/QVector.md#static-qvectort-qvectorfromlistconst-qlistt-list)()。
 
 ### T QList::value(int *i*) const
 
-Returns the value at index position *i* in the list。
+返回位于索引位置 *i* 的元素的值。
 
-If the index *i* is out of bounds, the function returns a
-[default-constructed value](../../C/Container_Classes/Container_Classes.md#default-constructed-value)。
-If you are certain that the index is going to be within bounds, you can
-use [at](QList.md#const-t-qlistatint-i-const)() instead, which is slightly faster。
+如果索引 *i* 越界了，该方法会返回一个[默认值](../../C/Container_Classes/Container_Classes.md#default-constructed-value)。如果想确保索引位于边界内，你可以使用 [at](QList.md#const-t-qlistatint-i-const)() 来代替，同时也会略快一些。
 
 **另请参阅** [at](QList.md#const-t-qlistatint-i-const)() 和 [operator[]](QList.md#t-qlistoperator)()。
 
@@ -1084,15 +984,13 @@ use [at](QList.md#const-t-qlistatint-i-const)() instead, which is slightly faste
 
 这是个重载函数。
 
-If the index *i* is out of bounds, the function returns *defaultValue*。
+如果索引 *i* 越界了，该方法会返回 *defaultValue*。
 
 ### bool QList::operator!=(const [QList](QList.md#template-typename-inputiterator-qlistqlistinputiterator-first-inputiterator-last)<T> &*other*) const
 
-Returns `true` if *other* is not equal to this list; otherwise returns
-`false`。
+如果 *other* 不等于该列表则返回 `true`，否则返回 `false`。
 
-Two lists are considered equal if they contain the same values in the
-same order。
+当且仅当两个列表以相同的顺序包含相同的值时两个列表才被认为是相等的。
 
 该方法要求值类型实现了 `operator==()`。
 
@@ -1100,15 +998,13 @@ same order。
 
 ### [QList](QList.md#template-typename-inputiterator-qlistqlistinputiterator-first-inputiterator-last)<T> QList::operator+(const [QList](QList.md#template-typename-inputiterator-qlistqlistinputiterator-first-inputiterator-last)<T> &*other*) const
 
-Returns a list that contains all the items in this list followed by all
-the items in the *other* list。
+返回一个包含了 *other* 列表中所有元素附加在该列表之后得到的全部元素的列表。
 
 **另请参阅** [operator+=](QList.md#qlistt-qlistoperatorconst-qlistt-other)()。
 
 ### [QList](QList.md#template-typename-inputiterator-qlistqlistinputiterator-first-inputiterator-last)<T> &QList::operator+=(const [QList](QList.md#template-typename-inputiterator-qlistqlistinputiterator-first-inputiterator-last)<T> &*other*)
 
-Appends the items of the *other* list to this list and returns a
-reference to this list。
+将 *other* 列表中所有元素追加到当前列表尾部并返回当前列表的引用。
 
 **另请参阅** [operator+](QList.md#qlistt-qlistoperatorconst-qlistt-other-const)() 和 [append](QList.md#void-qlistappendconst-t-value)()。
 
@@ -1116,14 +1012,13 @@ reference to this list。
 
 这是个重载函数。
 
-Appends *value* to the list。
+追加值 *value* 到列表中。
 
 **另请参阅** [append](QList.md#void-qlistappendconst-t-value)() 和 [operator<<](QList.md#qlistt-qlistoperatorconst-qlistt-other)()。
 
 ### [QList](QList.md#template-typename-inputiterator-qlistqlistinputiterator-first-inputiterator-last)<T> &QList::operator<<(const [QList](QList.md#template-typename-inputiterator-qlistqlistinputiterator-first-inputiterator-last)<T> &*other*)
 
-Appends the items of the *other* list to this list and returns a
-reference to this list。
+将 *other* 列表中所有元素追加到当前列表尾部并返回当前列表的引用。
 
 **另请参阅** [operator+=](QList.md#qlistt-qlistoperatorconst-qlistt-other)() 和 [append](QList.md#void-qlistappendconst-t-value)()。
 
@@ -1131,75 +1026,61 @@ reference to this list。
 
 这是个重载函数。
 
-Appends *value* to the list。
+追加值 *value* 到列表中。
 
 ### bool QList::operator==(const [QList](QList.md#template-typename-inputiterator-qlistqlistinputiterator-first-inputiterator-last)<T> &*other*) const
 
-Returns `true` if *other* is equal to this list; otherwise returns
-false。
+如果 *other* 等于该列表则返回 `true`，否则返回 `false`。
 
-Two lists are considered equal if they contain the same values in the
-same order。
+当且仅当两个列表以相同的顺序包含相同的值时两个列表才被认为是相等的。
 
 该方法要求值类型实现了 `operator==()`。
 
 **另请参阅** [operator!=](QList.md#bool-qlistoperatorconst-qlistt-other-const)()。
 
-### T &QList::operator
+### T &QList::operator[](int *i*)
 
-Returns the item at index position *i* as a modifiable reference. *i*
-must be a valid index position in the list (i.e., 0 <= *i* <
-[size](QList.md#typedef-qlistsizetype)())。
+以可修改的引用返回位于索引位置 *i* 的元素。*i* 必须是列表中一个合法的索引位置 (即 0 `<=` *i* `<` [size](QList.md#typedef-qlistsizetype)())。
 
-If this function is called on a list that is currently being shared, it
-will trigger a copy of all elements. Otherwise, this function runs in
-[constant time](../../C/Container_Classes/Container_Classes.md#算法复杂度). If you do not
-want to modify the list you should use [QList::at](QList.md#const-t-qlistatint-i-const)()。
+如果对一个处于共享状态的列表调用该方法，则将会触发对所有元素的拷贝。否则，该方法运行时间开销为 [常量时间复杂度](../../C/Container_Classes/Container_Classes.md#算法复杂度)。如果你不打算修改列表，你用当使用 [QList::at](QList.md#const-t-qlistatint-i-const)()。
 
 **另请参阅** [at](QList.md#const-t-qlistatint-i-const)() and [value](QList.md#typedef-qlistvaluetype)()。
 
-### const T &QList::operator
+### const T &QList::operator[](int *i*) const
 
 这是个重载函数。
 
-Same as [at](QList.md#const-t-qlistatint-i-const)(). This function runs in [constant
-time](../../C/Container_Classes/Container_Classes.md#算法复杂度)。
+等同于 [at](QList.md#const-t-qlistatint-i-const)()。 该方法运行时间开销为 [常量时间复杂度](../../C/Container_Classes/Container_Classes.md#算法复杂度)。
 
-## Related Non-Members
+## 相关非成员函数
 
 ### template <typename T> [uint](../../O/TODO/TODO.md#typedef-uint) qHash(const [QList](QList.md#template-typename-inputiterator-qlistqlistinputiterator-first-inputiterator-last)<T> &*key*, [uint](../../O/TODO/TODO.md#typedef-uint) *seed* = 0)
 
-Returns the hash value for *key*, using *seed* to seed the calculation。
+返回一个 *key* 的哈希值，可通过 *seed* 设置计算的种子。
 
-This function requires qHash() to be overloaded for the value type `T`。
+该方法要求值类型 `T` 提供 qHash() 的重载。
 
 该方法在 Qt 5.6 中引入
 
 ### template <typename T> bool operator<(const [QList](QList.md#template-typename-inputiterator-qlistqlistinputiterator-first-inputiterator-last)<T> &*lhs*, const [QList](QList.md#template-typename-inputiterator-qlistqlistinputiterator-first-inputiterator-last)<T> &*rhs*)
 
-Returns `true` if list *lhs* is [lexicographically less
-than](http://en.cppreference.com/w/cpp/algorithm/lexicographical_compare)
-*rhs*; otherwise returns `false`。
+如果列表 *lhs* 按[字典序小于](http://en.cppreference.com/w/cpp/algorithm/lexicographical_compare) *rhs* 则返回 `true`; 否则返回 `false`。
 
-该方法要求值类型实现了
-`operator<()`。
+该方法要求值类型实现了 `operator<()`。
 
 该方法在 Qt 5.6 中引入
 
 ### template <typename T> [QDataStream](../../D/QDataStream/QDataStream.md) &operator<<([QDataStream](../../D/QDataStream/QDataStream.md) &*out*, const [QList](QList.md#template-typename-inputiterator-qlistqlistinputiterator-first-inputiterator-last)<T> &*list*)
 
-Writes the list *list* to stream *out*。
+将列表 *list* 写入流 *out* 中。
 
-This function requires the value type to implement `operator<<()`。
+该方法要求值类型实现了 `operator<<()`。
 
-**另请参阅** [Format of the QDataStream
-operators](datastreamformat.html)。
+**另请参阅** [QDataStream 操作符格式](../../D/DataStreamFormat/DataStreamFormat.md)。
 
 ### template <typename T> bool operator<=(const [QList](QList.md#template-typename-inputiterator-qlistqlistinputiterator-first-inputiterator-last)<T> &*lhs*, const [QList](QList.md#template-typename-inputiterator-qlistqlistinputiterator-first-inputiterator-last)<T> &*rhs*)
 
-Returns `true` if list *lhs* is [lexicographically less than or equal
-to](http://en.cppreference.com/w/cpp/algorithm/lexicographical_compare)
-*rhs*; otherwise returns `false`。
+如果列表 *lhs* 按[字典序小于或等于](http://en.cppreference.com/w/cpp/algorithm/lexicographical_compare) *rhs* 则返回 `true`; 否则返回 `false`。
 
 该方法要求值类型实现了 `operator<()`。
 
@@ -1207,9 +1088,7 @@ to](http://en.cppreference.com/w/cpp/algorithm/lexicographical_compare)
 
 ### template <typename T> bool operator>(const [QList](QList.md#template-typename-inputiterator-qlistqlistinputiterator-first-inputiterator-last)<T> &*lhs*, const [QList](QList.md#template-typename-inputiterator-qlistqlistinputiterator-first-inputiterator-last)<T> &*rhs*)
 
-Returns `true` if list *lhs* is [lexicographically greater
-than](http://en.cppreference.com/w/cpp/algorithm/lexicographical_compare)
-*rhs*; otherwise returns `false`。
+如果列表 *lhs* 按[字典序大于](http://en.cppreference.com/w/cpp/algorithm/lexicographical_compare) *rhs* 则返回 `true`; 否则返回 `false`。
 
 该方法要求值类型实现了 `operator<()`。
 
@@ -1217,9 +1096,7 @@ than](http://en.cppreference.com/w/cpp/algorithm/lexicographical_compare)
 
 ### template <typename T> bool operator>=(const [QList](QList.md#template-typename-inputiterator-qlistqlistinputiterator-first-inputiterator-last)<T> &*lhs*, const [QList](QList.md#template-typename-inputiterator-qlistqlistinputiterator-first-inputiterator-last)<T> &*rhs*)
 
-Returns `true` if list *lhs* is [lexicographically greater than or equal
-to](http://en.cppreference.com/w/cpp/algorithm/lexicographical_compare)
-*rhs*; otherwise returns `false`。
+如果列表 *lhs* 按[字典序大于或等于](http://en.cppreference.com/w/cpp/algorithm/lexicographical_compare) *rhs* 则返回 `true`; 否则返回 `false`。
 
 该方法要求值类型实现了 `operator<()`。
 
@@ -1227,9 +1104,8 @@ to](http://en.cppreference.com/w/cpp/algorithm/lexicographical_compare)
 
 ### template <typename T> [QDataStream](../../D/QDataStream/QDataStream.md) &operator>>([QDataStream](../../D/QDataStream/QDataStream.md) &*in*, [QList](QList.md#template-typename-inputiterator-qlistqlistinputiterator-first-inputiterator-last)<T> &*list*)
 
-Reads a list from stream *in* into *list*。
+从流 *in* 中读取一个列表到 *list*。
 
-This function requires the value type to implement `operator>>()`。
+该方法要求值类型实现了 `operator>>()`。
 
-**另请参阅** [Format of the QDataStream
-operators](datastreamformat.html)。
+**另请参阅** [QDataStream 操作符格式](../../D/DataStreamFormat/DataStreamFormat.md)。
