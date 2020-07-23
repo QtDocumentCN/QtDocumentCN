@@ -68,7 +68,7 @@ QMetaObject 类包含了 Qt 对象的元信息。[更多内容...](#详细描述
 
 
 
-## 宏
+## 宏定义
 
 | 返回类型               | 宏                                                           |
 | ---------------------- | ------------------------------------------------------------ |
@@ -349,8 +349,6 @@ QMetaObject 在应用编写中通常不需要，但在进行元编程时会非�
 
 若想通过 `obj` 对象同步调用 `compute(QString, int, double)` 槽，则代码如下：
 
-To synchronously invoke the compute(QString, int, double) slot on some arbitrary object obj retrieve its return value:
-
 ```cpp
  QString retVal;
  QMetaObject::invokeMethod(obj, "compute", Qt::DirectConnection,
@@ -370,7 +368,7 @@ To synchronously invoke the compute(QString, int, double) slot on some arbitrary
 
 ### *[static]* bool QMetaObject::invokeMethod([QObject](../../O/QObject/QObject.md) \**obj*, const char \**member*, [QGenericReturnArgument](../../G/QGenericReturnArgument/QGenericReturnArgument.md) *ret*, [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val0* = QGenericArgument(0), [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val1* = QGenericArgument(), [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val2* = QGenericArgument(), [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val3* = QGenericArgument(), [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val4* = QGenericArgument(), [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val5* = QGenericArgument(), [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val6* = QGenericArgument(), [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val7* = QGenericArgument(), [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val8* = QGenericArgument(), [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val9* = QGenericArgument())
 
-此函数是 `invokeMethod`()的重载。
+此函数是 `invokeMethod`() 的重载。
 
 此重载始终通过 [Qt::AutoConnection](../../Q/Qt/Qt.md#ConnectionType-enum) 调用对应方法。
 
@@ -380,7 +378,7 @@ To synchronously invoke the compute(QString, int, double) slot on some arbitrary
 
 ### *[static]* bool QMetaObject::invokeMethod([QObject](../../O/QObject/QObject.md) \**obj*, const char \**member*, [Qt::ConnectionType](../../Q/Qt/Qt.md#ConnectionType-enum) *type*, [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val0* = QGenericArgument(0), [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val1* = QGenericArgument(), [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val2* = QGenericArgument(), [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val3* = QGenericArgument(), [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val4* = QGenericArgument(), [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val5* = QGenericArgument(), [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val6* = QGenericArgument(), [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val7* = QGenericArgument(), [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val8* = QGenericArgument(), [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val9* = QGenericArgument())
 
-此函数是 `invokeMethod`()的重载。
+此函数是 `invokeMethod`() 的重载。
 
 此重载用于不关心对返回值的场合。
 
@@ -390,7 +388,7 @@ To synchronously invoke the compute(QString, int, double) slot on some arbitrary
 
 ### *[static]* bool QMetaObject::invokeMethod([QObject](../../O/QObject/QObject.md) \**obj*, const char \**member*, [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val0* = QGenericArgument(0), [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val1* = QGenericArgument(), [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val2* = QGenericArgument(), [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val3* = QGenericArgument(), [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val4* = QGenericArgument(), [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val5* = QGenericArgument(), [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val6* = QGenericArgument(), [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val7* = QGenericArgument(), [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val8* = QGenericArgument(), [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val9* = QGenericArgument())
 
-此函数是 `invokeMethod`()的重载。
+此函数是 `invokeMethod`() 的重载。
 
 此重载通过 [Qt::AutoConnection](../../Q/Qt/Qt.md#ConnectionType-enum) 调用对应方法，并忽略返回值。
 
@@ -400,7 +398,7 @@ To synchronously invoke the compute(QString, int, double) slot on some arbitrary
 
 ### *[static]* template <typename Functor, typename FunctorReturnType> bool QMetaObject::invokeMethod([QObject](../../O/QObject/QObject.md) \**context*, Functor *function*, [Qt::ConnectionType](../../Q/Qt/Qt.md#ConnectionType-enum) *type* = Qt::AutoConnection, FunctorReturnType \**ret* = nullptr)
 
-此函数是 `invokeMethod`()的重载。
+此函数是 `invokeMethod`() 的重载。
 
 通过 `type` 方式在 `context` 所属的事件循环中动态调用 `function`。`function` 可以是一个仿函数或成员函数指针。若该函数可被动态调用则返回 `true`，当该函数不存在或参数不匹配时返回 `false`。函数的返回值将被保存至 `ret` 中。
 
@@ -412,7 +410,7 @@ To synchronously invoke the compute(QString, int, double) slot on some arbitrary
 
 ### *[static]* template <typename Functor, typename FunctorReturnType> bool QMetaObject::invokeMethod([QObject](../../O/QObject/QObject.md) \**context*, Functor *function*, FunctorReturnType \**ret*)
 
-此函数是 `invokeMethod`()的重载。
+此函数是 `invokeMethod`() 的重载。
 
 通过 [Qt::AutoConnection](../../Q/Qt/Qt.md#ConnectionType-enum) 方式动态调用 `function`。`function` 可以是一个仿函数或成员函数指针。若该函数可被动态调用则返回 `true`，当该函数不存在或参数不匹配时返回 `false`。函数的返回值将被保存至 `ret` 中。
 
@@ -553,7 +551,7 @@ Qt 使用规范化的签名来来判断两个给定的信号和槽是否匹配�
 
 
 
-## 宏文档
+## 宏定义文档
 
 ### [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) Q_ARG(*Type*, const Type &*value*)
 

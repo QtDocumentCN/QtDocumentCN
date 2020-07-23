@@ -5,6 +5,7 @@
 | Access functions:                 | 存取函数         |
 | Detailed Description              | 详细描述         |
 | Emit                              | 发射             |
+| Introspect / Introspection        | 自省             |
 | Invokable                         | 可动态调用       |
 | Invoke                            | 动态调用         |
 | Marshall                          | 序列化           |
