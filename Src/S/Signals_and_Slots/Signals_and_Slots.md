@@ -28,7 +28,7 @@
 
 当一个对象的内部状态被改变，同时它的使用者或所有者可能会感兴趣时，它会发射信号。信号是类的公共成员函数，可以从任何地方发射，但我们只推荐在定义这个信号的类和它的子类中发射。
 
-当信号发射时，连接至它的槽通常会立刻执行，就如同常规的函数调用一样（即就地回调）。此时，信号槽机制的运行完全独立于（即不依赖）任何 GUI 事件循环，`emit`语句之后的代码会在所有槽函数返回后再继续执行。此场景与[队列连接](../../N/Qt_Namespace/Qt_Namespace.md#enum_QtConnectionType)有细微的差别——在后者中，`emit`语句之后的代码会立即执行，而槽则会在随后才被调度。
+当信号发射时，连接至它的槽通常会立刻执行，就如同常规的函数调用一样（即就地回调）。此时，信号槽机制的运行完全独立于（即不依赖）任何 GUI 事件循环，`emit`语句之后的代码会在所有槽函数返回后再继续执行。此场景与[队列连接](../../Q/Qt_Namespace/Qt_Namespace.md#enum_QtConnectionType)有细微的差别——在后者中，`emit`语句之后的代码会立即执行，而槽则会在随后才被调度。
 
 若多个槽被连接至同一个信号，则当信号发射时，这些槽会按照连接的顺序依次执行。
 
@@ -125,7 +125,7 @@
 
 注意，`setValue()`函数当且仅当`value != m_value`时才会修改数值并发射信号。这样避免了环形连接（如`b.valueChanged()`又被连接回`a.setValue()`时）时的无限循环。
 
-默认下，每有一个连接，信号会被发射一次；若创建了两个连接，则信号会被发射两次。您可以使用一次 [disconnect](../../O/QObject/QObject.md#disconnect)() 来断开所有连接。如果在连接时传递了 [Qt::UniqueConnection](../../N/Qt_Namespace/Qt_Namespace.md#enum_QtConnectionType)  类型，则连接只会被创建一次而非多次。如果已经有存在的重复连接（即对象的相同的信号，被连接至相同对象的相同的槽），则新连接会失败并返回`false`。
+默认下，每有一个连接，信号会被发射一次；若创建了两个连接，则信号会被发射两次。您可以使用一次 [disconnect](../../O/QObject/QObject.md#disconnect)() 来断开所有连接。如果在连接时传递了 [Qt::UniqueConnection](../../Q/Qt_Namespace/Qt_Namespace.md#enum_QtConnectionType)  类型，则连接只会被创建一次而非多次。如果已经有存在的重复连接（即对象的相同的信号，被连接至相同对象的相同的槽），则新连接会失败并返回`false`。
 
 本范例说明了，对象之间无需了解对彼此的任何信息，便可共同协作。为实现此目的，对象们只需要通过一些简单的 [connect](../../O/QObject/QObject.md#connect)() 调用连接至彼此，或通过 [uic](../../U/User_Interface_Compiler_uic/User_Interface_Compiler_uic.md) 的[自动连接](../../U/Using_a_Designer_UI_File_in_Your_Application/Using_a_Designer_UI_File_in_Your_Application.md#自动连接)特性完成。
 

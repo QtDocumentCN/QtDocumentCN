@@ -20,7 +20,7 @@ QMetaClassInfo 类提供了某个类的附加信息。[更多内容...](#详细�
 
 ## 详细描述
 
-类型信息对象指的在源代码中通过 [Q_CLASSINFO](../../O/QObject/QObject.md#qclassinfoname-value)() 指定的`名称-值`。这些信息可以通过 [name](QMetaClassInfo.md#const-char-qmetaclassinfoname-const)() 和 [value](QMetaClassInfo.md#const-char-qmetaclassinfovalue-const)() 获取，例如：
+类型信息对象指的在源代码中通过 [Q_CLASSINFO](../../O/QObject/QObject.md#qclassinfoname-value)() 指定的`名称-值`对。这些信息可以通过 [name](QMetaClassInfo.md#const-char-qmetaclassinfoname-const)() 和 [value](QMetaClassInfo.md#const-char-qmetaclassinfovalue-const)() 获取，例如：
 
 ```cpp
 class MyClass
