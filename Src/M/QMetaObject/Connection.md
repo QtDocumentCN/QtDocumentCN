@@ -8,13 +8,13 @@
 
 | 返回类型     | 函数                                                         |
 | ------------ | ------------------------------------------------------------ |
-|              | [Connection](#connectionconnectionconnection-&&o)(Connection &&*o*) |
-|              | [Connection](#connectionconnectionconst-connection-&other)(const Connection &*other*) |
-|              | [Connection](#connectionconnection)()                        |
-| Connection & | [operator=](#connection-&connectionoperatorconnection-&&other)(Connection &&*other*) |
-| Connection & | [operator=](#connection-&connectionoperatorconst-connection-&other)(const Connection &*other*) |
-|              | [~Connection](#connection~connection)()                      |
-| bool         | [operator bool](#bool-connectionoperator-bool-const)() const |
+|              | **[Connection](#connectionconnectionconnection-&&o)**(Connection &&*o*) |
+|              | **[Connection](#connectionconnectionconst-connection-&other)**(const Connection &*other*) |
+|              | **[Connection](#connectionconnection)**()                    |
+| Connection & | **[operator=](#connection-&connectionoperatorconnection-&&other)**(Connection &&*other*) |
+| Connection & | **[operator=](#connection-&connectionoperatorconst-connection-&other)**(const Connection &*other*) |
+|              | **[~Connection](#connection~connection)**()                  |
+| bool         | **[operator bool](#bool-connectionoperator-bool-const)**() const |
 
 
 

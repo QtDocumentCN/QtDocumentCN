@@ -14,7 +14,7 @@
 
 | 返回类型 | 函数                                                         |
 | -------- | ------------------------------------------------------------ |
-|          | [QGenericReturnArgument](#qgenericreturnargumentqgenericreturnargumentconst-char-name--nullptr-void-data--nullptr)(const char \**name* = nullptr, void \**data* = nullptr) |
+|          | **[QGenericReturnArgument](#qgenericreturnargumentqgenericreturnargumentconst-char-name--nullptr-void-data--nullptr)**(const char \**name* = nullptr, void \**data* = nullptr) |
 
 
 
