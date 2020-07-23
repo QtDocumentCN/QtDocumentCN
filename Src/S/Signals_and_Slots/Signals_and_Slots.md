@@ -14,7 +14,7 @@
 
 ![Signals & Slots](Signals_and_Slots.drawio.svg)
 
-信号槽机制是**类型安全**的：信号的函数签名必须与接收它的槽函数签名一致（事实上，槽可以具有比它接收的信号更短的签名，因为允许忽略尾部的额外参数）。鉴于函数签名需要兼容，当我们使用函数指针格式的 [connect](../../O/QObject/QObject.md#connect)() 时，编译器可以帮助我们识别它们的参数类型中的不匹配。信号槽之间是松耦合关系：发射信号的类无需知晓也无需关心是哪个槽接收了这个信号。Qt 的信号槽机制确保了，如果将一个信号连接至一个槽，则槽会在正确的时机被调用，并传入信号所携带的参数。信号槽可以携带任意类型、任意个数的参数，它们是完全类型安全的。
+信号槽机制是**类型安全**的：信号的函数签名必须与接收它的槽函数签名一致（事实上，槽可以具有比它接收的信号更短的签名，因为允许忽略尾部的额外参数）。鉴于函数签名需要兼容，当我们使用函数指针格式的 [connect](../../O/QObject/QObject.md#static-qmetaobjectconnection-qobjectconnectconst-qobject-sender-const-char-signal-const-qobject-receiver-const-char-method-qtconnectiontype-type--qtautoconnectiont)() 时，编译器可以帮助我们识别它们的参数类型中的不匹配。信号槽之间是松耦合关系：发射信号的类无需知晓也无需关心是哪个槽接收了这个信号。Qt 的信号槽机制确保了，如果将一个信号连接至一个槽，则槽会在正确的时机被调用，并传入信号所携带的参数。信号槽可以携带任意类型、任意个数的参数，它们是完全类型安全的。
 
 所有继承自 [QObject](../../O/QObject/QObject.md) 或它的任意子类型（如 [QWidget](../../W/QWidget/QWidget.md)）的类都可以包含信号槽。对象在修改了可能会被其它对象感兴趣的状态时，会发射信号，但并不需要知晓或关心是否有人接收了这个信号。这是真正的信息封装，确保了该对象可以被当作软件中的一个组件所使用。
 
@@ -110,7 +110,7 @@
 
 `emit`一行从该对象发射`valueChanged()`信号，并携带新的值作为参数。
 
-在下方代码片段中，我们创建了两个`Counter`对象，使用 [QObject::connect](../../O/QObject/QObject.md#connect)() 将第一个对象的`valueChanged()`信号连接至第二个对象的`setValue()`槽。
+在下方代码片段中，我们创建了两个`Counter`对象，使用 [QObject::connect](../../O/QObject/QObject.md#static-qmetaobjectconnection-qobjectconnectconst-qobject-sender-const-char-signal-const-qobject-receiver-const-char-method-qtconnectiontype-type--qtautoconnection)() 将第一个对象的`valueChanged()`信号连接至第二个对象的`setValue()`槽。
 
 ```c++
      Counter a, b;
@@ -127,7 +127,7 @@
 
 默认下，每有一个连接，信号会被发射一次；若创建了两个连接，则信号会被发射两次。您可以使用一次 [disconnect](../../O/QObject/QObject.md#disconnect)() 来断开所有连接。如果在连接时传递了 [Qt::UniqueConnection](../../Q/Qt_Namespace/Qt_Namespace.md#enum_QtConnectionType)  类型，则连接只会被创建一次而非多次。如果已经有存在的重复连接（即对象的相同的信号，被连接至相同对象的相同的槽），则新连接会失败并返回`false`。
 
-本范例说明了，对象之间无需了解对彼此的任何信息，便可共同协作。为实现此目的，对象们只需要通过一些简单的 [connect](../../O/QObject/QObject.md#connect)() 调用连接至彼此，或通过 [uic](../../U/User_Interface_Compiler_uic/User_Interface_Compiler_uic.md) 的[自动连接](../../U/Using_a_Designer_UI_File_in_Your_Application/Using_a_Designer_UI_File_in_Your_Application.md#自动连接)特性完成。
+本范例说明了，对象之间无需了解对彼此的任何信息，便可共同协作。为实现此目的，对象们只需要通过一些简单的 [connect](../../O/QObject/QObject.md#static-qmetaobjectconnection-qobjectconnectconst-qobject-sender-const-char-signal-const-qobject-receiver-const-char-method-qtconnectiontype-type--qtautoconnection)() 调用连接至彼此，或通过 [uic](../../U/User_Interface_Compiler_uic/User_Interface_Compiler_uic.md) 的[自动连接](../../U/Using_a_Designer_UI_File_in_Your_Application/Using_a_Designer_UI_File_in_Your_Application.md#自动连接)特性完成。
 
 ## 真实范例
 
@@ -197,13 +197,13 @@
  void objectDestroyed(QObject* obj = nullptr);
 ```
 
-为了将该信号连接至此槽，我们使用 [QObject::connect](../../O/QObject/QObject.md#connect)()。有多种方式可以连接信号槽，首先是使用函数指针：
+为了将该信号连接至此槽，我们使用 [QObject::connect](../../O/QObject/QObject.md#static-qmetaobjectconnection-qobjectconnectconst-qobject-sender-const-char-signal-const-qobject-receiver-const-char-method-qtconnectiontype-type--qtautoconnection)()。有多种方式可以连接信号槽，首先是使用函数指针：
 
 ```c++
  connect(sender, &QObject::destroyed, this, &MyObject::objectDestroyed);
 ```
 
-使用函数指针来执行 [QObject::connect](../../O/QObject/QObject.md#connect)() 有诸多优点。首先，这允许编译器检查信号的参数是否与槽的参数相匹配；同时，如果有必要，编译器可以对参数进行隐式转换（译者注：如将信号的`int`参数转换为槽的`double`参数）。
+使用函数指针来执行 [QObject::connect](../../O/QObject/QObject.md#static-qmetaobjectconnection-qobjectconnectconst-qobject-sender-const-char-signal-const-qobject-receiver-const-char-method-qtconnectiontype-type--qtautoconnection)() 有诸多优点。首先，这允许编译器检查信号的参数是否与槽的参数相匹配；同时，如果有必要，编译器可以对参数进行隐式转换（译者注：如将信号的`int`参数转换为槽的`double`参数）。
 
 您也可以使用仿函数(`functor`)或 C++11 的匿名函数(`lambda`)：
 
@@ -215,7 +215,7 @@
 
 仿函数/匿名函数可以在发送者或上下文对象被销毁时断开连接。您需要注意确保仿函数/匿名函数中用到的所有对象，在信号发射时保持可用。
 
-另一种连接信号槽的方法，是通过`SIGNAL`和`SLOT`宏使用 [QObject::connect](../../O/QObject/QObject.md#connect)()。若参数列表中包含默认值，则`SIGNAL()`和`SLOT()`中是否包含该参数的规则是，传递给`SIGNAL()`宏的参数列表必须**不少于**传递给`SLOT()`宏的参数列表。
+另一种连接信号槽的方法，是通过`SIGNAL`和`SLOT`宏使用 [QObject::connect](../../O/QObject/QObject.md#static-qmetaobjectconnection-qobjectconnectconst-qobject-sender-const-char-signal-const-qobject-receiver-const-char-method-qtconnectiontype-type--qtautoconnection)()。若参数列表中包含默认值，则`SIGNAL()`和`SLOT()`中是否包含该参数的规则是，传递给`SIGNAL()`宏的参数列表必须**不少于**传递给`SLOT()`宏的参数列表。
 
 以下方式都可以生效：
 
@@ -233,7 +233,7 @@
 
 ——因为槽希望获得一个 [QObject](../../O/QObject/QObject.md) 对象，但信号并不会发送它。这个连接会在运行时汇报一条错误信息。
 
-注意，使用这个 [QObject::connect](../../O/QObject/QObject.md#connect)() 重载时，信号和槽的参数并不会被编译器进行检查。（译者注：即使用`SIGNAL()`/`SLOT()`的连接方式）
+注意，使用这个 [QObject::connect](../../O/QObject/QObject.md#static-qmetaobjectconnection-qobjectconnectconst-qobject-sender-const-char-signal-const-qobject-receiver-const-char-method-qtconnectiontype-type--qtautoconnection)() 重载时，信号和槽的参数并不会被编译器进行检查。（译者注：即使用`SIGNAL()`/`SLOT()`的连接方式）
 
 ## 信号槽的进阶应用
 

@@ -22,7 +22,7 @@
 
 代表一组信号槽（或信号-仿函数）连接的句柄。
 
-此类可被用于检查连接是否有效，或通过 [QObject::disconnect](../../O/QObject/QObject.md#disconnect)() 断开连接。对于不具备上下文对象的 信号-仿函数 连接，这是唯一的断开连接的方式。
+此类可被用于检查连接是否有效，或通过 [QObject::disconnect](../../O/QObject/QObject.md#static-bool-qobjectdisconnectconst-qobject-sender-const-char-signal-const-qobject-receiver-const-char-method)() 断开连接。对于不具备上下文对象的 信号-仿函数 连接，这是唯一的断开连接的方式。
 
 由于 `Connection` 仅仅是一个句柄，当被销毁或重新赋值时，底层的信号槽连接不会被影响。
 
@@ -70,4 +70,4 @@
 
 若该对象有效，则返回 `true`。
 
-若 [QObject::connect](../../O/QObject/QObject.md#connect) 成功，则该连接是有效的；若 [QObject::connect](../../O/QObject/QObject.md#connect) 无法找到对应的信号槽或参数不匹配，则该连接无效。 
+若 [QObject::connect](../../O/QObject/QObject.md#static-qmetaobjectconnection-qobjectconnectconst-qobject-sender-const-char-signal-const-qobject-receiver-const-char-method-qtconnectiontype-type--qtautoconnection) 成功，则该连接是有效的；若 [QObject::connect](../../O/QObject/QObject.md#static-qmetaobjectconnection-qobjectconnectconst-qobject-sender-const-char-signal-const-qobject-receiver-const-char-method-qtconnectiontype-type--qtautoconnection) 无法找到对应的信号槽或参数不匹配，则该连接无效。 
