@@ -123,51 +123,51 @@ QPluginLoader对象的实例在被称为插件的单个共享库文件上运行�
 
 ### QPluginLoader::QPluginLoader(const [QString](https://doc.qt.io/qt-5/qstring.html) &*fileName*, [QObject](https://doc.qt.io/qt-5/qobject.html#QObject) **parent* = nullptr)
 
-Constructs a plugin loader with the given *parent* that will load the plugin specified by *fileName*.
+使用给定的 *parent* 构造一个插件加载器，并加载 *fileName* 指定的插件。
 
-To be loadable, the file's suffix must be a valid suffix for a loadable library in accordance with the platform, e.g. `.so` on Unix, - `.dylib` on macOS and iOS, and `.dll` on Windows. The suffix can be verified with [QLibrary::isLibrary](https://doc.qt.io/qt-5/qlibrary.html#isLibrary)().
+为了可加载，文件的后缀必须是可加载库的有效后缀，具体取决于平台，例如，Unix 上的 `.so`，macOS 和 iOS `.dylib`，以及 Windows 上的 `.dll`。后缀可以通过 [QLibrary::isLibrary](https://doc.qt.io/qt-5/qlibrary.html#isLibrary)() 验证。
 
 **另请参阅** [setFileName](https://doc.qt.io/qt-5/qpluginloader.html#fileName-prop)().
 
 ### QPluginLoader::QPluginLoader([QObject](https://doc.qt.io/qt-5/qobject.html#QObject) **parent* = nullptr)
 
-Constructs a plugin loader with the given *parent*.
+使用给定的 *parent* 构造一个插件加载器。
 
 ### `[virtual]`QPluginLoader::~QPluginLoader()
 
-Destroys the [QPluginLoader](https://doc.qt.io/qt-5/qpluginloader.html) object.
+销毁 [QPluginLoader](https://doc.qt.io/qt-5/qpluginloader.html) 对象。
 
-Unless [unload](https://doc.qt.io/qt-5/qpluginloader.html#unload)() was called explicitly, the plugin stays in memory until the application terminates.
+除非 [unload](https://doc.qt.io/qt-5/qpluginloader.html#unload)() 被显式调用，插件会一直留在内存中直到程序结束。
 
-**另请参阅** [isLoaded](https://doc.qt.io/qt-5/qpluginloader.html#isLoaded)() and [unload](https://doc.qt.io/qt-5/qpluginloader.html#unload)().
+**另请参阅** [isLoaded](https://doc.qt.io/qt-5/qpluginloader.html#isLoaded)() 和 [unload](https://doc.qt.io/qt-5/qpluginloader.html#unload)().
 
 ### [QString](https://doc.qt.io/qt-5/qstring.html) QPluginLoader::errorString() const
 
-Returns a text string with the description of the last error that occurred.
+返回带有最后发生的错误描述文本的字符串。
 
-This function was introduced in Qt 4.2.
+该函数在 Qt 4.2 中引入。
 
 ### [QObject](https://doc.qt.io/qt-5/qobject.html#QObject) *QPluginLoader::instance()
 
-Returns the root component object of the plugin. The plugin is loaded if necessary. The function returns `nullptr` if the plugin could not be loaded or if the root component object could not be instantiated.
+返回插件的根组件对象。必要时会加载插件。如果无法加载插件或者根组件对象无法实例化时，该函数将返回 `nullptr`。
 
-If the root component object was destroyed, calling this function creates a new instance.
+如果根组件对象已经被销毁了，该函数在调用时会创建一个新的实例。
 
-The root component, returned by this function, is not deleted when the [QPluginLoader](https://doc.qt.io/qt-5/qpluginloader.html) is destroyed. If you want to ensure that the root component is deleted, you should call [unload](https://doc.qt.io/qt-5/qpluginloader.html#unload)() as soon you don't need to access the core component anymore. When the library is finally unloaded, the root component will automatically be deleted.
+该函数返回的根组件不会随着 [QPluginLoader](https://doc.qt.io/qt-5/qpluginloader.html) 的销毁而被删除。如果您希望保证根组件会被删除，可以在您不再需要访问核心组件是立即调用 [unload](https://doc.qt.io/qt-5/qpluginloader.html#unload)()。当库最终卸载时，对应根组件也会自动删除。
 
-The component object is a [QObject](https://doc.qt.io/qt-5/qobject.html). Use [qobject_cast](https://doc.qt.io/qt-5/qobject.html#qobject_cast)() to access interfaces you are interested in.
+组件对象是一个 [QObject](https://doc.qt.io/qt-5/qobject.html)。使用 [qobject_cast](https://doc.qt.io/qt-5/qobject.html#qobject_cast)() 来访问你想要的接口。
 
 **另请参阅** [load](https://doc.qt.io/qt-5/qpluginloader.html#load)().
 
 ### bool QPluginLoader::isLoaded() const
 
-Returns `true` if the plugin is loaded; otherwise returns `false`.
+如果已经成功加载插件则返回 `true`，否则返回 `false`。
 
 **另请参阅** [load](https://doc.qt.io/qt-5/qpluginloader.html#load)().
 
 ### bool QPluginLoader::load()
 
-Loads the plugin and returns `true` if the plugin was loaded successfully; otherwise returns `false`. Since [instance](https://doc.qt.io/qt-5/qpluginloader.html#instance)() always calls this function before resolving any symbols it is not necessary to call it explicitly. In some situations you might want the plugin loaded in advance, in which case you would use this function.
+加载插件，并在插件成功加载时返回 `true`，否则返回 `false`。由于 [instance](https://doc.qt.io/qt-5/qpluginloader.html#instance)() 始终在解析任何符号之前调用此函数，因此无需显式调用它。在某些情况下，您可能需要预先加载插件，这时您才要使用该函数。
 
 **另请参阅** [unload](https://doc.qt.io/qt-5/qpluginloader.html#unload)().
 
@@ -191,15 +191,15 @@ Returns a list of QStaticPlugins held by the plugin loader. The function is simi
 
 ### bool QPluginLoader::unload()
 
-Unloads the plugin and returns `true` if the plugin could be unloaded; otherwise returns `false`.
+卸载插件，并在插件卸载成功时返回 `true`，否则返回 `false`。
 
-This happens automatically on application termination, so you shouldn't normally need to call this function.
+这会在应用程序终止时自动发生，因此您通常不需要调用此函数。
 
-If other instances of [QPluginLoader](https://doc.qt.io/qt-5/qpluginloader.html) are using the same plugin, the call will fail, and unloading will only happen when every instance has called unload().
+如果存在其它 [QPluginLoader](https://doc.qt.io/qt-5/qpluginloader.html) 实例正在使用同一个插件，调用会失败，卸载只会发生在所有实例都调用了 unload() 时。
 
-Don't try to delete the root component. Instead rely on that unload() will automatically delete it when needed.
+不要试图删除根组件。相反，凭借 unload() ，它会在必要时自动将其删除。
 
-**另请参阅** [instance](https://doc.qt.io/qt-5/qpluginloader.html#instance)() and [load](https://doc.qt.io/qt-5/qpluginloader.html#load)().
+**另请参阅** [instance](https://doc.qt.io/qt-5/qpluginloader.html#instance)() 和 [load](https://doc.qt.io/qt-5/qpluginloader.html#load)().
 
 ## 相关的非成员函数
 
