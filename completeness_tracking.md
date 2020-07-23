@@ -26,7 +26,7 @@
 | [QMetaMethod](Src/M/QMetaMethod/QMetaMethod.md)              | [ZgblKylin](https://github.com/ZgblKylin)     | **待完善** | 跨页跳转需待对应页面完成后进行校正 |
 | [QMetaObject](Src/M/QMetaObject/QMetaObject.md)              | [ZgblKylin](https://github.com/ZgblKylin)     | **待完善** | 跨页跳转需待对应页面完成后进行校正 |
 | [QMetaObject::Connection](M/QMetaObject/Connection.md) | [ZgblKylin](https://github.com/ZgblKylin) | **待完善** | 跨页跳转需待对应页面完成后进行校正 |
-| [QMetaProperty](../../M/QMetaProperty/QMetaProperty.md) | [ZgblKylin](https://github.com/ZgblKylin) | 编写中 | 占位中，待填充，截止时间2020-08-31 |
+| [QMetaProperty](../../M/QMetaProperty/QMetaProperty.md) | [ZgblKylin](https://github.com/ZgblKylin) | **待完善** | 跨页跳转需待对应页面完成后进行校正 |
 | [QMetaType](Src/M/QMetaType/QMetaType.md)                    | [ZgblKylin](https://github.com/ZgblKylin)     | 编写中    | 占位中，待填充，截止时间2020-08-31 |
 | [Why Does Qt use Moc for Signals and Slots](Src/M/Why_Does_Qt_Use_Moc_for_Signals_and_Slots/Why_Does_Qt_Use_Moc_for_Signals_and_Slots.md) | [ZgblKylin](https://github.com/ZgblKylin) | **待完善** | 跨页跳转需待对应页面完成后进行校正 |
 | [The Meta-Object System](M/The_Meta-Object_System/The_Meta-Object_System.md) | [ZgblKylin](https://github.com/ZgblKylin) | 编写中 | 占位中，待填充，截止时间2020-08-31 |

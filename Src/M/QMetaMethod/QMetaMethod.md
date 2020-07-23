@@ -330,7 +330,7 @@ method.invoke(obj,
 
 ### int QMetaMethod::revision() const
 
-返回通过 [Q_REVISION](../../O/QObject/QObject.md#qrevision) 注明的版本，若为注明则返回0。
+返回通过 [Q_REVISION](../../O/QObject/QObject.md#qrevision) 注明的版本，若未注明则返回 `0`。
 
 本函数在 Qt 5.1 中被引入。
 
