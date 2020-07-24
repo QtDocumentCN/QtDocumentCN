@@ -173,19 +173,19 @@ QPluginLoader对象的实例在被称为插件的单个共享库文件上运行�
 
 ### [QJsonObject](https://doc.qt.io/qt-5/qjsonobject.html) QPluginLoader::metaData() const
 
-Returns the meta data for this plugin. The meta data is data specified in a json format using the [Q_PLUGIN_METADATA](https://doc.qt.io/qt-5/qtplugin.html#Q_PLUGIN_METADATA)() macro when compiling the plugin.
+返回该插件的元数据。元数据是在编译插件时使用 [Q_PLUGIN_METADATA](https://doc.qt.io/qt-5/qtplugin.html#Q_PLUGIN_METADATA)() 宏以json格式指定的数据。
 
-The meta data can be queried in a fast and inexpensive way without actually loading the plugin. This makes it possible to e.g. store capabilities of the plugin in there, and make the decision whether to load the plugin dependent on this meta data.
+无需实际加载插件即可以快速又经济的方式查询元数据。这使得例如可以在其中储存插件的功能，并根据该元数据来决定是否加载插件。
 
 ### `[static]`[QObjectList](https://doc.qt.io/qt-5/qobject.html#QObjectList-typedef) QPluginLoader::staticInstances()
 
-Returns a list of static plugin instances (root components) held by the plugin loader.
+返回由插件加载器保存的静态插件实例（根组件）的列表。
 
 **另请参阅** [staticPlugins](https://doc.qt.io/qt-5/qpluginloader.html#staticPlugins)().
 
-### `[static]`[QVector](https://doc.qt.io/qt-5/qvector.html)<[QStaticPlugin](https://doc.qt.io/qt-5/qstaticplugin.html)> QPluginLoader::staticPlugins()
+### `[static]`[QVector](https://doc.qt.io/qt-5/qvector.html)\<[QStaticPlugin](https://doc.qt.io/qt-5/qstaticplugin.html)\> QPluginLoader::staticPlugins()
 
-Returns a list of QStaticPlugins held by the plugin loader. The function is similar to [staticInstances](https://doc.qt.io/qt-5/qpluginloader.html#staticInstances)() with the addition that a [QStaticPlugin](https://doc.qt.io/qt-5/qstaticplugin.html) also contains meta data information.
+返回由插件加载器保存的 QStaticPlugins 列表。 该函数类似于 [staticInstances](https://doc.qt.io/qt-5/qpluginloader.html#staticInstances)()，除了 [QStaticPlugin](https://doc.qt.io/qt-5/qstaticplugin.html) 还包含元数据信息。
 
 **另请参阅** [staticInstances](https://doc.qt.io/qt-5/qpluginloader.html#staticInstances)().
 
@@ -205,6 +205,6 @@ Returns a list of QStaticPlugins held by the plugin loader. The function is simi
 
 ### void qRegisterStaticPluginFunction([QStaticPlugin](https://doc.qt.io/qt-5/qstaticplugin.html) *plugin*)
 
-Registers the *plugin* specified with the plugin loader, and is used by [Q_IMPORT_PLUGIN](https://doc.qt.io/qt-5/qtplugin.html#Q_IMPORT_PLUGIN)().
+注册由插件加载器指定的 *plugin*，并由 [Q_IMPORT_PLUGIN](https://doc.qt.io/qt-5/qtplugin.html#Q_IMPORT_PLUGIN)() 使用。
 
-This function was introduced in Qt 5.0.
+该函数在 Qt 5.0 中引入。
