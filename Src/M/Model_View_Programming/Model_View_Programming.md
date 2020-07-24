@@ -446,4 +446,106 @@ int main(int argc, char *argv[])
 
 ### 一个简单的委托
 
-此处实现的委托使用 [QSpinBox]() 提供编辑功能，并且主要用于显示整数的模型。因此我们建立了一个基于整数的自定义的表模型，但是由于定制委托控制数据输入，因此我们可以轻松地使用 [QStandardItemModel]()。 我们构造一个表视图以显示模型的内容，这将使用自定义委托进行编辑。
+此处实现的委托使用 [QSpinBox]() 提供编辑功能，并且主要用于显示整数的模型。因此我们建立了一个基于整数的自定义的表模型，但是由于自定义委托控制数据输入，因此我们可以轻松地使用 [QStandardItemModel]()。 我们构造一个表视图来显示模型的内容，使用自定义委托进行编辑。
+
+![spinboxdelegate-example](spinboxdelegate-example.png)
+
+我们从 [QStyledItemDelegate]() 继承实现自定义委托，因为我们不想编写自定义显示函数。但是，我们仍然必须提供函数来管理编辑器控件：
+
+```cpp
+class SpinBoxDelegate : public QStyledItemDelegate
+{
+    Q_OBJECT
+
+public:
+    SpinBoxDelegate(QObject *parent = nullptr);
+
+    QWidget *createEditor(QWidget *parent, const QStyleOptionViewItem &option,
+                          const QModelIndex &index) const override;
+
+    void setEditorData(QWidget *editor, const QModelIndex &index) const override;
+    void setModelData(QWidget *editor, QAbstractItemModel *model,
+                      const QModelIndex &index) const override;
+
+    void updateEditorGeometry(QWidget *editor, const QStyleOptionViewItem &option,
+                              const QModelIndex &index) const override;
+};
+```
+
+注意，在构造委托时，不会设置任何编辑器控件。我们仅在需要时构造一个编辑器控件。
+
+### 提供一个编辑器
+
+在此示例中，当表视图需要提供编辑器时，要求委托提供适合于项目修改的编辑器控件。[createEditor()]() 函数可以让委托能够设置合适的控件作为编辑器：
+
+```cpp
+QWidget *SpinBoxDelegate::createEditor(QWidget *parent,
+                                       const QStyleOptionViewItem &/* option */,
+                                       const QModelIndex &/* index */) const
+{
+    QSpinBox *editor = new QSpinBox(parent);
+    editor->setFrame(false);
+    editor->setMinimum(0);
+    editor->setMaximum(100);
+
+    return editor;
+}
+```
+
+注意，我们不需要保留指向编辑器控件的指针，因为当视图不再需要该编辑器时，负责将其销毁。
+
+我们在编辑器上安装了委托的默认事件过滤器，以确保它提供用户期望的标准编辑快捷方式。可以将其他快捷方式添加到编辑器中，以允许更复杂的行为。这些内容将在 [编辑提示]() 部分中进行讨论。
+
+视图可通过调用稍后我们定义的函数来确保正确设置编辑器的数据和几何形状。我们可以根据视图提供的模型索引创建不同的编辑器。例如，如果我们有一列整数和一列字符串，则可以返回 `QSpinBox` 或 `QLineEdit`，具体取决于正在编辑的列。
+
+委托必须提供将模型数据复制到编辑器中的功能。在此示例中，我们读取了 [显示角色]() 中存储的数据，并在 `spin box` 中相应地设置了值。
+
+```cpp
+void SpinBoxDelegate::setEditorData(QWidget *editor,
+                                    const QModelIndex &index) const
+{
+    int value = index.model()->data(index, Qt::EditRole).toInt();
+
+    QSpinBox *spinBox = static_cast<QSpinBox*>(editor);
+    spinBox->setValue(value);
+}
+```
+
+在此示例中，我们知道编辑器控件是一个 `spin box`，但是我们可以为模型中的不同类型的数据提供不同的编辑器，在这种情况下，我们需要在访问其成员函数之前将控件转换为适当的类型。
+
+### 提交数据到模型
+
+当用户完成在 `spin box` 中的值编辑后，视图通过调用 [setModelData()]() 函数要求委托将已编辑的值存储在模型中。
+
+```cpp
+void SpinBoxDelegate::setModelData(QWidget *editor, QAbstractItemModel *model,
+                                   const QModelIndex &index) const
+{
+    QSpinBox *spinBox = static_cast<QSpinBox*>(editor);
+    spinBox->interpretText();
+    int value = spinBox->value();
+
+    model->setData(index, value, Qt::EditRole);
+}
+```
+
+由于视图管理委托的编辑器控件，因此我们只需要使用提供的编辑器的内容来更新模型。在这种情况下，我们确保 ` spin box ` 是最新的，并使用指定的索引更新模型数据。
+
+标准 [QStyledItemDelegate]() 类在完成编辑后通过发出 [closeEditor()]() 信号通知视图。该视图确保编辑器控件已关闭并销毁。在此示例中，我们仅提供简单的编辑工具，因此我们永远不需要发出此信号。
+
+数据的所有操作都是通过 [QAbstractItemModel]() 提供的接口执行的。这使委托在很大程度上不受其处理的数据类型的影响，但是必须做出一些假设才能使用某些类型的编辑器控件。在此示例中，我们假定模型始终包含整数值，但是我们仍然可以将此委托与其他类型的模型一起使用，因为 [QVariant]() 为意外的数据提供了合理的默认值。
+
+### 更新编辑器的几何图形
+
+委托负责管理编辑器的几何图形。创建编辑器时以及更改项目的大小或在视图中的位置时，必须设置几何形状。幸运的是，视图在 [视图选项]() 对象内提供了所有必要的几何信息。
+
+```cpp
+void SpinBoxDelegate::updateEditorGeometry(QWidget *editor,
+                                           const QStyleOptionViewItem &option,
+                                           const QModelIndex &/* index */) const
+{
+    editor->setGeometry(option.rect);
+}
+```
+
+在这种情况下，我们仅使用项目矩形中视图选项提供的几何信息。呈现具有多个元素的项目的委托将不会直接使用项目矩形。它将决定编辑器相对于项目中的其他元素的位置。
