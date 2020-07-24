@@ -53,7 +53,7 @@
 | [QSslCipher](Src/S/QSslCipher/QSslCipher.md) | [skykeyjoker](https://github.com/skykeyjoker) | **已完成** | 已完成 |
 | [QSslConfiguration](Src/S/QSslConfiguration/QSslConfiguration.md) | [skykeyjoker](https://github.com/skykeyjoker) | 编写中 | 占位中，待填充，截止时间2020-07-31 |
 | [QSslError](Src/S/QSslError/QSslError.md) | [skykeyjoker](https://github.com/skykeyjoker) | **已完成** | 已完成 |
-| [QSslKey](Src/S/QSslKey/QSslKey.md) | [skykeyjoker](https://github.com/skykeyjoker) | 编写中 | 编写中 |
+| [QSslKey](Src/S/QSslKey/QSslKey.md) | [skykeyjoker](https://github.com/skykeyjoker) | **待完善** | 跨页跳转需待对应页面完成后进行校正 |
 | [QSslSocket](Src/S/QSslSocket/QSslSocket.md)                 | [skykeyjoker](https://github.com/skykeyjoker) | 编写中    | 编写中 |
 | [QStyledItemDelegate](Src/S/QStyledItemDelegate/QStyledItemDelegate.md) | [yougoup](https://github.com/yougoup) | 编写中 | 截止时间2020-08-15 |
 | [QSslSocket_Obsolete](Src/S/QSslSocket_Obsolete/QSslSocket_Obsolete.md) | [skykeyjoker](https://github.com/skykeyjoker) | 编写中 | 编写中 |
