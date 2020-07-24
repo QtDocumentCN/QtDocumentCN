@@ -139,17 +139,96 @@ QSslSocket 类为客户端和服务端提供了一个 SSL 加密的套接字。
 
 ## 详细介绍
 
+QSslSocket 能够建立一个安全的、加密的 TCP 连接，您可以使用该连接来传输加密数据。在服务器端和客户端都可以使用它，并且他支持现代的 SSL 协议，包括 SSL 3 和 TLS 1.2。默认情况下，QSslSocket 仅仅使用被认为是安全的（ [QSsl::SecureProtocols](../QSsl/QSsl.md#enum-qsslsslprotocol) ） SSL 协议，但是只要在握手开始之前，您可以调用 [setProtocol](#void-qsslsocketsetprotocolqsslsslprotocol-protocol)() 函数来更改 SSL 协议。
 
+SSL encryption operates on top of the existing TCP stream after the socket enters the [ConnectedState](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qabstractsocket.html#SocketState-enum). There are two simple ways to establish a secure connection using QSslSocket: With an immediate SSL handshake, or with a delayed SSL handshake occurring after the connection has been established in unencrypted mode.
+
+The most common way to use QSslSocket is to construct an object and start a secure connection by calling [connectToHostEncrypted](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslsocket.html#connectToHostEncrypted)(). This method starts an immediate SSL handshake once the connection has been established.
+
+```
+ QSslSocket *socket = new QSslSocket(this);
+ connect(socket, SIGNAL(encrypted()), this, SLOT(ready()));
+
+ socket->connectToHostEncrypted("imap.example.com", 993);
+```
+
+As with a plain [QTcpSocket](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qtcpsocket.html), QSslSocket enters the [HostLookupState](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qabstractsocket.html#SocketState-enum), [ConnectingState](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qabstractsocket.html#SocketState-enum), and finally the [ConnectedState](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qabstractsocket.html#SocketState-enum), if the connection is successful. The handshake then starts automatically, and if it succeeds, the [encrypted](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslsocket.html#encrypted)() signal is emitted to indicate the socket has entered the encrypted state and is ready for use.
+
+Note that data can be written to the socket immediately after the return from [connectToHostEncrypted](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslsocket.html#connectToHostEncrypted)() (i.e., before the [encrypted](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslsocket.html#encrypted)() signal is emitted). The data is queued in QSslSocket until after the [encrypted](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslsocket.html#encrypted)() signal is emitted.
+
+An example of using the delayed SSL handshake to secure an existing connection is the case where an SSL server secures an incoming connection. Suppose you create an SSL server class as a subclass of [QTcpServer](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qtcpserver.html). You would override [QTcpServer::incomingConnection](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qtcpserver.html#incomingConnection)() with something like the example below, which first constructs an instance of QSslSocket and then calls [setSocketDescriptor](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslsocket.html#setSocketDescriptor)() to set the new socket's descriptor to the existing one passed in. It then initiates the SSL handshake by calling [startServerEncryption](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslsocket.html#startServerEncryption)().
+
+```
+ void SslServer::incomingConnection(qintptr socketDescriptor)
+ {
+     QSslSocket *serverSocket = new QSslSocket;
+     if (serverSocket->setSocketDescriptor(socketDescriptor)) {
+         addPendingConnection(serverSocket);
+         connect(serverSocket, &QSslSocket::encrypted, this, &SslServer::ready);
+         serverSocket->startServerEncryption();
+     } else {
+         delete serverSocket;
+     }
+ }
+```
+
+If an error occurs, QSslSocket emits the sslErrors() signal. In this case, if no action is taken to ignore the error(s), the connection is dropped. To continue, despite the occurrence of an error, you can call [ignoreSslErrors](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslsocket.html#ignoreSslErrors)(), either from within this slot after the error occurs, or any time after construction of the QSslSocket and before the connection is attempted. This will allow QSslSocket to ignore the errors it encounters when establishing the identity of the peer. Ignoring errors during an SSL handshake should be used with caution, since a fundamental characteristic of secure connections is that they should be established with a successful handshake.
+
+Once encrypted, you use QSslSocket as a regular [QTcpSocket](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qtcpsocket.html). When [readyRead](qthelp://org.qt-project.qtnetwork.5150/qtcore/qiodevice.html#readyRead)() is emitted, you can call [read](qthelp://org.qt-project.qtnetwork.5150/qtcore/qiodevice.html#read)(), [canReadLine](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslsocket.html#canReadLine)() and [readLine](qthelp://org.qt-project.qtnetwork.5150/qtcore/qiodevice.html#readLine)(), or [getChar](qthelp://org.qt-project.qtnetwork.5150/qtcore/qiodevice.html#getChar)() to read decrypted data from QSslSocket's internal buffer, and you can call [write](qthelp://org.qt-project.qtnetwork.5150/qtcore/qiodevice.html#write)() or [putChar](qthelp://org.qt-project.qtnetwork.5150/qtcore/qiodevice.html#putChar)() to write data back to the peer. QSslSocket will automatically encrypt the written data for you, and emit [encryptedBytesWritten](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslsocket.html#encryptedBytesWritten)() once the data has been written to the peer.
+
+As a convenience, QSslSocket supports [QTcpSocket](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qtcpsocket.html)'s blocking functions [waitForConnected](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslsocket.html#waitForConnected)(), [waitForReadyRead](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslsocket.html#waitForReadyRead)(), [waitForBytesWritten](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslsocket.html#waitForBytesWritten)(), and [waitForDisconnected](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslsocket.html#waitForDisconnected)(). It also provides [waitForEncrypted](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslsocket.html#waitForEncrypted)(), which will block the calling thread until an encrypted connection has been established.
+
+```
+ QSslSocket socket;
+ socket.connectToHostEncrypted("http.example.com", 443);
+ if (!socket.waitForEncrypted()) {
+     qDebug() << socket.errorString();
+     return false;
+ }
+
+ socket.write("GET / HTTP/1.0\r\n\r\n");
+ while (socket.waitForReadyRead())
+     qDebug() << socket.readAll().data();
+```
+
+QSslSocket provides an extensive, easy-to-use API for handling cryptographic ciphers, private keys, and local, peer, and Certification Authority (CA) certificates. It also provides an API for handling errors that occur during the handshake phase.
+
+The following features can also be customized:
+
+- The socket's cryptographic cipher suite can be customized before the handshake phase with [QSslConfiguration::setCiphers](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslconfiguration.html#setCiphers)() and QSslConfiguration::setDefaultCiphers().
+- The socket's local certificate and private key can be customized before the handshake phase with [setLocalCertificate](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslsocket.html#setLocalCertificate)() and [setPrivateKey](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslsocket.html#setPrivateKey)().
+- The CA certificate database can be extended and customized with [QSslConfiguration::addCaCertificate](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslconfiguration.html#addCaCertificate)(), [QSslConfiguration::addCaCertificates](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslconfiguration.html#addCaCertificates)().
+
+To extend the list of *default* CA certificates used by the SSL sockets during the SSL handshake you must update the default configuration, as in the snippet below:
+
+```
+ QList<QSslCertificate> certificates = getCertificates();
+ QSslConfiguration configuration = QSslConfiguration::defaultConfiguration();
+ configuration.addCaCertificates(certificates);
+ QSslConfiguration::setDefaultConfiguration(configuration);
+```
+
+**Note:** If available, root certificates on Unix (excluding macOS) will be loaded on demand from the standard certificate directories. If you do not want to load root certificates on demand, you need to call either [QSslConfiguration::defaultConfiguration](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslconfiguration.html#defaultConfiguration)().setCaCertificates() before the first SSL handshake is made in your application (for example, via passing QSslSocket::systemCaCertificates() to it), or call [QSslConfiguration::defaultConfiguration](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslconfiguration.html#defaultConfiguration)()::setCaCertificates() on your QSslSocket instance prior to the SSL handshake.
+
+For more information about ciphers and certificates, refer to [QSslCipher](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcipher.html) and [QSslCertificate](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcertificate.html).
+
+This product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit (http://www.openssl.org/).
+
+**Note:** Be aware of the difference between the [bytesWritten](qthelp://org.qt-project.qtnetwork.5150/qtcore/qiodevice.html#bytesWritten)() signal and the [encryptedBytesWritten](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslsocket.html#encryptedBytesWritten)() signal. For a [QTcpSocket](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qtcpsocket.html), [bytesWritten](qthelp://org.qt-project.qtnetwork.5150/qtcore/qiodevice.html#bytesWritten)() will get emitted as soon as data has been written to the TCP socket. For a QSslSocket, [bytesWritten](qthelp://org.qt-project.qtnetwork.5150/qtcore/qiodevice.html#bytesWritten)() will get emitted when the data is being encrypted and [encryptedBytesWritten](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslsocket.html#encryptedBytesWritten)() will get emitted as soon as data has been written to the TCP socket.
+
+**See also** [QSslCertificate](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcertificate.html), [QSslCipher](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcipher.html), and [QSslError](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslerror.html).
 
 
 
 ## 成员类型文档
 
-### enum **QSslSocket**::PeerVerifyMode
+### enum QSslSocket::**PeerVerifyMode**
 
 
 
-### enum **QSslSocket**::SslMode
+---
+
+### enum QSslSocket::**SslMode**
 
 
 
@@ -157,7 +236,7 @@ QSslSocket 类为客户端和服务端提供了一个 SSL 加密的套接字。
 
 ## 成员函数文档
 
-### **QSslSocket**::QSslSocket**([QObject](../../O/QObject/QObject.md) **parent* = nullptr)
+### QSslSocket::**QSslSocket****([QObject](../../O/QObject/QObject.md) **parent* = nullptr)
 
 
 
