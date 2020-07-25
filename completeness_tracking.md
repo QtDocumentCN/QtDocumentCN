@@ -75,3 +75,5 @@
 | [QtPlugin](Src/P/QtPlugin/QtPlugin.md)    | [miRoox](https://github.com/miRoox)        | 编写中 | 占位中，待填充，截止时间2020-07-31 |
 | [QCoreApplication](Src/C/QCoreApplication/QCoreApplication.md)    | [froser](https://github.com/froser)        | 编写中 | 占位中，待填充，截止时间2020-08-15 |
 | [QWebEngineView](Src/W/QWebEngineView/QWebEngineView.md) | [ruihuanming](https://github.com/hqwx2018) | **已完成** | 已完成 |
+| [QWebEngineHistory](Src/W/QWebEngineHistory/QWebEngineHistory.md) | [ruihuanming](https://github.com/hqwx2018) | 编写中 | 占位中，截至时间2020-08-15 |
+| [QWebEngineHistoryItem](Src/W/QWebEngineHistoryItem/QWebEngineHistoryItem.md) | [ruihuanming](https://github.com/hqwx2018) | 编写中 | 占位中，截至时间2020-08-15 |
