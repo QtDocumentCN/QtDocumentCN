@@ -3,6 +3,7 @@
 | 英                                | 汉               |
 | --------------------------------- | ---------------- |
 | Access functions:                 | 存取函数         |
+| Deprecated                        | 已弃用           |
 | Detailed Description              | 详细描述         |
 | Emit                              | 发射             |
 | Introspect / Introspection        | 自省             |
