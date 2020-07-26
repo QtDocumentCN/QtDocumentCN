@@ -91,17 +91,21 @@ git pull --rebase
 
 以成员函数标题为例： `[修饰符] 返回类型 函数名(参数类型 参数名) const/volatile修饰符`。
 
-其中，`函数名`加粗，`修饰符`、`参数名`斜体。
+其中，`函数名 `加粗，`修饰符`、`参数名` 斜体。
 
 示例：
 
 ```markdown
-### *[static]* int QString::compare(const QString &*s1*, const QString &*s2*, Qt::CaseSensitivity *cs* = Qt::CaseSensitive)
-### *[virtual protected]* void QObject::childEvent(QChildEvent *\*event*)
-### *[override virtual]* qint64 QAbstractSocket::bytesAvailable() **const**
+### *[static]* int QString::**compare**(const QString &*s1*, const QString &*s2*, Qt::CaseSensitivity *cs* = Qt::CaseSensitive)
+### *[virtual protected]* void QObject::**childEvent**(QChildEvent \**event*)
+### *[override virtual]* qint64 QAbstractSocket::**bytesAvailable**() **const**
 ```
 
-注：以上函数标题为了实现区分度，对修饰符和参数名增加了斜体效果。
+> *[static]* int QString::**compare**(const QString &*s1*, const QString &*s2*, Qt::CaseSensitivity *cs* = Qt::CaseSensitive)
+> *[virtual protected]* void QObject::**childEvent**(QChildEvent *\*event*)
+> *[override virtual]* qint64 QAbstractSocket::**bytesAvailable**() **const**
+
+注：对于指针变量`**event*`，请添加转义符 `\`，以避免开头的两个星在多个指针变量中，被渲染为加粗。
 
 ----
 
@@ -109,9 +113,9 @@ git pull --rebase
 
 当翻译者需要添加额外的资料或吐槽时，需有明确的标注与官方文档区分开。
 
-若为独立段落，建议使用`>`引用语法，并在开头标识`译者注:`。
+若为独立段落，建议使用`>`引用语法，并在开头单独一行标识`译者注:`。
 
-若为段内信息，建议使用(`译者注：xxx`)的方式标注。
+若为段内信息，建议使用段内代码(`译者注：xxx`)的方式标注。
 
 ----
 
