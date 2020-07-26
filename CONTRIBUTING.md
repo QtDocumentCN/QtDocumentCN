@@ -89,21 +89,23 @@ git pull --rebase
 
 在对类成员或实现方法进行讲解时，我们决定采用 Qt 官方文档的命名方式。
 
-以成员函数标题为例： `[修饰符] 返回类型 函数名(参数类型 参数名) const/volatile修饰符`。
+以成员函数标题为例： `[修饰符] 返回类型 函数名(参数类型 参数名) const/volatile/override`。
 
-其中，`函数名 `加粗，`修饰符`、`参数名` 斜体。
+其中，`函数名 `加粗，`修饰符`、`参数名` 斜体，`const/volatile/override` 等后缀不添加额外修饰。
 
 示例：
 
 ```markdown
 ### *[static]* int QString::**compare**(const QString &*s1*, const QString &*s2*, Qt::CaseSensitivity *cs* = Qt::CaseSensitive)
 ### *[virtual protected]* void QObject::**childEvent**(QChildEvent \**event*)
-### *[override virtual]* qint64 QAbstractSocket::**bytesAvailable**() **const**
+### *[override virtual]* qint64 QAbstractSocket::**bytesAvailable**() const
 ```
 
 > *[static]* int QString::**compare**(const QString &*s1*, const QString &*s2*, Qt::CaseSensitivity *cs* = Qt::CaseSensitive)
+> 
 > *[virtual protected]* void QObject::**childEvent**(QChildEvent *\*event*)
-> *[override virtual]* qint64 QAbstractSocket::**bytesAvailable**() **const**
+> 
+> *[override virtual]* qint64 QAbstractSocket::**bytesAvailable**() const
 
 注：对于指针变量`**event*`，请添加转义符 `\`，以避免开头的两个星在多个指针变量中，被渲染为加粗。
 
