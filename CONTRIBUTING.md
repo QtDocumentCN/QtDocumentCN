@@ -95,7 +95,7 @@ git pull --rebase
 
 示例：
 
-```markdown
+```
 ### *[static]* int QString::**compare**(const QString &*s1*, const QString &*s2*, Qt::CaseSensitivity *cs* = Qt::CaseSensitive)
 ### *[virtual protected]* void QObject::**childEvent**(QChildEvent \**event*)
 ### *[override virtual]* qint64 QAbstractSocket::**bytesAvailable**() const
