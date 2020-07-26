@@ -1,6 +1,6 @@
 # QGenericArgument 类
 
-`QGenericArgument` 类是用于序列化参数的内部辅助类。[更多信息...](#详细描述)
+`QGenericArgument` 类是用于序列化参数的内部辅助类。[更多信息...](#%E8%AF%A6%E7%BB%86%E6%8F%8F%E8%BF%B0)
 
 | 属性   | 内容                                                         |
 | ------ | ------------------------------------------------------------ |
@@ -24,7 +24,7 @@
 
 该类绝不应该被主动使用，请通过 [Q_ARG](#qgenericargument-qargtype-const-type-&value)() 来使用。
 
-另请参阅：[Q_ARG](#qgenericargument-qargtype-const-type-&value)()、[QMetaObject::invokeMethod](#static-template-<typename-functor-typename-functorreturntype>-bool-qmetaobjectinvokemethodqobject-context-functor-function-functorreturntype-ret)() 和 [QGenericReturnArgument](../../G/QGenericReturnArgument/QGenericReturnArgument.md)。
+**另请参阅：**[Q_ARG](#qgenericargument-qargtype-const-type-&value)()、[QMetaObject::invokeMethod](#static-template-<typename-functor-typename-functorreturntype>-bool-qmetaobjectinvokemethodqobject-context-functor-function-functorreturntype-ret)() 和 [QGenericReturnArgument](../../G/QGenericReturnArgument/QGenericReturnArgument.md)。
 
 
 

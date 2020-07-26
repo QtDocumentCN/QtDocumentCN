@@ -32,7 +32,7 @@
 
 若多个槽被连接至同一个信号，则当信号发射时，这些槽会按照连接的顺序依次执行。
 
-信号会通过 [moc](../../M/Using_the_Meta-Object_Compiler_moc/Using_the_Meta-Object_Compiler_moc.md) 自动生成定义，不能在`.cpp`中手动编写定义。信号不具备返回类型（即`void`）。（译者注：事实上，非队列连接的信号可以具有返回类型，返回类型与槽返回类型相同，也可用 [QVariant](../../V/QVariant/QVariant.md) 接收任意类型返回，但此机制不保证会被后续版本继续支持。Qt 在`qobjectdefs_impl.h`中，通过`operator,`和`ApplyReturnValue`实现此机制，有兴趣的读者可自行查阅。）
+信号会通过 [moc](../../M/Using_the_Meta-Object_Compiler_moc/Using_the_Meta-Object_Compiler_moc.md) 自动生成定义，不能在`.cpp`中手动编写定义。信号不具备返回类型（即`void`）。（`译者注：事实上，非队列连接的信号可以具有返回类型，返回类型与槽返回类型相同，也可用` [QVariant](../../V/QVariant/QVariant.md) `接收任意类型返回，但此机制不保证会被后续版本继续支持。Qt 在 qobjectdefs_impl.h 中，通过 operator, 和 ApplyReturnValue 实现此机制，有兴趣的读者可自行查阅。`）
 
 关于函数参数：我们的经验是，若信号槽参数不使用特殊类型，则可以具备更广的泛用性。如果 [QScrollBar::valueChanged](../../S/QScrollBar/QScrollBar.md#valueChanged)() 中使用了特殊类型，假设命名为`QScrollBar::Range`，则它只能被连接至专门为 [QScrollBar](../../S/QScrollBar/QScrollBar.md) 设计的槽函数上，而将不同的输入控件互相连接则是不可能的。
 
@@ -40,13 +40,13 @@
 
 当连接至它的信号被发射时，槽会被调用。槽是常规的 C++ 函数，可以被正常调用；它的特殊性质只有被连接至信号时才会体现。
 
-由于槽是常规的成员函数（译者注：也可是静态成员函数或常规的全局函数），当被直接调用时，它遵循标准的 C++ 规范。然而，作为槽，它们可以被任何组件通过信号槽机制调用，而无视它的作用域。这意味着从任意类的实例发射的信号，可以触发另一个非友元类实例中的私有槽。
+由于槽是常规的成员函数（`译者注：也可是静态成员函数或常规的全局函数`），当被直接调用时，它遵循标准的 C++ 规范。然而，作为槽，它们可以被任何组件通过信号槽机制调用，而无视它的作用域。这意味着从任意类的实例发射的信号，可以触发另一个非友元类实例中的私有槽。
 
 您也可以将槽定义为虚函数，这在实践中被证明非常有用。
 
-与回调相比，信号槽会稍微慢一些，因为它们提供了更多的灵活性，不过在实际应用中这些性能差异通常无关紧要。一般来说，发射一个连接至槽的信号，大约比直接调用接收者的函数慢上十倍（译者注：此处指函数调用的额外开销，并非函数执行总耗时），此处不考虑虚函数调用开销。这些开销被用于定位接收对象、线程安全地遍历所有连接（即检查接收者是否在发射过程中被销毁），并将所有参数转换为规范化的形式。虽然十倍非虚函数的调用开销听起来很高，但它其实比任何`new`或`delete`开销少得多。例如，当执行一个字符串、向量或链表操作，而它们在内部依赖`new`或`delete`时，信号槽开销在整个函数调用中只占据了一个非常小的比例。这同样适用于在槽中执行系统调用，或在其中间接调用了超过十个函数的场景。信号槽机制的简洁性和灵活性是值得付出这些开销的，并且您的用户甚至都无法感知到。
+与回调相比，信号槽会稍微慢一些，因为它们提供了更多的灵活性，不过在实际应用中这些性能差异通常无关紧要。一般来说，发射一个连接至槽的信号，大约比直接调用接收者的函数慢上十倍（`译者注：此处指函数调用的额外开销，并非函数执行总耗时`），此处不考虑虚函数调用开销。这些开销被用于定位接收对象、线程安全地遍历所有连接（即检查接收者是否在发射过程中被销毁），并将所有参数转换为规范化的形式。虽然十倍非虚函数的调用开销听起来很高，但它其实比任何`new`或`delete`开销少得多。例如，当执行一个字符串、向量或链表操作，而它们在内部依赖`new`或`delete`时，信号槽开销在整个函数调用中只占据了一个非常小的比例。这同样适用于在槽中执行系统调用，或在其中间接调用了超过十个函数的场景。信号槽机制的简洁性和灵活性是值得付出这些开销的，并且您的用户甚至都无法感知到。
 
-注意，若其它库定义了名为`signals`或`slots`的类型（译者注：包括类型名称、函数签名、宏定义等任何代码标识），将它们与 Qt 程序共同编译时会导致警告甚至错误。为修复此问题，使用`#undef`取消这些预编译符号的定义。（译者注：不推荐此方法，建议使用下文的[在 Qt 中使用第三方的信号槽机制](Signals_and_Slots.md#在-qt-中使用第三方的信号槽机制)）
+注意，若其它库定义了名为`signals`或`slots`的类型（`译者注：包括类型名称、函数签名、宏定义等任何代码标识`），将它们与 Qt 程序共同编译时会导致警告甚至错误。为修复此问题，使用`#undef`取消这些预编译符号的定义。（`译者注：不推荐此方法，建议使用下文的`[在 Qt 中使用第三方的信号槽机制](Signals_and_Slots.md#在-qt-中使用第三方的信号槽机制)）
 
 
 ## 一个小范例
@@ -94,7 +94,7 @@
 
 基于 [QObject](../../O/QObject/QObject.md) 的版本具备一些内部状态，并且提供了公共方法来获取这些状态，同时还具备使用信号槽机制的组件化编程支持。这个类可以通过发射`valueChanged()`信号来通知外界它的状态发生了改变，同时也拥有一个槽，让其它对象可以向其发送信号。
 
-所有包含信号槽的类都必须在类的起始处声明 [Q_OBJECT](../../O/QObject/QObject.md#Q_OBJECT) ，并且必须继承自（直接或间接） [QObject](../../O/QObject/QObject.md) 。（译者注：迄今所有版本中，`QObject`均不支持虚继承和菱形继承，即每个类只能拥有唯一一个非虚继承的`QObject`基类）
+所有包含信号槽的类都必须在类的起始处声明 [Q_OBJECT](../../O/QObject/QObject.md#Q_OBJECT) ，并且必须继承自（直接或间接） [QObject](../../O/QObject/QObject.md) 。（`译者注：迄今所有版本中，QObject 均不支持虚继承和菱形继承，即每个类只能拥有唯一一个非虚继承的 QObject 基类`）
 
 槽需要程序开发者提供定义，此处为`Counter::setValue()`槽的一个可能的定义：
 
@@ -146,7 +146,7 @@
 
 `LcdNumber`通过 [QFrame](../../F/QFrame/QFrame.md) 和 [QWidget](../../W/QWidget/QWidget.md)，间接继承自 [QObject](../../O/QObject/QObject.md)，后者提供了绝大部分信号槽特性。这和内置的 [QLCDNumber](../../L/QLCDNumber/QLCDNumber.md) 控件有部分相似之处。
 
- 会被编译器展开为一些成员函数的声明，以供`moc`实现；如果您遇到形如“无法解析的外部符号：`LcdNumber`”（undefined reference to vtable for `LcdNumber`）的编译错误，那么您可能忘记[执行moc](../../M/Using_the_Meta-Object_Compiler_moc/Using_the_Meta-Object_Compiler_moc.md)，或忘记将`moc`输出包含到链接指令中。（译者注：对于 qmake 工程，将包含 [Q_OBJECT](../../O/QObject/QObject.md#Q_OBJECT) 的头文件添加到`.pro`文件的 [HEADERS](../../V/Variables/Variables.md#HEADERS) 变量中，即可自动执行 [moc](../../M/Using_the_Meta-Object_Compiler_moc/Using_the_Meta-Object_Compiler_moc.md) 并链接其输出）
+ 会被编译器展开为一些成员函数的声明，以供`moc`实现；如果您遇到形如“无法解析的外部符号：`LcdNumber`”（undefined reference to vtable for `LcdNumber`）的编译错误，那么您可能忘记[执行moc](../../M/Using_the_Meta-Object_Compiler_moc/Using_the_Meta-Object_Compiler_moc.md)，或忘记将`moc`输出包含到链接指令中。（`译者注：对于 qmake 工程，将包含` [Q_OBJECT](../../O/QObject/QObject.md#Q_OBJECT) `的头文件添加到 .pro 文件的` [HEADERS](../../V/Variables/Variables.md#HEADERS) `变量中，即可自动执行` [moc](../../M/Using_the_Meta-Object_Compiler_moc/Using_the_Meta-Object_Compiler_moc.md) `并链接其输出`）
 
 ```c++
  public:
@@ -203,7 +203,7 @@
  connect(sender, &QObject::destroyed, this, &MyObject::objectDestroyed);
 ```
 
-使用函数指针来执行 [QObject::connect](../../O/QObject/QObject.md#static-qmetaobjectconnection-qobjectconnectconst-qobject-sender-const-char-signal-const-qobject-receiver-const-char-method-qtconnectiontype-type--qtautoconnection)() 有诸多优点。首先，这允许编译器检查信号的参数是否与槽的参数相匹配；同时，如果有必要，编译器可以对参数进行隐式转换（译者注：如将信号的`int`参数转换为槽的`double`参数）。
+使用函数指针来执行 [QObject::connect](../../O/QObject/QObject.md#static-qmetaobjectconnection-qobjectconnectconst-qobject-sender-const-char-signal-const-qobject-receiver-const-char-method-qtconnectiontype-type--qtautoconnection)() 有诸多优点。首先，这允许编译器检查信号的参数是否与槽的参数相匹配；同时，如果有必要，编译器可以对参数进行隐式转换（`译者注：如将信号的 int 参数转换为槽的 double 参数`）。
 
 您也可以使用仿函数(`functor`)或 C++11 的匿名函数(`lambda`)：
 
@@ -233,13 +233,13 @@
 
 ——因为槽希望获得一个 [QObject](../../O/QObject/QObject.md) 对象，但信号并不会发送它。这个连接会在运行时汇报一条错误信息。
 
-注意，使用这个 [QObject::connect](../../O/QObject/QObject.md#static-qmetaobjectconnection-qobjectconnectconst-qobject-sender-const-char-signal-const-qobject-receiver-const-char-method-qtconnectiontype-type--qtautoconnection)() 重载时，信号和槽的参数并不会被编译器进行检查。（译者注：即使用`SIGNAL()`/`SLOT()`的连接方式）
+注意，使用这个 [QObject::connect](../../O/QObject/QObject.md#static-qmetaobjectconnection-qobjectconnectconst-qobject-sender-const-char-signal-const-qobject-receiver-const-char-method-qtconnectiontype-type--qtautoconnection)() 重载时，信号和槽的参数并不会被编译器进行检查。（`译者注：即使用 SIGNAL() / SLOT() 的连接方式`）
 
 ## 信号槽的进阶应用
 
 对于想要获取信号发送方信息的的场景，Qt 提供了 [QObject::sender](../../O/QObject/QObject.md#sender)() 函数，该函数返回发送信号的对象的指针。
 
-匿名表达式(`lambda`)可以用更简单的方法来将自定义参数传递至槽（译者注：使用捕获列表）：
+匿名表达式(`lambda`)可以用更简单的方法来将自定义参数传递至槽（`译者注：使用捕获列表`）：
 
 ```c++
  connect(action, &QAction::triggered, engine,
