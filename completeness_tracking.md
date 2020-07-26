@@ -5,7 +5,7 @@
 翻译进度说明：
 
 - 编写中：参与者提交占位文件，或正在编辑中，尚未完成第一版提交。此阶段文档内容变动较大，为避免冲突，不建议维护者之外的人员修改该文档；
-- 待完善：文档已完成主体内容编写，提交第一版，剩余后续的校对维护工作，如措辞调整、关联跳转链接维护等，推荐社区参与者加入维护，如检查关联跳转中未完成的其它文档，并参与翻译；
+- 待完善：文档已完成主体内容编写，提交第一版，推荐社区参与者参与剩余后续的校对维护工作，如措辞调整、关联跳转链接维护、添加关联跳转中未完成的其它文档等；
 - 已完成：文档已完成编写和校对、维护工作，文档内容基本定稿，所有关联链接跳转无误，则可完成归档。
 
 | 文档                                                         | 维护者                                        | 翻译进度 | 备注                               |
@@ -27,7 +27,7 @@
 | [QMetaObject](Src/M/QMetaObject/QMetaObject.md)              | [ZgblKylin](https://github.com/ZgblKylin)     | **待完善** | 跨页跳转需待对应页面完成后进行校正 |
 | [QMetaObject::Connection](M/QMetaObject/Connection.md) | [ZgblKylin](https://github.com/ZgblKylin) | **待完善** | 跨页跳转需待对应页面完成后进行校正 |
 | [QMetaProperty](../../M/QMetaProperty/QMetaProperty.md) | [ZgblKylin](https://github.com/ZgblKylin) | **待完善** | 跨页跳转需待对应页面完成后进行校正 |
-| [QMetaType](Src/M/QMetaType/QMetaType.md)                    | [ZgblKylin](https://github.com/ZgblKylin)     | 编写中    | 占位中，待填充，截止时间2020-08-31 |
+| [QMetaType](Src/M/QMetaType/QMetaType.md)                    | [ZgblKylin](https://github.com/ZgblKylin)     | **待完善** | 跨页跳转需待对应页面完成后进行校正 |
 | [Why Does Qt use Moc for Signals and Slots](Src/M/Why_Does_Qt_Use_Moc_for_Signals_and_Slots/Why_Does_Qt_Use_Moc_for_Signals_and_Slots.md) | [ZgblKylin](https://github.com/ZgblKylin) | **待完善** | 跨页跳转需待对应页面完成后进行校正 |
 | [The Meta-Object System](M/The_Meta-Object_System/The_Meta-Object_System.md) | [ZgblKylin](https://github.com/ZgblKylin) | 编写中 | 占位中，待填充，截止时间2020-08-31 |
 | [Using the Meta-Object Compiler(moc)](Src/M/Using_the_Meta-Object_Compiler_moc/Using_the_Meta-Object_Compiler_moc.md) | [ZgblKylin](https://github.com/ZgblKylin)     | **待完善** | 跨页跳转需待对应页面完成后进行校正 |
@@ -75,7 +75,7 @@
 | [QtPlugin](Src/P/QtPlugin/QtPlugin.md)    | [miRoox](https://github.com/miRoox)        | 编写中 | 占位中，待填充，截止时间2020-07-31 |
 | [QCoreApplication](Src/C/QCoreApplication/QCoreApplication.md)    | [froser](https://github.com/froser)        | 编写中 | 占位中，待填充，截止时间2020-08-15 |
 | [QWebEngineView](Src/W/QWebEngineView/QWebEngineView.md) |[ruihuanming](https://github.com/hqwx2018)|**已完成**|已完成|
-| [QWebEngineHistory](Src/W/QWebEngineHistory/QWebEngineHistory.md) |[ruihuanming](https://github.com/hqwx2018)|编写中  占位中|截至时间2020-08-15|
+| [QWebEngineHistory](Src/W/QWebEngineHistory/QWebEngineHistory.md) |[ruihuanming](https://github.com/hqwx2018)|编写中|截至时间2020-08-15|
 | [QWebEngineHistoryItem](Src/W/QWebEngineHistoryItem/QWebEngineHistoryItem.md) | [ruihuanming](https://github.com/hqwx2018) | 编写中 | 占位中，截至时间2020-08-15 |
 | [QList::iterator](Src/L/QList/QList_Iterator.md)    | [xyz1001](https://github.com/xyz1001)        | 编写中 | 占位中，待填充，截止时间2020-07-31 |
 | [QList::const_iterator](Src/L/QList/QList_Const_Iterator.md)    | [xyz1001](https://github.com/xyz1001)        | 编写中 | 占位中，待填充，截止时间2020-07-31 |
