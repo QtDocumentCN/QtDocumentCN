@@ -37,7 +37,7 @@ git pull --rebase
 
 ----
 
-## Obselete Member
+### Obselete Member
 
 对于 `已废弃/Obselete` 的成员，Qt 会在类开头添加一个链接指向单独的页面。
 
@@ -47,7 +47,7 @@ git pull --rebase
 
 ----
 
-## 子类型
+### 子类型
 
 如 [QMetaObject::Connection](Src/M/QMetaObject/QMetaObject_Connection.md) 等子类型，不应单独开文件夹，而是存在隶属类型的文件夹中。
 
@@ -55,7 +55,7 @@ git pull --rebase
 
 ----
 
-## 所有成员列表
+### 所有成员列表
 
 无需单独添加所有成员列表页面。
 
