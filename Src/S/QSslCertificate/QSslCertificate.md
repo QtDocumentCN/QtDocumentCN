@@ -14,7 +14,7 @@ QSslCertificate 类为 X509 证书提供了便捷的 API 集成。
 
 该类最初在 Qt 4.3 版本引入。
 
-您可以[在此](../QSslCertificate_Obsolete/QSslCertificate_Obsolete.md)查看已经过时的类成员。
+您可以[在此](../QSslCertificate_Obsolete/QSslCertificate_Obsolete.md)查看已经废弃的类成员。
 
 **注意：** 该类所有的函数都是可重入的。
 
@@ -315,7 +315,7 @@ This function was introduced in Qt 5.4.
 
 返回该证书可选主题的名称列表。可选名称通常来说包含该证书的主机名，有时候会包含通配符。
 
-如果 [CommonName](#enum-qsslcertificatesubjectinfo) 的主题信息未定义一个有效的主机名或者主题信息名称不能匹配对等端的主机名，则将这些名称与连接的对等方的主机名进行测试。 
+如果 [CommonName](#enum-qsslcertificatesubjectinfo) 的主题信息未定义一个有效的主机名或者主题信息名称不能匹配对等端的主机名，则将这些名称与连接的对等方的主机名进行测试。
 
 另外您也可以在 [subjectInfo](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcertificate.html#subjectInfo)() 函数介绍中找到相关信息。
 

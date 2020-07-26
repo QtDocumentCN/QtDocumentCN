@@ -4,7 +4,7 @@
 
 # QSslCertificate Obsolete Members
 
-以下的 [QSslCertificate](../QSslCertificate/QSslCertificate.md) 类成员都已过时。为了保证旧代码仍能运行，Qt 官方保留了这些过时的函数。但是 Qt 官方强烈建议不要在新的代码中使用它们。
+以下的 [QSslCertificate](../QSslCertificate/QSslCertificate.md) 类成员都已废弃。为了保证旧代码仍能运行，Qt 官方保留了这些废弃的函数。但是 Qt 官方强烈建议不要在新的代码中使用它们。
 
 ## 公共成员函数
 
@@ -27,7 +27,7 @@
 
 ### [QMultiMap](../../QMultiMap/QMultiMap.md)<[QSsl::AlternativeNameEntryType](../QSsl/QSsl.md#enum-qsslalternativenameentrytype), [QString](../../S/QString/QString.md)> QSslCertificate::**alternateSubjectNames**() const
 
-该函数已经过时。为了保证旧代码仍能运行，Qt 官方保留了这个过时的函数。但是 Qt 官方强烈建议不要在新的代码中使用它。
+该函数已经废弃。为了保证旧代码仍能运行，Qt 官方保留了这个废弃的函数。但是 Qt 官方强烈建议不要在新的代码中使用它。
 
 请使用 [QSslCertificate::subjectAlternativeNames](#qmultimapqsslalternativenameentrytype-qstring-qsslcertificatesubjectalternativenames-const)() 函数。
 
@@ -35,7 +35,7 @@
 
 ### *[static]* [QList](../L/QList/QList.md)\<[QSslCertificate](../QSslCertificate/QSslCertificate.md)\> QSslCertificate::**fromPath**(const [QString](../../S/QString/QString.md) &*path*, [QSsl::EncodingFormat](../QSsl/QSsl.md#enum-qsslencodingformat) *format*, [QRegExp::PatternSyntax](qthelp://org.qt-project.qtnetwork.5150/qtcore/qregexp.html#PatternSyntax-enum) *syntax*)
 
-该函数已经过时。为了保证旧代码仍能运行，Qt 官方保留了这个过时的函数。但是 Qt 官方强烈建议不要在新的代码中使用它。
+该函数已经废弃。为了保证旧代码仍能运行，Qt 官方保留了这个废弃的函数。但是 Qt 官方强烈建议不要在新的代码中使用它。
 
 搜索路径 *path* 中所有 *format* 编码格式的证书，并返回这些证书的列表。*path* 必须是一个文件，*syntax* 指定的正则表达式必须能检测到至少一个文件。
 
@@ -55,7 +55,7 @@ Qt 官方示例如下：
 
 ### bool QSslCertificate::**isValid**() const
 
-该函数已经过时。为了保证旧代码仍能运行，Qt 官方保留了这个过时的函数。但是 Qt 官方强烈建议不要在新的代码中使用它。
+该函数已经废弃。为了保证旧代码仍能运行，Qt 官方保留了这个废弃的函数。但是 Qt 官方强烈建议不要在新的代码中使用它。
 
 验证证书的有效性请使用 [verify](../QSslCertificate/QSslCertificate.md#static-qlistqsslerror-qsslcertificateverifyqlistqsslcertificate-certificatechain-const-qstring-hostname--qstring)() 函数。查看证书是否被列入黑名单，请使用 [isBlacklisted](../QSslCertificate/QSslCertificate.md#bool-qsslcertificateisblacklisted-const)() 函数。检查证书是否已经过期或者是否尚未生效，请结合 [expiryDate](../QSslCertificate/QSslCertificate.md#qdatetime-qsslcertificateexpirydate-const)() 、[effectiveDate](../QSslCertificate/QSslCertificate.md#qdatetime-qsslcertificateeffectivedate-const)() 和 QDateTime::currentDateTime() 使用。
 

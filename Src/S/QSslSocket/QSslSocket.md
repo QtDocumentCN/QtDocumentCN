@@ -13,7 +13,7 @@ QSslSocket 类为客户端和服务端提供了一个 SSL 加密的套接字。
 
 该类最初在 Qt4.3 版本引入。
 
-您可以在 [QSslSocket_Obsolete](../QSslSocket_Obsolete/QSslSocket_Obsolete.md) 界面找到过时的成员函数介绍。
+您可以在 [QSslSocket_Obsolete](../QSslSocket_Obsolete/QSslSocket_Obsolete.md) 界面找到废弃的成员函数介绍。
 
 **注意：** 该类所有的函数都是可重入的。
 

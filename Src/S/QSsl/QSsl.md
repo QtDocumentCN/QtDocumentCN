@@ -14,7 +14,7 @@ QSsl 命名空间为所有的 SSL 类声明了通用的枚举类型。
 
 该命名空间最初在 Qt4.3 版本引入。
 
-您可以在 [QSsl_Obsolete](../QSsl_Obsolete/QSsl_Obsolete.md) 找到过时的枚举类型。
+您可以在 [QSsl_Obsolete](../QSsl_Obsolete/QSsl_Obsolete.md) 找到已废弃的枚举类型。
 
 
 
@@ -127,7 +127,7 @@ SslOptions 类型是由 typedef [QFlags](qthelp://org.qt-project.qtnetwork.5150/
 | QSsl::SslV2           | 1               | SSLv2。不被 [QSslSocket](../QSslSocket/QSslSocket.md) 支持。 |
 | QSsl::TlsV1_0         | 2               | TLSv1.0。                                                    |
 | QSsl::TlsV1_0OrLater  | 8               | TLSv1.0 和之后的版本。由于平台限制，在使用 WinRT 后端时，此选项不可用。 |
-| QSsl::TlsV1           | TlsV1_0         | 已过时，与 TlsV1_0 意义相同。                                |
+| QSsl::TlsV1           | TlsV1_0         | 已废弃，与 TlsV1_0 意义相同。                                |
 | QSsl::TlsV1_1         | 3               | TLSv1.1。当使用WinRT 后端时，这个选项也会启用 TLSv1.0 选项。 |
 | QSsl::TlsV1_1OrLater  | 9               | TLSv1.1 和之后的版本。由于平台限制，在使用 WinRT 后端时，此选项不可用。 |
 | QSsl::TlsV1_2         | 4               | TLSv1.2。当使用WinRT 后端时，这个选项也会启用 TLSv1.0 和 TLSv1.1 选项。 |
