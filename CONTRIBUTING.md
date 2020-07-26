@@ -59,7 +59,9 @@ git pull --rebase
 
 无需单独添加所有成员列表页面。
 
-但对于某些类型（如 [QEvent](../../E/QEvent/QEvent.md) 的一些子类、[QStyleOption](../../S/QStyleOption/QStyleOption.md) 结构体），它们具备公共成员变量，而 Qt 的类文档中不进行描述，而是将其写在成员列表页面中——此时就需要将其抽取出来，在主页面中添加 `## 公共成员变量` 章节来描述，而非让读者去庞大的所有成员列表中海底捞针。
+该页面是类似 `[TOC]` 的目录索引功能，本项目中应交由发布脚本自动生成目录，而非浪费大量人力编写单独的目录页面——单独的页面在检索时需要在不同页面来回跳转，对于读者也不友好。
+
+**注意：** 需对 `List of all members` 页面进行校对，确保其中所有内容均在主文档中有描述。若存在主文档中没有的内容，需将其挪到主文档中。
 
 
 
@@ -228,7 +230,11 @@ Markdown 页内标题跳转较为简便，语法如下：
    > * `空格`改为`-`。
    > * `=`改为`-`。
 
+#### 第三方链接
 
+除 Qt 原文档中的第三方链接，根据翻译需求添加的 `译者注：` 中，只应引用其它官方组织的文档，如 [CppReference](https://en.cppreference.com/w/) 和 [MSDN](https://docs.microsoft.com/en-us/windows/win32/api/processthreadsapi/nf-processthreadsapi-getcurrentthreadid)。
+
+**个人博客等非官方组织的链接，不应出现在本项目中。**
 
 
 
