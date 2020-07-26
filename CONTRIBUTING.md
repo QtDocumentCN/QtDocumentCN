@@ -232,9 +232,7 @@ Markdown 页内标题跳转较为简便，语法如下：
 
 #### 第三方链接
 
-除 Qt 原文档中的第三方链接，根据翻译需求添加的 `译者注：` 中，只应引用其它官方组织的文档，如 [CppReference](https://en.cppreference.com/w/) 和 [MSDN](https://docs.microsoft.com/en-us/windows/win32/api/processthreadsapi/nf-processthreadsapi-getcurrentthreadid)。
-
-**个人博客等非官方组织的链接，不应出现在本项目中。**
+除 Qt 原文档中的第三方链接，根据翻译需求添加的 `译者注：` 中，**只应**引用其它官方组织的文档，如 [CppReference](https://en.cppreference.com/w/) 或 [MSDN](https://docs.microsoft.com/en-us/windows/win32/api/processthreadsapi/nf-processthreadsapi-getcurrentthreadid)，不可添加个人博客等个人博客等非官方组织的链接。
 
 
 
