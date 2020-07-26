@@ -62,7 +62,7 @@
 
 ### Connection::~Connection()
 
-[QMetaObject::Connection](../../C/Connection/Connection.md) 的析构函数。
+[QMetaObject::Connection](../QMetaObject/QMetaObject_Connection.md) 的析构函数。
 
 ----
 
