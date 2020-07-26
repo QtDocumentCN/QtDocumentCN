@@ -208,31 +208,28 @@ Markdown 页内标题跳转较为简便，语法如下：
 
 3. 若要跨页跳转的目标页尚未完成，可以先采用规则进行目标地址的推算，待目标页完成后再进行检查。
 
-   > 跳转规则：
-   >
-   > 原标题：
-   >
-   > ```markdown
-   > ### *[override virtual]* bool **QAbstractSocket**::waitForBytesWritten(int *msecs* = 30000)
-   > ### bool **QAbstractSocket**::bind(const QHostAddress &*address*, quint16 *port* = 0, QAbstractSocket::BindMode *mode* = DefaultForPlatform)
-   > ```
-   >
-   > 跳转路径：
-   >
-   > ```
-   > #override-virtual-bool-qabstractsocketwaitforbyteswrittenint-msecs--30000
-   > #bool-qabstractsocketbindconst-qhostaddress-address-quint16-port--0-qabstractsocketbindmode-mode--defaultforplatform
-   > ```
-   >
-   > 从以上示例我们可以推导出跳转规则：
-   >
-   > * `* ：() & []` 等特殊字符直接省略（也就是说，标题中的加粗、斜体等样式并不会影响到跳转连接）。
-   > * `空格`改为`-`。
-   > * `=`改为`-`。
+原标题：
+> ```
+> ### *[override virtual]* bool **QAbstractSocket**::waitForBytesWritten(int *msecs* = 30000)
+> ### bool **QAbstractSocket**::bind(const QHostAddress &*address*, quint16 *port* = 0, QAbstractSocket::BindMode *mode* = DefaultForPlatform)
+> ```
+
+跳转路径：
+> ```
+> #override-virtual-bool-qabstractsocketwaitforbyteswrittenint-msecs--30000
+> #bool-qabstractsocketbindconst-qhostaddress-address-quint16-port--0-qabstractsocketbindmode-mode--defaultforplatform
+> ```
+
+从以上示例我们可以推导出跳转规则：
+* `* ：() & [] =` 等所有符号直接省略；
+* 大写全部改为小写；
+* `空格` 改为 `-`。
+
+此外，中文标题请改为 `%` 转义格式，如 `[更多内容...](#详细描述)` 应改为 `[更多内容...](#%E8%AF%A6%E7%BB%86%E6%8F%8F%E8%BF%B0)`。
 
 #### 第三方链接
 
-除 Qt 原文档中的第三方链接，根据翻译需求添加的 `译者注：` 中，**只应**引用其它官方组织的文档，如 [CppReference](https://en.cppreference.com/w/) 或 [MSDN](https://docs.microsoft.com/en-us/windows/win32/api/processthreadsapi/nf-processthreadsapi-getcurrentthreadid)，不可添加个人博客等非官方组织的链接。
+除 Qt 原文档中的第三方链接，根据翻译需求添加的 `译者注：` 中，**只应**引用其它官方组织的文档，如 [CppReference](https://en.cppreference.com/w/) 或 [MSDN](https://docs.microsoft.com/en-us/windows/win32/api/processthreadsapi/nf-processthreadsapi-getcurrentthreadid)，**不可**添加个人博客等非官方组织的链接。
 
 
 
