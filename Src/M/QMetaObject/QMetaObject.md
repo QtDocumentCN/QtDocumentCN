@@ -11,9 +11,9 @@ QMetaObject 类包含了 Qt 对象的元信息。[更多内容...](#%E8%AF%A6%E7
 
 ## 公共成员类型
 
-| 类型  | 名称                            |
-| ----- | ------------------------------- |
-| class | **[Connection](Connection.md)** |
+| 类型  | 名称                                        |
+| ----- | ------------------------------------------- |
+| class | **[Connection](QMetaObject_Connection.md)** |
 
 
 

@@ -238,7 +238,7 @@ QList 并 *不* 支持通过其元素的引用来进行插入，头部追加，�
 
 ### 更多成员
 
-如果 T 是 [QByteArray](../../B/QByteArray/QByteArray.md) 类型，这个类会提供更多可以使用的成员，详见 [QByteArrayList](../../B/QByteArrayList/QByteArrayList.md)。 
+如果 T 是 [QByteArray](../../B/QByteArray/QByteArray.md) 类型，这个类会提供更多可以使用的成员，详见 [QByteArrayList](../../B/QByteArrayList/QByteArrayList.md)。
 
 如果 T 是 [QString](../../S/QString/QString.md) 类型，这个类提供了这些额外的成员函数：[filter](../../S/QStringList/QStringList.md#qstringlist-qstringlistfilterconst-qstring-str-qtcasesensitivity-cs--qtcasesensitive-const), [join](../../S/QStringList/QStringList.md#qstring-qstringlistjoinconst-qstring-separator-const), [removeDuplicates](../../S/QStringList/QStringList.md#int-qstringlistremoveduplicates), [sort](../../S/QStringList/QStringList.md#void-qstringlistsortqtcasesensitivity-cs--qtcasesensitive)。
 
@@ -1107,3 +1107,25 @@ QVector<QString> vect = list.toVector();
 该方法要求值类型实现了 `operator>>()`。
 
 **另请参阅** [QDataStream 操作符格式](../../D/DataStreamFormat/DataStreamFormat.md)。
+
+
+
+## 已废弃成员
+
+**下述的 [QList](../../L/QList/QList.md) 成员已被废弃。** 仅为保证旧代码的正常运行而被保留。我们强烈建议在新代码中不要再使用这些成员。
+
+### 公共成员函数
+
+|   |   |   |
+|---|---|---|
+| `(obsolete)` void  | **[swap](QList_Obsolete_Members.md#void-qlistswapint-i-int-j)**(int _i_, int _j_)  |
+
+### 成员函数文档
+
+#### void QList::swap(int _i_, int _j_)
+
+此方法已废弃。仅为保证旧代码的正常运行而被保留。我们强烈建议在新代码中不要再使用这些成员。
+
+使用 [swapItemsAt](../../O/TODO/TODO.md#void-qlistswapitemsatint-i-int-j)() 代替。
+
+**另请参阅** [move](../../O/TODO/TODO.md#void-qlistmoveint-from-int-to)() 和 [swapItemsAt](../../O/TODO/TODO.md#void-qlistswapitemsatint-i-int-j)().
