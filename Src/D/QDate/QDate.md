@@ -377,7 +377,7 @@ d2.daysTo(d1);          // returns -3
 
 注意 [Qt::TextDate](../../Q/Qt_Namespace/Qt_Namespace.md#DateFormat-enum)：建议使用英文的简写月份名称（例如 "Jan"）。尽管本地化的月份名称在 Qt 5 中也可使用，但它们会依赖于用户的区域设置。
 
-**注意：**怼本地化的日期的支持，包括 [Qt::SystemLocaleDate](../../Q/Qt_Namespace/Qt_Namespace.md#DateFormat-enum)、[Qt::SystemLocaleShortDate](../../Q/Qt_Namespace/Qt_Namespace.md#DateFormat-enum)、[Qt::SystemLocaleLongDate](../../Q/Qt_Namespace/Qt_Namespace.md#DateFormat-enum)、[Qt::LocaleDate](../../Q/Qt_Namespace/Qt_Namespace.md#DateFormat-enum)、[Qt::DefaultLocaleShortDate](../../Q/Qt_Namespace/Qt_Namespace.md#DateFormat-enum) 和 [Qt::DefaultLocaleLongDate](../../Q/Qt_Namespace/Qt_Namespace.md#DateFormat-enum)，将在 Qt 6 被移除。使用 [QLocale::toDate](../../L/QLocale/QLocale.md#toDate)() 代替。
+**注意：** 对本地化的日期的支持，包括 [Qt::SystemLocaleDate](../../Q/Qt_Namespace/Qt_Namespace.md#DateFormat-enum)、[Qt::SystemLocaleShortDate](../../Q/Qt_Namespace/Qt_Namespace.md#DateFormat-enum)、[Qt::SystemLocaleLongDate](../../Q/Qt_Namespace/Qt_Namespace.md#DateFormat-enum)、[Qt::LocaleDate](../../Q/Qt_Namespace/Qt_Namespace.md#DateFormat-enum)、[Qt::DefaultLocaleShortDate](../../Q/Qt_Namespace/Qt_Namespace.md#DateFormat-enum) 和 [Qt::DefaultLocaleLongDate](../../Q/Qt_Namespace/Qt_Namespace.md#DateFormat-enum)，将在 Qt 6 被移除。使用 [QLocale::toDate](../../L/QLocale/QLocale.md#toDate)() 代替。
 
 **另请参阅：**[toString](#qstring-qdatetostringconst-qstring-format-const)() 和 [QLocale::toDate](../../L/QLocale/QLocale.md#toDate)()。
 
@@ -449,7 +449,7 @@ QDate::fromString("20000110", "yyyyMd");    // January 10, 2000
 
 如果日期非法，返回的是0。
 
-**注意：**在 Qt 5.7 之前, 这个函数不是常函数。
+**注意：** 在 Qt 5.7 之前, 这个函数不是常函数。
 
 此函数在 Qt 4.5 中引入。
 

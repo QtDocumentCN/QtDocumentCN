@@ -109,7 +109,7 @@ QMetaMethod 类具有一个 [methodType](#qmetamethodmethodtype-qmetamethodmetho
 
 返回该方法的访问权限(`private`、`protected` 或 `public)。
 
-**注意：**信号永远是公共的，但应将此认为是实现细节。在类外发射该类的信号通常是个坏主意。
+**注意：** 信号永远是公共的，但应将此认为是实现细节。在类外发射该类的信号通常是个坏主意。
 
 **另请参阅：**[methodType](#qmetamethodmethodtype-qmetamethodmethodtype-const)()。
 

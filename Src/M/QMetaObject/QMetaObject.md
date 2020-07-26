@@ -461,7 +461,7 @@ Returns the number of methods in this class, including the number of methods pro
 
 构造一个此类的新实例。您可以传递最多十个参数 (`val0`, `val1`, `val2`, `val3`, `val4`, `val5`, `val6`, `val7`, `val8` 和 `val9`) 至构造函数。返回构造的新对象，若没有合适的构造函数则返回 `nullptr`。
 
-**注意：**只有通过 [Q_INVOKABLE](../../O/QObject/QObject.md#Q_INVOKABLE) 修饰符声明的构造函数才能在元对象系统中使用。
+**注意：** 只有通过 [Q_INVOKABLE](../../O/QObject/QObject.md#Q_INVOKABLE) 修饰符声明的构造函数才能在元对象系统中使用。
 
 该函数在 Qt 4.5 中被引入。
 

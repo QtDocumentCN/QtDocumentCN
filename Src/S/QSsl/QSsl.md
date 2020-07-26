@@ -111,7 +111,7 @@ QSsl 命名空间为所有的 SSL 类声明了通用的枚举类型。
 
 默认情况下，SslOptionDisableEmptyFragments 选项处于启用状态，因为这会导致大量服务器出现问题。 SslOptionDisableLegacyRenegotiation 选项也处于启用状态，因为它带来了安全风险。 启用 SslOptionDisableCompression 可以防止 CRIME 公开攻击。  SslOptionDisableSessionPersistence 也处于启用状态以优化内存使用。 其他选项处于关闭状态。
 
-**注意：**以上选项的可用性取决于所使用的 SSL 后端的版本。
+**注意：** 以上选项的可用性取决于所使用的 SSL 后端的版本。
 
 SslOptions 类型是由 typedef [QFlags](qthelp://org.qt-project.qtnetwork.5150/qtcore/qflags.html)\<SslOption\>  定义的用户自定义类型。它储存着  SslOption 值的OR组合。
 

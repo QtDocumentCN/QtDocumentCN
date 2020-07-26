@@ -304,7 +304,7 @@ void [setZoomFactor]()(qreal factor)
 ###  [virtual protected] [QWebEngineView](qwebengineview.html#QWebEngineView) *QWebEngineView::createWindow([QWebEnginePage::WebWindowType](qwebenginepage.html#WebWindowType-enum) *type*)
 
 每当页面想要创建给定类型的新窗口时，都会从关联的QWebEnginePage的createWindow（）方法中调用此函数。 例如，当发出JavaScript请求以在新窗口中打开文档时。
-**注意：**如果重新实现了关联页面的createWindow（）方法，则不会调用此方法，除非在重新实现中明确地这样做。
+**注意：** 如果重新实现了关联页面的createWindow（）方法，则不会调用此方法，除非在重新实现中明确地这样做。
 
 
 
@@ -344,7 +344,7 @@ void [setZoomFactor]()(qreal factor)
 
 *resultCallback*必须带boolean参数， 它将返回true或false, 表明是否找到子字符串。
 
-**注意：**我们保证回调函数总是可以被调用，但可能需要在页面构造完成之后。当[QWebEnginePage](../../W/QWebEnginePage.md) 被删除时，该回调触发带着一个无效的值且作为 [QWebEnginePage](../../W/QWebEnginePage.md) or [QWebEngineView](qwebengineview.html)实例里使用是不安全的。
+**注意：** 我们保证回调函数总是可以被调用，但可能需要在页面构造完成之后。当[QWebEnginePage](../../W/QWebEnginePage.md) 被删除时，该回调触发带着一个无效的值且作为 [QWebEnginePage](../../W/QWebEnginePage.md) or [QWebEngineView](qwebengineview.html)实例里使用是不安全的。
 
 ### [slot] void QWebEngineView::forward()
 
@@ -394,7 +394,7 @@ void [setZoomFactor]()(qreal factor)
 
 加载指定的url和显示它。
 
-**注意：**该视图保持相同的内容直到足够多的数据去展示新的URL。
+**注意：** 该视图保持相同的内容直到足够多的数据去展示新的URL。
 
 另请参见 load(), [setUrl](qwebengineview.html#url-prop)(), [url](qwebengineview.html#url-prop)(), [urlChanged](qwebengineview.html#urlChanged)(), 和 [QUrl::fromUserInput](../qtcore/qurl.html#fromUserInput)().
 
@@ -451,7 +451,7 @@ Qt 5.9中引入了此功能。
 
 当选择的部分改变的时候，发出该信号。
 
-**注意：**当鼠标通过左键安和拖拽去选择文本时，对于每一个新的字符被选中都会发出该信号， 和 not upon releasing the left mouse button.
+**注意：** 当鼠标通过左键安和拖拽去选择文本时，对于每一个新的字符被选中都会发出该信号， 和 not upon releasing the left mouse button.
 
 另请参见 [selectedText](qwebengineview.html#selectedText-prop)().
 
@@ -485,7 +485,7 @@ HTML文档将立即加载，而外部对象则异步加载。
 
 **警告：**此功能仅适用于HTML。 对于其他MIME类型（例如XHTML或SVG），应改用setContent（）。
 
-**注意：**无法显示大于2 MB的内容，因为setHtml（）会将提供的HTML转换为百分比编码并将数据：放在其前面以创建要导航到的URL。 从而，提供的代码将成为超出Chromium设置的2 MB限制的URL。 如果内容太大，则使用success = false触发loadFinished（）信号。
+**注意：** 无法显示大于2 MB的内容，因为setHtml（）会将提供的HTML转换为百分比编码并将数据：放在其前面以创建要导航到的URL。 从而，提供的代码将成为超出Chromium设置的2 MB限制的URL。 如果内容太大，则使用success = false触发loadFinished（）信号。
 
 另请参见 [load](qwebengineview.html#load)(), [setContent](qwebengineview.html#setContent)(), [QWebEnginePage::toHtml](qwebenginepage.html#toHtml)(), 和 [QWebEnginePage::setContent](qwebenginepage.html#setContent)().
 
