@@ -28,7 +28,7 @@ Reserved by miRoox until 2020-07-31
 
 ### Q_DECLARE_INTERFACE(*ClassName*, *Identifier*)
 
-This macro associates the given *Identifier* (a string literal) to the interface class called *ClassName*. The *Identifier* must be unique. For example:
+该宏将给定的 *Identifier*（字符串字面量）与名为 *ClassName* 的接口类关联。*Identifier* 必须是唯一的。例如：
 
 ```cpp
 #define BrushInterface_iid "org.qt-project.Qt.Examples.PlugAndPaint.BrushInterface/1.0"
@@ -36,9 +36,9 @@ This macro associates the given *Identifier* (a string literal) to the interface
 Q_DECLARE_INTERFACE(BrushInterface, BrushInterface_iid)
 ```
 
-This macro is normally used right after the class definition for *ClassName*, in a header file. See the [Plug & Paint](https://doc.qt.io/qt-5/qtwidgets-tools-plugandpaint-app-example.html) example for details.
+通常在头文件中 *ClassName* 的类定义之后立即使用此宏。有关详细信息，请参见[插件与绘制](https://doc.qt.io/qt-5/qtwidgets-tools-plugandpaint-app-example.html)示例。
 
-If you want to use Q_DECLARE_INTERFACE with interface classes declared in a namespace then you have to make sure the Q_DECLARE_INTERFACE is not inside a namespace though. For example:
+如果要对命名空间中的接口类使用 Q_DECLARE_INTERFACE，请务必保证 Q_DECLARE_INTERFACE 不在命名空间中。例如：
 
 ```cpp
 namespace Foo
@@ -49,38 +49,38 @@ namespace Foo
 Q_DECLARE_INTERFACE(Foo::MyInterface, "org.examples.MyInterface")
 ```
 
-**另请参阅** [Q_INTERFACES](https://doc.qt.io/qt-5/qobject.html#Q_INTERFACES)() and [How to Create Qt Plugins](https://doc.qt.io/qt-5/plugins-howto.html).
+**另请参阅** [Q_INTERFACES](https://doc.qt.io/qt-5/qobject.html#Q_INTERFACES)() 和[如何创建 Qt 插件](https://doc.qt.io/qt-5/plugins-howto.html)。
 
 ### Q_IMPORT_PLUGIN(*PluginName*)
 
-This macro imports the plugin named *PluginName*, which corresponds with the name of the class that declares metadata for the plugin with [Q_PLUGIN_METADATA](https://doc.qt.io/qt-5/qtplugin.html#Q_PLUGIN_METADATA)().
+该宏导入名为 *PluginName* 的插件，该插件与使用 [Q_PLUGIN_METADATA](https://doc.qt.io/qt-5/qtplugin.html#Q_PLUGIN_METADATA)() 声明插件元数据的类的名称相对应。This macro imports the plugin named *PluginName*, which corresponds with the name of the class that declares metadata for the plugin with [Q_PLUGIN_METADATA](https://doc.qt.io/qt-5/qtplugin.html#Q_PLUGIN_METADATA)().
 
-Inserting this macro into your application's source code will allow you to make use of a static plugin.
+将该宏插入应用程序的源代码来使您能够使用静态插件。
 
-Example:
+例如：
 
 ```cpp
 Q_IMPORT_PLUGIN(qjpeg)
 ```
 
-Static plugins must also be included by the linker when your application is built. For Qt's predefined plugins, you can use the `QTPLUGIN` to add the required plugins to your build. For example:
+构建应用程序时，链接器必须包含静态插件。对于 Qt 预定义的插件，可以使用 `QTPLUGIN` 将插件加入你的构建系统。例如：
 
 ```qmake
 TEMPLATE      = app
 QTPLUGIN     += qjpeg qgif    # image formats
 ```
 
-**另请参阅** [Static Plugins](https://doc.qt.io/qt-5/plugins-howto.html#static-plugins), [How to Create Qt Plugins](https://doc.qt.io/qt-5/plugins-howto.html), and [Getting Started with qmake](https://doc.qt.io/qt-5/qmake-tutorial.html).
+**另请参阅** [静态插件](https://doc.qt.io/qt-5/plugins-howto.html#static-plugins)、[如何创建 Qt 插件](https://doc.qt.io/qt-5/plugins-howto.html)以及 [qmake 入门](https://doc.qt.io/qt-5/qmake-tutorial.html)。
 
 ### Q_PLUGIN_METADATA(*...*)
 
-This macro is being used to declare meta data that is part of a plugin that instantiates this object.
+该宏用于声明插件元数据，它是实例化此对象的插件的一部分。
 
-The macro needs to declare the IID of the interface implemented through the object, and reference a file containing the meta data for the plugin.
+该宏需要声明通过该对象实现的接口的 IID，并引用包含该插件的元数据的文件。
 
-There should be exactly one occurrence of this macro in the source code for a Qt plugin.
+对于某一个 Qt 插件，该宏在源代码中应恰好出现一次。
 
-Example:
+示例：
 
 ```cpp
 class MyInstance : public QObject
@@ -89,14 +89,14 @@ class MyInstance : public QObject
 };
 ```
 
-See the [Plug & Paint](https://doc.qt.io/qt-5/qtwidgets-tools-plugandpaint-app-example.html) example for details.
+有关详细信息，请参见[插件与绘制](https://doc.qt.io/qt-5/qtwidgets-tools-plugandpaint-app-example.html)示例。
 
-Note that the class this macro appears on must be default-constructible.
+请注意，该宏出现的类必须是可默认构造的。
 
-FILE is optional and points to a json file.
+FILE是可选的，并指向一个 json 文件。
 
-The json file must reside in one of the include directories specified by the build-system. moc exits with an error when it could not find the specified file.
+该 json 文件必须存在于构建系统指定的包含目录之一中。当找不到指定文件时，moc 将退出并显示错误。
 
-This function was introduced in Qt 5.0.
+该宏在 Qt 5.0 中引入。
 
-**另请参阅** [Q_DECLARE_INTERFACE](https://doc.qt.io/qt-5/qtplugin.html#Q_DECLARE_INTERFACE)() and [How to Create Qt Plugins](https://doc.qt.io/qt-5/plugins-howto.html).
+**另请参阅** [Q_DECLARE_INTERFACE](https://doc.qt.io/qt-5/qtplugin.html#Q_DECLARE_INTERFACE)() 和[如何创建 Qt 插件](https://doc.qt.io/qt-5/plugins-howto.html)。
