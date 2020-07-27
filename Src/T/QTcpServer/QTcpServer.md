@@ -13,7 +13,7 @@ QTcpServer 类提供了一个基于 TCP 协议的服务器。
 | 父类   | [QObject](../../O/QObject/QObject.md)             |
 | 子类   | [QSctpServer](../../S/QSctpServer/QSctpServer.md) |
 
-​	**注意：** 该类的所有成员函数都是可重入的。
+**注意：** 该类的所有成员函数都是可重入的。
 
 
 

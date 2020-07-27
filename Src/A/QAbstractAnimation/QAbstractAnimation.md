@@ -278,7 +278,7 @@ QAbstractAnimation 为子类提供了纯虚函数来跟踪动画的进度：[dur
 
 每当当前循环发生变化时，[QAbstractAnimation](QAbstractAnimation.md) 会发射该信号。`currentLoop` 为当前循环。
 
-**注意：**属性 `currentLoop` 的通知信号。
+**注意：** 属性 `currentLoop` 的通知信号。
 
 **另请参阅：**[currentLoop](#currentloop--const-int)() 和 [loopCount](#loopcount--int)()。
 
@@ -288,7 +288,7 @@ QAbstractAnimation 为子类提供了纯虚函数来跟踪动画的进度：[dur
 
 每当方向改变时，[QAbstractAnimation](QAbstractAnimation.md) 会发射该信号。`newDirection` 为新方向。
 
-**注意：**属性 `direction` 的通知信号。
+**注意：** 属性 `direction` 的通知信号。
 
 **另请参阅：**[direction](#direction--direction)()。
 
@@ -342,7 +342,7 @@ QAbstractAnimation 为子类提供了纯虚函数来跟踪动画的进度：[dur
 
 每当动画的状态从 `oldState` 变为 `newState` 时，[QAbstractAnimation](QAbstractAnimation.md) 会发射此信号。此信号会在虚函数 [updateState](#virtual-protected-void-qabstractanimationupdatestateqabstractanimationstateenum-qabstractanimationstate-newstate-qabstractanimationstateenum-qabstractanimationstate-oldstate)()被调用后发射。
 
-**注意：**属性 [state](#state--const-state) 的通知信号。
+**注意：** 属性 [state](#state--const-state) 的通知信号。
 
 **另请参阅：**[updateState](#virtual-protected-void-qabstractanimationupdatestateqabstractanimationstateenum-qabstractanimationstate-newstate-qabstractanimationstateenum-qabstractanimationstate-oldstate)()。
 

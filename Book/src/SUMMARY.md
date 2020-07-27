@@ -37,7 +37,7 @@
 		- [Using_the_Meta-Object_Compiler_moc](./Src/M/Using_the_Meta-Object_Compiler_moc/Using_the_Meta-Object_Compiler_moc.md)
 		- [Why_Does_Qt_Use_Moc_for_Signals_and_Slots](./Src/M/Why_Does_Qt_Use_Moc_for_Signals_and_Slots/Why_Does_Qt_Use_Moc_for_Signals_and_Slots.md)
 	- [N]()
-		- [Qt_Namespace](./Src/N/Qt_Namespace/Qt_Namespace.md)
+		- [Qt_Namespace](./Src/Q/Qt_Namespace/Qt_Namespace.md)
 	- [O]()
 		- [QObject](./Src/O/QObject/QObject.md)
 	- [P]()

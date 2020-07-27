@@ -1,6 +1,6 @@
 # QMetaObject 结构体
 
-QMetaObject 类包含了 Qt 对象的元信息。[更多内容...](#详细描述)。
+QMetaObject 类包含了 Qt 对象的元信息。[更多内容...](#%E8%AF%A6%E7%BB%86%E6%8F%8F%E8%BF%B0)。
 
 | 属性   | 内容                      |
 | ------ | ------------------------- |
@@ -11,11 +11,9 @@ QMetaObject 类包含了 Qt 对象的元信息。[更多内容...](#详细描述
 
 ## 公共成员类型
 
-
-
-| 类型  | 名称                        |
-| ----- | --------------------------- |
-| class | [Connection](Connection.md) |
+| 类型  | 名称                                        |
+| ----- | ------------------------------------------- |
+| class | **[Connection](QMetaObject_Connection.md)** |
 
 
 
@@ -23,32 +21,32 @@ QMetaObject 类包含了 Qt 对象的元信息。[更多内容...](#详细描述
 
 | 返回类型            | 函数                                                         |
 | ------------------- | ------------------------------------------------------------ |
-| QMetaClassInfo      | [classInfo](#qmetaclassinfo-qmetaobjectclassinfoint-index-const)(int *index*) const |
-| int                 | [classInfoCount](#int-qmetaobjectclassinfocount-const)() const |
-| int                 | [classInfoOffset](#int-qmetaobjectclassinfooffset-const)() const |
-| const char *        | [className](#const-char-qmetaobjectclassname-const)() const  |
-| QMetaMethod         | [constructor](#qmetamethod-qmetaobjectconstructorint-index-const)(int *index*) const |
-| int                 | [constructorCount](#int-qmetaobjectconstructorcount-const)() const |
-| QMetaEnum           | [enumerator](#qmetaenum-qmetaobjectenumeratorint-index-const)(int *index*) const |
-| int                 | [enumeratorCount](#int-qmetaobjectenumeratorcount-const)() const |
-| int                 | [enumeratorOffset](#int-qmetaobjectenumeratoroffset-const)() const |
-| int                 | [indexOfClassInfo](#int-qmetaobjectindexofclassinfoconst-char-name-const)(const char **name*) const |
-| int                 | [indexOfConstructor](#int-qmetaobjectindexofconstructorconst-char-constructor-const)(const char **constructor*) const |
-| int                 | [indexOfEnumerator](#int-qmetaobjectindexofenumeratorconst-char-name-const)(const char **name*) const |
-| int                 | [indexOfMethod](#int-qmetaobjectindexofmethodconst-char-method-const)(const char **method*) const |
-| int                 | [indexOfProperty](#int-qmetaobjectindexofpropertyconst-char-name-const)(const char **name*) const |
-| int                 | [indexOfSignal](#int-qmetaobjectindexofsignalconst-char-signal-const)(const char **signal*) const |
-| int                 | [indexOfSlot](#int-qmetaobjectindexofslotconst-char-slot-const)(const char **slot*) const |
-| bool                | [inherits](#bool-qmetaobjectinheritsconst-qmetaobject-metaobject-const)(const QMetaObject **metaObject*) const |
-| QMetaMethod         | [method](#qmetamethod-qmetaobjectmethodint-index-const)(int *index*) const |
-| int                 | [methodCount](#int-qmetaobjectmethodcount-const)() const     |
-| int                 | [methodOffset](#int-qmetaobjectmethodoffset-const)() const   |
-| QObject *           | [newInstance](../../M/QMetaObject/QMetaObject.md#newInstance)(QGenericArgument *val0* = QGenericArgument(nullptr), QGenericArgument *val1* = QGenericArgument(), QGenericArgument *val2* = QGenericArgument(), QGenericArgument *val3* = QGenericArgument(), QGenericArgument *val4* = QGenericArgument(), QGenericArgument *val5* = QGenericArgument(), QGenericArgument *val6* = QGenericArgument(), QGenericArgument *val7* = QGenericArgument(), QGenericArgument *val8* = QGenericArgument(), QGenericArgument *val9* = QGenericArgument()) const |
-| QMetaProperty       | [property](#qmetaproperty-qmetaobjectpropertyint-index-const)(int *index*) const |
-| int                 | [propertyCount](#int-qmetaobjectpropertycount-const)() const |
-| int                 | [propertyOffset](#int-qmetaobjectpropertyoffset-const)() const |
-| const QMetaObject * | [superClass](#const-qmetaobject-qmetaobjectsuperclass-const)() const |
-| QMetaProperty       | [userProperty](#qmetaproperty-qmetaobjectuserproperty-const)() const |
+| QMetaClassInfo      | **[classInfo](#qmetaclassinfo-qmetaobjectclassinfoint-index-const)**(int *index*) const |
+| int                 | **[classInfoCount](#int-qmetaobjectclassinfocount-const)**() const |
+| int                 | **[classInfoOffset](#int-qmetaobjectclassinfooffset-const)**() const |
+| const char *        | **[className](#const-char-qmetaobjectclassname-const)**() const |
+| QMetaMethod         | **[constructor](#qmetamethod-qmetaobjectconstructorint-index-const)**(int *index*) const |
+| int                 | **[constructorCount](#int-qmetaobjectconstructorcount-const)**() const |
+| QMetaEnum           | **[enumerator](#qmetaenum-qmetaobjectenumeratorint-index-const)**(int *index*) const |
+| int                 | **[enumeratorCount](#int-qmetaobjectenumeratorcount-const)**() const |
+| int                 | **[enumeratorOffset](#int-qmetaobjectenumeratoroffset-const)**() const |
+| int                 | **[indexOfClassInfo](#int-qmetaobjectindexofclassinfoconst-char-name-const)**(const char \**name*) const |
+| int                 | **[indexOfConstructor](#int-qmetaobjectindexofconstructorconst-char-constructor-const)**(const char \**constructor*) const |
+| int                 | **[indexOfEnumerator](#int-qmetaobjectindexofenumeratorconst-char-name-const)**(const char \**name*) const |
+| int                 | **[indexOfMethod](#int-qmetaobjectindexofmethodconst-char-method-const)**(const char \**method*) const |
+| int                 | **[indexOfProperty](#int-qmetaobjectindexofpropertyconst-char-name-const)**(const char \**name*) const |
+| int                 | **[indexOfSignal](#int-qmetaobjectindexofsignalconst-char-signal-const)**(const char \**signal*) const |
+| int                 | **[indexOfSlot](#int-qmetaobjectindexofslotconst-char-slot-const)**(const char \**slot*) const |
+| bool                | **[inherits](#bool-qmetaobjectinheritsconst-qmetaobject-metaobject-const)**(const QMetaObject \**metaObject*) const |
+| QMetaMethod         | **[method](#qmetamethod-qmetaobjectmethodint-index-const)**(int *index*) const |
+| int                 | **[methodCount](#int-qmetaobjectmethodcount-const)**() const |
+| int                 | **[methodOffset](#int-qmetaobjectmethodoffset-const)**() const |
+| QObject *           | **[newInstance](#qobject-qmetaobjectnewinstanceqgenericargument-val0--qgenericargumentnullptr-qgenericargument-val1--qgenericargument-qgenericargument-val2--qgenericargument-qgenericargument-val3--qgenericargument-qgenericargument-val4--qgenericargument-qgenericargument-val5--qgenericargument-qgenericargument-val6--qgenericargument-qgenericargument-val7--qgenericargument-qgenericargument-val8--qgenericargument-qgenericargument-val9--qgenericargument-const)**(QGenericArgument *val0* = QGenericArgument(nullptr), QGenericArgument *val1* = QGenericArgument(), QGenericArgument *val2* = QGenericArgument(), QGenericArgument *val3* = QGenericArgument(), QGenericArgument *val4* = QGenericArgument(), QGenericArgument *val5* = QGenericArgument(), QGenericArgument *val6* = QGenericArgument(), QGenericArgument *val7* = QGenericArgument(), QGenericArgument *val8* = QGenericArgument(), QGenericArgument *val9* = QGenericArgument()) const |
+| QMetaProperty       | **[property](#qmetaproperty-qmetaobjectpropertyint-index-const)**(int *index*) const |
+| int                 | **[propertyCount](#int-qmetaobjectpropertycount-const)**() const |
+| int                 | **[propertyOffset](#int-qmetaobjectpropertyoffset-const)**() const |
+| const QMetaObject * | **[superClass](#const-qmetaobject-qmetaobjectsuperclass-const)**() const |
+| QMetaProperty       | **[userProperty](#qmetaproperty-qmetaobjectuserproperty-const)**() const |
 
 
 
@@ -56,31 +54,32 @@ QMetaObject 类包含了 Qt 对象的元信息。[更多内容...](#详细描述
 
 | 返回类型   | 函数                                                         |
 | ---------- | ------------------------------------------------------------ |
-| bool       | [checkConnectArgs](#static-bool-qmetaobjectcheckconnectargsconst-char-signal-const-char-method)(const char \**signal*, const char \**method*) |
-| bool       | [checkConnectArgs](#static-bool-qmetaobjectcheckconnectargsconst-qmetamethod-&signal-const-qmetamethod-&method)(const QMetaMethod &*signal*, const QMetaMethod &*method*) |
-| void       | [connectSlotsByName](#static-void-qmetaobjectconnectslotsbynameqobject-object)(QObject **object*) |
-| bool       | [invokeMethod](#invokeMethod)(QObject \**obj*, const char \**member*, Qt::ConnectionType *type*, QGenericReturnArgument *ret*, QGenericArgument *val0* = QGenericArgument(nullptr), QGenericArgument *val1* = QGenericArgument(), QGenericArgument *val2* = QGenericArgument(), QGenericArgument *val3* = QGenericArgument(), QGenericArgument *val4* = QGenericArgument(), QGenericArgument *val5* = QGenericArgument(), QGenericArgument *val6* = QGenericArgument(), QGenericArgument *val7* = QGenericArgument(), QGenericArgument *val8* = QGenericArgument(), QGenericArgument *val9* = QGenericArgument()) |
-| bool       | [invokeMethod](#invokeMethod-1)(QObject \**obj*, const char \**member*, QGenericReturnArgument *ret*, QGenericArgument *val0* = QGenericArgument(0), QGenericArgument *val1* = QGenericArgument(), QGenericArgument *val2* = QGenericArgument(), QGenericArgument *val3* = QGenericArgument(), QGenericArgument *val4* = QGenericArgument(), QGenericArgument *val5* = QGenericArgument(), QGenericArgument *val6* = QGenericArgument(), QGenericArgument *val7* = QGenericArgument(), QGenericArgument *val8* = QGenericArgument(), QGenericArgument *val9* = QGenericArgument()) |
-| bool       | [invokeMethod](#invokeMethod-2)(QObject \**obj*, const char \**member*, Qt::ConnectionType *type*, QGenericArgument *val0* = QGenericArgument(0), QGenericArgument *val1* = QGenericArgument(), QGenericArgument *val2* = QGenericArgument(), QGenericArgument *val3* = QGenericArgument(), QGenericArgument *val4* = QGenericArgument(), QGenericArgument *val5* = QGenericArgument(), QGenericArgument *val6* = QGenericArgument(), QGenericArgument *val7* = QGenericArgument(), QGenericArgument *val8* = QGenericArgument(), QGenericArgument *val9* = QGenericArgument()) |
-| bool       | [invokeMethod](#invokeMethod-3)(QObject \**obj*, const char \**member*, QGenericArgument *val0* = QGenericArgument(0), QGenericArgument *val1* = QGenericArgument(), QGenericArgument *val2* = QGenericArgument(), QGenericArgument *val3* = QGenericArgument(), QGenericArgument *val4* = QGenericArgument(), QGenericArgument *val5* = QGenericArgument(), QGenericArgument *val6* = QGenericArgument(), QGenericArgument *val7* = QGenericArgument(), QGenericArgument *val8* = QGenericArgument(), QGenericArgument *val9* = QGenericArgument()) |
-| bool       | [invokeMethod](#static-template-<typename-functor-typename-functorreturntype>-bool-qmetaobjectinvokemethodqobject-context-functor-function-qtconnectiontype-type--qtautoconnection-functorreturntype-ret--nullptr)(QObject \**context*, Functor *function*, Qt::ConnectionType *type* = Qt::AutoConnection, FunctorReturnType \**ret* = nullptr) |
-| bool       | [invokeMethod](#static-template-<typename-functor-typename-functorreturntype>-bool-qmetaobjectinvokemethodqobject-context-functor-function-functorreturntype-ret)(QObject \**context*, Functor *function*, FunctorReturnType \**ret*) |
-| QByteArray | [normalizedSignature](#static-qbytearray-qmetaobjectnormalizedsignatureconst-char-method)(const char **method*) |
-| QByteArray | [normalizedType](#static-qbytearray-qmetaobjectnormalizedtypeconst-char-type)(const char **type*) |
+| bool       | **[checkConnectArgs](#static-bool-qmetaobjectcheckconnectargsconst-char-signal-const-char-method)**(const char \**signal*, const char \**method*) |
+| bool       | **[checkConnectArgs](#static-bool-qmetaobjectcheckconnectargsconst-qmetamethod-&signal-const-qmetamethod-&method)**(const QMetaMethod &*signal*, const QMetaMethod &*method*) |
+| void       | **[connectSlotsByName](#static-void-qmetaobjectconnectslotsbynameqobject-object)**(QObject **object*) |
+| bool       | **[invokeMethod](#static-bool-qmetaobjectinvokemethodqobject-obj-const-char-member-qtconnectiontype-type-qgenericreturnargument-ret-qgenericargument-val0--qgenericargumentnullptr-qgenericargument-val1--qgenericargument-qgenericargument-val2--qgenericargument-qgenericargument-val3--qgenericargument-qgenericargument-val4--qgenericargument-qgenericargument-val5--qgenericargument-qgenericargument-val6--qgenericargument-qgenericargument-val7--qgenericargument-qgenericargument-val8--qgenericargument-qgenericargument-val9--qgenericargument)**(QObject \**obj*, const char **member*, Qt::ConnectionType *type*, QGenericReturnArgument *ret*, QGenericArgument *val0* = QGenericArgument(nullptr), QGenericArgument *val1* = QGenericArgument(), QGenericArgument *val2* = QGenericArgument(), QGenericArgument *val3* = QGenericArgument(), QGenericArgument *val4* = QGenericArgument(), QGenericArgument *val5* = QGenericArgument(), QGenericArgument *val6* = QGenericArgument(), QGenericArgument *val7* = QGenericArgument(), QGenericArgument *val8* = QGenericArgument(), QGenericArgument *val9* = QGenericArgument()) |
+| bool       | **[invokeMethod](#static-bool-qmetaobjectinvokemethodqobject-obj-const-char-member-qgenericreturnargument-ret-qgenericargument-val0--qgenericargument0-qgenericargument-val1--qgenericargument-qgenericargument-val2--qgenericargument-qgenericargument-val3--qgenericargument-qgenericargument-val4--qgenericargument-qgenericargument-val5--qgenericargument-qgenericargument-val6--qgenericargument-qgenericargument-val7--qgenericargument-qgenericargument-val8--qgenericargument-qgenericargument-val9--qgenericargument)**(QObject \**obj*, const char **member*, QGenericReturnArgument *ret*, QGenericArgument *val0* = QGenericArgument(0), QGenericArgument *val1* = QGenericArgument(), QGenericArgument *val2* = QGenericArgument(), QGenericArgument *val3* = QGenericArgument(), QGenericArgument *val4* = QGenericArgument(), QGenericArgument *val5* = QGenericArgument(), QGenericArgument *val6* = QGenericArgument(), QGenericArgument *val7* = QGenericArgument(), QGenericArgument *val8* = QGenericArgument(), QGenericArgument *val9* = QGenericArgument()) |
+| bool       | **[invokeMethod](#static-bool-qmetaobjectinvokemethodqobject-obj-const-char-member-qtconnectiontype-type-qgenericargument-val0--qgenericargument0-qgenericargument-val1--qgenericargument-qgenericargument-val2--qgenericargument-qgenericargument-val3--qgenericargument-qgenericargument-val4--qgenericargument-qgenericargument-val5--qgenericargument-qgenericargument-val6--qgenericargument-qgenericargument-val7--qgenericargument-qgenericargument-val8--qgenericargument-qgenericargument-val9--qgenericargument)**(QObject \**obj*, const char **member*, Qt::ConnectionType *type*, QGenericArgument *val0* = QGenericArgument(0), QGenericArgument *val1* = QGenericArgument(), QGenericArgument *val2* = QGenericArgument(), QGenericArgument *val3* = QGenericArgument(), QGenericArgument *val4* = QGenericArgument(), QGenericArgument *val5* = QGenericArgument(), QGenericArgument *val6* = QGenericArgument(), QGenericArgument *val7* = QGenericArgument(), QGenericArgument *val8* = QGenericArgument(), QGenericArgument *val9* = QGenericArgument()) |
+| bool       | **[invokeMethod](#static-bool-qmetaobjectinvokemethodqobject-obj-const-char-member-qgenericargument-val0--qgenericargument0-qgenericargument-val1--qgenericargument-qgenericargument-val2--qgenericargument-qgenericargument-val3--qgenericargument-qgenericargument-val4--qgenericargument-qgenericargument-val5--qgenericargument-qgenericargument-val6--qgenericargument-qgenericargument-val7--qgenericargument-qgenericargument-val8--qgenericargument-qgenericargument-val9--qgenericargument)**(QObject \**obj*, const char **member*, QGenericArgument *val0* = QGenericArgument(0), QGenericArgument *val1* = QGenericArgument(), QGenericArgument *val2* = QGenericArgument(), QGenericArgument *val3* = QGenericArgument(), QGenericArgument *val4* = QGenericArgument(), QGenericArgument *val5* = QGenericArgument(), QGenericArgument *val6* = QGenericArgument(), QGenericArgument *val7* = QGenericArgument(), QGenericArgument *val8* = QGenericArgument(), QGenericArgument *val9* = QGenericArgument()) |
+| bool       | **[invokeMethod](#static-template-<typename-functor-typename-functorreturntype>-bool-qmetaobjectinvokemethodqobject-context-functor-function-qtconnectiontype-type--qtautoconnection-functorreturntype-ret--nullptr)**(QObject \**context*, Functor *function*, Qt::ConnectionType *type* = Qt::AutoConnection, FunctorReturnType \**ret* = nullptr) |
+| bool       | **[invokeMethod](#static-template-<typename-functor-typename-functorreturntype>-bool-qmetaobjectinvokemethodqobject-context-functor-function-functorreturntype-ret)**(QObject \**context*, Functor *function*, FunctorReturnType \**ret*) |
+| QByteArray | **[normalizedSignature](#static-qbytearray-qmetaobjectnormalizedsignatureconst-char-method)**(const char **method*) |
+| QByteArray | **[normalizedType](#static-qbytearray-qmetaobjectnormalizedtypeconst-char-type)**(const char **type*) |
 
 
 
-## 宏
+## 宏定义
 
-| QGenericArgument       | [Q_ARG](#qgenericargument-qargtype-const-type-&value)(*Type*, const Type &*value*) |
+| 返回类型               | 宏定义                                                       |
 | ---------------------- | ------------------------------------------------------------ |
-| QGenericReturnArgument | [Q_RETURN_ARG](#qgenericreturnargument-qreturnargtype-type-&value)(*Type*, Type &*value*) |
+| QGenericArgument       | **[Q_ARG](#qgenericargument-qargtype-const-type-&value)**(*Type*, const Type &*value*) |
+| QGenericReturnArgument | **[Q_RETURN_ARG](#qgenericreturnargument-qreturnargtype-type-&value)**(*Type*, Type &*value*) |
 
 
 
 ## 详细描述
 
-Qt 的[元对象系统](../../T/The_Meta-Object_System/The_Meta-Object_System.md)负责信号槽跨对象通信机制、运行时类型信息和 Qt 的属性系统。应用中的每个 [QObject](../../O/QObject/QObject.md) 子类都有一个唯一的 QMetaObject 实例（译者注：即static性质，同一个 QObject 子类的任意对象，都使用同一个 QMetaObject），其中保存了这个 [QObject](../../O/QObject/QObject.md) 子类的所有元信息，可以通过 [QObject::metaObject](../../O/QObject/QObject.md#metaObject)() 获取。
+Qt 的[元对象系统](../../T/The_Meta-Object_System/The_Meta-Object_System.md)负责信号槽跨对象通信机制、运行时类型信息和 Qt 的属性系统。应用中的每个 [QObject](../../O/QObject/QObject.md) 子类都有一个唯一的 QMetaObject 实例（`译者注：与类一一对应，即同一个 QObject 子类的任意对象，都使用同一个 QMetaObject`），其中保存了这个 [QObject](../../O/QObject/QObject.md) 子类的所有元信息，可以通过 [QObject::metaObject](../../O/QObject/QObject.md#metaObject)() 获取。
 
 QMetaObject 在应用编写中通常不需要，但在进行元编程时会非常有用，例如脚本引擎或者用户界面生成器。
 
@@ -105,7 +104,7 @@ QMetaObject 在应用编写中通常不需要，但在进行元编程时会非�
 
 ## 成员函数文档
 
-### [static] bool QMetaObject::checkConnectArgs(const char \**signal*, const char \**method*)
+### *[static]* bool QMetaObject::checkConnectArgs(const char \**signal*, const char \**method*)
 
 如果 `signal` 和 `method` 的参数能够匹配则返回 `true`，否则返回 `false`。
 
@@ -115,7 +114,7 @@ QMetaObject 在应用编写中通常不需要，但在进行元编程时会非�
 
 ----
 
-### [static] bool QMetaObject::checkConnectArgs(const [QMetaMethod](../../M/QMetaMethod/QMetaMethod.md) &*signal*, const [QMetaMethod](../../M/QMetaMethod/QMetaMethod.md) &*method*)
+### *[static]* bool QMetaObject::checkConnectArgs(const [QMetaMethod](../../M/QMetaMethod/QMetaMethod.md) &*signal*, const [QMetaMethod](../../M/QMetaMethod/QMetaMethod.md) &*method*)
 
 这是一个重载函数。
 
@@ -317,7 +316,7 @@ QMetaObject 在应用编写中通常不需要，但在进行元编程时会非�
 
 ----
 
-### [static] bool QMetaObject::invokeMethod([QObject](../../O/QObject/QObject.md) \**obj*, const char \**member*, [Qt::ConnectionType](../../Q/Qt/Qt.md#ConnectionType-enum) *type*, [QGenericReturnArgument](../../G/QGenericReturnArgument/QGenericReturnArgument.md) *ret*, [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val0* = QGenericArgument(nullptr), [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val1* = QGenericArgument(), [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val2* = QGenericArgument(), [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val3* = QGenericArgument(), [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val4* = QGenericArgument(), [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val5* = QGenericArgument(), [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val6* = QGenericArgument(), [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val7* = QGenericArgument(), [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val8* = QGenericArgument(), [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val9* = QGenericArgument())
+### *[static]* bool QMetaObject::invokeMethod([QObject](../../O/QObject/QObject.md) \**obj*, const char \**member*, [Qt::ConnectionType](../../Q/Qt/Qt.md#ConnectionType-enum) *type*, [QGenericReturnArgument](../../G/QGenericReturnArgument/QGenericReturnArgument.md) *ret*, [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val0* = QGenericArgument(nullptr), [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val1* = QGenericArgument(), [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val2* = QGenericArgument(), [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val3* = QGenericArgument(), [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val4* = QGenericArgument(), [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val5* = QGenericArgument(), [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val6* = QGenericArgument(), [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val7* = QGenericArgument(), [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val8* = QGenericArgument(), [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val9* = QGenericArgument())
 
 通过 `obj` 对象动态调用它的 `member` 方法（或者信号和槽），若调用成功则返回 `true`，若该对象没有此方法或参数不匹配则返回 `false`。
 
@@ -350,8 +349,6 @@ QMetaObject 在应用编写中通常不需要，但在进行元编程时会非�
 
 若想通过 `obj` 对象同步调用 `compute(QString, int, double)` 槽，则代码如下：
 
-To synchronously invoke the compute(QString, int, double) slot on some arbitrary object obj retrieve its return value:
-
 ```cpp
  QString retVal;
  QMetaObject::invokeMethod(obj, "compute", Qt::DirectConnection,
@@ -363,61 +360,61 @@ To synchronously invoke the compute(QString, int, double) slot on some arbitrary
 
 若 `compute` 槽通过特定顺序没有完整获取到一个 [QString](../../S/QString/QString.md)、一个 `int` 和一个 `double`，则此调用会失败。
 
-**注意：**此方法是[线程安全](../../R/Reentrancy_and_Thread-Safety/Reentrancy_and_Thread-Safety.md)的。
+**注意：** 此方法是[线程安全](../../R/Reentrancy_and_Thread-Safety/Reentrancy_and_Thread-Safety.md)的。
 
 **另请参阅：**[Q_ARG](#qgenericargument-qargtype-const-type-&value)()、[Q_RETURN_ARG](#qgenericreturnargument-qreturnargtype-type-&value)()、[qRegisterMetaType](qmetatype.html#qRegisterMetaType-1)() 和 [QMetaMethod::invoke](../../M/QMetaMethod/QMetaMethod.md#invoke)()。
 
 ----
 
-### [static] bool QMetaObject::invokeMethod([QObject](../../O/QObject/QObject.md) \**obj*, const char \**member*, [QGenericReturnArgument](../../G/QGenericReturnArgument/QGenericReturnArgument.md) *ret*, [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val0* = QGenericArgument(0), [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val1* = QGenericArgument(), [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val2* = QGenericArgument(), [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val3* = QGenericArgument(), [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val4* = QGenericArgument(), [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val5* = QGenericArgument(), [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val6* = QGenericArgument(), [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val7* = QGenericArgument(), [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val8* = QGenericArgument(), [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val9* = QGenericArgument())
+### *[static]* bool QMetaObject::invokeMethod([QObject](../../O/QObject/QObject.md) \**obj*, const char \**member*, [QGenericReturnArgument](../../G/QGenericReturnArgument/QGenericReturnArgument.md) *ret*, [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val0* = QGenericArgument(0), [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val1* = QGenericArgument(), [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val2* = QGenericArgument(), [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val3* = QGenericArgument(), [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val4* = QGenericArgument(), [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val5* = QGenericArgument(), [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val6* = QGenericArgument(), [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val7* = QGenericArgument(), [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val8* = QGenericArgument(), [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val9* = QGenericArgument())
 
-此函数是 `invokeMethod`()的重载。
+此函数是 `invokeMethod`() 的重载。
 
 此重载始终通过 [Qt::AutoConnection](../../Q/Qt/Qt.md#ConnectionType-enum) 调用对应方法。
 
-**注意：**此方法是[线程安全](../../R/Reentrancy_and_Thread-Safety/Reentrancy_and_Thread-Safety.md)的。
+**注意：** 此方法是[线程安全](../../R/Reentrancy_and_Thread-Safety/Reentrancy_and_Thread-Safety.md)的。
 
 ----
 
-### [static] bool QMetaObject::invokeMethod([QObject](../../O/QObject/QObject.md) \**obj*, const char \**member*, [Qt::ConnectionType](../../Q/Qt/Qt.md#ConnectionType-enum) *type*, [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val0* = QGenericArgument(0), [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val1* = QGenericArgument(), [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val2* = QGenericArgument(), [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val3* = QGenericArgument(), [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val4* = QGenericArgument(), [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val5* = QGenericArgument(), [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val6* = QGenericArgument(), [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val7* = QGenericArgument(), [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val8* = QGenericArgument(), [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val9* = QGenericArgument())
+### *[static]* bool QMetaObject::invokeMethod([QObject](../../O/QObject/QObject.md) \**obj*, const char \**member*, [Qt::ConnectionType](../../Q/Qt/Qt.md#ConnectionType-enum) *type*, [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val0* = QGenericArgument(0), [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val1* = QGenericArgument(), [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val2* = QGenericArgument(), [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val3* = QGenericArgument(), [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val4* = QGenericArgument(), [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val5* = QGenericArgument(), [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val6* = QGenericArgument(), [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val7* = QGenericArgument(), [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val8* = QGenericArgument(), [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val9* = QGenericArgument())
 
-此函数是 `invokeMethod`()的重载。
+此函数是 `invokeMethod`() 的重载。
 
 此重载用于不关心对返回值的场合。
 
-**注意：**此方法是[线程安全](../../R/Reentrancy_and_Thread-Safety/Reentrancy_and_Thread-Safety.md)的。
+**注意：** 此方法是[线程安全](../../R/Reentrancy_and_Thread-Safety/Reentrancy_and_Thread-Safety.md)的。
 
 ----
 
-### [static] bool QMetaObject::invokeMethod([QObject](../../O/QObject/QObject.md) \**obj*, const char \**member*, [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val0* = QGenericArgument(0), [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val1* = QGenericArgument(), [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val2* = QGenericArgument(), [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val3* = QGenericArgument(), [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val4* = QGenericArgument(), [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val5* = QGenericArgument(), [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val6* = QGenericArgument(), [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val7* = QGenericArgument(), [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val8* = QGenericArgument(), [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val9* = QGenericArgument())
+### *[static]* bool QMetaObject::invokeMethod([QObject](../../O/QObject/QObject.md) \**obj*, const char \**member*, [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val0* = QGenericArgument(0), [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val1* = QGenericArgument(), [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val2* = QGenericArgument(), [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val3* = QGenericArgument(), [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val4* = QGenericArgument(), [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val5* = QGenericArgument(), [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val6* = QGenericArgument(), [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val7* = QGenericArgument(), [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val8* = QGenericArgument(), [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) *val9* = QGenericArgument())
 
-此函数是 `invokeMethod`()的重载。
+此函数是 `invokeMethod`() 的重载。
 
 此重载通过 [Qt::AutoConnection](../../Q/Qt/Qt.md#ConnectionType-enum) 调用对应方法，并忽略返回值。
 
-**注意：**此方法是[线程安全](../../R/Reentrancy_and_Thread-Safety/Reentrancy_and_Thread-Safety.md)的。
+**注意：** 此方法是[线程安全](../../R/Reentrancy_and_Thread-Safety/Reentrancy_and_Thread-Safety.md)的。
 
 ----
 
-### [static] template <typename Functor, typename FunctorReturnType> bool QMetaObject::invokeMethod([QObject](../../O/QObject/QObject.md) \**context*, Functor *function*, [Qt::ConnectionType](../../Q/Qt/Qt.md#ConnectionType-enum) *type* = Qt::AutoConnection, FunctorReturnType \**ret* = nullptr)
+### *[static]* template <typename Functor, typename FunctorReturnType> bool QMetaObject::invokeMethod([QObject](../../O/QObject/QObject.md) \**context*, Functor *function*, [Qt::ConnectionType](../../Q/Qt/Qt.md#ConnectionType-enum) *type* = Qt::AutoConnection, FunctorReturnType \**ret* = nullptr)
 
-此函数是 `invokeMethod`()的重载。
+此函数是 `invokeMethod`() 的重载。
 
 通过 `type` 方式在 `context` 所属的事件循环中动态调用 `function`。`function` 可以是一个仿函数或成员函数指针。若该函数可被动态调用则返回 `true`，当该函数不存在或参数不匹配时返回 `false`。函数的返回值将被保存至 `ret` 中。
 
-**注意：**此方法是[线程安全](../../R/Reentrancy_and_Thread-Safety/Reentrancy_and_Thread-Safety.md)的。
+**注意：** 此方法是[线程安全](../../R/Reentrancy_and_Thread-Safety/Reentrancy_and_Thread-Safety.md)的。
 
 该函数在 Qt 5.10 中被引入。
 
 ----
 
-### [static] template <typename Functor, typename FunctorReturnType> bool QMetaObject::invokeMethod([QObject](../../O/QObject/QObject.md) \**context*, Functor *function*, FunctorReturnType \**ret*)
+### *[static]* template <typename Functor, typename FunctorReturnType> bool QMetaObject::invokeMethod([QObject](../../O/QObject/QObject.md) \**context*, Functor *function*, FunctorReturnType \**ret*)
 
-此函数是 `invokeMethod`()的重载。
+此函数是 `invokeMethod`() 的重载。
 
 通过 [Qt::AutoConnection](../../Q/Qt/Qt.md#ConnectionType-enum) 方式动态调用 `function`。`function` 可以是一个仿函数或成员函数指针。若该函数可被动态调用则返回 `true`，当该函数不存在或参数不匹配时返回 `false`。函数的返回值将被保存至 `ret` 中。
 
-**注意：**此方法是[线程安全](../../R/Reentrancy_and_Thread-Safety/Reentrancy_and_Thread-Safety.md)的。
+**注意：** 此方法是[线程安全](../../R/Reentrancy_and_Thread-Safety/Reentrancy_and_Thread-Safety.md)的。
 
 该函数在 Qt 5.10 中被引入。
 
@@ -464,7 +461,7 @@ Returns the number of methods in this class, including the number of methods pro
 
 构造一个此类的新实例。您可以传递最多十个参数 (`val0`, `val1`, `val2`, `val3`, `val4`, `val5`, `val6`, `val7`, `val8` 和 `val9`) 至构造函数。返回构造的新对象，若没有合适的构造函数则返回 `nullptr`。
 
-**注意：**只有通过 [Q_INVOKABLE](../../O/QObject/QObject.md#Q_INVOKABLE) 修饰符声明的构造函数才能在元对象系统中使用。
+**注意：** 只有通过 [Q_INVOKABLE](../../O/QObject/QObject.md#Q_INVOKABLE) 修饰符声明的构造函数才能在元对象系统中使用。
 
 该函数在 Qt 4.5 中被引入。
 
@@ -472,7 +469,7 @@ Returns the number of methods in this class, including the number of methods pro
 
 ----
 
-### [static] [QByteArray](../../B/QByteArray/QByteArray.md) QMetaObject::normalizedSignature(const char \**method*)
+### *[static]* [QByteArray](../../B/QByteArray/QByteArray.md) QMetaObject::normalizedSignature(const char \**method*)
 
 将给予的 `method` 进行规范化。
 
@@ -482,7 +479,7 @@ Qt 使用规范化的签名来来判断两个给定的信号和槽是否匹配�
 
 ----
 
-### [static] [QByteArray](../../B/QByteArray/QByteArray.md) QMetaObject::normalizedType(const char **type*)
+### *[static]* [QByteArray](../../B/QByteArray/QByteArray.md) QMetaObject::normalizedType(const char **type*)
 
 将 `type` 规范化。
 
@@ -554,11 +551,11 @@ Qt 使用规范化的签名来来判断两个给定的信号和槽是否匹配�
 
 
 
-## 宏文档
+## 宏定义文档
 
 ### [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) Q_ARG(*Type*, const Type &*value*)
 
-该宏接受一个 `type` 和一个该类型的 `value` 参数，返回一个用于传递至 [QMetaObject::invokeMethod](#static-template-<typename-functor-typename-functorreturntype>-bool-qmetaobjectinvokemethodqobject-context-functor-function-functorreturntype-ret)() 的 [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) 对象。
+该宏接受一个 `type` 和一个该类型的 `value` 参数，返回一个用于传递至 [QMetaObject::invokeMethod](#static-bool-qmetaobjectinvokemethodqobject-obj-const-char-member-qtconnectiontype-type-qgenericreturnargument-ret-qgenericargument-val0--qgenericargumentnullptr-qgenericargument-val1--qgenericargument-qgenericargument-val2--qgenericargument-qgenericargument-val3--qgenericargument-qgenericargument-val4--qgenericargument-qgenericargument-val5--qgenericargument-qgenericargument-val6--qgenericargument-qgenericargument-val7--qgenericargument-qgenericargument-val8--qgenericargument-qgenericargument-val9--qgenericargument)() 的 [QGenericArgument](../../G/QGenericArgument/QGenericArgument.md) 对象。
 
 **另请参阅：**[Q_RETURN_ARG](#qgenericreturnargument-qreturnargtype-type-&value)()。
 
@@ -566,6 +563,6 @@ Qt 使用规范化的签名来来判断两个给定的信号和槽是否匹配�
 
 ### [QGenericReturnArgument](../../G/QGenericReturnArgument/QGenericReturnArgument.md) Q_RETURN_ARG(*Type*, Type &*value*)
 
-该宏接受一个 `Type` 和一个该类型的可变引用 `value` 参数，返回一个用于传递至 [QMetaObject::invokeMethod](#static-template-<typename-functor-typename-functorreturntype>-bool-qmetaobjectinvokemethodqobject-context-functor-function-functorreturntype-ret)() 的包含该类型的 [QGenericReturnArgument](../../G/QGenericReturnArgument/QGenericReturnArgument.md) 对象。
+该宏接受一个 `Type` 和一个该类型的可变引用 `value` 参数，返回一个用于传递至 [QMetaObject::invokeMethod](#static-bool-qmetaobjectinvokemethodqobject-obj-const-char-member-qtconnectiontype-type-qgenericreturnargument-ret-qgenericargument-val0--qgenericargumentnullptr-qgenericargument-val1--qgenericargument-qgenericargument-val2--qgenericargument-qgenericargument-val3--qgenericargument-qgenericargument-val4--qgenericargument-qgenericargument-val5--qgenericargument-qgenericargument-val6--qgenericargument-qgenericargument-val7--qgenericargument-qgenericargument-val8--qgenericargument-qgenericargument-val9--qgenericargument)() 的包含该类型的 [QGenericReturnArgument](../../G/QGenericReturnArgument/QGenericReturnArgument.md) 对象。
 
 **另请参阅：**[Q_ARG](#qgenericargument-qargtype-const-type-&value)().。

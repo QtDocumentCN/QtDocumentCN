@@ -8,7 +8,9 @@
 git pull --rebase
 ```
 
-## 目录管理
+
+
+## 目录/文件管理
 
 为方便快速填充内容，以及便于跨文档引用，文档按首字母排序，从A-Z共12个根文件夹。
 
@@ -22,6 +24,8 @@ git pull --rebase
 
 然后把对应的`QX11Info.md`文档放进去。
 
+----
+
 ### 占位符
 
 为避免编辑冲突，在完成第一版翻译前，请尽量不要多人修改同一个页面。
@@ -31,6 +35,36 @@ git pull --rebase
 
 超过 deadline 后尚未完成第一版提交的页面，或已经完成第一版提交的页面，均被视作**开放状态**，其它参与者可对其进行修改。
 
+----
+
+### Obselete Member
+
+对于 `已废弃/Obselete` 的成员，Qt 会在类开头添加一个链接指向单独的页面。
+
+若已废弃的成员数量并不多（独立页面中没有详细信息章节或函数列表），则为减少阅读时的跳转，建议将该页面作为一个单独的章节，附加到原页面尾部。
+
+即将一级标题 `# Obselete Menber` 降级为二级标题 `## 已废弃成员`，其它标题同样进行降级处理。
+
+----
+
+### 子类型
+
+如 [QMetaObject::Connection](Src/M/QMetaObject/QMetaObject_Connection.md) 等子类型，不应单独开文件夹，而是存在隶属类型的文件夹中。
+
+子类型文件名称应带有隶属类型名称，如 `QMetaObject/QMetaObject_Connection.md`。
+
+----
+
+### 所有成员列表
+
+无需单独添加所有成员列表页面。
+
+该页面是类似 `[TOC]` 的目录索引功能，本项目中应交由发布脚本自动生成目录，而非浪费大量人力编写单独的目录页面——单独的页面在检索时需要在不同页面来回跳转，对于读者也不友好。
+
+**注意：** 需对 `List of all members` 页面进行校对，确保其中所有内容均在主文档中有描述。若存在主文档中没有的内容，需将其挪到主文档中。
+
+
+
 ## 完成度追踪
 
 每添加一个页面，需在[完成度追踪表](completeness_tracking.md)中增加相应条目。
@@ -39,9 +73,13 @@ git pull --rebase
 
 需要新增或修改一篇文档时，请先检索追踪表中是否已存在该文档，和该文档的翻译进度。
 
+
+
 ## 翻译对照表
 
 翻译名词可参考[对照表](Comparison_Table.md)。
+
+
 
 ## Markdown 格式规范
 
@@ -53,33 +91,45 @@ git pull --rebase
 
 在对类成员或实现方法进行讲解时，我们决定采用 Qt 官方文档的命名方式。
 
-以成员函数标题为例： `[修饰符] 返回类型 函数名(参数类型 参数名) const/volatile修饰符`。
+以成员函数标题为例： `[修饰符] 返回类型 函数名(参数类型 参数名) const/volatile/override`。
 
-其中，`函数名`加粗，`修饰符`、`参数名`斜体。
+其中，`函数名 `加粗，`修饰符`、`参数名` 斜体，`const/volatile/override` 等后缀不添加额外修饰。
 
 示例：
 
-```markdown
-### *[static]* int QString::compare(const QString &*s1*, const QString &*s2*, Qt::CaseSensitivity *cs* = Qt::CaseSensitive)
-### *[virtual protected]* void QObject::childEvent(QChildEvent *\*event*)
-### *[override virtual]* qint64 QAbstractSocket::bytesAvailable() **const**
+```
+### *[static]* int QString::**compare**(const QString &*s1*, const QString &*s2*, Qt::CaseSensitivity *cs* = Qt::CaseSensitive)
+### *[virtual protected]* void QObject::**childEvent**(QChildEvent \**event*)
+### *[override virtual]* qint64 QAbstractSocket::**bytesAvailable**() const
 ```
 
-注：以上函数标题为了实现区分度，对修饰符和参数名增加了斜体效果。
+> *[static]* int QString::**compare**(const QString &*s1*, const QString &*s2*, Qt::CaseSensitivity *cs* = Qt::CaseSensitive)
+> 
+> *[virtual protected]* void QObject::**childEvent**(QChildEvent *\*event*)
+> 
+> *[override virtual]* qint64 QAbstractSocket::**bytesAvailable**() const
+
+注：对于指针变量`**event*`，请添加转义符 `\`，以避免开头的两个星在多个指针变量中，被渲染为加粗。
+
+----
 
 ### 注解
 
 当翻译者需要添加额外的资料或吐槽时，需有明确的标注与官方文档区分开。
 
-若为独立段落，建议使用`>`引用语法，并在开头标识`译者注:`。
+若为独立段落，建议使用`>`引用语法，并在开头单独一行标识`译者注:`。
 
-若为段内信息，建议使用(译者注：xxx)的方式标注。
+若为段内信息，建议使用段内代码(`译者注：xxx`)的方式标注。
+
+----
 
 ### 目录
 
 无需使用`[TOC]`生成目录，因为：
 1. `[TOC]`为扩展语法，并非 Markdown 原生语法，GitHub 不支持此扩展。
 2. 本项目将使用 GitBook 发布，可自动生成侧边栏目录。
+
+----
 
 ### 中英混排
 
@@ -98,6 +148,8 @@ git pull --rebase
 ```
 比如我想翻译 `QX11Info` 类。
 
+----
+
 ### 图片
 
 可直接使用 Qt 官方文档图片。
@@ -107,6 +159,8 @@ git pull --rebase
 可使用 VSCode 插件 [hediet.vscode-drawio](https://marketplace.visualstudio.com/items?itemName=hediet.vscode-drawio) 直接在 VSCode 中编辑图形。
 
 范例参见 [信号与槽](S/Signals_and_Slots/Signals_and_Slots.md)。
+
+----
 
 ### 引用链接
 
@@ -154,29 +208,29 @@ Markdown 页内标题跳转较为简便，语法如下：
 
 3. 若要跨页跳转的目标页尚未完成，可以先采用规则进行目标地址的推算，待目标页完成后再进行检查。
 
-   > 跳转规则：
-   >
-   > 原标题：
-   >
-   > ```markdown
-   > ### *[override virtual]* bool **QAbstractSocket**::waitForBytesWritten(int *msecs* = 30000)
-   > ### bool **QAbstractSocket**::bind(const QHostAddress &*address*, quint16 *port* = 0, QAbstractSocket::BindMode *mode* = DefaultForPlatform)
-   > ```
-   >
-   > 跳转路径：
-   >
-   > ```
-   > #override-virtual-bool-qabstractsocketwaitforbyteswrittenint-msecs--30000
-   > #bool-qabstractsocketbindconst-qhostaddress-address-quint16-port--0-qabstractsocketbindmode-mode--defaultforplatform
-   > ```
-   >
-   > 从以上示例我们可以推导出跳转规则：
-   >
-   > * `* ：() & []` 等特殊字符直接省略（也就是说，标题中的加粗、斜体等样式并不会影响到跳转连接）。
-   > * `空格`改为`-`。
-   > * `=`改为`-`。
+原标题：
+> ```
+> ### *[override virtual]* bool **QAbstractSocket**::waitForBytesWritten(int *msecs* = 30000)
+> ### bool **QAbstractSocket**::bind(const QHostAddress &*address*, quint16 *port* = 0, QAbstractSocket::BindMode *mode* = DefaultForPlatform)
+> ```
 
-   
+跳转路径：
+> ```
+> #override-virtual-bool-qabstractsocketwaitforbyteswrittenint-msecs--30000
+> #bool-qabstractsocketbindconst-qhostaddress-address-quint16-port--0-qabstractsocketbindmode-mode--defaultforplatform
+> ```
+
+从以上示例我们可以推导出跳转规则：
+* `* ：() & [] =` 等所有符号直接省略；
+* 大写全部改为小写；
+* `空格` 改为 `-`。
+
+此外，中文标题请改为 `%` 转义格式，如 `[更多内容...](#详细描述)` 应改为 `[更多内容...](#%E8%AF%A6%E7%BB%86%E6%8F%8F%E8%BF%B0)`。
+
+#### 第三方链接
+
+除 Qt 原文档中的第三方链接，根据翻译需求添加的 `译者注：` 中，**只应**引用其它官方组织的文档，如 [CppReference](https://en.cppreference.com/w/) 或 [MSDN](https://docs.microsoft.com/en-us/windows/win32/api/processthreadsapi/nf-processthreadsapi-getcurrentthreadid)，**不可**添加个人博客等非官方组织的链接。
+
 
 
 ## Markdown 编辑器
@@ -186,6 +240,8 @@ Markdown 页内标题跳转较为简便，语法如下：
 为规范格式（空行、缩进等），减少多人合作编辑同一`.md`文件时的无意义的 diff 内容，推荐使用 [Typora](https://typora.io/) 编辑器。
 
 该编辑器为类 Word 的所见即所得编辑方式，会自动按照固定格式对 Markdown 源码进行排版，从而避免手动排版与他人排版风格不匹配的问题。
+
+----
 
 ### VSCode
 
