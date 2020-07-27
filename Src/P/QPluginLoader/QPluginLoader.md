@@ -75,7 +75,7 @@ QPluginLoader对象的实例在被称为插件的单个共享库文件上运行�
 
 请注意，如果您的应用程序与 Qt 静态链接，则无法使用 QPluginLoader。在这种情况下，您还必须静态链接到插件。 如果需要在静态链接的应用程序中加载动态库，则可以使用 [QLibrary](https://doc.qt.io/qt-5/qlibrary.html)。
 
-**另请参阅** [QLibrary](https://doc.qt.io/qt-5/qlibrary.html) 和 [Plug & Paint Example](https://doc.qt.io/qt-5/qtwidgets-tools-plugandpaint-app-example.html).
+**另请参阅** [QLibrary](https://doc.qt.io/qt-5/qlibrary.html) 和[插件与绘制示例](https://doc.qt.io/qt-5/qtwidgets-tools-plugandpaint-app-example.html)。
 
 ## 属性文档
 
@@ -117,7 +117,7 @@ QPluginLoader对象的实例在被称为插件的单个共享库文件上运行�
 | QLibrary::LoadHints | **loadHints**() const                             |
 | void                | **setLoadHints**(QLibrary::LoadHints *loadHints*) |
 
-**另请参阅** [QLibrary::loadHints](https://doc.qt.io/qt-5/qlibrary.html#loadHints-prop).
+**另请参阅** [QLibrary::loadHints](https://doc.qt.io/qt-5/qlibrary.html#loadHints-prop)。
 
 ## 成员函数文档
 
@@ -127,7 +127,7 @@ QPluginLoader对象的实例在被称为插件的单个共享库文件上运行�
 
 为了可加载，文件的后缀必须是可加载库的有效后缀，具体取决于平台，例如，Unix 上的 `.so`，macOS 和 iOS `.dylib`，以及 Windows 上的 `.dll`。后缀可以通过 [QLibrary::isLibrary](https://doc.qt.io/qt-5/qlibrary.html#isLibrary)() 验证。
 
-**另请参阅** [setFileName](https://doc.qt.io/qt-5/qpluginloader.html#fileName-prop)().
+**另请参阅** [setFileName](https://doc.qt.io/qt-5/qpluginloader.html#fileName-prop)()。
 
 ### QPluginLoader::QPluginLoader([QObject](https://doc.qt.io/qt-5/qobject.html#QObject) **parent* = nullptr)
 
@@ -139,7 +139,7 @@ QPluginLoader对象的实例在被称为插件的单个共享库文件上运行�
 
 除非 [unload](https://doc.qt.io/qt-5/qpluginloader.html#unload)() 被显式调用，插件会一直留在内存中直到程序结束。
 
-**另请参阅** [isLoaded](https://doc.qt.io/qt-5/qpluginloader.html#isLoaded)() 和 [unload](https://doc.qt.io/qt-5/qpluginloader.html#unload)().
+**另请参阅** [isLoaded](https://doc.qt.io/qt-5/qpluginloader.html#isLoaded)() 和 [unload](https://doc.qt.io/qt-5/qpluginloader.html#unload)()。
 
 ### [QString](https://doc.qt.io/qt-5/qstring.html) QPluginLoader::errorString() const
 
@@ -157,19 +157,19 @@ QPluginLoader对象的实例在被称为插件的单个共享库文件上运行�
 
 组件对象是一个 [QObject](https://doc.qt.io/qt-5/qobject.html)。使用 [qobject_cast](https://doc.qt.io/qt-5/qobject.html#qobject_cast)() 来访问你想要的接口。
 
-**另请参阅** [load](https://doc.qt.io/qt-5/qpluginloader.html#load)().
+**另请参阅** [load](https://doc.qt.io/qt-5/qpluginloader.html#load)()。
 
 ### bool QPluginLoader::isLoaded() const
 
 如果已经成功加载插件则返回 `true`，否则返回 `false`。
 
-**另请参阅** [load](https://doc.qt.io/qt-5/qpluginloader.html#load)().
+**另请参阅** [load](https://doc.qt.io/qt-5/qpluginloader.html#load)()。
 
 ### bool QPluginLoader::load()
 
 加载插件，并在插件成功加载时返回 `true`，否则返回 `false`。由于 [instance](https://doc.qt.io/qt-5/qpluginloader.html#instance)() 始终在解析任何符号之前调用此函数，因此无需显式调用它。在某些情况下，您可能需要预先加载插件，这时您才要使用该函数。
 
-**另请参阅** [unload](https://doc.qt.io/qt-5/qpluginloader.html#unload)().
+**另请参阅** [unload](https://doc.qt.io/qt-5/qpluginloader.html#unload)()。
 
 ### [QJsonObject](https://doc.qt.io/qt-5/qjsonobject.html) QPluginLoader::metaData() const
 
@@ -181,13 +181,13 @@ QPluginLoader对象的实例在被称为插件的单个共享库文件上运行�
 
 返回由插件加载器保存的静态插件实例（根组件）的列表。
 
-**另请参阅** [staticPlugins](https://doc.qt.io/qt-5/qpluginloader.html#staticPlugins)().
+**另请参阅** [staticPlugins](https://doc.qt.io/qt-5/qpluginloader.html#staticPlugins)()。
 
 ### `[static]`[QVector](https://doc.qt.io/qt-5/qvector.html)\<[QStaticPlugin](https://doc.qt.io/qt-5/qstaticplugin.html)\> QPluginLoader::staticPlugins()
 
 返回由插件加载器保存的 QStaticPlugins 列表。 该函数类似于 [staticInstances](https://doc.qt.io/qt-5/qpluginloader.html#staticInstances)()，除了 [QStaticPlugin](https://doc.qt.io/qt-5/qstaticplugin.html) 还包含元数据信息。
 
-**另请参阅** [staticInstances](https://doc.qt.io/qt-5/qpluginloader.html#staticInstances)().
+**另请参阅** [staticInstances](https://doc.qt.io/qt-5/qpluginloader.html#staticInstances)()。
 
 ### bool QPluginLoader::unload()
 
@@ -199,7 +199,7 @@ QPluginLoader对象的实例在被称为插件的单个共享库文件上运行�
 
 不要试图删除根组件。相反，凭借 unload() ，它会在必要时自动将其删除。
 
-**另请参阅** [instance](https://doc.qt.io/qt-5/qpluginloader.html#instance)() 和 [load](https://doc.qt.io/qt-5/qpluginloader.html#load)().
+**另请参阅** [instance](https://doc.qt.io/qt-5/qpluginloader.html#instance)() 和 [load](https://doc.qt.io/qt-5/qpluginloader.html#load)()。
 
 ## 相关的非成员函数
 
