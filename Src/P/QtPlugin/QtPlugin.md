@@ -2,7 +2,7 @@ Reserved by miRoox until 2020-07-31
 
 # \<QtPlugin\> - 定义插件
 
-[QtPlugin](https://doc.qt.io/qt-5/qmake-variable-reference.html#qtplugin) 头文件定义用于定义插件的宏。
+QtPlugin 头文件定义用于定义插件的宏。
 
 | 属性   | 方法                   |
 | -----: | :--------------------- |
@@ -14,15 +14,15 @@ Reserved by miRoox until 2020-07-31
 
 |      | 宏名                                                         |
 | ---- | ------------------------------------------------------------ |
-|      | **[Q_DECLARE_INTERFACE](https://doc.qt.io/qt-5/qtplugin.html#Q_DECLARE_INTERFACE)**(*ClassName*, *Identifier*) |
-|      | **[Q_IMPORT_PLUGIN](https://doc.qt.io/qt-5/qtplugin.html#Q_IMPORT_PLUGIN)**(*PluginName*) |
-|      | **[Q_PLUGIN_METADATA](https://doc.qt.io/qt-5/qtplugin.html#Q_PLUGIN_METADATA)**(*...*) |
+|      | **[Q_DECLARE_INTERFACE](QtPlugin.md#q_declare_interfaceclassname-identifier)**(*ClassName*, *Identifier*) |
+|      | **[Q_IMPORT_PLUGIN](QtPlugin.md#q_import_pluginpluginname)**(*PluginName*) |
+|      | **[Q_PLUGIN_METADATA](QtPlugin.md#q_plugin_metadata)**(*...*) |
 
 
 
 ## 详细介绍
 
-**另请参阅** [如何创建 Qt 插件](https://doc.qt.io/qt-5/plugins-howto.html)。
+**另请参阅** [如何创建 Qt 插件](../../H/How_to_Create_Qt_Plugins/How_to_Create_Qt_Plugins.md)。
 
 ## 宏文档
 
@@ -49,11 +49,11 @@ namespace Foo
 Q_DECLARE_INTERFACE(Foo::MyInterface, "org.examples.MyInterface")
 ```
 
-**另请参阅** [Q_INTERFACES](https://doc.qt.io/qt-5/qobject.html#Q_INTERFACES)() 和[如何创建 Qt 插件](https://doc.qt.io/qt-5/plugins-howto.html)。
+**另请参阅** [Q_INTERFACES](https://doc.qt.io/qt-5/qobject.html#Q_INTERFACES)() 和[如何创建 Qt 插件](../../H/How_to_Create_Qt_Plugins/How_to_Create_Qt_Plugins.md)。
 
 ### Q_IMPORT_PLUGIN(*PluginName*)
 
-该宏导入名为 *PluginName* 的插件，该插件与使用 [Q_PLUGIN_METADATA](https://doc.qt.io/qt-5/qtplugin.html#Q_PLUGIN_METADATA)() 声明插件元数据的类的名称相对应。This macro imports the plugin named *PluginName*, which corresponds with the name of the class that declares metadata for the plugin with [Q_PLUGIN_METADATA](https://doc.qt.io/qt-5/qtplugin.html#Q_PLUGIN_METADATA)().
+该宏导入名为 *PluginName* 的插件，该插件与使用 [Q_PLUGIN_METADATA](QtPlugin.md#q_plugin_metadata)() 声明插件元数据的类的名称相对应。This macro imports the plugin named *PluginName*, which corresponds with the name of the class that declares metadata for the plugin with [Q_PLUGIN_METADATA](QtPlugin.md#q_plugin_metadata)().
 
 将该宏插入应用程序的源代码来使您能够使用静态插件。
 
@@ -70,7 +70,7 @@ TEMPLATE      = app
 QTPLUGIN     += qjpeg qgif    # image formats
 ```
 
-**另请参阅** [静态插件](https://doc.qt.io/qt-5/plugins-howto.html#static-plugins)、[如何创建 Qt 插件](https://doc.qt.io/qt-5/plugins-howto.html)以及 [qmake 入门](https://doc.qt.io/qt-5/qmake-tutorial.html)。
+**另请参阅** [静态插件](../../H/How_to_Create_Qt_Plugins/How_to_Create_Qt_Plugins.md#%E9%9D%99%E6%80%81%E6%8F%92%E4%BB%B6)、[如何创建 Qt 插件](../../H/How_to_Create_Qt_Plugins/How_to_Create_Qt_Plugins.md)以及 [qmake 入门](https://doc.qt.io/qt-5/qmake-tutorial.html)。
 
 ### Q_PLUGIN_METADATA(*...*)
 
@@ -99,4 +99,4 @@ FILE是可选的，并指向一个 json 文件。
 
 该宏在 Qt 5.0 中引入。
 
-**另请参阅** [Q_DECLARE_INTERFACE](https://doc.qt.io/qt-5/qtplugin.html#Q_DECLARE_INTERFACE)() 和[如何创建 Qt 插件](https://doc.qt.io/qt-5/plugins-howto.html)。
+**另请参阅** [Q_DECLARE_INTERFACE](QtPlugin.md#q_declare_interfaceclassname-identifier)() 和[如何创建 Qt 插件](../../H/How_to_Create_Qt_Plugins/How_to_Create_Qt_Plugins.md)。
