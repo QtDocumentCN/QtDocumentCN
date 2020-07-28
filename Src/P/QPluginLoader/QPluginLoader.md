@@ -1,5 +1,3 @@
-Reserved by miRoox until 2020-07-31
-
 # QPluginLoader Class
 
 QPluginLoader 在运行时加载插件.

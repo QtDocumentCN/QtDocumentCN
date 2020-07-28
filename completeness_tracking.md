@@ -71,8 +71,8 @@
 | [QFile](Src/F/QFile/QFile.md)                                 | [顾晓](https://github.com/chenyanzz)          | 编写中    |  占位中，待填充，截止时间2020-08-16                          |
 | [QMainWindow](Src/M/QMainWindow/QMainWindow.md)    | [吴冬亮](https://github.com/abc881858)        | 编写中 | 占位中，待填充，截止时间2020-07-31 |
 | [QList](Src/L/QList/QList.md)    | [xyz1001](https://github.com/xyz1001)        | **已完成** | 已完成 |
-| [QPluginLoader](Src/P/QPluginLoader/QPluginLoader.md)    | [miRoox](https://github.com/miRoox)        | 编写中 | 占位中，待填充，截止时间2020-07-31 |
-| [QtPlugin](Src/P/QtPlugin/QtPlugin.md)    | [miRoox](https://github.com/miRoox)        | 编写中 | 占位中，待填充，截止时间2020-07-31 |
+| [QPluginLoader](Src/P/QPluginLoader/QPluginLoader.md)    | [miRoox](https://github.com/miRoox)        | **待完善** | 跨页跳转需待对应页面完成后进行校正 |
+| [QtPlugin](Src/P/QtPlugin/QtPlugin.md)    | [miRoox](https://github.com/miRoox)        | **待完善** | 跨页跳转需待对应页面完成后进行校正 |
 | [QCoreApplication](Src/C/QCoreApplication/QCoreApplication.md)    | [froser](https://github.com/froser)        | 编写中 | 占位中，待填充，截止时间2020-08-15 |
 | [QWebEngineView](Src/W/QWebEngineView/QWebEngineView.md) |[ruihuanming](https://github.com/hqwx2018)|**已完成**|已完成|
 | [QWebEngineHistory](Src/W/QWebEngineHistory/QWebEngineHistory.md) |[ruihuanming](https://github.com/hqwx2018)|**已完成**|已完成|

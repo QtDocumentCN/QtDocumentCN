@@ -1,5 +1,3 @@
-Reserved by miRoox until 2020-07-31
-
 # \<QtPlugin\> - 定义插件
 
 QtPlugin 头文件定义用于定义插件的宏。
