@@ -44,6 +44,8 @@
 		- [QPaintDevice](./Src/P/QPaintDevice/QPaintDevice.md)
 		- [QPaintEngine](./Src/P/QPaintEngine/QPaintEngine.md)
 		- [QPainter](./Src/P/QPainter/QPainter.md)
+		- [QPluginLoader](./Src/P/QPluginLoader/QPluginLoader.md)
+		- [QtPlugin](./Src/P/QtPlugin/QtPlugin.md)
 		- [The_Property_System](./Src/P/The_Property_System/The_Property_System.md)
 	- [Q]()
 		- [Qt_Overviews](./Src/Q/Qt_Overviews/Qt_Overviews.md)
