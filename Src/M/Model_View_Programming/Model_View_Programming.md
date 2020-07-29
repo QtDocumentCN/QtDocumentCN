@@ -1528,11 +1528,11 @@ bool DragDropListModel::dropMimeData(const QMimeData *data,
 
 ### 针对大量数据的性能优化
 
-[canFetchMore()]() 函数检查父级是否有更多可用数据，并相应地返回 `true` 或 `false`。 [fetchMore]() 函数根据指定的父级获取数据。这两个函数可以组合在一起，例如，在涉及增量数据的数据库查询中组合以填充 [QAbstractItemModel]()。我们重新实现 [canFetchMore()]() 来指示是否有更多数据要提取，并根据需要使用 [fetchMore]() 来填充模型。
+[canFetchMore()]() 函数检查父级是否有更多可用数据，并相应地返回 `true` 或 `false`。 [fetchMore()]() 函数根据指定的父级获取数据。这两个函数可以组合在一起，例如，在涉及增量数据的数据库查询中组合以填充 [QAbstractItemModel]()。我们重新实现 [canFetchMore()]() 来指示是否有更多数据要提取，并根据需要使用 [fetchMore()]() 来填充模型。
 
-另一个示例是动态填充的树模型，当树模型中的分支扩展时，我们重新实现fetchMore（）。
+另一个示例是动态填充的树模型，当树模型中的分支扩展时，我们重新实现 [fetchMore()]()。
 
-如果重新实现 [fetchMore]() 将行添加到模型中，则需要调用 [beginInsertRows()]() 和 [endInsertRows()]()。另外，必须重新实现 [canFetchMore()]()和 [fetchMore]()，因为它们的默认实现返回 `false` 并且不执行任何操作。
+如果重新实现 [fetchMore]() 将行添加到模型中，则需要调用 [beginInsertRows()]() 和 [endInsertRows()]()。另外，必须重新实现 [canFetchMore()]()和 [fetchMore()]()，因为它们的默认实现返回 `false` 并且不执行任何操作。
 
 ## 模型/视图类
 
