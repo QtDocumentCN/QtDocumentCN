@@ -1,7 +1,7 @@
 # 模型/视图 编程
 
 ## 模型/视图编程简介 
-Qt中包含了一系列的项目视图类，他们使用了模型/视图架构来管理数据和显示之间的关系。此架构的功能分离特征给开发人员在自定义项目的呈现形式时带来了很大的灵活性，并提供标准的模型接口，以允许将各种数据源与现有项目视图一起使用。在本文档中，我们对模型/视图进行了简要介绍，概述了所涉及的概念，并描述了项目视图系统的结构特征。介绍了体系结构中的每个组件，并给出了示例，这些示例告诉我们如何使用所提供的类。
+`Qt` 中包含了一系列的项目视图类，他们使用了模型/视图架构来管理数据和显示之间的关系。此架构的功能分离特征给开发人员在自定义项目的呈现形式时带来了很大的灵活性，并提供标准的模型接口，以允许将各种数据源与现有项目视图一起使用。在本文档中，我们对模型/视图进行了简要介绍，概述了所涉及的概念，并描述了项目视图系统的结构特征。介绍了体系结构中的每个组件，并给出了示例，这些示例告诉我们如何使用所提供的类。
 
 ## 模型/视图体系架构
 
@@ -22,7 +22,6 @@ Qt中包含了一系列的项目视图类，他们使用了模型/视图架构�
 
 在标准视图中，委托负责渲染显示数据项。 当编辑项目后，委托将直接通过模型索引与模型进行通信。
 </p>
-</p>
 </td>
 </tr>
 </tbody>
@@ -40,11 +39,11 @@ Qt中包含了一系列的项目视图类，他们使用了模型/视图架构�
 ## 模型
 所有项目模型均基于 [QAbstractItemModel]() 类。此类定义一个接口，视图和委托使用该接口访问数据。数据本身不必存储在模型中。它可以保存在由单独的类，文件，数据库或某些其他应用程序组件提供的数据结构或存储库中。
 
-有关模型的基本概念在[“模型类”]()部分中介绍。
+有关模型的基本概念在 [“模型类”] (#模型类)部分中介绍。
 
 [QAbstractItemModel]() 提供了一个数据接口，该接口足够灵活，可以处理以表，列表和树的形式表示数据的视图。但是，当为列表和类似表的数据结构实现新模型时，[QAbstractListModel]() 和 [QAbstractTableModel]() 类是更好的选择，因为它们提供了常用功能的默认实现。这些类中的每一个都可以被子类化以提供支持特殊类型的列表和表的模型。
 
-在[创建新模型]()部分中讨论了模型子类化的过程。
+在 [创建新模型](#创建新模型) 部分中讨论了模型子类化的过程。
 
 Qt提供了一些现成的模型，可用于处理数据项：
 - [QStringListModel]() 用于存储一列简单的 [QString]() 类型的项目。
@@ -57,13 +56,13 @@ Qt提供了一些现成的模型，可用于处理数据项：
 ## 视图
 Qt 提供了针对各种视图的完整实现：[QListView]() 用于显示项目列表，[QTableView]() 用于显示表结构模型的数据，[QTreeView]() 在一个分层次的结构列表中显示数据项。这些类均基于 [QAbstractItemView]() 抽象基类。尽管这些类都是已经实现好的，但也可以将它们子类化以提供满足我们需求的自定义视图。
 
-所有可用的视图可在[“视图类”]()部分中进行查阅。
+所有可用的视图可在 [视图类](#视图类) 部分中进行查阅。
 
 ## 委托
 
 [QAbstractItemDelegate]() 是模型/视图框架中委托的抽象基类。默认委托实现由 [QStyledItemDelegate]() 提供， Qt 中的标准视图都将其作为默认委托。但是，[QStyledItemDelegate]() 和 [QItemDelegate]() 是绘制和为视图中的项目提供编辑器的独立替代方法。它们之间的区别在于 [QStyledItemDelegate]() 使用当前样式来绘制其项目。因此，在实现自定义委托或使用 Qt 样式表时，建议将 [QStyledItemDelegate]() 用作基类。
 
-委托在[“委托类”]()部分中进行了描述。
+委托在 [“委托类”](#委托类) 部分中进行了描述。
 
 ## 排序
 
@@ -71,11 +70,11 @@ Qt 提供了针对各种视图的完整实现：[QListView]() 用于显示项目
 
 如果您的模型是可排序的，即重新实现 [QAbstractItemModel::sort()]() 函数，则 [QTableView]() 和 [QTreeView]() 都提供了API，可让您以编程方式对模型数据进行排序。 另外，通过将 [QHeaderView::sortIndicatorChanged()]() 信号连接到 [ QTableView::sortByColumn() ]() 槽函数或 [QTreeView::sortByColumn()]() 槽函数，可以启用交互式排序（即允许用户通过单击视图的标题对数据进行排序））。
 
-如果您的模型没有所需的接口，或者如果您想使用列表视图来呈现数据，则另一种方法是在视图呈现数据之前，使用委托模型来转换模型的结构。 有关[委托模型]()的部分将对此进行详细介绍。
+如果您的模型没有所需的接口，或者如果您想使用列表视图来呈现数据，则另一种方法是在视图呈现数据之前，使用委托模型来转换模型的结构。 有关 [代理模型](#代理模型) 的部分将对此进行详细介绍。
 
-## 便利类
+## 便捷类
 
-从标准视图类派生出了许多便利类，用于 Qt 中基于项目的项目视图类和表类，它们不打算被子类化。
+从标准视图类派生出了许多便捷类，用于 Qt 中基于项目的项目视图类和表类，它们不打算被子类化。
 
 比如 [QListWidget]()，[QTreeWidget]() 和 [QTableWidget]()。
 
@@ -127,7 +126,7 @@ list->setRootIndex(model->index(QDir::currentPath()));
 
 视图的构造方法与其他部件一样。设置视图来显示模型中的项目仅需使用目录模型作为参数来调用视图的 [setModel()]() 函数即可。我们通过在每个视图上调用 [setRootIndex()]() 函数来过滤模型提供的数据，并从文件系统模型中为当前目录传递合适的模型索引。
 
-这种情况下对于 [QFileSystemModel]() 来说只能通过传递一个目录参数来使用 `index()` 函数获取索引，模型索引在[模型类]()部分中讨论。
+这种情况下对于 [QFileSystemModel]() 来说只能通过传递一个目录参数来使用 `index()` 函数获取索引，模型索引在 [模型类](#模型类) 部分中讨论。
 
 该函数的其余部分是在分裂器部件中显示视图，并运行应用程序的事件循环：
 
@@ -138,7 +137,7 @@ list->setRootIndex(model->index(QDir::currentPath()));
 }
 ```
 
-在上面的示例中，我们忽略了如何处理项目选择。 在 [在项目视图中处理选择项]() 部分中将更详细地介绍。
+在上面的示例中，我们忽略了如何处理项目选择。 在 [处理项目视图中的选择项](#处理项目视图中的选择项) 部分中将更详细地介绍。
 
 # 模型类
 
@@ -261,7 +260,7 @@ QVariant value = model->data(index, role);
 <p>
 项角色向模型指示要引用的数据类型。视图可以以不同的方式显示角色，因此为每个角色提供适当的信息很重要。
 
-[创建新模型]() 部分将更详细地介绍角色的某些特定用法。
+[创建新模型](#创建新模型) 部分将更详细地介绍角色的某些特定用法。
 
 </p>
 </p>
@@ -279,7 +278,7 @@ QVariant value = model->data(index, role);
 - 模型索引是由模型根据其他组件（例如视图和委托）的请求构造出来的。
 - 如果使用 [index()]() 请求索引时为父项指定了有效的模型索引，则返回的索引将引用模型中该父项之下的项。获得的索引指向该项目的子项。
 - 如果使用 [index()]() 请求索引时为父项指定了无效的模型索引，则返回的索引引用模型中的顶级项。
-- [角色]()用来区分与项关联的不同类型的数据。
+- [项角色](#项角色) 用来区分与项关联的不同类型的数据。
 
 ## 使用模型索引
 
@@ -323,7 +322,7 @@ QString text = model->data(index, Qt::DisplayRole).toString();
 
 ## 拓展阅读
 
-可以通过提供了标准接口的 [QAbstractItemModel]() 类来创建新模型。在 [创建新模型]() 部分，我们将通过创建一个方便可用的保存字符串列表的模型来展示这一点。
+可以通过提供了标准接口的 [QAbstractItemModel]() 类来创建新模型。在 [创建新模型](#创建导航和模型索引) 部分，我们将通过创建一个方便可用的保存字符串列表的模型来展示这一点。
 
 # 视图类
 
@@ -333,9 +332,9 @@ QString text = model->data(index, Qt::DisplayRole).toString();
 
 通过使用 [QAbstractItemModel]() 提供的标准模型接口，[QAbstractItemView]() 提供的标准视图接口以及使用表示数据项的模型索引来实现内容和表示的分离。视图通常管理从模型获得的数据的整体布局。它们可以自己呈现单个数据项，或使用委托来处理渲染和编辑功能。
 
-除了显示数据外，视图还处理项目之间的导航以及项目选择。这些视图还实现了基本的用户界面功能，例如上下文菜单和拖放功能。视图可以提供项目的默认编辑功能，也可以与 [委托]() 一起使用以提供自定义编辑器。
+除了显示数据外，视图还处理项目之间的导航以及项目选择。这些视图还实现了基本的用户界面功能，例如上下文菜单和拖放功能。视图可以提供项目的默认编辑功能，也可以与 [委托](#委托类) 一起使用以提供自定义编辑器。
 
-可以在没有模型的情况下构造视图，但是必须提供模型才能显示有用的信息。视图通过使用 [选择项]() 来跟踪用户选择的项目，这些选择项可以被每个视图单独维护，或者在多个视图之间共享。
+可以在没有模型的情况下构造视图，但是必须提供模型才能显示有用的信息。视图通过使用 [选择项](#处理项目视图中的选择项) 来跟踪用户选择的项目，这些选择项可以被每个视图单独维护，或者在多个视图之间共享。
 
 一些视图，例如 [QTableView]() 和 [QTreeView]()，需要显示表头和项目。这些由视图类 [QHeaderView]() 实现。表头通常与包含它们的视图访问的是同一个模型。他们使用 [QAbstractItemModel::headerData()]() 函数从模型中检索数据，并且通常以标签形式显示表头信息。可以继承 [QHeaderView]() 类实现新的标头，以为视图提供更专业的标签。
 
@@ -408,7 +407,7 @@ int main(int argc, char *argv[])
 
 [QItemSelectionModel]() 类提供了用于处理视图中项目选择的机制。默认情况下，所有标准视图都构建自己的选择模型，并以常规方式与其交互。可以通过 [selectionModel()]() 函数获得视图使用的选择模型，并可以使用 [setSelectionModel]() 指定替换选择模型。当我们想在同一模型数据上提供多个一致的视图时，控制视图使用的选择模型的功能非常有用。
 
-通常，除非要对模型或视图进行子类化，否则无需直接操作选择的内容。但是，如果需要，可以访问选择模型的接口，这在[在项目视图中出路选择项]()部分中进行了探讨。
+通常，除非要对模型或视图进行子类化，否则无需直接操作选择的内容。但是，如果需要，可以访问选择模型的接口，这在 [处理项目视图中的选择项](#处理项目视图中的选择项) 部分中进行了探讨。
 
 ### 在视图之间共享选择
 
@@ -494,7 +493,7 @@ QWidget *SpinBoxDelegate::createEditor(QWidget *parent,
 
 注意，我们不需要保留指向编辑器部件的指针，因为当视图不再需要该编辑器时，负责将其销毁。
 
-我们在编辑器上安装了委托的默认事件过滤器，以确保它提供用户期望的标准编辑快捷方式。可以将其他快捷方式添加到编辑器中，以允许更复杂的行为。这些内容将在 [编辑提示]() 部分中进行讨论。
+我们在编辑器上安装了委托的默认事件过滤器，以确保它提供用户期望的标准编辑快捷方式。可以将其他快捷方式添加到编辑器中，以允许更复杂的行为。这些内容将在 [编辑提示](#编辑提示) 部分中进行讨论。
 
 视图可通过调用稍后我们定义的函数来确保正确设置编辑器的数据和几何形状。我们可以根据视图提供的模型索引创建不同的编辑器。例如，如果我们有一列整数和一列字符串，则可以返回 `QSpinBox` 或 `QLineEdit`，具体取决于正在编辑的列。
 
@@ -597,7 +596,7 @@ void SpinBoxDelegate::updateEditorGeometry(QWidget *editor,
  为了演示选择的一些主要功能，我们构造了一个总共有32个项目的自定义表格模型实例，并将其设置给表格视图：
 
  ```cpp
-     TableModel *model = new TableModel(8, 4, &app);
+    TableModel *model = new TableModel(8, 4, &app);
 
     QTableView *table = new QTableView(0);
     table->setModel(model);
@@ -880,11 +879,11 @@ bool StringListModel::removeRows(int position, int rows, const QModelIndex &pare
 
 ### 下一步
 
-我们可以使用 [QListView]() 类显示此模型或任何其他模型提供的数据，以垂直列表的形式显示模型的项目。对于字符串列表模型，此视图还提供了默认编辑器，以便可以操作项目。在 [视图类]() 部分我们研究了标准视图的各种各样的用法。
+我们可以使用 [QListView]() 类显示此模型或任何其他模型提供的数据，以垂直列表的形式显示模型的项目。对于字符串列表模型，此视图还提供了默认编辑器，以便可以操作项目。在 [视图类](#视图类) 部分我们研究了标准视图的各种各样的用法。
 
-[模型子类参考]()文档更详细地讨论了 [QAbstractItemModel]() 子类的要求，并说明了如何在不同类型的模型中实现虚函数来实现各种不同的功能。
+[模型子类参考](#模型子类参考)文档更详细地讨论了 [QAbstractItemModel]() 子类的要求，并说明了如何在不同类型的模型中实现虚函数来实现各种不同的功能。
 
-## 项目视图中的便利类
+## 项目视图中的便捷类
 
 基于项目的窗口部件具有反映其用途的名称：`QListWidget` 提供项目列表，`QTreeWidget` 显示多级树结构，`QTableWidget` 提供以项目为单位的表格。每个类都继承了 `QAbstractItemView` 类的行为，该类实现了项目选择和标头管理的常见行为。
 
@@ -1016,13 +1015,13 @@ bool StringListModel::removeRows(int position, int rows, const QModelIndex &pare
 
 ### 共同特征
 
-这些便利类都使用了相同的接口提供了一些基于项的特色功能。在以下各节中，我们将针对不同的部件提供一些示例。查看[“模型/视图类”]列表，可以获取有关所使用的每个函数的用法的更多详细信息。
+这些便捷类都使用了相同的接口提供了一些基于项的特色功能。在以下各节中，我们将针对不同的部件提供一些示例。查看 [模型/视图类](#模型视图类) 列表，可以获取有关所使用的每个函数的用法的更多详细信息。
 
 #### 隐藏项目
 
 有时需要在项目视图部件中隐藏项目，而不是删除它们。上面所有的部件的项目都可以隐藏，以后再显示。可以通过调用 [isItemHidden()]() 函数确定某个项目是否隐藏，并且可以使用 [setItemHidden()]() 隐藏该项目。
 
-由于此操作是基于项目的，因此对于所有三个便利类都可以使用相同的功能。
+由于此操作是基于项目的，因此对于所有三个便捷类都可以使用相同的功能。
 
 #### 选择项
 
@@ -1074,7 +1073,7 @@ bool StringListModel::removeRows(int position, int rows, const QModelIndex &pare
 
 #### 搜索
 
-在项目视图部件中查找项目很实用。这三个项目视图便利类都提供了一个通用的 `findItems()` 函数，以使其尽可能一致和简单。
+在项目视图部件中查找项目很实用。这三个项目视图便捷类都提供了一个通用的 `findItems()` 函数，以使其尽可能一致和简单。
 
 根据从 [Qt::MatchFlags]() 中选择的值指定的标准使用它们所包含的文本来搜索项。我们可以使用 [findItems()]() 函数获得匹配项的列表：
 
@@ -1098,7 +1097,7 @@ bool StringListModel::removeRows(int position, int rows, const QModelIndex &pare
 
 仅允许从视图中导出项目且不允许将数据放入其中的模型的要求比完全启用的拖放模型的要求少。
 
-另请参阅[模型子类参考]()，以获取有关在新模型中启用拖放支持的更多信息。
+另请参阅 [模型子类参考](#模型子类参考)，以获取有关在新模型中启用拖放支持的更多信息。
 
 ### 使用便捷视图类
 
@@ -1214,7 +1213,7 @@ QMimeData *DragDropListModel::mimeData(const QModelIndexList &indexes) const
 
 由于向函数提供了模型索引列表，该方法很通用，可以在分层模型和非分层模型中使用。
 
-注意，必须将自定义数据类型声明为[元对象]()，并且必须为其实现流运算符。有关详细信息，请参见 [QMetaObject]() 类描述。
+注意，必须将自定义数据类型声明为 [元对象]()，并且必须为其实现流运算符。有关详细信息，请参见 [QMetaObject]() 类描述。
 
 #### 将放置的数据插入到模型中
 
@@ -1384,10 +1383,219 @@ bool DragDropListModel::dropMimeData(const QMimeData *data,
 
 要提供对模型数据的只读访问，必须在模型的子类中实现以下功能：
 
-|||
-|----|----|
-| [flags()]() |用于其他组件来获取有关模型提供的每个项目的信息。在许多模型中，标志的组合应包括 [Qt::ItemIsEnabled]() 和 [Qt::ItemIsSelectable]()。|
-| [data()]() |用于向视图和委托提供项目数据。通常，模型只需要为 [Qt::DisplayRole]() 和任何特定应用程序的用户角色提供数据，但是为 [Qt::ToolTipRole]，[Qt::AccessibleTextRole]() 和 [Qt::AccessibleDescriptionRole]() 提供数据也是一种好习惯。有关与每个角色关联的类型的信息，请参见 [Qt::ItemDataRole]() 枚举文档。|
-| [headerData()]() |提供有关标题的数据信息。该信息仅由可显示标题信息的视图检索。|
-| [rowCount()]() |提供模型公开的数据行数。|
+<div class="table">
+<table class="generic" width="70%">
+<tbody><tr class="odd" valign="top">
+<td>
+<a href="qabstractitemmodel.html#flags">flags()</a></td><td>用于其他组件来获取有关模型提供的每个项目的信息。在许多模型中，标志的组合应包括 <a href="">Qt::ItemIsEnabled</a> 和 <a hreaf="">Qt::ItemIsSelectable</a>。
+</td></tr>
+<tr class="even" valign="top"><td><a href="qabstractitemmodel.html#data">data()</a></td><td>用于向视图和委托提供项目数据。通常，模型只需要为 <a hreaf="">Qt::DisplayRole</a> 和任何特定应用程序的用户角色提供数据，但是为 <a hreaf="">Qt::DisplayRole</a>[Qt::ToolTipRole]，<a hreaf="">Qt::AccessibleTextRole</a> 和 <a hreaf="">Qt::AccessibleDescriptionRole</a> 提供数据也是一种好习惯。有关与每个角色关联的类型的信息，请参见 <a hreaf="">Qt::ItemDataRole</a> 枚举文档。
+</td></tr>
+<tr class="odd" valign="top"><td><a href="qabstractitemmodel.html#headerData">headerData()</a></td><td>提供有关标题的数据信息。该信息仅由可显示标题信息的视图检索。</td></tr>
+<tr class="even" valign="top"><td><a href="qabstractitemmodel.html#rowCount">rowCount()</a></td><td>提供模型公开的数据行数。</td></tr>
+</tbody>
+</table>
+</div>
 
+这四个函数必须在所有类型的模型中实现，包括列表模型（ [QAbstractListModel]() 子类）和表模型（ [QAbstractTableModel]() 子类）。
+
+此外，必须在 [QAbstractTableModel]() 和 [QAbstractItemModel]() 的直接子类中实现以下功能：
+
+<div class="table">
+<table class="generic" width="70%">
+<tbody><tr class="odd" valign="top"><td>
+<a href="qabstractitemmodel.html#columnCount">columnCount()
+</a></td><td>提供模型公开的数据列数。列表模型不提供此功能，因为它已在<a href="qabstractlistmodel.html">QAbstractListModel</a>中实现。</td></tr>
+</tbody>
+</table>
+</div>
+
+#### 可编辑的项目
+
+可编辑模型允许修改数据项，还可以提供允许插入和删除行和列的函数。要启用编辑，必须正确实现以下功能：
+
+<div class="table"><table class="generic" width="70%">
+<tbody><tr class="odd" valign="top"><td><a href="qabstractitemmodel.html#flags">flags()</a></td><td>必须为每个项目返回适当的标志组合。特别是，此函数返回的值除了应用于只读模型中的项的值外，还必须包括<a href="qt.html#ItemFlag-enum">Qt::ItemIsEditable</a>。</td></tr>
+
+<tr class="even" valign="top"><td><a href="qabstractitemmodel.html#setData">setData()</a></td><td>用于修改与指定模型索引关联的数据项。 为了能够接受用户界面元素提供的用户输入，此功能必须处理与<a href="qt.html#ItemDataRole-enum">Qt::EditRole</a>相关的数据。 该实现还可以接受与<a href="qt.html#ItemDataRole-enum">Qt::ItemDataRole</a>指定的许多不同种类的角色相关联的数据。更改数据项后，模型必须发出<a href="qabstractitemmodel.html#dataChanged">dataChanged()</a>信号以将更改通知其他组件。</td></tr>
+
+<tr class="odd" valign="top"><td><a href="qabstractitemmodel.html#setHeaderData">setHeaderData()</a></td><td>用于修改水平和垂直标题信息。更改数据项后，模型必须发出<a href="qabstractitemmodel.html#headerDataChanged">headerDataChanged()</a>）信号以将更改通知其他组件。</td></tr>
+</tbody></table></div>
+
+#### 可调整大小的模型
+
+所有类型的模型都可以支持行的插入和删除。表模型和层次结构模型也可以支持列的插入和删除。在模型尺寸发生变化 *之前* 和 *之后* ，都必须通知其他组件有关模型尺寸的变化。可以实现以下函数以允许调整模型的大小，但是实现必须确保调用合适的函数以通知附加的视图和委托：
+
+<table class="generic" width="70%">
+<tbody><tr class="odd" valign="top"><td><a href="qabstractitemmodel.html#insertRows">insertRows()</a></td>
+<td>用于向所有类型的模型添加新行和数据项。函数的实现必须在将新行插入任何底层数据结构 <i>之前</i> 调用<a href="qabstractitemmodel.html#beginInsertRows">beginInsertRows()</a>），<i>然后立即</i> 调用<a href="qabstractitemmodel.html#endInsertRows">endInsertRows()</a>。
+
+</td></tr>
+<tr class="even" valign="top"><td><a href="qabstractitemmodel.html#removeRows">removeRows()</a></td><td>用于从所有类型的模型中删除行及其包含的数据项。在从任何底层数据结构中删除行 <i>之前</i>，必须调用<a href="qabstractitemmodel.html#beginRemoveRows">beginRemoveRows()</a>，<i>然后立即</i> 调用<a href="qabstractitemmodel.html#beginRemoveRows">beginRemoveRows()</a>）。</td></tr>
+
+<tr class="odd" valign="top"><td><a href="qabstractitemmodel.html#insertColumns">insertColumns()</a></td><td>用于向表模型和层次结构模型添加新的列和数据项。函数的实现必须在将新列插入任何底层数据结构 <i>之前</i> 调用<a href="qabstractitemmodel.html#beginInsertColumns">beginInsertColumns()</a>），<i>然后立即</i> 调用<a href="qabstractitemmodel.html#endInsertColumns">endInsertColumns()</a>。</td></tr>
+
+<tr class="even" valign="top"><td><a href="qabstractitemmodel.html#removeColumns">removeColumns()</a></td><td>用于从表模型和层次模型中删除列及其包含的数据项。函数的实现必须在从任何基础数据结构中删除列 <i>之前</i> 调用<a href="qabstractitemmodel.html#beginRemoveColumns">beginRemoveColumns()</a>，<i>然后立即</i> 调用<a href="qabstractitemmodel.html#endRemoveColumns">endRemoveColumns()</a>。</td></tr>
+</tbody></table>
+
+通常，如果操作成功，这些函数应返回true。但是，在某些情况下，操作可能仅部分成功；例如，如果可以插入少于指定数量的行。在这种情况下，模型应返回 `false` 来提示失败，让连接到该模型的组件处理这种情况。
+
+在调整大小的 `API` 函数中发出信号使附加的组件有机会在任何数据变得不可用之前采取措施。使用 `begin` 和 `end` 函数对插入和删除操作进行的封装也使模型能够正确管理持久模型索引。
+
+通常，`begin` 和 `end` 函数能够通知其他组件有关模型底层结构的更改。对于模型结构的更复杂的更改，可能涉及内部重组，数据排序或任何其他结构更改，有必要按照以下顺序：
+
+- 发射 [layoutAboutToBeChanged()]() 信号
+- 更新表示模型结构的内部数据
+- 使用 [changePersistentIndexList]() 更新持久索引
+- 发射 [ layoutChanged()] 信号
+
+该顺序可用于任何结构更新，以代替更高级，更方便的受保护方法。例如，如果一个200万行的模型需要删除所有奇数行，那就是100万个不连续的范围，每行1个元素。可以使用 `beginRemoveRows` 和 `endRemoveRows 一百万次，但这显然效率不高。相反，这可以作为一个单独的布局更改来表示，它一次更新所有必需的持久性索引。
+
+#### 懒惰的模型数据
+
+懒散填充模型数据可以有效地延迟对模型信息的请求，直到视图实际需要它为止。
+
+一些模型需要从远程源获取数据，或者必须执行耗时的操作才能获取有关数据组织方式的信息。由于视图通常要求尽可能多的信息以准确显示模型数据，因此限制返回给它们的信息量以减少不必要的后续数据请求可能很有用。
+
+在分层模型中查找给定项目的子代数是一项昂贵的操作，确保仅在必要时才调用模型的 [rowCount]() 实现是有用的。在这种情况下，可以重新实现 [hasChildren]() 函数，以提供一种廉价的方法来查看视图是否存在子项，对于 [QTreeView]()，则为其父项绘制适当的装饰。
+
+无论 [hasChildren()]() 的重新实现返回 `true` 还是 `false`，该视图都不必调用 [rowCount()]() 来找出存在多少个子代。例如，如果 [QTreeView]() 未扩展父项则就不需要知道有多少个子级。
+
+如果知道许多项目将有子代，那么重新实现 [hasChildren()]() 以无条件返回 `true` 有时是一种有用的方法。这样可以确保以后可以检查每个项目的子代，同时尽可能快地对模型数据进行初始填充。唯一的缺点是，在用户试图查看不存在的子项之前，没有子项的项目可能会在某些视图中显示不正确。
+
+### 创建导航和模型索引
+
+分层结构的模型需要提供一些函数，视图可以调用这些函数来导航它们公开的树状结构，并获取项目的模型索引。
+
+#### 父项和子代
+
+由于公开给视图的结构是由底层数据结构决定的，因此由每个模型子类通过提供以下函数的实现来创建自己的模型索引：
+
+<div class="table"><table class="generic" width="70%">
+<tbody><tr class="odd" valign="top"><td><a href="qabstractitemmodel.html#index">index()</a></td><td>给定父项的模型索引，此函数允许视图和委托访问该项的子项。如果找不到有效的子项-对应于指定的行，列和父模型索引，则该函数必须返回 <b>QModelIndex()</b> ，这是无效的模型索引。</td></tr>
+
+<tr class="even" valign="top"><td><a href="qabstractitemmodel.html#parent">parent()</a></td><td>提供与任何给定子项的父项相对应的模型索引。如果指定的模型索引对应于模型中的顶级项，或者模型中没有有效的父项，则该函数必须返回使用空 <b>QModelIndex()</b> 构造函数创建的无效模型索引。</td></tr>
+</tbody></table></div>
+
+以上两个函数都使用 [createIndex()]() 工厂函数来生成索引以供其他组件使用。通常，模型会为此函数提供一些唯一的标识符，以确保以后可以将模型索引与其对应的项目重新关联。
+
+### 拖放支持和 MIME 类型处理
+
+模型/视图类支持拖放操作，提供足以用于许多应用程序的默认行为。但是，也可以自定义拖放操作期间项目的编码方式，无论是复制项目还是移动项目以及如何将其插入现有模型。
+
+另外，便捷视图类实现了专门的行为，该行为应与现有开发人员所期望的行为紧密相随。[便捷视图]() 部分提供了此行为的概述。
+
+#### MIME 数据
+
+默认情况下，内置模型和视图使用内部 `MIME` 类型（ `application / x-qabstractitemmodeldatalist` ）来传递有关模型索引的信息。这将指定项目列表的数据，其中包含每个项目的行号和列号，以及有关每个项目支持的角色的信息。
+
+`MIME` 类型编码的数据可以通过调用带有 [QModelIndexList]() 参数的 [QAbstractItemModel::mimeData]() 函数获取。
+
+在自定义模型中实现拖放支持时，可以通过重新实现以下函数以专用格式导出数据项：
+
+<div class="table"><table class="generic" width="70%">
+<tbody><tr class="odd" valign="top"><td><a href="qabstractitemmodel.html#index">mimeData()</a></td><td>可以重新实现此函数，以返回默认 `application / x-qabstractitemmodeldatalist` 内部 `MIME` 类型以外的格式的数据。子类可以从基类获取默认的 <a href="qabstractitemmodel.html#parent">QMimeData</a> 对象，并以其他格式向其添加数据。</td></tr>
+</tbody></table></div>
+
+对于许多模型，以 `MIME` 类型表示的通用格式（例如 `text / plain和image / png` ）提供项目的内容很有用。请注意，可以使用 [QMimeData::setImageData()]()，[QMimeData::setColorData]() 和 [QMimeData::setHtml]() 函数轻松地将图像，颜色和 `HTML` 文档添加到 [QMimeData]() 对象。
+
+#### 接受放置的数据
+
+在视图上执行拖放操作时，将查询底层模型，以确定其支持的操作类型以及可以接受的 `MIME` 类型。此信息由 [QAbstractItemModel::supportedDropActions]() 和 [QAbstractItemModel::mimeTypes()]() 函数提供。不覆盖 [QAbstractItemModel]() 提供的实现的模型支持复制操作和项的默认内部 `MIME` 类型。
+
+当序列化的项目数据放到视图上时，使用其 [QAbstractItemModel::dropMimeData()]() 实现将数据插入当前模型。该函数的默认实现将永远不会覆盖模型中的任何数据。而是尝试将数据项作为项的兄弟或项的子项插入。
+
+要利用 [QAbstractItemModel]() 的默认实现来实现内置的 `MIME` 类型，新模型必须提供以下函数的重新实现：
+
+<div class="table"><table class="generic" width="70%">
+<tbody><tr class="odd" valign="top"><td><a href="qabstractitemmodel.html#insertRows">insertRows()</a></td><td rowspan=" 2">这些函数使模型可以使用 <a href="qabstractitemmodel.html#dropMimeData">QAbstractItemModel::dropMimeData</a>() 提供的现有实现自动插入新数据。</td></tr>
+<tr class="even" valign="top"><td><a href="qabstractitemmodel.html#insertColumns">insertColumns()</a></td></tr>
+<tr class="odd" valign="top"><td><a href="qabstractitemmodel.html#setData">setData()</a></td><td>允许用项目填充新的行和列。</td></tr>
+<tr class="even" valign="top"><td><a href="qabstractitemmodel.html#setItemData">setItemData()</a></td><td>此函数为填充新项目提供了更有效的支持。</td></tr>
+</tbody></table></div>
+
+要接受其他形式的数据，必须重新实现以下函数：
+
+<table class="generic" width="70%">
+<tbody><tr class="odd" valign="top"><td><a href="qabstractitemmodel.html#supportedDropActions">supportedDropActions()</a></td><td>用于返回 <a href="qt.html#DropAction-enum">放置动作</a> 的组合，指示模型接受的拖放操作的类型。</td></tr>
+<tr class="even" valign="top"><td><a href="qabstractitemmodel.html#mimeTypes">mimeTypes()</a></td><td>用于返回可由模型解码和处理的 MIME 类型的列表。通常，支持输入模型的 MIME 类型与对数据进行编码以供外部组件使用时可以使用的 MIME 类型相同。</td></tr>
+<tr class="odd" valign="top"><td><a href="qabstractitemmodel.html#dropMimeData">dropMimeData()</a></td><td>对通过拖放操作传输的数据执行实际的解码，确定将在模型中设置的位置，并在必要时插入新的行和列。在子类中如何实现此函数取决于每个模型公开的数据的要求。</td></tr>
+</tbody></table>
+
+如果 [dropMimeData()]() 函数的实现通过插入或删除行或列来更改模型的尺寸，或者如果修改了数据项，则必须注意确保发出所有相关信号。简单地调用子类中其他函数的重新实现（例如 [setData]()，[insertRows]() 和 [insertColumns]() ）可能很有用，以确保模型表现一致。
+
+为了确保拖动操作正常工作，重要的是重新实现以下从模型中删除数据的函数：
+
+- [removeRows()]()
+- [removeRow()]()
+- [removeColumns()]()
+- [removeColumn()]()
+
+有关在项目视图中进行拖放的更多信息，请参阅 [在项目视图中使用拖放]()。
+
+#### 便捷视图
+
+便捷视图（ [QListWidget]()，[QTableWidget]() 和 [QTreeWidget]()）将覆盖默认的拖放功能，以提供较不灵活但更自然的行为，适用于许多应用程序。例如，由于更常见的是将数据放入 [QTableWidget]() 中的单元格中，用传输的数据替换现有内容，因此底层模型将设置目标项目的数据，而不是在模型中插入新的行和列。有关在方便视图中拖放的更多信息，请参阅 [在项目视图中使用拖放]()。
+
+### 针对大量数据的性能优化
+
+[canFetchMore()]() 函数检查父级是否有更多可用数据，并相应地返回 `true` 或 `false`。 [fetchMore]() 函数根据指定的父级获取数据。这两个函数可以组合在一起，例如，在涉及增量数据的数据库查询中组合以填充 [QAbstractItemModel]()。我们重新实现 [canFetchMore()]() 来指示是否有更多数据要提取，并根据需要使用 [fetchMore]() 来填充模型。
+
+另一个示例是动态填充的树模型，当树模型中的分支扩展时，我们重新实现fetchMore（）。
+
+如果重新实现 [fetchMore]() 将行添加到模型中，则需要调用 [beginInsertRows()]() 和 [endInsertRows()]()。另外，必须重新实现 [canFetchMore()]()和 [fetchMore]()，因为它们的默认实现返回 `false` 并且不执行任何操作。
+
+## 模型/视图类
+
+这些类使用模型/视图设计模式，其中（模型中的）底层数据与用户（视图中）呈现和操作数据的方式保持分离。
+
+|类  | 说明|
+|-----|-----|
+| [QAbstractItemDelegate]() | 用于显示和编辑模型中的数据项 |
+| [QAbstractItemModel]() | 项目模型类的抽象接口 |
+| [QAbstractItemView]() | 项目视图类的基本功能 |
+| [QAbstractListModel]() | 可以被子类化创建一维列表模型的抽象模型 |
+| [QAbstractProxyModel]() | 代理项目模型的基类，可以执行排序，过滤或其他数据处理任务 |
+| [QAbstractTableModel]() | 可以被子类化创建表模型的抽象模型 |
+| [QColumnView]() | 列视图的模型/视图实现 |
+| [QConcatenateTablesProxyModel]() | 代理多个源模型，并连接它们的行 |
+| [QDataWidgetMapper]() | 数据模型的一部分到部件之间的映射 |
+| [QFileSystemModel]() | 本地文件系统的数据模型 |
+| [QHeaderView]() | 项目视图的标题行或标题列 |
+| [QIdentityProxyModel]() | 代理未经修改的源模型 |
+| [QItemDelegate]() | 显示和编辑来自模型的数据项的工具 |
+| [QItemEditorCreator]() | 无需子类 `QItemEditorCreatorBase` 即可创建项目编辑器创建者库 |
+| [QItemEditorCreatorBase]() | 实现新项目编辑器创建者时必须子类化的抽象基类 |
+| [QItemEditorFactory]() | 用于在视图和委托中编辑项目数据的部件 |
+| [QItemSelection]() | 管理有关模型中选定项目的信息 |
+| [QItemSelectionModel]() | 跟踪视图的选定项目 |
+| [QItemSelectionRange]() | 管理有关模型中选定项目范围的信息 |
+| [QListView]() | 模型上的列表或图标视图 |
+| [QListWidget]() | 基于项目的列表部件 |
+| [QListWidgetItem]() | 与 `QListWidget` 项目视图类一起使用的项目 |
+| [QModelIndex]() | 用于在数据模型中定位数据 |
+| [QPersistentModelIndex]() | 用于在数据模型中定位数据 |
+| [QSortFilterProxyModel]() | 支持对在另一个模型和视图之间传递的数据进行排序和过滤 |
+| [QStandardItem]() | 与 `QStandardItemModel` 类一起使用的项目 |
+| [QStandardItemEditorCreator]() | 无需子类化 `QItemEditorCreatorBase` 即可注册部件的可能新 |
+| [QStandardItemModel]() | 用于存储自定义数据的通用模型 |
+| [QStringListModel]() | 向视图提供字符串的模型 |
+| [QStyledItemDelegate]() | 显示和编辑来自模型的数据项的工具 |
+| [QTableView]() | 表格视图的默认模型/视图实现 |
+| [QTableWidget]() | 具有默认模型的基于项目的表视图 |
+| [QTableWidgetItem]() | 与 `QTableWidget` 类一起使用的项目 |
+| [QTableWidgetSelectionRange]() | 在不使用模型索引和选择模型的情况下与模型中的选择进行交互的方法 |
+| [QTreeView]() | 树视图的默认模型/视图实现 |
+| [QTreeWidget]() | 使用预定义树模型的树视图 |
+| [QTreeWidgetItem]() | 与 `QTreeWidget` 便捷类一起使用的项目 |
+| [QTreeWidgetItemIterator]() | 遍历 `QTreeWidget` 实例中的项目的方法 |
+
+## 相关示例
+
+- [目录视图]()
+- [`Spin Box` 委托]()
+- [像素器]()
+- [简单的树模型]()
+- [图表]()
+
+另请参阅 [项目视图拼图示例]()。
