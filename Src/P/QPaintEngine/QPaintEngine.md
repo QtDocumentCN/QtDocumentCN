@@ -67,3 +67,31 @@ Qt为不同的painter后端提供了一些预设实现的QPaintEngine
 > - QPainter为开发者提供外部接口方法用于绘制
 > - QPaintEngine为QPainter提供一些绘制的具体实现
 > - QPaintDevice为QPainter提供一个绘图设备，用于显示亦或储存。
+
+如果你想使用QPainter绘制自定义的后端(译者注：这里可以理解为QPaintDevice)。你可以继承QPaintEngine，并实现其所有的虚函数。然后子类化QPaintDevice并且实现它的纯虚成员函数（QPaintDevice::paintEngine()）。
+
+由QPaintDevice创建QPaintEngine，并维护其生命周期。
+
+另请参见QPainter，QPaintDevice::paintEngine()和Paint System
+
+# 成员类型文档
+
+## enum QPaintEngine::DirtyFlag
+## flags QPaintEngine::DirtyFlags
+
+|枚举类型	|枚举值	|描述|
+| :---: | :--------- |:---:| 
+|QPaintEngine::DirtyPen	|0x0001	|画笔已经标脏，应刷新|
+|QPaintEngine::DirtyBrush	|0x0002	|画刷已经标脏，应刷新|
+|QPaintEngine::DirtyBrushOrigin	|0x0004	|画刷原始数据已经变化，应刷新|
+|QPaintEngine::DirtyFont	|0x0008	|字体发生变化，应刷新|
+|QPaintEngine::DirtyBackground	|0x0010	|背景标脏，应刷新|
+|QPaintEngine::DirtyBackgroundMode	|0x0020	|The background mode is dirty and needs to be updated.|
+|QPaintEngine::DirtyTransform	|0x0040	|The transform is dirty and needs to be updated.|
+|QPaintEngine::DirtyClipRegion	|0x0080	|The clip region is dirty and needs to be updated.|
+|QPaintEngine::DirtyClipPath	|0x0100	|The clip path is dirty and needs to be updated.|
+|QPaintEngine::DirtyHints	|0x0200	|The render hints is dirty and needs to be updated.|
+|QPaintEngine::DirtyCompositionMode	|0x0400	|The composition mode is dirty and needs to be updated.|
+|QPaintEngine::DirtyClipEnabled	|0x0800	|Whether clipping is enabled or not is dirty and needs to be updated.|
+|QPaintEngine::DirtyOpacity	|0x1000	|The constant opacity has changed and needs to be updated as part of the state change in QPaintEngine::updateState().|
+|QPaintEngine::AllDirty	|0xffff	|Convenience enum used internally.|
