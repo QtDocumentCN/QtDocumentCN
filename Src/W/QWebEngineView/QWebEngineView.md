@@ -126,7 +126,7 @@ QWebEngineView类提供了一个小部件, 被用去查看和编辑web文档。
 
 一个web元素可以通过[load]()()函数加载到web视图。一般总是使用Get方法去加载URLs.
 
-像所有的Qt widgets, 为了展示web的视图， [show]()() 函数 必须被执行。The snippet below illustrates this:
+像所有Qt小部件一样，必须调用[show]()()函数才能显示Web视图。 下面的代码段说明了这一点：
 
 ```
 QWebEngineView *view = new QWebEngineView(parent);
@@ -451,7 +451,7 @@ Qt 5.9中引入了此功能。
 
 当选择的部分改变的时候，发出该信号。
 
-**注意：** 当鼠标通过左键安和拖拽去选择文本时，对于每一个新的字符被选中都会发出该信号， 和 not upon releasing the left mouse button.
+**注意：** 当使用鼠标左键单击并拖动来选择文本时，将为每个选定的新字符发出信号，而不是在释放鼠标左键时发出信号。
 
 另请参见 [selectedText](qwebengineview.html#selectedText-prop)().
 
