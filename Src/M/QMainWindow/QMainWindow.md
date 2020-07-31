@@ -1,6 +1,6 @@
 # QMainWindow 类
 
-QMainWindow 类用于创建主程序窗口。 [More...](https://doc.qt.io/qt-5/qmainwindow.html#details)
+QMainWindow 类用于创建主程序窗口。 [更多内容...](#%E8%AF%A6%E7%BB%86%E6%8F%8F%E8%BF%B0)
 
 |属性|方法|
 |----:|:----|
@@ -15,7 +15,7 @@ QMainWindow 类用于创建主程序窗口。 [More...](https://doc.qt.io/qt-5/q
 |类型|方法|
 |----:|:----|
 |enum|[DockOption](https://doc.qt.io/qt-5/qmainwindow.html#DockOption-enum) { AnimatedDocks, AllowNestedDocks, AllowTabbedDocks, ForceTabbedDocks, VerticalTabs, GroupedDragging }|
-|flags| [DockOptions](https://doc.qt.io/qt-5/qmainwindow.html#DockOption-enum)|
+|flags|[DockOptions](https://doc.qt.io/qt-5/qmainwindow.html#DockOption-enum)|
 
 ## 属性
 
@@ -229,6 +229,7 @@ DockOptions 是 [QFlags](https://doc.qt.io/qt-5/qflags.html)\<DockOption> 的 ty
 该属性在 Qt 4.2 引入
 
 **存取函数：**
+
 |返回类型|函数名|
 |:----:|:----:|
 |bool|isAnimated() const|
@@ -249,6 +250,7 @@ DockOptions 是 [QFlags](https://doc.qt.io/qt-5/qflags.html)\<DockOption> 的 ty
 该属性在 Qt 4.2 引入
 
 **存取函数：**
+
 |返回类型|函数名|
 |:----:|:----:|
 |bool|isDockNestingEnabled() const|
@@ -293,6 +295,7 @@ DockOptions 是 [QFlags](https://doc.qt.io/qt-5/qflags.html)\<DockOption> 的 ty
 默认是 GUI 样式的默认工具栏图标大小。请注意，使用的图标必须至少具有此大小，因为图标只会缩小。
 
 **存取函数：**
+
 |返回类型|函数名|
 |:----:|:----:|
 |QSize|iconSize() const|
@@ -307,6 +310,7 @@ DockOptions 是 [QFlags](https://doc.qt.io/qt-5/qflags.html)\<DockOption> 的 ty
 该属性在 Qt 4.5 引入
 
 **存取函数：**
+
 |返回类型|函数名|
 |:----:|:----:|
 |QTabWidget::TabShape|tabShape() const|
@@ -323,6 +327,7 @@ DockOptions 是 [QFlags](https://doc.qt.io/qt-5/qflags.html)\<DockOption> 的 ty
 默认是 [Qt::ToolButtonIconOnly](https://doc.qt.io/qt-5/qt.html#ToolButtonStyle-enum)
 
 **存取函数：**
+
 |返回类型|函数名|
 |:----:|:----:|
 |Qt::ToolButtonStyle|toolButtonStyle() const|
@@ -340,6 +345,7 @@ DockOptions 是 [QFlags](https://doc.qt.io/qt-5/qflags.html)\<DockOption> 的 ty
 该属性在 Qt 5.2 引入
 
 **存取函数：**
+
 |返回类型|函数名|
 |:----:|:----:|
 |bool|unifiedTitleAndToolBarOnMac() const|
