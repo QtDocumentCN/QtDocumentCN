@@ -76,10 +76,10 @@
 | [QCoreApplication](Src/C/QCoreApplication/QCoreApplication.md)    | [froser](https://github.com/froser)        | 编写中 | 占位中，待填充，截止时间2020-08-15 |
 | [QWebEngineView](Src/W/QWebEngineView/QWebEngineView.md) |[ruihuanming](https://github.com/hqwx2018)|**待完善**|已完成|
 | [QWebEngineHistory](Src/W/QWebEngineHistory/QWebEngineHistory.md) |[ruihuanming](https://github.com/hqwx2018)|**待完善**|已完成|
-| [QWebEngineHistoryItem](Src/W/QWebEngineHistoryItem/QWebEngineHistoryItem.md) | [ruihuanming](https://github.com/hqwx2018) | **待完善** | 占位中，截至时间2020-08-15 |
+| [QWebEngineHistoryItem](Src/W/QWebEngineHistoryItem/QWebEngineHistoryItem.md) | [ruihuanming](https://github.com/hqwx2018) | **待完善** | 已完成 |
 | [QList::iterator](Src/L/QList/QList_Iterator.md)    | [xyz1001](https://github.com/xyz1001)        | 编写中 | 占位中，待填充，截止时间2020-07-31 |
 | [QList::const_iterator](Src/L/QList/QList_Const_Iterator.md)    | [xyz1001](https://github.com/xyz1001)        | 编写中 | 占位中，待填充，截止时间2020-07-31 |
-| [QTimer](Src/T/QTimer/QTimer.md) | [ruihuanming](https://github.com/hqwx2018) | 占位中 | 占位中，待填充，截止时间2020-08-15 |
+| [QTimer](Src/T/QTimer/QTimer.md) | [ruihuanming](https://github.com/hqwx2018) | **待完善** | 跨页跳转需待对应页面完成后进行校正 |
 | [QJsonArray](Src/J/QJsonArray/QJsonArray.md) | [ruihuanming](https://github.com/hqwx2018) | 占位中 | 占位中，待填充，截止时间2020-08-15 |
 | [QJsonDocument](Src/J/QJsonDocument/QJsonDocument.md) | [ruihuanming](https://github.com/hqwx2018) | 占位中 | 占位中，待填充，截止时间2020-08-15 |
 | [QJsonObject](Src/J/QJsonObject/QJsonObject.md) | [ruihuanming](https://github.com/hqwx2018) | 占位中 | 占位中，待填充，截止时间2020-08-15 |
