@@ -83,6 +83,6 @@
 | [QJsonArray](Src/J/QJsonArray/QJsonArray.md) | [ruihuanming](https://github.com/hqwx2018) | 占位中 | 占位中，待填充，截止时间2020-08-15 |
 | [QJsonDocument](Src/J/QJsonDocument/QJsonDocument.md) | [ruihuanming](https://github.com/hqwx2018) | 占位中 | 占位中，待填充，截止时间2020-08-15 |
 | [QJsonObject](Src/J/QJsonObject/QJsonObject.md) | [ruihuanming](https://github.com/hqwx2018) | 占位中 | 占位中，待填充，截止时间2020-08-15 |
-| [QJsonParseError](Src/J/QJsonParseError/QJsonParseError.md) | [ruihuanming](https://github.com/hqwx2018) | 占位中 | 占位中，待填充，截止时间2020-08-15 |
+| [QJsonParseError](Src/J/QJsonParseError/QJsonParseError.md) | [ruihuanming](https://github.com/hqwx2018) | **待完善** | 缺跳转                             |
 | [QJsonValue](Src/J/QJsonValue/QJsonValue.md) | [ruihuanming](https://github.com/hqwx2018) | 占位中 | 占位中，待填充，截止时间2020-08-15 |
 
