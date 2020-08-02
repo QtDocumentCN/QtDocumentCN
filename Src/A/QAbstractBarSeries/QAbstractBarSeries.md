@@ -8,7 +8,7 @@
  
 |  属性  | 方法|
 |------:|:------|
-|头文件:|#include<QAbstractBarSeries|
+|头文件:|`#include<QAbstractBarSeries>`|
 |实例化:|AbstractBarSeries|
 |继承:  |QAbstractSeries|
 |派生:|QBarSeries, QHorizontalBarSeries, QHorizontalPercentBarSeries, QHorizontalStackedBarSeries, QPercentBarSeries, and QStackedBarSeries|

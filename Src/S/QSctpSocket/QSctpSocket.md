@@ -96,43 +96,43 @@ QSctpSocket 可以在以下两种模式之一中运行：
 
 ## 成员函数文档
 
-### **QSctpSocket**::QSctpSocket**([QObject](../../O/QObject) **parent* = nullptr)
+### QSctpSocket::**QSctpSocket****([QObject](../../O/QObject) **parent* = nullptr)
 
 构造函数。创建一个处于 *未连接*（ *UnconnectedState* ）状态的 QSctpSocket 类型的对象并设置为数据报操作模式。
 
 另外您也可以在 [socketType](../../A/QAbstractSocket/QAbstractSocket.md#qabstractsocketsockettype-qabstractsocketsockettype-const)() 和 [setMaximumChannelCount](#void-qsctpsocketsetmaximumchannelcountint-count)() 函数介绍中找到相关信息。
 
+---
 
-
-### *[virtual]* **QSctpSocket**::~QSctpSocket()
+### *[virtual]* QSctpSocket::~**QSctpSocket**()
 
 析构函数。销毁套接字，必要时关闭连接。
 
 另外您也可以在 [close](#override-virtual-void-qsctpsocketclose)() 函数介绍中找到相关信息。
 
+---
 
-
-### *[override virtual]* void **QSctpSocket**::close()
+### *[override virtual]* void QSctpSocket::**close**()
 
 重写 [QAbstractSocket::close()](../../A/QAbstractSocket/QAbstractSocket.md#override-virtual-void-qabstractsocketclose) 。
 
+---
 
-
-### *[override virtual]* void **QSctpSocket**::disconnectFromHost()
+### *[override virtual]* void QSctpSocket::**disconnectFromHost**()
 
 重写 [QAbstractSocket::disconnectFromHost()](../../A/QAbstractSocket/QAbstractSocket.md#virtual-void-qabstractsocketdisconnectfromhost) 。
 
+---
 
-
-### bool **QSctpSocket**::isInDatagramMode() const
+### bool QSctpSocket::**isInDatagramMode**() const
 
 如果该套接字运行在数据报模式则返回 true 。
 
 另外您也可以在 [setMaximumChannelCount](#void-qsctpsocketsetmaximumchannelcountint-count)() 函数介绍中找到相关信息。
 
+---
 
-
-### int **QSctpSocket**::maximumChannelCount() const
+### int QSctpSocket::**maximumChannelCount**() const
 
 返回 QSctpSocket 能支持的最大通道数。
 
@@ -142,15 +142,15 @@ QSctpSocket 可以在以下两种模式之一中运行：
 
 另外您也可以在 [setMaximumChannelCount](#void-qsctpsocketsetmaximumchannelcountint-count)() ，readChannelCount() 和 writeChannelCount() 函数介绍中找到相关信息。
 
+---
 
-
-### *[override virtual protected]* qint64 **QSctpSocket**::readData(char **data*, qint64 *maxSize*)
+### *[override virtual protected]* qint64 QSctpSocket::**readData**(char **data*, qint64 *maxSize*)
 
 重写：  [QAbstractSocket::readData](../../A/QAbstractSocket/QAbstractSocket.md#override-virtual-protected-qint64-qabstractsocketreaddatachar-data-qint64-maxsize)(char *data, qint64 maxSize).
 
+---
 
-
-### [QNetworkDatagram](../../N/QNetworkDatagram/QNetworkDatagram.md) **QSctpSocket**::readDatagram()
+### [QNetworkDatagram](../../N/QNetworkDatagram/QNetworkDatagram.md) QSctpSocket::**readDatagram**()
 
 从当前的读取通道的缓冲区读取一个数据报并将该数据报内容及其发送者的主机地址和端口写入一个 [QNetworkDatagram](../../N/QNetworkDatagram/QNetworkDatagram.md) 对象中返回。如果可能，此功能还将尝试确定数据报的目标地址，端口以及接收时的跳数计数，并将这些信息写入到返回的 [QNetworkDatagram](../../N/QNetworkDatagram/QNetworkDatagram.md) 对象中。
 
@@ -158,15 +158,15 @@ QSctpSocket 可以在以下两种模式之一中运行：
 
 另外您也可以在 [writeDatagram](#bool-qsctpsocketwritedatagramconst-qnetworkdatagram-datagram)() ，[isInDatagramMode](#bool-qsctpsocketisindatagrammode-const)() 和 currentReadChannel() 函数中找到相关信息。
 
+---
 
-
-### *[override virtual protected]* qint64 **QSctpSocket**::readLineData(char **data*, qint64 *maxlen*)
+### *[override virtual protected]* qint64 QSctpSocket::**readLineData**(char **data*, qint64 *maxlen*)
 
 重写：  [QAbstractSocket::readLineData](../../A/QAbstractSocket/QAbstractSocket.md#override-virtual-protected-qint64-qabstractsocketreadlinedatachar-data-qint64-maxlen)(char *data, qint64 maxlen).
 
+---
 
-
-### void **QSctpSocket**::setMaximumChannelCount(int *count*)
+### void QSctpSocket::**setMaximumChannelCount**(int *count*)
 
 设置该应用程序在数据报模式下将支持的最大通道数为 *count* 。 如果 *count* 为0，程序将使用远程端点设置的最大通道支持数。将 *count* 设置为一个负数时，程序将使用连续字节流模式。
 
@@ -174,9 +174,9 @@ QSctpSocket 可以在以下两种模式之一中运行：
 
 另外您也可以在 [maximumChannelCount](#int-qsctpsocketmaximumchannelcount-const)() ，readChannelCount() 和 writeChannelCount() 函数介绍中找到相关信息。
 
+---
 
-
-### bool **QSctpSocket**::writeDatagram(const [QNetworkDatagram](../../N/QNetworkDatagram/QNetworkDatagram.md) &*datagram*)
+### bool QSctpSocket::**writeDatagram**(const [QNetworkDatagram](../../N/QNetworkDatagram/QNetworkDatagram.md) &*datagram*)
 
 将一个数据报写入到当前写出通道的缓冲区。操作成功该函数返回 true ，否则返回 false 。
 

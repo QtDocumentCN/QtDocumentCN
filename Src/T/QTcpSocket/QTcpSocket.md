@@ -40,7 +40,7 @@ QTcpSocket 是继承自 QAbstractSocket 的一个便利子类，它允许您建�
 
 ## 成员函数文档
 
-### **QTcpSocket**::QTcpSocket(QObject **parent* = nullptr)
+### QTcpSocket::**QTcpSocket**(QObject **parent* = nullptr)
 
 构造函数。创建一个 QTcpSocket 类型的对象。该对象创建后初始状态为*未连接*（ *UnconnectedState* ）状态。
 
@@ -48,7 +48,9 @@ QTcpSocket 是继承自 QAbstractSocket 的一个便利子类，它允许您建�
 
 另外您也可以在 [socketType()](../../A/QAbstractSocket/QAbstractSocket.md#qabstractsocketsockettype-qabstractsocketsockettype-const) 函数介绍中找到相关信息。
 
-### *[virtual]* QTcpSocket::~QTcpSocket()
+---
+
+### *[virtual]* QTcpSocket::~**QTcpSocket**()
 
 析构函数。销毁套接字，必要时关闭连接。
 

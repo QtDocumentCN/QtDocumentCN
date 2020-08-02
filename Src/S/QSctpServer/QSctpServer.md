@@ -57,7 +57,7 @@ QSctpServer 最常见的用法是构造一个 QSctpServer 类的对象并调用 
 
 ## 成员函数文档
 
-### **QSctpServer**::QSctpServer([QObject](../../O/QObject/QObject.md) **parent* = nullptr)
+### QSctpServer::**QSctpServer**([QObject](../../O/QObject/QObject.md) **parent* = nullptr)
 
 构造函数。构造一个 QSctpServer 类型的对象并将其设置为数据报模式。
 
@@ -65,23 +65,23 @@ QSctpServer 最常见的用法是构造一个 QSctpServer 类的对象并调用 
 
 另外您也可以在 [setMaximumChannelCount](#void-qsctpserversetmaximumchannelcountint-count)() ，[listen](../../T/QTcpServer/QTcpServer.md#bool-qtcpserverlistenconst-qhostaddress-address--qhostaddressany-quint16-port--0)() 和 [setSocketDescriptor](../../T/QTcpServer/QTcpServer.md#bool-qtcpserversetsocketdescriptorqintptr-socketdescriptor)() 函数介绍中找到相关信息。
 
+---
 
-
-### *[virtual]* **QSctpServer**::~QSctpServer()
+### *[virtual]* QSctpServer::~**QSctpServer**()
 
 析构函数。销毁 QSctpServer 类型的对象。如果服务端仍然在监听客户端连接，该套接字会自动关闭。
 
 另外您也可以在 [close](../../T/QTcpServer/QTcpServer.md#void-qtcpserverclose)() 函数介绍中找到相关信息。
 
+---
 
-
-### *[override virtual protected]* void **QSctpServer**::incomingConnection(qintptr *socketDescriptor*)
+### *[override virtual protected]* void QSctpServer::**incomingConnection**(qintptr *socketDescriptor*)
 
 重写 [QTcpServer::incomingConnection(qintptr socketDescriptor)](../../T/QTcpServer/QTcpServer.md#virtual-protected-void-qtcpserverincomingconnectionqintptrsocketdescriptor) 函数。
 
+---
 
-
-### int **QSctpServer**::maximumChannelCount() const
+### int QSctpServer::**maximumChannelCount**() const
 
 返回套接字能够支持的最大通道数。
 
@@ -91,15 +91,15 @@ QSctpServer 最常见的用法是构造一个 QSctpServer 类的对象并调用 
 
 另外您也可以在 [setMaximumChannelCount](#void-qsctpserversetmaximumchannelcountint-count)() 函数介绍中找到相关信息。
 
+---
 
-
-### [QSctpSocket](../QSctpSocket/QSctpSocket.md) ***QSctpServer**::nextPendingDatagramConnection()
+### [QSctpSocket](../QSctpSocket/QSctpSocket.md) *QSctpServer::**nextPendingDatagramConnection**()
 
 将下一个待处理的数据报模式的连接作为一个已连接的 [QSctpSocket](../QSctpSocket/QSctpSocket.md) 对象返回。
 
 数据报模式的连接提供了一个面向消息的、多数据流的通信。
 
-该返回的套接字将作为服务端的子类创建，这意味着当 QSctpServer 对象销毁时，该套接字也将销毁。当你使用完一个对象后显式地删除该对象是一个好的做法，这能避免浪费内存。
+该返回的套接字将作为服务端的子类创建，这意味着当 QSctpServer 对象销毁时，该套接字也将销毁。当您使用完一个对象后显式地删除该对象是一个好的做法，这能避免浪费内存。
 
 如果没有待处理的数据报模式的连接，该函数将返回空。
 
@@ -107,9 +107,9 @@ QSctpServer 最常见的用法是构造一个 QSctpServer 类的对象并调用 
 
 另外您也可以在 [hasPendingConnections](../../T/QTcpServer/QTcpServer.md#virtual-bool-qtcpserverhaspendingconnections-const)() ，[nextPendingConnection](../T/QTcpServer/QTcpServer.md#virtual-qtcpsocket-qtcpservernextpendingconnection)() 函数介绍和 [QSctpSocket](../QSctpSocket/QSctpSocket.md) 类文档中找到相关信息。
 
+---
 
-
-### void **QSctpServer**::setMaximumChannelCount(int *count*)
+### void QSctpServer::**setMaximumChannelCount**(int *count*)
 
 设置在数据报模式下服务端准备支持的最大通道数为 *count* 。
 

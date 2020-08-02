@@ -14,7 +14,7 @@ QSsl 命名空间为所有的 SSL 类声明了通用的枚举类型。
 
 该命名空间最初在 Qt4.3 版本引入。
 
-您可以在 [QSsl_Obsolete](../QSsl_Obsolete/QSsl_Obsolete.md) 找到过时的枚举类型。
+您可以在 [QSsl_Obsolete](../QSsl_Obsolete/QSsl_Obsolete.md) 找到已废弃的枚举类型。
 
 
 
@@ -40,7 +40,7 @@ QSsl 命名空间为所有的 SSL 类声明了通用的枚举类型。
 
 ## 类型文档
 
-### enum **QSsl**::AlternativeNameEntryType
+### enum QSsl::**AlternativeNameEntryType**
 
 描述 [QSslCertificate](../QSslCertificate/QSslCertificate.md) 中条目的可替代名称的键类型。
 
@@ -54,9 +54,9 @@ QSsl 命名空间为所有的 SSL 类声明了通用的枚举类型。
 
 另外您也可以在 [QSslCertificate::subjectAlternativeNames](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcertificate.html#subjectAlternativeNames)() 函数介绍中找到相关信息。
 
+---
 
-
-### enum **QSsl**::EncodingFormat
+### enum QSsl::**EncodingFormat**
 
 描述证书和密钥支持的编码类型。
 
@@ -65,9 +65,9 @@ QSsl 命名空间为所有的 SSL 类声明了通用的枚举类型。
 | QSsl::Pem | 0    | PEM 格式 |
 | QSsl::Der | 1    | DER 格式 |
 
+---
 
-
-### enum **QSsl**::KeyAlgorithm
+### enum QSsl::**KeyAlgorithm**
 
 描述了 [QSslKey](../QSslKey/QSslKey.md) 支持的不同的密钥加密算法。
 
@@ -81,9 +81,9 @@ QSsl 命名空间为所有的 SSL 类声明了通用的枚举类型。
 
 不透明的密钥功能（ QSsl::Opaque ）允许应用程序添加对 Qt 当前不提供的功能（例如 PKCS＃11 ）的支持。
 
+---
 
-
-### enum **QSsl**::KeyType
+### enum QSsl::**KeyType**
 
 描述了 [QSslKey](../QSslKey/QSslKey.md) 支持的两种密钥类型。
 
@@ -92,9 +92,9 @@ QSsl 命名空间为所有的 SSL 类声明了通用的枚举类型。
 | QSsl::PrivateKey | 0    | 私钥 |
 | QSsl::PublicKey  | 1    | 公钥 |
 
+---
 
-
-### enum **QSsl**::SslOption flags **QSsl**::SslOptions
+### enum QSsl::**SslOption** flags QSsl::**SslOptions**
 
 描述可用于控制 SSL 详细行为的选项。 这些选项通常用于关闭功能以解决有问题的服务器。
 
@@ -111,13 +111,13 @@ QSsl 命名空间为所有的 SSL 类声明了通用的枚举类型。
 
 默认情况下，SslOptionDisableEmptyFragments 选项处于启用状态，因为这会导致大量服务器出现问题。 SslOptionDisableLegacyRenegotiation 选项也处于启用状态，因为它带来了安全风险。 启用 SslOptionDisableCompression 可以防止 CRIME 公开攻击。  SslOptionDisableSessionPersistence 也处于启用状态以优化内存使用。 其他选项处于关闭状态。
 
-**注意：**以上选项的可用性取决于所使用的 SSL 后端的版本。
+**注意：** 以上选项的可用性取决于所使用的 SSL 后端的版本。
 
 SslOptions 类型是由 typedef [QFlags](qthelp://org.qt-project.qtnetwork.5150/qtcore/qflags.html)\<SslOption\>  定义的用户自定义类型。它储存着  SslOption 值的OR组合。
 
+---
 
-
-### enum **QSsl**::SslProtocol
+### enum QSsl::**SslProtocol**
 
 描述密码的协议。
 
@@ -127,7 +127,7 @@ SslOptions 类型是由 typedef [QFlags](qthelp://org.qt-project.qtnetwork.5150/
 | QSsl::SslV2           | 1               | SSLv2。不被 [QSslSocket](../QSslSocket/QSslSocket.md) 支持。 |
 | QSsl::TlsV1_0         | 2               | TLSv1.0。                                                    |
 | QSsl::TlsV1_0OrLater  | 8               | TLSv1.0 和之后的版本。由于平台限制，在使用 WinRT 后端时，此选项不可用。 |
-| QSsl::TlsV1           | TlsV1_0         | 已过时，与 TlsV1_0 意义相同。                                |
+| QSsl::TlsV1           | TlsV1_0         | 已废弃，与 TlsV1_0 意义相同。                                |
 | QSsl::TlsV1_1         | 3               | TLSv1.1。当使用WinRT 后端时，这个选项也会启用 TLSv1.0 选项。 |
 | QSsl::TlsV1_1OrLater  | 9               | TLSv1.1 和之后的版本。由于平台限制，在使用 WinRT 后端时，此选项不可用。 |
 | QSsl::TlsV1_2         | 4               | TLSv1.2。当使用WinRT 后端时，这个选项也会启用 TLSv1.0 和 TLSv1.1 选项。 |
@@ -142,3 +142,27 @@ SslOptions 类型是由 typedef [QFlags](qthelp://org.qt-project.qtnetwork.5150/
 | QSsl::AnyProtocol     | 5               | 任何支持的协议。 该选项仅被 [QSslSocket](../QSslSocket/QSslSocket.md)  使用。 |
 | QSsl::TlsV1SslV3      | 6               | 与 TlsV1_0 相同。 该枚举成员已不被推荐使用，您应该使用 TlsV1_0 来替代。 |
 | QSsl::SecureProtocols | AnyProtocol + 2 | 默认选项，使用已知是安全的协议。                             |
+
+
+
+## 已废弃成员
+
+下列是 [QSsl](../QSsl/QSsl.md) 中已废弃的枚举类型。为了让旧版本的代码依旧能够运行， Qt 仍然提供这些自定义类型。Qt 官方强烈建议不在新代码中使用这些枚举类型。
+
+
+
+### 类型
+
+| 类型                 | 属性                                                         |
+| -------------------- | ------------------------------------------------------------ |
+| *(obsolete)* typedef | **[AlternateNameEntryType](#typedef-qsslalternatenameentrytype)** |
+
+
+
+### 类型文档
+
+#### typedef QSsl::**AlternateNameEntryType**
+
+该自定义类型已废弃。为了让旧版本的代码依旧能够运行， Qt 仍然提供这些自定义类型。Qt 官方强烈建议不在新代码中使用这些枚举类型。
+
+请使用 [QSsl::AlternativeNameEntryType](../QSsl/QSsl.md#enum-qsslalternativenameentrytype) 枚举作为替代。
