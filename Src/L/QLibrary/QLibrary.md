@@ -63,7 +63,7 @@ Qlibrary用于运行时加载库。
 
 ## 详细描述
 
-QLibrary的实例用于操作一个动态链接库文件（文中称为库，也就是DLL）。QLibrary提供访问库中函数的一种平台无关方式。你可以在构造时传递库文件名，也可以通过 [setFileName](#fileName-prop)() 给对象显式设置。加载库时，QLibrary在所有系统指定的位置搜索 (例如： Unix上的 `LD_LIBRARY_PATH`), 除非文件名是绝对路径。
+QLibrary的实例用于操作一个动态链接库文件（文中称为库，也就是DLL）。QLibrary提供访问库中函数的一种平台无关方式。您可以在构造时传递库文件名，也可以通过 [setFileName](#fileName-prop)() 给对象显式设置。加载库时，QLibrary在所有系统指定的位置搜索 (例如： Unix上的 `LD_LIBRARY_PATH`), 除非文件名是绝对路径。
 
 如果文件路径是绝对路径，则会首先尝试在这个位置加载。如果找不到，QLibrary尝试不同系统相关的前后缀的文件名，比如Unix系的前缀“lib”，后缀“.so”，Mac及IOS的后缀".dylib"，Windows的后缀".dll"。
 
@@ -71,7 +71,7 @@ QLibrary的实例用于操作一个动态链接库文件（文中称为库，也
 
 这让使用除去前后缀的库基本名称来指定库文件变得可能。因此代码可以在不同操作系统里执行，但不用太多代码尝试各种文件名称。
 
-最重要的函数是 [load](#load)() 用于动态加载库，[isLoaded](#isLoaded)() 用于检查是否加载成功，以及 [resolve](#resolve)() 来解析库中的符号。如果库还没加载，[resolve](#resolve)() 函数隐式地加载这个库。多个QLibrary实例访问同一个物理库文件是可行的。一旦被加载，库在内存中一直保留到程序结束。你可以通过 [unload](#unload)() 尝试卸载一个库，但如果有其他QLibrary实例在使用同一个库文件，调用会失败。只有在每一个实例都调用过 [unload](#unload)() 后，库才会真正卸载。
+最重要的函数是 [load](#load)() 用于动态加载库，[isLoaded](#isLoaded)() 用于检查是否加载成功，以及 [resolve](#resolve)() 来解析库中的符号。如果库还没加载，[resolve](#resolve)() 函数隐式地加载这个库。多个QLibrary实例访问同一个物理库文件是可行的。一旦被加载，库在内存中一直保留到程序结束。您可以通过 [unload](#unload)() 尝试卸载一个库，但如果有其他QLibrary实例在使用同一个库文件，调用会失败。只有在每一个实例都调用过 [unload](#unload)() 后，库才会真正卸载。
 
 Qlibrary 的一种典型用法是解析库中的导出符号，并调用其对应的C语言函数。这叫做显式链接，对应于隐式链接。隐式链接是构建中的链接可执行文件和静态库的步骤。
 
@@ -87,7 +87,7 @@ if (myFunction)
 
 
 
-符号必须作为C函数导出，[resolve](#resolve)()才能工作。这意味着用C++编译器编译的函数必须由`extern "C"`块包裹。在Windows上，还要求导出函数要使用`dllexport`宏；实现详情见 [resolve](#resolve)()。方便起见，[resolve](#resolve)() 函数有静态形式，你可以在不现实加载库的情况下使用：
+符号必须作为C函数导出，[resolve](#resolve)()才能工作。这意味着用C++编译器编译的函数必须由`extern "C"`块包裹。在Windows上，还要求导出函数要使用`dllexport`宏；实现详情见 [resolve](#resolve)()。方便起见，[resolve](#resolve)() 函数有静态形式，您可以在不现实加载库的情况下使用：
 
 ```
 typedef void (*MyPrototype)();
@@ -97,7 +97,7 @@ if (myFunction)
     myFunction();
 ```
 
-**另参考：** [QPluginLoader](https://doc.qt.io/qt-5/qpluginloader.html).
+**另请参阅：** [QPluginLoader](https://doc.qt.io/qt-5/qpluginloader.html).
 
 
 
@@ -117,7 +117,7 @@ if (myFunction)
 
 LoadHints是一个 [QFlags](https://doc.qt.io/qt-5/qflags.html)`<LoadHint>` 类型的typedef。 它储存了LoadHint取值的**OR**（位或）方式的组合。
 
-**另参考：** [loadHints](#loadHints-prop).
+**另请参阅：** [loadHints](#loadHints-prop).
 
 
 
@@ -146,7 +146,7 @@ LoadHints是一个 [QFlags](https://doc.qt.io/qt-5/qflags.html)`<LoadHint>` 类�
 
 给 [load](#load)() 函数一些关于如何执行的指示。
 
-你可以对于符号如何解析做指示。通常来说，符号不是在加载库时解析的，而是惰性解析的（也就是调用 [resolve](#resolve)() 时）。如果你设置loadHints 为[ResolveAllSymbolsHint](#LoadHint-enum)，那么如果平台支持，所有符号会在库加载时一齐解析。
+您可以对于符号如何解析做指示。通常来说，符号不是在加载库时解析的，而是惰性解析的（也就是调用 [resolve](#resolve)() 时）。如果您设置loadHints 为[ResolveAllSymbolsHint](#LoadHint-enum)，那么如果平台支持，所有符号会在库加载时一齐解析。
 
 设置 [ExportExternalSymbolsHint](#LoadHint-enum) 会使库中的外部符号在后续库解析中可用。
 
@@ -154,7 +154,7 @@ LoadHints是一个 [QFlags](https://doc.qt.io/qt-5/qflags.html)`<LoadHint>` 类�
 
 如果设置了 [LoadArchiveMemberHint](#LoadHint-enum) ，文件名会被分解为两部分：归档文件的路径和归档成员的名称. 例如,  [fileName](#fileName-prop) `libGL.a(shr_64.o)` 指向归档文件 `libGL.a`中的库文件 `shr_64.o` . 这个特性只在AIX平台生效。
 
-loadHints 的解释是平台相关的，如果你用这些特效，你大概已经对编译的系统平台做了一些假设。因此请仅在你明白你这些操作的结果的情况下设置这些指示。
+loadHints 的解释是平台相关的，如果您用这些特效，您大概已经对编译的系统平台做了一些假设。因此请仅在您明白您这些操作的结果的情况下设置这些指示。
 
 默认情况下，此属性没有设置任何flag，所有库文件会惰性加载，并且不会导出共其他动态链接库使用的外部符号。
 
@@ -209,13 +209,13 @@ loadHints 的解释是平台相关的，如果你用这些特效，你大概已�
 
 除非显式调用 [unload](#unload)()，库会在一直驻留在内存中，知道应用结束。
 
-**另参考：** [isLoaded](#isLoaded)() 和 [unload](#unload)().
+**另请参阅：** [isLoaded](#isLoaded)() 和 [unload](#unload)().
 
 ----
 
 ### [QString](../../S/QString/QString.md) QLibrary::errorString() const
 
-返回一个描述上一个发生的错误的文本字符串。现在，errorString 只会在 [load](#load)(), [unload](#unload)() 或 [resolve](#resolve)() 调用由于一些原因失败时才会设置。
+返回一个描述上一个发生的错误的文本字符串。截至现在，errorString 只会在 [load](#load)(), [unload](#unload)() 或 [resolve](#resolve)() 调用由于一些原因失败时才会设置。
 
 此函数引入自：Qt 4.2.
 
@@ -241,25 +241,25 @@ Unix平台上的名字后的版本号会被忽略。
 
 如果库已经被加载，返回true，否则返回false。
 
-**另参考：** [load](#load)().
+**另请参阅：** [load](#load)().
 
 ----
 
 ### bool QLibrary::load()
 
-加载一个库，如果成功加载则返回true；否则返回false。因为 [resolve](#resolve)() 
+加载一个库，如果成功加载则返回true；否则返回false。因为 [resolve](#resolve)() 内部会自动调用此方法，您没必要显示调用这个函数。如果在某些情况下您想提前加载库，您可以主动调用它。
 
-Loads the library and returns `true` if the library was loaded successfully; otherwise returns `false`. Since [resolve](#resolve)() always calls this function before resolving any symbols it is not necessary to call it explicitly. In some situations you might want the library loaded in advance, in which case you would use this function.
-
-**另参考：** [unload](#unload)().
+**另请参阅：** [unload](#unload)().
 
 ----
 
 ### [QFunctionPointer](https://doc.qt.io/qt-5/qtglobal.html#QFunctionPointer-typedef) QLibrary::resolve(const char **symbol*)
 
-Returns the address of the exported symbol *symbol*. The library is loaded if necessary. The function returns `nullptr` if the symbol could not be resolved or if the library could not be loaded.
+返回导出符号 *symbol* 对应的地址。如果需要，库会自动加载。如果库无法加载或符号无法解析，返回 `nullptr` 。
 
-Example:
+
+
+例如：
 
 ```
 typedef int (*AvgFunction)(int, int);
@@ -271,7 +271,7 @@ else
     return -1;
 ```
 
-The symbol must be exported as a C function from the library. This means that the function must be wrapped in an `extern "C"` if the library is compiled with a C++ compiler. On Windows you must also explicitly export the function from the DLL using the `__declspec(dllexport)`compiler directive, for example:
+符号必须作为C语言函数导出。这意味着如果使用C++编译器，函数必须由 `extern "C"` 包裹。在Windows平台，您还必须显式通过 `__declspec(dllexport)` 指导编译器导出符号，例如：
 
 ```
 extern "C" MY_EXPORT int avg(int a, int b)
@@ -280,7 +280,7 @@ extern "C" MY_EXPORT int avg(int a, int b)
 }
 ```
 
-with `MY_EXPORT` defined as
+宏 `MY_EXPORT` 定义如下
 
 ```
 #ifdef Q_OS_WIN
@@ -294,68 +294,68 @@ with `MY_EXPORT` defined as
 
 ### `[static]`[QFunctionPointer](https://doc.qt.io/qt-5/qtglobal.html#QFunctionPointer-typedef) QLibrary::resolve(const [QString](../../S/QString/QString.md) &*fileName*, const char **symbol*)
 
-This is an overloaded function.
+这是一个重载函数。
 
-Loads the library *fileName* and returns the address of the exported symbol *symbol*. Note that *fileName* should not include the platform-specific file suffix; (see [fileName](#fileName-prop)). The library remains loaded until the application exits.
+加载文件名 *fileName* 对应的库，并返回 *symbol* 对应导出符号的地址。注意 *fileName* 不应该包含平台相关前后缀（详情见 [fileName](#fileName-prop)）. 库会一直保留到应用程序退出。
 
-The function returns `nullptr` if the symbol could not be resolved or if the library could not be loaded.
+如果库无法加载或符号无法解析，返回 `nullptr` 。
 
-**另参考：** [resolve](#resolve)().
+**另请参阅：** [resolve](#resolve)().
 
 ----
 
 ### `[static]`[QFunctionPointer](https://doc.qt.io/qt-5/qtglobal.html#QFunctionPointer-typedef) QLibrary::resolve(const [QString](../../S/QString/QString.md) &*fileName*, int *verNum*, const char**symbol*)
 
-This is an overloaded function.
+这是一个重载函数。
 
-Loads the library *fileName* with major version number *verNum* and returns the address of the exported symbol *symbol*. Note that *fileName*should not include the platform-specific file suffix; (see [fileName](#fileName-prop)). The library remains loaded until the application exits. *verNum* is ignored on Windows.
+加载文件名 *fileName* 、主版本号 *verNum* 对应的库，并返回 *symbol* 对应导出符号的地址。注意 *fileName* 不应该包含平台相关前后缀（详情见 [fileName](#fileName-prop)）. 库会一直保留到应用程序退出。*version* 参数在 Windows 上无效。
 
-The function returns `nullptr` if the symbol could not be resolved or if the library could not be loaded.
+如果库无法加载或符号无法解析，返回 `nullptr` 。
 
-**另参考：** [resolve](#resolve)().
+**另请参阅：** [resolve](#resolve)().
 
 ----
 
 ### `[static]`[QFunctionPointer](https://doc.qt.io/qt-5/qtglobal.html#QFunctionPointer-typedef) QLibrary::resolve(const [QString](../../S/QString/QString.md) &*fileName*, const [QString](../../S/QString/QString.md) &*version*, const char **symbol*)
 
-This is an overloaded function.
+这是一个重载函数。
 
-Loads the library *fileName* with full version number *version* and returns the address of the exported symbol *symbol*. Note that *fileName* should not include the platform-specific file suffix; (see [fileName](#fileName-prop)). The library remains loaded until the application exits. *version* is ignored on Windows.
+加载文件名 *fileName* 、完整版本号 *version* 对应的库，并返回 *symbol* 对应导出符号的地址。注意 *fileName* 不应该包含平台相关前后缀（详情见 [fileName](#fileName-prop)）. 库会一直保留到应用程序退出。*version* 参数在 Windows 上无效。
 
-The function returns `nullptr` if the symbol could not be resolved or if the library could not be loaded.
+如果库无法加载或符号无法解析，返回 `nullptr` 。
 
 此函数引入自：Qt 4.4.
 
-**另参考：** [resolve](#resolve)().
+**另请参阅：** [resolve](#resolve)().
 
 
 
 ### void QLibrary::setFileNameAndVersion(const [QString](../../S/QString/QString.md) &*fileName*, int *versionNumber*)
 
-Sets the [fileName](#fileName-prop) property and major version number to *fileName* and *versionNumber* respectively. The *versionNumber* is ignored on Windows.
+设置 [fileName](#fileName-prop) 属性，以及相对应的文件名和版本号信息。*versionNumber* 参数在 Windows 上无效。
 
-**另参考：** [setFileName](#fileName-prop)().
+**另请参阅：** [setFileName](#fileName-prop)().
 
 
 
 ### void QLibrary::setFileNameAndVersion(const [QString](../../S/QString/QString.md) &*fileName*, const [QString](../../S/QString/QString.md) &*version*)
 
-Sets the [fileName](#fileName-prop) property and full version number to *fileName* and *version* respectively. The *version* parameter is ignored on Windows.
+设置 [fileName](#fileName-prop) 属性，以及相对应的文件名和完整版本号信息。*version* 参数在 Windows 上无效。
 
 此函数引入自：Qt 4.4.
 
-**另参考：** [setFileName](#fileName-prop)().
+**另请参阅：** [setFileName](#fileName-prop)().
 
 
 
 ### bool QLibrary::unload()
 
-Unloads the library and returns `true` if the library could be unloaded; otherwise returns `false`.
+卸载一个库；如果成功返回`true`，否则`false`。
 
-This happens automatically on application termination, so you shouldn't normally need to call this function.
+在应用程序结束是，此函数自动调用，因此您不应该手动调用。
 
-If other instances of [QLibrary](#QLibrary-Class) are using the same library, the call will fail, and unloading will only happen when every instance has called unload().
+如果有其他 [QLibrary](#QLibrary-Class) 示例在使用同一个库，调用会失败。卸载只会在所有实例都调用过此函数之后发生。
 
-Note that on Mac OS X 10.3 (Panther), dynamic libraries cannot be unloaded.
+注意：在 Mac OS X 10.3 (Panther)，无法卸载动态链接库。
 
-**另参考：** [resolve](#resolve)() and [load](#load)().
+**另请参阅：** [resolve](#resolve)() 和 [load](#load)().
