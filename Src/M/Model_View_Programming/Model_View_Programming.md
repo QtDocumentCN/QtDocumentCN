@@ -697,13 +697,13 @@ private:
 
 比较好的模型还实现了 [headerData()]，用来显示树形视图和表视图的标题。
 
-请注意，这是一个非分层模型，因此我们不必担心父子关系。如果我们的模型是分层的，那么我们还必须实现 [index()] 和 [parent]() 函数。
+请注意，这是一个非分层模型，因此我们不必担心父子关系。如果我们的模型是分层的，那么我们还必须实现 [index()]() 和 [parent()]() 函数。
 
 字符串列表被存储在 `stringList` 内部的私有成员变量中。
 
 #### 模型尺寸
 
-我们希望模型中的行数与字符串列表中的字符串数相同。考虑到这一点，我们实现 [rowCount]() 函数：
+我们希望模型中的行数与字符串列表中的字符串数相同。考虑到这一点，我们实现 [rowCount()]() 函数：
 
 ```cpp
 int StringListModel::rowCount(const QModelIndex &parent) const
@@ -736,7 +736,7 @@ QVariant StringListModel::data(const QModelIndex &index, int role) const
 
 仅当提供的模型索引有效，行号在字符串列表中的项目范围内并且请求的角色是我们支持的角色时，我们才返回有效的 [QVariant]()。
 
-一些视图（例如 [QTreeView]() 和 [QTableView]() ）能够通过项目数据显示标题。如果我们的模型显示在带有标题的视图中，我们希望标题显示行号和列号。我们可以通过将 [headerData]() 函数子类化来提供有关标题的信息：
+一些视图（例如 [QTreeView]() 和 [QTableView]() ）能够通过项目数据显示标题。如果我们的模型显示在带有标题的视图中，我们希望标题显示行号和列号。我们可以通过将 [headerData()]() 函数子类化来提供有关标题的信息：
 
 ```cpp
 QVariant StringListModel::headerData(int section, Qt::Orientation orientation,
@@ -754,13 +754,13 @@ QVariant StringListModel::headerData(int section, Qt::Orientation orientation,
 
 同样，仅当角色是我们支持的角色时，我们才返回有效的 [QVariant]()。标题的方向也会影响返回的数据。
 
-并非所有视图都显示带有项目数据的标题，可以通过配置隐藏它们。尽管如此，还是建议实现 [headerData]() 函数以提供有关模型据的相关信息。
+并非所有视图都显示带有项目数据的标题，可以通过配置隐藏它们。尽管如此，还是建议实现 [headerData()]() 函数以提供有关模型据的相关信息。
 
 一个项目可以具有多个角色，根据指定的角色给出不同的数据。我们模型中的项目只有一个角色 [DisplayRole]()，因此无论指定的角色如何，我们都将返回项目的数据。但是，我们可以在其他角色中重用为 [DisplayRole]() 提供的数据，例如 [ToolTipRole]()，视图可用来在工具提示中显示有关项目的信息。
 
 ### 可编辑的模型
 
-只读模型显示了如何将简单的选择呈现给用户，但是对于许多应用程序而言，可编辑列表模型更加有用。我们可以通过更改为只读实现的 [data]() 函数以及实现两个额外的函数 [flags]() 和 [setData]() 来修改只读模型，以使项目可编辑。将以下函数声明添加到类定义中：
+只读模型显示了如何将简单的选择呈现给用户，但是对于许多应用程序而言，可编辑列表模型更加有用。我们可以通过更改为只读实现的 `data()` 函数以及实现两个额外的函数 [flags()]() 和 [setData()]() 来修改只读模型，以使项目可编辑。将以下函数声明添加到类定义中：
 
 ```cpp
     Qt::ItemFlags flags(const QModelIndex &index) const override;
@@ -946,7 +946,7 @@ bool StringListModel::removeRows(int position, int rows, const QModelIndex &pare
     QTreeWidgetItem *planets = new QTreeWidgetItem(treeWidget, cities);
 ```
 
-树部件在处理顶级项目时，与树中较深处的其他项目略有不同。可以通过调用树部件的 [takeTopLevelItem]() 函数从树的顶层删除项目，但可以通过调用其父项的 [takeChild()]() 函数从较低级别的项目中删除项目。使用 [insertTopLevelItem()]() 函数将项目插入树的顶层。在树的较低级别位置，使用父项的 [insertChild]() 函数。
+树部件在处理顶级项目时，与树中较深处的其他项目略有不同。可以通过调用树部件的 [takeTopLevelItem()]() 函数从树的顶层删除项目，但可以通过调用其父项的 [takeChild()]() 函数从较低级别的项目中删除项目。使用 [insertTopLevelItem()]() 函数将项目插入树的顶层。在树的较低级别位置，使用父项的 [insertChild()]() 函数。
 
 在树的最高层和最低层之间移动项目很容易。我们只需要检查项目是否为顶级项目，该信息由每个项目的 `parent()` 函数提供。例如，我们可以删除树部件中的当前项目，而不管其位置如何：
 
@@ -1307,7 +1307,7 @@ bool DragDropListModel::dropMimeData(const QMimeData *data,
 }
 ```
 
-注意，该模型通常需要重新实现 [QAbstractItemModel::insertRows()]() 和 [QAbstractItemModel::setData]() 函数。
+注意，该模型通常需要重新实现 [QAbstractItemModel::insertRows()]() 和 [QAbstractItemModel::setData()]() 函数。
 
 ## 代理模型
 
@@ -1446,7 +1446,7 @@ bool DragDropListModel::dropMimeData(const QMimeData *data,
 
 一些模型需要从远程源获取数据，或者必须执行耗时的操作才能获取有关数据组织方式的信息。由于视图通常要求尽可能多的信息以准确显示模型数据，因此限制返回给它们的信息量以减少不必要的后续数据请求可能很有用。
 
-在分层模型中查找给定项目的子项数是一项昂贵的操作，确保仅在必要时才调用模型的 [rowCount]() 实现是有用的。在这种情况下，可以重新实现 [hasChildren]() 函数，以提供一种廉价的方法来查看视图是否存在子项，对于 [QTreeView]()，则为其父项绘制适当的装饰。
+在分层模型中查找给定项目的子项数是一项昂贵的操作，确保仅在必要时才调用模型的 [rowCount()]() 实现是有用的。在这种情况下，可以重新实现 [hasChildren()]() 函数，以提供一种廉价的方法来查看视图是否存在子项，对于 [QTreeView]()，则为其父项绘制适当的装饰。
 
 无论 [hasChildren()]() 的重新实现返回 `true` 还是 `false`，该视图都不必调用 [rowCount()]() 来找出存在多少个子项。例如，如果 [QTreeView]() 未扩展父项则就不需要知道有多少个子级。
 
@@ -1478,7 +1478,7 @@ bool DragDropListModel::dropMimeData(const QMimeData *data,
 
 默认情况下，内置模型和视图使用内部 `MIME` 类型（ `application / x-qabstractitemmodeldatalist` ）来传递有关模型索引的信息。这将指定项目列表的数据，其中包含每个项目的行号和列号，以及有关每个项目支持的角色的信息。
 
-`MIME` 类型编码的数据可以通过调用带有 [QModelIndexList]() 参数的 [QAbstractItemModel::mimeData]() 函数获取。
+`MIME` 类型编码的数据可以通过调用带有 [QModelIndexList]() 参数的 [QAbstractItemModel::mimeData()]() 函数获取。
 
 在自定义模型中实现拖放支持时，可以通过重新实现以下函数以专用格式导出数据项：
 
@@ -1486,7 +1486,7 @@ bool DragDropListModel::dropMimeData(const QMimeData *data,
 <tbody><tr class="odd" valign="top"><td><a href="qabstractitemmodel.html#index">mimeData()</a></td><td>可以重新实现此函数，以返回默认 `application / x-qabstractitemmodeldatalist` 内部 `MIME` 类型以外的格式的数据。子类可以从基类获取默认的 <a href="qabstractitemmodel.html#parent">QMimeData</a> 对象，并以其他格式向其添加数据。</td></tr>
 </tbody></table></div>
 
-对于许多模型，以 `MIME` 类型表示的通用格式（例如 `text / plain和image / png` ）提供项目的内容很有用。请注意，可以使用 [QMimeData::setImageData()]()，[QMimeData::setColorData]() 和 [QMimeData::setHtml]() 函数轻松地将图像，颜色和 `HTML` 文档添加到 [QMimeData]() 对象。
+对于许多模型，以 `MIME` 类型表示的通用格式（例如 `text / plain和image / png` ）提供项目的内容很有用。请注意，可以使用 [QMimeData::setImageData()]()，[QMimeData::setColorData]() 和 [QMimeData::setHtml()]() 函数轻松地将图像，颜色和 `HTML` 文档添加到 [QMimeData]() 对象。
 
 #### 接受放置的数据
 
@@ -1511,7 +1511,7 @@ bool DragDropListModel::dropMimeData(const QMimeData *data,
 <tr class="odd" valign="top"><td><a href="qabstractitemmodel.html#dropMimeData">dropMimeData()</a></td><td>对通过拖放操作传输的数据执行实际的解码，确定将在模型中设置的位置，并在必要时插入新的行和列。在子类中如何实现此函数取决于每个模型公开的数据的要求。</td></tr>
 </tbody></table>
 
-如果 [dropMimeData()]() 函数的实现通过插入或删除行或列来更改模型的尺寸，或者如果修改了数据项，则必须注意确保发出所有相关信号。简单地调用子类中其他函数的重新实现（例如 [setData]()，[insertRows]() 和 [insertColumns]() ）可能很有用，以确保模型表现一致。
+如果 [dropMimeData()]() 函数的实现通过插入或删除行或列来更改模型的尺寸，或者如果修改了数据项，则必须注意确保发出所有相关信号。简单地调用子类中其他函数的重新实现（例如 [setData()]()，[insertRows()]() 和 [insertColumns()]() ）可能很有用，以确保模型表现一致。
 
 为了确保拖动操作正常工作，重要的是重新实现以下从模型中删除数据的函数：
 
@@ -1532,7 +1532,7 @@ bool DragDropListModel::dropMimeData(const QMimeData *data,
  
 另一个示例是动态填充的树模型，当树模型中的分支扩展时，我们重新实现 [fetchMore()]()。
 
-如果重新实现 [fetchMore]() 将行添加到模型中，则需要调用 [beginInsertRows()]() 和 [endInsertRows()]()。另外，必须重新实现 [canFetchMore()]()和 [fetchMore()]()，因为它们的默认实现返回 `false` 并且不执行任何操作。
+如果重新实现 [fetchMore()]() 将行添加到模型中，则需要调用 [beginInsertRows()]() 和 [endInsertRows()]()。另外，必须重新实现 [canFetchMore()]()和 [fetchMore()]()，因为它们的默认实现返回 `false` 并且不执行任何操作。
 
 ## 模型/视图类
 
