@@ -15,8 +15,9 @@
 
 ## 公共成员函数
 
-|            | **[iterator](QList_Iterator.md#iteratoriteratorconst-iterator-other)**(const iterator &*other*) |
+|            |                                                              |
 | ---------- | ------------------------------------------------------------ |
+|            | **[iterator](QList_Iterator.md#iteratoriteratorconst-iterator-other)**(const iterator &*other*) |
 |            | **[iterator](QList_Iterator.md#iteratoriterator)**() |
 | bool       | **[operator!=](QList_Iterator.md#bool-iteratoroperatorconst-iterator-other-const)**(const iterator &*other*) const |
 | bool       | **[operator!=](QList_Iterator.md#bool-iteratoroperatorconst-constiterator-other-const)**(const const_iterator &*other*) const |

@@ -15,8 +15,9 @@
 
 ## 公共成员函数
 
-|                  | **[const_iterator](QList_Const_Iterator.md#constiteratorconstiteratorconst-iterator-other)**(const iterator &*other*) |
+|                  |                                                              |
 | ---------------- | ------------------------------------------------------------ |
+|                  | **[const_iterator](QList_Const_Iterator.md#constiteratorconstiteratorconst-iterator-other)**(const iterator &*other*) |
 |                  | **[const_iterator](QList_Const_Iterator.md#constiteratorconstiteratorconst-constiterator-other)**(const const_iterator &*other*) |
 |                  | **[const_iterator](QList_Const_Iterator.md#constiteratorconstiterator)**() |
 | bool             | **[operator!=](QList_Const_Iterator.md#bool-constiteratoroperatorconst-constiterator-other-const)**(const const_iterator &*other*) const |
@@ -48,7 +49,7 @@
 
 [QList::const_iterator](QList_Const_Iterator.md) 的默认构造函数会创建一个未初始化的迭代器。在迭代之前你必须通过 [QList](../../L/QList/QList.md) 的方法，如 [QList::constBegin](../../L/QList/QList.md#qlistconstiterator-qlistconstbegin-const)(), [QList::constEnd](../../L/QList/QList.md#qlistconstiterator-qlistconstend-const)()，或 [QList::insert](../../L/QList/QList.md#void-qlistinsertint-i-const-t-value)() 将其初始化。这是一个常见的打印列表中保存的所有元素的循环:
 
-```
+```cpp
 QList<QString> list;
 list.append("January");
 list.append("February");
@@ -64,7 +65,7 @@ for (i = list.constBegin(); i != list.constEnd(); ++i)
 
 例如，下列代码展示了如何删除保存在一个 [QList](../../L/QList/QList.md)<[QWidget](../../W/QWidget/QWidget.md) *> 中的所有物件：
 
-```
+```cpp
 QList<QWidget *> list;
 ...
 qDeleteAll(list.constBegin(), list.constEnd());
