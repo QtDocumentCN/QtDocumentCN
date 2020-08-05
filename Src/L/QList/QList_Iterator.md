@@ -49,7 +49,7 @@
 
 [QList](../../L/QList/QList.md) 同时支持 [STL 风格迭代器](../../C/Container_Classes/Container_Classes.md#STL-风格迭代器) 和 [Java 风格迭代器](../../C/Container_Classes/Container_Classes.md#Java-风格迭代器)。STL 风格迭代器更偏底层且易用性较差，但在性能上更胜一筹，且对熟悉 STL 的开发者来说能更快上手。
 
-[QList](../../L/QList/QList.md)<T>::iterator 允许你遍历 [QList](../../L/QList/QList.md)<T> (或 [QQueue](../../Q/QQueue/QQueue.md)<T>) 以及修改列表中和迭代器关联的元素。如果需要遍历一个常量 [QList](../../L/QList/QList.md)，你可以使用 [QList::const_iterator](QList_Const_Iterator.md) 来代替。除非你需要通过迭代器修改一个非常量 [QList](../../L/QList/QList.md)，否则对非常量 [QList](../../L/QList/QList.md) 也继续使用 [QList::const_iterator](QList_Const_Iterator.md) 通常是一个最佳实践。常量迭代器速度上略快，并且可以提升代码可读性。
+[QList](../../L/QList/QList.md)<T>::iterator 允许你遍历一个 [QList](../../L/QList/QList.md)<T> (或一个 [QQueue](../../Q/QQueue/QQueue.md)<T>) 以及修改列表中和迭代器关联的元素。如果需要遍历一个常量 [QList](../../L/QList/QList.md)，你可以使用 [QList::const_iterator](QList_Const_Iterator.md) 来代替。除非你需要通过迭代器修改一个非常量 [QList](../../L/QList/QList.md)，否则对非常量 [QList](../../L/QList/QList.md) 也继续使用 [QList::const_iterator](QList_Const_Iterator.md) 通常是一个最佳实践。常量迭代器速度上略快，并且可以提升代码可读性。
 
  [QList::iterator](QList_Iterator.md) 的默认构造函数会创建一个未初始化的迭代器。在迭代之前你必须通过 [QList](../../L/QList/QList.md) 的方法，如 [QList::begin](../../L/QList/QList.md#qlistiterator-qlistbegin)(), [QList::end](../../L/QList/QList.md#qlistiterator-qlistend)(), 或 [QList::insert](../../L/QList/QList.md#void-qlistinsertint-i-const-t-value)() 将其初始化。这是一个常见的打印列表中保存的所有元素的循环:
 
@@ -93,7 +93,7 @@ qDeleteAll(list.begin(), list.end());
 
 ### typedef iterator::iterator_category
 
-等同于 *std::random_access_iterator_tag* ，只是该迭代器是一个随机访问迭代器。
+等同于 *std::random_access_iterator_tag* ，指示该迭代器是一个随机访问迭代器。
 
 ## 成员函数文档
 
