@@ -1,22 +1,19 @@
-# const_iterator Class
+# const_iterator 类
 
-class [QList](../../L/QList/QList.md)::const_iterator
+类 [QList](../../L/QList/QList.md)::const_iterator
 
-The [QList::const_iterator](https://doc.qt.io/qt-5/qlist-const-iterator.html) class provides an STL-style const iterator for [QList](../../L/QList/QList.md) and [QQueue](../../Q/QQueue/QQueue.md). [More...](QList_Const_Iterator.md#detailed-description)
-
-- [List of all members, including inherited members](https://doc.qt.io/qt-5/qlist-const-iterator-members.html)
+[QList::const_iterator](QList_Const_Iterator.md) 类为 [QList](../../L/QList/QList.md) 和 [QQueue](../../Q/QQueue/QQueue.md) 提供了 STL 风格的常量迭代器. [更多...](QList_Const_Iterator.md#详细描述)
 
 
+## 公共成员类型
 
-## Public Types
-
-| typedef | **[iterator_category](QList_Const_Iterator.md#typedef-constiteratoriteratorcategory)** |
-| ------- | ------------------------------------------------------------ |
 |         |                                                              |
+| ------- | ------------------------------------------------------------ |
+| typedef | **[iterator_category](QList_Const_Iterator.md#typedef-constiteratoriteratorcategory)** |
 
 
 
-## Public Functions
+## 公共成员函数
 
 |                  | **[const_iterator](QList_Const_Iterator.md#constiteratorconstiteratorconst-iterator-other)**(const iterator &*other*) |
 | ---------------- | ------------------------------------------------------------ |
@@ -43,13 +40,13 @@ The [QList::const_iterator](https://doc.qt.io/qt-5/qlist-const-iterator.html) cl
 
 
 
-## Detailed Description
+## 详细描述
 
-[QList](../../L/QList/QList.md) provides both [STL-style iterators](https://doc.qt.io/qt-5/containers.html#stl-style-iterators) and [Java-style iterators](https://doc.qt.io/qt-5/containers.html#java-style-iterators). The STL-style iterators are more low-level and more cumbersome to use; on the other hand, they are slightly faster and, for developers who already know STL, have the advantage of familiarity.
+[QList](../../L/QList/QList.md) 同时支持 [STL 风格迭代器](../../C/Container_Classes/Container_Classes.md#STL-风格迭代器) 和 [Java 风格迭代器](../../C/Container_Classes/Container_Classes.md#Java-风格迭代器)。STL 风格迭代器更偏底层且易用性较差，但在性能上更胜一筹，且对熟悉 STL 的开发者来说能更快上手。
 
-[QList](../../L/QList/QList.md)<T>::const_iterator allows you to iterate over a [QList](../../L/QList/QList.md)<T> (or a [QQueue](../../Q/QQueue/QQueue.md)<T>). If you want to modify the [QList](../../L/QList/QList.md) as you iterate over it, use [QList::iterator](https://doc.qt.io/qt-5/qlist-iterator.html) instead. It is generally good practice to use [QList::const_iterator](https://doc.qt.io/qt-5/qlist-const-iterator.html) on a non-const [QList](../../L/QList/QList.md) as well, unless you need to change the [QList](../../L/QList/QList.md) through the iterator. Const iterators are slightly faster, and can improve code readability.
+[QList](../../L/QList/QList.md)<T>::const_iterator 允许你遍历一个 [QList](../../L/QList/QList.md)<T> (或一个 [QQueue](../../Q/QQueue/QQueue.md)<T>)。如果需要在遍历时修改 [QList](../../L/QList/QList.md)，可以使用 [QList::iterator](QList_Iterator.md) 来代替。除非你需要通过迭代器修改一个非常量 [QList](../../L/QList/QList.md)，否则对非常量 [QList](../../L/QList/QList.md) 也继续使用 [QList::const_iterator](QList_Const_Iterator.md) 通常是一个最佳实践。常量迭代器速度上略快，并且可以提升代码可读性。
 
-The default [QList::const_iterator](https://doc.qt.io/qt-5/qlist-const-iterator.html) constructor creates an uninitialized iterator. You must initialize it using a [QList](../../L/QList/QList.md) function like [QList::constBegin](../../L/QList/QList.md#qlistconstiterator-qlistconstbegin-const)(), [QList::constEnd](../../L/QList/QList.md#qlistconstiterator-qlistconstend-const)(), or [QList::insert](../../L/QList/QList.md#void-qlistinsertint-i-const-t-value)() before you can start iterating. Here's a typical loop that prints all the items stored in a list:
+[QList::const_iterator](QList_Const_Iterator.md) 的默认构造函数会创建一个未初始化的迭代器。在迭代之前你必须通过 [QList](../../L/QList/QList.md) 的方法，如 [QList::constBegin](../../L/QList/QList.md#qlistconstiterator-qlistconstbegin-const)(), [QList::constEnd](../../L/QList/QList.md#qlistconstiterator-qlistconstend-const)()，或 [QList::insert](../../L/QList/QList.md#void-qlistinsertint-i-const-t-value)() 将其初始化。这是一个常见的打印列表中保存的所有元素的循环:
 
 ```
 QList<QString> list;
@@ -63,9 +60,9 @@ for (i = list.constBegin(); i != list.constEnd(); ++i)
     cout << *i << Qt::endl;
 ```
 
-Most [QList](../../L/QList/QList.md) functions accept an integer index rather than an iterator. For that reason, iterators are rarely useful in connection with [QList](../../L/QList/QList.md). One place where STL-style iterators do make sense is as arguments to [generic algorithms](https://doc.qt.io/qt-5/qtalgorithms.html).
+大多数 [QList](../../L/QList/QList.md) 的方法接收一个整型索引而不是一个迭代器作为参数。因此，迭代器实际上在和 [QList](../../L/QList/QList.md) 交互时很少被使用。一个 STL 风格迭代器非常有使用意义的地方是作为[泛型算法](../../A/QtAlgorithms.md)的参数。
 
-For example, here's how to delete all the widgets stored in a [QList](../../L/QList/QList.md)<[QWidget](../../W/QWidget/QWidget.md) *>:
+例如，下列代码展示了如何删除保存在一个 [QList](../../L/QList/QList.md)<[QWidget](../../W/QWidget/QWidget.md) *> 中的所有物件：
 
 ```
 QList<QWidget *> list;
@@ -73,136 +70,138 @@ QList<QWidget *> list;
 qDeleteAll(list.constBegin(), list.constEnd());
 ```
 
-Multiple iterators can be used on the same list. However, be aware that any non-const function call performed on the [QList](../../L/QList/QList.md) will render all existing iterators undefined. If you need to keep iterators over a long period of time, we recommend that you use QLinkedList rather than [QList](../../L/QList/QList.md).
+多个迭代器可以作用在同一个列表上。然而，需要注意的是对该 [QList](../../L/QList/QList.md) 进行任意非常量的方法调用都会使所有已存在的迭代器状态变成未定义。如果需要在一个比较长周期内保证迭代器有效，我们建议你使用 QLinkedList 而不是 [QList](../../L/QList/QList.md)。
 
-**Warning:** Iterators on implicitly shared containers do not work exactly like STL-iterators. You should avoid copying a container while iterators are active on that container. For more information, read [Implicit sharing iterator problem](https://doc.qt.io/qt-5/containers.html#implicit-sharing-iterator-problem).
+**警告：** 支持隐式共享的容器的迭代器的行为和 STL 迭代器并不完全一样。当这类容器的迭代器在使用时你应当避免容器的拷贝。更多信息请阅读 [隐式共享迭代器问题](../../C/Container_Classes/Container_Classes.md#隐式共享迭代器问题) 一文。
 
-**See also** [QList::iterator](https://doc.qt.io/qt-5/qlist-iterator.html) and [QListIterator](../../L/QListIterator/QListIterator.md).
+**另请参见** [QList::iterator](QList_Iterator.md) and [QListIterator](../../L/QListIterator/QListIterator.md).
 
-## Member Type Documentation
+## 成员类型文档
 
 ### typedef const_iterator::iterator_category
 
-A synonym for *std::random_access_iterator_tag* indicating this iterator is a random access iterator.
+等同于 *std::random_access_iterator_tag* ，指示该迭代器是一个随机访问迭代器。
 
-## Member Function Documentation
+## 成员函数文档
 
-### const_iterator::const_iterator(const [iterator](https://doc.qt.io/qt-5/qlist-iterator.html) &*other*)
+### const_iterator::const_iterator(const [iterator](QList_Iterator.md) &*other*)
 
-Constructs a copy of *other*.
+构造一个 *other* 的副本。
 
 ### const_iterator::const_iterator(const [const_iterator](QList_Const_Iterator.md#constiteratorconstiterator) &*other*)
 
-Constructs a copy of *other*.
+构造一个 *other* 的副本。
 
 ### const_iterator::const_iterator()
 
-Constructs an uninitialized iterator.
+构造一个未初始化的迭代器。
 
-Functions like operator*() and operator++() should not be called on an uninitialized iterator. Use operator=() to assign a value to it before using it.
+类似于 operator*() and operator++() 的方法不允许对未初始化的迭代器调用，在使用前先通过 operator=() 进行赋值。
 
-**See also** [QList::constBegin](../../L/QList/QList.md#qlistconstiterator-qlistconstbegin-const)() and [QList::constEnd](../../L/QList/QList.md#qlistconstiterator-qlistconstend-const)().
+**另请参见** [QList::constBegin](../../L/QList/QList.md#qlistconstiterator-qlistconstbegin-const)() 和 [QList::constEnd](../../L/QList/QList.md#qlistconstiterator-qlistconstend-const)().
 
 ### bool const_iterator::operator!=(const [const_iterator](QList_Const_Iterator.md#constiteratorconstiterator) &*other*) const
 
-Returns `true` if *other* points to a different item than this iterator; otherwise returns `false`.
+如果该迭代器指向的元素的值不等于 *other* 迭代器指向的元素的值则返回 `true`。
 
-**See also** [operator==](QList_Const_Iterator.md#bool-constiteratoroperatorconst-constiterator-other-const)().
+**另请参见** [operator==](QList_Const_Iterator.md#bool-constiteratoroperatorconst-constiterator-other-const)().
 
 ### const T &const_iterator::operator*() const
 
-Returns the current item.
+返回当前的元素。
 
-**See also** [operator->](QList_Const_Iterator.md#const-t-constiteratoroperator-const)().
+**另请参见** [operator->](QList_Const_Iterator.md#const-t-constiteratoroperator-const)().
 
 ### [const_iterator](QList_Const_Iterator.md#constiteratorconstiterator) const_iterator::operator+(const_iterator::difference_type *j*) const
 
-Returns an iterator to the item at *j* positions forward from this iterator. (If *j* is negative, the iterator goes backward.)
+返回一个指向当前迭代器向列表尾部移动 *j* 步的位置的元素的迭代器。(如果 *j* 为负值，则迭代器向列表头部移动。)
 
-**See also** [operator-](QList_Const_Iterator.md#constiterator-constiteratoroperatorconstiteratordifferencetype-j-const)() and [operator+=](QList_Const_Iterator.md#constiterator-constiteratoroperatorconstiteratordifferencetype-j)().
+**另请参见** [operator-](QList_Const_Iterator.md#constiterator-constiteratoroperatorconstiteratordifferencetype-j-const)() 和 [operator+=](QList_Const_Iterator.md#constiterator-constiteratoroperatorconstiteratordifferencetype-j)().
 
 ### [const_iterator](QList_Const_Iterator.md#constiteratorconstiterator) &const_iterator::operator++()
 
-The prefix ++ operator (`++it`) advances the iterator to the next item in the list and returns an iterator to the new current item.
+前缀 ++ 运算符(`++it`)将迭代器向列表尾部移动到列表中的下一个元素并返回一个指向移动后的元素的迭代器。
 
-Calling this function on [QList::end](../../L/QList/QList.md#qlistiterator-qlistend)() leads to undefined results.
+对 [QList::end](../../L/QList/QList.md#qlistiterator-qlistend)() 调用该方法是未定义行为。
 
-**See also** [operator--](QList_Const_Iterator.md#constiterator-constiteratoroperator)().
+**另请参见** [operator--](QList_Const_Iterator.md#constiterator-constiteratoroperator)().
 
 ### [const_iterator](QList_Const_Iterator.md#constiteratorconstiterator) const_iterator::operator++(*int*)
 
-This is an overloaded function.
+这是一个重载函数。
 
-The postfix ++ operator (`it++`) advances the iterator to the next item in the list and returns an iterator to the previously current item.
+后缀 ++ 运算符(`++it`)将迭代器向列表尾部移动到列表中的下一个元素并返回一个指向移动前的元素的迭代器。
+
+### [iterator](QList_Iterator.md#iteratoriterator) &iterator::operator+=(iterator::difference_type *j*)
 
 ### [const_iterator](QList_Const_Iterator.md#constiteratorconstiterator) &const_iterator::operator+=(const_iterator::difference_type *j*)
 
-Advances the iterator by *j* items. (If *j* is negative, the iterator goes backward.)
+将该迭代器列表尾部移动 *j* 个元素。(如果 *j* 为负值，则向列表头部移动)
 
-**See also** [operator-=](QList_Const_Iterator.md#constiterator-constiteratoroperatorconstiteratordifferencetype-j)() and [operator+](QList_Const_Iterator.md#constiterator-constiteratoroperatorconstiteratordifferencetype-j-const)().
+**另请参见** [operator-=](QList_Const_Iterator.md#constiterator-constiteratoroperatorconstiteratordifferencetype-j)() 和 [operator+](QList_Const_Iterator.md#constiterator-constiteratoroperatorconstiteratordifferencetype-j-const)().
 
 ### [const_iterator](QList_Const_Iterator.md#constiteratorconstiterator) const_iterator::operator-(const_iterator::difference_type *j*) const
 
-Returns an iterator to the item at *j* positions backward from this iterator. (If *j* is negative, the iterator goes forward.)
+返回一个指向当前迭代器向列表头部移动 *j* 步的位置的元素的迭代器。(如果 *j* 为负值，则迭代器向列表尾部移动。)
 
-**See also** [operator+](QList_Const_Iterator.md#constiterator-constiteratoroperatorconstiteratordifferencetype-j-const)() and [operator-=](QList_Const_Iterator.md#constiterator-constiteratoroperatorconstiteratordifferencetype-j)().
+**另请参见** [operator+](QList_Const_Iterator.md#constiterator-constiteratoroperatorconstiteratordifferencetype-j-const)() 和 [operator-=](QList_Const_Iterator.md#constiterator-constiteratoroperatorconstiteratordifferencetype-j)().
 
 ### int const_iterator::operator-([const_iterator](QList_Const_Iterator.md#constiteratorconstiterator) *other*) const
 
-Returns the number of items between the item pointed to by *other* and the item pointed to by this iterator.
+返回 *other* 指向的元素和该迭代器指向元素之间间隔的元素个数。
 
 ### [const_iterator](QList_Const_Iterator.md#constiteratorconstiterator) &const_iterator::operator--()
 
-The prefix -- operator (`--it`) makes the preceding item current and returns an iterator to the new current item.
+前缀 -- 运算符(`--it`)将迭代器向列表头部移动到列表中的上一个元素并返回一个指向移动后的元素的迭代器。
 
-Calling this function on [QList::begin](../../L/QList/QList.md#qlistiterator-qlistbegin)() leads to undefined results.
+对 [QList::begin](../../L/QList/QList.md#qlistiterator-qlistbegin)() 调用该方法是未定义行为。
 
-**See also** [operator++](QList_Const_Iterator.md#constiterator-constiteratoroperator)().
+**另请参见** [operator++](QList_Const_Iterator.md#constiterator-constiteratoroperator)().
 
 ### [const_iterator](QList_Const_Iterator.md#constiteratorconstiterator) const_iterator::operator--(*int*)
 
-This is an overloaded function.
+这是一个重载函数。
 
-The postfix -- operator (`it--`) makes the preceding item current and returns an iterator to the previously current item.
+前缀 -- 运算符(`--it`)将迭代器向列表头部移动到列表中的上一个元素并返回一个指向移动前的元素的迭代器。
 
 ### [const_iterator](QList_Const_Iterator.md#constiteratorconstiterator) &const_iterator::operator-=(const_iterator::difference_type *j*)
 
-Makes the iterator go back by *j* items. (If *j* is negative, the iterator goes forward.)
+将迭代器向列表头部回退 *j* 元素。(如果 *j* 为负值，则迭代器向列表尾部移动。)
 
-**See also** [operator+=](QList_Const_Iterator.md#constiterator-constiteratoroperatorconstiteratordifferencetype-j)() and [operator-](QList_Const_Iterator.md#constiterator-constiteratoroperatorconstiteratordifferencetype-j-const)().
+**另请参见** [operator+=](QList_Const_Iterator.md#constiterator-constiteratoroperatorconstiteratordifferencetype-j)() 和 [operator-](QList_Const_Iterator.md#constiterator-constiteratoroperatorconstiteratordifferencetype-j-const)().
 
 ### const T *const_iterator::operator->() const
 
-Returns a pointer to the current item.
+返回一个指向当前元素的指针。
 
-**See also** [operator*](QList_Const_Iterator.md#const-t-constiteratoroperator-const)().
+**另请参见** [operator*](QList_Const_Iterator.md#const-t-constiteratoroperator-const)().
 
 ### bool const_iterator::operator<(const [const_iterator](QList_Const_Iterator.md#constiteratorconstiterator) &*other*) const
 
-Returns `true` if the item pointed to by this iterator is less than the item pointed to by the *other* iterator.
+如果该迭代器指向的元素的值小于 *other* 迭代器指向的元素的值则返回 `true`。
 
 ### bool const_iterator::operator<=(const [const_iterator](QList_Const_Iterator.md#constiteratorconstiterator) &*other*) const
 
-Returns `true` if the item pointed to by this iterator is less than or equal to the item pointed to by the *other* iterator.
+如果该迭代器指向的元素的值小于等于 *other* 迭代器指向的元素的值则返回 `true`。
 
 ### bool const_iterator::operator==(const [const_iterator](QList_Const_Iterator.md#constiteratorconstiterator) &*other*) const
 
-Returns `true` if *other* points to the same item as this iterator; otherwise returns `false`.
+如果该迭代器指向的元素的值等于 *other* 迭代器指向的元素的值则返回 `true`。
 
-**See also** [operator!=](QList_Const_Iterator.md#bool-constiteratoroperatorconst-constiterator-other-const)().
+**另请参见** [operator!=](QList_Const_Iterator.md#bool-constiteratoroperatorconst-constiterator-other-const)().
 
 ### bool const_iterator::operator>(const [const_iterator](QList_Const_Iterator.md#constiteratorconstiterator) &*other*) const
 
-Returns `true` if the item pointed to by this iterator is greater than the item pointed to by the *other* iterator.
+如果该迭代器指向的元素的值不等于 *other* 迭代器指向的元素的值则返回 `true`。
 
 ### bool const_iterator::operator>=(const [const_iterator](QList_Const_Iterator.md#constiteratorconstiterator) &*other*) const
 
-Returns `true` if the item pointed to by this iterator is greater than or equal to the item pointed to by the *other* iterator.
+如果该迭代器指向的元素的值大于等于 *other* 迭代器指向的元素的值则返回 `true`。
 
 ### const T &const_iterator::operator[](const_iterator::difference_type *j*) const
 
-Returns the item at position *this + *j*.
+返回位于 *this* + *j* 的元素。
 
-This function is provided to make [QList](../../L/QList/QList.md) iterators behave like C++ pointers.
+提供该方法是为了使 [QList](../../L/QList/QList.md) 迭代器行为类似 C++ 指针。
 
-**See also** [operator+](QList_Const_Iterator.md#constiterator-constiteratoroperatorconstiteratordifferencetype-j-const)().
+**另请参见** [operator+](QList_Const_Iterator.md#constiterator-constiteratoroperatorconstiteratordifferencetype-j-const)().
