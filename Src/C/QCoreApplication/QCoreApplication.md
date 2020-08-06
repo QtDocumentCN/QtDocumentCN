@@ -204,9 +204,9 @@ QCoreApplication包含主事件循环，这些来自于操作系统（如定时�
 
 ## 成员函数文档
 
-### QCoreApplication::QCoreApplication(int &*argc*, char ***argv*)
-
 ------
+
+### QCoreApplication::QCoreApplication(int &*argc*, char ***argv*)
 
 构造一个Qt内核程序。所谓内核程序，就是没有图形用户界面的程序。这样的程序使用控制台，或者是作为服务进程运行着。
 
@@ -216,13 +216,13 @@ QCoreApplication包含主事件循环，这些来自于操作系统（如定时�
 
 
 
-### void QCoreApplication::aboutToQuit() [signal]
-
 -------------
+
+### void QCoreApplication::aboutToQuit() [signal]
 
 当程序即将退出主消息循环时，如当消息循环嵌套层数降为0时，此事件被发射。它可能发生在应用程序中调用[quit]()()之后，亦发生在关闭整个桌面会话时。
 
-注意：这是一个私有信号。它能够被连接，但是用户无法发射它。
+**注意**：这是一个私有信号。它能够被连接，但是用户无法发射它。
 
 **另请参阅** [quit](https://doc.qt.io/qt-5/qcoreapplication.html#quit)()。
 
@@ -230,9 +230,9 @@ QCoreApplication包含主事件循环，这些来自于操作系统（如定时�
 
 
 
-### void QCoreApplication::quit() [static slot]
-
 -----------
+
+### void QCoreApplication::quit() [static slot]
 
 告知程序以返回值0来退出。等效于调用 [QCoreApplication::exit]()(0)。
 
@@ -251,17 +251,17 @@ connect(quitButton, &QPushButton::clicked, &app, &QCoreApplication::quit, Qt::Qu
 
 
 
+----------
 ### QCoreApplication::~QCoreApplication() [virtual]
 
-----------
 
 销毁[QCoreApplication](./QCoreApplication.md)对象。
 
 
 
-### void QCoreApplication::addLibraryPath(const [QString](../../S/QString/QString.md) &*path*) [static]
-
 -----
+
+### void QCoreApplication::addLibraryPath(const [QString](../../S/QString/QString.md) &*path*) [static]
 
 将*path*添加到库路径开头，保证它先会被库搜索到。如果*path*为空或者已经存在于路径列表，那么路径列表保持不变。
 
@@ -273,9 +273,9 @@ connect(quitButton, &QPushButton::clicked, &app, &QCoreApplication::quit, Qt::Qu
 
 
 
-### [QString](../../S/QString/QString.md) QCoreApplication::applicationDirPath() [static]
-
 ----
+
+### [QString](../../S/QString/QString.md) QCoreApplication::applicationDirPath() [static]
 
 返回包含此可执行文件的文件夹路径。
 
@@ -288,10 +288,9 @@ connect(quitButton, &QPushButton::clicked, &app, &QCoreApplication::quit, Qt::Qu
 **另请参阅** [applicationFilePath](https://doc.qt.io/qt-5/qcoreapplication.html#applicationFilePath)()。
 
 
-
+----
 ### [QString](../../S/QString/QString.md) QCoreApplication::applicationFilePath() [static]
 
-----
 
 返回包含此可执行文件的文件路径。
 
@@ -311,3 +310,106 @@ connect(quitButton, &QPushButton::clicked, &app, &QCoreApplication::quit, Qt::Qu
 
 此函数在Qt 4.4中引入。
 
+
+
+---
+
+### [QStringList](../../S/QStringList/QStringList.md) QCoreApplication::arguments() [static]
+
+返回命令行参数列表。
+
+一般情况下，arguments().at(0)表示可执行文件名，arguments().at(1)是第一个参数，arguments().last()是最后一个参数。请见下面关于Windows的注释。
+
+调用这个函数需要花费很多时间——您应该在解析命令行时，将结果缓存起来。
+
+**警告：** 在Unix下，这个参数列表由main()函数中的argc和argv参数生成。argv中的字符串数据将会通过[QString::fromLocal8Bit]()()来解析，因此，在Latin1的区域环境下，是不可能来传递日语的命令行的，其他情况以此类推。大部分现代Unix系统没有此限制，因为它们是基于Unicode的。
+
+在Windows下，这个参数列表，只有在构造函数中传入了修改的argc和argv时，才会从这个argc和argv中解析。这种情况下，就会出现编码问题。
+
+如果不是上述情况，那么arguments()将会从[GetCommandLine()]()中构造。此时arguments().at(0)在Windows下未必是可执行文件名，而是取决于程序是如何被启动的。
+
+此函数在Qt 4.1中引入。
+
+**另请参阅** [applicationFilePath]()()和[QCommandLineParser](../../C/QCommandLineParser/QCommandLineParser.md)。
+
+
+
+---
+
+### bool QCoreApplication::closingDown() [static]
+
+如果application对象正在被销毁中，则返回true，否则返回false。
+
+**另请参阅** [startingUp]()()。
+
+
+
+---
+
+### bool QCoreApplication::event([QEvent](../../E/QEvent/QEvent.md) **e*) [override virtual protected]
+
+重载：[QObject::event]()(QEvent* e)。
+
+
+
+---
+
+### [QAbstractEventDispatcher](../../A/QAbstractEventDispatcher/QAbstractEventDispatcher.md) *QCoreApplication::eventDispatcher() [static]
+
+返回指向主线程事件派发器的指针。如果线程中没有事件派发器，则返回`nullptr`。
+
+**另请参阅** [setEventDispatcher]()()。
+
+
+
+---
+
+### int QCoreApplication::exec() [static]
+
+进入主消息循环，直到[exit]()()被调用。其返回值是为[exit]()()传入的那个参数（如果是调用[quit]()()，等效于调用[exit]()(0))。
+
+通过此函数来开始事件循环是很有必要的。主线程事件循环将从窗口系统接收事件，并派发给应用程序下的窗体。
+
+为了能让您的程序在空闲时来处理事件（在没有待处理的事件时，通过调用一个特殊的函数），可以使用一个超时为0的[QTimer](../../T/QTimer/QTimer.md)。可以使用[processEvents]()()来跟进一步处理空闲事件。
+
+我们建议您连接[aboutToQuit]()()信号来做一些清理工作，而不是将它们放在main函数中。因为在某些平台下，exec()可能不会返回。例如，在Windows下，当用户注销时，系统将在Qt关闭所有顶层窗口后才终止进程。因此，不能保证程序有时间退出其消息循环来执行main函数中exec()之后的代码。
+
+**另请参阅** [quit]()()，[exit]()(), [processEvent]()()和[QApplication::exec]()()。
+
+
+
+---
+
+### void QCoreApplication::exit(int *returnCode* = 0) [static]
+
+告诉程序需要退出了，并带上一个返回值。
+
+在此函数被调用后，程序将离开主消息循环，并且从[exec]()()中返回。其返回值就是*returnCode*。如果消息循环没有运行，那么此方法什么都不做。
+
+一般我们约定0表示成功，非0表示产生了一个错误。
+
+将信号以[QueuedConnection]()参数连接此槽是一个不错的实践。如果连接了此槽的一个信号（未在队列中的）在控制流程进入主消息循环前（如在int main中调用[exec]()()之前）被发射，那么这个槽不会有任何效果，应用程序也不会退出。使用队列连接方式能保证控制路程进入主消息循环后，此槽才会被触发。
+
+**另请参阅** [quit]()()和[exec]()()。
+
+
+
+---
+
+### void QCoreApplication::installNativeEventFilter([QAbstractNativeEventFilter](../../A/QAbstractNativeEventFilter/QAbstractNativeEventFilter.md) **filterObj*)
+
+在主线程为应用程序所能接收到的原生事件安装一个事件过滤器。
+
+事件过滤器*filterObj*通过[nativeEventFilter]()()来接收事件。它可以接收到主线程所有的原生事件。
+
+如果某个原生事件需要被过滤或被屏蔽，那么[QAbstractNativeEventFilter::nativeEventFilter](https://doc.qt.io/qt-5/qabstractnativeeventfilter.html#nativeEventFilter)需要返回true。如果它需要使用Qt默认处理流程，则返回false：那么接下来这个原生事件则会被翻译为一个[QEvent](../../E/QEvent/QEvent.md)，并且由Qt的标准事件过滤器来处理。
+
+如果有多个事件过滤器被安装了，那么最后安装的过滤器将会被最先调用。
+
+**注意：** 此处设置的过滤器功能接收原生事件，即MSG或XCB事件结构。
+
+**注意：** 如果设置了[Qt::AA_PluginApplication]()属性，那么原生事件过滤器将会被屏蔽。
+
+为了最大可能保持可移植性，您应该总是尽可能使用[QEvent](../../E/QEvent/QEvent.md)和[QObject::installEventFilter]()()。
+
+**另请参阅** [QObject::installEventFilter]()()。
