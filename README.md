@@ -11,7 +11,8 @@
 
 本项目为翻译 Qt 官方文档，内容基于 Qt 最新发布版本 5.15，采用 [CC BY-NC-ND 4.0](https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh) 协议发布。
 
-
+## 微信小程序
+![WeDoc](Logo/weqt.jpg)
 
 ## 参与编写
 关于本项目的目录结构、文件管理、格式规范等，详见[贡献指南](CONTRIBUTING.md)。
@@ -39,7 +40,8 @@
 ## TODO
 
 - [x] 使用 [mdbook](https://rust-lang.github.io/mdBook/) 生成 GitHub Pages，作为实际发布页面。
-- [x] 通过 Gitee 等平台建立[国内镜像](https://www.qtdoc.cn)。
+- [x] 通过 Coding 等平台建立[国内镜像](https://www.qtdoc.cn)。
+- [x] 使用 Coding 提供的服务来建立微信小程序
 - [x] 通过[知乎专栏](https://zhuanlan.zhihu.com/c_1266078048082026496)等形式在社区进行发布。
 - [x] 编写[辅助工具](https://github.com/QtDocumentCN/Tools)提高编辑效率。
 - [ ] 添加 `Q_D`/`D_Q` 私有指针、CorePrivate 模块等未在官方文档中正式发布，但已作为事实标准长期使用的特性介绍。
