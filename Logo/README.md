@@ -4,16 +4,28 @@
 ![Logo](Logo.drawio.svg)
 ![Logo_green_no_question](Logo_green_no_question.drawio.svg)
 ![Logo_no_question](Logo_no_question.drawio.svg)
-
+![Logo_green_round](Logo_green_round.drawio.svg)
 
 
 ## 设计思路
 
-基于 [Qt 官方图标](www.qt.io)，添加 `中文文档` 字样，并参考 chm 和 Qt4 Aassistant 的图标风格，在右下角添加问号标识。
+基于 [Qt 官方图标](www.qt.io)，添加 `中文文档` 字样。
 
 图标全程使用 `svg` 资源，以便在所有分辨率下都得到较好的显示效果。
 
 使用 [Draw.io](www.draw.io) 编辑生成最终图像。
+
+### 方形图标
+
+参考 chm 和 Qt4 Aassistant 的图标风格，在右下角添加问号标识。
+
+填充文字时，带问号版缩放高度至 `16pt`，无问号版缩放高度至 `20pt`。绿色字体因为边缘不明显，带问号版略微放大高度至 `17pt`。
+
+### 圆形图标
+
+设置 70x70pt 的圆，在适当位置放置 `Qt` 官方图标和 `中文文档` 字样，官方图标大小不变，文本缩放高度至 `19pt`。
+
+添加 70x70pt 的外接矩形，采用相同尺寸。
 
 
 
@@ -66,4 +78,4 @@ var fs = require("fs");
 fs.writeFile("Text_green.svg", textToSVG.getSVG('中文文档', options), () => {});
 ```
 
-填充到 Logo 时，带问号版缩放至 `16pt`，无问号版缩放至 `20pt`。绿色字体因为边缘不明显，带问号版略微放大至 `17pt`。
+
