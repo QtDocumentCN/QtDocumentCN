@@ -413,3 +413,86 @@ connect(quitButton, &QPushButton::clicked, &app, &QCoreApplication::quit, Qt::Qu
 为了最大可能保持可移植性，您应该总是尽可能使用[QEvent](../../E/QEvent/QEvent.md)和[QObject::installEventFilter]()()。
 
 **另请参阅** [QObject::installEventFilter]()()。
+
+
+
+---
+
+### bool QCoreApplication::installTranslator([QTranslator](../../T/QTranslator/QTranslator.md) **translationFile*) [static]
+
+将*translationFile*添加到翻译文件列表，它将会被用于翻译。
+
+您可以安装多个翻译文件。这些翻译文件将会按照安装顺序的逆序被搜索到，因此最近添加的翻译文件会首先被搜索到，第一个安装的搜索文件会最后被搜索。一旦翻译文件中匹配了一个字符串，那么搜索就会终止。
+
+安装、移除一个[QTranslator](../../T/QTranslator/QTranslator.md)，或者更改一个已经安装的[QTranslator](../../T/QTranslator/QTranslator.md)将会为[QCoreApplication](./QCoreApplication.md)实例产生一个[LanguageChange]([QEvent](../../E/QEvent/QEvent.md) )事件。一个[QApplication](../../A/QApplication/QApplication.md)会将这个事件派发到所有的顶层窗体，使用[tr]()()来传递用户可见的字符串到对应的属性设置器，通过这种方式来重新实现changeEvent则可以重新翻译用户的界面。通过Qt设计师(Qt Designer)生成的窗体类提供了一个retranslateUi()可以实现上述效果。
+
+函数若执行成功则返回true，失败则返回false。
+
+**另请参阅** [removeTranslator]()()，[translate]()()，[QTranslator::load]()()和[动态翻译]()。
+
+
+
+---
+
+### [QCoreApplication](./QCoreApplication.md)* QCoreApplication::instance() [static]
+
+返回程序的[QCoreApplication](./QCoreApplication.md) (或[QGuiApplication](../../G/QGuiApplication/QGuiApplication.md)/[QApplication](../../A/QApplication/QApplication.md))实例的指针。
+
+
+
+---
+
+### bool QCoreApplication::isSetuidAllowed() [static]
+
+如果在UNIX平台中，允许应用程序使用setuid，则返回true。
+
+此函数在Qt 5.3中引入。
+
+**另请参阅** [QCoreApplication::setSetuidAllowed]()()。
+
+
+
+---
+
+### [QStringList](../../S/QStringList/QStringList.md) QCoreApplication::libraryPaths() [static]
+
+返回一个路径列表，其中的路径表示动态加载链接库时的搜索路径。
+
+此函数的返回值也许会在[QCoreApplication](./QCoreApplication.md)创建之后改变，因此不建议在[QCoreApplication](./QCoreApplication.md)创建之前调用。应用程序所在的路径（**非**工作路径），如果是已知的，那么它会被放入列表中。为了能知道这个路径，[QCoreApplication](./QCoreApplication.md)必须要在创建时使用argv[0]来表示此路径。
+
+Qt提供默认的库搜索路径，但是它们同样也可以通过[qt.conf]()文件配置。在此文件中所指定的路径会覆盖默认路径。注意如果qt.conf文件存在于应用程序所在的文件夹目录下，那么直到[QCoreApplication](./QCoreApplication.md)被创建时它才可以被发现。如果它没有被发现，那么调用此函数仍然返回默认搜索路径。
+
+如果插件存在，那么这个列表会包含插件安装目录（默认的插件安装目录是 `INSTALL/plugins`，其中`INSTALL`是Qt所安装的目录。用分号分隔的`QT_PLUGIN_PATH`环境变量中的条目一定会被添加到列表。插件安装目录（以及它存在）在应用程序目录已知时可能会被更改。
+
+如果您想遍历列表，可以使用[foreach]()伪关键字：
+
+```C++
+foreach (const QString &path, app.libraryPaths())
+    do_something(path);
+```
+
+**另请参阅**  [setLibraryPaths](https://doc.qt.io/qt-5/qcoreapplication.html#setLibraryPaths)(), [addLibraryPath](https://doc.qt.io/qt-5/qcoreapplication.html#addLibraryPath)(), [removeLibraryPath](https://doc.qt.io/qt-5/qcoreapplication.html#removeLibraryPath)(), [QLibrary](../../L/QLibrary/QLibrary.md) , 以及 [如何创建Qt插件](https://doc.qt.io/qt-5/plugins-howto.html)。
+
+
+
+---
+
+### bool QCoreApplication::notify([QObject](../../O/QObject/QObject.md) **receiver*, [QEvent](../../E/QEvent/QEvent.md) * *event*) [virtual]
+
+将事件发送给接收者：*receiver*->event(*event*)。其返回值为接受者的事件处理器的返回值。注意这个函数将会在任意线程中调用，并将事件转发给任意对象。
+
+对于一些特定的事件（如鼠标、键盘事件），如果事件处理器不处理此事件（也就是它返回*false*），那么事件会被逐级派发到对象的父亲，一直派发到顶层对象。
+
+处理事件有5种不同的方式：重载虚函数只是其中一种。所有的五种途径如下所示：
+
+1. 重载[paintEvent]()()，[mousePressEvent]()()等。这个是最通用、最简单但最不强大的一种方法。
+2. 重载此函数。这非常强大，提供了完全控制，但是一次只能激活一个子类。
+3. 将一个事件过滤器安装到[QCoreApplication](./QCoreApplication.md)。这样的一个事件过滤器可以处理所有窗体的所有事件，就像是重载了notify()函数这样强大。此外，您还可以提供多个应用级别全局的事件过滤器。全局事件过滤器甚至可以接收到那些[不可用窗体]()的鼠标事件。注意程序的事件过滤器仅能响应主线程中的对象。
+4. 重载[QObject::event]()()（就像[QWidget](../../W/QWidget/QWidget.md)那样）。如果您是这样做的，您可以接收到Tab按键，及您可以在任何特定窗体的事件过滤器被调用之前接收到事件。
+5. 在对象上安装事件过滤器。这样的事件过滤器将可以收到所有事件，包括Tab和Shift+Tab事件——只要它们不更改窗体的焦点。
+
+**未来规划**：在Qt 6中，这个函数不会响应主线程之外的对象。需要该功能的应用程序应同时为其事件检查需求找到其他解决方案。该更改可能会扩展到主线程，因此不建议使用此功能。
+
+**注意**：如果您重载此函数，在您的应用程序开始析构之前，您必须保证所有正在处理事件的线程停止处理事件。这包括了您可能在用的其他库所创建的线程，但是不适用于Qt自己的线程。
+
+**另请参阅**：[QObject::event]()()和[installNativeEventFilter]()()。
