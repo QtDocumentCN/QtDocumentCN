@@ -45,6 +45,7 @@
 - [x] 使用 Coding 提供的服务来建立微信小程序
 - [x] 通过[知乎专栏](https://zhuanlan.zhihu.com/c_1266078048082026496)等形式在社区进行发布。
 - [x] 编写[辅助工具](https://github.com/QtDocumentCN/Tools)提高编辑效率。
+- [ ] 提供离线发布版（如pdf、chm等）。
 - [ ] 添加 `Q_D`/`D_Q` 私有指针、CorePrivate 模块等未在官方文档中正式发布，但已作为事实标准长期使用的特性介绍。
 
 
