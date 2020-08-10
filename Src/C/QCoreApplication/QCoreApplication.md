@@ -477,7 +477,7 @@ foreach (const QString &path, app.libraryPaths())
 
 ---
 
-### bool QCoreApplication::notify([QObject](../../O/QObject/QObject.md) **receiver*, [QEvent](../../E/QEvent/QEvent.md) * *event*) [virtual]
+### bool QCoreApplication::notify([QObject](../../O/QObject/QObject.md) **receiver*, [QEvent](../../E/QEvent/QEvent.md)* *event*) [virtual]
 
 将事件发送给接收者：*receiver*->event(*event*)。其返回值为接受者的事件处理器的返回值。注意这个函数将会在任意线程中调用，并将事件转发给任意对象。
 
@@ -496,3 +496,61 @@ foreach (const QString &path, app.libraryPaths())
 **注意**：如果您重载此函数，在您的应用程序开始析构之前，您必须保证所有正在处理事件的线程停止处理事件。这包括了您可能在用的其他库所创建的线程，但是不适用于Qt自己的线程。
 
 **另请参阅**：[QObject::event]()()和[installNativeEventFilter]()()。
+
+
+
+---
+
+### void QCoreApplication::postEvent([QObject](../../O/QObject/QObject.md)* *receiver*, [QEvent](../../E/QEvent/QEvent.md)* *event*, int *priority* = Qt::NormalEventPriority) [static]
+
+添加一个*event*事件，其中*receiver*表示事件的接收方。事件被添加到消息队列，并立即返回。
+
+被添加的事件必须被分配在堆上，这样消息队列才能接管此事件，并在它被投送之后删除它。当它被投递之后，再来访问此事件是*不安全*的。
+
+当程序流程返回到了主事件循环时，所有的队列中的事件会通过[notify]()()来发送。
+
+队列中的事件按照*priority*降序排列，这意味着*高优先级*的事件将排列于*低优先级*之前。优先级*priority*可以是任何整数，只要它们在`INT_MAX`和`INT_MIN`之闭区间内。相同优先级的事件会按照投送顺序被处理。
+
+**注意**：此函数是[线程安全]()的。
+
+此函数在Qt 4.3中引入。
+
+**另请参阅**：[sendEvent]()()，[notify]()()，[sendPostedEvents]()()，和[Qt::EventPriority]()。
+
+
+
+---
+
+### void QCoreApplication::processEvents([QEventLoop::ProcessEventsFlags](https://doc.qt.io/qt-5/qeventloop.html#ProcessEventsFlag-enum) *flags* = QEventLoop::AllEvents) [static]
+
+根据*flags*处理调用线程的所有待处理事件，直到没有事件需要处理。
+
+您可以在您程序进行一项长时间操作的时候偶尔调用此函数（例如拷贝一个文件时）。
+
+如果您在一个本地循环中持续调用这个函数，而不是在消息循环中，那么[DeferredDelete]()事件不会被处理。这会影响到一些窗体的行为，例如[QToolTip](../../T/QToolTip/QToolTip.md)，它依赖[DeferredDelete]()事件。以使其正常运行。一种替代方法是从该本地循环中调用[sendPostedEvents](https://doc.qt.io/qt-5/qcoreapplication.html#sendPostedEvents)()。
+
+此函数只处理调用线程的事件，当所有可处理事件处理完毕之后返回。可用事件是在函数调用之前排队的事件。这意味着在函数运行时投送的事件将会排队到下一轮事件处理为止。
+
+**注意**：此函数是[线程安全]()的。
+
+**另请参阅**：[exec]()()，[QTimer](../../T/QTimer/QTimer.md)()，[QEventLoop::processEvents]()()，[flush]()()和[sendPostedEvents]()()。
+
+
+
+---
+
+### void QCoreApplication::processEvents([QEventLoop::ProcessEventsFlags](https://doc.qt.io/qt-5/qeventloop.html#ProcessEventsFlag-enum) *flags* = QEventLoop::AllEvents, int *ms*) [static]
+
+此函数重载了processEvents()。
+
+此函数将用*ms*毫秒为调用线程处理待处理的事件，或者直到没有更多事件需要处理。
+
+您可以在您程序进行一项长时间操作的时候偶尔调用此函数（例如拷贝一个文件时）。
+
+此函数只处理调用线程的事件。
+
+**注意**：不像[processEvents]()()重载，这个函数同样也处理当函数正在运行中时被投送的事件。
+
+**注意**：此函数是[线程安全]()的。
+
+**另请参阅**：[exec]()()，[QTimer](../../T/QTimer/QTimer.md)()，[QEventLoop::processEvents]()()。
