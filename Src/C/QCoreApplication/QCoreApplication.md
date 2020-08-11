@@ -533,7 +533,7 @@ foreach (const QString &path, app.libraryPaths())
 
 **注意**：此函数是[线程安全]()的。
 
-**另请参阅**：[exec]()()，[QTimer](../../T/QTimer/QTimer.md)()，[QEventLoop::processEvents]()()，[flush]()()和[sendPostedEvents]()()。
+**另请参阅**：[exec]()()，[QTimer](../../T/QTimer/QTimer.md)，[QEventLoop::processEvents]()()，[flush]()()和[sendPostedEvents]()()。
 
 
 
@@ -553,4 +553,49 @@ foreach (const QString &path, app.libraryPaths())
 
 **注意**：此函数是[线程安全]()的。
 
-**另请参阅**：[exec]()()，[QTimer](../../T/QTimer/QTimer.md)()，[QEventLoop::processEvents]()()。
+**另请参阅**：[exec]()()，[QTimer](../../T/QTimer/QTimer.md)，[QEventLoop::processEvents]()()。
+
+
+
+---
+
+### void QCoreApplication::removeLibraryPath(const [QString](../../S/QString/QString.md) &*path*) [static]
+
+从库的搜索路径列表中移除*path*。如果*path*是空的，或者不存在于列表，则列表不会改变。
+
+当[QCoreApplication](./QCoreApplication.md)被析构时，此列表会被还原。
+
+**另请参阅**：[exec]()()，[QTimer](../../T/QTimer/QTimer.md)和[QEventLoop::processEvents]()()。
+
+
+
+---
+
+### void QCoreApplication::removeNativeEventFilter([QAbstractNativeEventFilter](../../A/QAbstractNativeEventFilter/QAbstractNativeEventFilter.md) **filterObject*)
+
+从此实例中移除*filterObject*事件过滤器。如果这个事件过滤器没有被安装，则什么也不做。
+
+当此实例被销毁时，所有的事件过滤器都会自动被移除。
+
+任何时候——甚至正在事件过滤被激活时（通过nativeEventFilter()函数)——移除一个事件过滤器都是安全的。
+
+此函数在Qt 5.0中引入。
+
+**另请参阅**：[installNativeEventFilter]()()。
+
+
+
+---
+
+### void QCoreApplication::removePostedEvents([QObject](../../O/QObject/QObject.md) **receiver*, int *eventType* = 0) [static]
+
+移除所指定的*eventType*类型且由[postEvent]()()所添加的事件。
+
+这些事件不会被派发，而是直接从队列中移除。您从来都不需要调用此方法。如果您确实调用了它，那么请注意杀掉事件可能会影响*receiver*的不变性(invariant)。
+
+如果接收者是`nullptr`，那么所有对象将会移除*eventType*所指定的所有事件。如果*eventType*是0，那么*receiver*的所有事件将会被移除。您永远都不应该在此函数中为*eventType*传递0。
+
+**注意**：此函数是[线程安全]()的。
+
+此函数在Qt 4.3中引入。
+
