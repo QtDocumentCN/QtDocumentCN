@@ -18,4 +18,4 @@ for line in f.readlines(100000000):
             if c.isalpha(): id+=c.lower()
             if c.isdigit(): id+=c
             if c in (' '): id+='-'
-        print(line+'  ->  #'+id)
+        print(line+'  ->\n  #'+id+)
