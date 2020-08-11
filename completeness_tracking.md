@@ -66,10 +66,11 @@
 | [QCheckBox](Src/C/QCheckBox/QCheckBox.md)                     | [leytou](https://github.com/leytou)           | 编写中    | 占位中，待填充，截止时间2020-07-31 |
 | [QComboBox](Src/C/QComboBox/QComboBox.md)                     | [leytou](https://github.com/leytou)           | 编写中    | 占位中，待填充，截止时间2020-07-31 |
 | [QLabel](Src/L/QLabel/QLabel.md)                              | [leytou](https://github.com/leytou)           | 编写中    | 占位中，待填充，截止时间2020-07-31 |
-| [QDate](Src/D/QDate/QDate.md)                                 | [顾晓](https://github.com/chenyanzz)          | 编写中    |  正在完善                             |
-| [QLibrary](Src/L/QLibrary/QLibrary.md)                        | [顾晓](https://github.com/chenyanzz)          | 编写中    |  占位中，待填充，截止时间2020-08-16                            |
-| [QFile](Src/F/QFile/QFile.md)                                 | [顾晓](https://github.com/chenyanzz)          | 编写中    |  占位中，待填充，截止时间2020-08-16                          |
-| [QMainWindow](Src/M/QMainWindow/QMainWindow.md)    | [吴冬亮](https://github.com/abc881858)        | 编写中 | 占位中，待填充，截止时间2020-07-31 |
+| [QDate](Src/D/QDate/QDate.md)                                 | [顾晓](https://github.com/chenyanzz)          | 编写中    |  正在完善 |
+| [QLibrary](Src/L/QLibrary/QLibrary.md)                        | [顾晓](https://github.com/chenyanzz)          | 编写中    |  占位中，待填充，截止时间2020-08-16 |
+| [QFile](Src/F/QFile/QFile.md)                                 | [顾晓](https://github.com/chenyanzz)          | 编写中    |  占位中，待填充，截止时间2020-08-16 |
+| [QMainWindow](Src/M/QMainWindow/QMainWindow.md) | [吴冬亮](https://github.com/abc881858) | **已完成** | 已完成 |
+| [QFileInfo](Src/F/QFileInfo/QFileInfo.md) | [吴冬亮](https://github.com/abc881858) | 编写中 | 占位中，待填充，截止时间2020-08-31 |
 | [QList](Src/L/QList/QList.md)    | [xyz1001](https://github.com/xyz1001)        | **已完成** | 已完成 |
 | [QPluginLoader](Src/P/QPluginLoader/QPluginLoader.md)    | [miRoox](https://github.com/miRoox)        | **待完善** | 跨页跳转需待对应页面完成后进行校正 |
 | [QtPlugin](Src/P/QtPlugin/QtPlugin.md)    | [miRoox](https://github.com/miRoox)        | **待完善** | 跨页跳转需待对应页面完成后进行校正 |
@@ -83,6 +84,6 @@
 | [QJsonArray](Src/J/QJsonArray/QJsonArray.md) | [ruihuanming](https://github.com/hqwx2018) | 占位中 | 占位中，待填充，截止时间2020-08-15 |
 | [QJsonDocument](Src/J/QJsonDocument/QJsonDocument.md) | [ruihuanming](https://github.com/hqwx2018) | 占位中 | 占位中，待填充，截止时间2020-08-15 |
 | [QJsonObject](Src/J/QJsonObject/QJsonObject.md) | [ruihuanming](https://github.com/hqwx2018) | 占位中 | 占位中，待填充，截止时间2020-08-15 |
-| [QJsonParseError](Src/J/QJsonParseError/QJsonParseError.md) | [ruihuanming](https://github.com/hqwx2018) | 占位中 | 占位中，待填充，截止时间2020-08-15 |
+| [QJsonParseError](Src/J/QJsonParseError/QJsonParseError.md) | [ruihuanming](https://github.com/hqwx2018) | **待完善** | 缺跳转                             |
 | [QJsonValue](Src/J/QJsonValue/QJsonValue.md) | [ruihuanming](https://github.com/hqwx2018) | 占位中 | 占位中，待填充，截止时间2020-08-15 |
 

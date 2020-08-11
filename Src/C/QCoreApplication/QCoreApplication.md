@@ -204,9 +204,9 @@ QCoreApplication包含主事件循环，这些来自于操作系统（如定时�
 
 ## 成员函数文档
 
-### QCoreApplication::QCoreApplication(int &*argc*, char ***argv*)
-
 ------
+
+### QCoreApplication::QCoreApplication(int &*argc*, char ***argv*)
 
 构造一个Qt内核程序。所谓内核程序，就是没有图形用户界面的程序。这样的程序使用控制台，或者是作为服务进程运行着。
 
@@ -216,13 +216,13 @@ QCoreApplication包含主事件循环，这些来自于操作系统（如定时�
 
 
 
-### void QCoreApplication::aboutToQuit() [signal]
-
 -------------
+
+### void QCoreApplication::aboutToQuit() [signal]
 
 当程序即将退出主消息循环时，如当消息循环嵌套层数降为0时，此事件被发射。它可能发生在应用程序中调用[quit]()()之后，亦发生在关闭整个桌面会话时。
 
-注意：这是一个私有信号。它能够被连接，但是用户无法发射它。
+**注意**：这是一个私有信号。它能够被连接，但是用户无法发射它。
 
 **另请参阅** [quit](https://doc.qt.io/qt-5/qcoreapplication.html#quit)()。
 
@@ -230,9 +230,9 @@ QCoreApplication包含主事件循环，这些来自于操作系统（如定时�
 
 
 
-### void QCoreApplication::quit() [static slot]
-
 -----------
+
+### void QCoreApplication::quit() [static slot]
 
 告知程序以返回值0来退出。等效于调用 [QCoreApplication::exit]()(0)。
 
@@ -251,17 +251,17 @@ connect(quitButton, &QPushButton::clicked, &app, &QCoreApplication::quit, Qt::Qu
 
 
 
+----------
 ### QCoreApplication::~QCoreApplication() [virtual]
 
-----------
 
 销毁[QCoreApplication](./QCoreApplication.md)对象。
 
 
 
-### void QCoreApplication::addLibraryPath(const [QString](../../S/QString/QString.md) &*path*) [static]
-
 -----
+
+### void QCoreApplication::addLibraryPath(const [QString](../../S/QString/QString.md) &*path*) [static]
 
 将*path*添加到库路径开头，保证它先会被库搜索到。如果*path*为空或者已经存在于路径列表，那么路径列表保持不变。
 
@@ -273,9 +273,9 @@ connect(quitButton, &QPushButton::clicked, &app, &QCoreApplication::quit, Qt::Qu
 
 
 
-### [QString](../../S/QString/QString.md) QCoreApplication::applicationDirPath() [static]
-
 ----
+
+### [QString](../../S/QString/QString.md) QCoreApplication::applicationDirPath() [static]
 
 返回包含此可执行文件的文件夹路径。
 
@@ -288,10 +288,9 @@ connect(quitButton, &QPushButton::clicked, &app, &QCoreApplication::quit, Qt::Qu
 **另请参阅** [applicationFilePath](https://doc.qt.io/qt-5/qcoreapplication.html#applicationFilePath)()。
 
 
-
+----
 ### [QString](../../S/QString/QString.md) QCoreApplication::applicationFilePath() [static]
 
-----
 
 返回包含此可执行文件的文件路径。
 
@@ -311,3 +310,247 @@ connect(quitButton, &QPushButton::clicked, &app, &QCoreApplication::quit, Qt::Qu
 
 此函数在Qt 4.4中引入。
 
+
+
+---
+
+### [QStringList](../../S/QStringList/QStringList.md) QCoreApplication::arguments() [static]
+
+返回命令行参数列表。
+
+一般情况下，arguments().at(0)表示可执行文件名，arguments().at(1)是第一个参数，arguments().last()是最后一个参数。请见下面关于Windows的注释。
+
+调用这个函数需要花费很多时间——您应该在解析命令行时，将结果缓存起来。
+
+**警告：** 在Unix下，这个参数列表由main()函数中的argc和argv参数生成。argv中的字符串数据将会通过[QString::fromLocal8Bit]()()来解析，因此，在Latin1的区域环境下，是不可能来传递日语的命令行的，其他情况以此类推。大部分现代Unix系统没有此限制，因为它们是基于Unicode的。
+
+在Windows下，这个参数列表，只有在构造函数中传入了修改的argc和argv时，才会从这个argc和argv中解析。这种情况下，就会出现编码问题。
+
+如果不是上述情况，那么arguments()将会从[GetCommandLine()]()中构造。此时arguments().at(0)在Windows下未必是可执行文件名，而是取决于程序是如何被启动的。
+
+此函数在Qt 4.1中引入。
+
+**另请参阅** [applicationFilePath]()()和[QCommandLineParser](../../C/QCommandLineParser/QCommandLineParser.md)。
+
+
+
+---
+
+### bool QCoreApplication::closingDown() [static]
+
+如果application对象正在被销毁中，则返回true，否则返回false。
+
+**另请参阅** [startingUp]()()。
+
+
+
+---
+
+### bool QCoreApplication::event([QEvent](../../E/QEvent/QEvent.md) **e*) [override virtual protected]
+
+重载：[QObject::event]()(QEvent* e)。
+
+
+
+---
+
+### [QAbstractEventDispatcher](../../A/QAbstractEventDispatcher/QAbstractEventDispatcher.md) *QCoreApplication::eventDispatcher() [static]
+
+返回指向主线程事件派发器的指针。如果线程中没有事件派发器，则返回`nullptr`。
+
+**另请参阅** [setEventDispatcher]()()。
+
+
+
+---
+
+### int QCoreApplication::exec() [static]
+
+进入主消息循环，直到[exit]()()被调用。其返回值是为[exit]()()传入的那个参数（如果是调用[quit]()()，等效于调用[exit]()(0))。
+
+通过此函数来开始事件循环是很有必要的。主线程事件循环将从窗口系统接收事件，并派发给应用程序下的窗体。
+
+为了能让您的程序在空闲时来处理事件（在没有待处理的事件时，通过调用一个特殊的函数），可以使用一个超时为0的[QTimer](../../T/QTimer/QTimer.md)。可以使用[processEvents]()()来跟进一步处理空闲事件。
+
+我们建议您连接[aboutToQuit]()()信号来做一些清理工作，而不是将它们放在main函数中。因为在某些平台下，exec()可能不会返回。例如，在Windows下，当用户注销时，系统将在Qt关闭所有顶层窗口后才终止进程。因此，不能保证程序有时间退出其消息循环来执行main函数中exec()之后的代码。
+
+**另请参阅** [quit]()()，[exit]()(), [processEvent]()()和[QApplication::exec]()()。
+
+
+
+---
+
+### void QCoreApplication::exit(int *returnCode* = 0) [static]
+
+告诉程序需要退出了，并带上一个返回值。
+
+在此函数被调用后，程序将离开主消息循环，并且从[exec]()()中返回。其返回值就是*returnCode*。如果消息循环没有运行，那么此方法什么都不做。
+
+一般我们约定0表示成功，非0表示产生了一个错误。
+
+将信号以[QueuedConnection]()参数连接此槽是一个不错的实践。如果连接了此槽的一个信号（未在队列中的）在控制流程进入主消息循环前（如在int main中调用[exec]()()之前）被发射，那么这个槽不会有任何效果，应用程序也不会退出。使用队列连接方式能保证控制路程进入主消息循环后，此槽才会被触发。
+
+**另请参阅** [quit]()()和[exec]()()。
+
+
+
+---
+
+### void QCoreApplication::installNativeEventFilter([QAbstractNativeEventFilter](../../A/QAbstractNativeEventFilter/QAbstractNativeEventFilter.md) **filterObj*)
+
+在主线程为应用程序所能接收到的原生事件安装一个事件过滤器。
+
+事件过滤器*filterObj*通过[nativeEventFilter]()()来接收事件。它可以接收到主线程所有的原生事件。
+
+如果某个原生事件需要被过滤或被屏蔽，那么[QAbstractNativeEventFilter::nativeEventFilter](https://doc.qt.io/qt-5/qabstractnativeeventfilter.html#nativeEventFilter)需要返回true。如果它需要使用Qt默认处理流程，则返回false：那么接下来这个原生事件则会被翻译为一个[QEvent](../../E/QEvent/QEvent.md)，并且由Qt的标准事件过滤器来处理。
+
+如果有多个事件过滤器被安装了，那么最后安装的过滤器将会被最先调用。
+
+**注意：** 此处设置的过滤器功能接收原生事件，即MSG或XCB事件结构。
+
+**注意：** 如果设置了[Qt::AA_PluginApplication]()属性，那么原生事件过滤器将会被屏蔽。
+
+为了最大可能保持可移植性，您应该总是尽可能使用[QEvent](../../E/QEvent/QEvent.md)和[QObject::installEventFilter]()()。
+
+**另请参阅** [QObject::installEventFilter]()()。
+
+
+
+---
+
+### bool QCoreApplication::installTranslator([QTranslator](../../T/QTranslator/QTranslator.md) **translationFile*) [static]
+
+将*translationFile*添加到翻译文件列表，它将会被用于翻译。
+
+您可以安装多个翻译文件。这些翻译文件将会按照安装顺序的逆序被搜索到，因此最近添加的翻译文件会首先被搜索到，第一个安装的搜索文件会最后被搜索。一旦翻译文件中匹配了一个字符串，那么搜索就会终止。
+
+安装、移除一个[QTranslator](../../T/QTranslator/QTranslator.md)，或者更改一个已经安装的[QTranslator](../../T/QTranslator/QTranslator.md)将会为[QCoreApplication](./QCoreApplication.md)实例产生一个[LanguageChange]([QEvent](../../E/QEvent/QEvent.md) )事件。一个[QApplication](../../A/QApplication/QApplication.md)会将这个事件派发到所有的顶层窗体，使用[tr]()()来传递用户可见的字符串到对应的属性设置器，通过这种方式来重新实现changeEvent则可以重新翻译用户的界面。通过Qt设计师(Qt Designer)生成的窗体类提供了一个retranslateUi()可以实现上述效果。
+
+函数若执行成功则返回true，失败则返回false。
+
+**另请参阅** [removeTranslator]()()，[translate]()()，[QTranslator::load]()()和[动态翻译]()。
+
+
+
+---
+
+### [QCoreApplication](./QCoreApplication.md)* QCoreApplication::instance() [static]
+
+返回程序的[QCoreApplication](./QCoreApplication.md) (或[QGuiApplication](../../G/QGuiApplication/QGuiApplication.md)/[QApplication](../../A/QApplication/QApplication.md))实例的指针。
+
+
+
+---
+
+### bool QCoreApplication::isSetuidAllowed() [static]
+
+如果在UNIX平台中，允许应用程序使用setuid，则返回true。
+
+此函数在Qt 5.3中引入。
+
+**另请参阅** [QCoreApplication::setSetuidAllowed]()()。
+
+
+
+---
+
+### [QStringList](../../S/QStringList/QStringList.md) QCoreApplication::libraryPaths() [static]
+
+返回一个路径列表，其中的路径表示动态加载链接库时的搜索路径。
+
+此函数的返回值也许会在[QCoreApplication](./QCoreApplication.md)创建之后改变，因此不建议在[QCoreApplication](./QCoreApplication.md)创建之前调用。应用程序所在的路径（**非**工作路径），如果是已知的，那么它会被放入列表中。为了能知道这个路径，[QCoreApplication](./QCoreApplication.md)必须要在创建时使用argv[0]来表示此路径。
+
+Qt提供默认的库搜索路径，但是它们同样也可以通过[qt.conf]()文件配置。在此文件中所指定的路径会覆盖默认路径。注意如果qt.conf文件存在于应用程序所在的文件夹目录下，那么直到[QCoreApplication](./QCoreApplication.md)被创建时它才可以被发现。如果它没有被发现，那么调用此函数仍然返回默认搜索路径。
+
+如果插件存在，那么这个列表会包含插件安装目录（默认的插件安装目录是 `INSTALL/plugins`，其中`INSTALL`是Qt所安装的目录。用分号分隔的`QT_PLUGIN_PATH`环境变量中的条目一定会被添加到列表。插件安装目录（以及它存在）在应用程序目录已知时可能会被更改。
+
+如果您想遍历列表，可以使用[foreach]()伪关键字：
+
+```C++
+foreach (const QString &path, app.libraryPaths())
+    do_something(path);
+```
+
+**另请参阅**  [setLibraryPaths](https://doc.qt.io/qt-5/qcoreapplication.html#setLibraryPaths)(), [addLibraryPath](https://doc.qt.io/qt-5/qcoreapplication.html#addLibraryPath)(), [removeLibraryPath](https://doc.qt.io/qt-5/qcoreapplication.html#removeLibraryPath)(), [QLibrary](../../L/QLibrary/QLibrary.md) , 以及 [如何创建Qt插件](https://doc.qt.io/qt-5/plugins-howto.html)。
+
+
+
+---
+
+### bool QCoreApplication::notify([QObject](../../O/QObject/QObject.md) **receiver*, [QEvent](../../E/QEvent/QEvent.md)* *event*) [virtual]
+
+将事件发送给接收者：*receiver*->event(*event*)。其返回值为接受者的事件处理器的返回值。注意这个函数将会在任意线程中调用，并将事件转发给任意对象。
+
+对于一些特定的事件（如鼠标、键盘事件），如果事件处理器不处理此事件（也就是它返回*false*），那么事件会被逐级派发到对象的父亲，一直派发到顶层对象。
+
+处理事件有5种不同的方式：重载虚函数只是其中一种。所有的五种途径如下所示：
+
+1. 重载[paintEvent]()()，[mousePressEvent]()()等。这个是最通用、最简单但最不强大的一种方法。
+2. 重载此函数。这非常强大，提供了完全控制，但是一次只能激活一个子类。
+3. 将一个事件过滤器安装到[QCoreApplication](./QCoreApplication.md)。这样的一个事件过滤器可以处理所有窗体的所有事件，就像是重载了notify()函数这样强大。此外，您还可以提供多个应用级别全局的事件过滤器。全局事件过滤器甚至可以接收到那些[不可用窗体]()的鼠标事件。注意程序的事件过滤器仅能响应主线程中的对象。
+4. 重载[QObject::event]()()（就像[QWidget](../../W/QWidget/QWidget.md)那样）。如果您是这样做的，您可以接收到Tab按键，及您可以在任何特定窗体的事件过滤器被调用之前接收到事件。
+5. 在对象上安装事件过滤器。这样的事件过滤器将可以收到所有事件，包括Tab和Shift+Tab事件——只要它们不更改窗体的焦点。
+
+**未来规划**：在Qt 6中，这个函数不会响应主线程之外的对象。需要该功能的应用程序应同时为其事件检查需求找到其他解决方案。该更改可能会扩展到主线程，因此不建议使用此功能。
+
+**注意**：如果您重载此函数，在您的应用程序开始析构之前，您必须保证所有正在处理事件的线程停止处理事件。这包括了您可能在用的其他库所创建的线程，但是不适用于Qt自己的线程。
+
+**另请参阅**：[QObject::event]()()和[installNativeEventFilter]()()。
+
+
+
+---
+
+### void QCoreApplication::postEvent([QObject](../../O/QObject/QObject.md)* *receiver*, [QEvent](../../E/QEvent/QEvent.md)* *event*, int *priority* = Qt::NormalEventPriority) [static]
+
+添加一个*event*事件，其中*receiver*表示事件的接收方。事件被添加到消息队列，并立即返回。
+
+被添加的事件必须被分配在堆上，这样消息队列才能接管此事件，并在它被投送之后删除它。当它被投递之后，再来访问此事件是*不安全*的。
+
+当程序流程返回到了主事件循环时，所有的队列中的事件会通过[notify]()()来发送。
+
+队列中的事件按照*priority*降序排列，这意味着*高优先级*的事件将排列于*低优先级*之前。优先级*priority*可以是任何整数，只要它们在`INT_MAX`和`INT_MIN`之闭区间内。相同优先级的事件会按照投送顺序被处理。
+
+**注意**：此函数是[线程安全]()的。
+
+此函数在Qt 4.3中引入。
+
+**另请参阅**：[sendEvent]()()，[notify]()()，[sendPostedEvents]()()，和[Qt::EventPriority]()。
+
+
+
+---
+
+### void QCoreApplication::processEvents([QEventLoop::ProcessEventsFlags](https://doc.qt.io/qt-5/qeventloop.html#ProcessEventsFlag-enum) *flags* = QEventLoop::AllEvents) [static]
+
+根据*flags*处理调用线程的所有待处理事件，直到没有事件需要处理。
+
+您可以在您程序进行一项长时间操作的时候偶尔调用此函数（例如拷贝一个文件时）。
+
+如果您在一个本地循环中持续调用这个函数，而不是在消息循环中，那么[DeferredDelete]()事件不会被处理。这会影响到一些窗体的行为，例如[QToolTip](../../T/QToolTip/QToolTip.md)，它依赖[DeferredDelete]()事件。以使其正常运行。一种替代方法是从该本地循环中调用[sendPostedEvents](https://doc.qt.io/qt-5/qcoreapplication.html#sendPostedEvents)()。
+
+此函数只处理调用线程的事件，当所有可处理事件处理完毕之后返回。可用事件是在函数调用之前排队的事件。这意味着在函数运行时投送的事件将会排队到下一轮事件处理为止。
+
+**注意**：此函数是[线程安全]()的。
+
+**另请参阅**：[exec]()()，[QTimer](../../T/QTimer/QTimer.md)()，[QEventLoop::processEvents]()()，[flush]()()和[sendPostedEvents]()()。
+
+
+
+---
+
+### void QCoreApplication::processEvents([QEventLoop::ProcessEventsFlags](https://doc.qt.io/qt-5/qeventloop.html#ProcessEventsFlag-enum) *flags* = QEventLoop::AllEvents, int *ms*) [static]
+
+此函数重载了processEvents()。
+
+此函数将用*ms*毫秒为调用线程处理待处理的事件，或者直到没有更多事件需要处理。
+
+您可以在您程序进行一项长时间操作的时候偶尔调用此函数（例如拷贝一个文件时）。
+
+此函数只处理调用线程的事件。
+
+**注意**：不像[processEvents]()()重载，这个函数同样也处理当函数正在运行中时被投送的事件。
+
+**注意**：此函数是[线程安全]()的。
+
+**另请参阅**：[exec]()()，[QTimer](../../T/QTimer/QTimer.md)()，[QEventLoop::processEvents]()()。
