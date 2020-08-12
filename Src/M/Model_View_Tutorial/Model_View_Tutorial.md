@@ -384,3 +384,270 @@ Qt::ItemFlags MyModel::flags(const QModelIndex &index) const
 返回　[Qt::ItemIsSelectable | Qt::ItemIsEditable | Qt::ItemIsEnabled]() 足以显示一个可被单元格选中的编辑器。
 
 如果编辑一个单元格所修改的数据多于该特定单元格中的数据，则该模型必须发射　[dataChanged()]() 信号，以便读取已更改的数据。
+
+## 中间主题
+
+### 3.1 树视图
+
+您可以将上面的示例转换为具有树视图的应用程序。只需将 [QTableView]() 替换为 [QTreeView]()，这将生成一个读/写树。不必对模型进行任何更改。树不会有任何层次结构，因为模型本身没有任何层次结构。
+
+![dummy_tree](dummy_tree.png)
+
+[QListView]()，[QTableView]() 和 [QTreeView]() 均使用了合并了列表、表和树的模型抽象。这样就可以让不同类型的视图类使用同一模型。
+
+![list_table_tree](list_table_tree.png)
+
+到目前为止，我们在示例中使用的模型都是这样子的：
+
+![example_model](example_model.png)
+
+我们想呈现一棵真正的树。在上面的示例中包装了数据，以建立模型。这次我们使用 [QStandardItemModel]() ，这是用于具有层次结构的数据的容器，也实现了 [QAbstractItemModel]()。要显示树，必须用 [QStandardItem]() 填充 [QStandardItemModel]()[QStandardItem]() 可以保存项目的所有标准属性，例如文本，字体，复选框或笔刷。
+
+![tree_2_with_algorithm](tree_2_with_algorithm.png)
+
+(文件：`examples/widgets/tutorials/modelview/6_treeview/mainwindow.cpp`)
+
+```cpp
+// modelview.cpp
+#include "mainwindow.h"
+
+#include <QTreeView>
+#include <QStandardItemModel>
+#include <QStandardItem>
+
+MainWindow::MainWindow(QWidget *parent)
+    : QMainWindow(parent)
+    , treeView(new QTreeView(this))
+    , standardModel(new QStandardItemModel(this))
+{
+    setCentralWidget(treeView);
+
+    QList<QStandardItem *> preparedRow = prepareRow("first", "second", "third");
+    QStandardItem *item = standardModel->invisibleRootItem();
+    // adding a row to the invisible root item produces a root element
+    item->appendRow(preparedRow);
+
+    QList<QStandardItem *> secondRow = prepareRow("111", "222", "333");
+    // adding a row to an item starts a subtree
+    preparedRow.first()->appendRow(secondRow);
+
+    treeView->setModel(standardModel);
+    treeView->expandAll();
+}
+
+QList<QStandardItem *> MainWindow::prepareRow(const QString &first,
+                                              const QString &second,
+                                              const QString &third) const
+{
+    return {new QStandardItem(first),
+            new QStandardItem(second),
+            new QStandardItem(third)};
+}
+```
+
+我们只需实例化一个 [QStandardItemModel]() 并向构造函数添加几个 [QStandardItem]()。然后，我们可以建立分层数据结构，因为 [QStandardItem]() 可以容纳其他 [QStandardItem]()。节点在视图内折叠并展开。
+
+### 3.2 处理选择
+
+我们希望访问所选项目的内容，以便将其与层次结构级别一起输出到窗口标题中。
+
+![selection2](selection2.png)
+
+因此，让我们来创建几个项:
+
+（文件： `examples/widgets/tutorials/modelview/7_selections/mainwindow.cpp`）
+
+```cpp
+#include "mainwindow.h"
+
+#include <QTreeView>
+#include <QStandardItemModel>
+#include <QItemSelectionModel>
+
+MainWindow::MainWindow(QWidget *parent)
+    : QMainWindow(parent)
+    , treeView(new QTreeView(this))
+    , standardModel(new QStandardItemModel(this))
+{
+    setCentralWidget(treeView);
+    QStandardItem *rootNode = standardModel->invisibleRootItem();
+
+    //defining a couple of items
+    QStandardItem *americaItem = new QStandardItem("America");
+    QStandardItem *mexicoItem =  new QStandardItem("Canada");
+    QStandardItem *usaItem =     new QStandardItem("USA");
+    QStandardItem *bostonItem =  new QStandardItem("Boston");
+    QStandardItem *europeItem =  new QStandardItem("Europe");
+    QStandardItem *italyItem =   new QStandardItem("Italy");
+    QStandardItem *romeItem =    new QStandardItem("Rome");
+    QStandardItem *veronaItem =  new QStandardItem("Verona");
+
+    //building up the hierarchy
+    rootNode->    appendRow(americaItem);
+    rootNode->    appendRow(europeItem);
+    americaItem-> appendRow(mexicoItem);
+    americaItem-> appendRow(usaItem);
+    usaItem->     appendRow(bostonItem);
+    europeItem->  appendRow(italyItem);
+    italyItem->   appendRow(romeItem);
+    italyItem->   appendRow(veronaItem);
+
+    //register the model
+    treeView->setModel(standardModel);
+    treeView->expandAll();
+
+    //selection changes shall trigger a slot
+    QItemSelectionModel *selectionModel = treeView->selectionModel();
+    connect(selectionModel, &QItemSelectionModel::selectionChanged,
+            this, &MainWindow::selectionChangedSlot);
+}
+```
+
+视图在单独的选择模型中管理选择，可以使用 [selectionModel()]() 方法进行检索。我们检索选择模型，以便将槽函数连接到其 [selectionChanged()]() 信号。
+
+(文件： `examples/widgets/tutorials/modelview/7_selections/mainwindow.cpp`)
+
+```cpp
+void MainWindow::selectionChangedSlot(const QItemSelection & /*newSelection*/, const QItemSelection & /*oldSelection*/)
+{
+    //get the text of the selected item
+    const QModelIndex index = treeView->selectionModel()->currentIndex();
+    QString selectedText = index.data(Qt::DisplayRole).toString();
+    //find out the hierarchy level of the selected item
+    int hierarchyLevel = 1;
+    QModelIndex seekRoot = index;
+    while (seekRoot.parent() != QModelIndex()) {
+        seekRoot = seekRoot.parent();
+        hierarchyLevel++;
+    }
+    QString showString = QString("%1, Level %2").arg(selectedText)
+                         .arg(hierarchyLevel);
+    setWindowTitle(showString);
+}
+```
+
+我们通过调用 [treeView->selectionModel()->currentIndex()]() 来获得与选择相对应的模型索引，并通过使用模型索引来获取字段的字符串。然后我们只计算项目的`hierarchyLevel`。顶级项没有父级，并且 [parent()]() 方法将返回默认构造的 [QModelIndex()]()。这就是为什么我们在迭代计算期间使用 [parent()]() 方法迭代到最高级别的原因。
+
+可以检索选择模型（如上所示），但也可以使用 [QAbstractItemView::setSelectionModel]() 进行设置。这样就可以拥有3个具有同步选择的视图类，因为仅使用了一个选择模型实例。要在3个视图之间共享选择模型，请使用 [selectionModel()]() 并通过 [setSelectionModel]() 将结果分配给第二个和第三个视图类。
+
+### 3.3 预定义模型
+
+使用模型/视图的典型方法是包装特定数据以使其可用于视图类。但是，`Qt` 还为常见的底层数据结构提供了预定义的模型。如果可用的数据结构之一适合您的应用程序，那么预定义的模型可能是一个不错的选择。
+
+<div class="table"><table class="generic">
+<tbody><tr class="odd" valign="top"><td><a href="qstringlistmodel.html">QStringListModel</a></td><td>存储字符串列表</td></tr>
+<tr class="even" valign="top"><td><a href="qstandarditemmodel.html">QStandardItemModel</a></td><td>存储任意分层结构的项目</td></tr>
+<tr class="odd" valign="top"><td><a href="qfilesystemmodel.html">QFileSystemModel</a><br>
+ QDirModel</td><td>封装本地文件系统</td></tr>
+<tr class="even" valign="top"><td><a href="qsqlquerymodel.html">QSqlQueryModel</a></td><td>封装 SQL 结果集</td></tr>
+<tr class="odd" valign="top"><td><a href="qsqltablemodel.html">QSqlTableModel</a></td><td>封装 SQL 表</td></tr>
+<tr class="even" valign="top"><td><a href="qsqlrelationaltablemodel.html">QSqlRelationalTableModel</a></td><td>封装带外键的 SQL 表</td></tr>
+<tr class="odd" valign="top"><td><a href="qsortfilterproxymodel.html">QSortFilterProxyModel</a></td><td>排序或者过滤其他模型</td></tr>
+</tbody></table></div>
+
+### 3.4 委托
+
+到目前为止，在所有示例中，数据均以文本或复选框形式显示在单元格中，并以文本或复选框的形式进行编辑。提供这些表示和编辑服务的组件称为委托。我们只是刚刚开始使用委托，因为视图使用了默认委托。但是，假设我们想要一个不同的编辑器（例如，一个滑块或一个下拉列表），或者想象我们想要将数据显示为图形。让我们看一个名为 [Star Delegate](https://doc.qt.io/qt-5/qtwidgets-itemviews-stardelegate-example.html) 的示例，其中的星星用于显示等级：
+
+![stardelegate](stardelegate.png)
+
+该视图具有 [setItemDelegate()]() 方法，该方法将替换默认委托并安装自定义委托。可以通过创建从 [QStyledItemDelegate]() 继承的类来编写新的委托。为了编写一个显示星星但没有输入功能的委托，我们只需要重写2个方法即可。
+
+```cpp
+class StarDelegate : public QStyledItemDelegate
+{
+    Q_OBJECT
+public:
+    StarDelegate(QWidget *parent = 0);
+    void paint(QPainter *painter, const QStyleOptionViewItem &option,
+               const QModelIndex &index) const;
+    QSize sizeHint(const QStyleOptionViewItem &option,
+                   const QModelIndex &index) const;
+};
+```
+
+[paint()]() 根据底层数据的内容绘制星形。可以通过调用 [index.data()]() 查找数据。委托的 [sizeHint()]() 方法用于获取每个星星的尺寸，因此该单元格将提供足够的高度和宽度来容纳星星。
+
+如果要在视图类的网格内以自定义图形显示数据，则编写自定义委托是正确的选择。如果要离开网格，则可以不使用自定义委托，而使用自定义视图类。
+
+`Qt` 文档中关于委托的其他参考：
+
+- [Spin Box Delegate Example](https://doc.qt.io/qt-5/qtwidgets-itemviews-spinboxdelegate-example.html)
+- [QAbstractItemDelegate Class Reference](https://doc.qt.io/qt-5/qabstractitemdelegate.htmls)
+- [QSqlRelationalDelegate Class Reference](https://doc.qt.io/qt-5/qsqlrelationaldelegate.html)
+- [QStyledItemDelegate Class Reference](https://doc.qt.io/qt-5/qstyleditemdelegate.html)
+- [QItemDelegate Class Reference](https://doc.qt.io/qt-5/qitemdelegate.html)
+
+### 3.5 使用 ModelTest 调试
+
+模型的被动性质为程序员带来了新的挑战。模型中的不一致会导致应用程序崩溃。由于该模型会被视图中调用无数次，因此很难找出哪个调用使应用程序崩溃了，以及哪个操作导致了该问题。
+
+`Qt Labs` 提供了一个名为 [ModelTest]() 的软件，该软件可在您的程序运行时检查模型。每次更改模型时，`ModelTest` 都会扫描模型并使用断言报告错误。这对于树模型尤其重要，因为它们的层次结构性质即使是细微的不一致也会留下许多可能性。
+
+与视图类不同，`ModelTest` 使用超出范围的索引来测试模型。这意味着您的应用程序可能会因 `ModelTest` 而崩溃，即使没有它也可以完美运行。因此，在使用 `ModelTest` 时，您还需要处理所有超出范围的索引。
+
+## 4 附录
+
+### 4.1 书籍
+
+模型/视图编程在 `Qt` 文档中有相当广泛的介绍，但也有好几本好书。
+
+1. C++ GUI Programming with Qt 4 / Jasmin Blanchette, Mark Summerfield, Prentice Hall, 2nd edition, ISBN 0-13-235416-0. Also available in German: C++ GUI Programmierung mit Qt 4: Die offizielle Einführung, Addison-Wesley, ISBN 3-827327-29-6
+2. The Book of Qt4, The Art of Building Qt Applications / Daniel Molkentin, Open Source Press, ISBN 1-59327-147-6. Translated from Qt 4, Einführung in die Applikationsentwicklung, Open Source Press, ISBN 3-937514-12-0.
+3. Foundations of Qt Development / Johan Thelin, Apress, ISBN 1-59059-831-8.
+4. Advanced Qt Programming / Mark Summerfield, Prentice Hall, ISBN 0-321-63590-6. This book covers Model/View programming on more than 150 pages.
+
+以下列表概述了上面列出的前三本书中包含的示例程序。其中一些为开发类似应用程序提供了非常好的模板。
+
+| 示例名称 | 使用的视图类 | 使用的模型 | 涵盖的方面　| |
+|--------|--------|--------|--------|--------|
+| Team Leaders | QListview | [QStringListModel]() | | Book 1, Chapter 10, Figure 10.6 |
+| Directory Viewer | [QTreeView]() | QDirModel | | Book 1, Chapter 10, Figure 10.7 |
+| Color Names | [QListView]() | 应用于 [QStringListModel]() 的 [QSortFilterProxyModel]() | | Book 1, Chapter 10, Figure 10.8 |
+| Currencies | [QTableView]() | 基于 [QAbstractTableModel]() 的自定义模型　| 只读　| Book 1, Chapter 10, Figure 10.10　|
+| Cities　| [QTableView]() | 基于 [QAbstractTableModel]() 的自定义模型　| 读/写 | Book 1, Chapter 10, Figure 10.12 |
+| Boolean Parser | [QTreeView]() | 基于 [QAbstractTableModel]() 的自定义模型 | 只读　| Book 1, Chapter 10, Figure 10.14 |
+| Track Editor | [QTableWidget]() | | 自定义的委托并提供了自定义的编辑器　| Book 1, Chapter 10, Figure 10.15 |
+| Four directory views | [QListView]() [QTableView]() [QTreeView]() | QDirModel | 演示使用多个视图 | Book2, Chapter 8.2 |
+| Address Book | [QListView]() [QTableView]() [QTreeView]() | 基于 [QAbstractTableModel]() 的自定义模型 | 读/写　| Book2, Chapter 8.4 |
+| Address Book with sorting　| | [QSortfilterProxyModel]() | 引入排序和过滤功能 | Book2, Chapter 8.5 |
+| Address Book with checkboxes | | | 在模型/视图中引入复选框 | Book2, Chapter 8.6 |
+| Address Book with transposed grid | |	基于　[QAbstractProxyModel]() 的自定义代理模型 | 引入自定义模型 | Book2, Chapter 8.7 |
+| Address Book with drag and drop | | |	引入托拖放支持 | Book2, Chapter 8.8 |
+| Address Book with custom editor | | |	引入自定义委托 | Book2, Chapter 8.9 |
+| Views | [QListView]() [QTableView]() [QTreeView]() | [QStandardItemModel]() |	只读 | Book 3, Chapter 5, figure 5-3 |
+| Bardelegate |	[QTableView]() | | 演示基于 [QAbstractItemDelegate]() 的自定义委托 | Book 3, Chapter 5, figure 5-5 |
+| Editdelegate | [QTableView]() | |	基于 [QAbstractItemDelegate]() 的用于编辑的自定义委托 | Book 3, Chapter 5, figure 5-6 |
+| Singleitemview | 基于　[QAbstractItemView]() 的自定义视图 | | 自定义视图	| Book 3, Chapter 5, figure 5-7 |
+| listmodel | [QTableView]() | 基于 [QAbstractTableModel]() 的自定义模型 | 只读 | Book 3, Chapter 5, Figure 5-8 |
+| treemodel | [QTreeView]() | 基于 [QAbstractTableModel]() 的自定义模型 | 只读 | Book 3, Chapter 5, Figure 5-10 |
+| edit integers | [QListView] |	基于 [QAbstractTableModel]() 的自定义模型 | 读/写 | Book 3, Chapter 5, Listing 5-37, Figure 5-11 |
+| sorting | [QTableView]() | 应用于 [QStringListModel]() 的 [QSortFilterProxyModel]() | 演示排序 |	Book 3, Chapter 5, Figure 5-12 |
+
+### ４.2 Qt　文档
+
+Qt5.0提供了19个模型/视图示例。这些示例可以在　[项目视图示例]() 页面上找到。
+
+| 示例名称 | 使用的视图类 | 使用的模型 | 涵盖的方面　| 
+|--------|--------|--------|--------|
+| Address Book | [QTableView]()	| [QAbstractTableModel]() [QSortFilterProxyModel]()	| 使用QSortFilterProxyModel从一个数据池生成不同的子集 |
+| Basic Sort/Filter Model |	[QTreeView]() |	[QStandardItemModel]() [QSortFilterProxyModel]() | |	
+| Chart	| 自定义视图 | [QStandardItemModel]() |	设计与选择模型协作的自定义视图 |
+| Color Editor Factory | [QTableWidget]() |	| 扩展一个带有新的自定义的编辑器的委托来选择颜色 |
+| Combo Widget Mapper |	使用 [QDataWidgetMapper] () 映射　[QLineEdit]()、[QTextEdit]() 和 [QComboBox]() | [QStandardItemModel]() | 演示了QComboBox如何作为视图类 |
+| Custom Sort/Filter Model | [QTreeView]() | [QStandardItemModel]() [QSortFilterProxyModel]() |	子类化　[QSortFilterProxyModel]() 用于高级排序和过滤 |
+| Dir View | [QTreeView]() | [QFileSystemModel]() |	演示如何将模型指定给视图的非常小的示例 |
+| Editable Tree Model |	[QTreeView]() | 自定义树模型 | 使用树的综合示例，演示了如何使用底层自定义模型编辑单元格和树结构 | 
+| Fetch More | [QListView]() | 自定义列表模型 |	动态变化的模型 |
+| Frozen Column | [QTableView]() | [QStandardItemModel]() | |	
+| Interview	| Multiple |　自定义项目模型 | 多个视图 |
+| Pixelator | [QTableView]() | 自定义表模型 | 实现一个自定义委托 |
+| Puzzle | [QListView]() | 自定义列表模型 |	支持拖放的模型/视图 |
+| Simple DOM Model | [QTreeView]() |　自定义树模型 | 自定义的只读的树模型的示例 |
+| Simple Tree Model | [QTreeView]() | 自定义树模型 | 自定义的只读的树模型的示例 |
+| Simple Widget Mapper | 使用 [QDataWidgetMapper]() 映射 [QLineEdit]()、[QTextEdit]() 和 [QSpinBox]() |	QStandardItemModel | [QDataWidgetMapper]() 的基本用法 |
+| Spin Box Delegate | [QTableView]() | [QStandardItemModel]() |	使用旋转框作为单元格编辑器的自定义委托 |
+| Spreadsheet |	[QTableView]() | | 自定义委托　|
+| Star Delegate | [QTableWidget]() | | 功能齐全的自定义委托示例 |
+
+还提供了模型/视图技术的[参考文档]()。
