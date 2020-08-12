@@ -51,7 +51,7 @@ Q_DECLARE_INTERFACE(Foo::MyInterface, "org.examples.MyInterface")
 
 ### Q_IMPORT_PLUGIN(*PluginName*)
 
-该宏导入名为 *PluginName* 的插件，该插件与使用 [Q_PLUGIN_METADATA](QtPlugin.md#q_plugin_metadata)() 声明插件元数据的类的名称相对应。This macro imports the plugin named *PluginName*, which corresponds with the name of the class that declares metadata for the plugin with [Q_PLUGIN_METADATA](QtPlugin.md#q_plugin_metadata)().
+该宏导入名为 *PluginName* 的插件，该插件与使用 [Q_PLUGIN_METADATA](QtPlugin.md#q_plugin_metadata)() 声明插件元数据的类的名称相对应。
 
 将该宏插入应用程序的源代码来使您能够使用静态插件。
 
