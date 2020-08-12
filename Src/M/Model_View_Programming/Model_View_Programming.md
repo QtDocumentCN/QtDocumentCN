@@ -1538,7 +1538,7 @@ bool DragDropListModel::dropMimeData(const QMimeData *data,
 
 这些类使用模型/视图设计模式，其中（模型中的）底层数据与用户（视图中）呈现和操作数据的方式保持分离。
 
-|类  | 说明|
+| 类  | 说明 |
 |-----|-----|
 | [QAbstractItemDelegate]() | 用于显示和编辑模型中的数据项 |
 | [QAbstractItemModel]() | 项目模型类的抽象接口 |
