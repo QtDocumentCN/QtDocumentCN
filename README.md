@@ -40,7 +40,7 @@
 ## TODO
 
 - [x] 使用 [mdbook](https://rust-lang.github.io/mdBook/) 生成 GitHub Pages，作为实际发布页面。
-- [x] 国内gitee镜像 [gitte](https://gitee.com/cryfeifei/QtDocumentCN)。
+- [x] 国内gitee镜像 [gitee](https://gitee.com/cryfeifei/QtDocumentCN)。
 - [x] 通过 Coding 等平台建立[国内镜像](https://www.qtdoc.cn)。
 - [x] 使用 Coding 提供的服务来建立微信小程序
 - [x] 通过[知乎专栏](https://zhuanlan.zhihu.com/c_1266078048082026496)等形式在社区进行发布。
