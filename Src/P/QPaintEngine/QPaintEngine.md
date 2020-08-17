@@ -50,6 +50,7 @@ QPaintEngine类为[QPainter](../../P/QPainter/QPainter.md)提供了如何在指�
 |virtual QPaintEngine::Type	|type() const = 0|
 |virtual void	|updateState(const QPaintEngineState &state) = 0|
 
+---
 
 ## 详细介绍
 
@@ -74,6 +75,8 @@ Qt为不同的painter后端提供了一些预设实现的QPaintEngine
 
 另请参见QPainter，QPaintDevice::paintEngine()和Paint System
 
+--- 
+
 # 成员类型文档
 
 ## enum QPaintEngine::DirtyFlag
@@ -86,12 +89,52 @@ Qt为不同的painter后端提供了一些预设实现的QPaintEngine
 |QPaintEngine::DirtyBrushOrigin	|0x0004	|画刷原始数据已经变化，应刷新|
 |QPaintEngine::DirtyFont	|0x0008	|字体发生变化，应刷新|
 |QPaintEngine::DirtyBackground	|0x0010	|背景标脏，应刷新|
-|QPaintEngine::DirtyBackgroundMode	|0x0020	|The background mode is dirty and needs to be updated.|
-|QPaintEngine::DirtyTransform	|0x0040	|The transform is dirty and needs to be updated.|
-|QPaintEngine::DirtyClipRegion	|0x0080	|The clip region is dirty and needs to be updated.|
-|QPaintEngine::DirtyClipPath	|0x0100	|The clip path is dirty and needs to be updated.|
-|QPaintEngine::DirtyHints	|0x0200	|The render hints is dirty and needs to be updated.|
-|QPaintEngine::DirtyCompositionMode	|0x0400	|The composition mode is dirty and needs to be updated.|
-|QPaintEngine::DirtyClipEnabled	|0x0800	|Whether clipping is enabled or not is dirty and needs to be updated.|
-|QPaintEngine::DirtyOpacity	|0x1000	|The constant opacity has changed and needs to be updated as part of the state change in QPaintEngine::updateState().|
-|QPaintEngine::AllDirty	|0xffff	|Convenience enum used internally.|
+|QPaintEngine::DirtyBackgroundMode	|0x0020	|背景状态标脏，应刷新|
+|QPaintEngine::DirtyTransform	|0x0040	|当前矩阵标脏，应刷新|
+|QPaintEngine::DirtyClipRegion	|0x0080	|当前裁剪区域标脏，应刷新|
+|QPaintEngine::DirtyClipPath	|0x0100	|裁剪路径标脏，应刷新|
+|QPaintEngine::DirtyHints	|0x0200	|当前绘制精度标志变化，应刷新|
+|QPaintEngine::DirtyCompositionMode	|0x0400	|绘制组合模式变化，应刷新|
+|QPaintEngine::DirtyClipEnabled	|0x0800	|无论是否当前可裁剪，都应刷新|
+|QPaintEngine::DirtyOpacity	|0x1000	|当前透明度已经更改，应当使用QPaintEngine::updateState()来进行刷新|
+|QPaintEngine::AllDirty	|0xffff	|内部枚举使用变量。|
+
+QPaintEngine使用函数QPaintEngine::updateState()来通知QPainter的延迟刷新。
+
+一个绘制引擎必须更新上面所有的标脏状态（译者注：比如你自定义一个QPaintEngine，就需要处理上面的所有的状态的刷新）
+
+一个标脏枚举使用QFlags<DirtyFlag>类型。 这些类型可以异或使用的。（译者注：比如 QPaintEngine::DirtyPen | QPaintEngine::DirtyBrush   看他们枚举值就看出来了）
+
+---
+
+## enum QPaintEngine::PaintEngineFeature
+## flags QPaintEngine::PaintEngineFeatures
+
+|枚举类型	|枚举值	|描述|
+| :---: | :--------- |:---:| 
+|Constant|	Value|	Description|
+|QPaintEngine::AlphaBlend|	0x00000080| 引擎可以使用透明通道|
+|QPaintEngine::Antialiasing	|0x00000400	|引擎可以使用抗锯齿来改善渲染图元的外观。|
+|QPaintEngine::BlendModes	|0x00008000|	引擎支持混合模式。|
+|QPaintEngine::BrushStroke|	0x00000800|	引擎支持画刷描边操作，并不是仅仅是纯色（比如2倍线宽的渐变虚线）|
+|QPaintEngine::ConicalGradientFill	|0x00000040	|引擎支持锥形渐变填充。|
+|QPaintEngine::ConstantOpacity	|0x00001000|	该引擎支持QPainter :: setOpacity（）提供的功能。|
+|QPaintEngine::LinearGradientFill	|0x00000010| 引擎支持线性渐变填充。|
+|QPaintEngine::MaskedBrush	|0x00002000|	该引擎能够渲染具有带有Alpha通道或蒙版的纹理的笔刷。|
+|QPaintEngine::ObjectBoundingModeGradients	|0x00010000|	该引擎对坐标模式为QGradient :: ObjectBoundingMode的渐变具有本地支持。否则，如果支持QPaintEngine :: PatternTransform，则将对象边界模式渐变转换为具有坐标模式QGradient :: LogicalMode和用于坐标映射的画笔变换的渐变。|
+|QPaintEngine::PainterPaths	|0x00000200|	引擎支持路径|
+|QPaintEngine::PaintOutsidePaintEvent	|0x20000000| 该引擎能够在绘制事件之外进行绘制。|
+|QPaintEngine::PatternBrush	|0x00000008	| 引擎能够使用Qt::BrushStyle中指定的画笔图案渲染画笔。|
+|QPaintEngine::PatternTransform	|0x00000002|	该引擎支持转换画笔图案。|
+|QPaintEngine::PerspectiveTransform|	0x00004000|	该引擎支持对基元执行透视转换。|
+|QPaintEngine::PixmapTransform	|0x00000004	|该引擎可以变换像素图，包括旋转和剪切。|
+|QPaintEngine::PorterDuff	|0x00000100	|该引擎支持Porter-Duff操作|
+|QPaintEngine::PrimitiveTransform	|0x00000001|	该引擎支持转换绘图图元。|
+|QPaintEngine::RadialGradientFill	|0x00000020|	引擎支持径向渐变填充。|
+|QPaintEngine::RasterOpModes	|0x00020000	|引擎支持按位栅格操作。|
+|QPaintEngine::AllFeatures	|0xffffffff|	以上所有功能。此枚举值通常用作位掩码。|
+
+PaintEngineFeatures类型是QFlags<`PaintEngineFeature`>的typedef 。它存储PaintEngineFeature值的OR组合。(也就是里面的值是可以异或的)
+
+---
+

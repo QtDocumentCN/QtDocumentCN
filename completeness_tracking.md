@@ -61,7 +61,7 @@
 | [QTcpServer](Src/T/QTcpServer/QTcpServer.md)                 | [skykeyjoker](https://github.com/skykeyjoker) | **待完善** | 跨页跳转需待对应页面完成后进行校正 |
 | [QUdpSocket](Src/U/QUdpSocket/QUdpSocket.md)                 | [skykeyjoker](https://github.com/skykeyjoker) | **待完善** | 跨页跳转需待对应页面完成后进行校正 |
 | [Model View Programming](Src/M/Model_View_Programming/Model_View_Programming.md) | [FlyWM](https://github.com/FlyWM)             | **待完善**    | 跨页跳转需待对应页面完成后进行校正 |
-| [Model View Tutorial](Src/M/Model_View_Tutorial/Model_View_Tutorial.md) | [FlyWM](https://github.com/FlyWM)             | 编写中    | 占位中，待填充，截止时间2020-08-15 |
+| [Model View Tutorial](Src/M/Model_View_Tutorial/Model_View_Tutorial.md) | [FlyWM](https://github.com/FlyWM)             | **待完善**     | 跨页跳转需待对应页面完成后进行校正 |
 | [Container Classes](Src/C/Container_Classes/Container_Classes.md) | [xyz1001](https://github.com/xyz1001)         | **已完成**    | 已完成 |
 | [QCheckBox](Src/C/QCheckBox/QCheckBox.md)                     | [leytou](https://github.com/leytou)           | 编写中    | 占位中，待填充，截止时间2020-07-31 |
 | [QComboBox](Src/C/QComboBox/QComboBox.md)                     | [leytou](https://github.com/leytou)           | 编写中    | 占位中，待填充，截止时间2020-07-31 |
@@ -74,7 +74,7 @@
 | [QList](Src/L/QList/QList.md)    | [xyz1001](https://github.com/xyz1001)        | **已完成** | 已完成 |
 | [QPluginLoader](Src/P/QPluginLoader/QPluginLoader.md)    | [miRoox](https://github.com/miRoox)        | **待完善** | 跨页跳转需待对应页面完成后进行校正 |
 | [QtPlugin](Src/P/QtPlugin/QtPlugin.md)    | [miRoox](https://github.com/miRoox)        | **待完善** | 跨页跳转需待对应页面完成后进行校正 |
-| [QCoreApplication](Src/C/QCoreApplication/QCoreApplication.md)    | [froser](https://github.com/froser)        | 编写中 | 占位中，待填充，截止时间2020-08-15 |
+| [QCoreApplication](Src/C/QCoreApplication/QCoreApplication.md)    | [froser](https://github.com/froser)        | 编写中 | 占位中，待填充，截止时间2020-09-15 |
 | [QWebEngineView](Src/W/QWebEngineView/QWebEngineView.md) |[ruihuanming](https://github.com/hqwx2018)|**待完善**|已完成|
 | [QWebEngineHistory](Src/W/QWebEngineHistory/QWebEngineHistory.md) |[ruihuanming](https://github.com/hqwx2018)|**待完善**|已完成|
 | [QWebEngineHistoryItem](Src/W/QWebEngineHistoryItem/QWebEngineHistoryItem.md) | [ruihuanming](https://github.com/hqwx2018) | **待完善** | 已完成 |

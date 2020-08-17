@@ -1,9 +1,12 @@
 # Logo 设计
 
+方形图标：
 ![Logo_green](Logo_green.drawio.svg)
 ![Logo](Logo.drawio.svg)
 ![Logo_green_no_question](Logo_green_no_question.drawio.svg)
 ![Logo_no_question](Logo_no_question.drawio.svg)
+
+圆形图标：
 ![Logo_green_round](Logo_green_round.drawio.svg)
 
 
