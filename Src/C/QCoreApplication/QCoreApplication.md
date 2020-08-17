@@ -1,4 +1,4 @@
-Reserved by froser until 2020-08-15
+Reserved by froser until 2020-09-15
 
 [TOC]
 
@@ -348,7 +348,7 @@ connect(quitButton, &QPushButton::clicked, &app, &QCoreApplication::quit, Qt::Qu
 
 ### bool QCoreApplication::event([QEvent](../../E/QEvent/QEvent.md) **e*) [override virtual protected]
 
-重载：[QObject::event]()(QEvent* e)。
+重写了：[QObject::event]()(QEvent* e)。
 
 
 
@@ -483,17 +483,17 @@ foreach (const QString &path, app.libraryPaths())
 
 对于一些特定的事件（如鼠标、键盘事件），如果事件处理器不处理此事件（也就是它返回*false*），那么事件会被逐级派发到对象的父亲，一直派发到顶层对象。
 
-处理事件有5种不同的方式：重载虚函数只是其中一种。所有的五种途径如下所示：
+处理事件有5种不同的方式：重写虚函数只是其中一种。所有的五种途径如下所示：
 
-1. 重载[paintEvent]()()，[mousePressEvent]()()等。这个是最通用、最简单但最不强大的一种方法。
-2. 重载此函数。这非常强大，提供了完全控制，但是一次只能激活一个子类。
-3. 将一个事件过滤器安装到[QCoreApplication](./QCoreApplication.md)。这样的一个事件过滤器可以处理所有窗体的所有事件，就像是重载了notify()函数这样强大。此外，您还可以提供多个应用级别全局的事件过滤器。全局事件过滤器甚至可以接收到那些[不可用窗体]()的鼠标事件。注意程序的事件过滤器仅能响应主线程中的对象。
-4. 重载[QObject::event]()()（就像[QWidget](../../W/QWidget/QWidget.md)那样）。如果您是这样做的，您可以接收到Tab按键，及您可以在任何特定窗体的事件过滤器被调用之前接收到事件。
+1. 重写[paintEvent]()()，[mousePressEvent]()()等。这个是最通用、最简单但最不强大的一种方法。
+2. 重些此函数。这非常强大，提供了完全控制，但是一次只能激活一个子类。
+3. 将一个事件过滤器安装到[QCoreApplication](./QCoreApplication.md)。这样的一个事件过滤器可以处理所有窗体的所有事件，就像是重写了notify()函数这样强大。此外，您还可以提供多个应用级别全局的事件过滤器。全局事件过滤器甚至可以接收到那些[不可用窗体]()的鼠标事件。注意程序的事件过滤器仅能响应主线程中的对象。
+4. 重写[QObject::event]()()（就像[QWidget](../../W/QWidget/QWidget.md)那样）。如果您是这样做的，您可以接收到Tab按键，及您可以在任何特定窗体的事件过滤器被调用之前接收到事件。
 5. 在对象上安装事件过滤器。这样的事件过滤器将可以收到所有事件，包括Tab和Shift+Tab事件——只要它们不更改窗体的焦点。
 
 **未来规划**：在Qt 6中，这个函数不会响应主线程之外的对象。需要该功能的应用程序应同时为其事件检查需求找到其他解决方案。该更改可能会扩展到主线程，因此不建议使用此功能。
 
-**注意**：如果您重载此函数，在您的应用程序开始析构之前，您必须保证所有正在处理事件的线程停止处理事件。这包括了您可能在用的其他库所创建的线程，但是不适用于Qt自己的线程。
+**注意**：如果您重写此函数，在您的应用程序开始析构之前，您必须保证所有正在处理事件的线程停止处理事件。这包括了您可能在用的其他库所创建的线程，但是不适用于Qt自己的线程。
 
 **另请参阅**：[QObject::event]()()和[installNativeEventFilter]()()。
 
@@ -541,7 +541,7 @@ foreach (const QString &path, app.libraryPaths())
 
 ### void QCoreApplication::processEvents([QEventLoop::ProcessEventsFlags](https://doc.qt.io/qt-5/qeventloop.html#ProcessEventsFlag-enum) *flags* = QEventLoop::AllEvents, int *ms*) [static]
 
-此函数重载了processEvents()。
+此函数重写了processEvents()。
 
 此函数将用*ms*毫秒为调用线程处理待处理的事件，或者直到没有更多事件需要处理。
 
@@ -549,9 +549,7 @@ foreach (const QString &path, app.libraryPaths())
 
 此函数只处理调用线程的事件。
 
-**注意**：不像[processEvents]()()重载，这个函数同样也处理当函数正在运行中时被投送的事件。
-
-**注意**：此函数是[线程安全]()的。
+**注意**：不像[processEvents]()()的重写，这个函数同样也处理当函数正在运行中时被投送的事件。)，QTimer，QEventLoop::processEvents()。
 
 **另请参阅**：[exec]()()，[QTimer](../../T/QTimer/QTimer.md)，[QEventLoop::processEvents]()()。
 
