@@ -1372,19 +1372,15 @@ bool DragDropListModel::dropMimeData(const QMimeData *data,
 
 要提供对模型数据的只读访问，必须在模型的子类中实现以下功能：
 
-<div class="table">
-<table class="generic" width="70%">
-<tbody><tr class="odd" valign="top">
-<td>
-<a href="qabstractitemmodel.html#flags">flags()</a></td><td>用于其他组件来获取有关模型提供的每个项目的信息。在许多模型中，标志的组合应包括 <a href="">Qt::ItemIsEnabled</a> 和 <a hreaf="">Qt::ItemIsSelectable</a>。
-</td></tr>
-<tr class="even" valign="top"><td><a href="qabstractitemmodel.html#data">data()</a></td><td>用于向视图和委托提供项目数据。通常，模型只需要为 <a hreaf="">Qt::DisplayRole</a> 和任何特定应用程序的用户角色提供数据，但是为 <a hreaf="">Qt::DisplayRole</a>[Qt::ToolTipRole]，<a hreaf="">Qt::AccessibleTextRole</a> 和 <a hreaf="">Qt::AccessibleDescriptionRole</a> 提供数据也是一种好习惯。有关与每个角色关联的类型的信息，请参见 <a hreaf="">Qt::ItemDataRole</a> 枚举文档。
-</td></tr>
+<div class="table"><table class="generic" width="70%">
+<tbody><tr class="odd" valign="top"><td><a href="qabstractitemmodel.html#flags">flags()</a></td><td>用于其他组件来获取有关模型提供的每个项目的信息。在许多模型中，标志的组合应包括 <a href="qt.html#ItemFlag-enum">Qt::ItemIsEnabled</a> 和 <a href="qt.html#ItemFlag-enum">Qt::ItemIsSelectable</a>。</td></tr>
+
+<tr class="even" valign="top"><td><a href="qabstractitemmodel.html#data">data()</a></td><td>用于向视图和委托提供项目数据。通常，模型只需要为 <a hreaf="">Qt::DisplayRole</a> 和任何特定应用程序的用户角色提供数据，但是为 <a href="qt.html#ItemDataRole-enum">Qt::DisplayRole</a> 、 <a href="qt.html#ItemDataRole-enum">Qt::ToolTipRole</a> 、 <a href="qt.html#ItemDataRole-enum">Qt::AccessibleTextRole</a> 和 <a href="qt.html#ItemDataRole-enum">Qt::AccessibleDescriptionRole</a> 提供数据也是一种好习惯。 有关与每个角色关联的类型的信息，请参见 <a href="qt.html#ItemDataRole-enum">Qt::ItemDataRole</a> 枚举文档。</td></tr>
+
 <tr class="odd" valign="top"><td><a href="qabstractitemmodel.html#headerData">headerData()</a></td><td>提供有关标题的数据信息。该信息仅由可显示标题信息的视图检索。</td></tr>
+
 <tr class="even" valign="top"><td><a href="qabstractitemmodel.html#rowCount">rowCount()</a></td><td>提供模型公开的数据行数。</td></tr>
-</tbody>
-</table>
-</div>
+</tbody></table></div>
 
 这四个函数必须在所有类型的模型中实现，包括列表模型（ [QAbstractListModel]() 子类）和表模型（ [QAbstractTableModel]() 子类）。
 
