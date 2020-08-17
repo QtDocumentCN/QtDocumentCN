@@ -12,7 +12,7 @@ QFile 类提供读写文件的接口。
 - [包含继承成员的成员列表](https://doc.qt.io/qt-5/qfile-members.html)
 - [废弃的成员](https://doc.qt.io/qt-5/qfile-obsolete.html)
 
-**注意：** 类中所有函数都是 [可重入的](https://doc.qt.io/qt-5/threads-reentrancy.html).
+**注意：** 类中所有函数都是 [可重入的](https://doc.qt.io/qt-5/threads-reentrancy.html)。
 
 
 
@@ -194,143 +194,181 @@ QString myDecoderFunc(const QByteArray &localFileName);
 
 
 
-## Member Function Documentation
+## 成员函数文档
 
 ### QFile::QFile(const [QString](https://doc.qt.io/qt-5/qstring.html) &*name*, [QObject](https://doc.qt.io/qt-5/qobject.html#QObject) **parent*)
 
-Constructs a new file object with the given *parent* to represent the file with the specified *name*.
+构造基于给定的父对象 *parent* 、文件名 *name* 指定的QFile对象。
+
+
 
 ### QFile::QFile([QObject](https://doc.qt.io/qt-5/qobject.html#QObject) **parent*)
 
-Constructs a new file object with the given *parent*.
+构造基于给定的父对象 *parent* 的QFile对象。
+
+
 
 ### QFile::QFile(const [QString](https://doc.qt.io/qt-5/qstring.html) &*name*)
 
-Constructs a new file object to represent the file with the given *name*.
+构造文件名 *name* 指定的QFile对象。
+
+
 
 ### QFile::QFile()
 
-Constructs a QFile object.
+构造一个QFile对象。
+
+
 
 ### `[virtual]`QFile::~QFile()
 
-Destroys the file object, closing it if necessary.
+销毁此QFile对象，如需要会自动关闭文件。
+
+
 
 ### bool QFile::copy(const [QString](https://doc.qt.io/qt-5/qstring.html) &*newName*)
 
-Copies the file currently specified by [fileName](https://doc.qt.io/qt-5/qfile.html#fileName)() to a file called *newName*. Returns `true` if successful; otherwise returns `false`.
+将当前 [fileName](https://doc.qt.io/qt-5/qfile.html#fileName)() 指定的文件复制为文件名 *newName* 指定的文件。如果成功，返回 `true` ；否则返回 `false`。
 
-Note that if a file with the name *newName* already exists, copy() returns `false` (i.e. [QFile](https://doc.qt.io/qt-5/qfile.html) will not overwrite it).
+注意如果 *newName* 文件名的文件已存在，函数不会覆盖，直接返回 `false` 。
 
-The source file is closed before it is copied.
+源文件会在复制前关闭。
 
 **另请参见** [setFileName](https://doc.qt.io/qt-5/qfile.html#setFileName)().
+
+
 
 ### `[static]`bool QFile::copy(const [QString](https://doc.qt.io/qt-5/qstring.html) &*fileName*, const [QString](https://doc.qt.io/qt-5/qstring.html) &*newName*)
 
-This is an overloaded function.
+这是一个重载函数。
 
-Copies the file *fileName* to *newName*. Returns `true` if successful; otherwise returns `false`.
+将文件 *fileName* 复制为文件名 *newName*。如果成功，返回 `true` ；否则返回 `false`。
 
-If a file with the name *newName* already exists, copy() returns `false` (i.e., [QFile](https://doc.qt.io/qt-5/qfile.html) will not overwrite it).
+注意如果 *newName* 文件名的文件已存在，函数不会覆盖，直接返回 `false` 。
 
 **另请参见** [rename](https://doc.qt.io/qt-5/qfile.html#rename)().
 
+
+
 ### `[static]`[QString](https://doc.qt.io/qt-5/qstring.html) QFile::decodeName(const [QByteArray](https://doc.qt.io/qt-5/qbytearray.html) &*localFileName*)
 
-This does the reverse of [QFile::encodeName](https://doc.qt.io/qt-5/qfile.html#encodeName)() using *localFileName*.
+和 [QFile::encodeName](https://doc.qt.io/qt-5/qfile.html#encodeName)() 操作恰恰相反。返回 *localFileName* 的Unicode形式。
 
 **另请参见** [encodeName](https://doc.qt.io/qt-5/qfile.html#encodeName)().
 
+
+
 ### `[static]`[QString](https://doc.qt.io/qt-5/qstring.html) QFile::decodeName(const char **localFileName*)
 
-This is an overloaded function.
+这是一个重载函数。返回 *localFileName* 的Unicode形式。
 
-Returns the Unicode version of the given *localFileName*. See [encodeName](https://doc.qt.io/qt-5/qfile.html#encodeName)() for details.
+详情参见 [encodeName](https://doc.qt.io/qt-5/qfile.html#encodeName)() 。
+
+
 
 ### `[static]`[QByteArray](https://doc.qt.io/qt-5/qbytearray.html) QFile::encodeName(const [QString](https://doc.qt.io/qt-5/qstring.html) &*fileName*)
 
-Converts *fileName* to the local 8-bit encoding determined by the user's locale. This is sufficient for file names that the user chooses. File names hard-coded into the application should only use 7-bit ASCII filename characters.
+基于用户区域设置，将 *fileName* 转换为本地的8为表示。这对于用户选择的文件名足够使用。硬编码到程序中的文件名应当只使用7位ASCII字符。
 
 **另请参见** [decodeName](https://doc.qt.io/qt-5/qfile.html#decodeName)().
 
+
+
 ### `[static]`bool QFile::exists(const [QString](https://doc.qt.io/qt-5/qstring.html) &*fileName*)
 
-Returns `true` if the file specified by *fileName* exists; otherwise returns `false`.
+如果 *fileName* 对应的文件存在，返回 `true` 否则返回 `false`。
 
-**注意：** If *fileName* is a symlink that points to a non-existing file, false is returned.
+**注意：** 如果 *fileName* 是指向不存在文件的符号链接，返回 `false`。
+
+
 
 ### bool QFile::exists() const
 
-This is an overloaded function.
+这是一个重载函数。
 
-Returns `true` if the file specified by [fileName](https://doc.qt.io/qt-5/qfile.html#fileName)() exists; otherwise returns `false`.
+如果  [fileName](https://doc.qt.io/qt-5/qfile.html#fileName)() 对应的文件存在，返回 `true` 否则返回 `false`。
 
 **另请参见** [fileName](https://doc.qt.io/qt-5/qfile.html#fileName)() and [setFileName](https://doc.qt.io/qt-5/qfile.html#setFileName)().
 
+
+
 ### `[override virtual]`[QString](https://doc.qt.io/qt-5/qstring.html) QFile::fileName() const
 
-Reimplements: [QFileDevice::fileName](https://doc.qt.io/qt-5/qfiledevice.html#fileName)() const.
+重写函数： [QFileDevice::fileName](https://doc.qt.io/qt-5/qfiledevice.html#fileName)() const.
 
-Returns the name set by [setFileName](https://doc.qt.io/qt-5/qfile.html#setFileName)() or to the [QFile](https://doc.qt.io/qt-5/qfile.html) constructors.
+返回 [setFileName](https://doc.qt.io/qt-5/qfile.html#setFileName)() 或构造函数设置的文件名。
 
 **另请参见** [setFileName](https://doc.qt.io/qt-5/qfile.html#setFileName)() and [QFileInfo::fileName](https://doc.qt.io/qt-5/qfileinfo.html#fileName)().
 
+
+
 ### bool QFile::link(const [QString](https://doc.qt.io/qt-5/qstring.html) &*linkName*)
 
-Creates a link named *linkName* that points to the file currently specified by [fileName](https://doc.qt.io/qt-5/qfile.html#fileName)(). What a link is depends on the underlying filesystem (be it a shortcut on Windows or a symbolic link on Unix). Returns `true` if successful; otherwise returns `false`.
+创建一个名为 *linkName* 的、指向 [fileName](https://doc.qt.io/qt-5/qfile.html#fileName)() 文件的链接。链接的形式取决于底层文件系统（Windows上的快捷方式或Linux下的符号链接symlink）。如果成功，返回 `true` ；返回 `false`。
 
-This function will not overwrite an already existing entity in the file system; in this case, `link()` will return false and set [error()](https://doc.qt.io/qt-5/qfiledevice.html#error) to return [RenameError](https://doc.qt.io/qt-5/qfiledevice.html#FileError-enum).
+此函数不会覆盖文件系统上已经存在的链接；如果已存在，`link()` 将返回 `false` 并设置 [error()](https://doc.qt.io/qt-5/qfiledevice.html#error) 为 [RenameError](https://doc.qt.io/qt-5/qfiledevice.html#FileError-enum)。
 
-**注意：** To create a valid link on Windows, *linkName* must have a `.lnk` file extension.
+**注意：** 对于Windows平台，一个合法的链接名称必须包含 `.lnk` 后缀名。
 
 **另请参见** [setFileName](https://doc.qt.io/qt-5/qfile.html#setFileName)().
 
+
+
 ### `[static]`bool QFile::link(const [QString](https://doc.qt.io/qt-5/qstring.html) &*fileName*, const [QString](https://doc.qt.io/qt-5/qstring.html) &*linkName*)
 
-This is an overloaded function.
+这是一个重载函数。
 
-Creates a link named *linkName* that points to the file *fileName*. What a link is depends on the underlying filesystem (be it a shortcut on Windows or a symbolic link on Unix). Returns `true` if successful; otherwise returns `false`.
+创建一个名为 *linkName* 的、指向 *fileName* 文件的链接。链接的形式取决于底层文件系统（Windows上的快捷方式或Linux下的符号链接symlink）。如果成功，返回 `true` ；否则返回 `false`。
 
 **另请参见** [link](https://doc.qt.io/qt-5/qfile.html#link)().
 
+
+
 ### bool QFile::moveToTrash()
 
-Moves the file specified by [fileName](https://doc.qt.io/qt-5/qfile.html#fileName)() to the trash. Returns `true` if successful, and sets the [fileName](https://doc.qt.io/qt-5/qfile.html#fileName)() to the path at which the file can be found within the trash; otherwise returns `false`.
+将 [fileName](https://doc.qt.io/qt-5/qfile.html#fileName)() 文件移入回收站。如果成功返回 `true` ，并将 [fileName](https://doc.qt.io/qt-5/qfile.html#fileName)() 设置为回收站中对应文件的路径；否则返回 `false`。
 
-**注意：** On systems where the system API doesn't report the location of the file in the trash, [fileName](https://doc.qt.io/qt-5/qfile.html#fileName)() will be set to the null string once the file has been moved. On systems that don't have a trash can, this function always returns false.
+**注意：** 在API不能返回回收站中文件的路径的操作系统中，一旦文件被移动 [fileName](https://doc.qt.io/qt-5/qfile.html#fileName)() 会被设置为空字符串。在没有回收站的操作系统，此函数总返回 `false`。
 
-This function was introduced in Qt 5.15.
+此函数引入自： Qt 5.15.
+
+
 
 ### `[static]`bool QFile::moveToTrash(const [QString](https://doc.qt.io/qt-5/qstring.html) &*fileName*, [QString](https://doc.qt.io/qt-5/qstring.html) **pathInTrash* = nullptr)
 
-This is an overloaded function.
+这是一个重载函数。
 
-Moves the file specified by [fileName](https://doc.qt.io/qt-5/qfile.html#fileName)() to the trash. Returns `true` if successful, and sets *pathInTrash* (if provided) to the path at which the file can be found within the trash; otherwise returns `false`.
+将 *fileName* 文件移入回收站。如果成功返回 `true` ，并将 **pathInTrash* 设置为回收站中对应文件的路径字符串的指针；否则返回 `false`。
 
-**注意：** On systems where the system API doesn't report the path of the file in the trash, *pathInTrash* will be set to the null string once the file has been moved. On systems that don't have a trash can, this function always returns false.
+**注意：**  在API不能返回回收站中文件的路径的操作系统中，一旦文件被移动 **pathInTrash* 会被设置为空字符串。在没有回收站的操作系统，此函数总返回 `false`。
 
-This function was introduced in Qt 5.15.
+此函数引入自： Qt 5.15.
+
+
 
 ### `[override virtual]`bool QFile::open([QIODevice::OpenMode](https://doc.qt.io/qt-5/qiodevice.html#OpenModeFlag-enum) *mode*)
 
-Reimplements: [QIODevice::open](https://doc.qt.io/qt-5/qiodevice.html#open)(QIODevice::OpenMode mode).
+重写函数： [QIODevice::open](https://doc.qt.io/qt-5/qiodevice.html#open)(QIODevice::OpenMode mode)。
 
-Opens the file using [OpenMode](https://doc.qt.io/qt-5/qiodevice.html#OpenModeFlag-enum) *mode*, returning true if successful; otherwise false.
+使用 [OpenMode](https://doc.qt.io/qt-5/qiodevice.html#OpenModeFlag-enum) *mode* 模式打开文件，如果成功，返回 `true` ；否则返回 `false`。
 
-The *mode* must be [QIODevice::ReadOnly](https://doc.qt.io/qt-5/qiodevice.html#OpenModeFlag-enum), [QIODevice::WriteOnly](https://doc.qt.io/qt-5/qiodevice.html#OpenModeFlag-enum), or [QIODevice::ReadWrite](https://doc.qt.io/qt-5/qiodevice.html#OpenModeFlag-enum). It may also have additional flags, such as [QIODevice::Text](https://doc.qt.io/qt-5/qiodevice.html#OpenModeFlag-enum) and [QIODevice::Unbuffered](https://doc.qt.io/qt-5/qiodevice.html#OpenModeFlag-enum).
+模式 *mode* 必须是 [QIODevice::ReadOnly](https://doc.qt.io/qt-5/qiodevice.html#OpenModeFlag-enum), [QIODevice::WriteOnly](https://doc.qt.io/qt-5/qiodevice.html#OpenModeFlag-enum), 或 [QIODevice::ReadWrite](https://doc.qt.io/qt-5/qiodevice.html#OpenModeFlag-enum)。也可以有附加flags，例如 [QIODevice::Text](https://doc.qt.io/qt-5/qiodevice.html#OpenModeFlag-enum) 和 [QIODevice::Unbuffered](https://doc.qt.io/qt-5/qiodevice.html#OpenModeFlag-enum)。
 
-**注意：** In [WriteOnly](https://doc.qt.io/qt-5/qiodevice.html#OpenModeFlag-enum) or [ReadWrite](https://doc.qt.io/qt-5/qiodevice.html#OpenModeFlag-enum) mode, if the relevant file does not already exist, this function will try to create a new file before opening it.
+**注意：** 在 [WriteOnly](https://doc.qt.io/qt-5/qiodevice.html#OpenModeFlag-enum) 或 [ReadWrite](https://doc.qt.io/qt-5/qiodevice.html#OpenModeFlag-enum) 模式，如果相关文件不存在，此函数会尝试在打开前新建。
+
+
 
 **另请参见** [QIODevice::OpenMode](https://doc.qt.io/qt-5/qiodevice.html#OpenModeFlag-enum) and [setFileName](https://doc.qt.io/qt-5/qfile.html#setFileName)().
 
+
+
 ### bool QFile::open(FILE **fh*, [QIODevice::OpenMode](https://doc.qt.io/qt-5/qiodevice.html#OpenModeFlag-enum) *mode*, [QFileDevice::FileHandleFlags](https://doc.qt.io/qt-5/qfiledevice.html#FileHandleFlag-enum) *handleFlags* = DontCloseHandle)
 
-This is an overloaded function.
+这是一个重载函数。
 
-Opens the existing file handle *fh* in the given *mode*. *handleFlags* may be used to specify additional options. Returns `true` if successful; otherwise returns `false`.
+使用给出的模式 *mode* 打开已有的文件句柄 *fh*。*handleFlags* 可能会被用于指定附加选项。如果成功，返回 `true` ；否则返回 `false`。
 
-Example:
+例如：
 
 ```
 #include <stdio.h>
@@ -339,170 +377,206 @@ void printError(const char* msg)
 {
     QFile file;
     file.open(stderr, QIODevice::WriteOnly);
-    file.write(msg, qstrlen(msg));        // write to stderr
+    file.write(msg, qstrlen(msg));        // 写入 stderr
     file.close();
 }
 ```
 
-When a [QFile](https://doc.qt.io/qt-5/qfile.html) is opened using this function, behaviour of [close](https://doc.qt.io/qt-5/qfiledevice.html#close)() is controlled by the [AutoCloseHandle](https://doc.qt.io/qt-5/qfiledevice.html#FileHandleFlag-enum) flag. If [AutoCloseHandle](https://doc.qt.io/qt-5/qfiledevice.html#FileHandleFlag-enum) is specified, and this function succeeds, then calling [close](https://doc.qt.io/qt-5/qfiledevice.html#close)() closes the adopted handle. Otherwise, [close](https://doc.qt.io/qt-5/qfiledevice.html#close)() does not actually close the file, but only flushes it.
+当一个 [QFile](https://doc.qt.io/qt-5/qfile.html) 通过此函数被被打开，[close](https://doc.qt.io/qt-5/qfiledevice.html#close)() 的行为由 [AutoCloseHandle](https://doc.qt.io/qt-5/qfiledevice.html#FileHandleFlag-enum) flag决定。如果指定了 [AutoCloseHandle](https://doc.qt.io/qt-5/qfiledevice.html#FileHandleFlag-enum) ，且此函数执行成功，那么 [close](https://doc.qt.io/qt-5/qfiledevice.html#close)() 会关闭传入的句柄。否则，[close](https://doc.qt.io/qt-5/qfiledevice.html#close)() 不会关闭文件，只会刷新数据(flush)。
 
-**Warning:**
+**警告：**
 
-1. If *fh* does not refer to a regular file, 例如, it is `stdin`, `stdout`, or `stderr`, you may not be able to [seek](https://doc.qt.io/qt-5/qfiledevice.html#seek)(). [size](https://doc.qt.io/qt-5/qfile.html#size)() returns `0` in those cases. See [QIODevice::isSequential](https://doc.qt.io/qt-5/qiodevice.html#isSequential)() for more information.
-2. Since this function opens the file without specifying the file name, you cannot use this [QFile](https://doc.qt.io/qt-5/qfile.html) with a [QFileInfo](https://doc.qt.io/qt-5/qfileinfo.html).
+1. 如果 *fh* 并非指向常规文件，例如 `stdin`, `stdout`, 或 `stderr`，你可能不能够使用 [seek](https://doc.qt.io/qt-5/qfiledevice.html#seek)()，且[size](https://doc.qt.io/qt-5/qfile.html#size)() 返回0。详见 [QIODevice::isSequential](https://doc.qt.io/qt-5/qiodevice.html#isSequential)()。
+2. 由于使用此函数打开的文件没有指定文件名，你不能通过 [QFileInfo](https://doc.qt.io/qt-5/qfileinfo.html) 读取相关信息。
 
-**Note for the Windows Platform**
+**Windows平台的注意事项**
 
-*fh* must be opened in binary mode (i.e., the mode string must contain 'b', as in "rb" or "wb") when accessing files and other random-access devices. Qt will translate the end-of-line characters if you pass [QIODevice::Text](https://doc.qt.io/qt-5/qiodevice.html#OpenModeFlag-enum) to *mode*. Sequential devices, such as stdin and stdout, are unaffected by this limitation.
+当访问文件或其他随机存取设备时，*fh* 必须以二进制模式打开（也就是 `fopen()` 的模式串必须包含'b'）。Qt 会转换行末字节如果您指定 [QIODevice::Text](https://doc.qt.io/qt-5/qiodevice.html#OpenModeFlag-enum) 给 *mode*。顺序读取设备，例如标准输入输出，不受此限制影响。
 
-You need to enable support for console applications in order to use the stdin, stdout and stderr streams at the console. To do this, add the following declaration to your application's project file:
+您需要启用控制台应用支持，才能在控制台使用标准输入输出。要启用，可以在项目文件中加入：
 
 ```
 CONFIG += console
 ```
 
+
+
 **另请参见** [close](https://doc.qt.io/qt-5/qfiledevice.html#close)().
+
+
 
 ### bool QFile::open(int *fd*, [QIODevice::OpenMode](https://doc.qt.io/qt-5/qiodevice.html#OpenModeFlag-enum) *mode*, [QFileDevice::FileHandleFlags](https://doc.qt.io/qt-5/qfiledevice.html#FileHandleFlag-enum) *handleFlags* = DontCloseHandle)
 
-This is an overloaded function.
+这是一个重载函数。
 
-Opens the existing file descriptor *fd* in the given *mode*. *handleFlags* may be used to specify additional options. Returns `true` if successful; otherwise returns `false`.
+使用给出的模式 *mode* 打开已有的文件描述符 *fh*。*handleFlags* 可能会被用于指定附加选项。如果成功，返回 `true` ；否则返回 `false`。
 
-When a [QFile](https://doc.qt.io/qt-5/qfile.html) is opened using this function, behaviour of [close](https://doc.qt.io/qt-5/qfiledevice.html#close)() is controlled by the [AutoCloseHandle](https://doc.qt.io/qt-5/qfiledevice.html#FileHandleFlag-enum) flag. If [AutoCloseHandle](https://doc.qt.io/qt-5/qfiledevice.html#FileHandleFlag-enum) is specified, and this function succeeds, then calling [close](https://doc.qt.io/qt-5/qfiledevice.html#close)() closes the adopted handle. Otherwise, [close](https://doc.qt.io/qt-5/qfiledevice.html#close)() does not actually close the file, but only flushes it.
+当一个 [QFile](https://doc.qt.io/qt-5/qfile.html) 通过此函数被被打开，[close](https://doc.qt.io/qt-5/qfiledevice.html#close)() 的行为由 [AutoCloseHandle](https://doc.qt.io/qt-5/qfiledevice.html#FileHandleFlag-enum) flag决定。如果指定了 [AutoCloseHandle](https://doc.qt.io/qt-5/qfiledevice.html#FileHandleFlag-enum) ，且此函数执行成功，那么 [close](https://doc.qt.io/qt-5/qfiledevice.html#close)() 会关闭传入的句柄。否则，[close](https://doc.qt.io/qt-5/qfiledevice.html#close)() 不会关闭文件，只会刷新数据(flush)。
 
-The [QFile](https://doc.qt.io/qt-5/qfile.html) that is opened using this function is automatically set to be in raw mode; this means that the file input/output functions are slow. If you run into performance issues, you should try to use one of the other open functions.
+通过此函数打开的文件会被自动设置为 `raw` 模式；这意味着文件I/O函数会很慢。如果您遇到了性能问题，可以尝试其他 `open()` 函数。
 
-**Warning:** If *fd* is not a regular file, e.g, it is 0 (`stdin`), 1 (`stdout`), or 2 (`stderr`), you may not be able to [seek](https://doc.qt.io/qt-5/qfiledevice.html#seek)(). In those cases, [size](https://doc.qt.io/qt-5/qfile.html#size)() returns `0`. See [QIODevice::isSequential](https://doc.qt.io/qt-5/qiodevice.html#isSequential)() for more information.
+**警告：** 
 
-**Warning:** Since this function opens the file without specifying the file name, you cannot use this [QFile](https://doc.qt.io/qt-5/qfile.html) with a [QFileInfo](https://doc.qt.io/qt-5/qfileinfo.html).
+1. 如果 *fd* 不是一个常规文件，例如 0 (`stdin`), 1 (`stdout`), 或 2 (`stderr`)，你可能不能够使用 [seek](https://doc.qt.io/qt-5/qfiledevice.html#seek)()，且[size](https://doc.qt.io/qt-5/qfile.html#size)() 返回0。详见 [QIODevice::isSequential](https://doc.qt.io/qt-5/qiodevice.html#isSequential)()。
+
+2. 由于使用此函数打开的文件没有指定文件名，你不能通过 [QFileInfo](https://doc.qt.io/qt-5/qfileinfo.html) 读取相关信息。
 
 **另请参见** [close](https://doc.qt.io/qt-5/qfiledevice.html#close)().
 
+
+
 ### `[override virtual]`[QFileDevice::Permissions](https://doc.qt.io/qt-5/qfiledevice.html#Permission-enum) QFile::permissions() const
 
-Reimplements: [QFileDevice::permissions](https://doc.qt.io/qt-5/qfiledevice.html#permissions)() const.
+重写函数： [QFileDevice::permissions](https://doc.qt.io/qt-5/qfiledevice.html#permissions)() const.
 
 **另请参见** [setPermissions](https://doc.qt.io/qt-5/qfile.html#setPermissions)().
 
+
+
 ### `[static]`[QFileDevice::Permissions](https://doc.qt.io/qt-5/qfiledevice.html#Permission-enum) QFile::permissions(const [QString](https://doc.qt.io/qt-5/qstring.html) &*fileName*)
 
-This is an overloaded function.
+这是一个重载函数。
 
-Returns the complete OR-ed together combination of [QFile::Permission](https://doc.qt.io/qt-5/qfiledevice.html#Permission-enum) for *fileName*.
+返回 *fileName* 文件经 OR（位或）后的权限 [QFile::Permission](https://doc.qt.io/qt-5/qfiledevice.html#Permission-enum) 组合。
+
+
 
 ### bool QFile::remove()
 
-Removes the file specified by [fileName](https://doc.qt.io/qt-5/qfile.html#fileName)(). Returns `true` if successful; otherwise returns `false`.
+删除文件名 [fileName](https://doc.qt.io/qt-5/qfile.html#fileName)() 的文件。
 
-The file is closed before it is removed.
+如果成功，返回 `true` ；否则返回 `false`。
+
+文件会在删除前关闭。
 
 **另请参见** [setFileName](https://doc.qt.io/qt-5/qfile.html#setFileName)().
+
+
 
 ### `[static]`bool QFile::remove(const [QString](https://doc.qt.io/qt-5/qstring.html) &*fileName*)
 
-This is an overloaded function.
+这是一个重载函数。
 
-Removes the file specified by the *fileName* given.
+删除文件名 *fileName* 的文件。
 
-Returns `true` if successful; otherwise returns `false`.
+如果成功，返回 `true` ；否则返回 `false`。
 
 **另请参见** [remove](https://doc.qt.io/qt-5/qfile.html#remove)().
 
+
+
 ### bool QFile::rename(const [QString](https://doc.qt.io/qt-5/qstring.html) &*newName*)
 
-Renames the file currently specified by [fileName](https://doc.qt.io/qt-5/qfile.html#fileName)() to *newName*. Returns `true` if successful; otherwise returns `false`.
+把文件 [fileName](https://doc.qt.io/qt-5/qfile.html#fileName)() 重命名为 *newName*。如果成功，返回 `true` ；否则返回 `false`。
 
-If a file with the name *newName* already exists, rename() returns `false` (i.e., [QFile](https://doc.qt.io/qt-5/qfile.html) will not overwrite it).
+注意如果 *newName* 文件名的文件已存在，函数不会覆盖，直接返回 `false` 。
 
-The file is closed before it is renamed.
+文件在重命名前关闭。
 
-If the rename operation fails, Qt will attempt to copy this file's contents to *newName*, and then remove this file, keeping only *newName*. If that copy operation fails or this file can't be removed, the destination file *newName* is removed to restore the old state.
+如果直接重命名失败，Qt会尝试拷贝数据到 *newName* 新文件并删除旧文件来实现重命名。如果拷贝或删除失败，Qt会撤回新文件创建，返回原先状态。
 
 **另请参见** [setFileName](https://doc.qt.io/qt-5/qfile.html#setFileName)().
 
+
+
 ### `[static]`bool QFile::rename(const [QString](https://doc.qt.io/qt-5/qstring.html) &*oldName*, const [QString](https://doc.qt.io/qt-5/qstring.html) &*newName*)
 
-This is an overloaded function.
+这是一个重载函数。
 
-Renames the file *oldName* to *newName*. Returns `true` if successful; otherwise returns `false`.
+把文件 *oldName* 重命名为 *newName*。如果成功，返回 `true` ；否则返回 `false`。
 
-If a file with the name *newName* already exists, rename() returns `false` (i.e., [QFile](https://doc.qt.io/qt-5/qfile.html) will not overwrite it).
+注意如果 *newName* 文件名的文件已存在，函数不会覆盖，直接返回 `false` 。
 
 **另请参见** [rename](https://doc.qt.io/qt-5/qfile.html#rename)().
 
+
+
 ### `[override virtual]`bool QFile::resize([qint64](https://doc.qt.io/qt-5/qtglobal.html#qint64-typedef) *sz*)
 
-Reimplements: [QFileDevice::resize](https://doc.qt.io/qt-5/qfiledevice.html#resize)(qint64 sz).
+重写函数： [QFileDevice::resize](https://doc.qt.io/qt-5/qfiledevice.html#resize)(qint64 sz).
+
+
 
 ### `[static]`bool QFile::resize(const [QString](https://doc.qt.io/qt-5/qstring.html) &*fileName*, [qint64](https://doc.qt.io/qt-5/qtglobal.html#qint64-typedef) *sz*)
 
-This is an overloaded function.
+这是一个重载函数。
 
-Sets *fileName* to size (in bytes) *sz*. Returns `true` if the resize succeeds; false otherwise. If *sz* is larger than *fileName* currently is the new bytes will be set to 0, if *sz* is smaller the file is simply truncated.
+这是文件名 *fileName* 文件的大小为 *sz* 字节。如果修改大小成功返回 `true`，否则返回 `false`。如果 *sz* 比当前文件大小大，后面的数据会填充0；如果 *sz* 比当前文件大小小，会裁剪文件数据。
 
-**Warning:** This function can fail if the file doesn't exist.
+**警告：** 如果文件不存在，调用会失败。
 
 **另请参见** [resize](https://doc.qt.io/qt-5/qfile.html#resize)().
 
+
+
 ### void QFile::setFileName(const [QString](https://doc.qt.io/qt-5/qstring.html) &*name*)
 
-Sets the *name* of the file. The name can have no path, a relative path, or an absolute path.
+设置文件名 *name*。名称可以不包含目录，包含相对目录或绝对目录。
 
-Do not call this function if the file has already been opened.
+请不要在文件已经打开后调用此函数。
 
-If the file name has no path or a relative path, the path used will be the application's current directory path *at the time of the [open](https://doc.qt.io/qt-5/qfile.html#open)()* call.
+如果文件名不包含路径，或者是相对路径，路径会基于应用程序调用 [open](https://doc.qt.io/qt-5/qfile.html#open)() 时的当前路径。
 
-Example:
+例如：
 
 ```
 QFile file;
 QDir::setCurrent("/tmp");
 file.setFileName("readme.txt");
 QDir::setCurrent("/home");
-file.open(QIODevice::ReadOnly);      // opens "/home/readme.txt" under Unix
+file.open(QIODevice::ReadOnly);      // 打开Unix下文件 "/home/readme.txt"
 ```
 
-Note that the directory separator "/" works for all operating systems supported by Qt.
+注意Qt中目录分隔符统一使用"/".
 
 **另请参见** [fileName](https://doc.qt.io/qt-5/qfile.html#fileName)(), [QFileInfo](https://doc.qt.io/qt-5/qfileinfo.html), and [QDir](https://doc.qt.io/qt-5/qdir.html).
 
+
+
 ### `[override virtual]`bool QFile::setPermissions([QFileDevice::Permissions](https://doc.qt.io/qt-5/qfiledevice.html#Permission-enum) *permissions*)
 
-Reimplements: [QFileDevice::setPermissions](https://doc.qt.io/qt-5/qfiledevice.html#setPermissions)(QFileDevice::Permissions permissions).
+重写函数： [QFileDevice::setPermissions](https://doc.qt.io/qt-5/qfiledevice.html#setPermissions)(QFileDevice::Permissions permissions).
 
-Sets the permissions for the file to the *permissions* specified. Returns `true` if successful, or `false` if the permissions cannot be modified.
+为文件设置 *permissions* 权限。如果成功返回 `true` ，如果权限不能修改返回 `false` 。
 
-**Warning:** This function does not manipulate ACLs, which may limit its effectiveness.
+**警告：** 此函数不会操作修改 ACLs，这会限制函数功能。
 
 **另请参见** [permissions](https://doc.qt.io/qt-5/qfile.html#permissions)() and [setFileName](https://doc.qt.io/qt-5/qfile.html#setFileName)().
 
-### `[static]`bool QFile::setPermissions(const [QString](https://doc.qt.io/qt-5/qstring.html) &*fileName*, [QFileDevice::Permissions](https://doc.qt.io/qt-5/qfiledevice.html#Permission-enum)*permissions*)
 
-This is an overloaded function.
 
-Sets the permissions for *fileName* file to *permissions*.
+### `[static]`bool QFile::setPermissions(const [QString](https://doc.qt.io/qt-5/qstring.html) &*fileName*, [QFileDevice::Permissions](https://doc.qt.io/qt-5/qfiledevice.html#Permission-enum) *permissions*)
+
+这是一个重载函数。
+
+为文件名 *fileName* 的文件设置 *permissions* 权限。
+
+
 
 ### `[override virtual]`[qint64](https://doc.qt.io/qt-5/qtglobal.html#qint64-typedef) QFile::size() const
 
-Reimplements: [QFileDevice::size](https://doc.qt.io/qt-5/qfiledevice.html#size)() const.
+重写函数： [QFileDevice::size](https://doc.qt.io/qt-5/qfiledevice.html#size)() const.
+
+
 
 ### `[static]`[QString](https://doc.qt.io/qt-5/qstring.html) QFile::symLinkTarget(const [QString](https://doc.qt.io/qt-5/qstring.html) &*fileName*)
 
-Returns the absolute path of the file or directory referred to by the symlink (or shortcut on Windows) specified by *fileName*, or returns an empty string if the *fileName* does not correspond to a symbolic link.
+返回符号链接（Unix上的symlink或Windows上快捷方式）*fileName* 指向的文件或目录的绝对路径。如果 *fileName* 不是一个符号链接，返回空字符串。
 
-This name may not represent an existing file; it is only a string. [QFile::exists](https://doc.qt.io/qt-5/qfile.html#exists-1)() returns `true` if the symlink points to an existing file.
+名称可能并不是一个存在的文件，只是一个字符串路径。[QFile::exists](https://doc.qt.io/qt-5/qfile.html#exists-1)() 可以用来判断是否存在。
 
-This function was introduced in Qt 4.2.
+此函数引入自： Qt 4.2.
+
+
 
 ### [QString](https://doc.qt.io/qt-5/qstring.html) QFile::symLinkTarget() const
 
-This is an overloaded function.
+这是一个重载函数。
 
-Returns the absolute path of the file or directory a symlink (or shortcut on Windows) points to, or a an empty string if the object isn't a symbolic link.
+返回QFile对象对应的符号链接（Unix上的symlink或Windows上快捷方式）指向的文件或目录的绝对路径。如果 *fileName* 不是一个符号链接，返回空字符串。
 
-This name may not represent an existing file; it is only a string. [QFile::exists](https://doc.qt.io/qt-5/qfile.html#exists-1)() returns `true` if the symlink points to an existing file.
+名称可能并不是一个存在的文件，只是一个字符串路径。[QFile::exists](https://doc.qt.io/qt-5/qfile.html#exists-1)() 可以用来判断是否存在。
 
-This function was introduced in Qt 4.2.
+此函数引入自： Qt 4.2.
 
 **另请参见** [fileName](https://doc.qt.io/qt-5/qfile.html#fileName)() and [setFileName](https://doc.qt.io/qt-5/qfile.html#setFileName)().
