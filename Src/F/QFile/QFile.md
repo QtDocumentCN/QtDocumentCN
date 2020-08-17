@@ -40,7 +40,6 @@ QFile 类提供读写文件的接口。
 | bool    | **[open](#override-virtualbool-qfileopenqiodeviceopenmode-mode-1)**(FILE **fh*, QIODevice::OpenMode *mode*, QFileDevice::FileHandleFlags *handleFlags* = DontCloseHandle) |
 | bool    | **[open](#override-virtualbool-qfileopenqiodeviceopenmode-mode-2)**(int *fd*, QIODevice::OpenMode *mode*, QFileDevice::FileHandleFlags *handleFlags* = DontCloseHandle) |
 | bool    | **[remove](#bool-qfileremove)**()     |
-
 | bool    | **[rename](h#bool-qfilerenameconst-qstring-newname)**(const QString &*newName*) |
 | void    | **[setFileName](#void-qfilesetfilenameconst-qstring-name)**(const QString &*name*) |
 | QString | **[symLinkTarget](#qstring-qfilesymlinktarget-const)**() const |
