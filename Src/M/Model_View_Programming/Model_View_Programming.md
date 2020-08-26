@@ -5,7 +5,7 @@
 
 ## 模型/视图体系架构
 
-模型-视图-控制器（MVC）是源自 `Smalltalk` 的设计模式，在构建用户界面时经常使用。在[《设计模式》]()一书中，`Gamma` 等人写到：
+模型-视图-控制器（MVC）是源自 `Smalltalk` 的设计模式，在构建用户界面时经常使用。在[《设计模式》](https://doc.qt.io/qt-5/guibooks.html#design-patterns)一书中，`Gamma` 等人写到：
 > MVC 由三种对象组成。模型是应用程序对象，视图是其在屏幕上的呈现，控制器定义了用户界面对用户输入的反应方式。 在MVC之前，用户界面设计往往会将这些对象整合在一起。 MVC 使它们解耦以增加灵活性和重用性。
 
 如果将视图和控制器对象组合在一起，就是模型/视图架构。基于将数据的存储方式与向用户呈现的方式分开的原理，模型/视图架构提供了一个更简单的框架。这种分离使得可以在几个不同的视图中显示相同的数据，并实现新的视图类型，而无需更改基础数据结构。为了灵活处理用户输入，我们引入了委托的概念。在此框架中使用委托的好处在于，它允许自定义呈现和编辑数据项的方式。
@@ -28,7 +28,7 @@
 ## 模型
 所有项目模型均基于 [QAbstractItemModel]() 类。此类定义一个接口，视图和委托使用该接口访问数据。数据本身不必存储在模型中。它可以保存在由单独的类，文件，数据库或某些其他应用程序组件提供的数据结构或存储库中。
 
-有关模型的基本概念在 [“模型类”] (#模型类)部分中介绍。
+有关模型的基本概念在 [“模型类”](#模型类)部分中介绍。
 
 [QAbstractItemModel]() 提供了一个数据接口，该接口足够灵活，可以处理以表，列表和树的形式表示数据的视图。但是，当为列表和类似表的数据结构实现新模型时，[QAbstractListModel]() 和 [QAbstractTableModel]() 类是更好的选择，因为它们提供了常用功能的默认实现。这些类中的每一个都可以被子类化以提供支持特殊类型的列表和表的模型。
 
@@ -1372,19 +1372,15 @@ bool DragDropListModel::dropMimeData(const QMimeData *data,
 
 要提供对模型数据的只读访问，必须在模型的子类中实现以下功能：
 
-<div class="table">
-<table class="generic" width="70%">
-<tbody><tr class="odd" valign="top">
-<td>
-<a href="qabstractitemmodel.html#flags">flags()</a></td><td>用于其他组件来获取有关模型提供的每个项目的信息。在许多模型中，标志的组合应包括 <a href="">Qt::ItemIsEnabled</a> 和 <a hreaf="">Qt::ItemIsSelectable</a>。
-</td></tr>
-<tr class="even" valign="top"><td><a href="qabstractitemmodel.html#data">data()</a></td><td>用于向视图和委托提供项目数据。通常，模型只需要为 <a hreaf="">Qt::DisplayRole</a> 和任何特定应用程序的用户角色提供数据，但是为 <a hreaf="">Qt::DisplayRole</a>[Qt::ToolTipRole]，<a hreaf="">Qt::AccessibleTextRole</a> 和 <a hreaf="">Qt::AccessibleDescriptionRole</a> 提供数据也是一种好习惯。有关与每个角色关联的类型的信息，请参见 <a hreaf="">Qt::ItemDataRole</a> 枚举文档。
-</td></tr>
+<div class="table"><table class="generic" width="70%">
+<tbody><tr class="odd" valign="top"><td><a href="qabstractitemmodel.html#flags">flags()</a></td><td>用于其他组件来获取有关模型提供的每个项目的信息。在许多模型中，标志的组合应包括 <a href="qt.html#ItemFlag-enum">Qt::ItemIsEnabled</a> 和 <a href="qt.html#ItemFlag-enum">Qt::ItemIsSelectable</a>。</td></tr>
+
+<tr class="even" valign="top"><td><a href="qabstractitemmodel.html#data">data()</a></td><td>用于向视图和委托提供项目数据。通常，模型只需要为 <a hreaf="">Qt::DisplayRole</a> 和任何特定应用程序的用户角色提供数据，但是为 <a href="qt.html#ItemDataRole-enum">Qt::DisplayRole</a> 、 <a href="qt.html#ItemDataRole-enum">Qt::ToolTipRole</a> 、 <a href="qt.html#ItemDataRole-enum">Qt::AccessibleTextRole</a> 和 <a href="qt.html#ItemDataRole-enum">Qt::AccessibleDescriptionRole</a> 提供数据也是一种好习惯。 有关与每个角色关联的类型的信息，请参见 <a href="qt.html#ItemDataRole-enum">Qt::ItemDataRole</a> 枚举文档。</td></tr>
+
 <tr class="odd" valign="top"><td><a href="qabstractitemmodel.html#headerData">headerData()</a></td><td>提供有关标题的数据信息。该信息仅由可显示标题信息的视图检索。</td></tr>
+
 <tr class="even" valign="top"><td><a href="qabstractitemmodel.html#rowCount">rowCount()</a></td><td>提供模型公开的数据行数。</td></tr>
-</tbody>
-</table>
-</div>
+</tbody></table></div>
 
 这四个函数必须在所有类型的模型中实现，包括列表模型（ [QAbstractListModel]() 子类）和表模型（ [QAbstractTableModel]() 子类）。
 
@@ -1404,11 +1400,11 @@ bool DragDropListModel::dropMimeData(const QMimeData *data,
 可编辑模型允许修改数据项，还可以提供允许插入和删除行和列的函数。要启用编辑，必须正确实现以下功能：
 
 <div class="table"><table class="generic" width="70%">
-<tbody><tr class="odd" valign="top"><td><a href="qabstractitemmodel.html#flags">flags()</a></td><td>必须为每个项目返回适当的标志组合。特别是，此函数返回的值除了应用于只读模型中的项的值外，还必须包括<a href="qt.html#ItemFlag-enum">Qt::ItemIsEditable</a>。</td></tr>
+<tbody><tr class="odd" valign="top"><td><a href="qabstractitemmodel.html#flags">flags()</a></td><td>必须为每个项目返回适当的标志组合。特别是，此函数返回的值除了应用于只读模型中的项的值外，还必须包括 <a href="qt.html#ItemFlag-enum">Qt::ItemIsEditable</a> 。</td></tr>
 
-<tr class="even" valign="top"><td><a href="qabstractitemmodel.html#setData">setData()</a></td><td>用于修改与指定模型索引关联的数据项。 为了能够接受用户界面元素提供的用户输入，此功能必须处理与<a href="qt.html#ItemDataRole-enum">Qt::EditRole</a>相关的数据。 该实现还可以接受与<a href="qt.html#ItemDataRole-enum">Qt::ItemDataRole</a>指定的许多不同种类的角色相关联的数据。更改数据项后，模型必须发出<a href="qabstractitemmodel.html#dataChanged">dataChanged()</a>信号以将更改通知其他组件。</td></tr>
+<tr class="even" valign="top"><td><a href="qabstractitemmodel.html#setData">setData()</a></td><td>用于修改与指定模型索引关联的数据项。 为了能够接受用户界面元素提供的用户输入，此功能必须处理与<a href="qt.html#ItemDataRole-enum"> Qt::EditRole</a> 相关的数据。 该实现还可以接受与<a href="qt.html#ItemDataRole-enum"> Qt::ItemDataRole</a> 指定的许多不同种类的角色相关联的数据。更改数据项后，模型必须发出 <a href="qabstractitemmodel.html#dataChanged">dataChanged() </a>信号以将更改通知其他组件。</td></tr>
 
-<tr class="odd" valign="top"><td><a href="qabstractitemmodel.html#setHeaderData">setHeaderData()</a></td><td>用于修改水平和垂直标题信息。更改数据项后，模型必须发出<a href="qabstractitemmodel.html#headerDataChanged">headerDataChanged()</a>）信号以将更改通知其他组件。</td></tr>
+<tr class="odd" valign="top"><td><a href="qabstractitemmodel.html#setHeaderData">setHeaderData()</a></td><td>用于修改水平和垂直标题信息。更改数据项后，模型必须发出 <a href="qabstractitemmodel.html#headerDataChanged">headerDataChanged()</a> 信号以将更改通知其他组件。</td></tr>
 </tbody></table></div>
 
 #### 可调整大小的模型
@@ -1417,14 +1413,14 @@ bool DragDropListModel::dropMimeData(const QMimeData *data,
 
 <table class="generic" width="70%">
 <tbody><tr class="odd" valign="top"><td><a href="qabstractitemmodel.html#insertRows">insertRows()</a></td>
-<td>用于向所有类型的模型添加新行和数据项。函数的实现必须在将新行插入任何底层数据结构 <i>之前</i> 调用<a href="qabstractitemmodel.html#beginInsertRows">beginInsertRows()</a>），<i>然后立即</i> 调用<a href="qabstractitemmodel.html#endInsertRows">endInsertRows()</a>。
+<td>用于向所有类型的模型添加新行和数据项。函数的实现必须在将新行插入任何底层数据结构 <i>之前</i> 调用 <a href="qabstractitemmodel.html#beginInsertRows">beginInsertRows()</a>，<i>然后立即</i> 调用 <a href="qabstractitemmodel.html#endInsertRows">endInsertRows()</a>。
 
 </td></tr>
-<tr class="even" valign="top"><td><a href="qabstractitemmodel.html#removeRows">removeRows()</a></td><td>用于从所有类型的模型中删除行及其包含的数据项。在从任何底层数据结构中删除行 <i>之前</i>，必须调用<a href="qabstractitemmodel.html#beginRemoveRows">beginRemoveRows()</a>，<i>然后立即</i> 调用<a href="qabstractitemmodel.html#beginRemoveRows">beginRemoveRows()</a>）。</td></tr>
+<tr class="even" valign="top"><td><a href="qabstractitemmodel.html#removeRows">removeRows()</a></td><td>用于从所有类型的模型中删除行及其包含的数据项。在从任何底层数据结构中删除行 <i>之前</i>，必须调用 <a href="qabstractitemmodel.html#beginRemoveRows">beginRemoveRows()</a>，<i>然后立即</i> 调用 <a href="qabstractitemmodel.html#beginRemoveRows">beginRemoveRows()</a>。</td></tr>
 
-<tr class="odd" valign="top"><td><a href="qabstractitemmodel.html#insertColumns">insertColumns()</a></td><td>用于向表模型和层次结构模型添加新的列和数据项。函数的实现必须在将新列插入任何底层数据结构 <i>之前</i> 调用<a href="qabstractitemmodel.html#beginInsertColumns">beginInsertColumns()</a>），<i>然后立即</i> 调用<a href="qabstractitemmodel.html#endInsertColumns">endInsertColumns()</a>。</td></tr>
+<tr class="odd" valign="top"><td><a href="qabstractitemmodel.html#insertColumns">insertColumns()</a></td><td>用于向表模型和层次结构模型添加新的列和数据项。函数的实现必须在将新列插入任何底层数据结构 <i>之前</i> 调用 <a href="qabstractitemmodel.html#beginInsertColumns">beginInsertColumns()</a>，<i>然后立即</i> 调用 <a href="qabstractitemmodel.html#endInsertColumns">endInsertColumns()</a>。</td></tr>
 
-<tr class="even" valign="top"><td><a href="qabstractitemmodel.html#removeColumns">removeColumns()</a></td><td>用于从表模型和层次模型中删除列及其包含的数据项。函数的实现必须在从任何基础数据结构中删除列 <i>之前</i> 调用<a href="qabstractitemmodel.html#beginRemoveColumns">beginRemoveColumns()</a>，<i>然后立即</i> 调用<a href="qabstractitemmodel.html#endRemoveColumns">endRemoveColumns()</a>。</td></tr>
+<tr class="even" valign="top"><td><a href="qabstractitemmodel.html#removeColumns">removeColumns()</a></td><td>用于从表模型和层次模型中删除列及其包含的数据项。函数的实现必须在从任何基础数据结构中删除列 <i>之前</i> 调用 <a href="qabstractitemmodel.html#beginRemoveColumns">beginRemoveColumns()</a>，<i>然后立即</i> 调用 <a href="qabstractitemmodel.html#endRemoveColumns">endRemoveColumns()</a>。</td></tr>
 </tbody></table>
 
 通常，如果操作成功，这些函数应返回true。但是，在某些情况下，操作可能仅部分成功；例如，如果可以插入少于指定数量的行。在这种情况下，模型应返回 `false` 来提示失败，让连接到该模型的组件处理这种情况。
@@ -1435,8 +1431,8 @@ bool DragDropListModel::dropMimeData(const QMimeData *data,
 
 - 发射 [layoutAboutToBeChanged()]() 信号
 - 更新表示模型结构的内部数据
-- 使用 [changePersistentIndexList]() 更新持久索引
-- 发射 [ layoutChanged()] 信号
+- 使用 [changePersistentIndexList()]() 更新持久索引
+- 发射 [ layoutChanged()]() 信号
 
 该顺序可用于任何结构更新，以代替更高级，更方便的受保护方法。例如，如果一个200万行的模型需要删除所有奇数行，那就是100万个不连续的范围，每行1个元素。可以使用 `beginRemoveRows` 和 `endRemoveRows 一百万次，但这显然效率不高。相反，这可以作为一个单独的布局更改来表示，它一次更新所有必需的持久性索引。
 
@@ -1497,7 +1493,7 @@ bool DragDropListModel::dropMimeData(const QMimeData *data,
 要利用 [QAbstractItemModel]() 的默认实现来实现内置的 `MIME` 类型，新模型必须提供以下函数的重新实现：
 
 <div class="table"><table class="generic" width="70%">
-<tbody><tr class="odd" valign="top"><td><a href="qabstractitemmodel.html#insertRows">insertRows()</a></td><td rowspan=" 2">这些函数使模型可以使用 <a href="qabstractitemmodel.html#dropMimeData">QAbstractItemModel::dropMimeData</a>() 提供的现有实现自动插入新数据。</td></tr>
+<tbody><tr class="odd" valign="top"><td><a href="qabstractitemmodel.html#insertRows">insertRows()</a></td><td rowspan=" 2">这些函数使模型可以使用 <a href="qabstractitemmodel.html#dropMimeData">QAbstractItemModel::dropMimeData()</a> 提供的现有实现自动插入新数据。</td></tr>
 <tr class="even" valign="top"><td><a href="qabstractitemmodel.html#insertColumns">insertColumns()</a></td></tr>
 <tr class="odd" valign="top"><td><a href="qabstractitemmodel.html#setData">setData()</a></td><td>允许用项目填充新的行和列。</td></tr>
 <tr class="even" valign="top"><td><a href="qabstractitemmodel.html#setItemData">setItemData()</a></td><td>此函数为填充新项目提供了更有效的支持。</td></tr>
@@ -1524,7 +1520,7 @@ bool DragDropListModel::dropMimeData(const QMimeData *data,
 
 #### 便捷视图
 
-便捷视图（ [QListWidget]()，[QTableWidget]() 和 [QTreeWidget]()）将覆盖默认的拖放功能，以提供较不灵活但更自然的行为，适用于许多应用程序。例如，由于更常见的是将数据放入 [QTableWidget]() 中的单元格中，用传输的数据替换现有内容，因此底层模型将设置目标项目的数据，而不是在模型中插入新的行和列。有关在方便视图中拖放的更多信息，请参阅 [在项目视图中使用拖放](#在项目视图中使用拖放)。
+便捷视图（[QListWidget]()，[QTableWidget]() 和 [QTreeWidget]()）将覆盖默认的拖放功能，以提供较不灵活但更自然的行为，适用于许多应用程序。例如，由于更常见的是将数据放入 [QTableWidget]() 中的单元格中，用传输的数据替换现有内容，因此底层模型将设置目标项目的数据，而不是在模型中插入新的行和列。有关在方便视图中拖放的更多信息，请参阅 [在项目视图中使用拖放](#在项目视图中使用拖放)。
 
 ### 针对大量数据的性能优化
 

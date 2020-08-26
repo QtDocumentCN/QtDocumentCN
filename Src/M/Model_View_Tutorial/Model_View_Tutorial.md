@@ -592,10 +592,10 @@ public:
 
 模型/视图编程在 `Qt` 文档中有相当广泛的介绍，但也有好几本好书。
 
-1. C++ GUI Programming with Qt 4 / Jasmin Blanchette, Mark Summerfield, Prentice Hall, 2nd edition, ISBN 0-13-235416-0. Also available in German: C++ GUI Programmierung mit Qt 4: Die offizielle Einführung, Addison-Wesley, ISBN 3-827327-29-6
-2. The Book of Qt4, The Art of Building Qt Applications / Daniel Molkentin, Open Source Press, ISBN 1-59327-147-6. Translated from Qt 4, Einführung in die Applikationsentwicklung, Open Source Press, ISBN 3-937514-12-0.
-3. Foundations of Qt Development / Johan Thelin, Apress, ISBN 1-59059-831-8.
-4. Advanced Qt Programming / Mark Summerfield, Prentice Hall, ISBN 0-321-63590-6. This book covers Model/View programming on more than 150 pages.
+1. **C++ GUI Programming with Qt 4** / Jasmin Blanchette, Mark Summerfield, Prentice Hall, 2nd edition, ISBN 0-13-235416-0. Also available in German: **C++ GUI Programmierung mit Qt 4: Die offizielle Einführung**, Addison-Wesley, ISBN 3-827327-29-6
+2. **The Book of Qt4, The Art of Building Qt Applications** / Daniel Molkentin, Open Source Press, ISBN 1-59327-147-6. Translated from **Qt 4, Einführung in die Applikationsentwicklung**, Open Source Press, ISBN 3-937514-12-0.
+3. **Foundations of Qt Development** / Johan Thelin, Apress, ISBN 1-59059-831-8.
+4. **Advanced Qt Programming** / Mark Summerfield, Prentice Hall, ISBN 0-321-63590-6. This book covers Model/View programming on more than 150 pages.
 
 以下列表概述了上面列出的前三本书中包含的示例程序。其中一些为开发类似应用程序提供了非常好的模板。
 
