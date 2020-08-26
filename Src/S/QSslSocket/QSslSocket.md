@@ -13,7 +13,7 @@ QSslSocket 类为客户端和服务端提供了一个 SSL 加密的套接字。
 
 该类最初在 Qt4.3 版本引入。
 
-您可以在 [QSslSocket_Obsolete](../QSslSocket_Obsolete/QSslSocket_Obsolete.md) 界面找到废弃的成员函数介绍。
+您可以在 [QSslSocket_Obsolete](../QSslSocket_Obsolete/QSslSocket_Obsolete.md) 界面找到过时的成员函数介绍。
 
 **注意：** 该类所有的函数都是可重入的。
 
@@ -41,7 +41,7 @@ QSslSocket 类为客户端和服务端提供了一个 SSL 加密的套接字。
 | qint64                     | **[encryptedBytesToWrite](#qint64-qsslsocketencryptedbytestowrite-const)**() const |
 | bool                       | **[flush](#bool-qsslsocketflush)**()                         |
 | void                       | **[ignoreSslErrors](#void-qsslsocketignoresslerrorsconst-qlistqsslerror-errors)**(const QList\<QSslError\> &*errors*) |
-| bool                       | **[isEncrypted](https://github.com/QtDocumentCN/QtDocumentCN/blob/master/S/QSslSocket/QSslSocket.md#bool-qsslsocketisencrypted-const)**() const |
+| bool                       | **[isEncrypted](#bool-qsslsocketisencrypted-const)**() const |
 | QSslCertificate            | **[localCertificate](#qsslcertificate-qsslsocketlocalcertificate-const)**() const |
 | QList\<QSslCertificate\>   | **[localCertificateChain](#qlistqsslcertificate-qsslsocketlocalcertificatechain-const)**() const |
 | QSslSocket::SslMode        | **[mode](#qsslsocketsslmode-qsslsocketmode-const)**() const  |
@@ -139,26 +139,28 @@ QSslSocket 类为客户端和服务端提供了一个 SSL 加密的套接字。
 
 ## 详细介绍
 
-QSslSocket 能够建立一个安全的、加密的 TCP 连接，您可以使用该连接来传输加密数据。在服务器端和客户端都可以使用它，并且他支持现代的 SSL 协议，包括 SSL 3 和 TLS 1.2。默认情况下，QSslSocket 仅仅使用被认为是安全的（ [QSsl::SecureProtocols](../QSsl/QSsl.md#enum-qsslsslprotocol) ） SSL 协议，但是只要在握手开始之前，您可以调用 [setProtocol](#void-qsslsocketsetprotocolqsslsslprotocol-protocol)() 函数来更改 SSL 协议。
+QSslSocket 能够建立一个安全的、加密的 TCP 连接，您可以使用该连接来传输加密数据。在服务器端和客户端都可以使用它，并且他支持现代的 SSL 协议，包括 SSL 3 和 TLS 1.2。默认情况下，QSslSocket 仅仅使用被认为是安全的（ [QSsl::SecureProtocols](../QSsl/QSsl.md#enum-qsslsslprotocol) ） SSL 协议，但是只要处在握手开始之前，您仍然可以调用 [setProtocol](#void-qsslsocketsetprotocolqsslsslprotocol-protocol)() 函数来更改 SSL 协议。
 
-SSL encryption operates on top of the existing TCP stream after the socket enters the [ConnectedState](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qabstractsocket.html#SocketState-enum). There are two simple ways to establish a secure connection using QSslSocket: With an immediate SSL handshake, or with a delayed SSL handshake occurring after the connection has been established in unencrypted mode.
+在套接字进入 *已连接*（[ConnectedState](../../A/QAbstractSocket/QAbstractSocket.md#enum-qabstractsocketsocketstate) ）状态后，SSL 将在现有 TCP 流上进行加密。有两种使用 QSslSocket 建立安全连接的简单方法：使用即时 SSL 握手，或在未加密模式下建立连接之后的延迟 SSL 握手。
 
-The most common way to use QSslSocket is to construct an object and start a secure connection by calling [connectToHostEncrypted](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslsocket.html#connectToHostEncrypted)(). This method starts an immediate SSL handshake once the connection has been established.
+最常见的 QSslSocket 使用方法是构造一个对象后使用 [connectToHostEncrypted](#void-qsslsocketconnecttohostencryptedconst-qstring-hostname-quint16-port-qiodeviceopenmode-mode--readwrite-qabstractsocketnetworklayerprotocol-protocol--anyipprotocol)() 函数开启一个安全连接，这种方法会在连接建立后开启一个即时的 SSL 握手。
 
-```
+```cpp
  QSslSocket *socket = new QSslSocket(this);
  connect(socket, SIGNAL(encrypted()), this, SLOT(ready()));
 
  socket->connectToHostEncrypted("imap.example.com", 993);
 ```
 
-As with a plain [QTcpSocket](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qtcpsocket.html), QSslSocket enters the [HostLookupState](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qabstractsocket.html#SocketState-enum), [ConnectingState](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qabstractsocket.html#SocketState-enum), and finally the [ConnectedState](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qabstractsocket.html#SocketState-enum), if the connection is successful. The handshake then starts automatically, and if it succeeds, the [encrypted](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslsocket.html#encrypted)() signal is emitted to indicate the socket has entered the encrypted state and is ready for use.
+与普通的 [QTcpSocket](../../T/QTcpSocket/QTcpSocket.md) 相同，若成功建立连接， QSslSocket 会依次进入 [HostLookupState](../../A/QAbstractSocket/QAbstractSocket.md#enum-qabstractsocketsocketstate) ，[ConnectingState](../../A/QAbstractSocket/QAbstractSocket.md#enum-qabstractsocketsocketstate) 和 [ConnectedState]((../../A/QAbstractSocket/QAbstractSocket.md#enum-qabstractsocketsocketstate)) 状态。连接成功后，握手会自动开始，若握手连接成功，QSsslSocket 将会发送 [encrypted](#signal-void-qsslsocketencrypted)() 信号，表明该套接字已经进入加密状态并准备好使用。
 
-Note that data can be written to the socket immediately after the return from [connectToHostEncrypted](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslsocket.html#connectToHostEncrypted)() (i.e., before the [encrypted](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslsocket.html#encrypted)() signal is emitted). The data is queued in QSslSocket until after the [encrypted](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslsocket.html#encrypted)() signal is emitted.
+请注意，在 [connectToHostEncrypted](#void-qsslsocketconnecttohostencryptedconst-qstring-hostname-quint16-port-qiodeviceopenmode-mode--readwrite-qabstractsocketnetworklayerprotocol-protocol--anyipprotocol)() 函数执行完成返回后（即 [encrypted](#signal-void-qsslsocketencrypted)() 信号发出之前）数据就可以立即写入套接字。此时写入到套接字的数据将会被加入等待队列，直到 [encrypted](#signal-void-qsslsocketencrypted)() 信号被发出。
 
-An example of using the delayed SSL handshake to secure an existing connection is the case where an SSL server secures an incoming connection. Suppose you create an SSL server class as a subclass of [QTcpServer](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qtcpserver.html). You would override [QTcpServer::incomingConnection](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qtcpserver.html#incomingConnection)() with something like the example below, which first constructs an instance of QSslSocket and then calls [setSocketDescriptor](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslsocket.html#setSocketDescriptor)() to set the new socket's descriptor to the existing one passed in. It then initiates the SSL handshake by calling [startServerEncryption](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslsocket.html#startServerEncryption)().
+使用延迟 SSL 握手来保护现有连接的示例是 SSL 服务器保护传入连接。
 
-```
+假设您继承 [QTcpServer](../../T/QTcpServer/QTcpServer.md) 类创建了一个 SSL 服务器类。您需要如下例重写 [QTcpServer::incomingConnection](../../T/QTcpServer/QTcpServer.md#virtual-protected-void-qtcpserverincomingconnectionqintptrsocketdescriptor)() ：首先构造一个 QSslSocket 对象并调用 [setSocketDescriptor](#override-virtual-qvariant-qsslsocketsocketoptionqabstractsocketsocketoption-option)() 函数将新的套接字描述符设置为传入的已有的套接字描述符。然后调用 [startServerEncryption](#slot-void-qsslsocketstartserverencryption)() 函数初始化 SSL 握手。
+
+```cpp
  void SslServer::incomingConnection(qintptr socketDescriptor)
  {
      QSslSocket *serverSocket = new QSslSocket;
@@ -172,13 +174,13 @@ An example of using the delayed SSL handshake to secure an existing connection i
  }
 ```
 
-If an error occurs, QSslSocket emits the sslErrors() signal. In this case, if no action is taken to ignore the error(s), the connection is dropped. To continue, despite the occurrence of an error, you can call [ignoreSslErrors](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslsocket.html#ignoreSslErrors)(), either from within this slot after the error occurs, or any time after construction of the QSslSocket and before the connection is attempted. This will allow QSslSocket to ignore the errors it encounters when establishing the identity of the peer. Ignoring errors during an SSL handshake should be used with caution, since a fundamental characteristic of secure connections is that they should be established with a successful handshake.
+如果出现了错误， QSslSocket 将会发出 [sslErrors](#signal-void-qsslsocketsslerrorsconst-qlistqsslerror-errors)() 信号。在这种情况下，如果没有采取任何操作去忽略出现的错误，该连接将会掉线。若要出现错误后仍然继续维持连接，您可以在错误发生后的槽函数中，或者 QSslSocket 对象构建后、尝试连接之前，调用 [ignoreSslErrors](#void-qsslsocketignoresslerrorsconst-qlistqsslerror-errors)() 函数。[ignoreSslErrors](#void-qsslsocketignoresslerrorsconst-qlistqsslerror-errors)() 函数将允许 QSslSocket 忽略在建立对等方身份时遇到的错误。 应谨慎使用 [ignoreSslErrors](#void-qsslsocketignoresslerrorsconst-qlistqsslerror-errors)() 函数忽略SSL握手期间的错误，因为安全连接的基本特征是应该通过成功的握手来建立它们。
 
-Once encrypted, you use QSslSocket as a regular [QTcpSocket](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qtcpsocket.html). When [readyRead](qthelp://org.qt-project.qtnetwork.5150/qtcore/qiodevice.html#readyRead)() is emitted, you can call [read](qthelp://org.qt-project.qtnetwork.5150/qtcore/qiodevice.html#read)(), [canReadLine](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslsocket.html#canReadLine)() and [readLine](qthelp://org.qt-project.qtnetwork.5150/qtcore/qiodevice.html#readLine)(), or [getChar](qthelp://org.qt-project.qtnetwork.5150/qtcore/qiodevice.html#getChar)() to read decrypted data from QSslSocket's internal buffer, and you can call [write](qthelp://org.qt-project.qtnetwork.5150/qtcore/qiodevice.html#write)() or [putChar](qthelp://org.qt-project.qtnetwork.5150/qtcore/qiodevice.html#putChar)() to write data back to the peer. QSslSocket will automatically encrypt the written data for you, and emit [encryptedBytesWritten](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslsocket.html#encryptedBytesWritten)() once the data has been written to the peer.
+连接加密后，您可以像普通的 [QTcpSocket](../../T/QTcpSocket/QTcpSocket.md) 类一样使用 QSslSocket。当 readyRead() 信号发出后，您可以调用 read()，[canReadLine](#override-virtual-bool-qsslsocketcanreadline-const)() 和 readLine() 或者 getChar() 从 QSslSocket 的内部缓冲区中读取加密数据，然后您可以调用 write() 或者 putChar() 向对等端写回数据。 QSslSocket 将会自动将您写入的数据加密并在数据写入到对等端后发送 [encryptedBytesWritten](#signal-void-qsslsocketencryptedbyteswrittenqint64-written)() 信号。
 
-As a convenience, QSslSocket supports [QTcpSocket](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qtcpsocket.html)'s blocking functions [waitForConnected](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslsocket.html#waitForConnected)(), [waitForReadyRead](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslsocket.html#waitForReadyRead)(), [waitForBytesWritten](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslsocket.html#waitForBytesWritten)(), and [waitForDisconnected](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslsocket.html#waitForDisconnected)(). It also provides [waitForEncrypted](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslsocket.html#waitForEncrypted)(), which will block the calling thread until an encrypted connection has been established.
+方便起见，QSslSocket 支持 [QTcpSocket](../../T/QTcpSocket/QTcpSocket.md) 的阻塞函数：[waitForConnected](../../A/QAbstractSocket/QAbstractSocket.md#virtual-bool-qabstractsocketwaitforconnectedint-msecs--30000)()，[waitForReadyRead](../../A/QAbstractSocket/QAbstractSocket.md#override-virtual-bool-qabstractsocketwaitforreadyreadint-msecs--30000)()，[waitForBytesWritten](../../A/QAbstractSocket/QAbstractSocket.md#override-virtual-bool-qabstractsocketwaitforbyteswrittenint-msecs--30000)() 和 [waitForDisconnected](../../A/QAbstractSocket/QAbstractSocket.md#virtual-bool-qabstractsocketwaitfordisconnectedint-msecs--30000)()。它也提供了 [waitForEncrypted](#bool-qsslsocketwaitforencryptedint-msecs--30000)() 函数来在加密连接建立之前阻塞调用的线程。
 
-```
+```cpp
  QSslSocket socket;
  socket.connectToHostEncrypted("http.example.com", 443);
  if (!socket.waitForEncrypted()) {
@@ -191,310 +193,384 @@ As a convenience, QSslSocket supports [QTcpSocket](qthelp://org.qt-project.qtnet
      qDebug() << socket.readAll().data();
 ```
 
-QSslSocket provides an extensive, easy-to-use API for handling cryptographic ciphers, private keys, and local, peer, and Certification Authority (CA) certificates. It also provides an API for handling errors that occur during the handshake phase.
+QSslSocket 提供了广泛的、易于使用的 API ，用于处理密码，私钥以及本地，对等端和证书颁发机构（CA）证书。它也为处理握手阶段出现的错误提供了 API 支持。
 
-The following features can also be customized:
+以下的特性也可以被客制化：
 
-- The socket's cryptographic cipher suite can be customized before the handshake phase with [QSslConfiguration::setCiphers](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslconfiguration.html#setCiphers)() and QSslConfiguration::setDefaultCiphers().
-- The socket's local certificate and private key can be customized before the handshake phase with [setLocalCertificate](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslsocket.html#setLocalCertificate)() and [setPrivateKey](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslsocket.html#setPrivateKey)().
-- The CA certificate database can be extended and customized with [QSslConfiguration::addCaCertificate](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslconfiguration.html#addCaCertificate)(), [QSslConfiguration::addCaCertificates](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslconfiguration.html#addCaCertificates)().
+- 套接字的加密密码套件可以在握手阶段之前通过 [QSslConfiguration :: setCiphers](qthelp：//org.qt-project.qtnetwork.5150/qtnetwork/qsslconfiguration.html#setCiphers)() 和 QSslConfiguration :: setDefaultCiphers() 定制。
+- 套接字的本地证书和私钥可以在握手阶段之前通过 [setLocalCertificate](#void-qsslsocketsetlocalcertificateconst-qsslcertificate-certificate)() 和 [setPrivateKey](#void-qsslsocketsetprivatekeyconst-qsslkey-key)() 设置。
+- CA 证书数据可以通过 [QSslConfiguration::addCaCertificate](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslconfiguration.html#addCaCertificate)() 和 [QSslConfiguration::addCaCertificates](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslconfiguration.html#addCaCertificates)() 扩展和定制。
 
-To extend the list of *default* CA certificates used by the SSL sockets during the SSL handshake you must update the default configuration, as in the snippet below:
+要扩展在 SSL 握手期间 SSL 套接字使用的*默认* CA 证书列表，您必须像下面的代码片段一样更新默认配置：
 
-```
+```cpp
  QList<QSslCertificate> certificates = getCertificates();
  QSslConfiguration configuration = QSslConfiguration::defaultConfiguration();
  configuration.addCaCertificates(certificates);
  QSslConfiguration::setDefaultConfiguration(configuration);
 ```
 
-**Note:** If available, root certificates on Unix (excluding macOS) will be loaded on demand from the standard certificate directories. If you do not want to load root certificates on demand, you need to call either [QSslConfiguration::defaultConfiguration](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslconfiguration.html#defaultConfiguration)().setCaCertificates() before the first SSL handshake is made in your application (for example, via passing QSslSocket::systemCaCertificates() to it), or call [QSslConfiguration::defaultConfiguration](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslconfiguration.html#defaultConfiguration)()::setCaCertificates() on your QSslSocket instance prior to the SSL handshake.
+**注意：** 在 Unix 系统（ macOS 除外）下，如果可能的话，QSslSocket 将从标准证书目录中按需加载根证书。如果您不想按需家在根证书，则您需要在应用程序进行首次 SSL 握手之前（例如通过 QSslSocket::systemCaCertificates() 传递证书）调用 [QSslConfiguration::defaultConfiguration](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslconfiguration.html#defaultConfiguration)()::setCaCertificates() ，或者在您的 QSslSocket 实例进行 SSL 握手前调用 [QSslConfiguration::defaultConfiguration](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslconfiguration.html#defaultConfiguration)()::setCaCertificates() 。
 
-For more information about ciphers and certificates, refer to [QSslCipher](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcipher.html) and [QSslCertificate](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcertificate.html).
+您也可以在 [QSslCipher](../QSslCipher/QSslCipher.md) 和 [QSslCertificate](../QSslCertificate/QSslCertificate.md) 类文档中找到关于密钥与证书的信息。
 
-This product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit (http://www.openssl.org/).
+该产品包括了由 OpenSSL Project 项目开发的，可在 OpenSSL Toolkit 工具包中使用的软件 (http://www.openssl.org/) 。
 
-**Note:** Be aware of the difference between the [bytesWritten](qthelp://org.qt-project.qtnetwork.5150/qtcore/qiodevice.html#bytesWritten)() signal and the [encryptedBytesWritten](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslsocket.html#encryptedBytesWritten)() signal. For a [QTcpSocket](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qtcpsocket.html), [bytesWritten](qthelp://org.qt-project.qtnetwork.5150/qtcore/qiodevice.html#bytesWritten)() will get emitted as soon as data has been written to the TCP socket. For a QSslSocket, [bytesWritten](qthelp://org.qt-project.qtnetwork.5150/qtcore/qiodevice.html#bytesWritten)() will get emitted when the data is being encrypted and [encryptedBytesWritten](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslsocket.html#encryptedBytesWritten)() will get emitted as soon as data has been written to the TCP socket.
+**注意：** 要注意 bytesWritten() 信号和 [encryptedBytesWritten](#signal-void-qsslsocketencryptedbyteswrittenqint64-written)() 信号之间的差别。 对于 [QTcpSocket](../../T/QTcpSocket/QTcpSocket.md) 类来说，一旦数据被写入到 TCP 套接字， bytesWritten() 信号就会被发出。 对 QSslSocket 类来说，当数据正在被加密时，bytesWritten() 信号将会被发出；当数据写入到 TCP 套接字后，[encryptedBytesWritten](#signal-void-qsslsocketencryptedbyteswrittenqint64-written)() 信号将会被发出。
 
-**See also** [QSslCertificate](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcertificate.html), [QSslCipher](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcipher.html), and [QSslError](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslerror.html).
-
-
+另外您也可以在 [QSslCertificate](../QSslCertificate/QSslCertificate.md)，[QSslCipher](../QSslCipher/QSslCipher.md) 和 [QSslError](../QSslError/QSslError.md) 类文档中找到相关信息。
 
 ## 成员类型文档
 
 ### enum QSslSocket::**PeerVerifyMode**
 
+描述了 QSslSocket 的对等端验证模式。默认模式为 *自动验证对等端* (*AutoVerifyPeer*)，该模式下将会根据 [QSslSocket::SslMode](#enum-qsslsocketsslmode) 选择一个合适的验证模式 。
 
+| 常量                       | 值   | 描述                                                         |
+| :------------------------- | :--- | :----------------------------------------------------------- |
+| QSslSocket::VerifyNone     | 0    | QSslSocket 将不会请求对等端发送证书。如果您对连接的另一端的身份并不感兴趣，您可以使用该模式。连接依旧会被加密，如果对等端需要您的本地证书，套接字仍然会发送本地套接字到对等端。 |
+| QSslSocket::QueryPeer      | 1    | QSslSocket 将会请求对等端发送一个证书，但是并不需要该证书有效。如果您想向用户展示对等端证书的详细信息，但是并不象影响实际的 SSL 握手，可以考虑使用该模式。该模式是服务器的默认模式。注意：在频道(Schannel)中该值与 QSslSocket::VerifyNone 效果相同。 |
+| QSslSocket::VerifyPeer     | 2    | This mode is the default for clients.QSslSocket 将在握手阶段请求对等端发送一个有效的证书。如果失败，QSslSocket 将会发送 QSslSocket::[sslErrors](#signal-void-qsslsocketsslerrorsconst-qlistqsslerror-errors)() 信号。 |
+| QSslSocket::AutoVerifyPeer | 3    | [QSslSocket](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslsocket.html) will automatically use QueryPeer for server sockets and VerifyPeer for client sockets.自动模式。服务端 QSslSocket 会自动使用 QueryPeer 模式，客户端 QSslSocket 会自动使用 AutoVerifyPeer 模式。 |
+
+该枚举最初在 Qt 4.4 引入。
+
+另外您也可以在 [QSslSocket::peerVerifyMode](#qsslsocketpeerverifymode-qsslsocketpeerverifymode-const)() 函数介绍中找到相关信息。
 
 ---
 
 ### enum QSslSocket::**SslMode**
 
+描述了 QSslSocket 可用的连接模式。
 
+| 常量                        | 值   | Description                                                  |
+| :-------------------------- | :--- | :----------------------------------------------------------- |
+| QSslSocket::UnencryptedMode | 0    | 未加密套接字，该行为与 [QTcpSocket](../../T/QTcpSocket/QTcpSocket.md) 相同。 |
+| QSslSocket::SslClientMode   | 1    | 该套接字为客户端 SSL 套接字。它既可以已经被加密，也可以处于握手阶段（详情见 [QSslSocket::isEncrypted](#bool-qsslsocketisencrypted-const)() ）。 |
+| QSslSocket::SslServerMode   | 2    | 该套接字为服务端 SSL 套接字。它既可以已经被加密，也可以处于握手阶段（详情见 [QSslSocket::isEncrypted](#bool-qsslsocketisencrypted-const)() ）。 |
 
 
 
 ## 成员函数文档
 
-### QSslSocket::**QSslSocket****([QObject](../../O/QObject/QObject.md) **parent* = nullptr)
+### QSslSocket::**QSslSocket**([QObject](../../O/QObject/QObject.md) **parent* = nullptr)
 
+构造一个 QSslSocket 对象。*parent* 参数将传递给 [QObject](../../O/QObject/QObject.md) 构造函数。新套接字的密钥套件设置为静态方法 defaultCiphers() 返回的一个密钥。
 
+---
 
-### *[signal]* void **QSslSocket**::encrypted()
+### *[signal]* void **QSslSocket**::**encrypted**()
 
+当 QSslSocket 进入加密模式时将发出该信号。该信号发送后， [QSslSocket::isEncrypted](#bool-qsslsocketisencrypted-const)() 将会返回 *true*，并且接下来套接字上的传输都将被加密。
 
+另外您也可以在 [QSslSocket::connectToHostEncrypted](#void-qsslsocketconnecttohostencryptedconst-qstring-hostname-quint16-port-qiodeviceopenmode-mode--readwrite-qabstractsocketnetworklayerprotocol-protocol--anyipprotocol)() 和 [QSslSocket::isEncrypted](#bool-qsslsocketisencrypted-const)() 函数介绍中找到相关信息。
 
-### *[signal]* void **QSslSocket**::encryptedBytesWritten(qint64 *written*)
+---
 
+### *[signal]* void **QSslSocket**::**encryptedBytesWritten**(qint64 *written*)
 
+当 QSslSocket 将加密数据写入到网路后将会发出该信号。 *written* 参数包含着成功写入的字节书。
 
-### *[slot]* void **QSslSocket**::ignoreSslErrors()
+该函数最初在 Qt 4.4 版本引入。
 
+另外您也可以在 QIODevice::bytesWritten() 函数介绍中找到相关信息。
 
+---
 
-### *[signal]* void **QSslSocket**::modeChanged([QSslSocket::SslMode](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslsocket.html#SslMode-enum) *mode*)
+### *[slot]* void **QSslSocket**::**ignoreSslErrors**()
 
+该函数会让 QSslSocket 忽略握手期间的错误并继续连接。如果您想要让 QSslSocket 在握手期间即使出现错误仍继续链接，您必须在链接到 sslErrors() 信号的槽函数中调用该槽函数或者在握手阶段之前调用该槽函数。如果您不调用该函数，在 sslErrors() 信号发送后，无论是在回应错误期间还是在握手期间之前，连接都会断开。
 
+如果 SSL 握手期间没有发生任何错误（即对等端的身份成功建立），QSslSocket 不会发送 sslErrors() 信号，因而在此时调用该函数是没有任何必要的。
 
-### *[signal]* void **QSslSocket**::newSessionTicketReceived()
+**警告：** 确保始终让用户检查 sslErrors() 信号报告的错误，并且仅在用户确认可以继续进行操作时才调用此方法。如果发生了以外的错误，连接应当被取消。未经检查实际的错误就盲目的调用该函数会给您的应用程序带来极大的安全隐患。请谨慎使用该函数！
 
+另外您也可以在 [sslErrors](#signal-void-qsslsocketsslerrorsconst-qlistqsslerror-errors)() 函数介绍中找到相关信息。
 
+---
 
-### *[signal]* void **QSslSocket**::peerVerifyError(const [QSslError](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslerror.html) &*error*)
+### *[signal]* void **QSslSocket**::**modeChanged**([QSslSocket::SslMode](#enum-qsslsocketsslmode) *mode*)
 
+当 QSslSocket 从 [QSslSocket::UnencryptedMode](#enum-qsslsocketsslmode) 模式变为 [QSslSocket::SslClient](#enum-qsslsocketsslmode) 模式或者 [QSslSocket::SslServerMode](#enum-qsslsocketsslmode) 模式后会发出该信号。 参数 *mode* 即新的模式。
 
+另外您也可以在 [mode](#qsslsocketsslmode-qsslsocketmode-const)() 函数介绍中找到相关信息。
 
-### *[signal]* void **QSslSocket**::preSharedKeyAuthenticationRequired([QSslPreSharedKeyAuthenticator](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslpresharedkeyauthenticator.html) **authenticator*)
+### *[signal]* void **QSslSocket**::**newSessionTicketReceived**()
 
+如果在握手期间协商了 TLS 1.3 协议，QSslSocket 会在接收到新的会话票据（ SessionTicket ）后发送该信号。会话和会话票据的生命周期的示意会在套接字的配置中更新。该会话可用于将来的 TLS 连接中的会话恢复（和缩短的握手）。
 
+**注意：** 该功能仅支持 OpenSSL 后端，并要求 OpenSSL 版本 1.1.1及以上。
 
-### *[signal]* void **QSslSocket**::sslErrors(const [QList](qthelp://org.qt-project.qtnetwork.5150/qtcore/qlist.html)\<QSslError\> &*errors*)
+该函数最初在 Qt 5.15 版本引入。
 
+另外您也可以在 QSslSocket::[sslConfiguration](#qsslconfiguration-qsslsocketsslconfiguration-const)()，QSslConfiguration::[sessionTicket]()() 和 QSslConfirguration::sessionTicketLifeTimeHint() 函数介绍中找到相关信息。
 
+### *[signal]* void **QSslSocket**::**peerVerifyError**(const [QSslError](../QSslError/QSslError.md) &*error*)
 
-### *[slot]* void **QSslSocket**::startClientEncryption()
+QSslSocket 在握手期间、加密连接建立之前，可以多次发出该信号来表明对等端身份建立时出现错误。*error* 参通常表示了 QSslSocket 不能安全地鉴定对等端身份。
 
+当遇到问题时该信号会给你提供早期的指示。通过连接该信号，您可以在连接的槽函数中在握手完成前手动结束该连接。如果该信号发送后未采取任何操作， QSslSocket 会继续发送 QSslSocket::sslErrors() 信号。
 
+该函数最初在 Qt 4.4 版本引入。
 
-### *[slot]* void **QSslSocket**::startServerEncryption()
+另外您也可以在 [sslErrors](#signal-void-qsslsocketsslerrorsconst-qlistqsslerror-errors)() 函数介绍中找到相关信息。
 
+### *[signal]* void **QSslSocket**::**preSharedKeyAuthenticationRequired**([QSslPreSharedKeyAuthenticator](../QSslPreSharedKeyAuthenticator/QSslPreSharedKeyAuthenticator.md) **authenticator*)
 
+QSslSocket 在协商 PSK 密码套件时发出此信号，并且接下来会要求 PSK 身份验证。
 
-### *[virtual]* **QSslSocket**::~QSslSocket()
+当使用 PSK 时，为了使 SSL 握手继续执行，客户端必须向服务端发送一个有效的身份证明和一个有效的预分享密钥。应用程序可以通过一个连接到该信号的槽函数提供这些信息，根据他们的需求来填充传输的 *authenticator* 对象。
 
+**注意：** 忽略该信号或者提供信用材料失败会造成握手失败，该连接也会因而被取消。
 
+**注意：** *authenticator* 对象由该套接字所有并且不能被应用程序删除。
 
-### void **QSslSocket**::abort()
+该函数最初在 Qt 5.5 版本引入。
 
+另外您也可以在 [QSslPreSharedKeyAuthenticator](../QSslPreSharedKeyAuthenticator/QSslPreSharedKeyAuthenticator.md) 类文档中找到相关信息。
 
+### *[signal]* void **QSslSocket**::**sslErrors**(const [QList](../../L/QList/QList.md)\<[QSslError](../QSslError/QSslError.md)\> &*errors*)
 
-### *[override virtual]* bool **QSslSocket**::atEnd() const
+在握手期间，QSslSocket 会发送该信号表明在建立对等端身份鉴定的时候出现了一个或者多个错误。这些错误通常表明 QSslSocket 不能安全的鉴定对等端的身份。除非采取相关的操作，否则该连接将会在该信号发出后断开。
 
+如果您想要忽略发生的错误并继续连接，您必须在连接到该信号的槽函数中调用 [QsslSocket::ignoreSslErrors](#void-qsslsocketignoresslerrorsconst-qlistqsslerror-errors)() 函数。如果您想要在稍后获得错误列表，您可以调用 [sslHandshakeErrors](#qlistqsslerror-qsslsocketsslhandshakeerrors-const)() 函数。
 
+*error* 参数包括着一个或者多个阻止 QSslSocket 验证对等端身份的错误。
 
-### *[override virtual]* qint64 **QSslSocket**::bytesAvailable() const
+**注意：** 连接该信号时，您不能使用 Qt::QueuedConnection 方式，否则调用 [QsslSocket::ignoreSslErrors](#void-qsslsocketignoresslerrorsconst-qlistqsslerror-errors)() 函数将不会起任何作用。
 
+**注意：** 信号 *sslErrors* 在该类中被重载。为了通过使用函数指针连接到该信号，Qt 提供了一个便捷的助手来包含函数指针，示例如下：
 
+```cpp
+connect(sslSocket, QOverload<const QList<QSslError> &>::of(&QSslSocket::sslErrors),
+     [=](const QList<QSslError> &errors){ /* ... */ });
+```
 
-### *[override virtual]* qint64 **QSslSocket**::bytesToWrite() const
+另外您也可以在 [peerVerifyError](#signal-void-qsslsocketpeerverifyerrorconst-qsslerror-error)() 函数介绍中找到相关信息。
 
+### *[slot]* void **QSslSocket**::**startClientEncryption**()
 
 
-### *[override virtual]* bool **QSslSocket**::canReadLine() const
 
+### *[slot]* void **QSslSocket**::**startServerEncryption**()
 
 
-### *[override virtual]* void **QSslSocket**::close()
 
+### *[virtual]* **QSslSocket**::**~QSslSocket**()
 
+析构函数。销毁 QSslSocket 对象。
 
-### void **QSslSocket**::connectToHostEncrypted(const QString &*hostName*, quint16 *port*, QIODevice::OpenMode *mode* = ReadWrite, [QAbstractSocket::NetworkLayerProtocol](../../A/QAbstractSocket/QAbstractSocket.md#enum-qabstractsocketnetworklayerprotocol) *protocol* = AnyIPProtocol)
+### void **QSslSocket**::**abort**()
 
 
 
-### void **QSslSocket**::connectToHostEncrypted(const [QString](qthelp://org.qt-project.qtnetwork.5150/qtcore/qstring.html) &*hostName*, [quint16](qthelp://org.qt-project.qtnetwork.5150/qtcore/qtglobal.html#quint16-typedef) *port*, const [QString](qthelp://org.qt-project.qtnetwork.5150/qtcore/qstring.html) &*sslPeerName*, [QIODevice::OpenMode](qthelp://org.qt-project.qtnetwork.5150/qtcore/qiodevice.html#OpenModeFlag-enum) *mode* = ReadWrite, [QAbstractSocket::NetworkLayerProtocol](../../A/QAbstractSocket/QAbstractSocket.md#enum-qabstractsocketnetworklayerprotocol) *protocol* = AnyIPProtocol)
+### *[override virtual]* bool **QSslSocket**::**atEnd**() const
 
+重新实现：
 
+### *[override virtual]* qint64 **QSslSocket**::**bytesAvailable**() const
 
-### [qint64](qthelp://org.qt-project.qtnetwork.5150/qtcore/qtglobal.html#qint64-typedef) **QSslSocket**::encryptedBytesAvailable() const
 
 
+### *[override virtual]* qint64 **QSslSocket**::**bytesToWrite**() const
 
-### [qint64](qthelp://org.qt-project.qtnetwork.5150/qtcore/qtglobal.html#qint64-typedef) **QSslSocket**::encryptedBytesToWrite() const
 
 
+### *[override virtual]* bool **QSslSocket**::**canReadLine**() const
 
-### bool **QSslSocket**::flush()
 
 
+### *[override virtual]* void **QSslSocket**::**close**()
 
-### void **QSslSocket**::ignoreSslErrors(const [QList](qthelp://org.qt-project.qtnetwork.5150/qtcore/qlist.html)\<[QSslError](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslerror.html)\> &*errors*)
 
 
+### void **QSslSocket**::**connectToHostEncrypted**(const QString &*hostName*, quint16 *port*, QIODevice::OpenMode *mode* = ReadWrite, [QAbstractSocket::NetworkLayerProtocol](../../A/QAbstractSocket/QAbstractSocket.md#enum-qabstractsocketnetworklayerprotocol) *protocol* = AnyIPProtocol)
 
-### bool **QSslSocket**::isEncrypted() const
 
 
+### void **QSslSocket**::**connectToHostEncrypted**(const [QString](qthelp://org.qt-project.qtnetwork.5150/qtcore/qstring.html) &*hostName*, [quint16](qthelp://org.qt-project.qtnetwork.5150/qtcore/qtglobal.html#quint16-typedef) *port*, const [QString](qthelp://org.qt-project.qtnetwork.5150/qtcore/qstring.html) &*sslPeerName*, [QIODevice::OpenMode](qthelp://org.qt-project.qtnetwork.5150/qtcore/qiodevice.html#OpenModeFlag-enum) *mode* = ReadWrite, [QAbstractSocket::NetworkLayerProtocol](../../A/QAbstractSocket/QAbstractSocket.md#enum-qabstractsocketnetworklayerprotocol) *protocol* = AnyIPProtocol)
 
-### [QSslCertificate](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcertificate.html) **QSslSocket**::localCertificate() const
 
 
+### [qint64](qthelp://org.qt-project.qtnetwork.5150/qtcore/qtglobal.html#qint64-typedef) **QSslSocket**::**encryptedBytesAvailable**() const
 
-### [QList](qthelp://org.qt-project.qtnetwork.5150/qtcore/qlist.html)\<[QSslCertificate](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcertificate.html)\> **QSslSocket**::localCertificateChain() const
 
 
+### [qint64](qthelp://org.qt-project.qtnetwork.5150/qtcore/qtglobal.html#qint64-typedef) **QSslSocket**::**encryptedBytesToWrite**() const
 
-### [QSslSocket::SslMode](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslsocket.html#SslMode-enum) **QSslSocket**::mode() const
 
 
+### bool **QSslSocket**::**flush**()
 
-### [QVector](qthelp://org.qt-project.qtnetwork.5150/qtcore/qvector.html)\<[QOcspResponse](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qocspresponse.html)\> **QSslSocket**::ocspResponses() const
 
 
+### void **QSslSocket**::**ignoreSslErrors(const** [QList](qthelp://org.qt-project.qtnetwork.5150/qtcore/qlist.html)\<[QSslError](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslerror.html)\> &*errors*)
 
-### [QSslCertificate](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcertificate.html) **QSslSocket**::peerCertificate() const
 
 
+### bool **QSslSocket**::**isEncrypted**() const
 
-### [QList](qthelp://org.qt-project.qtnetwork.5150/qtcore/qlist.html)\<[QSslCertificate](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcertificate.html)\> **QSslSocket**::peerCertificateChain() const
 
 
+### [QSslCertificate](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcertificate.html) **QSslSocket**::**localCertificate**() const
 
-### int **QSslSocket**::peerVerifyDepth() const
 
 
+### [QList](qthelp://org.qt-project.qtnetwork.5150/qtcore/qlist.html)\<[QSslCertificate](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcertificate.html)\> **QSslSocket**::**localCertificateChain**() const
 
-### [QSslSocket::PeerVerifyMode](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslsocket.html#PeerVerifyMode-enum) **QSslSocket**::peerVerifyMode() const
 
 
+### [QSslSocket::SslMode](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslsocket.html#SslMode-enum) **QSslSocket**::**mode**() const
 
-### [QString](qthelp://org.qt-project.qtnetwork.5150/qtcore/qstring.html) **QSslSocket**::peerVerifyName() const
 
 
+### [QVector](qthelp://org.qt-project.qtnetwork.5150/qtcore/qvector.html)\<[QOcspResponse](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qocspresponse.html)\> **QSslSocket**::**ocspResponses**() const
 
-### [QSslKey](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslkey.html) **QSslSocket**::privateKey() const
 
 
+### [QSslCertificate](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcertificate.html) **QSslSocket**::**peerCertificate**() const
 
-### [QSsl::SslProtocol](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qssl.html#SslProtocol-enum) **QSslSocket**::protocol() const
 
 
+### [QList](qthelp://org.qt-project.qtnetwork.5150/qtcore/qlist.html)\<[QSslCertificate](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcertificate.html)\> **QSslSocket**::**peerCertificateChain**() const
 
-### *[override virtual protected]* [qint64](qthelp://org.qt-project.qtnetwork.5150/qtcore/qtglobal.html#qint64-typedef) **QSslSocket**::readData(char **data*, [qint64](qthelp://org.qt-project.qtnetwork.5150/qtcore/qtglobal.html#qint64-typedef) *maxlen*)
 
 
+### int **QSslSocket**::**peerVerifyDepth**() const
 
-### *[override virtual]* void **QSslSocket**::resume()
 
 
+### [QSslSocket::PeerVerifyMode](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslsocket.html#PeerVerifyMode-enum) **QSslSocket**::**peerVerifyMode**() const
 
-### [QSslCipher](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcipher.html) **QSslSocket**::sessionCipher() const
 
 
+### [QString](qthelp://org.qt-project.qtnetwork.5150/qtcore/qstring.html) **QSslSocket**::**peerVerifyName**() const
 
-### [QSsl::SslProtocol](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qssl.html#SslProtocol-enum) **QSslSocket**::sessionProtocol() const
 
 
+### [QSslKey](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslkey.html) **QSslSocket**::**privateKey**() const
 
-### void **QSslSocket**::setLocalCertificate(const [QSslCertificate](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcertificate.html) &*certificate*)
 
 
+### [QSsl::SslProtocol](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qssl.html#SslProtocol-enum) **QSslSocket**::**protocol**() const
 
-### void **QSslSocket**::setLocalCertificate(const [QString](qthelp://org.qt-project.qtnetwork.5150/qtcore/qstring.html) &*path*, [QSsl::EncodingFormat](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qssl.html#EncodingFormat-enum) *format* = QSsl::Pem)
 
 
+### *[override virtual protected]* [qint64](qthelp://org.qt-project.qtnetwork.5150/qtcore/qtglobal.html#qint64-typedef) **QSslSocket**::**readData**(char **data*, [qint64](qthelp://org.qt-project.qtnetwork.5150/qtcore/qtglobal.html#qint64-typedef) *maxlen*)
 
-### void **QSslSocket**::setLocalCertificateChain(const [QList](qthelp://org.qt-project.qtnetwork.5150/qtcore/qlist.html)\<[QSslCertificate](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcertificate.html)\> &*localChain*)
 
 
+### *[override virtual]* void **QSslSocket**::**resume**()
 
-### void **QSslSocket**::setPeerVerifyDepth(int *depth*)
 
 
+### [QSslCipher](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcipher.html) **QSslSocket**::**sessionCipher**() const
 
-### void **QSslSocket**::setPeerVerifyMode([QSslSocket::PeerVerifyMode](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslsocket.html#PeerVerifyMode-enum) *mode*)
 
 
+### [QSsl::SslProtocol](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qssl.html#SslProtocol-enum) **QSslSocket**::**sessionProtocol**() const
 
-### void **QSslSocket**::setPeerVerifyName(const [QString](qthelp://org.qt-project.qtnetwork.5150/qtcore/qstring.html) &*hostName*)
 
 
+### void **QSslSocket**::**setLocalCertificate**(const [QSslCertificate](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcertificate.html) &*certificate*)
 
-### void **QSslSocket**::setPrivateKey(const [QSslKey](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslkey.html) &*key*)
 
 
+### void **QSslSocket**::**setLocalCertificate**(const [QString](qthelp://org.qt-project.qtnetwork.5150/qtcore/qstring.html) &*path*, [QSsl::EncodingFormat](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qssl.html#EncodingFormat-enum) *format* = QSsl::Pem)
 
-### void **QSslSocket**::setPrivateKey(const [QString](qthelp://org.qt-project.qtnetwork.5150/qtcore/qstring.html) &*fileName*, [QSsl::KeyAlgorithm](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qssl.html#KeyAlgorithm-enum) *algorithm* = QSsl::Rsa, [QSsl::EncodingFormat](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qssl.html#EncodingFormat-enum) *format* = QSsl::Pem, const [QByteArray](qthelp://org.qt-project.qtnetwork.5150/qtcore/qbytearray.html)&*passPhrase* = QByteArray())
 
 
+### void **QSslSocket**::**setLocalCertificateChain**(const [QList](qthelp://org.qt-project.qtnetwork.5150/qtcore/qlist.html)\<[QSslCertificate](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcertificate.html)\> &*localChain*)
 
-### void **QSslSocket**::setProtocol([QSsl::SslProtocol](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qssl.html#SslProtocol-enum) *protocol*)
 
 
+### void **QSslSocket**::**setPeerVerifyDepth**(int *depth*)
 
-### *[override virtual]* void **QSslSocket**::setReadBufferSize([qint64](qthelp://org.qt-project.qtnetwork.5150/qtcore/qtglobal.html#qint64-typedef) *size*)
 
 
+### void **QSslSocket**::**setPeerVerifyMode**([QSslSocket::PeerVerifyMode](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslsocket.html#PeerVerifyMode-enum) *mode*)
 
-### *[override virtual]* void **QSslSocket**::setSocketOption([QAbstractSocket::SocketOption](../../A/QAbstractSocket/QAbstractSocket.md#enum-qabstractsocketsocketoption) *option*, const [QVariant](qthelp://org.qt-project.qtnetwork.5150/qtcore/qvariant.html) &*value*)
 
 
+### void **QSslSocket**::**setPeerVerifyName**(const [QString](qthelp://org.qt-project.qtnetwork.5150/qtcore/qstring.html) &*hostName*)
 
-### void **QSslSocket**::setSslConfiguration(const [QSslConfiguration](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslconfiguration.html) &*configuration*)
 
 
+### void **QSslSocket**::**setPrivateKey**(const [QSslKey](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslkey.html) &*key*)
 
-### [override virtual] [QVariant](qthelp://org.qt-project.qtnetwork.5150/qtcore/qvariant.html) **QSslSocket**::socketOption([QAbstractSocket::SocketOption](../../A/QAbstractSocket/QAbstractSocket.md#enum-qabstractsocketsocketoption) *option*)
 
 
+### void **QSslSocket**::**setPrivateKey**(const [QString](qthelp://org.qt-project.qtnetwork.5150/qtcore/qstring.html) &*fileName*, [QSsl::KeyAlgorithm](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qssl.html#KeyAlgorithm-enum) *algorithm* = QSsl::Rsa, [QSsl::EncodingFormat](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qssl.html#EncodingFormat-enum) *format* = QSsl::Pem, const [QByteArray](qthelp://org.qt-project.qtnetwork.5150/qtcore/qbytearray.html)&*passPhrase* = QByteArray())
 
-### [QSslConfiguration](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslconfiguration.html) **QSslSocket**::sslConfiguration() const
 
 
+### void **QSslSocket**::**setProtocol**([QSsl::SslProtocol](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qssl.html#SslProtocol-enum) *protocol*)
 
-### [QList](qthelp://org.qt-project.qtnetwork.5150/qtcore/qlist.html)\<[QSslError](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslerror.html)\> **QSslSocket**::sslHandshakeErrors() const
 
 
+### *[override virtual]* void **QSslSocket**::**setReadBufferSize**([qint64](qthelp://org.qt-project.qtnetwork.5150/qtcore/qtglobal.html#qint64-typedef) *size*)
 
-### *[static]* long **QSslSocket**::sslLibraryBuildVersionNumber()
 
 
+### *[override virtual]* void **QSslSocket**::**setSocketOption**([QAbstractSocket::SocketOption](../../A/QAbstractSocket/QAbstractSocket.md#enum-qabstractsocketsocketoption) *option*, const [QVariant](qthelp://org.qt-project.qtnetwork.5150/qtcore/qvariant.html) &*value*)
 
-### *[static]* [QString](qthelp://org.qt-project.qtnetwork.5150/qtcore/qstring.html) **QSslSocket**::sslLibraryBuildVersionString()
 
 
+### void **QSslSocket**::**setSslConfiguration**(const [QSslConfiguration](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslconfiguration.html) &*configuration*)
 
-### *[static]* long **QSslSocket**::sslLibraryVersionNumber()
 
 
+### [override virtual] [QVariant](qthelp://org.qt-project.qtnetwork.5150/qtcore/qvariant.html) **QSslSocket**::**socketOption**([QAbstractSocket::SocketOption](../../A/QAbstractSocket/QAbstractSocket.md#enum-qabstractsocketsocketoption) *option*)
 
-### *[static]* [QString](qthelp://org.qt-project.qtnetwork.5150/qtcore/qstring.html) **QSslSocket**::sslLibraryVersionString()
 
 
+### [QSslConfiguration](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslconfiguration.html) **QSslSocket**::**sslConfiguration**() const
 
-### *[static]* bool **QSslSocket**::supportsSsl()
 
 
+### [QList](qthelp://org.qt-project.qtnetwork.5150/qtcore/qlist.html)\<[QSslError](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslerror.html)\> **QSslSocket**::**sslHandshakeErrors**() const
 
-### *[override virtual]* bool **QSslSocket**::waitForBytesWritten(int *msecs* = 30000)
 
 
+### *[static]* long **QSslSocket**::**sslLibraryBuildVersionNumber**()
 
-### *[override virtual]* bool **QSslSocket**::waitForConnected(int *msecs* = 30000)
 
 
+### *[static]* [QString](qthelp://org.qt-project.qtnetwork.5150/qtcore/qstring.html) **QSslSocket**::**sslLibraryBuildVersionString**()
 
-### *[override virtual]* bool **QSslSocket**::waitForDisconnected(int *msecs* = 30000)
 
 
+### *[static]* long **QSslSocket**::**sslLibraryVersionNumber**()
 
-### bool **QSslSocket**::waitForEncrypted(int *msecs* = 30000)
 
 
+### *[static]* [QString](qthelp://org.qt-project.qtnetwork.5150/qtcore/qstring.html) **QSslSocket**::**sslLibraryVersionString**()
 
-### *[override virtual]* bool **QSslSocket**::waitForReadyRead(int *msecs* = 30000)
 
 
+### *[static]* bool **QSslSocket**::**supportsSsl**()
 
-### *[override virtual protected]* [qint64](qthelp://org.qt-project.qtnetwork.5150/qtcore/qtglobal.html#qint64-typedef) QSslSocket::writeData(const char **data*, [qint64](qthelp://org.qt-project.qtnetwork.5150/qtcore/qtglobal.html#qint64-typedef) *len*)
+
+
+### *[override virtual]* bool **QSslSocket**::**waitForBytesWritten**(int *msecs* = 30000)
+
+
+
+### *[override virtual]* bool **QSslSocket**::**waitForConnected**(int *msecs* = 30000)
+
+
+
+### *[override virtual]* bool **QSslSocket**::**waitForDisconnected**(int *msecs* = 30000)
+
+
+
+### bool **QSslSocket**::**waitForEncrypted**(int *msecs* = 30000)
+
+
+
+### *[override virtual]* bool **QSslSocket**::**waitForReadyRead**(int *msecs* = 30000)
+
+
+
+### *[override virtual protected]* [qint64](qthelp://org.qt-project.qtnetwork.5150/qtcore/qtglobal.html#qint64-typedef) QSslSocket::**writeData**(const char **data*, [qint64](qthelp://org.qt-project.qtnetwork.5150/qtcore/qtglobal.html#qint64-typedef) *len*)
 

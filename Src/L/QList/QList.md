@@ -10,9 +10,6 @@ QList 类是一个用于提供列表支持的模板类。[更多...](QList.md#de
 | qmake:        | QT += core                                                                                                                               |
 | 子类: | [QByteArrayList](../../B/QByteArrayList/QByteArrayList.md), [QItemSelection](../../I/QItemSelection/QItemSelection.md), [QQueue](../../Q/QQueue/QQueue.md) 和 [QStringList](../../S/QStringList/QStringList.md) |
 
-- [包括继承获得在内的所有成员列表](QList_Members.md)
-- [已废弃成员](QList_Obsolete.md)
-
 **注意：** 本页面提到的方法都是[可重入的](../../T/Thread_Reentrancy/Thread_Reentrancy.md)。
 
 ## 公共成员类型
@@ -228,7 +225,7 @@ if (i != -1)
 
 QList 中的元素类型必须是 [可赋值数据类型](../../C/Container_Classes/Container_Classes.md#可赋值类型)。绝大部分常用数据类型都满足这一点，但某些情况编译器可能会报错，例如以值的形式保存 [QWidget](../../W/QWidget/QWidget.md)，可改成保存 [QWidget](../../W/QWidget/QWidget.md) * 来代替。一些方法会有额外的要求，例如，[indexOf](QList.md#int-qlistindexofconst-t-value-int-from--0-const)() 和 [lastIndexOf](QList.md#int-qlistlastindexofconst-t-value-int-from--1-const)() 要求值类型支持 `operator==()` 运算符。这些要求在每个函数的文档中有说明。
 
-正如其他的容器类一样，QList 提供了 [Java-风格迭代器](../../C/Container_Classes/Container_Classes.md#Java-风格迭代器)([QListIterator](../../L/QListIterator/QListIterator.md) 和 [QMutableListIterator](../../M/QMutableListIterator/QMutableListIterator.md)) 和 [STL-风格迭代器](../../C/Container_Classes/Container_Classes.md#STL-风格迭代器) ([QList::const_iterator](QList_Const_Iterator.md) 和 [QList::iterator](QList_Iterator.md))。实际使用中，这些迭代器其实很少被使用，因为你可以使用列表索引。QList 的实现使得直接基于索引访问的方式实现和使用迭代器一样快。
+正如其他的容器类一样，QList 提供了 [Java 风格迭代器](../../C/Container_Classes/Container_Classes.md#Java-风格迭代器)([QListIterator](../../L/QListIterator/QListIterator.md) 和 [QMutableListIterator](../../M/QMutableListIterator/QMutableListIterator.md)) 和 [STL 风格迭代器](../../C/Container_Classes/Container_Classes.md#STL-风格迭代器) ([QList::const_iterator](QList_Const_Iterator.md) 和 [QList::iterator](QList_Iterator.md))。实际使用中，这些迭代器其实很少被使用，因为你可以使用列表索引。QList 的实现使得直接基于索引访问的方式实现和使用迭代器一样快。
 
 QList 并 *不* 支持通过其元素的引用来进行插入，头部追加，尾部追加和替换，这样做会导致你的应用崩溃并显示错误信息。
 
@@ -404,8 +401,7 @@ list.append("three");
 
 ### [QList::iterator](QList_Iterator.md) QList::begin()
 
-Returns an [STL 风格 iterator](../../C/Container_Classes/Container_Classes.md#STL-风格迭代器)
-pointing to the first item in the list。
+返回一个指向列表第一个元素的 [STL 风格迭代器](../../C/Container_Classes/Container_Classes.md#STL-风格迭代器)
 
 **另请参阅** [constBegin](QList.md#qlistconstiterator-qlistconstbegin-const)() 和 [end](QList.md#qlistiterator-qlistend)()。
 

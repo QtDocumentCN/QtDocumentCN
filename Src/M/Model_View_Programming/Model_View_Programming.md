@@ -175,7 +175,7 @@ QModelIndex index = model->index(row, column, ...);
 <p>
 该图显示了基本表模型的表示形式，其中每个项目都由一对行号和列号定位。通过将相关的行号和列号传递给模型，我们获得了一个引用数据项的模型索引。
 
-```cpp
+```cpps
 QModelIndex indexA = model->index(0, 0, QModelIndex());
 QModelIndex indexB = model->index(1, 1, QModelIndex());
 QModelIndex indexC = model->index(2, 1, QModelIndex());
