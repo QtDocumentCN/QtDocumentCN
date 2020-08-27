@@ -15,6 +15,7 @@
 | Notifier signal                   | 通知信号         |
 | Obsolete                          | 废弃的           |
 | Post                              | 投送             |
+|Static Public Members              | 静态公共成员函数 |                |
 | Protected Functions               | 保护成员函数     |
 | Public Functions                  | 公共成员函数     |
 | Public Types                      | 公共成员类型     |

@@ -15,11 +15,12 @@
 | [QAbstractAudioOutput](Src/A/QAbstractAudioOutput/QAbstractAudioOutput.md) | [CryFeiFei](https://github.com/CryFeiFei)     | **待完善** | see also部分待添加链接             |
 | [QAbstractAudioInput](Src/A/QAbstractAudioInput/QAbstractAudioInput.md) | [CryFeiFei](https://github.com/CryFeiFei)     | **待完善** | see also部分待添加链接             |
 | [QAbstractAnimation](Src/A/QAbstractAnimation/QAbstractAnimation.md) | [CryFeiFei](https://github.com/CryFeiFei)     | **待完善** | see also部分待添加链接             |
-| [QAbstractItemModel](Src/A/QAbstractItemModel/QAbstractItemModel.md) | [FlyWM](https://github.com/FlyWM)             | **占位中**    | 占位中，待填充，截止时间2020-09-15 |
+| [QAbstractItemModel](Src/A/QAbstractItemModel/QAbstractItemModel.md) | [FlyWM](https://github.com/FlyWM)             | **占位中**    | 占位中，待填充，截止时间2020-10-15 |
 | [QX11Info](Src/X/QX11Info/QX11Info.md)                       | [CryFeiFei](https://github.com/CryFeiFei)     | **待完善** | see also跳转待补充                 |
-| [QPainter](Src/P/QPainter)                       | [CryFeiFei](https://github.com/CryFeiFei)     | 编写中    | 占位中，待填充，截止时间2020-08-31 |
-| [QPaintEngine](Src/P/QPaintEngine)                       | [CryFeiFei](https://github.com/CryFeiFei)     | 编写中    | 占位中，待填充，截止时间2020-08-31 |
-| [QPaintDevice](Src/P/QPaintDevice)                       | [CryFeiFei](https://github.com/CryFeiFei)     | 编写中    | 占位中，待填充，截止时间2020-08-31 |
+| [QPainter](Src/P/QPainter)                       | [CryFeiFei](https://github.com/CryFeiFei)     | 编写中    | 占位中，待填充，截止时间2020-09-31 |
+| [QPaintEngine](Src/P/QPaintEngine)                       | [CryFeiFei](https://github.com/CryFeiFei)     | 编写中    | 占位中，待填充，截止时间2020-09-31 |
+| [QPaintDevice](Src/P/QPaintDevice)                       | [CryFeiFei](https://github.com/CryFeiFei)     | 编写中    | 占位中，待填充，截止时间2020-09-31 |
+| [QTransform](Src/T/QTransform)                       | [CryFeiFei](https://github.com/CryFeiFei)     | 编写中    | 占位中，待填充，截止时间2020-09-31 |
 | [QtGlobal](Src/G/QtGlobal/QtGlobal.md)                       | [ZgblKylin](https://github.com/ZgblKylin)     | 编写中    | 占位中，待填充，截止时间2020-08-31 |
 | [QGenericArgument](G/QGenericArgument/QGenericArgument.md) | [ZgblKylin](https://github.com/ZgblKylin) | **待完善** | 跨页跳转需待对应页面完成后进行校正 |
 | [QGenericReturnArgument](G/QGenericReturnArgument/QGenericReturnArgument.md) | [ZgblKylin](https://github.com/ZgblKylin) | **待完善** | 跨页跳转需待对应页面完成后进行校正 |
