@@ -34,7 +34,7 @@
 | [QMutexLocker](Src/M/QMutexLocker/QMutexLocker.md)|[Ryan-rlm](https://github.com/Ryan-rlm)|**已完成**|已完成|
 | [QSemaphore](Src/S/QSemaphore/QSemaphore.md)|[Ryan-rlm](https://github.com/Ryan-rlm)|**已完成**|已完成|
 | [Why Does Qt use Moc for Signals and Slots](Src/M/Why_Does_Qt_Use_Moc_for_Signals_and_Slots/Why_Does_Qt_Use_Moc_for_Signals_and_Slots.md) | [ZgblKylin](https://github.com/ZgblKylin) | **待完善** | 跨页跳转需待对应页面完成后进行校正 |
-| [The Meta-Object System](M/The_Meta-Object_System/The_Meta-Object_System.md) | [ZgblKylin](https://github.com/ZgblKylin) | 编写中 | 占位中，待填充，截止时间2020-08-31 |
+| [The Meta-Object System](M/The_Meta-Object_System/The_Meta-Object_System.md) | [ZgblKylin](https://github.com/ZgblKylin) | **待完善** | 跨页跳转需待对应页面完成后进行校正 |
 | [Using the Meta-Object Compiler(moc)](Src/M/Using_the_Meta-Object_Compiler_moc/Using_the_Meta-Object_Compiler_moc.md) | [ZgblKylin](https://github.com/ZgblKylin)     | **待完善** | 跨页跳转需待对应页面完成后进行校正 |
 | [Resource Compiler(rcc)](Src/R/Resource_Compiler_rcc/Resource_Compiler_rcc.md) | [ZgblKylin](https://github.com/ZgblKylin)     | 编写中    | 占位中，待填充，截止时间2020-08-31 |
 | [Qt Namespace](Src/Q/Qt_Namespace/Qt_Namespace.md)           | [ZgblKylin](https://github.com/ZgblKylin)     | 编写中    | 占位中，待填充，截止时间2020-08-31 |
