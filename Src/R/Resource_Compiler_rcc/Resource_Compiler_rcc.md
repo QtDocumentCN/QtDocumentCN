@@ -28,4 +28,4 @@ RCC 接受如下命令行选项：
 | `--list`            |             | 仅列出 .qrc 中的文件列表，不生成代码文件。                   |
 | `-project`          |             | 生成一个包含当前目录中所有文件的资源文件。                   |
 
-另请参阅 [Qt 资源系统](../R/The_Qt_Resource_System/The_Qt_Resource_System.md) 以获取集成资源至 Qt 应用程序的更多信息。
+另请参阅 [Qt 资源系统](../The_Qt_Resource_System/The_Qt_Resource_System.md) 以获取集成资源至 Qt 应用程序的更多信息。
