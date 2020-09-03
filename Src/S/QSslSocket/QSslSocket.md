@@ -350,11 +350,19 @@ connect(sslSocket, QOverload<const QList<QSslError> &>::of(&QSslSocket::sslError
 
 ### *[slot]* void **QSslSocket**::**startClientEncryption**()
 
+为客户端连接开启一个 SSL 延迟握手。您可以在套接字处于**已连接**且仍然处于**未加密模式**时调用该槽函数。如果该套接字处于未连接状态或者该套接字已经进入加密模式，则该函数将不会生效。
 
+重新实现了 STARTTLS 的客户端经常会利用延迟 SSL 握手。其他大部分客户端可以使用 [connectToHostEncrypted](#void-qsslsocketconnecttohostencryptedconst-qstring-hostname-quint16-port-qiodeviceopenmode-mode--readwrite-qabstractsocketnetworklayerprotocol-protocol--anyipprotocol)() 函数来替代该函数，connectToHostEncrypted() 函数将会自动执行握手。
 
 ### *[slot]* void **QSslSocket**::**startServerEncryption**()
 
+为服务端连接开启延迟 SSL 握手。您可以在套接字处于**已连接**且仍然处于**未加密模式**时调用该槽函数。如果该套接字处于未连接状态或者该套接字已经进入加密模式，则该函数将不会生效。
 
+对于服务端套接字来说，调用该函数是初始化 SSL 握手的唯一方式。大多数服务端会在接收到一个连接、或者接收到一个进入 SSL 模式的指定协议指令（例如：服务端接收到 "STARTTLS\r\n"）时，立即调用该函数。
+
+实现一个 SSL 服务器最常用的的方式是创建一个 [QTcpServer](../../T/QTcpServer/QTcpServer.md) 并且重新实现 [QTcpServer::incomingConnection()](../../T/QTcpServer/QTcpServer.md#virtual-protected-void-qtcpserverincomingconnectionqintptrsocketdescriptor) 函数。将返回的套接字描述符传递给 [QSslSOcket::setSocketDescriptor()](#override-virtual-qvariant-qsslsocketsocketoptionqabstractsocketsocketoption-option)。
+
+另外您也可以在 [connectToHostEncrypted](#void-qsslsocketconnecttohostencryptedconst-qstring-hostname-quint16-port-qiodeviceopenmode-mode--readwrite-qabstractsocketnetworklayerprotocol-protocol--anyipprotocol)() 和 [startClientEncryption](#slot-void-qsslsocketstartclientencryption)() 函数介绍中找到相关信息。
 
 ### *[virtual]* **QSslSocket**::**~QSslSocket**()
 
@@ -362,33 +370,65 @@ connect(sslSocket, QOverload<const QList<QSslError> &>::of(&QSslSocket::sslError
 
 ### void **QSslSocket**::**abort**()
 
+关闭连接并将套接字重新初始化。不像 [disconnectFromHost](../../A/QAbstractSocket/QAbstractSocket.md#virtual-void-qabstractsocketdisconnectfromhost)() 函数，该还书会立即关闭套接字，并清空任何在写入缓冲区的数据。
 
+另外您也可以在 [disconnectFromHost](../../A/QAbstractSocket/QAbstractSocket.md#virtual-void-qabstractsocketdisconnectfromhost)() 和 [close](#override-virtual-void-qsslsocketclose)() 函数介绍中找到相关信息。
 
 ### *[override virtual]* bool **QSslSocket**::**atEnd**() const
 
-重新实现：
+重新实现：[QAbstractSocket::atEnd](../../A/QAbstractSocket/QAbstractSocket.md#override-virtual-bool-qabstractsocketatend-const)() 。
 
 ### *[override virtual]* qint64 **QSslSocket**::**bytesAvailable**() const
 
+重新实现：[QAbstractSocket::bytesAvailable](../../A/QAbstractSocket/QAbstractSocket.md#override-virtual-qint64-qabstractsocketbytesavailable-const)()。
 
+返回可以立即读取的已解密数据的字节数。
 
 ### *[override virtual]* qint64 **QSslSocket**::**bytesToWrite**() const
 
+重新实现：[QAbstractSocket::bytesToWrite](../../A/QAbstractSocket/QAbstractSocket.md#override-virtual-qint64-qabstractsocketbytestowrite-const)()。
 
+返回等待被加密和写入到网络的未加密数据的字节数。
 
 ### *[override virtual]* bool **QSslSocket**::**canReadLine**() const
 
+重新实现：[QAbstractSocket::canReadLine](../../A/QAbstractSocket/QAbstractSocket.md#override-virtual-bool-qabstractsocketcanreadline-const)()。
 
+若能读取一行已解密的数据（以一个 ASCII 字符 '\n' 结束 ）则返回 true，否则返回 false 。
 
 ### *[override virtual]* void **QSslSocket**::**close**()
 
+重新实现：[QAbstractSocket::close](../../A/QAbstractSocket/QAbstractSocket.md#override-virtual-void-qabstractsocketclose)()。
 
+### void **QSslSocket**::**connectToHostEncrypted**(const [QString](../../S/QString/QString.md) &*hostName*, quint16 *port*, [QIODevice::OpenMode]() *mode* = ReadWrite, [QAbstractSocket::NetworkLayerProtocol](../../A/QAbstractSocket/QAbstractSocket.md#enum-qabstractsocketnetworklayerprotocol) *protocol* = AnyIPProtocol)
 
-### void **QSslSocket**::**connectToHostEncrypted**(const QString &*hostName*, quint16 *port*, QIODevice::OpenMode *mode* = ReadWrite, [QAbstractSocket::NetworkLayerProtocol](../../A/QAbstractSocket/QAbstractSocket.md#enum-qabstractsocketnetworklayerprotocol) *protocol* = AnyIPProtocol)
+使用 *mode* 指定的 [OpenMode]()，在 *hostName* 指定的主机的 *port* 指定的端口上启动一个加密连接。该函数的作用与调用 [connectToHost](../../A/QAbstractSocket/QAbstractSocket.md#virtual-void-qabstractsocketconnecttohostconst-qstring-hostname-quint16-port-qiodeviceopenmode-openmode--readwrite-qabstractsocketnetworklayerprotocol-protocol--anyipprotocol)() 函数建立连接然后使用 [startClientEncryption](#slot-void-qsslsocketstartclientencryption)() 函数相同。*protocol* 参数可以用来指定网络协议（例如 IPv4 或者 IPv6）。
 
+QSslSocket 首先会进入*查询主机*（[HostLookupState](../../A/QAbstractSocket/QAbstractSocket.md#enum-qabstractsocketsocketstate)）状态。然后，套接字会进入事件循环或者一个 waitFor...() 函数，进入*连接中*（[ConnectingState](../../A/QAbstractSocket/QAbstractSocket.md#enum-qabstractsocketsocketstate)）状态，连接成功后，套接字会发出 [connected](../../A/QAbstractSocket/QAbstractSocket.md#signal-void-qabstractsocketconnected)() 信号。紧接着套接字会初始化 SSL 客户端握手。每次状态发生改变后， QSslSocket 都会发出 [stateChanged](../../A/QAbstractSocket/QAbstractSocket.md#signal-void-qabstractsocketstatechangedqabstractsocketsocketstate-socketstate)() 信号。
 
+初始化 SSL 客户端握手后，若对等端身份认证未能成功建立，套接字将会发出 sslErrors() 信号。如果你想忽略出现的错误并继续连接，您必须在连接到 sslErrors() 信号的槽函数中或者在进入加密模式之前调用 [ignoreSslErrors](#void-qsslsocketignoresslerrorsconst-qlistqsslerror-errors)() 函数。如果没有调用 [ignoreSslErrors](#void-qsslsocketignoresslerrorsconst-qlistqsslerror-errors)() 函数，该连接将会断开，并发出 [disconnected](../../A/QAbstractSocket/QAbstractSocket.md#signal-void-qabstractsocketdisconnected)() 信号，返回到*未连接*（[UnconnectedState](../../A/QAbstractSocket/QAbstractSocket.md#enum-qabstractsocketsocketstate)）状态。
 
-### void **QSslSocket**::**connectToHostEncrypted**(const [QString](qthelp://org.qt-project.qtnetwork.5150/qtcore/qstring.html) &*hostName*, [quint16](qthelp://org.qt-project.qtnetwork.5150/qtcore/qtglobal.html#quint16-typedef) *port*, const [QString](qthelp://org.qt-project.qtnetwork.5150/qtcore/qstring.html) &*sslPeerName*, [QIODevice::OpenMode](qthelp://org.qt-project.qtnetwork.5150/qtcore/qiodevice.html#OpenModeFlag-enum) *mode* = ReadWrite, [QAbstractSocket::NetworkLayerProtocol](../../A/QAbstractSocket/QAbstractSocket.md#enum-qabstractsocketnetworklayerprotocol) *protocol* = AnyIPProtocol)
+若 SSL 握手连接建立成功，套接字将会发出 [encrypted](#signal-void-qsslsocketencrypted)() 信号。
+
+```cpp
+QSslSocket socket;
+connect(&socket, SIGNAL(encrypted()), receiver, SLOT(socketEncrypted()));
+
+socket.connectToHostEncrypted("imap", 993);
+socket->write("1 CAPABILITY\r\n");
+```
+
+**注意：** 上面的例子中文本可以在请求加密连接之后、 [encrypted](#signal-void-qsslsocketencrypted)() 信号发出之前立即写入套接字中。在这种情况下，文本将会在对象中队列，并在连接建立且 [encrypted](#signal-void-qsslsocketencrypted)() 信号发出后写入到套接字中。
+
+*mode* 参数的默认值为*读写* （[ReadWrite]()）。
+
+如果您想在服务器端创建一个 QSslSocket，您应该在 [QTcpServer](../../T/QTcpServer/QTcpServer.md) 接收到新接入连接后调用 [startServerEncryption](#slot-void-qsslsocketstartserverencryption)() 函数。
+
+另外您也可以在 [connectToHost](../../A/QAbstractSocket/QAbstractSocket.md#virtual-void-qabstractsocketconnecttohostconst-qstring-hostname-quint16-port-qiodeviceopenmode-openmode--readwrite-qabstractsocketnetworklayerprotocol-protocol--anyipprotocol)()，[startClientEncryption](#slot-void-qsslsocketstartclientencryption)() ，[waitForConnected](../../A/QAbstractSocket/QAbstractSocket.md#virtual-bool-qabstractsocketwaitforconnectedint-msecs--30000)() 和 [waitForEncrypted](#bool-qsslsocketwaitforencryptedint-msecs--30000)() 函数介绍中找到相关介绍。
+
+### void **QSslSocket**::**connectToHostEncrypted**(const [QString](../../S/QString/QString.md) &*hostName*, [quint16](qthelp://org.qt-project.qtnetwork.5150/qtcore/qtglobal.html#quint16-typedef) *port*, const [QString](../../S/QString/QString.md) &*sslPeerName*, [QIODevice::OpenMode]() *mode* = ReadWrite, [QAbstractSocket::NetworkLayerProtocol](../../A/QAbstractSocket/QAbstractSocket.md#enum-qabstractsocketnetworklayerprotocol) *protocol* = AnyIPProtocol)
+
+重载函数。
 
 
 
