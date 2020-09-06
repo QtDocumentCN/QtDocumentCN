@@ -117,7 +117,7 @@
 
 &emsp;&emsp;QMutex被优化为在非争用情况 （ the non-contended ）下速度更快。如果互斥体上没有争用，非递归QMutex将不会分配内存。它的构造和销毁几乎没有任何开销，这意味着将互斥体作为类的一部分是很好的做法。
 
-**另请参阅：** [QRecursiceMutex](../../R/QRecursiceMutex.md)，[QMutexLocker](../QMutexLocker/QMutexLocker.md)，[QReadWriteLock](../../R/QReadWriteLock.md)，[QSemaphore](../../S/QSemaphore.md) 和 [QWaitCondition](../../R/QWaitCondition.md)。
+**另请参阅：** [QRecursiveMutex](../../R/QRecursiveMutex/QRecursiveMutex.md)，[QMutexLocker](../QMutexLocker/QMutexLocker.md)，[QReadWriteLock](../../R/QReadWriteLock/QReadWriteLock.md)，[QSemaphore](../../S/QSemaphore/QSemaphore.md) 和 [QWaitCondition](../../W/QWaitCondition/QWaitCondition.md)。
 
 
 
@@ -131,7 +131,7 @@
 |QMutex::Recursive|1|&emsp;&emsp;在这种模式下，一个线程可以多次锁定同一个互斥量，并且在调用相同数量的 [unlock](#void-qmutexunlock)() 之前，互斥体不会被解锁。对于这种情况，您应该使用 [QRecursiveMutex](../../R/QRecursiveMutex.md)。|
 |QMutex::NonRecursive|0|&emsp;&emsp;在这种模式下，一个线程只能锁定一次。|
 
-**另请参阅：**[QMutex](#qmutexqmutexqmutexrecursionmode-mode)()，[QRecursiveMutex](../../R/QRecursiveMutex.md)。
+**另请参阅：**[QMutex](#qmutexqmutexqmutexrecursionmode-mode)()，[QRecursiveMutex](../../R/QRecursiveMutex/QRecursiveMutex.md)。
 
 
 
