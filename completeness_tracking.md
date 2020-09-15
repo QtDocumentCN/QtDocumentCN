@@ -23,8 +23,8 @@
 | [QTransform](Src/T/QTransform)                       | [CryFeiFei](https://github.com/CryFeiFei)     | 编写中    | 占位中，待填充，截止时间2020-09-31 |
 | [QtGlobal](Src/G/QtGlobal/QtGlobal.md)                       | [ZgblKylin](https://github.com/ZgblKylin)     | 编写中    | 占位中，待填充，截止时间2020-08-31 |
 | [QGenericArgument](Src/G/QGenericArgument/QGenericArgument.md) | [ZgblKylin](https://github.com/ZgblKylin) | **待完善** | 跨页跳转需待对应页面完成后进行校正 |
-| [QGenericReturnArgument](G/QGenericReturnArgument/QGenericReturnArgument.md) | [ZgblKylin](https://github.com/ZgblKylin) | **待完善** | 跨页跳转需待对应页面完成后进行校正 |
-| [QMetaClassInfo](M/QMetaClassInfo/QMetaClassInfo.md) | [ZgblKylin](https://github.com/ZgblKylin) | **待完善** | 跨页跳转需待对应页面完成后进行校正 |
+| [QGenericReturnArgument](Src/G/QGenericReturnArgument/QGenericReturnArgument.md) | [ZgblKylin](https://github.com/ZgblKylin) | **待完善** | 跨页跳转需待对应页面完成后进行校正 |
+| [QMetaClassInfo](Src/M/QMetaClassInfo/QMetaClassInfo.md) | [ZgblKylin](https://github.com/ZgblKylin) | **待完善** | 跨页跳转需待对应页面完成后进行校正 |
 | [QMetaMethod](Src/M/QMetaMethod/QMetaMethod.md)              | [ZgblKylin](https://github.com/ZgblKylin)     | **待完善** | 跨页跳转需待对应页面完成后进行校正 |
 | [QMetaObject](Src/M/QMetaObject/QMetaObject.md)              | [ZgblKylin](https://github.com/ZgblKylin)     | **待完善** | 跨页跳转需待对应页面完成后进行校正 |
 | [QMetaObject::Connection](M/QMetaObject/Connection.md) | [ZgblKylin](https://github.com/ZgblKylin) | **待完善** | 跨页跳转需待对应页面完成后进行校正 |
