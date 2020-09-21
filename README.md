@@ -7,7 +7,7 @@
 [![CC BY-NC-ND 4.0](https://creativecommons.org/images/deed/svg/cc_blue.svg)](https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh)
 [![署名](https://creativecommons.org/images/deed/svg/attribution_icon_blue.svg)](https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh)
 [![非商业性使用](https://creativecommons.org/images/deed/svg/nc_blue.svg)](https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh)
-[![没有附加限制](https://creativecommons.org/images/deed/svg/nd_blue.svg)](https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh)
+[![禁止演绎](https://creativecommons.org/images/deed/svg/nd_blue.svg)](https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh)
 
 本项目为翻译 Qt 官方文档，内容基于 Qt 最新发布版本 5.15，采用 [CC BY-NC-ND 4.0](https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh) 协议发布。
 
