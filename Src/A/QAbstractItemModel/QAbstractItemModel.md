@@ -177,6 +177,7 @@ QAbstractItemModel类为项模型类提供了抽象接口。[更多...]()
 - [removeRows()]() 的实现必须在从数据结构中删除行　*之前* 调用 [beginRemoveRows()]()，*然后立即* 调用 [endRemoveRows()]()。
 - [removeColumns()]() 的实现必须在列从数据结构中删除之前调用 [beginRemoveColumns()]()，*然后立即* 调用 [endRemoveColumns()]()。
   
+
 这些函数发出的私有信号使附加组件有机会在任何数据变得不可用之前采取行动。使用这些 `begin` 和 `end` 函数封装插入和删除操作还使模型能够正确地管理[持久模型索引]()。**如果希望正确处理选择，则必须确保调用了这些函数。** 如果插入或移除带有子项的项，则不需要为子项调用这些函数。换句话说，父项将管理其子项。
 
 要创建增量填充的模型，可以重新实现 [fetchMore()]() 和 [canFetchMore()]()。如果 [fetchMore()]() 的重新实现向模型中添加了行，则必须调用 [beginInsertRows()]() 和 [endInsertRows()]()。
@@ -345,6 +346,7 @@ QAbstractItemModel类为项模型类提供了抽象接口。[更多...]()
 - 调用 [changePersistentIndex]()()
 - 发出 layoutChanged
   
+
 该函数在 `Qt 5.0` 中被引入。  
 
 参见 [layoutAboutToBeChanged]()()、[dataChanged]()()、[headerDataChanged]()()、[modelReset]()() 和 [changePersistentIndex]()()。
@@ -355,7 +357,7 @@ QAbstractItemModel类为项模型类提供了抽象接口。[更多...]()
 当调用 [beginResetModel](#beginresetmodel)() 时，在模型的内部状态(例如持久模型索引)失效之前发出这个信号。
 
 **注意：** 这是一个私有信号。仅用于信号连接，而不能由用户发射。
-  
+
 该函数在 `Qt 4.2` 中被引入。  
 
 参见 [beginResetModel](#beginresetmodel)() 和 [modelReset](#modelreset)()。
@@ -368,7 +370,7 @@ QAbstractItemModel类为项模型类提供了抽象接口。[更多...]()
 注意，如果模型被重置，则应该认为之前从模型中检索的所有信息都是无效的。这包括但不限于 [rowCount](#rowcount)()、[columnCount](#columncount)()、[flags](#flags)()、通过 [data](#data)()检索的数据和 [roleNames](#rolenames)()。
 
 **注意：** 这是一个私有信号。仅用于信号连接，而不能由用户发射。
-  
+
 该函数在 `Qt 4.1` 中被引入。  
 
 参见 [endResetModel](#endresetmodel)() 和 [modelAboutToBeReset](#modelabouttobereset)()。
@@ -415,7 +417,7 @@ QAbstractItemModel类为项模型类提供了抽象接口。[更多...]()
 ```
 
 **注意：** 由于错误，该槽函数没有出现在 `Qt 5.0` 中。
-  
+
 该函数在 `Qt 4.8` 中被引入。  
 
 参见 [modelAboutToBeReset](#modelabouttobereset)() 和 [modelReset](#modelreset)()。
@@ -424,7 +426,7 @@ QAbstractItemModel类为项模型类提供了抽象接口。[更多...]()
 <font size=4>[ virtual slot ]&emsp;**void** QAbstractItemModel::**revert**()</font> 
 
 让模型知道它应该丢弃缓存的信息。这个函数通常用于行编辑。
-  
+
 该函数在 `Qt 4.2` 中被引入。  
 
 参见 [submit](#submit)()。
@@ -730,6 +732,7 @@ QAbstractItemModel类为项模型类提供了抽象接口。[更多...]()
 - `index` 的列数大于等于零；
 - `index` 的列数小于父索引的列数。
   
+
 `options` 参数可能会改变其中一些检查。如果 `options` 包含 `IndexIsValid`，那么 `index` 必须是一个有效的索引;这在重新实现 [data](#data)() 或 [setData](#setdata)() 等需要有效索引的函数时非常有用。
 
 如果 `options` 包含 `DoNotUseParent`，那么将调用 [parent](#parent)() 的检查将被省略;允许在重新实现的 [parent](#parent)() 函数中调用此函数(否则，将导致无穷递归和崩溃)。
