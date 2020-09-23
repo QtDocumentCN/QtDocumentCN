@@ -1206,7 +1206,7 @@ QAbstractItemModel类为项模型类提供了抽象接口。[更多...]()
 
 基类的实现返回 `false`。对于可编辑的模型来说，该函数和 [data](#data)() 必须被实现。
 
-**注意：** 该函数可以通过元对象系统和 `QML` 调用。请参阅 [Q_INVOKABLE]()。
+**注意：**该函数可以通过元对象系统和 `QML` 调用。请参阅 [Q_INVOKABLE]()。
 
 参见 [Qt::ItemDataRole]()、[data](#data)() 和 [itemData](#itemdata)()。
 
