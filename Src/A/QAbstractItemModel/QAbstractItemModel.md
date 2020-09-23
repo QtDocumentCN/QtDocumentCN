@@ -13,33 +13,33 @@ QAbstractItemModel类为项模型类提供了抽象接口。[更多...]()
 
 | 类型 | 类型名称 |
 | ---- | ---- |
-| enum class | [CheckIndexOption]() { NoOption, IndexIsValid, DoNotUseParent, ParentIsInvalid } |
-| flags | [CheckIndexOptions]() |
-| enum | [LayoutChangeHint]() { NoLayoutChangeHint, VerticalSortHint, HorizontalSortHint } |
+| enum class | [CheckIndexOption](#checkindexoption-checkindexoptions) { NoOption, IndexIsValid, DoNotUseParent, ParentIsInvalid } |
+| flags | [CheckIndexOptions](#checkindexoption-checkindexoptions) |
+| enum | [LayoutChangeHint](#layoutchangehint) { NoLayoutChangeHint, VerticalSortHint, HorizontalSortHint } |
 
 ## 公共成员函数
 
 | 类型 | 函数名称 |
 | ---- | ---- |
-| | QAbstractItemModel(QObject *parent = nullptr) |
-| virtual |	~QAbstractItemModel() |
-| virtual QModelIndex |	buddy(const QModelIndex &index) const |
-| virtual bool | canDropMimeData(const QMimeData *data, Qt::DropAction action, int row, int column, const QModelIndex &parent) const s|
-| virtual bool | canFetchMore(const QModelIndex &parent) const |
-| bool | checkIndex(const QModelIndex &index, QAbstractItemModel::CheckIndexOptions options = CheckIndexOption::NoOption) const |
-| virtual int | columnCount(const QModelIndex &parent = QModelIndex()) const = 0 |
-| virtual QVariant | data(const QModelIndex &index, int role = Qt::DisplayRole) const = 0 |
-| virtual bool | dropMimeData(const QMimeData *data, Qt::DropAction action, int row, int column, const QModelIndex &parent) |
-| virtual void | fetchMore(const QModelIndex &parent) |
-| virtual Qt::ItemFlags | flags(const QModelIndex &index) const |
-| virtual bool | hasChildren(const QModelIndex &parent = QModelIndex()) const |
-| bool | hasIndex(int row, int column, const QModelIndex &parent = QModelIndex()) const |
-| virtual QVariant | headerData(int section, Qt::Orientation orientation, int role = Qt::DisplayRole) const |
-| virtual QModelIndex |	index(int row, int column, const QModelIndex &parent = QModelIndex()) const = 0 |
-| bool | insertColumn(int column, const QModelIndex &parent = QModelIndex()) |
-| virtual bool | insertColumns(int column, int count, const QModelIndex &parent = QModelIndex()) |
-| bool | insertRow(int row, const QModelIndex &parent = QModelIndex()) |
-| virtual bool | insertRows(int row, int count, const QModelIndex &parent = QModelIndex()) |
+| | [QAbstractItemModel](#qabstractitemmodel)(QObject *parent = nullptr) |
+| virtual |	~[QAbstractItemModel](#~qabstractitemmodel)() |
+| virtual QModelIndex |	[buddy](#buddy)(const QModelIndex &index) const |
+| virtual bool | [canDropMimeData](#candropmimedata)(const QMimeData *data, Qt::DropAction action, int row, int column, const QModelIndex &parent) const s|
+| virtual bool | [canFetchMore](#canfetchmore)(const QModelIndex &parent) const |
+| bool | [checkIndex](#checkindex)(const QModelIndex &index, QAbstractItemModel::CheckIndexOptions options = CheckIndexOption::NoOption) const |
+| virtual int | [columnCount](#columncount)(const QModelIndex &parent = QModelIndex()) const = 0 |
+| virtual QVariant | [data](#data)(const QModelIndex &index, int role = Qt::DisplayRole) const = 0 |
+| virtual bool | [dropMimeData](#dropMimeData)(const QMimeData *data, Qt::DropAction action, int row, int column, const QModelIndex &parent) |
+| virtual void | [fetchMore](#fetchMore)(const QModelIndex &parent) |
+| virtual Qt::ItemFlags | [flags](#flags)(const QModelIndex &index) const |
+| virtual bool | [hasChildren](#haschildren) QModelIndex &parent = QModelIndex()) const |
+| bool | [hasIndex](#hasindex) row, int column, const QModelIndex &parent = QModelIndex()) const |
+| virtual QVariant | [headerData](#headerdata) section, Qt::Orientation orientation, int role = Qt::DisplayRole) const |
+| virtual QModelIndex |	[index](#index) row, int column, const QModelIndex &parent = QModelIndex()) const = 0 |
+| bool | [insertColumn](#insertcolumn) column, const QModelIndex &parent = QModelIndex()) |
+| virtual bool | [insertColumns](#insertcolumns) column, int count, const QModelIndex &parent = QModelIndex()) |
+| bool | [insertRow](#insertRow)(int row, const QModelIndex &parent = QModelIndex()) |
+| virtual bool | [insertRows](#insertrows) row, int count, const QModelIndex &parent = QModelIndex()) |
 | virtual QMap<int, QVariant> |	itemData(const QModelIndex &index) const |
 | virtual QModelIndexList | match(const QModelIndex &start, int role, const QVariant &value, int hits = 1, Qt::MatchFlags flags = Qt::MatchFlags (Qt::MatchStartsWith|Qt::MatchWrap)) const |
 | virtual QMimeData * |	mimeData(const QModelIndexList &indexes) const |
@@ -185,6 +185,7 @@ QAbstractItemModel类为项模型类提供了抽象接口。[更多...]()
 
 ## 成员类型文档
 
+### CheckIndexOption CheckIndexOptions
 **enum class QAbstractItemModel::CheckIndexOption**
 **flags QAbstractItemModel::CheckIndexOptions**
 
@@ -201,7 +202,8 @@ QAbstractItemModel类为项模型类提供了抽象接口。[更多...]()
 
 `CheckIndexOptions` 类型是一个 [QFlags]()\<`CheckIndexOption`> 的类型定义。它存储一个或组合的 `CheckIndexOption` 值。
 
-### enum QAbstractItemModel::LayoutChangeHint
+### LayoutChangeHint
+**enum QAbstractItemModel::LayoutChangeHint**
 
 这个枚举描述了模型改变布局的方式。
 
@@ -214,12 +216,12 @@ QAbstractItemModel类为项模型类提供了抽象接口。[更多...]()
 注意，`VerticalSortHint`　和 `HorizontalSortHint` 表示项在同一父级中移动，而不是移动到模型中的不同父级，也没有过滤掉或过滤进来。
 
 ## 成员函数文档
-
+### QAbstractItemModel
 <font size=4> QAbstractItemModel::**QAbstractItemModel**([QObject]() *parent = nullptr) </font> 
 
 构造指定父类对象 `parent` 的抽象项模型。
-<br></br>
 
+### columnsAboutToBeInserted
 <font size=4>[ signal ]&emsp;**void** QAbstractItemModel::**columnsAboutToBeInserted**(const [QModelIndex]() &parent, **int** first, **int** last)</font>
 
 在将列插入模型之前就发射此信号。新项将位于给定父项 `parent` 下的首 `first` 尾 `last`之间。
@@ -229,8 +231,8 @@ QAbstractItemModel类为项模型类提供了抽象接口。[更多...]()
 **注意:**　这是一个私有信号。它可以用于信号连接，但不能由用户发射。
 
 参见 [insertColumns()]() 和 [beginInsertColumns()]()。
-<br></br>
 
+### columnsAboutToBeMoved
 <font size=4>[ signal ]&emsp;**void** QAbstractItemModel::**columnsAboutToBeMoved**(const [QModelIndex]() &sourceParent, **int** sourceStart, **int** sourceEnd, const [QModelIndex]() &destinationParent, **int** destinationColumn)</font> 
 
 模型中的列被移动之前发射该信号。将要移动的项是在给定 `sourceParent` 下在 `sourceStart` 和 `sourceEnd` 之间（包括首尾）的项。它们将从 `destinationColumn` 列开始移动到`destinationParent`。
@@ -242,8 +244,8 @@ QAbstractItemModel类为项模型类提供了抽象接口。[更多...]()
 该函数在 `Qt4.6` 中被引入。
 
 参见 [beginMoveRows]()()。
-<br></br>
 
+### columnsAboutToBeRemoved
 <font size=4>[ signal ]&emsp;**void** QAbstractItemModel::**columnsAboutToBeRemoved**(const [QModelIndex]() &parent, **int** first, **int** last)</font> 
 
 模型中的列被移除之前发射该信号。将要移除的项是在给定 `parent` 下在 `first` 和 `last` 之间（包括首尾）的项。
@@ -253,8 +255,8 @@ QAbstractItemModel类为项模型类提供了抽象接口。[更多...]()
 **注意：** 这是一个私有信号。仅用于信号连接，而不能由用户发射。
 
 参见 [removeColumns]()() 和 [beginRemoveColumns]()()。
-<br></br>
 
+### columnsInserted
 <font size=4>[ signal ]&emsp;**void** QAbstractItemModel::**columnsInserted**(const [QModelIndex]() &parent, **int** first, **int** last)</font> 
 
 将列插入到模型之后发射该信号。新的项是在给定 `parent` 下在 `first` 和 `last` 之间（包括首尾）的项。
@@ -264,8 +266,8 @@ QAbstractItemModel类为项模型类提供了抽象接口。[更多...]()
 **注意：** 这是一个私有信号。仅用于信号连接，而不能由用户发射。
 
 参见 [insertColumns]()() 和 [beginInsertColumns]()()。
-<br></br>
 
+### columnsMoved
 <font size=4>[ signal ]&emsp;**void** QAbstractItemModel::**columnsMoved**(const [QModelIndex]() &parent, **int** start, **int** end, const [QModelIndex]() &destination, **int** column)</font> 
 
 模型中的列被移动之后发射该信号。新的项是在给定 `parent` 下在 `start` 和 `end` 之间（包括首尾）的项。它们将从 `column` 列开始移动到`destination`。
@@ -277,8 +279,8 @@ QAbstractItemModel类为项模型类提供了抽象接口。[更多...]()
 该函数在 `Qt4.6` 中被引入。
 
 参见 [beginMoveRows]()()。
-<br></br>
 
+### columnsRemoved
 <font size=4>[ signal ]&emsp;**void** QAbstractItemModel::**columnsRemoved**(const [QModelIndex]() &parent, **int** first, **int** last)</font> 
 
 模型中的列被移除之后发射该信号。移除的项是在给定 `parent` 下在 `first` 和 `last` 之间（包括首尾）的项。
@@ -288,8 +290,8 @@ QAbstractItemModel类为项模型类提供了抽象接口。[更多...]()
 **注意：** 这是一个私有信号。仅用于信号连接，而不能由用户发射。
 
 参见 [removeColumns]()() 和 [beginRemoveColumns]()()。
-<br></br>
 
+### dataChanged
 <font size=4>[ signal ]&emsp;**void** QAbstractItemModel::**dataChanged**(const [QModelIndex]() &topLeft, const [QModelIndex]() &bottomRight, const [QVector]()<**int**> &roles = QVector<int>())</font> 
 
 现有的项的数据发生改变时发射该信号。
@@ -301,8 +303,8 @@ QAbstractItemModel类为项模型类提供了抽象接口。[更多...]()
 可选的 `roles` 参数可用于指定实际修改了哪些数据角色。`Roles` 参数中的向量为空，表示应将所有角色视为已修改。角色参数中元素的顺序没有任何关联。
 
 参见 [headerDataChanged]()()、[setData]()() 和 [layoutChanged]()()。
-<br></br>
 
+### headerDataChanged
 <font size=4>[ signal ]&emsp;**void** QAbstractItemModel::**headerDataChanged**(const [Qt::Orientation]() &orientation, **int** first, **int** last)</font> 
 
 当标题改变时发射该信号。`orientation` 表示是横向标题还是竖向标题发生了改变。标题中从 `first` 到 `last` 的部分需要更新。
@@ -312,8 +314,8 @@ QAbstractItemModel类为项模型类提供了抽象接口。[更多...]()
 如果要更改列数或行数，则不需要发出此信号，而可以使用 `begin/end` 函数（有关详细信息，请参见 [QAbstractItemModel]() 类描述中的子类化部分）。
 
 参见 [headerData]()()、[setHeaderData]()() 和 [dataChanged]()()。
-<br></br>
 
+### layoutAboutToBeChanged
 <font size=4>[ signal ]&emsp;**void** QAbstractItemModel::**layoutAboutToBeChanged**(const [QList]()<[QPersistentModelIndex]()> &parents = QList<QPersistentModelIndex>(), [QAbstractItemModel::LayoutChangeHint]() hint = QAbstractItemModel::NoLayoutChangeHint)</font> 
 
 这个信号会在模型的布局改变之前发出。连接到这个信号的组件使用它来适应模型布局的变化。
@@ -325,8 +327,8 @@ QAbstractItemModel类为项模型类提供了抽象接口。[更多...]()
 该函数在 `Qt 5.0` 中被引入。
 
 参见 [layoutChanged]()() 和 [changePersistentIndex]()()。
-<br></br>
 
+### layoutChanged
 <font size=4>[ signal ]&emsp;**void** QAbstractItemModel::**layoutChanged**(const [QList]()<[QPersistentModelIndex]()> &parents = QList<QPersistentModelIndex>(), [QAbstractItemModel::LayoutChangeHint]() hint = QAbstractItemModel::NoLayoutChangeHint)</font> 
 
 每当模型公开的项的布局发生变化时，就会发出这个信号，例如，对模型进行排序时。当视图接收到该信号时，应更新项的布局来反映此更改。
@@ -346,8 +348,8 @@ QAbstractItemModel类为项模型类提供了抽象接口。[更多...]()
 该函数在 `Qt 5.0` 中被引入。  
 
 参见 [layoutAboutToBeChanged]()()、[dataChanged]()()、[headerDataChanged]()()、[modelReset]()() 和 [changePersistentIndex]()()。
-<br></br>
 
+### modelAboutToBeReset
 <font size=4>[ signal ]&emsp;**void** QAbstractItemModel::**modelAboutToBeReset**()</font> 
 
 当调用 [beginResetModel]()() 时，在模型的内部状态(例如持久模型索引)失效之前发出这个信号。
@@ -357,8 +359,8 @@ QAbstractItemModel类为项模型类提供了抽象接口。[更多...]()
 该函数在 `Qt 4.2` 中被引入。  
 
 参见 [beginResetModel]()() 和 [modelReset]()()。
-<br></br>
 
+### modelReset
 <font size=4>[ signal ]&emsp;**void** QAbstractItemModel::**modelReset**()</font> 
 
 当调用 [endResetModel]()() 时，在模型的内部状态(例如持久模型索引)失效之后发出这个信号。
@@ -370,8 +372,8 @@ QAbstractItemModel类为项模型类提供了抽象接口。[更多...]()
 该函数在 `Qt 4.1` 中被引入。  
 
 参见 [endResetModel]()() 和 [modelAboutToBeReset]()()。
-<br></br>
 
+### resetInternalData
 <font size=4 weight="lighter">[ protected slot ]&emsp;**void** QAbstractItemModel::**resetInternalData**()</font> 
 
 该槽函数在模型的内部数据被清除并被重置之后被调用。
@@ -417,8 +419,8 @@ QAbstractItemModel类为项模型类提供了抽象接口。[更多...]()
 该函数在 `Qt 4.8` 中被引入。  
 
 参见 [modelAboutToBeReset]()() 和 [modelReset]()()。
-<br></br>
 
+### revert
 <font size=4>[ virtual slot ]&emsp;**void** QAbstractItemModel::**revert**()</font> 
 
 让模型知道它应该丢弃缓存的信息。这个函数通常用于行编辑。
@@ -426,8 +428,8 @@ QAbstractItemModel类为项模型类提供了抽象接口。[更多...]()
 该函数在 `Qt 4.2` 中被引入。  
 
 参见 [submit]()()。
-<br></br>
 
+### rowsAboutToBeInserted
 <font size=4>[ signal ]&emsp;**void** QAbstractItemModel::**rowsAboutToBeInserted**(const [QModelIndex]() &parent, **int** start, **int** end)</font> 
 
 在将行插入模型之前就发出该信号。新项将位于给定 `parent` 项目下的包含 `start` 和 `end` 之间。
@@ -437,8 +439,8 @@ QAbstractItemModel类为项模型类提供了抽象接口。[更多...]()
 **注意：** 这是一个私有信号。仅用于信号连接，而不能由用户发射。 
 
 参见 [insertRows]()() 和 [beginInsertRows]()()。
-<br></br>
 
+### rowsAboutToBeMoved
 <font size=4>[ signal ]&emsp;**void** QAbstractItemModel::**rowsAboutToBeMoved**(const [QModelIndex]() &sourceParent, **int** sourceStart, **int** sourceEnd, const [QModelIndex]() &destinationParent, **int** destinationRow)</font> 
 
 模型中的行被移动之前发射该信号。将要移动的项是在给定 `sourceParent` 下在 `sourceStart` 和 `sourceEnd` 之间（包括首尾）的项。它们将从 `destinationRow` 列开始移动到`destinationParent`。
@@ -450,8 +452,8 @@ QAbstractItemModel类为项模型类提供了抽象接口。[更多...]()
 该函数在 `Qt4.6` 中被引入。
 
 参见 [beginMoveRows]()()。
-<br></br>
 
+### rowsAboutToBeRemoved
 <font size=4>[ signal ]&emsp;**void** QAbstractItemModel::**rowsAboutToBeRemoved**(const [QModelIndex]() &parent, **int** first, **int** last)</font> 
 
 模型中的行被移除之前发射该信号。将要移除的项是在给定 `parent` 下在 `first` 和 `last` 之间（包括首尾）的项。
@@ -461,8 +463,8 @@ QAbstractItemModel类为项模型类提供了抽象接口。[更多...]()
 **注意：** 这是一个私有信号。仅用于信号连接，而不能由用户发射。
 
 参见 [removeRows]()() 和 [beginRemoveRows]()()。
-<br></br>
 
+### rowsInserted
 <font size=4>[ signal ]&emsp;**void** QAbstractItemModel::**rowsInserted**(const [QModelIndex]() &parent, **int** first, **int** last)</font> 
 
 将行插入到模型之后发射该信号。新的项是在给定 `parent` 下在 `first` 和 `last` 之间（包括首尾）的项。
@@ -472,8 +474,8 @@ QAbstractItemModel类为项模型类提供了抽象接口。[更多...]()
 **注意：** 这是一个私有信号。仅用于信号连接，而不能由用户发射。
 
 参见 [insertRows]()() 和 [beginInsertRows]()()。
-<br></br>
 
+### rowsMoved
 <font size=4>[ signal ]&emsp;**void** QAbstractItemModel::**rowsMoved**(const [QModelIndex]() &parent, **int** start, **int** end, const [QModelIndex]() &destination, **int** column)</font> 
 
 模型中的行被移动之后发射该信号。新的项是在给定 `parent` 下在 `start` 和 `end` 之间（包括首尾）的项。它们将从 `column` 列开始移动到`destination`。
@@ -485,8 +487,8 @@ QAbstractItemModel类为项模型类提供了抽象接口。[更多...]()
 该函数在 `Qt4.6` 中被引入。
 
 参见 [beginMoveRows]()()。
-<br></br>
 
+### rowsRemoved
 <font size=4>[ signal ]&emsp;**void** QAbstractItemModel::**rowsRemoved**(const [QModelIndex]() &parent, **int** first, **int** last)</font> 
 
 模型中的行被移除之后发射该信号。移除的项是在给定 `parent` 下在 `first` 和 `last` 之间（包括首尾）的项。
@@ -496,8 +498,8 @@ QAbstractItemModel类为项模型类提供了抽象接口。[更多...]()
 **注意：** 这是一个私有信号。仅用于信号连接，而不能由用户发射。
 
 参见 [ removeRows]()() 和 [beginRemoveRows]()()。
-<br></br>
 
+### submit
 <font size=4>[ virtual slot ]&emsp;**void** QAbstractItemModel::**submit**()</font> 
 
 让模型知道它应该将缓存的信息提交到永久存储。这个函数通常用于行编辑。
@@ -505,13 +507,13 @@ QAbstractItemModel类为项模型类提供了抽象接口。[更多...]()
 如果没有错误，返回 `true`;否则返回 `false`。
 
 参见 [revert]()()。
-<br></br>
 
+### ~QAbstractItemModel
 <font size=4>[ virtual ]&emsp;**void** QAbstractItemModel::**~QAbstractItemModel**()</font> 
 
 销毁抽象项模型。
-<br></br>
 
+### beginInsertColumns
 <font size=4>[ protected ]&emsp;**void** QAbstractItemModel::**beginInsertColumns**(const [QModelIndex]() &parent, **int** first, **int** last)</font> 
 
 开始一个列插入操作。
@@ -532,8 +534,8 @@ QAbstractItemModel类为项模型类提供了抽象接口。[更多...]()
 **注意：** 此函数发出 [columnAboutToBeInserted]()() 信号，在插入数据之前，已连接的视图（或代理）必须处理该信号。否则，视图可能会以无效状态结束。
 
 参见 [endInsertColumns]()()。
-<br></br>
 
+### beginInsertRows
 <font size=4>[ protected ]&emsp;**void** QAbstractItemModel::**beginInsertRows**(const [QModelIndex]() &parent, **int** first, **int** last)</font> 
 
 开始一个行插入操作。
@@ -556,8 +558,8 @@ QAbstractItemModel类为项模型类提供了抽象接口。[更多...]()
 **注意：** 此函数发出 [rowsAboutToBeInserted]()() 信号，在插入数据之前，已连接的视图（或代理）必须处理该信号。否则，视图可能会以无效状态结束。
 
 参见 [ endInsertRows]()()。
-<br></br>
 
+### beginMoveColumns
 <font size=4>[ protected ]&emsp;**void** QAbstractItemModel::**beginMoveColumns**(const [QModelIndex]() &sourceParent, **int** sourceFirst, **int** sourceLast, const [QModelIndex]() &destinationParent, **int** destinationChild)</font> 
 
 开始一个列移动操作。
@@ -573,8 +575,8 @@ QAbstractItemModel类为项模型类提供了抽象接口。[更多...]()
 该函数在 `Qt4.6` 中被引入。
 
 参见 [endMoveColumns]()()。
-<br></br>
 
+### beginMoveRows
 <font size=4>[ protected ]&emsp;**void** QAbstractItemModel::**beginMoveRows**(const [QModelIndex]() &sourceParent, **int** sourceFirst, **int** sourceLast, const [QModelIndex]() &destinationParent, **int** destinationChild)</font> 
 
 开始一个行移动操作。
@@ -610,8 +612,8 @@ QAbstractItemModel类为项模型类提供了抽象接口。[更多...]()
 该函数在 `Qt4.6` 中被引入。
 
 参见 [endMoveRows]()()。
-<br></br>
 
+### beginRemoveColumns
 <font size=4>[ protected ]&emsp;**void** QAbstractItemModel::**beginRemoveColumns**(const [QModelIndex]() &parent, int first, int last)</font> 
 
 开始一个列移除操作。
@@ -627,8 +629,8 @@ QAbstractItemModel类为项模型类提供了抽象接口。[更多...]()
 
 参见 [endRemoveColumns]()()。
 </tbody></table></div>
-<br></br>
 
+### beginRemoveRows
 <font size=4>[ protected ]&emsp;**void** QAbstractItemModel::**beginRemoveRows**(const [QModelIndex]() &parent, int first, int last)</font> 
 
 开始一个行移除操作。
@@ -646,8 +648,8 @@ QAbstractItemModel类为项模型类提供了抽象接口。[更多...]()
 **注意：** 此函数发出 [rowsAboutToBeRemoved]()() 信号，连接的视图（或代理）必须在删除数据之前处理该信号。否则，视图可能会以无效状态结束。
 
 参见 [endRemoveRows]()()。
-<br></br>
 
+### beginResetModel
 <font size=4>[ protected ]&emsp;**void** QAbstractItemModel::**beginResetModel**()</font> 
 
 开始模型重置操作。
@@ -665,15 +667,15 @@ QAbstractItemModel类为项模型类提供了抽象接口。[更多...]()
 该函数在 `Qt4.6` 中被引入。
 
 参见 [modelAboutToBeReset]()()、[modelReset]()() 和 [endResetModel]()()。
-<br></br>
 
+### buddy
 <font size=4>[ virtual ]&emsp;**void** QAbstractItemModel::**buddy**(const [QModelIndex]() &index) const</font> 
 
 返回由 `index` 表示的项的伙伴的模型索引。当用户想要编辑项目时，视图将调用此函数以检查是否应改为编辑模型中的另一个项。然后，视图将使用伙伴项返回的模型索引构造一个委托。
 
 此功能的默认实现将每个项都作为自己的伙伴。
-<br></br>
 
+### canDropMimeData
 <font size=4>[ virtual ]&emsp;**bool** QAbstractItemModel::**canDropMimeData**(const [QMimeData]() *data, [Qt::DropAction]() action, **int** row, **int** column, const [QModelIndex]() &parent) const</font> 
 
 如果模型接受放置 `data`，则返回 `true`。这个默认实现只检查 [mimeTypes]()() 列表中数据是否至少有一种格式，以及操作是否在模型的 [supportedDropActions]()() 中。
@@ -681,8 +683,8 @@ QAbstractItemModel类为项模型类提供了抽象接口。[更多...]()
 如果您想要测试是否可以在 `row`、`column`、`parent`节点上放置 `data`，请在自定义模型中重新实现此函数。如果您不需要该测试，那么就没有必要重新实现此函数。
 
 参见 [dropMimeData]()() 和 [与项视图一起视同拖放]。
-<br></br>
 
+### canFetchMore
 <font size=4>[ virtual ]&emsp;**bool** QAbstractItemModel::**canFetchMore**(const [QModelIndex]() &parent) const</font> 
 
 如果在 `parent` 索引下有更多可用的数据返回 `true`；否则返回 `fasle`;
@@ -694,8 +696,8 @@ QAbstractItemModel类为项模型类提供了抽象接口。[更多...]()
 **注意：** 该函数可以通过元对象系统和 `QML` 调用。请参阅 [Q_INVOKABLE]()。
 
 参见 [fetchMore]()()。
-<br></br>
 
+### changePersistentIndex
 <font size=4>[ protected ]&emsp;**void** QAbstractItemModel::**changePersistentIndex**(const [QModelIndex]() &from, const [QModelIndex]() &to)</font> 
 
 将等于给定的 `from` 的 [QPersistentModelIndex]()() 模型索引更改为 `to` 模型索引。
@@ -705,8 +707,8 @@ QAbstractItemModel类为项模型类提供了抽象接口。[更多...]()
 如果 `canFetchMore()` 返回 `true`，则应该调用 [fetchMore]()() 函数。比如 [QAbstractItemView]() 就是这样做的。
 
 参见 [persistentIndexList]()() 和 [changePersistentIndexList]()()。
-<br></br>
 
+### changePersistentIndexList
 <font size=4>[ protected ]&emsp;**void** QAbstractItemModel::**changePersistentIndexList**(const [QModelIndexList ]() &from, const [QModelIndexList ]() &to)</font> 
 
 将等于给定的 `from` 的 [QPersistentModelIndex]()()es 模型索引列表更改为 `to` 模型索引列表。
@@ -716,8 +718,8 @@ QAbstractItemModel类为项模型类提供了抽象接口。[更多...]()
 该函数在 `Qt4.1` 中被引入。
 
 参见 [persistentIndexList]()() 和 [changePersistentIndex]()()。
-<br></br>
 
+### checkIndex
 <font size=4>**bool** QAbstractItemModel::**checkIndex**(const [QModelIndex]() &index, [QAbstractItemModel::CheckIndexOptions]() options = CheckIndexOption::NoOption) const</font> 
 
 此函数检查索引是否为此模型的合法模型索引。 合法模型索引要么是无效的模型索引，要么是具有以下所有条件的有效模型索引：
@@ -744,6 +746,7 @@ QAbstractItemModel类为项模型类提供了抽象接口。[更多...]()
 
 参见 [QModelIndex]()()。
 
+### columnCount
 <font size=4>[ pure virtual ]&emsp;**int** QAbstractItemModel::**columnCount**(const [QModelIndex]() &parent = QModelIndex()) const</font> 
 
 返回给定 `parent` 索引的子项的列的数量。
@@ -767,8 +770,8 @@ QAbstractItemModel类为项模型类提供了抽象接口。[更多...]()
 该函数在 `Qt4.1` 中被引入。
 
 参见 [rowCount]()()。
-<br></br>
 
+### createIndex
 <font size=4>[ protected ]&emsp;**[QModelIndex]()** QAbstractItemModel::**createIndex**(**int** row, **int** column, **void** *ptr = nullptr) const</font> 
 
 使用内部指针 `ptr` 为给定的 `row` 和 `column` 创建模型索引。
@@ -778,8 +781,8 @@ QAbstractItemModel类为项模型类提供了抽象接口。[更多...]()
 这个函数提供了一个一致的接口，模型子类必须使用这个接口来创建模型索引。
 
 参见 [QModelIndex::internalId]()()。
-<br></br>
 
+### data
 <font size=4>[ pure virtual ]&emsp;**[QVariant]()** QAbstractItemModel::**data**(const [QModelIndex]() &index, **int** role = Qt::DisplayRole) const</font> 
 
 返回指定角色 `role` 和 索引 `index` 的项数据。
@@ -789,8 +792,8 @@ QAbstractItemModel类为项模型类提供了抽象接口。[更多...]()
 **注意：** 该函数可以通过元对象系统和 `QML` 调用。请参阅 [Q_INVOKABLE]()。
 
 参见 [Qt::ItemDataRole]()、[setData]()() 和 [headerData]()()。
-<br></br>
 
+### dropMimeData
 <font size=4>[ virtual ]&emsp;**bool** QAbstractItemModel::**dropMimeData**(const [QMimeData]() *data, [Qt::DropAction]() action, **int** row, **int** column, const [QModelIndex]() &parent) const</font> 
 
 处理以给定操作 `action` 结束的拖放操作提供的数据 `data`。
@@ -808,8 +811,8 @@ QAbstractItemModel类为项模型类提供了抽象接口。[更多...]()
 **注意：** 该函数可以通过元对象系统和 `QML` 调用。请参阅 [Q_INVOKABLE]()。
 
 参见 [supportedDropActions]()、[canDropMimeData]()() 和 [在项视图中使用拖放]()。
-<br></br>
 
+### endInsertColumns
 <font size=4>[ protected ]&emsp;**void** QAbstractItemModel::**endInsertColumns**()</font> 
 
 结束列插入操作。
@@ -817,8 +820,8 @@ QAbstractItemModel类为项模型类提供了抽象接口。[更多...]()
 在子类中重新实现 [insertColumns]()()时，必须在将数据插入模型的底层数据存储之后调用此函数。
 
 参见 [beginInsertColumns]()()。
-<br></br>
 
+### endInsertRows
 <font size=4>[ protected ]&emsp;**void** QAbstractItemModel::**endInsertRows**()</font> 
 
 结束行插入操作。
@@ -826,8 +829,8 @@ QAbstractItemModel类为项模型类提供了抽象接口。[更多...]()
 在子类中重新实现 [insertRows]()()时，必须在将数据插入模型的底层数据存储之后调用此函数。
 
 参见 [beginInsertRows]()()。
-<br></br>
 
+### endMoveColumns
 <font size=4>[ protected ]&emsp;**void** QAbstractItemModel::**endMoveColumns**()</font> 
 
 结束列移动操作。
@@ -837,8 +840,8 @@ QAbstractItemModel类为项模型类提供了抽象接口。[更多...]()
 该函数在 `Qt4.6` 中被引入。
 
 参见 [beginMoveColumns]()()。
-<br></br>
 
+### endMoveRows
 <font size=4>[ protected ]&emsp;**void** QAbstractItemModel::**endMoveRows**()</font> 
 
 结束行移动操作。
@@ -848,8 +851,8 @@ QAbstractItemModel类为项模型类提供了抽象接口。[更多...]()
 该函数在 `Qt4.6` 中被引入。
 
 参见 [beginMoveRows]()()。
-<br></br>
 
+### endRemoveColumns
 <font size=4>[ protected ]&emsp;**void** QAbstractItemModel::**endRemoveColumns**()</font> 
 
 结束列删除操作。
@@ -857,8 +860,8 @@ QAbstractItemModel类为项模型类提供了抽象接口。[更多...]()
 在子类中重新实现 [removeColumns]()() 时，必须在从模型的底层数据存储中删除数据之后调用此函数。
 
 参见 [beginRemoveColumns]()()。
-<br></br>
 
+### endRemoveRows
 <font size=4>[ protected ]&emsp;**void** QAbstractItemModel::**endRemoveRows**()</font> 
 
 结束行删除操作。
@@ -866,8 +869,8 @@ QAbstractItemModel类为项模型类提供了抽象接口。[更多...]()
 在子类中重新实现 [removeRows]()() 时，必须在从模型的底层数据存储中删除数据之后调用此函数。
 
 参见 [beginRemoveRows]()()。
-<br></br>
 
+### endResetModel
 <font size=4>[ protected ]&emsp;**void** QAbstractItemModel::**endResetModel**()</font> 
 
 完成模型重置操作。
@@ -879,8 +882,8 @@ QAbstractItemModel类为项模型类提供了抽象接口。[更多...]()
 该函数在 `Qt4.6` 中被引入。
 
 参见 [beginResetModel]()()。
-<br></br>
 
+### fetchMore
 <font size=4>[ virtual ]&emsp;**void** QAbstractItemModel::**fetchMore**(const [QModelIndex]() &parent)</font> 
 
 获取指定的 `parent` 父索引的项的任何可用的数据。
@@ -892,8 +895,8 @@ QAbstractItemModel类为项模型类提供了抽象接口。[更多...]()
 **注意：** 该函数可以通过元对象系统和 `QML` 调用。请参阅 [Q_INVOKABLE]()。
 
 参见 [canFetchMore]()()。
-<br></br>
 
+### flags
 <font size=4>[ virtual ]&emsp;**[Qt::ItemFlags]()** QAbstractItemModel::**flags**(const [QModelIndex]() &index) const</font> 
 
 返回给定索引的项标志。
@@ -903,8 +906,8 @@ QAbstractItemModel类为项模型类提供了抽象接口。[更多...]()
 **注意：** 该函数可以通过元对象系统和 `QML` 调用。请参阅 [Q_INVOKABLE]()。
 
 参见 [Qt::ItemFlags]()。
-<br></br>
 
+### hasChildren
 <font size=4>[ virtual ]&emsp;**[Qt::ItemFlags]()** QAbstractItemModel::**hasChildren**(const [QModelIndex]() &parent = QModelIndex()) const</font> 
 
 如果父索引 `parent` 有任何子项则返回 `true`，否则返回 `false`。
@@ -916,15 +919,15 @@ QAbstractItemModel类为项模型类提供了抽象接口。[更多...]()
 **注意：** 该函数可以通过元对象系统和 `QML` 调用。请参阅 [Q_INVOKABLE]()。
 
 参见 [parent]()() 和 [index]()()。
-<br></br>
 
+### hasIndex
 <font size=4>[ virtual ]&emsp;**bool** QAbstractItemModel::**hasIndex**(**int** row, **int** column, const [QModelIndex]() &parent = QModelIndex()) const</font> 
 
 如果模型返回一个指定父索引 `parent`、行 `row` 和列 `column` 的有效 [QModelIndex]()，则返回 `true`，否则返回 `false`。
 
 **注意：** 该函数可以通过元对象系统和 `QML` 调用。请参阅 [Q_INVOKABLE]()。
-<br></br>
 
+### headerData
 <font size=4>[ virtual ]&emsp;**[QVariant]()** QAbstractItemModel::**headerData**(**int** section, [Qt::Orientation]() orientation, **int** role = Qt::DisplayRole) const</font> 
 
 返回标题中具有给定 `orientation` 和 `section` 的数据。
@@ -934,8 +937,8 @@ QAbstractItemModel类为项模型类提供了抽象接口。[更多...]()
 **注意：** 该函数可以通过元对象系统和 `QML` 调用。请参阅 [Q_INVOKABLE]()。
 
 参见 [Qt::ItemDataRole]()、[setHeaderData]()() 和 [QHeaderView]()。
-<br></br>
 
+### index
 <font size=4>[ pure virtual ]&emsp;**[QModelIndex]()** QAbstractItemModel::**index**(**int** row, **int** column, const [QModelIndex]() &parent = QModelIndex()) const</font> 
 
 返回模型中指定 `row`、`column` 和 `parent` 索引的项的索引。
@@ -945,8 +948,8 @@ QAbstractItemModel类为项模型类提供了抽象接口。[更多...]()
 **注意：** 该函数可以通过元对象系统和 `QML` 调用。请参阅 [Q_INVOKABLE]()。
 
 参见 [createIndex]()()。
-<br></br>
 
+### insertColumn
 <font size=4>**bool** QAbstractItemModel::**insertColumn**(**int** column, const [QModelIndex]() &parent = QModelIndex()) const</font> 
 
 在指定 `parent` 索引的子项的指定 `column` 之前插入一列。
@@ -956,8 +959,8 @@ QAbstractItemModel类为项模型类提供了抽象接口。[更多...]()
 **注意：** 该函数可以通过元对象系统和 `QML` 调用。请参阅 [Q_INVOKABLE]()。
 
 参见 [insertColumns]()()、[insertRow]()() 和 [removeColumn]()。
-<br></br>
 
+### insertColumns
 <font size=4>[ virtual ]&emsp;**bool** QAbstractItemModel::**insertColumns**(**int** column, **int** count, const [QModelIndex]() &parent = QModelIndex()) const</font> 
 
 在支持此功能的模型上，在模型中的给定 `column` 之前插入 `count` 列新列。每个新列中的项将是由父模型索引 `parent` 表示的项的子项目。
@@ -977,8 +980,8 @@ QAbstractItemModel类为项模型类提供了抽象接口。[更多...]()
 **注意：** 该函数可以通过元对象系统和 `QML` 调用。请参阅 [Q_INVOKABLE]()。
 
 参见 [insertRows]()()、[removeColumns]()()、[beginInsertColumns]() 和 [endInsertColumns]()()。
-<br></br>
 
+### insertRow
 <font size=4>**bool** QAbstractItemModel::**insertRow**(**int** row, const [QModelIndex]() &parent = QModelIndex()) const</font> 
 
 在指定 `parent` 索引的子项的指定 `row` 之前插入一列。
@@ -988,8 +991,8 @@ QAbstractItemModel类为项模型类提供了抽象接口。[更多...]()
 如果插入了该行，则返回 `true`；否则，返回 `false`。
 
 参见 [insertRows]()()、[insertColumn]()() 和 [removeRow]()。
-<br></br>
 
+### insertRows
 <font size=4>[ virtual ]&emsp;**bool** QAbstractItemModel::**insertRows**(**int** row, **int** count, const [QModelIndex]() &parent = QModelIndex()) const</font> 
 
 **注意：** 基类的实现没有做任何事情，并且返回 `false`。
@@ -1007,8 +1010,8 @@ QAbstractItemModel类为项模型类提供了抽象接口。[更多...]()
 如果您实现了自己的模型，希望支持插入，则可以重新实现此函数。或者，您可以提供自己的 `API` 来更改数据。在任何一种情况下，您都需要调用 [beginInsertRows]()() 和 [endInsertRows]() 来通知其他组件模型已经更改
 
 参见 [insertColumns]()()、[removeRows]()()、[beginInsertRows]() 和 [endInsertRows]()()。
-<br></br>
 
+### itemData
 <font size=4>[ virtual ]&emsp;[QMap]()<**int**, [QVariant]()> QAbstractItemModel::**itemData**(const [QModelIndex]() &index) const</font> 
 
 为给定索引 `index` 处的项返回具有模型中所有预定义角色值的 `map`。
@@ -1016,8 +1019,8 @@ QAbstractItemModel类为项模型类提供了抽象接口。[更多...]()
 如果希望扩展此函数的默认行为以在 `map` 中包含自定义角色，请重新实现此函数。
 
 参见 [setItemData]()()、[Qt::ItemDataRole]() 和 [data]()()。
-<br></br>
 
+### match
 <font size=4>[ virtual ]&emsp;[QModelIndexList]() QAbstractItemModel::**match**(const [QModelIndex]() &start, **int** role, const [QVariant]() &value, **int** hits = 1, [Qt::MatchFlags]() flags = Qt::MatchFlags(Qt::MatchStartsWith|Qt::MatchWrap)) const</font> 
 
 返回一列项的索引，这些索引在 `start` 索引的列中并且该索引下的数据在给定角色下存储的数据与指定值匹配。执行搜索的方式由给定的 `flags` 定义。返回的列表可能是空的。还要注意，如果使用了代理模型，列表中结果的顺序可能与模型中的顺序不一致。不能依赖结果的顺序。
@@ -1029,8 +1032,8 @@ QAbstractItemModel类为项模型类提供了抽象接口。[更多...]()
 **注意：** 这个函数的默认实现只搜索列。重新实现此函数以包含不同的搜索行为。
 
 **注意：** 该函数可以通过元对象系统和 `QML` 调用。请参阅 [Q_INVOKABLE]()。
-<br></br>
 
+### mimeData
 <font size=4>[ virtual ]&emsp;[QMimeData]() QAbstractItemModel::**mimeData**(const [QModelIndexList]() &indexes) const</font> 
 
 返回一个对象，该对象包含与指定索引 `indexes` 列表对应的序列化数据项。用于描述编码数据的格式是从 [mimeTypes]()() 函数获得的。这个默认实现使用 [mimeTypes]()() 的默认实现返回的默认 `MIME` 类型。如果您在自定义模型中重新实现 [mimeTypes]()() 以返回更多 `MIME` 类型，那么重新实现此函数以使用它们。
@@ -1038,8 +1041,8 @@ QAbstractItemModel类为项模型类提供了抽象接口。[更多...]()
 如果 `indexes` 为空，或者没有受支持的 `MIME` 类型，则返回 0，而不是序列化的空列表。
 
 参见 [mimeTypes]()() 和 [dropMimeData]()()。
-<br></br>
 
+### mimeTypes
 <font size=4>[ virtual ]&emsp;[QStringList]() QAbstractItemModel::**mimeTypes**() const</font> 
 
 返回允许的 `MIME` 类型的列表。默认情况下，内置模型和视图使用内部 `MIME` 类型：`application / x-qabstractitemmodeldatalist`。
@@ -1049,8 +1052,8 @@ QAbstractItemModel类为项模型类提供了抽象接口。[更多...]()
 如果在自定义模型中重新实现这个函数，还必须重新实现调用它的成员函数: [mimeData]()() 和 [dropMimeData]()()。
 
 参见 [mimeData]()() 和 [dropMimeData]()()。
-<br></br>
 
+### moveColumn
 <font size=4>**bool** QAbstractItemModel::**moveColumn**(const [QModelIndex]() &sourceParent, **int** sourceColumn, const [QModelIndex]() &destinationParent, **int** destinationChild)</font> 
 
 在支持此功能的模型上，将 `sourceColumn从sourceParent` 移到 `destinationParent` 下的 `destinationChild`。
@@ -1058,8 +1061,8 @@ QAbstractItemModel类为项模型类提供了抽象接口。[更多...]()
 如果列被成功移动，则返回 `true`;否则返回 `false`。
 
 参见 [moveColumns]()() 和 [moveRow]()()。
-<br></br>
 
+### moveColumns
 <font size=4>[ virtual ]&emsp;**bool** QAbstractItemModel::**moveColumns**(const [QModelIndex]() &sourceParent, **int** sourceColumn, **int** count, const [QModelIndex]() &destinationParent, **int** destinationChild)</font> 
 
 在支持此功能的模型上，将 `count` 列从父索引 `sourceParent` 下的给定 `sourceColumn` 移到父索引 `destinationParent` 下的 `destinationChild` 列。
@@ -1071,8 +1074,8 @@ QAbstractItemModel类为项模型类提供了抽象接口。[更多...]()
 如果实现自己的模型，则如果要支持移动，则可以重新实现此功能。另外，您可以提供自己的 `API` 来更改数据。
 
 参见 [beginMoveColumns]()() 和 [endMoveColumns]()()。
-<br></br>
 
+### moveRow
 <font size=4>**bool** QAbstractItemModel::**moveRow**(const [QModelIndex]() &sourceParent, **int** sourceRow const [QModelIndex]() &destinationParent, **int** destinationChild)</font> 
 
 在支持此功能的模型上，将 `sourceColumn从sourceParent` 移到 `destinationParent` 下的 `destinationChild`。
@@ -1080,8 +1083,8 @@ QAbstractItemModel类为项模型类提供了抽象接口。[更多...]()
 如果行被成功移动，则返回 `true`;否则返回 `false`。
 
 参见 [moveRows]()() 和 [moveColumn]()()。
-<br></br>
 
+### moveRows
 <font size=4>[ virtual ]&emsp;**bool** QAbstractItemModel::**moveRows**(const [QModelIndex]() &sourceParent, **int** sourceRow, **int** count, const [QModelIndex]() &destinationParent, **int** destinationChild)</font> 
 
 在支持此功能的模型上，将 `count` 行从父索引 `sourceParent` 下的给定 `sourceColumn` 移到父索引 `destinationParent` 下的 `destinationChild` 行。
@@ -1093,8 +1096,8 @@ QAbstractItemModel类为项模型类提供了抽象接口。[更多...]()
 如果实现自己的模型，则如果要支持移动，则可以重新实现此功能。另外，您可以提供自己的 `API` 来更改数据。
 
 参见 [beginMoveRows]()() 和 [endMoveRows]()()。
-<br></br>
 
+### parent
 <font size=4>[ pure virtual ]&emsp;**bool** QAbstractItemModel::**parent**(const [QModelIndex]() &index) const</font> 
 
 返回具有给定索引 `index` 的模型项的父项。如果该项没有父项，则返回无效的 [QModelIndex]()。
@@ -1106,15 +1109,14 @@ QAbstractItemModel类为项模型类提供了抽象接口。[更多...]()
 **注意：** 该函数可以通过元对象系统和 `QML` 调用。请参阅 [Q_INVOKABLE]()。
 
 参见 [createIndex]()()。
-<br></br>
 
+### persistentIndexList
 <font size=4>[ protected ]&emsp;[QModelIndexList]() QAbstractItemModel::**persistentIndexList**() const</font> 
 
 返回作为模型中的持久索引存储的索引列表。
 
 该函数在 `Qt4.2` 中被引入。
-<br></br>
-
+### removeColumn
 <font size=4>**bool** QAbstractItemModel::**removeColumn**(**int** column, const [QModelIndex]() &parent = QModelIndex())</font> 
 
 从指定的父项 `parent` 的子项中删除给定的列 `column`。
@@ -1122,8 +1124,8 @@ QAbstractItemModel类为项模型类提供了抽象接口。[更多...]()
 如果删除了该列，则返回 `true`；否则返回 `false`。
 
 参见 [removeColumns]()()、[removeRow]()()和[insertColumn]()()。
-<br></br>
 
+### removeColumns
 <font size=4>[ virtual ]&emsp;**bool** QAbstractItemModel::**removeColumns**(**int** column, **int** count, const [QModelIndex]() &parent = QModelIndex())</font> 
 
 在支持此功能的模型上，从模型中删除以父项 `parent` 下给定列 `column` 开头的 `count` 列。
@@ -1135,8 +1137,8 @@ QAbstractItemModel类为项模型类提供了抽象接口。[更多...]()
 如果实现自己的模型，要支持删除，则可以重新实现此函数。 另外，您可以提供自己的 `API` 来更改数据。
 
 参见 [removeColumn]()()、[removeRows]()()、[insertColumns]()()、[beginRemoveColumns]()() 和 [endRemoveColumns]()()。
-<br></br>
 
+### removeRow
 <font size=4>**bool** QAbstractItemModel::**removeRow**(**int** row, const [QModelIndex]() &parent = QModelIndex())</font> 
 
 从指定的父项 `parent` 的子项中删除给定的行 `row`。
@@ -1146,8 +1148,8 @@ QAbstractItemModel类为项模型类提供了抽象接口。[更多...]()
 这是一个调用 [removeRows]()()的便利函数。[QAbstractItemModel]() 的 [removeRows]()()的实现不做任何事情。
 
 参见 [removeRows]()()、[removeColumn]()()和[insertRow]()()。
-<br></br>
 
+### removeRows
 <font size=4>[ virtual ]&emsp;**bool** QAbstractItemModel::**removeRows**(**int** row, **int** count, const [QModelIndex]() &parent = QModelIndex())</font> 
 
 在支持此功能的模型上，从模型中删除以父项 `parent` 下给定列 `row` 开头的 `count` 行。
@@ -1159,8 +1161,8 @@ QAbstractItemModel类为项模型类提供了抽象接口。[更多...]()
 如果实现自己的模型，要支持删除，则可以重新实现此函数。 另外，您可以提供自己的 `API` 来更改数据。
 
 参见 [removeRow]()()、[removeColumns]()()、[insertColumns]()()、[beginRemoveRows]()() 和 [endRemoveRows]()()。
-<br></br>
 
+### roleNames
 <font size=4>[ virtual ]&emsp;[QHash]()<**int**, [QByteArray]()> QAbstractItemModel::**roleNames**() const</font> 
 
 返回模型的角色名称。
@@ -1181,8 +1183,8 @@ QAbstractItemModel类为项模型类提供了抽象接口。[更多...]()
 该函数在 `Qt4.6` 中被引入。
 
 参见 [setRoleNames]()()。
-<br></br>
 
+### rowCount
 <font size=4>[ pure virtual ]&emsp;**int** QAbstractItemModel::**rowCount**(const [QModelIndex]() &parent = QModelIndex()) const</font> 
 
 返回给定父节点 `parent` 下的行数。当父节点有效时，这意味着 `rowCount` 返回父节点的子节点数。
@@ -1192,8 +1194,8 @@ QAbstractItemModel类为项模型类提供了抽象接口。[更多...]()
 **注意：** 该函数可以通过元对象系统和 `QML` 调用。请参阅 [Q_INVOKABLE]()。
 
 参见 [columnCount]()()。
-<br></br>
 
+### setData
 <font size=4>[ virtual ]&emsp;**bool** QAbstractItemModel::**setData**(const [QModelIndex]() &index, const [QVariant]() &value, **int** role = Qt::EditRole)</font> 
 
 将索引 `index` 处的项的角色数据设置为 `value`。
@@ -1207,7 +1209,6 @@ QAbstractItemModel类为项模型类提供了抽象接口。[更多...]()
 **注意：** 该函数可以通过元对象系统和 `QML` 调用。请参阅 [Q_INVOKABLE]()。
 
 参见 [Qt::ItemDataRole]()、[data]()() 和 [itemData]()()。
-<br></br>
 
 <font size=4>[ virtual ]&emsp;**bool** QAbstractItemModel::**setHeaderData**(**int** section, [Qt::Orientation]() orientation, const [QVariant]() &value, **int** role = Qt::EditRole)</font> 
 
@@ -1282,4 +1283,3 @@ QAbstractItemModel类为项模型类提供了抽象接口。[更多...]()
 该函数在 `Qt4.2` 中被引入。
 
 参见 [ dropMimeData]()()、[Qt::DropActions]() 和 [Using drag and drop with item views]()。
-<br></br>
