@@ -1151,6 +1151,7 @@ QAbstractItemModel类为项模型类提供了抽象接口。[更多...]()
 参见 [removeRows]()()、[removeColumn]()()和[insertRow]()()。
 
 ### removeRows
+
 <font size=4>[ virtual ]&emsp;**bool** QAbstractItemModel::**removeRows**(**int** row, **int** count, const [QModelIndex]() &parent = QModelIndex())</font> 
 
 在支持此功能的模型上，从模型中删除以父项 `parent` 下给定列 `row` 开头的 `count` 行。
@@ -1164,6 +1165,7 @@ QAbstractItemModel类为项模型类提供了抽象接口。[更多...]()
 参见 [removeRow]()()、[removeColumns]()()、[insertColumns]()()、[beginRemoveRows]()() 和 [endRemoveRows]()()。
 
 ### roleNames
+
 <font size=4>[ virtual ]&emsp;[QHash]()<**int**, [QByteArray]()> QAbstractItemModel::**roleNames**() const</font> 
 
 返回模型的角色名称。
@@ -1186,6 +1188,7 @@ QAbstractItemModel类为项模型类提供了抽象接口。[更多...]()
 参见 [setRoleNames]()()。
 
 ### rowCount
+
 <font size=4>[ pure virtual ]&emsp;**int** QAbstractItemModel::**rowCount**(const [QModelIndex]() &parent = QModelIndex()) const</font> 
 
 返回给定父节点 `parent` 下的行数。当父节点有效时，这意味着 `rowCount` 返回父节点的子节点数。
@@ -1197,6 +1200,7 @@ QAbstractItemModel类为项模型类提供了抽象接口。[更多...]()
 参见 [columnCount]()()。
 
 ### setData
+
 <font size=4>[ virtual ]&emsp;**bool** QAbstractItemModel::**setData**(const [QModelIndex]() &index, const [QVariant]() &value, **int** role = Qt::EditRole)</font> 
 
 将索引 `index` 处的项的角色数据设置为 `value`。
@@ -1210,4 +1214,78 @@ QAbstractItemModel类为项模型类提供了抽象接口。[更多...]()
 **注意：** 该函数可以通过元对象系统和 `QML` 调用。请参阅 [Q_INVOKABLE]()。
 
 参见 [Qt::ItemDataRole]()、[data]()() 和 [itemData]()()。
-<br></br>
+
+### setHeaderData
+<font size=4>[ virtual ]&emsp;**bool** QAbstractItemModel::**setHeaderData**(**int** section, [Qt::Orientation]() orientation, const [QVariant]() &value, **int** role = Qt::EditRole)</font> 
+
+设置指定 `section`、`orientation` 和 `role` 标题的数据为 `value`。
+
+标题数据更新完成，返回 `true`；否则返回 `false`。
+
+在重新实现此函数时，必须显式发出 [headerDataChanged]()() 信号。
+
+**注意：** 该函数可以通过元对象系统和 `QML` 调用。请参阅 [Q_INVOKABLE]()。
+
+参见 [Qt::ItemDataRole]() 和 [headerData]()()。
+
+### setItemData
+<font size=4>[ virtual ]&emsp;**bool** QAbstractItemModel::**setItemData**(const [QModelIndex]() &index, const [QMap]()<**int**, [QVariant]()> &roles)</font> 
+
+对于每个 [Qt::ItemDataRole]()，将索引 `index` 处的项目的角色数据设置为角色中的关联值。
+
+设置成功，返回 `true`；否则返回 `false`。
+
+不在角色中的角色将不会被修改。
+
+参见 [setData]()、[data]()() 和 [itemData]()()。
+
+### sibling
+<font size=4>[ virtual ]&emsp;[QModelIndex]() QAbstractItemModel::**sibling**(**int** row, **int** column, const [QModelIndex]() &) const</font> 
+
+返回索引 `index` 项的行和列上的同级索引，如果该位置上没有同级索引，则返回无效的 [QModelIndex]()。
+
+`sibling()` 只是一个便捷函数，它找到项的父项，并使用它来检索指定行和列中子项的索引。
+
+可以选择性地重写此方法以进行特定于实现的优化。
+
+**注意：** 该函数可以通过元对象系统和 `QML` 调用。请参阅 [Q_INVOKABLE]()。
+
+参见 [index]()、[QModelIndex::row]()() 和 [QModelIndex::column]()()。
+
+### sort
+<font size=4>[ virtual ]&emsp;**void** QAbstractItemModel::**sort**(**int** column, [Qt::SortOrder]() order = Qt::AscendingOrder)</font> 
+
+按给定顺序 `order` 按列 `column` 对模型进行排序。
+
+基类实现不执行任何操作。
+
+### span
+<font size=4>[ virtual ]&emsp;[QSize]() QAbstractItemModel::**span**(const [QModelIndex]() &index) const</font> 
+
+返回由索引 `index` 表示的项的行和列跨度。
+
+**注意：** 目前没有使用span。
+
+### supportedDragActions
+<font size=4>[ virtual ]&emsp;[Qt::DropActions]() QAbstractItemModel::**supportedDragActions**() const</font> 
+
+返回此模型中数据支持的操作。
+
+默认实现返回 [supportedDropActions]()()。如果希望支持其他操作，请重新实现此函数。
+
+当发生拖动时，[QAbstractItemView::startDrag]()() 使用 `supportedDragActions()` 作为默认值。
+
+**注意：** 目前没有使用span。
+
+参见 [ setSupportedDragActions]()()、[Qt::DropActions]() 和 [Using drag and drop with item views]()。
+
+### supportedDropActions
+<font size=4>[ virtual ]&emsp;[Qt::DropActions]() QAbstractItemModel::**supportedDropActions**() const</font> 
+
+返回此模型支持的放置动作。
+
+默认实现返回 [Qt::CopyAction]()。如果希望支持其他操作，请重新实现此函数。您还必须重新实现 [dropMimeData]()() 函数来处理额外的操作。
+
+该函数在 `Qt4.2` 中被引入。
+
+参见 [ dropMimeData]()()、[Qt::DropActions]() 和 [Using drag and drop with item views]()。
