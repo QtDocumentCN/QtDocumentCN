@@ -1240,7 +1240,7 @@ QAbstractItemModel类为项模型类提供了抽象接口。[更多...]()
 
 可以选择性地重写此方法以进行特定于实现的优化。
 
-**注意：** 该函数可以通过元对象系统和 `QML` 调用。请参阅 [Q_INVOKABLE]()。
+**注意：**该函数可以通过元对象系统和 `QML` 调用。请参阅 [Q_INVOKABLE]()。
 
 参见 [index](#index)()、[QModelIndex::row]()() 和 [QModelIndex::column]()()。
 
