@@ -130,7 +130,7 @@ QAbstractItemModel类为项模型类提供了抽象接口。[更多...]()
 
 `QAbstractItemModel` 类是[模型/视图类]()中的一个，也是 `Qt` [模型/视图框架]()的一部分。它可以用作 `QML` 中的项视图元素或 `Qt Widgets` 模块中的项视图类的底层数据模型。
 
-如果需要一个模型来使用项视图，比如　`QML` 的　`List View` 元素或者　`C++ widgets` 的　[QListView]() 或者　[ QTableView]()，应该考虑子类化 [QAbstractListModel]() 或者 [QAbstractTableModel]() 而不是使用该类。
+如果需要一个模型来使用项视图，比如 `QML` 的 `List View` 元素或者 `C++ widgets` 的　[QListView]() 或者　[ QTableView]()，应该考虑子类化 [QAbstractListModel]() 或者 [QAbstractTableModel]() 而不是使用该类。
 
 底层数据模型作为表的层次结构暴露给视图和委托。如果不使用层次结构，那么模型就是一个简单的具有行和列的表。每个项都有一个由　[QModelIndex]() 指定的惟一索引。
 
