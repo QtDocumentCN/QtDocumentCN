@@ -15,7 +15,7 @@
 | [QAbstractAudioOutput](Src/A/QAbstractAudioOutput/QAbstractAudioOutput.md) | [CryFeiFei](https://github.com/CryFeiFei)     | **待完善** | see also部分待添加链接             |
 | [QAbstractAudioInput](Src/A/QAbstractAudioInput/QAbstractAudioInput.md) | [CryFeiFei](https://github.com/CryFeiFei)     | **待完善** | see also部分待添加链接             |
 | [QAbstractAnimation](Src/A/QAbstractAnimation/QAbstractAnimation.md) | [CryFeiFei](https://github.com/CryFeiFei)     | **待完善** | see also部分待添加链接             |
-| [QAbstractItemModel](Src/A/QAbstractItemModel/QAbstractItemModel.md) | [FlyWM](https://github.com/FlyWM)             | **待完善** | 部分链接待完善 |
+| [QAbstractItemModel](Src/A/QAbstractItemModel/QAbstractItemModel.md) | [FlyWM](https://github.com/FlyWM)             | **待完善** | 部分链接有待完善 |
 | [QX11Info](Src/X/QX11Info/QX11Info.md)                       | [CryFeiFei](https://github.com/CryFeiFei)     | **待完善** | see also跳转待补充                 |
 | [QPainter](Src/P/QPainter)                       | [CryFeiFei](https://github.com/CryFeiFei)     | 编写中    | 占位中，待填充，截止时间2020-08-31 |
 | [QPaintEngine](Src/P/QPaintEngine)                       | [CryFeiFei](https://github.com/CryFeiFei)     | 编写中    | 占位中，待填充，截止时间2020-08-31 |
