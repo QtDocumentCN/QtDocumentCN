@@ -16,7 +16,7 @@
 | [QAbstractAudioOutput](Src/A/QAbstractAudioOutput/QAbstractAudioOutput.md) | [CryFeiFei](https://github.com/CryFeiFei)     | **待完善** | see also部分待添加链接             |
 | [QAbstractAudioInput](Src/A/QAbstractAudioInput/QAbstractAudioInput.md) | [CryFeiFei](https://github.com/CryFeiFei)     | **待完善** | see also部分待添加链接             |
 | [QAbstractAnimation](Src/A/QAbstractAnimation/QAbstractAnimation.md) | [CryFeiFei](https://github.com/CryFeiFei)     | **待完善** | see also部分待添加链接             |
-| [QAbstractItemModel](Src/A/QAbstractItemModel/QAbstractItemModel.md) | [FlyWM](https://github.com/FlyWM)             | **占位中**    | 占位中，待填充，截止时间2020-10-15 |
+| [QAbstractItemModel](Src/A/QAbstractItemModel/QAbstractItemModel.md) | [FlyWM](https://github.com/FlyWM)             | **待完善** | 待完善跳转链接 |
 | [QAbstractSocket](Src/A/QAbstractSocket/QAbstractSocket.md) | [skykeyjoker](https://github.com/skykeyjoker) | **待完善** | 跨页跳转需待对应页面完成后进行校正 |
 | **B** |  |  |  |
 | **C** |  |  |  |
