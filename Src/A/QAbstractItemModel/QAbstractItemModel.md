@@ -130,7 +130,15 @@ QAbstractItemModel类为项模型类提供了抽象接口。[更多...]()
 
 `QAbstractItemModel` 类是[模型/视图类]()中的一个，也是 `Qt` [模型/视图框架]()的一部分。它可以用作 `QML` 中的项视图元素或 `Qt Widgets` 模块中的项视图类的底层数据模型。
 
+<<<<<<< HEAD
 如果需要一个模型来使用项视图，比如 `QML` 的 `List View` 元素或者 `C++ widgets` 的　[QListView]() 或者　[ QTableView]()，应该考虑子类化 [QAbstractListModel]() 或者 [QAbstractTableModel]() 而不是使用该类。
+=======
+<<<<<<< HEAD
+如果需要一个模型来使用项视图，比如　`QML` 的　`List View` 元素或者　`C++ widgets` 的　[QListView]() 或者　[ QTableView]()，应该考虑子类化 [QAbstractListModel]() 或者 [QAbstractTableModel]() 而不是使用该类。
+=======
+如果需要一个模型来使用项视图，比如 `QML` 的 `List View` 元素或者 `C++ widgets` 的　[QListView]() 或者　[ QTableView]()，应该考虑子类化 [QAbstractListModel]() 或者 [QAbstractTableModel]() 而不是使用该类。
+>>>>>>> origin/master
+>>>>>>> abd89c4... 完成 QAbstractItemModel 初版
 
 底层数据模型作为表的层次结构暴露给视图和委托。如果不使用层次结构，那么模型就是一个简单的具有行和列的表。每个项都有一个由　[QModelIndex]() 指定的惟一索引。
 
@@ -176,7 +184,15 @@ QAbstractItemModel类为项模型类提供了抽象接口。[更多...]()
 - [insertColumns()]() 的实现必须在将新列插入数据结构　*之前* 调用 [beginInsertColumns()]()，*然后立即* 调用 [endInsertColumns()]()。
 - [removeRows()]() 的实现必须在从数据结构中删除行　*之前* 调用 [beginRemoveRows()]()，*然后立即* 调用 [endRemoveRows()]()。
 - [removeColumns()]() 的实现必须在列从数据结构中删除之前调用 [beginRemoveColumns()]()，*然后立即* 调用 [endRemoveColumns()]()。
+<<<<<<< HEAD
 
+=======
+  
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/master
+>>>>>>> abd89c4... 完成 QAbstractItemModel 初版
 这些函数发出的私有信号使附加组件有机会在任何数据变得不可用之前采取行动。使用这些 `begin` 和 `end` 函数封装插入和删除操作还使模型能够正确地管理[持久模型索引]()。**如果希望正确处理选择，则必须确保调用了这些函数。** 如果插入或移除带有子项的项，则不需要为子项调用这些函数。换句话说，父项将管理其子项。
 
 要创建增量填充的模型，可以重新实现 [fetchMore()]() 和 [canFetchMore()]()。如果 [fetchMore()]() 的重新实现向模型中添加了行，则必须调用 [beginInsertRows()]() 和 [endInsertRows()]()。
@@ -345,6 +361,13 @@ QAbstractItemModel类为项模型类提供了抽象接口。[更多...]()
 - 调用 [changePersistentIndex]()()
 - 发出 layoutChanged
   
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/master
+>>>>>>> abd89c4... 完成 QAbstractItemModel 初版
 该函数在 `Qt 5.0` 中被引入。  
 
 参见 [layoutAboutToBeChanged]()()、[dataChanged]()()、[headerDataChanged]()()、[modelReset]()() 和 [changePersistentIndex]()()。
