@@ -56,9 +56,6 @@
 | [QMetaObject](Src/M/QMetaObject/QMetaObject.md) | [ZgblKylin](https://github.com/ZgblKylin) | **待完善** | 跨页跳转需待对应页面完成后进行校正 |
 | [QMetaObject::Connection](M/QMetaObject/Connection.md)       | [ZgblKylin](https://github.com/ZgblKylin)     | **待完善** | 跨页跳转需待对应页面完成后进行校正 |
 | [QMetaProperty](../../M/QMetaProperty/QMetaProperty.md)      | [ZgblKylin](https://github.com/ZgblKylin)     | **待完善** | 跨页跳转需待对应页面完成后进行校正 |
-| [QAbstractItemModel](Src/A/QAbstractItemModel/QAbstractItemModel.md) | [FlyWM](https://github.com/FlyWM)             | **占位中**    | 占位中，待填充，截止时间2020-09-15 |
-| [QAbstractItemModel](Src/A/QAbstractItemModel/QAbstractItemModel.md) | [FlyWM](https://github.com/FlyWM)             | **待完善** | 部分链接待完善 |
-| [QAbstractItemModel](Src/A/QAbstractItemModel/QAbstractItemModel.md) | [FlyWM](https://github.com/FlyWM)             | **待完善** | 部分链接有待完善 |
 | [QMetaType](Src/M/QMetaType/QMetaType.md)                    | [ZgblKylin](https://github.com/ZgblKylin)     | **待完善** | 跨页跳转需待对应页面完成后进行校正 |
 | [QMutex](Src/M/QMutex/QMutex.md)                             | [Ryan-rlm](https://github.com/Ryan-rlm)       | **已完成** | 已完成                             |
 | [QMutexLocker](Src/M/QMutexLocker/QMutexLocker.md)           | [Ryan-rlm](https://github.com/Ryan-rlm)       | **已完成** | 已完成                             |
