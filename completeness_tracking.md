@@ -64,6 +64,7 @@
 | [Using the Meta-Object Compiler(moc)](Src/M/Using_the_Meta-Object_Compiler_moc/Using_the_Meta-Object_Compiler_moc.md) | [ZgblKylin](https://github.com/ZgblKylin)     | **待完善** | 跨页跳转需待对应页面完成后进行校正 |
 | [Model View Tutorial](Src/M/Model_View_Tutorial/Model_View_Tutorial.md) | [FlyWM](https://github.com/FlyWM)             | **待完善** | 跨页跳转需待对应页面完成后进行校正 |
 | [Model View Programming](Src/M/Model_View_Programming/Model_View_Programming.md) | [FlyWM](https://github.com/FlyWM)             | **待完善** | 跨页跳转需待对应页面完成后进行校正 |
+| [Multithreading Technologies in Qt](Src/M/Multithreading_Technologies_in_Qt/Multithreading_Technologies_in_Qt.md) | [ACRL](https://github.com/AngryAccelerated) | **已完成** | 已完成 |
 | [QMainWindow](Src/M/QMainWindow/QMainWindow.md)              | [吴冬亮](https://github.com/abc881858)        | **已完成** | 已完成                             |
 | **N** |  |  |  |
 | **O** |  |  |  |
@@ -118,4 +119,3 @@
 | [QX11Info](Src/X/QX11Info/QX11Info.md) | [CryFeiFei](https://github.com/CryFeiFei) | **待完善** | see also跳转待补充 |
 | **Y** |  |  |  |
 | **Z** |  |  |  |
-
