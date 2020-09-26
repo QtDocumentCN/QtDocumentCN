@@ -23,7 +23,7 @@
 | [Container Classes](Src/C/Container_Classes/Container_Classes.md) | [xyz1001](https://github.com/xyz1001) | **已完成** | 已完成 |
 | [QCheckBox](Src/C/QCheckBox/QCheckBox.md) | [leytou](https://github.com/leytou) | 编写中 | 占位中，待填充，截止时间2020-07-31 |
 | [QComboBox](Src/C/QComboBox/QComboBox.md) | [leytou](https://github.com/leytou) | 编写中 | 占位中，待填充，截止时间2020-07-31 |
-| [QCoreApplication](Src/C/QCoreApplication/QCoreApplication.md) | [froser](https://github.com/froser) | 编写中 | 占位中，待填充，截止时间2020-09-15 |
+| [QCoreApplication](Src/C/QCoreApplication/QCoreApplication.md) | [froser](https://github.com/froser) | **待完善** | 跨页跳转需待对应页面完成后进行校正 |
 | **D** |  |  |  |
 | [QDate](Src/D/QDate/QDate.md) | [顾晓](https://github.com/chenyanzz) | **待完善** | 跨页跳转需待对应页面完成后进行校正 |
 | **E** |  |  |  |
@@ -102,6 +102,7 @@
 | [QSslSocket](Src/S/QSslSocket/QSslSocket.md)                 | [skykeyjoker](https://github.com/skykeyjoker) | 编写中    | 编写中 |
 | [QStyledItemDelegate](Src/S/QStyledItemDelegate/QStyledItemDelegate.md) | [yougoup](https://github.com/yougoup) | 编写中 | 截止时间2020-08-15 |
 | [QSslSocket_Obsolete](Src/S/QSslSocket_Obsolete/QSslSocket_Obsolete.md) | [skykeyjoker](https://github.com/skykeyjoker) | 编写中 | 编写中 |
+| [Synchronizing Threads]() | [ACRL](https://github.com/AngryAccelerated) | **待完善** | 跨页跳转需待对应页面完成后进行校正 |
 | **T** |  |  |  |
 | [QTransform](Src/T/QTransform) | [CryFeiFei](https://github.com/CryFeiFei) | 编写中 | 占位中，待填充，截止时间2020-09-30 |
 | [QTcpSocket](Src/T/QTcpSocket/QTcpSocket.md)                 | [skykeyjoker](https://github.com/skykeyjoker) | **待完善** | 跨页跳转需待对应页面完成后进行校正 |
