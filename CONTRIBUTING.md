@@ -79,7 +79,7 @@ git pull --rebase
 
 技术词汇的翻译可参考 [词汇对照表](Comparison_Table.md)。
 
-关于如何将英文文档信达雅地翻译为中文技术文档，可参考 [语法小贴士](Gramma_Tips.md)。
+关于如何将英文文档信达雅地翻译为中文技术文档，可参考 [语法小贴士](Grammar_Tips.md)。
 
 
 
