@@ -64,3 +64,14 @@
 | [吴冬亮](https://github.com/abc881858) | 200￥    |
 | 匿名Z | 100￥|
 | 赵江涛| 50￥|
+
+
+
+## Contributors
+
+<a href="https://github.com/QtDocumentCN/QtDocumentCN/graphs/contributors">
+  <img src="https://contributors-img.web.app/image?repo=QtDocumentCN/QtDocumentCN" />
+
+</a>
+
+Made with [contributors-img](https://contributors-img.web.app).
