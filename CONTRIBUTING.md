@@ -75,9 +75,11 @@ git pull --rebase
 
 
 
-## 翻译对照表
+## 参考资料
 
-翻译名词可参考[对照表](Comparison_Table.md)。
+技术词汇的翻译可参考 [词汇对照表](Comparison_Table.md)。
+
+关于如何将英文文档信达雅地翻译为中文技术文档，可参考 [语法小贴士](Grammar_Tips.md)。
 
 
 

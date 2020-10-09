@@ -571,149 +571,275 @@ socket->write("1 CAPABILITY\r\n");
 
 ### [QSslCertificate](../../S/QSslCertificate/QSslCertificate.md) **QSslSocket**::**peerCertificate**() const
 
+返回对等端的数字证书（即您所连接到的主机的即时证书），若对等端未签署证书则返回一个空证书。
 
+在握手阶段对等端证书会被自动检查，所以该函数通常用来抓取证书以向用户展示或者诊断连接。返回的证书包含着对等端的主机名、证书发行者和对等端公钥等对等端信息。
+
+因为对等端证书是在握手阶段设置的，因而在连接到 [sslErrors](#signal-void-qsslsocketsslerrorsconst-qlistqsslerror-errors)() 和 encrypted() 信号的槽函数中获取对等端证书的行为是安全的。
+
+如果该函数返回了一个空证书，则意味着 SSL 握手失败，或者也意味着你链接到的主机并没有证书，或者您甚至没有建立一个连接。
+
+如果您想要检查对等端完整的证书链，您可以调用 [peerCertificateChain](#qlistqsslcertificate-qsslsocketpeercertificatechain-const)() 函数来一次性获取所有的证书链。
+
+另外您也可以在 [peerCertificateChain](#qlistqsslcertificate-qsslsocketpeercertificatechain-const)() 函数介绍中找到相关信息。
 
 ---
 
 ### [QList](qthelp://org.qt-project.qtnetwork.5150/qtcore/qlist.html)\<[QSslCertificate](../../S/QSslCertificate/QSslCertificate.md)\> **QSslSocket**::**peerCertificateChain**() const
 
+返回对等端的数字证书链，或者返回一个空的证书列表。
 
+在握手阶段对等端证书会被自动检查，所以该函数通常用来抓取证书以向用户展示或者诊断连接。返回的证书包含着对等端的主机名、证书发行者和对等端公钥等对等端信息。
+
+因为对等端证书是在握手阶段设置的，因而在连接到 [sslErrors](#signal-void-qsslsocketsslerrorsconst-qlistqsslerror-errors)() 和 encrypted() 信号的槽函数中获取对等端证书的行为是安全的。
+
+如果该函数返回了一个空的证书列表，则意味着 SSL 握手失败，或者也意味着你链接到的主机并没有证书，或者您甚至没有建立一个连接。
+
+如果您仅想获得对等端的即时证书，请使用 [peerCertificate](#qsslcertificate-qsslsocketpeercertificate-const)() 函数。
+
+另外您也可以在 [peerCertificate](#qsslcertificate-qsslsocketpeercertificate-const)() 函数介绍中找到相关介绍。
+
+---
 
 ### int **QSslSocket**::**peerVerifyDepth**() const
 
+返回对等端的证书链在 SSL 握手阶段要检查的最大的证书数目。若没有设置最大值，则返回0（意味着将会检查正歌证书链）。
 
+证书将会以发行顺序检查，首先检查对等端私有证书，紧接着检查发行者证书，然后继续检查。
 
-### [QSslSocket::PeerVerifyMode](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslsocket.html#PeerVerifyMode-enum) **QSslSocket**::**peerVerifyMode**() const
+该函数最初在 Qt 4.4 版本引入。
 
+另外您也可以在 [setPeerVerifyDepth](#void-qsslsocketsetpeerverifydepthint-depth)() 函数和 [peerVerifyMode](#qsslsocketpeerverifymode-qsslsocketpeerverifymode-const)() 函数介绍中找到相关信息。
 
+---
 
-### [QString](qthelp://org.qt-project.qtnetwork.5150/qtcore/qstring.html) **QSslSocket**::**peerVerifyName**() const
+### [QSslSocket::PeerVerifyMode](#enum-qsslsocketpeerverifymode) **QSslSocket**::**peerVerifyMode**() const
 
+返回套接字的验证模式。该模式决定 QSslSocket 是否应当从对等端请求一个证书（即客户端从服务器请求一个证书或服务端从客户端请求一个整数），以及它所请求的证书是否必须使有效的。
 
+默认的模式时 [AutoVerifyPeer](#enum-qsslsocketpeerverifymode)，该模式下 QSslSocket 将为客户端使用 [VerifyPeer](#enum-qsslsocketpeerverifymode)，为服务端使用 [QueryPeer](#enum-qsslsocketpeerverifymode)。
 
-### [QSslKey](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslkey.html) **QSslSocket**::**privateKey**() const
+该函数最初在 Qt 4.4 版本引入。
 
+另外您也可以在 [setPeerVerifyMode](#void-qsslsocketsetpeerverifymodeqsslsocketpeerverifymode-mode)() ， [setPeerVerifyDepth](#void-qsslsocketsetpeerverifydepthint-depth)() 和 [mode](#qsslsocketsslmode-qsslsocketmode-const)() 函数介绍中找到相关信息。
 
+---
 
-### [QSsl::SslProtocol](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qssl.html#SslProtocol-enum) **QSslSocket**::**protocol**() const
+### [QString](../../S/QString/QString.md) **QSslSocket**::**peerVerifyName**() const
 
+返回由 [setPeerVerifyName](#void-qsslsocketsetpeerverifynameconst-qstring-hostname)() 设置的或者 [connectToHostEncrypted](#void-qsslsocketconnecttohostencryptedconst-qstring-hostname-quint16-port-const-qstring-sslpeername-qiodeviceopenmode-mode--readwrite-qabstractsocketnetworklayerprotocol-protocol--anyipprotocol)() 函数提供的证书有效性检验信息的主机别名。
 
+该函数最初在 Qt 4.8 版本引入。
+
+另外你也可以在 [setPeerVerifyName](#void-qsslsocketsetpeerverifynameconst-qstring-hostname)() 和 [connectToHostEncrypted](#void-qsslsocketconnecttohostencryptedconst-qstring-hostname-quint16-port-const-qstring-sslpeername-qiodeviceopenmode-mode--readwrite-qabstractsocketnetworklayerprotocol-protocol--anyipprotocol)() 函数介绍中找到相关信息。
+
+---
+
+### [QSslKey](../../S/QSslKey/QSslKey.md) **QSslSocket**::**privateKey**() const
+
+返回套接字的私钥。
+
+另外您也可以在 [setPrivateKey](#void-qsslsocketsetprivatekeyconst-qsslkey-key)( 和 [localCertificate](#qsslcertificate-qsslsocketlocalcertificate-const)() 函数介绍中找到相关信息。
+
+---
+
+### [QSsl::SslProtocol](../../QSsl/QSsl.md#enum-qsslsslprotocol) **QSslSocket**::**protocol**() const
+
+返回套接字的 SSL 协议。默认将使用 [QSsl::SecureProtocols](../../S/QSsl/QSsl.md#enum-qsslsslprotocol) 协议。
+
+另外您也可以在 [setProtocol](#void-qsslsocketsetprotocolqsslsslprotocol-protocol)() 函数介绍中找到相关信息。
+
+---
 
 ### *[override virtual protected]* [qint64](qthelp://org.qt-project.qtnetwork.5150/qtcore/qtglobal.html#qint64-typedef) **QSslSocket**::**readData**(char **data*, [qint64](qthelp://org.qt-project.qtnetwork.5150/qtcore/qtglobal.html#qint64-typedef) *maxlen*)
 
+重新实现： [QAbstractSocket::readData](../../A/QAbstractSocket/QAbstractSocket.md#override-virtual-protected-qint64-qabstractsocketreaddatachar-data-qint64-maxsize)(char *data, qint64 maxSize)。
 
+---
 
 ### *[override virtual]* void **QSslSocket**::**resume**()
 
+重新实现：[QAbstractSocket::resume](../../A/QAbstractSocket/QAbstractSocket.md#virtual-void-qabstractsocketresume)()。
 
+在套接字数据传输暂停后继续数据传输。如果该套接字调用了 [setPauseMode](../../A/QAbstractSocket/QAbstractSocket.md#void-qabstractsocketsetpausemodeqabstractsocketpausemodes-pausemode)([QAbstractSocket::PauseOnSslErrors](../../A/QAbstractSocket/QAbstractSocket.md#enum-qabstractsocketpausemode--flags-qabstractsocketpausemodes)) 并且发出了 [sslErrors](#signal-void-qsslsocketsslerrorsconst-qlistqsslerror-errors)() 信号，则为了使套接字继续传输必须调用此函数。
 
-### [QSslCipher](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcipher.html) **QSslSocket**::**sessionCipher**() const
+该函数最初在 Qt 5.0 版本引入。
 
+另外您也可以在 [QAbstractSocket::pauseMode](../../A/QAbstractSocket/QAbstractSocket.md#qabstractsocketpausemodes-qabstractsocketpausemode-const)() 和 [QAbstractSicket::setPauseMode](../../A/QAbstractSocket/QAbstractSocket.md#void-qabstractsocketsetpausemodeqabstractsocketpausemodes-pausemode)() 函数介绍中找到相关信息。
 
+---
+
+### [QSslCipher](../../S/QSslCipher/QSslCipher.md) **QSslSocket**::**sessionCipher**() const
+
+返回该套接字的密钥，若该连接未加密则返回一个空密钥。该套接字的会话的密钥在握手期间设置。该密钥用于套接字传输中加密和解密数据。
+
+QSslSocket 也提供设置在握手期间选择的密钥顺序列表的函数。该顺序列表必须在握手期间前指定。
+
+另外您也可以在 QSslConfiguration::cipher() 和
+
+---
 
 ### [QSsl::SslProtocol](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qssl.html#SslProtocol-enum) **QSslSocket**::**sessionProtocol**() const
 
 
 
+---
+
 ### void **QSslSocket**::**setLocalCertificate**(const [QSslCertificate](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcertificate.html) &*certificate*)
 
 
+
+---
 
 ### void **QSslSocket**::**setLocalCertificate**(const [QString](qthelp://org.qt-project.qtnetwork.5150/qtcore/qstring.html) &*path*, [QSsl::EncodingFormat](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qssl.html#EncodingFormat-enum) *format* = QSsl::Pem)
 
 
 
+---
+
 ### void **QSslSocket**::**setLocalCertificateChain**(const [QList](qthelp://org.qt-project.qtnetwork.5150/qtcore/qlist.html)\<[QSslCertificate](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslcertificate.html)\> &*localChain*)
 
 
+
+---
 
 ### void **QSslSocket**::**setPeerVerifyDepth**(int *depth*)
 
 
 
+---
+
 ### void **QSslSocket**::**setPeerVerifyMode**([QSslSocket::PeerVerifyMode](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslsocket.html#PeerVerifyMode-enum) *mode*)
 
+将套接字的检验模式设置为 *mode* 参数指定的模式。该模式决定 QSslSocket 是否应当从对等端请求一个证书（即客户端从服务器请求一个证书或服务端从客户端请求一个整数），以及它所请求的证书是否必须使有效的。
 
+默认的模式时 [AutoVerifyPeer](#enum-qsslsocketpeerverifymode)，该模式下 QSslSocket 将为客户端使用 [VerifyPeer](#enum-qsslsocketpeerverifymode)，为服务端使用 [QueryPeer](#enum-qsslsocketpeerverifymode)。
+
+在进入加密模式后，设置模式并不会影响当前连接。
+
+另外您也可以在 [peerVerifyMode](#qsslsocketpeerverifymode-qsslsocketpeerverifymode-const)() ， [setPeerVerifyDepth](#void-qsslsocketsetpeerverifydepthint-depth)() 和 [mode](#qsslsocketsslmode-qsslsocketmode-const)() 函数介绍中找到相关信息。
+
+---
 
 ### void **QSslSocket**::**setPeerVerifyName**(const [QString](qthelp://org.qt-project.qtnetwork.5150/qtcore/qstring.html) &*hostName*)
 
 
 
+---
+
 ### void **QSslSocket**::**setPrivateKey**(const [QSslKey](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslkey.html) &*key*)
 
 
+
+---
 
 ### void **QSslSocket**::**setPrivateKey**(const [QString](qthelp://org.qt-project.qtnetwork.5150/qtcore/qstring.html) &*fileName*, [QSsl::KeyAlgorithm](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qssl.html#KeyAlgorithm-enum) *algorithm* = QSsl::Rsa, [QSsl::EncodingFormat](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qssl.html#EncodingFormat-enum) *format* = QSsl::Pem, const [QByteArray](qthelp://org.qt-project.qtnetwork.5150/qtcore/qbytearray.html)&*passPhrase* = QByteArray())
 
 
 
+---
+
 ### void **QSslSocket**::**setProtocol**([QSsl::SslProtocol](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qssl.html#SslProtocol-enum) *protocol*)
 
 
+
+---
 
 ### *[override virtual]* void **QSslSocket**::**setReadBufferSize**([qint64](qthelp://org.qt-project.qtnetwork.5150/qtcore/qtglobal.html#qint64-typedef) *size*)
 
 
 
+---
+
 ### *[override virtual]* void **QSslSocket**::**setSocketOption**([QAbstractSocket::SocketOption](../../A/QAbstractSocket/QAbstractSocket.md#enum-qabstractsocketsocketoption) *option*, const [QVariant](qthelp://org.qt-project.qtnetwork.5150/qtcore/qvariant.html) &*value*)
 
 
+
+---
 
 ### void **QSslSocket**::**setSslConfiguration**(const [QSslConfiguration](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslconfiguration.html) &*configuration*)
 
 
 
+---
+
 ### [override virtual] [QVariant](qthelp://org.qt-project.qtnetwork.5150/qtcore/qvariant.html) **QSslSocket**::**socketOption**([QAbstractSocket::SocketOption](../../A/QAbstractSocket/QAbstractSocket.md#enum-qabstractsocketsocketoption) *option*)
 
 
+
+---
 
 ### [QSslConfiguration](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslconfiguration.html) **QSslSocket**::**sslConfiguration**() const
 
 
 
+---
+
 ### [QList](qthelp://org.qt-project.qtnetwork.5150/qtcore/qlist.html)\<[QSslError](qthelp://org.qt-project.qtnetwork.5150/qtnetwork/qsslerror.html)\> **QSslSocket**::**sslHandshakeErrors**() const
 
 
+
+---
 
 ### *[static]* long **QSslSocket**::**sslLibraryBuildVersionNumber**()
 
 
 
+---
+
 ### *[static]* [QString](qthelp://org.qt-project.qtnetwork.5150/qtcore/qstring.html) **QSslSocket**::**sslLibraryBuildVersionString**()
 
 
+
+---
 
 ### *[static]* long **QSslSocket**::**sslLibraryVersionNumber**()
 
 
 
+---
+
 ### *[static]* [QString](qthelp://org.qt-project.qtnetwork.5150/qtcore/qstring.html) **QSslSocket**::**sslLibraryVersionString**()
 
 
+
+---
 
 ### *[static]* bool **QSslSocket**::**supportsSsl**()
 
 
 
+---
+
 ### *[override virtual]* bool **QSslSocket**::**waitForBytesWritten**(int *msecs* = 30000)
 
 
+
+---
 
 ### *[override virtual]* bool **QSslSocket**::**waitForConnected**(int *msecs* = 30000)
 
 
 
+---
+
 ### *[override virtual]* bool **QSslSocket**::**waitForDisconnected**(int *msecs* = 30000)
 
 
+
+---
 
 ### bool **QSslSocket**::**waitForEncrypted**(int *msecs* = 30000)
 
 
 
+---
+
 ### *[override virtual]* bool **QSslSocket**::**waitForReadyRead**(int *msecs* = 30000)
 
 
+
+---
 
 ### *[override virtual protected]* [qint64](qthelp://org.qt-project.qtnetwork.5150/qtcore/qtglobal.html#qint64-typedef) QSslSocket::**writeData**(const char **data*, [qint64](qthelp://org.qt-project.qtnetwork.5150/qtcore/qtglobal.html#qint64-typedef) *len*)
 

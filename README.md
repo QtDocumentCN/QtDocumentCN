@@ -14,12 +14,19 @@
 ## 微信小程序
 ![WeDoc](Logo/weqt.jpg)
 
+
+
 ## 参与编写
+
 关于本项目的目录结构、文件管理、格式规范等，详见[贡献指南](CONTRIBUTING.md)。
 
 [完成度追踪表](completeness_tracking.md)，用于追踪待完成或有待进一步维护的文档状态。
 
 辅助中文文档编写的脚本和工具，详见[辅助工具](https://github.com/QtDocumentCN/Tools)。
+
+技术词汇的翻译可参考 [词汇对照表](Comparison_Table.md)。
+
+关于如何将英文文档信达雅地翻译为中文技术文档，可参考 [语法小贴士](Grammar_Tips.md)。
 
 
 
@@ -57,3 +64,14 @@
 | [吴冬亮](https://github.com/abc881858) | 200￥    |
 | 匿名Z | 100￥|
 | 赵江涛| 50￥|
+
+
+
+## Contributors
+
+<a href="https://github.com/QtDocumentCN/QtDocumentCN/graphs/contributors">
+  <img src="https://contributors-img.web.app/image?repo=QtDocumentCN/QtDocumentCN" />
+
+</a>
+
+Made with [contributors-img](https://contributors-img.web.app).

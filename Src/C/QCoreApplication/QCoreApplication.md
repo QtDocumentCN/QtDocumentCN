@@ -120,7 +120,7 @@ QCoreApplication包含主事件循环，这些来自于操作系统（如定时�
 
 在其他平台上，此属性默认值为空字符串。
 
-此属性在Qt 4.4中引入。
+此属性自Qt 4.4引入。
 
 **访问函数：**
 
@@ -308,7 +308,7 @@ connect(quitButton, &QPushButton::clicked, &app, &QCoreApplication::quit, Qt::Qu
 
 返回当前应用程序的进程ID。
 
-此函数在Qt 4.4中引入。
+此函数自Qt 4.4引入。
 
 
 
@@ -328,7 +328,7 @@ connect(quitButton, &QPushButton::clicked, &app, &QCoreApplication::quit, Qt::Qu
 
 如果不是上述情况，那么arguments()将会从[GetCommandLine()]()中构造。此时arguments().at(0)在Windows下未必是可执行文件名，而是取决于程序是如何被启动的。
 
-此函数在Qt 4.1中引入。
+此函数自Qt 4.1引入。
 
 **另请参阅** [applicationFilePath]()()和[QCommandLineParser](../../C/QCommandLineParser/QCommandLineParser.md)。
 
@@ -446,7 +446,7 @@ connect(quitButton, &QPushButton::clicked, &app, &QCoreApplication::quit, Qt::Qu
 
 如果在UNIX平台中，允许应用程序使用setuid，则返回true。
 
-此函数在Qt 5.3中引入。
+此函数自Qt 5.3引入。
 
 **另请参阅** [QCoreApplication::setSetuidAllowed]()()。
 
@@ -486,7 +486,7 @@ foreach (const QString &path, app.libraryPaths())
 处理事件有5种不同的方式：重写虚函数只是其中一种。所有的五种途径如下所示：
 
 1. 重写[paintEvent]()()，[mousePressEvent]()()等。这个是最通用、最简单但最不强大的一种方法。
-2. 重些此函数。这非常强大，提供了完全控制，但是一次只能激活一个子类。
+2. 重写此函数。这非常强大，提供了完全控制，但是一次只能激活一个子类。
 3. 将一个事件过滤器安装到[QCoreApplication](./QCoreApplication.md)。这样的一个事件过滤器可以处理所有窗体的所有事件，就像是重写了notify()函数这样强大。此外，您还可以提供多个应用级别全局的事件过滤器。全局事件过滤器甚至可以接收到那些[不可用窗体]()的鼠标事件。注意程序的事件过滤器仅能响应主线程中的对象。
 4. 重写[QObject::event]()()（就像[QWidget](../../W/QWidget/QWidget.md)那样）。如果您是这样做的，您可以接收到Tab按键，及您可以在任何特定窗体的事件过滤器被调用之前接收到事件。
 5. 在对象上安装事件过滤器。这样的事件过滤器将可以收到所有事件，包括Tab和Shift+Tab事件——只要它们不更改窗体的焦点。
@@ -513,7 +513,7 @@ foreach (const QString &path, app.libraryPaths())
 
 **注意**：此函数是[线程安全]()的。
 
-此函数在Qt 4.3中引入。
+此函数自Qt 4.3引入。
 
 **另请参阅**：[sendEvent]()()，[notify]()()，[sendPostedEvents]()()，和[Qt::EventPriority]()。
 
@@ -577,7 +577,7 @@ foreach (const QString &path, app.libraryPaths())
 
 任何时候——甚至正在事件过滤被激活时（通过nativeEventFilter()函数)——移除一个事件过滤器都是安全的。
 
-此函数在Qt 5.0中引入。
+此函数自Qt 5.0引入。
 
 **另请参阅**：[installNativeEventFilter]()()。
 
@@ -587,13 +587,301 @@ foreach (const QString &path, app.libraryPaths())
 
 ### void QCoreApplication::removePostedEvents([QObject](../../O/QObject/QObject.md) **receiver*, int *eventType* = 0) [static]
 
-移除所指定的*eventType*类型且由[postEvent]()()所添加的事件。
+移除所指定的 *eventType* 类型且由[postEvent]()()所添加的事件。
 
-这些事件不会被派发，而是直接从队列中移除。您从来都不需要调用此方法。如果您确实调用了它，那么请注意杀掉事件可能会影响*receiver*的不变性(invariant)。
+这些事件不会被派发，而是直接从队列中移除。您从来都不需要调用此方法。如果您确实调用了它，那么请注意杀掉事件可能会影响 *receiver* 的不变性(invariant)。
 
-如果接收者是`nullptr`，那么所有对象将会移除*eventType*所指定的所有事件。如果*eventType*是0，那么*receiver*的所有事件将会被移除。您永远都不应该在此函数中为*eventType*传递0。
+如果接收者为`nullptr`，那么所有对象将会移除 *eventType* 所指定的所有事件。如果 *eventType* 为0，那么*receiver*的所有事件将会被移除。自始自终，您都不应将 0 传递给 *eventType* 。
 
 **注意**：此函数是[线程安全]()的。
 
-此函数在Qt 4.3中引入。
+此函数自Qt 4.3引入。
+
+
+
+---
+
+### bool QCoreApplication::removeTranslator([QTranslator]() *translationFile) [static]
+
+从此应用程序使用的翻译文件列表中删除翻译文件 *translationFile* 。 （不会在文件系统中删除此翻译文件。）
+
+该函数成功时返回 true ，失败时返回 false 。
+
+**另请参阅**：[installTranslator()]()，[translate()]()，与 [QObject::tr()]()。
+
+
+
+---
+
+### bool QCoreApplication::sendEvent([QObject](../../O/QObject/QObject.md) *receiver, [QEvent]() *event) [static]
+
+通过函数 [notify()]() 将事件 *event* 直接发送至接收对象 *receiver* 。返回从事件处理对象得到的返回值。
+
+事件 *不会* 在发送之后删除掉。通常的方法是在栈上创建事件，例如：
+
+```C++
+QMouseEvent event(QEvent::MouseButtonPress, pos, 0, 0, 0);
+QApplication::sendEvent(mainWindow, &event);
+```
+
+**另请参阅**：[postEvent()]() 与 [notify()]()。
+
+
+
+---
+
+### void QCoreApplication::sendPostedEvents([QObject](../../O/QObject/QObject.md) *receiver = nullptr, int event_type = 0) [static]
+
+立刻分派所有先前通过 [QCoreApplication::postEvent()]() 进入队列的事件。这些事件是针对接收对象的，且事件类型为 *event_type* 。
+
+该函数不会对来自窗口系统的事件进行分派，如有需求请参考 [processEvents()]()。
+
+如果接收对象指针为 **nullptr** ，*event_type* 的所有事件将分派到所有对象。如果 *event_type* 为 0 ，所有事件将发送到接收对象 *receiver* 。
+
+**注意：** 该方法必须由其 [QObject](../../O/QObject/QObject.md) 参数 [receiver]() 所在的线程调用。
+
+**另请参阅**：[flush()]() 与 [postEvent()]()。
+
+
+---
+
+### void QCoreApplication::setAttribute([Qt::ApplicationAttribute]() attribute, bool on = true) [static]
+
+如果 *on* 为 true ，则设置属性 *attribute*；否则清除该属性。
+
+**注意：**在创建 [QCoreApplication]() 实例之前，一些应用程序的属性必须要设置。 有关更多信息，请参考 [Qt::ApplicationAttribute]() 文档。
+
+**另请参阅**：[testAttribute()]()。
+
+
+---
+
+### void QCoreApplication::setEventDispatcher([QAbstractEventDispatcher]() *eventDispatcher) [static]
+
+将主线程的事件分派器设置为 *eventDispatcher* 。只有在还没有安装事件分派器的情况下，也就是在实例化 [QCoreApplication]() 之前，才可以进行设置。此方法获取对象的所有权。
+
+**另请参阅**：[eventDispatcher()]()。
+
+
+---
+
+### void QCoreApplication::setLibraryPaths(const [QStringList]() &paths) [static]
+
+将加载库时要搜索的目录列表设置为 *paths*。现有的所有路径将被删除，路径列表将从参数 *paths* 中获取。
+
+当实例 [QCoreApplication]() 被析构时，库路径将设置为默认值。
+
+**另请参阅**：[libraryPaths()]()、[addLibraryPath()]()、[removeLibraryPath()]() 与 [QLibrary]()。
+
+
+
+---
+
+### void QCoreApplication::setSetuidAllowed(bool allow) [static]
+
+若 *allow* 为 true，允许程序在 UNIX 平台上运行 setuid 。
+
+若 *allow* 为 false （默认值），且 Qt 检测到程序使用与实际用户id不同的有效用户id运行，那么在创建 QCoreApplication 实例时程序将中止。
+
+Qt 受攻击面较大，因此它并不是一个恰当 setuid 程序解决方案。 不过，出于历史原因，可能某些程序仍需要这种方式运行。 当检测到此标志时，可防止 Qt 中止应用程序。须在创建 QCoreApplication 实例之前将其进行设置。
+
+**注意：**强烈建议不要打开此选项，它会带来安全风险。
+
+此函数自Qt 5.3引入。
+
+**另请参阅**：[isSetuidAllowed()]()。
+
+
+
+---
+
+### bool QCoreApplication::startingUp()
+
+如果应用程序对象尚未创建，则返回 **true** ；否则返回 **false** 。
+
+**另请参阅**：[closingDown()]()。
+
+
+
+---
+
+### bool QCoreApplication::testAttribute([Qt::ApplicationAttribute]() attribute) [static]
+
+如果设置了属性 *attribute* ，返回 true ；否则返回 false 。
+
+**另请参阅**：[setAttribute()]()。
+
+
+
+---
+
+### [QString]() QCoreApplication::translate(const char *context, const char *sourceText, const char *disambiguation = nullptr, int n = -1) [static]
+
+搜索最近到首次安装的翻译文件，查询翻译文件中 sourceText 对应的翻译内容，返回其结果。
+
+[QObject::tr()]() 作用相同且使用更便捷。
+
+*context* 通常为类名（如 "MyDialog"），*sourceText* 则是英文文本或简短的识别文本。
+
+*disambiguation* 为一段识别字符串，用于同一上下文中不同角色使用相同的 *sourceText* 。它的默认值为 **nullptr**。
+
+有关上下文、消除歧义和注释的更多信息，请参阅 [QTranslator]() 和 [QObject::tr()]() 文档。
+
+*n* 与 *%n* 一并使用以便支持复数形式。详见 [QObject::tr()]() 。
+
+如果没有任何翻译文件包含 *context* 中 *sourceText* 的翻译内容，该函数则返回 [QString]() 包裹的 *sourceText* 。
+
+此函数非虚函数。您可以子类化 [QTranslator]() 来使用其他翻译技术。
+
+**注意：**此函数线程安全。
+
+**另请参阅**：[QObject::tr()]()，[installTranslator()]()，[removeTranslator()]()，与 translate()。
+
+
+
+## 相关非成员函数
+
+------
+
+### void qAddPostRoutine(QtCleanUpFunction ptr)
+
+添加一个全局例程，它将在  [QCoreApplication]() 析构函数中调用。这个函数通常用来作为在程序范围功能内，添加程序清除例程的函数。
+
+清除例程的调用顺序与添加例程的顺序相反。
+
+参数 *ptr* 指定的函数应既没有参数，也没有返回值，例如：
+
+```C++
+static int *global_ptr = nullptr;
+
+static void cleanup_ptr()
+{
+    delete [] global_ptr;
+    global_ptr = nullptr;
+}
+
+void init_ptr()
+{
+    global_ptr = new int[100];      // allocate data
+    qAddPostRoutine(cleanup_ptr);   // delete later
+}
+```
+
+注意，对于应用程序或模块范围的清理，qAddPostRoutine() 通常不太合适。例如，若程序被分割成动态加载的模块，那么相关的模块可能在 [QCoreApplication]() 的析构函数调用之前就卸载了。在这种情况下，如果仍想使用 qAddPostRoutine() ，可以使用 qRemovePostRoutine() 来防止 [QCoreApplication]() 的析构函数调用一个例程。举个例子，在模块卸载前调用 qRemovePostRoutine() 。
+
+对于模块或库，使用引用计数初始化管理器，或者 Qt 对象树删除机制可能会更好。下面是一个私有类使用对象树机制正确调用清除函数的一个例子：
+
+```C++
+class MyPrivateInitStuff : public QObject
+{
+public:
+    static MyPrivateInitStuff *initStuff(QObject *parent)
+    {
+        if (!p)
+            p = new MyPrivateInitStuff(parent);
+        return p;
+    }
+
+    ~MyPrivateInitStuff()
+    {
+        // cleanup goes here
+    }
+
+private:
+    MyPrivateInitStuff(QObject *parent)
+        : QObject(parent)
+    {
+        // initialization goes here
+    }
+
+    MyPrivateInitStuff *p;
+};
+```
+通过选择正确的父对象，正常情况下可以在正确的时机清理模块的数据。
+
+**注意：** 函数自 Qt 5.10 已线程安全
+
+**注意：** 该函数线程安全
+
+**另请参阅**：[qRemovePostRoutine()]()。
+
+
+
+---
+
+### void qRemovePostRoutine(QtCleanUpFunction ptr)
+
+**注意：** 函数自 Qt 5.10 已线程安全
+
+**注意：** 该函数线程安全
+
+此函数自 Qt 5.3 引入。
+
+**另请参阅**：[qAddPostRoutine()]()。
+
+
+
+
+## 宏文档
+
+------
+
+### Q_COREAPP_STARTUP_FUNCTION(QtStartUpFunction ptr)
+
+添加一个全局函数，它将在 [QCoreApplication]() 的构造函数中调用。这个宏通常用于为程序范围内的功能初始化库，无需应用程序调用库进行初始化。
+
+参数 *ptr* 指定的函数应既没有参数，也没有返回值，例如：
+
+```C++
+// Called once QCoreApplication exists
+static void preRoutineMyDebugTool()
+{
+    MyDebugTool* tool = new MyDebugTool(QCoreApplication::instance());
+    QCoreApplication::instance()->installEventFilter(tool);
+}
+
+Q_COREAPP_STARTUP_FUNCTION(preRoutineMyDebugTool)
+```
+注意，启动函数将在 [QCoreApplication]() 构造后，在任何 GUI 初始化前调用。如果函数中需要GUI代码，请使用计时器(或队列动态调用)，在后面的事件循环中执行初始化。
+
+如果删除了 [QCoreApplication]() 并创建了另一个 [QCoreApplication]() ，将再次调用启动函数。
+
+**注意：**此宏不适用于静态链接到应用程序中的库代码中使用，因为链接器可能会删除该函数，使其根本不会被调用。
+
+**注意：**此函数是[可重入的]()。
+
+此函数自 Qt 5.1 引入。
+
+
+
+---
+
+### Q_DECLARE_TR_FUNCTIONS(context)
+
+**Q_DECLARE_TR_FUNCTIONS()** 宏使用以下签名声明并实现了两个转换函数 **tr()** 和 **trUtf8()**：
+
+```C++
+static inline QString tr(const char *sourceText,
+                         const char *comment = nullptr);
+static inline QString trUtf8(const char *sourceText,
+                             const char *comment = nullptr);
+```
+
+如果您想在不继承 [QObject]() 的类使用 [QObject::tr()]() 或者 QObject::Utf8() ，这个宏就非常适用。
+
+**Q_DECLARE_TR_FUNCTIONS()** 宏必须写在类的第一行（在第一个 public: 或 protected: 之前），例如：
+
+```C++
+class MyMfcView : public CView
+{
+    Q_DECLARE_TR_FUNCTIONS(MyMfcView)
+
+public:
+    MyMfcView();
+    ...
+};
+```
+通常 *context* 参数为类名，不过也可以是任何文本。
+
+**另请参阅**：[Q_OBJECT]()，[QObject::tr()]()，与 [QObject::trUtf8()]()。
 
