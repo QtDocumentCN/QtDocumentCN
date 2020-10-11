@@ -51,12 +51,19 @@
 | [QList::iterator](Src/L/QList/QList_Iterator.md) | [xyz1001](https://github.com/xyz1001) | 编写中 | 占位中，待填充，截止时间2020-07-31 |
 | [QList::const_iterator](Src/L/QList/QList_Const_Iterator.md) | [xyz1001](https://github.com/xyz1001) | 编写中 | 占位中，待填充，截止时间2020-07-31 |
 | **M** |  |  |  |
+| [QMap](Src/M/QMap/QMap.md) | [chenjq](https://github.com/chenjiqing) | 编写中 | 已提交Pull Request |
+| [QMap::const_iterator](Src/M/QMap/QMap-const-iterator.md) | [chenjq](https://github.com/chenjiqing) | 编写中 | 已提交Pull Request |
+| [QMap::iterator](Src/M/QMap/QMap-iterator.md) | [chenjq](https://github.com/chenjiqing) | 编写中 | 已提交Pull Request |
+| [QMap::key_iterator](Src/M/QMap/QMap-key-iterator.md) | [chenjq](https://github.com/chenjiqing) | 编写中 | 已提交Pull Request |
+| [QMapIterator](Src/M/QMapIterator/QMapIterator.md) | [chenjq](https://github.com/chenjiqing) | 编写中 | 已提交Pull Request |
+| [QMutableMapIterator](Src/M/QMapIterator/QMapIterator.md) | [chenjq](https://github.com/chenjiqing) | 编写中 | 已提交Pull Request |
 | [QMetaClassInfo](Src/M/QMetaClassInfo/QMetaClassInfo.md) | [ZgblKylin](https://github.com/ZgblKylin) | **待完善** | 跨页跳转需待对应页面完成后进行校正 |
 | [QMetaMethod](Src/M/QMetaMethod/QMetaMethod.md) | [ZgblKylin](https://github.com/ZgblKylin) | **待完善** | 跨页跳转需待对应页面完成后进行校正 |
 | [QMetaObject](Src/M/QMetaObject/QMetaObject.md) | [ZgblKylin](https://github.com/ZgblKylin) | **待完善** | 跨页跳转需待对应页面完成后进行校正 |
 | [QMetaObject::Connection](M/QMetaObject/Connection.md)       | [ZgblKylin](https://github.com/ZgblKylin)     | **待完善** | 跨页跳转需待对应页面完成后进行校正 |
 | [QMetaProperty](../../M/QMetaProperty/QMetaProperty.md)      | [ZgblKylin](https://github.com/ZgblKylin)     | **待完善** | 跨页跳转需待对应页面完成后进行校正 |
 | [QMetaType](Src/M/QMetaType/QMetaType.md)                    | [ZgblKylin](https://github.com/ZgblKylin)     | **待完善** | 跨页跳转需待对应页面完成后进行校正 |
+| [QMultiMap](Src/M/QMultiMap/QMultiMap.md) | [chenjq](https://github.com/chenjiqing) | 编写中 | 已提交Pull Request |
 | [QMutex](Src/M/QMutex/QMutex.md)                             | [Ryan-rlm](https://github.com/Ryan-rlm)       | **已完成** | 已完成                             |
 | [QMutexLocker](Src/M/QMutexLocker/QMutexLocker.md)           | [Ryan-rlm](https://github.com/Ryan-rlm)       | **已完成** | 已完成                             |
 | [Why Does Qt use Moc for Signals and Slots](Src/M/Why_Does_Qt_Use_Moc_for_Signals_and_Slots/Why_Does_Qt_Use_Moc_for_Signals_and_Slots.md) | [ZgblKylin](https://github.com/ZgblKylin)     | **待完善** | 跨页跳转需待对应页面完成后进行校正 |
