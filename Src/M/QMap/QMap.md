@@ -44,7 +44,7 @@ QMap 类是一种模板类，提供基于红黑树的字典类结构。[更多�
 |                                                   | **[QMap](QMap.md#qmapqmap)**()                               |
 |                                    QMap<Key, T> & | **[operator=](QMap.md#qmapkey-t-qmapoperatorqmapkey-t-other)**(QMap<Key, T> &&*other*) |
 |                                    QMap<Key, T> & | **[operator=](QMap.md#qmapkey-t-qmapoperatorconst-qmapkey-t-other)**(const QMap<Key, T> &*other*) |
-|                                                   | **[~QMap](QMap.md#qmapqmap)**()                              |
+|                                                   | **[~QMap](QMap.md#qmapqmap-1)**()                            |
 |                                    QMap::iterator | **[begin](QMap.md#qmapiterator-qmapbegin)**()                |
 |                              QMap::const_iterator | **[begin](QMap.md#qmapconst_iterator-qmapbegin-const)**() const |
 |                              QMap::const_iterator | **[cbegin](QMap.md#qmapconst_iterator-qmapcbegin-const)**() const |
@@ -97,9 +97,9 @@ QMap 类是一种模板类，提供基于红黑树的字典类结构。[更多�
 |                                           const T | **[value](QMap.md#const-t-qmapvalueconst-key-key-const-t-defaultvalue--t-const)**(const Key &*key*, const T &*defaultValue* = T()) const |
 |                                          QList<T> | **[values](QMap.md#qlistt-qmapvalues-const)**() const        |
 |                                              bool | **[operator!=](QMap.md#bool-qmapoperatorconst-qmapkey-t-other-const)**(const QMap<Key, T> &*other*) const |
-|                                              bool | **[operator==](QMap.md#bool-qmapoperatorconst-qmapkey-t-other-const)**(const QMap<Key, T> &*other*) const |
-|                                               T & | **[operator[]](QMap.md#t-qmapoperator)**(const Key &*key*)   |
-|                                           const T | **[operator[]](QMap.md#const-t-qmapoperator-const)**(const Key &*key*) const |
+|                                              bool | **[operator==](QMap.md#bool-qmapoperatorconst-qmapkey-t-other-const-1)**(const QMap<Key, T> &*other*) const |
+|                                               T & | **[operator[]](QMap.md#t-qmapoperatorconst-key-key)**(const Key &*key*) |
+|                                           const T | **[operator[]](QMap.md#const-t-qmapoperatorconst-key-key-const)**(const Key &*key*) const |
 
 
 
@@ -788,7 +788,7 @@ map.upperBound(999);    // 返回 end()
 
 如果 map 不包含键为 *key* 的元素，该函数返回 *defaultValue*。 如果没有指定 *defaultValue*，该函数返回[默认构造的值](../../C/Container_Classes/Container_Classes.md#容器类)。如果 map 中有多个键为 key 的元素，返回最新插入的元素的值。
 
-**另请参阅** [key](QMap.md#const-key-qmapkeyconst-t-value-const-key-defaultkey--key-const)()，[values](QMap.md#qlistt-qmapvalues-const)()，[contains](QMap.md#bool-qmapcontainsconst-key-key-const)() 和 [operator[]](QMap.md#t-qmapoperator)()。
+**另请参阅** [key](QMap.md#const-key-qmapkeyconst-t-value-const-key-defaultkey--key-const)()，[values](QMap.md#qlistt-qmapvalues-const)()，[contains](QMap.md#bool-qmapcontainsconst-key-key-const)() 和 [operator[]](QMap.md#t-qmapoperatorconst-key-key)()。
 
 ### [QList](../../L/QList/QList.md)\<T\> QMap::values() const
 
@@ -804,7 +804,7 @@ map.upperBound(999);    // 返回 end()
 
 该函数需要值类型实现 `operator==()`。
 
-**另请参阅** [operator==](QMap.md#bool-qmapoperatorconst-qmapkey-t-other-const)()。
+**另请参阅** [operator==](QMap.md#bool-qmapoperatorconst-qmapkey-t-other-const-1)()。
 
 ### bool QMap::operator==(const [QMap](QMap.md#qmapqmap)<Key, T> &*other*) const
 

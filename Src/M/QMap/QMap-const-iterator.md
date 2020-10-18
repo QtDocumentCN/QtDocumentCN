@@ -10,7 +10,7 @@ class [QMap](../../M/QMap/QMap.md)::const_iterator
 
 ## 公共成员类型
 
-| typedef | **[iterator_category](QMap-const-iterator.md#typedef-const_iteratoriteratorcategory)** |
+| typedef | **[iterator_category](QMap-const-iterator.md#typedef-const_iteratoriterator_category)** |
 | -------: | :------------------------------------------------------------ |
 |         |                                                              |
 
@@ -29,12 +29,12 @@ class [QMap](../../M/QMap/QMap.md)::const_iterator
 | const_iterator & | **[operator++](QMap-const-iterator.md#const_iterator-const_iteratoroperator)**() |
 | const_iterator   | **[operator++](QMap-const-iterator.md#const_iterator-const_iteratoroperatorint)**(*int*) |
 | const_iterator & | **[operator+=](QMap-const-iterator.md#const_iterator-const_iteratoroperatorint-j)**(int *j*) |
-| const_iterator   | **[operator-](QMap-const-iterator.md#const_iterator-const_iteratoroperatorint-j-const)**(int *j*) const |
-| const_iterator & | **[operator--](QMap-const-iterator.md#const_iterator-const_iteratoroperator)**() |
-| const_iterator   | **[operator--](QMap-const-iterator.md#const_iterator-const_iteratoroperatorint)**(*int*) |
-| const_iterator & | **[operator-=](QMap-const-iterator.md#const_iterator-const_iteratoroperatorint-j)**(int *j*) |
-| const T *        | **[operator->](QMap-const-iterator.md#const-t-const_iteratoroperator-const)**() const |
-| bool             | **[operator==](QMap-const-iterator.md#bool-const_iteratoroperatorconst-const_iterator-other-const)**(const const_iterator &*other*) const |
+| const_iterator   | **[operator-](QMap-const-iterator.md#const_iterator-const_iteratoroperator-int-j-const)**(int *j*) const |
+| const_iterator & | **[operator--](QMap-const-iterator.md#const_iterator-const_iteratoroperator--)**() |
+| const_iterator   | **[operator--](QMap-const-iterator.md#const_iterator-const_iteratoroperator--int)**(*int*) |
+| const_iterator & | **[operator-=](QMap-const-iterator.md#const_iterator-const_iteratoroperator-int-j)**(int *j*) |
+| const T *        | **[operator->](QMap-const-iterator.md#const-t-const_iteratoroperator--const)**() const |
+| bool             | **[operator==](QMap-const-iterator.md#bool-const_iteratoroperatorconst-const_iterator-other-const-1)**(const const_iterator &*other*) const |
 
 
 
@@ -102,7 +102,7 @@ for (i = map.constBegin(); i != map.constEnd(); ++i)
 
 如果 *other* 与本迭代器指向的元素不同，返回 `true`；否则返回 `false`。
 
-**另请参阅** [operator==](QMap-const-iterator.md#bool-const_iteratoroperatorconst-const_iterator-other-const)()。
+**另请参阅** [operator==](QMap-const-iterator.md#bool-const_iteratoroperatorconst-const_iterator-other-const-1)()。
 
 ### const T &const_iterator::operator*() const
 
@@ -118,7 +118,7 @@ for (i = map.constBegin(); i != map.constEnd(); ++i)
 
 *j* 值较大时，该操作会比较慢。
 
-**另请参阅** [operator-](QMap-const-iterator.md#const_iterator-const_iteratoroperatorint-j-const)()。
+**另请参阅** [operator-](QMap-const-iterator.md#const_iterator-const_iteratoroperator-int-j-const)()。
 
 ### [const_iterator](QMap-const-iterator.md#const_iteratorconst_iterator) &const_iterator::operator++()
 
@@ -126,7 +126,7 @@ for (i = map.constBegin(); i != map.constEnd(); ++i)
 
 对 [QMap::end](../../M/QMap/QMap.md#qmapiterator-qmapend)() 调用该函数将导致未定义结果。
 
-**另请参阅** [operator--](QMap-const-iterator.md#const_iterator-const_iteratoroperator)()。
+**另请参阅** [operator--](QMap-const-iterator.md#const_iterator-const_iteratoroperator--)()。
 
 ### [const_iterator](QMap-const-iterator.md#const_iteratorconst_iterator) const_iterator::operator++(*int*)
 
@@ -140,7 +140,7 @@ for (i = map.constBegin(); i != map.constEnd(); ++i)
 
 *j* 值较大时，该操作会比较慢。
 
-**另请参阅** [operator-=](QMap-const-iterator.md#const_iterator-const_iteratoroperatorint-j)() 和 [operator+](QMap-const-iterator.md#const_iterator-const_iteratoroperatorint-j-const)()。
+**另请参阅** [operator-=](QMap-const-iterator.md#const_iterator-const_iteratoroperator-int-j)() 和 [operator+](QMap-const-iterator.md#const_iterator-const_iteratoroperatorint-j-const)()。
 
 ### [const_iterator](QMap-const-iterator.md#const_iteratorconst_iterator) const_iterator::operator-(int *j*) const
 
@@ -170,7 +170,7 @@ for (i = map.constBegin(); i != map.constEnd(); ++i)
 
 *j* 值较大时，该操作会比较慢。
 
-**另请参阅** [operator+=](QMap-const-iterator.md#const_iterator-const_iteratoroperatorint-j)() 和 [operator-](QMap-const-iterator.md#const_iterator-const_iteratoroperatorint-j-const)()。
+**另请参阅** [operator+=](QMap-const-iterator.md#const_iterator-const_iteratoroperatorint-j)() 和 [operator-](QMap-const-iterator.md#const_iterator-const_iteratoroperator-int-j-const)()。
 
 ### const T *const_iterator::operator->() const
 
