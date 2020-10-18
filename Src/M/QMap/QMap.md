@@ -115,10 +115,10 @@ QMap 类是一种模板类，提供基于红黑树的字典类结构。[更多�
 
 QMap<Key, T> 是一种 Qt 泛型[容器类](../../C/Container_Classes/Container_Classes.md)。该类存储键值对，可以用相关联的键快速查找值。
 
-QMap 提供与 [QHash](../../H/QHash/QHash.md) 相似的功能。二者的区别在于：
+QMap 的功能与 [QHash](../../H/QHash/QHash.md) 非常相似。二者的区别在于：
 
 - [QHash](../../H/QHash/QHash.md) 的平均查找速度比 QMap 快。（详情请看[算法复杂度](../../C/Container_Classes/Container_Classes.md#算法复杂度)。）
-- 遍历 [QHash](../../H/QHash/QHash.md) 时，元素的顺序是任意的。而遍历 QMap 时，元素是通过键排好序的。
+- 遍历 [QHash](../../H/QHash/QHash.md) 时，元素的顺序是任意的。而遍历 QMap 时，元素总是按照键的顺序排好序的。
 - [QHash](../../H/QHash/QHash.md) 的键类型必须提供 operator==() 运算符和全局的 [qHash](../../H/QHash/QHash.md)(Key) 函数。QMap 的键类型必须提供 operator<() 运算符来确定全序。从 Qt5.8.1 起，即使底层的 operator<() 运算符没有提供全序，使用指针作为键类型也是安全的。
 
 下面是一个键类型为 [QString](../../S/QString/QString.md)，值类型为 `int` 的 QMap 的示例：
@@ -178,7 +178,7 @@ for (int i = 0; i < 1000; ++i) {
 
 为了避免这个问题，将上面代码中的 `map[i]` 替换为 `map.value(i)`。
 
-如果想遍历 QMap 中存储的所有键值对，可以使用迭代器。QMap 同时提供 [Java 风格迭代器](../../C/Container_Classes/Container_Classes.md#Java-风格迭代器)（[QMapIterator](../../M/QMapIterator/QMapIterator.md) 和 [QMutableMapIterator](../../M/QMutableMapIterator/QMutableMapIterator.md)）和[STL 风格迭代器](../../C/Container_Classes/Container_Classes.md#STL-风格迭代器)（[QMap::const_iterator](../../M/QMap/QMap-const-iterator.md) 和 [QMap::iterator](../../M/QMap/QMap-iterator.md)）。下面是使用 Java 风格迭代器遍历 QMap<[QString](../../S/QString/QString.md), int> 的方法：
+如果想遍历 QMap 中存储的所有键值对，可以使用迭代器。QMap 同时提供 [Java 风格迭代器](../../C/Container_Classes/Container_Classes.md#Java-风格迭代器)（[QMapIterator](../../M/QMapIterator/QMapIterator.md) 和 [QMutableMapIterator](../../M/QMutableMapIterator/QMutableMapIterator.md)）和 [STL 风格迭代器](../../C/Container_Classes/Container_Classes.md#STL-风格迭代器)（[QMap::const_iterator](../../M/QMap/QMap-const-iterator.md) 和 [QMap::iterator](../../M/QMap/QMap-iterator.md)）。下面是使用 Java 风格迭代器遍历 QMap<[QString](../../S/QString/QString.md), int> 的方法：
 
 ```c++
 QMapIterator<QString, int> i(map);

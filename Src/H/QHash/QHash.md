@@ -2,7 +2,7 @@
 
 template <typename Key, typename T> class QHash
 
-The QHash class is a template class that provides a hash-table-based dictionary. [更多内容...](QHash.md#详细描述)
+QHash 类是一种模板类，提供基于哈希表的字典类结构。[更多内容...](QHash.md#详细描述)
 
 | 头文件:   | #include <QHash>                                     |
 | -------------: | :---------------------------------------------------- |
@@ -130,7 +130,7 @@ The QHash class is a template class that provides a hash-table-based dictionary.
 | uint          | **[qHash](QHash.md#uint-qhashfloat-key-uint-seed--0)**(float *key*, uint *seed* = 0) |
 | uint          | **[qHash](QHash.md#uint-qhashdouble-key-uint-seed--0)**(double *key*, uint *seed* = 0) |
 | uint          | **[qHash](QHash.md#uint-qhashlong-double-key-uint-seed--0)**(long double *key*, uint *seed* = 0) |
-| uint          | **[qHash](QHash.md#uint-qhashconst-qchar-key-uint-seed--0)**(const QChar *key*, uint *seed* = 0) |
+| uint          | **[qHash](QHash.md#uint-qhashconst-qchar-key-uint-seed--0)**(const Char *key*, uint *seed* = 0) |
 | uint          | **[qHash](QHash.md#uint-qhashconst-qbytearray-key-uint-seed--0)**(const QByteArray &*key*, uint *seed* = 0) |
 | uint          | **[qHash](QHash.md#uint-qhashconst-qstring-key-uint-seed--0)**(const QString &*key*, uint *seed* = 0) |
 | uint          | **[qHash](QHash.md#uint-qhashconst-qstringref-key-uint-seed--0)**(const QStringRef &*key*, uint *seed* = 0) |
@@ -145,61 +145,61 @@ The QHash class is a template class that provides a hash-table-based dictionary.
 
 ## 详细描述
 
-QHash<Key, T> is one of Qt's generic [container classes](../../C/Container_Classes/Container_Classes.md). It stores (key, value) pairs and provides very fast lookup of the value associated with a key.
+QHash<Key, T> 是一种 Qt 泛型[容器类](../../C/Container_Classes/Container_Classes.md)。该类存储键值对，可以用相关联的键非常快速地查找值。
 
-QHash provides very similar functionality to [QMap](../../M/QMap/QMap.md). The differences are:
+QHash 的功能与 [QMap](../../M/QMap/QMap.md) 非常相似。二者的区别在于：
 
-- QHash provides faster lookups than [QMap](../../M/QMap/QMap.md). (See [Algorithmic Complexity](../../C/Container_Classes/Container_Classes.md#算法复杂度) for details.)
-- When iterating over a [QMap](../../M/QMap/QMap.md), the items are always sorted by key. With QHash, the items are arbitrarily ordered.
-- The key type of a [QMap](../../M/QMap/QMap.md) must provide operator<(). The key type of a QHash must provide operator==() and a global hash function called [qHash](QHash.md#uint-qhashconst-qurl-url-uint-seed--0)() (see [qHash](QHash.md#qhash-哈希函数)).
+- QHash 的查找速度比 [QMap](../../M/QMap/QMap.md) 快。（详情请看 [算法复杂度](../../C/Container_Classes/Container_Classes.md#算法复杂度) 。）
+- 遍历 [QMap](../../M/QMap/QMap.md) 时，元素总是按照键的顺序排好序的。而遍历 QHash时，元素的顺序是任意的。
+- [QMap](../../M/QMap/QMap.md) 的键类型必须提供 operator<() 运算符。QHash 的键类型必须提供 operator==() 运算符和全局的名为 [qHash](QHash.md#uint-qhashconst-qurl-url-uint-seed--0)() 的哈希函数 (参考 [qHash 哈希函数](QHash.md#qhash-哈希函数))。
 
-Here's an example QHash with [QString](../../S/QString/QString.md) keys and `int` values:
+下面是一个键类型为 [QString](../../S/QString/QString.md)，值类型为 `int` 的 QHash 的示例：
 
-```
+```c++
 QHash<QString, int> hash;
 ```
 
-To insert a (key, value) pair into the hash, you can use operator[]():
+可以使用 operator[]() 运算符将键值对插入到哈希表中：
 
-```
+```c++
 hash["one"] = 1;
 hash["three"] = 3;
 hash["seven"] = 7;
 ```
 
-This inserts the following three (key, value) pairs into the QHash: ("one", 1), ("three", 3), and ("seven", 7). Another way to insert items into the hash is to use [insert](QHash.md#qhashiterator-qhashinsertconst-key-key-const-t-value)():
+上面的代码将3个键值对插入到 QHash 中：("one", 1)，("three", 3) 和 ("seven", 7)。另外一种向哈希表中插入元素的方法是使用 [insert](QHash.md#qhashiterator-qhashinsertconst-key-key-const-t-value)()：
 
-```
+```c++
 hash.insert("twelve", 12);
 ```
 
-To look up a value, use operator[]() or [value](QHash.md#const-t-qhashvalueconst-key-key-const)():
+使用 operator[]() 运算符或 [value](QHash.md#const-t-qhashvalueconst-key-key-const)() 查找值：
 
-```
+```c++
 int num1 = hash["thirteen"];
 int num2 = hash.value("thirteen");
 ```
 
-If there is no item with the specified key in the hash, these functions return a [default-constructed value](../../C/Container_Classes/Container_Classes.md#容器类).
+如果哈希表中不存在指定的键，这些函数返回[默认构造的值](../../C/Container_Classes/Container_Classes.md#容器类)。
 
-If you want to check whether the hash contains a particular key, use [contains](QHash.md#bool-qhashcontainsconst-key-key-const)():
+如果想检查哈希表中是否包含特定键，使用 [contains](QHash.md#bool-qhashcontainsconst-key-key-const)()：
 
-```
+```c++
 int timeout = 30;
 if (hash.contains("TIMEOUT"))
     timeout = hash.value("TIMEOUT");
 ```
 
-There is also a [value](QHash.md#const-t-qhashvalueconst-key-key-const)() overload that uses its second argument as a default value if there is no item with the specified key:
+还有一个 [value](QHash.md#const-t-qhashvalueconst-key-key-const)() 的重载函数，如果哈希表中不存在指定键的元素，该函数使用第2个参数作为默认值：
 
-```
+```c++
 int timeout = hash.value("TIMEOUT", 30);
 ```
 
-In general, we recommend that you use [contains](QHash.md#bool-qhashcontainsconst-key-key-const)() and [value](QHash.md#const-t-qhashvalueconst-key-key-const)() rather than operator[]() for looking up a key in a hash. The reason is that operator[]() silently inserts an item into the hash if no item exists with the same key (unless the hash is const). For example, the following code snippet will create 1000 items in memory:
+一般推荐使用 [contains](QHash.md#bool-qhashcontainsconst-key-key-const)() 和 [value](QHash.md#const-t-qhashvalueconst-key-key-const)() 而不是 operator[]() 运算符查找哈希表中的键。原因是如果哈希表中不存在相同键的元素，operator[]() 运算符会默默地将一个元素插入到哈希表中（除非哈希表是 const 的）。例如，下面的代码片段将在内存中创建1000个元素：
 
-```
-// WRONG
+```c++
+// 错误
 QHash<int, QWidget *> hash;
 ...
 for (int i = 0; i < 1000; ++i) {
@@ -208,13 +208,13 @@ for (int i = 0; i < 1000; ++i) {
 }
 ```
 
-To avoid this problem, replace `hash[i]` with `hash.value(i)` in the code above.
+为了避免这个问题，将上面代码中的 `hash[i]` 替换为 `hash.value(i)`。
 
 Internally, QHash uses a hash table to perform lookups. This hash table automatically grows and shrinks to provide fast lookups without wasting too much memory. You can still control the size of the hash table by calling [reserve](QHash.md#void-qhashreserveint-size)() if you already know approximately how many items the QHash will contain, but this isn't necessary to obtain good performance. You can also call [capacity](QHash.md#int-qhashcapacity-const)() to retrieve the hash table's size.
 
-If you want to navigate through all the (key, value) pairs stored in a QHash, you can use an iterator. QHash provides both [Java-style iterators](../../C/Container_Classes/Container_Classes.md#Java-风格迭代器) ([QHashIterator](../../H/QHashIterator/QHashIterator.md) and [QMutableHashIterator](../../M/QMutableHashIterator/QMutableHashIterator.md)) and [STL-style iterators](../../C/Container_Classes/Container_Classes.md#STL-风格迭代器) ([QHash::const_iterator](../../H/QHash/QHash-const-iterator.md) and [QHash::iterator](../../H/QHash/QHash-iterator.md)). Here's how to iterate over a QHash<[QString](../../S/QString/QString.md), int> using a Java-style iterator:
+如果想遍历 QHash 中存储的所有键值对，可以使用迭代器。QHash 同时提供 [Java 风格迭代器](../../C/Container_Classes/Container_Classes.md#Java-风格迭代器)（[QHashIterator](../../H/QHashIterator/QHashIterator.md) 和 [QMutableHashIterator](../../M/QMutableHashIterator/QMutableHashIterator.md)）和 [STL 风格迭代器](../../C/Container_Classes/Container_Classes.md#STL-风格迭代器)（[QHash::const_iterator](../../H/QHash/QHash-const-iterator.md) 和 [QHash::iterator](../../H/QHash/QHash-iterator.md)）。下面是使用 Java 风格迭代器遍历 QHash<[QString](../../S/QString/QString.md), int> 的方法：
 
-```
+```c++
 QHashIterator<QString, int> i(hash);
 while (i.hasNext()) {
     i.next();
@@ -222,9 +222,9 @@ while (i.hasNext()) {
 }
 ```
 
-Here's the same code, but using an STL-style iterator:
+下面是相同的代码，不过这次使用 STL 风格迭代器：
 
-```
+```c++
 QHash<QString, int>::const_iterator i = hash.constBegin();
 while (i != hash.constEnd()) {
     cout << i.key() << ": " << i.value() << Qt::endl;
@@ -234,38 +234,38 @@ while (i != hash.constEnd()) {
 
 QHash is unordered, so an iterator's sequence cannot be assumed to be predictable. If ordering by key is required, use a [QMap](../../M/QMap/QMap.md).
 
-Normally, a QHash allows only one value per key. If you call [insert](QHash.md#qhashiterator-qhashinsertconst-key-key-const-t-value)() with a key that already exists in the QHash, the previous value is erased. For example:
+通常，QHash 每个键只允许有一个值。如果用已经存在的键调用 [insert](QHash.md#qhashiterator-qhashinsertconst-key-key-const-t-value)()，先前的值将被删除。例如：
 
-```
+```c++
 hash.insert("plenty", 100);
 hash.insert("plenty", 2000);
 // hash.value("plenty") == 2000
 ```
 
-If you only need to extract the values from a hash (not the keys), you can also use [foreach](../../C/Container_Classes/Container_Classes.md#foreach-关键字):
+如果只想从哈希表中获取值（而不是键），也可以使用 [foreach](../../C/Container_Classes/Container_Classes.md#foreach-关键字)：
 
-```
+```c++
 QHash<QString, int> hash;
 ...
 foreach (int value, hash)
     cout << value << Qt::endl;
 ```
 
-Items can be removed from the hash in several ways. One way is to call [remove](QHash.md#int-qhashremoveconst-key-key)(); this will remove any item with the given key. Another way is to use [QMutableHashIterator::remove](../../M/QMutableHashIterator/QMutableHashIterator.md#void-qmutablehashiteratorremove)(). In addition, you can clear the entire hash using [clear](QHash.md#void-qhashclear)().
+移除元素有几种方法。一种是调用 [remove](QHash.md#int-qhashremoveconst-key-key)()；该函数移除指定键的所有元素。另一种方法是使用 [QMutableHashIterator::remove](../../M/QMutableHashIterator/QMutableHashIterator.md#void-qmutablehashiteratorremove)()。另外，还可以使用 [clear](QHash.md#void-qhashclear)() 清除整个哈希表。
 
-QHash's key and value data types must be [assignable data types](../../C/Container_Classes/Container_Classes.md#容器类). You cannot, for example, store a [QWidget](../../W/QWidget/QWidget.md) as a value; instead, store a [QWidget](../../W/QWidget/QWidget.md) *.
+QHash 键和值的数据类型必须是[可赋值数据类型](../../C/Container_Classes/Container_Classes.md#容器类)。不能存储 [QWidget](../../W/QWidget/QWidget.md) 作为值；而应该存储 [QWidget](../../W/QWidget/QWidget.md) *。
 
 
 
 #### qHash() 哈希函数
 
-A QHash's key type has additional requirements other than being an assignable data type: it must provide operator==(), and there must also be a [qHash](QHash.md#uint-qhashconst-qurl-url-uint-seed--0)() function in the type's namespace that returns a hash value for an argument of the key's type.
+QHash 的键类型除了必须是可赋值数据类型外，还有一个额外要求：它必须提供 operator==() 运算符，并且在键类型的命名空间内还必须有一个为键类型参数返回哈希值的 [qHash](QHash.md#uint-qhashconst-qurl-url-uint-seed--0)() 函数。
 
-The [qHash](QHash.md#uint-qhashconst-qurl-url-uint-seed--0)() function computes a numeric value based on a key. It can use any algorithm imaginable, as long as it always returns the same value if given the same argument. In other words, if `e1 == e2`, then `qHash(e1) == qHash(e2)` must hold as well. However, to obtain good performance, the [qHash](QHash.md#uint-qhashconst-qurl-url-uint-seed--0)() function should attempt to return different hash values for different keys to the largest extent possible.
+该 [qHash](QHash.md#uint-qhashconst-qurl-url-uint-seed--0)() 函数基于键计算数值。可以使用任何可以想到的算法计算，只要保证相同参数返回相同值就可以。也就是说，如果 `e1 == e2`，那么 `qHash(e1) == qHash(e2)` 也保持成立。然而，为了获得更好的性能，[qHash](QHash.md#uint-qhashconst-qurl-url-uint-seed--0)() 函数应该尽最大可能对不同的键返回不同的哈希值。
 
-For a key type `K`, the [qHash](QHash.md#qhash-哈希函数) function must have one of these signatures:
+对于键类型 `K`，[qHash](QHash.md#qhash-哈希函数) 函数必须具有下列两种签名之一：
 
-```
+```c++
 uint qHash(K key);
 uint qHash(const K &key);
 
@@ -273,15 +273,15 @@ uint qHash(K key, uint seed);
 uint qHash(const K &key, uint seed);
 ```
 
-The two-arguments overloads take an unsigned integer that should be used to seed the calculation of the hash function. This seed is provided by QHash in order to prevent a family of [algorithmic complexity attacks](QHash.md#算法复杂度攻击). If both a one-argument and a two-arguments overload are defined for a key type, the latter is used by QHash (note that you can simply define a two-arguments version, and use a default value for the seed parameter).
+两个参数的重载函数接受一个无符号整数参数，该参数用来 seed 哈希函数的计算。这个种子由 QHash 提供，为了阻止一种 [算法复杂度攻击](QHash.md#算法复杂度攻击)。 如果同时定义单参数和两个参数的重载函数，QHash 将使用后者（注意，你可以定义两个参数的版本，并对 seed 参数使用默认值）。
 
-Here's a partial list of the C++ and Qt types that can serve as keys in a QHash: any integer type (char, unsigned long, etc.), any pointer type, [QChar](../../C/QChar/QChar.md), [QString](../../S/QString/QString.md), and [QByteArray](../../B/QByteArray/QByteArray.md). For all of these, the `<QHash>` header defines a [qHash](QHash.md#uint-qhashconst-qurl-url-uint-seed--0)() function that computes an adequate hash value. Many other Qt classes also declare a [qHash](QHash.md#qhash-哈希函数) overload for their type; please refer to the documentation of each class.
+下面是可以在 QHash 中作为键使用的 C++ 和 Qt 类型的不完全列表：任何整数类型（char，unsigned long 等），任何指针类型，[QChar](../../C/QChar/QChar.md)，[QString](../../S/QString/QString.md) 和 [QByteArray](../../B/QByteArray/QByteArray.md)。对于所有这些类型，`<QHash>` 头文件会定义 [qHash](QHash.md#uint-qhashconst-qurl-url-uint-seed--0)() 函数，该函数计算合适的哈希值。 其它许多 Qt 类也会为其类型声明 [qHash](QHash.md#qhash-哈希函数) 重载函数；具体请参考类文档。
 
-If you want to use other types as the key, make sure that you provide operator==() and a [qHash](QHash.md#uint-qhashconst-qurl-url-uint-seed--0)() implementation.
+如果想使用其它类型作为键，请确保提供 operator==() 运算符并实现 [qHash](QHash.md#uint-qhashconst-qurl-url-uint-seed--0)() 函数。
 
-Example:
+例子：
 
-```
+```c++
 #ifndef EMPLOYEE_H
 #define EMPLOYEE_H
 
@@ -311,15 +311,15 @@ inline uint qHash(const Employee &key, uint seed)
 #endif // EMPLOYEE_H
 ```
 
-In the example above, we've relied on Qt's global [qHash](QHash.md#qhash-哈希函数)(const [QString](../../S/QString/QString.md) &, uint) to give us a hash value for the employee's name, and XOR'ed this with the day they were born to help produce unique hashes for people with the same name.
+上例中，我们依赖 Qt 的全局 [qHash](QHash.md#qhash-哈希函数)(const [QString](../../S/QString/QString.md) &, uint) 函数从雇员的名字和得到的哈希值，然后将这个值与雇员的出生日期求异或，来为同名雇员生成唯一的哈希值。
 
-Note that the implementation of the [qHash](QHash.md#uint-qhashconst-qurl-url-uint-seed--0)() overloads offered by Qt may change at any time. You **must not** rely on the fact that [qHash](QHash.md#uint-qhashconst-qurl-url-uint-seed--0)() will give the same results (for the same inputs) across different Qt versions.
+注意，Qt 提供的 [qHash](QHash.md#uint-qhashconst-qurl-url-uint-seed--0)() 重载函数的实现可能在任何时候改变. **一定不能**依赖于这个假定，认为不同 Qt 版本的 [qHash](QHash.md#uint-qhashconst-qurl-url-uint-seed--0)() 函数（对于相同的输入）会计算出相同的结果。
 
 
 
 #### 算法复杂度攻击
 
-All hash tables are vulnerable to a particular class of denial of service attacks, in which the attacker carefully pre-computes a set of different keys that are going to be hashed in the same bucket of a hash table (or even have the very same hash value). The attack aims at getting the worst-case algorithmic behavior (O(n) instead of amortized O(1), see [Algorithmic Complexity](../../C/Container_Classes/Container_Classes.md#算法复杂度) for the details) when the data is fed into the table.
+所有哈希表都容易受到特定类型的服务拒绝攻击，攻击者预先精细计算好一组不同的键用来在同一个哈希表中进行哈希。(or even have the very same hash value). The attack aims at getting the worst-case algorithmic behavior (O(n) instead of amortized O(1), see [Algorithmic Complexity](../../C/Container_Classes/Container_Classes.md#算法复杂度) for the details) when the data is fed into the table.
 
 In order to avoid this worst-case behavior, the calculation of the hash value done by [qHash](QHash.md#uint-qhashconst-qurl-url-uint-seed--0)() can be salted by a random seed, that nullifies the attack's extent. This seed is automatically generated by QHash once per process, and then passed by QHash as the second argument of the two-arguments overload of the [qHash](QHash.md#uint-qhashconst-qurl-url-uint-seed--0)() function.
 
@@ -551,7 +551,7 @@ Removes the (key, value) pair associated with the iterator *pos* from the hash, 
 
 Unlike [remove](QHash.md#int-qhashremoveconst-key-key)() and [take](QHash.md#t-qhashtakeconst-key-key)(), this function never causes [QHash](QHash.md#qhash-哈希函数) to rehash its internal data structure. This means that it can safely be called while iterating, and won't affect the order of items in the hash. For example:
 
-```
+```c++
 QHash<QObject *, int> objectHash;
 ...
 QHash<QObject *, int>::iterator i = objectHash.find(obj);
