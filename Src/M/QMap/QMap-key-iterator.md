@@ -18,10 +18,10 @@ Qt 5.6 中引入该类。
 | const Key &    | **[operator\*](QMap-key-iterator.md#const-key-key_iteratoroperator-const)**() const |
 | key_iterator & | **[operator++](QMap-key-iterator.md#key_iterator-key_iteratoroperator)**() |
 | key_iterator   | **[operator++](QMap-key-iterator.md#key_iterator-key_iteratoroperatorint)**(*int*) |
-| key_iterator & | **[operator--](QMap-key-iterator.md#key_iterator-key_iteratoroperator)**() |
-| key_iterator   | **[operator--](QMap-key-iterator.md#key_iterator-key_iteratoroperatorint)**(*int*) |
-| const Key *    | **[operator->](QMap-key-iterator.md#const-key-key_iteratoroperator-const)**() const |
-| bool           | **[operator==](QMap-key-iterator.md#bool-key_iteratoroperatorkey_iterator-other-const)**(key_iterator *other*) const |
+| key_iterator & | **[operator--](QMap-key-iterator.md#key_iterator-key_iteratoroperator--)**() |
+| key_iterator   | **[operator--](QMap-key-iterator.md#key_iterator-key_iteratoroperator--int)**(*int*) |
+| const Key *    | **[operator->](QMap-key-iterator.md#const-key-key_iteratoroperator--const)**() const |
+| bool           | **[operator==](QMap-key-iterator.md#bool-key_iteratoroperatorkey_iterator-other-const-1)**(key_iterator *other*) const |
 
 
 
@@ -70,7 +70,7 @@ qDeleteAll(map2.keyBegin(), map2.keyEnd());
 
 如果 *other* 与本迭代器指向的元素不同，返回 `true`；否则返回 `false`。
 
-**另请参阅** [operator==](QMap-key-iterator.md#bool-key_iteratoroperatorkey_iterator-other-const)().
+**另请参阅** [operator==](QMap-key-iterator.md#bool-key_iteratoroperatorkey_iterator-other-const-1)().
 
 ### const Key &key_iterator::operator*() const
 
@@ -82,7 +82,7 @@ qDeleteAll(map2.keyBegin(), map2.keyEnd());
 
 对 [QMap::keyEnd](../../M/QMap/QMap.md#qmapkey_iterator-qmapkeyend-const)() 调用该函数将导致未定义结果。
 
-**另请参阅** [operator--](QMap-key-iterator.md#key_iterator-key_iteratoroperator)().
+**另请参阅** [operator--](QMap-key-iterator.md#key_iterator-key_iteratoroperator--)().
 
 ### key_iterator key_iterator::operator++(*int*)
 
