@@ -200,31 +200,31 @@ QString myDecoderFunc(const QByteArray &localFileName);
 
 构造基于给定的父对象 *parent* 、文件名 *name* 指定的QFile对象。
 
-
+---
 
 ### QFile::QFile([QObject](https://doc.qt.io/qt-5/qobject.html#QObject) **parent*)
 
 构造基于给定的父对象 *parent* 的QFile对象。
 
-
+---
 
 ### QFile::QFile(const [QString](https://doc.qt.io/qt-5/qstring.html) &*name*)
 
 构造文件名 *name* 指定的QFile对象。
 
-
+---
 
 ### QFile::QFile()
 
 构造一个QFile对象。
 
-
+---
 
 ### `[virtual]`QFile::~QFile()
 
 销毁此QFile对象，如需要会自动关闭文件。
 
-
+---
 
 ### bool QFile::copy(const [QString](https://doc.qt.io/qt-5/qstring.html) &*newName*)
 
@@ -236,7 +236,7 @@ QString myDecoderFunc(const QByteArray &localFileName);
 
 **另请参见** [setFileName](#void-qfilesetfilenameconst-qstring-name)().
 
-
+---
 
 ### `[static]`bool QFile::copy(const [QString](https://doc.qt.io/qt-5/qstring.html) &*fileName*, const [QString](https://doc.qt.io/qt-5/qstring.html) &*newName*)
 
@@ -248,7 +248,7 @@ QString myDecoderFunc(const QByteArray &localFileName);
 
 **另请参见** [rename](#rename)().
 
-
+---
 
 ### `[static]`[QString](https://doc.qt.io/qt-5/qstring.html) QFile::decodeName(const [QByteArray](https://doc.qt.io/qt-5/qbytearray.html) &*localFileName*)
 
@@ -256,7 +256,7 @@ QString myDecoderFunc(const QByteArray &localFileName);
 
 **另请参见** [encodeName](#staticqbytearray-qfileencodenameconst-qstring-filename)().
 
-
+---
 
 ### `[static]`[QString](https://doc.qt.io/qt-5/qstring.html) QFile::decodeName(const char **localFileName*)
 
@@ -264,7 +264,7 @@ QString myDecoderFunc(const QByteArray &localFileName);
 
 详情参见 [encodeName](#staticqbytearray-qfileencodenameconst-qstring-filename)() 。
 
-
+---
 
 ### `[static]`[QByteArray](https://doc.qt.io/qt-5/qbytearray.html) QFile::encodeName(const [QString](https://doc.qt.io/qt-5/qstring.html) &*fileName*)
 
@@ -272,7 +272,7 @@ QString myDecoderFunc(const QByteArray &localFileName);
 
 **另请参见** [decodeName](#staticqstring-qfiledecodenameconst-qbytearray-localfilename)().
 
-
+---
 
 ### `[static]`bool QFile::exists(const [QString](https://doc.qt.io/qt-5/qstring.html) &*fileName*)
 
@@ -280,7 +280,7 @@ QString myDecoderFunc(const QByteArray &localFileName);
 
 **注意：** 如果 *fileName* 是指向不存在文件的符号链接，返回 `false`。
 
-
+---
 
 ### bool QFile::exists() const
 
@@ -290,7 +290,7 @@ QString myDecoderFunc(const QByteArray &localFileName);
 
 **另请参见** [fileName](#override-virtualqstring-qfilefilename-const)() and [setFileName](#void-qfilesetfilenameconst-qstring-name)().
 
-
+---
 
 ### `[override virtual]`[QString](https://doc.qt.io/qt-5/qstring.html) QFile::fileName() const
 
@@ -300,7 +300,7 @@ QString myDecoderFunc(const QByteArray &localFileName);
 
 **另请参见** [setFileName](#void-qfilesetfilenameconst-qstring-name)() and [QFileInfo::fileName](https://doc.qt.io/qt-5/qfileinfo.html#override-virtualqstring-qfilefilename-const)().
 
-
+---
 
 ### bool QFile::link(const [QString](https://doc.qt.io/qt-5/qstring.html) &*linkName*)
 
@@ -312,7 +312,7 @@ QString myDecoderFunc(const QByteArray &localFileName);
 
 **另请参见** [setFileName](#void-qfilesetfilenameconst-qstring-name)().
 
-
+---
 
 ### `[static]`bool QFile::link(const [QString](https://doc.qt.io/qt-5/qstring.html) &*fileName*, const [QString](https://doc.qt.io/qt-5/qstring.html) &*linkName*)
 
@@ -322,7 +322,7 @@ QString myDecoderFunc(const QByteArray &localFileName);
 
 **另请参见** [link](#bool-qfilelinkconst-qstring-linkname)().
 
-
+---
 
 ### bool QFile::moveToTrash()
 
@@ -332,7 +332,7 @@ QString myDecoderFunc(const QByteArray &localFileName);
 
 此函数引入自： Qt 5.15.
 
-
+---
 
 ### `[static]`bool QFile::moveToTrash(const [QString](https://doc.qt.io/qt-5/qstring.html) &*fileName*, [QString](https://doc.qt.io/qt-5/qstring.html) **pathInTrash* = nullptr)
 
@@ -344,7 +344,7 @@ QString myDecoderFunc(const QByteArray &localFileName);
 
 此函数引入自： Qt 5.15.
 
-
+---
 
 ### `[override virtual]`bool QFile::open([QIODevice::OpenMode](https://doc.qt.io/qt-5/qiodevice.html#OpenModeFlag-enum) *mode*)
 
@@ -357,10 +357,9 @@ QString myDecoderFunc(const QByteArray &localFileName);
 **注意：** 在 [WriteOnly](https://doc.qt.io/qt-5/qiodevice.html#OpenModeFlag-enum) 或 [ReadWrite](https://doc.qt.io/qt-5/qiodevice.html#OpenModeFlag-enum) 模式，如果相关文件不存在，此函数会尝试在打开前新建。
 
 
-
 **另请参见** [QIODevice::OpenMode](https://doc.qt.io/qt-5/qiodevice.html#OpenModeFlag-enum) and [setFileName](#void-qfilesetfilenameconst-qstring-name)().
 
-
+---
 
 ### bool QFile::open(FILE **fh*, [QIODevice::OpenMode](https://doc.qt.io/qt-5/qiodevice.html#OpenModeFlag-enum) *mode*, [QFileDevice::FileHandleFlags](https://doc.qt.io/qt-5/qfiledevice.html#FileHandleFlag-enum) *handleFlags* = DontCloseHandle)
 
@@ -403,7 +402,7 @@ CONFIG += console
 
 **另请参见** [close](https://doc.qt.io/qt-5/qfiledevice.html#close)().
 
-
+---
 
 ### bool QFile::open(int *fd*, [QIODevice::OpenMode](https://doc.qt.io/qt-5/qiodevice.html#OpenModeFlag-enum) *mode*, [QFileDevice::FileHandleFlags](https://doc.qt.io/qt-5/qfiledevice.html#FileHandleFlag-enum) *handleFlags* = DontCloseHandle)
 
@@ -423,7 +422,7 @@ CONFIG += console
 
 **另请参见** [close](https://doc.qt.io/qt-5/qfiledevice.html#close)().
 
-
+---
 
 ### `[override virtual]`[QFileDevice::Permissions](https://doc.qt.io/qt-5/qfiledevice.html#Permission-enum) QFile::permissions() const
 
@@ -431,7 +430,7 @@ CONFIG += console
 
 **另请参见** [setPermissions](#override-virtualbool-qfilesetpermissionsqfiledevicepermissions-permissions)().
 
-
+---
 
 ### `[static]`[QFileDevice::Permissions](https://doc.qt.io/qt-5/qfiledevice.html#Permission-enum) QFile::permissions(const [QString](https://doc.qt.io/qt-5/qstring.html) &*fileName*)
 
@@ -439,7 +438,7 @@ CONFIG += console
 
 返回 *fileName* 文件经 OR（位或）后的权限 [QFile::Permission](https://doc.qt.io/qt-5/qfiledevice.html#Permission-enum) 组合。
 
-
+---
 
 ### bool QFile::remove()
 
@@ -451,7 +450,7 @@ CONFIG += console
 
 **另请参见** [setFileName](#void-qfilesetfilenameconst-qstring-name)().
 
-
+---
 
 ### `[static]`bool QFile::remove(const [QString](https://doc.qt.io/qt-5/qstring.html) &*fileName*)
 
@@ -463,7 +462,7 @@ CONFIG += console
 
 **另请参见** [remove](#bool-qfileremove)().
 
-
+---
 
 ### bool QFile::rename(const [QString](https://doc.qt.io/qt-5/qstring.html) &*newName*)
 
@@ -477,7 +476,7 @@ CONFIG += console
 
 **另请参见** [setFileName](#void-qfilesetfilenameconst-qstring-name)().
 
-
+---
 
 ### `[static]`bool QFile::rename(const [QString](https://doc.qt.io/qt-5/qstring.html) &*oldName*, const [QString](https://doc.qt.io/qt-5/qstring.html) &*newName*)
 
@@ -489,13 +488,13 @@ CONFIG += console
 
 **另请参见** [rename](#rename)().
 
-
+---
 
 ### `[override virtual]`bool QFile::resize([qint64](https://doc.qt.io/qt-5/qtglobal.html#qint64-typedef) *sz*)
 
 重写函数： [QFileDevice::resize](https://doc.qt.io/qt-5/qfiledevice.html#override-virtualbool-qfileresizeqint64-sz)(qint64 sz).
 
-
+---
 
 ### `[static]`bool QFile::resize(const [QString](https://doc.qt.io/qt-5/qstring.html) &*fileName*, [qint64](https://doc.qt.io/qt-5/qtglobal.html#qint64-typedef) *sz*)
 
@@ -507,7 +506,7 @@ CONFIG += console
 
 **另请参见** [resize](#override-virtualbool-qfileresizeqint64-sz)().
 
-
+---
 
 ### void QFile::setFileName(const [QString](https://doc.qt.io/qt-5/qstring.html) &*name*)
 
@@ -532,6 +531,7 @@ file.open(QIODevice::ReadOnly);      // 打开Unix下文件 "/home/readme.txt"
 **另请参见** [fileName](#override-virtualqstring-qfilefilename-const)(), [QFileInfo](https://doc.qt.io/qt-5/qfileinfo.html), and [QDir](https://doc.qt.io/qt-5/qdir.html).
 
 
+---
 
 ### `[override virtual]`bool QFile::setPermissions([QFileDevice::Permissions](https://doc.qt.io/qt-5/qfiledevice.html#Permission-enum) *permissions*)
 
@@ -543,7 +543,7 @@ file.open(QIODevice::ReadOnly);      // 打开Unix下文件 "/home/readme.txt"
 
 **另请参见** [permissions](#override-virtualqfiledevicepermissions-qfilepermissions-const)() and [setFileName](#void-qfilesetfilenameconst-qstring-name)().
 
-
+---
 
 ### `[static]`bool QFile::setPermissions(const [QString](https://doc.qt.io/qt-5/qstring.html) &*fileName*, [QFileDevice::Permissions](https://doc.qt.io/qt-5/qfiledevice.html#Permission-enum) *permissions*)
 
@@ -551,13 +551,13 @@ file.open(QIODevice::ReadOnly);      // 打开Unix下文件 "/home/readme.txt"
 
 为文件名 *fileName* 的文件设置 *permissions* 权限。
 
-
+---
 
 ### `[override virtual]`[qint64](https://doc.qt.io/qt-5/qtglobal.html#qint64-typedef) QFile::size() const
 
 重写函数： [QFileDevice::size](https://doc.qt.io/qt-5/qfiledevice.html#size)() const.
 
-
+---
 
 ### `[static]`[QString](https://doc.qt.io/qt-5/qstring.html) QFile::symLinkTarget(const [QString](https://doc.qt.io/qt-5/qstring.html) &*fileName*)
 
@@ -567,7 +567,7 @@ file.open(QIODevice::ReadOnly);      // 打开Unix下文件 "/home/readme.txt"
 
 此函数引入自： Qt 4.2.
 
-
+---
 
 ### [QString](https://doc.qt.io/qt-5/qstring.html) QFile::symLinkTarget() const
 
