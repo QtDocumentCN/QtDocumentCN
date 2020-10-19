@@ -7,7 +7,6 @@ QHash 类是一种模板类，提供基于哈希表的字典类结构。[更多�
 | 头文件:   | #include <QHash>                                     |
 | -------------: | :---------------------------------------------------- |
 | qmake:        | QT += core                                           |
-| 基类: | [QObject](../../O/QObject/QObject.md) |
 | 派生类: | [QMultiHash](../../M/QMultiHash/QMultiHash.md) |
 
 - [所有成员列表，包括继承的成员](../../M/QHash/QHash-members.md)
@@ -331,47 +330,47 @@ This randomization of QHash is enabled by default. Even though programs should n
 
 ### typedef QHash::ConstIterator
 
-Qt-style synonym for [QHash::const_iterator](../../H/QHash/QHash-const-iterator.md).
+[QHash::const_iterator](../../H/QHash/QHash-const-iterator.md) 的 Qt 风格的别名。
 
 ### typedef QHash::Iterator
 
-Qt-style synonym for [QHash::iterator](../../H/QHash/QHash-iterator.md).
+[QHash::iterator](../../H/QHash/QHash-iterator.md) 的 Qt 风格的别名。
 
 ### typedef QHash::const_key_value_iterator
 
-The [QMap::const_key_value_iterator](../../M/QMap/QMap.md#typedef-qmapconst_key_value_iterator) typedef provides an STL-style const iterator for [QHash](QHash.md#qhash-哈希函数) and [QMultiHash](../../M/QMultiHash/QMultiHash.md).
+[QMap::const_key_value_iterator](../../M/QMap/QMap.md#typedef-qmapconst_key_value_iterator) 类型定义为 [QHash](QHash.md#qhash-哈希函数) 和 [QMultiHash](../../M/QMultiHash/QMultiHash.md) 提供 STL 风格迭代器。
 
-QHash::const_key_value_iterator is essentially the same as [QHash::const_iterator](../../H/QHash/QHash-const-iterator.md) with the difference that operator*() returns a key/value pair instead of a value.
+除了 operator*() 运算符返回的是键值对而不是值之外，QHash::const_key_value_iterator 基本和 [QHash::const_iterator](../../H/QHash/QHash-const-iterator.md) 相同。
 
-This typedef was introduced in Qt 5.10.
+Qt 5.10 中引入该类型定义。
 
-**另请参阅** [QKeyValueIterator](../../K/QKeyValueIterator/QKeyValueIterator.md).
+**另请参阅** [QKeyValueIterator](../../K/QKeyValueIterator/QKeyValueIterator.md)。
 
 ### typedef QHash::difference_type
 
-Typedef for ptrdiff_t. Provided for STL compatibility.
+ptrdiff_t 的类型别名。为兼容 STL 提供。
 
 ### typedef QHash::key_type
 
-Typedef for Key. Provided for STL compatibility.
+Key 的类型别名。为兼容 STL 提供。
 
 ### typedef QHash::key_value_iterator
 
-The [QMap::key_value_iterator](../../M/QMap/QMap.md#typedef-qmapkey_value_iterator) typedef provides an STL-style iterator for [QHash](QHash.md#qhash-哈希函数) and [QMultiHash](../../M/QMultiHash/QMultiHash.md).
+QHash::key_value_iterator 类型定义为 [QHash](QHash.md#qhash-哈希函数) 和 [QMultiHash](../../M/QMultiHash/QMultiHash.md) 提供 STL 风格迭代器。
 
-QHash::key_value_iterator is essentially the same as [QHash::iterator](../../H/QHash/QHash-iterator.md) with the difference that operator*() returns a key/value pair instead of a value.
+除了 operator*() 运算符返回的是键值对而不是值之外，QHash::key_value_iterator 基本和 [QHash::iterator](../../H/QHash/QHash-iterator.md) 相同。
 
-This typedef was introduced in Qt 5.10.
+Qt 5.10 中引入该类型定义。
 
-**另请参阅** [QKeyValueIterator](../../K/QKeyValueIterator/QKeyValueIterator.md).
+**另请参阅** [QKeyValueIterator](../../K/QKeyValueIterator/QKeyValueIterator.md)。
 
 ### typedef QHash::mapped_type
 
-Typedef for T. Provided for STL compatibility.
+T 的类型别名。为兼容 STL 提供。
 
 ### typedef QHash::size_type
 
-Typedef for int. Provided for STL compatibility.
+int 的类型别名。为兼容 STL 提供。
 
 ## 成员函数文档
 
@@ -379,59 +378,59 @@ Typedef for int. Provided for STL compatibility.
 
 Constructs a hash with a copy of each of the elements in the iterator range [*begin*, *end*). Either the elements iterated by the range must be objects with `first` and `second` data members (like `QPair`, `std::pair`, etc.) convertible to `Key` and to `T` respectively; or the iterators must have `key()` and `value()` member functions, returning a key convertible to `Key` and a value convertible to `T` respectively.
 
-This function was introduced in Qt 5.14.
+Qt 5.14 中引入该函数。
 
 ### QHash::QHash([QHash](QHash.md#qhashqhash)<K, V> &&*other*)
 
-Move-constructs a QHash instance, making it point at the same object that *other* was pointing to.
+移动构造一个 QHash 实例，使该实例指向 *other* 所指向的同一对象。
 
-This function was introduced in Qt 5.2.
+Qt 5.2 中引入该函数。
 
 ### QHash::QHash(const [QHash](QHash.md#qhashqhash)<K, V> &*other*)
 
-Constructs a copy of *other*.
+构造一个 *other* 的副本。
 
-This operation occurs in [constant time](../../C/Container_Classes/Container_Classes.md#算法复杂度), because QHash is [implicitly shared](../../I/Implicit-sharing/Implicit-sharing.md). This makes returning a QHash from a function very fast. If a shared instance is modified, it will be copied (copy-on-write), and this takes [linear time](../../C/Container_Classes/Container_Classes.md#算法复杂度).
+该操作需要[常数时间](../../C/Container_Classes/Container_Classes.md#算法复杂度)，因为 QHash 是[隐式共享](../../I/Implicit-sharing/Implicit-sharing.md)的。这使得从一个函数返回  QHash 非常快。如果共享实例被修改了，它将以[线性时间](../../C/Container_Classes/Container_Classes.md#算法复杂度)被复制一份（写时拷贝）。
 
-**另请参阅** [operator=](QHash.md#qhashk-v-qhashoperatorconst-qhashk-v-other)().
+**另请参阅** [operator=](QHash.md#qhashk-v-qhashoperatorconst-qhashk-v-other)()。
 
 ### QHash::QHash(std::initializer_list<std::pair<Key, T> > *list*)
 
-Constructs a hash with a copy of each of the elements in the initializer list *list*.
+用初始化列表 *list* 中每个元素的副本构造一个哈希表。
 
-This function is only available if the program is being compiled in C++11 mode.
+只有当程序在 C++11 模式下编译时，该函数才可用。
 
-This function was introduced in Qt 5.1.
+Qt 5.1 中引入该函数。
 
 ### QHash::QHash()
 
-Constructs an empty hash.
+构造一个空哈希表。
 
-**另请参阅** [clear](QHash.md#void-qhashclear)().
+**另请参阅** [clear](QHash.md#void-qhashclear)()。
 
 ### [QHash](QHash.md#qhashqhash)<K, V> &QHash::operator=([QHash](QHash.md#qhashqhash)<K, V> &&*other*)
 
-Move-assigns *other* to this [QHash](QHash.md#qhash-哈希函数) instance.
+移动赋值 *other* 到该 [QHash](QHash.md#qhash-哈希函数)实例。
 
-This function was introduced in Qt 5.2.
+Qt 5.2 中引入该函数。
 
 ### [QHash](QHash.md#qhashqhash)<K, V> &QHash::operator=(const [QHash](QHash.md#qhashqhash)<K, V> &*other*)
 
-Assigns *other* to this hash and returns a reference to this hash.
+将 *other* 赋值给该哈希表并返回该哈希表的引用。
 
 ### QHash::~QHash()
 
-Destroys the hash. References to the values in the hash and all iterators of this hash become invalid.
+析构哈希表。该哈希表中值的引用及所有该哈希表的迭代器都将失效。
 
 ### [QHash::iterator](../../H/QHash/QHash-iterator.md) QHash::begin()
 
-Returns an [STL-style iterator](../../C/Container_Classes/Container_Classes.md#STL-风格迭代器) pointing to the first item in the hash.
+返回 [STL 风格迭代器](../../C/Container_Classes/Container_Classes.md#STL-风格迭代器) pointing to the first item in the hash.
 
-**另请参阅** [constBegin](QHash.md#qhashconst_iterator-qhashconstbegin-const)() and [end](QHash.md#qhashiterator-qhashend)().
+**另请参阅** [constBegin](QHash.md#qhashconst_iterator-qhashconstbegin-const)() and [end](QHash.md#qhashiterator-qhashend)()。
 
 ### [QHash::const_iterator](../../H/QHash/QHash-const-iterator.md) QHash::begin() const
 
-This is an overloaded function.
+这是一个重载函数。
 
 ### int QHash::capacity() const
 
@@ -439,117 +438,117 @@ Returns the number of buckets in the [QHash](QHash.md#qhash-哈希函数)'s inte
 
 The sole purpose of this function is to provide a means of fine tuning [QHash](QHash.md#qhash-哈希函数)'s memory usage. In general, you will rarely ever need to call this function. If you want to know how many items are in the hash, call [size](QHash.md#int-qhashsize-const)().
 
-**另请参阅** [reserve](QHash.md#void-qhashreserveint-size)() and [squeeze](QHash.md#void-qhashsqueeze)().
+**另请参阅** [reserve](QHash.md#void-qhashreserveint-size)() and [squeeze](QHash.md#void-qhashsqueeze)()。
 
 ### [QHash::const_iterator](../../H/QHash/QHash-const-iterator.md) QHash::cbegin() const
 
-Returns a const [STL-style iterator](../../C/Container_Classes/Container_Classes.md#STL-风格迭代器) pointing to the first item in the hash.
+返回常量类型的 [STL 风格迭代器](../../C/Container_Classes/Container_Classes.md#STL-风格迭代器)，指向哈希表中的第一个元素。
 
-This function was introduced in Qt 5.0.
+Qt 5.0 中引入该函数。
 
-**另请参阅** [begin](QHash.md#qhashiterator-qhashbegin)() and [cend](QHash.md#qhashconst_iterator-qhashcend-const)().
+**另请参阅** [begin](QHash.md#qhashiterator-qhashbegin)() and [cend](QHash.md#qhashconst_iterator-qhashcend-const)()。
 
 ### [QHash::const_iterator](../../H/QHash/QHash-const-iterator.md) QHash::cend() const
 
-Returns a const [STL-style iterator](../../C/Container_Classes/Container_Classes.md#STL-风格迭代器) pointing to the imaginary item after the last item in the hash.
+返回常量类型的 [STL 风格迭代器](../../C/Container_Classes/Container_Classes.md#STL-风格迭代器)，指向哈希表中最后一个元素之后的假想元素。
 
-This function was introduced in Qt 5.0.
+Qt 5.0 中引入该函数。
 
-**另请参阅** [cbegin](QHash.md#qhashconst_iterator-qhashcbegin-const)() and [end](QHash.md#qhashiterator-qhashend)().
+**另请参阅** [cbegin](QHash.md#qhashconst_iterator-qhashcbegin-const)() and [end](QHash.md#qhashiterator-qhashend)()。
 
 ### void QHash::clear()
 
-Removes all items from the hash.
+从哈希表中移除所有元素。
 
-**另请参阅** [remove](QHash.md#int-qhashremoveconst-key-key)().
+**另请参阅** [remove](QHash.md#int-qhashremoveconst-key-key)()。
 
 ### [QHash::const_iterator](../../H/QHash/QHash-const-iterator.md) QHash::constBegin() const
 
-Returns a const [STL-style iterator](../../C/Container_Classes/Container_Classes.md#STL-风格迭代器) pointing to the first item in the hash.
+返回常量类型的 [STL 风格迭代器](../../C/Container_Classes/Container_Classes.md#STL-风格迭代器)，指向哈希表中的第一个元素。
 
-**另请参阅** [begin](QHash.md#qhashiterator-qhashbegin)() and [constEnd](QHash.md#qhashconst_iterator-qhashconstend-const)().
+**另请参阅** [begin](QHash.md#qhashiterator-qhashbegin)() and [constEnd](QHash.md#qhashconst_iterator-qhashconstend-const)()。
 
 ### [QHash::const_iterator](../../H/QHash/QHash-const-iterator.md) QHash::constEnd() const
 
-Returns a const [STL-style iterator](../../C/Container_Classes/Container_Classes.md#STL-风格迭代器) pointing to the imaginary item after the last item in the hash.
+返回常量类型的 [STL 风格迭代器](../../C/Container_Classes/Container_Classes.md#STL-风格迭代器)，指向哈希表中最后一个元素之后的假想元素。
 
-**另请参阅** [constBegin](QHash.md#qhashconst_iterator-qhashconstbegin-const)() and [end](QHash.md#qhashiterator-qhashend)().
+**另请参阅** [constBegin](QHash.md#qhashconst_iterator-qhashconstbegin-const)() and [end](QHash.md#qhashiterator-qhashend)()。
 
 ### [QHash::const_iterator](../../H/QHash/QHash-const-iterator.md) QHash::constFind(const Key &*key*) const
 
-Returns an iterator pointing to the item with the *key* in the hash.
+返回常量类型（译者注：原文没有const）的迭代器，指向哈希表中键为 *key* 的元素。
 
-If the hash contains no item with the *key*, the function returns [constEnd](QHash.md#qhashconst_iterator-qhashconstend-const)().
+如果哈希表不包含键为 *key* 的元素，该函数返回  [constEnd](QHash.md#qhashconst_iterator-qhashconstend-const)()。
 
-This function was introduced in Qt 4.1.
+Qt 4.1 中引入该函数。
 
-**另请参阅** [find](QHash.md#qhashiterator-qhashfindconst-key-key)() and [QMultiHash::constFind](../../M/QMultiHash/QMultiHash.md#typename-qhashkey-tconst_iterator-qmultihashconstfindconst-key-key-const-t-value-const)().
+**另请参阅** [find](QHash.md#qhashiterator-qhashfindconst-key-key)() and [QMultiHash::constFind](../../M/QMultiHash/QMultiHash.md#typename-qhashkey-tconst_iterator-qmultihashconstfindconst-key-key-const-t-value-const)()。
 
 ### [QHash::const_key_value_iterator](QHash.md#typedef-qhashconst_key_value_iterator) QHash::constKeyValueBegin() const
 
-Returns a const [STL-style iterator](../../C/Container_Classes/Container_Classes.md#STL-风格迭代器) pointing to the first entry in the hash.
+返回常量类型的 [STL 风格迭代器](../../C/Container_Classes/Container_Classes.md#STL-风格迭代器)，指向哈希表中的第一项.
 
-This function was introduced in Qt 5.10.
+Qt 5.10 中引入该函数。
 
-**另请参阅** [keyValueBegin](QHash.md#qhashkey_value_iterator-qhashkeyvaluebegin)().
+**另请参阅** [keyValueBegin](QHash.md#qhashkey_value_iterator-qhashkeyvaluebegin)()。
 
 ### [QHash::const_key_value_iterator](QHash.md#typedef-qhashconst_key_value_iterator) QHash::constKeyValueEnd() const
 
-Returns a const [STL-style iterator](../../C/Container_Classes/Container_Classes.md#STL-风格迭代器) pointing to the imaginary entry after the last entry in the hash.
+返回常量类型的 [STL 风格迭代器](../../C/Container_Classes/Container_Classes.md#STL-风格迭代器)，指向哈希表中最后一项之后的假想项。
 
-This function was introduced in Qt 5.10.
+Qt 5.10 中引入该函数。
 
-**另请参阅** [constKeyValueBegin](QHash.md#qhashconst_key_value_iterator-qhashconstkeyvaluebegin-const)().
+**另请参阅** [constKeyValueBegin](QHash.md#qhashconst_key_value_iterator-qhashconstkeyvaluebegin-const)()。
 
 ### bool QHash::contains(const Key &*key*) const
 
-Returns `true` if the hash contains an item with the *key*; otherwise returns `false`.
+如果该哈希表包含键为 *key* 的元素，返回 `true`；否则返回 `false`。
 
-**另请参阅** [count](QHash.md#int-qhashcount-const)() and [QMultiHash::contains](../../M/QMultiHash/QMultiHash.md#bool-qmultihashcontainsconst-key-key-const-t-value-const)().
+**另请参阅** [count](QHash.md#int-qhashcount-const)() and [QMultiHash::contains](../../M/QMultiHash/QMultiHash.md#bool-qmultihashcontainsconst-key-key-const-t-value-const)()。
 
 ### int QHash::count(const Key &*key*) const
 
-Returns the number of items associated with the *key*.
+返回与键 *key* 相关联的元素个数。
 
-**另请参阅** [contains](QHash.md#bool-qhashcontainsconst-key-key-const)() and [insertMulti](../../H/QHash/QHash-obsolete.md#qhashiterator-qhashinsertmulticonst-key-key-const-t-value)().
+**另请参阅** [contains](QHash.md#bool-qhashcontainsconst-key-key-const)() and [insertMulti](../../H/QHash/QHash-obsolete.md#qhashiterator-qhashinsertmulticonst-key-key-const-t-value)()。
 
 ### int QHash::count() const
 
-This is an overloaded function.
+这是一个重载函数。
 
-Same as [size](QHash.md#int-qhashsize-const)().
+同 [size](QHash.md#int-qhashsize-const)()。
 
 ### bool QHash::empty() const
 
-This function is provided for STL compatibility. It is equivalent to [isEmpty](QHash.md#bool-qhashisempty-const)(), returning true if the hash is empty; otherwise returns `false`.
+该函数为兼容 STL 提供。与 [isEmpty](QHash.md#bool-qhashisempty-const)() 等价，如果哈希表为空，返回 `true`；否则返回 `false`。
 
 ### [QHash::iterator](../../H/QHash/QHash-iterator.md) QHash::end()
 
-Returns an [STL-style iterator](../../C/Container_Classes/Container_Classes.md#STL-风格迭代器) pointing to the imaginary item after the last item in the hash.
+返回 [STL 风格迭代器](../../C/Container_Classes/Container_Classes.md#STL-风格迭代器)，指向哈希表中最后一个元素之后的假想元素。
 
-**另请参阅** [begin](QHash.md#qhashiterator-qhashbegin)() and [constEnd](QHash.md#qhashconst_iterator-qhashconstend-const)().
+**另请参阅** [begin](QHash.md#qhashiterator-qhashbegin)() and [constEnd](QHash.md#qhashconst_iterator-qhashconstend-const)()。
 
 ### [QHash::const_iterator](../../H/QHash/QHash-const-iterator.md) QHash::end() const
 
-This is an overloaded function.
+这是一个重载函数。
 
 ### [QPair](../../P/QPair/QPair.md)<[QHash::iterator](../../H/QHash/QHash-iterator.md), [QHash::iterator](../../H/QHash/QHash-iterator.md)> QHash::equal_range(const Key &*key*)
 
-Returns a pair of iterators delimiting the range of values `[first, second)`, that are stored under *key*. If the range is empty then both iterators will be equal to [end](QHash.md#qhashiterator-qhashend)().
+返回一对迭代器界定与 *key* 相关联的值的范围 `[first, second)`。如果范围为空，则两个迭代器都为 [end](QHash.md#qhashiterator-qhashend)()。
 
-This function was introduced in Qt 5.7.
+Qt 5.7 中引入该函数。
 
 ### [QPair](../../P/QPair/QPair.md)<[QHash::const_iterator](../../H/QHash/QHash-const-iterator.md), [QHash::const_iterator](../../H/QHash/QHash-const-iterator.md)> QHash::equal_range(const Key &*key*) const
 
-This is an overloaded function.
+这是一个重载函数。
 
-This function was introduced in Qt 5.7.
+Qt 5.7 中引入该函数。
 
 ### [QHash::iterator](../../H/QHash/QHash-iterator.md) QHash::erase([QHash::const_iterator](../../H/QHash/QHash-const-iterator.md) *pos*)
 
-Removes the (key, value) pair associated with the iterator *pos* from the hash, and returns an iterator to the next item in the hash.
+从哈希表中移除迭代器 *pos* 指向的键值对，返回指向哈希表中下一个元素的迭代器。
 
-Unlike [remove](QHash.md#int-qhashremoveconst-key-key)() and [take](QHash.md#t-qhashtakeconst-key-key)(), this function never causes [QHash](QHash.md#qhash-哈希函数) to rehash its internal data structure. This means that it can safely be called while iterating, and won't affect the order of items in the hash. For example:
+与 [remove](QHash.md#int-qhashremoveconst-key-key)() 和 [take](QHash.md#t-qhashtakeconst-key-key)() 不同，this function never causes [QHash](QHash.md#qhash-哈希函数) to rehash its internal data structure. This means that it can safely be called while iterating, and won't affect the order of items in the hash. For example:
 
 ```c++
 QHash<QObject *, int> objectHash;
@@ -564,23 +563,23 @@ while (i != objectHash.end() && i.key() == obj) {
 }
 ```
 
-This function was introduced in Qt 5.7.
+Qt 5.7 中引入该函数。
 
-**另请参阅** [remove](QHash.md#int-qhashremoveconst-key-key)(), [take](QHash.md#t-qhashtakeconst-key-key)(), and [find](QHash.md#qhashiterator-qhashfindconst-key-key)().
+**另请参阅** [remove](QHash.md#int-qhashremoveconst-key-key)(), [take](QHash.md#t-qhashtakeconst-key-key)(), and [find](QHash.md#qhashiterator-qhashfindconst-key-key)()。
 
 ### [QHash::iterator](../../H/QHash/QHash-iterator.md) QHash::erase([QHash::iterator](../../H/QHash/QHash-iterator.md) *pos*)
 
-This is an overloaded function.
+这是一个重载函数。
 
 ### [QHash::iterator](../../H/QHash/QHash-iterator.md) QHash::find(const Key &*key*)
 
-Returns an iterator pointing to the item with the *key* in the hash.
+返回迭代器，指向哈希表中键为 *key* 的元素。
 
-If the hash contains no item with the *key*, the function returns [end](QHash.md#qhashiterator-qhashend)().
+如果哈希表不包含键为 *key* 的元素，函数返回 [end](QHash.md#qhashiterator-qhashend)().
 
-If the hash contains multiple items with the *key*, this function returns an iterator that points to the most recently inserted value. The other values are accessible by incrementing the iterator. For example, here's some code that iterates over all the items with the same key:
+如果哈希表包含多个键为 *key* 的元素，函数返回指向最新插入的那个值的迭代器。其它值可以通过递增迭代器取得。例如，下面的代码遍历同一键的所有元素：
 
-```
+```c++
 QHash<QString, int> hash;
 ...
 QHash<QString, int>::const_iterator i = hash.find("HDR");
@@ -590,125 +589,125 @@ while (i != hash.end() && i.key() == "HDR") {
 }
 ```
 
-**另请参阅** [value](QHash.md#const-t-qhashvalueconst-key-key-const)(), [values](QHash.md#qlistt-qhashvalues-const)(), and [QMultiHash::find](../../M/QMultiHash/QMultiHash.md#typename-qhashkey-titerator-qmultihashfindconst-key-key-const-t-value)().
+**另请参阅** [value](QHash.md#const-t-qhashvalueconst-key-key-const)(), [values](QHash.md#qlistt-qhashvalues-const)(), and [QMultiHash::find](../../M/QMultiHash/QMultiHash.md#typename-qhashkey-titerator-qmultihashfindconst-key-key-const-t-value)()。
 
 ### [QHash::const_iterator](../../H/QHash/QHash-const-iterator.md) QHash::find(const Key &*key*) const
 
-This is an overloaded function.
+这是一个重载函数。
 
 ### [QHash::iterator](../../H/QHash/QHash-iterator.md) QHash::insert(const Key &*key*, const T &*value*)
 
-Inserts a new item with the *key* and a value of *value*.
+用键 *key* 和值 *value* 插入一个新元素。
 
-If there is already an item with the *key*, that item's value is replaced with *value*.
+如果已经存在键为 *key* 的元素，该元素的值将被 *value* 替换。
 
-If there are multiple items with the *key*, the most recently inserted item's value is replaced with *value*.
+如果有多个键为 *key* 的元素，最新插入的元素的值将被 *value* 替换。
 
 ### void QHash::insert(const [QHash](QHash.md#qhashqhash)<K, V> &*other*)
 
-Inserts all the items in the *other* hash into this hash.
+将 *other* 哈希表中的所有元素插入到本哈希表中。
 
-If a key is common to both hashes, its value will be replaced with the value stored in *other*.
+如果一个键同时在两个哈希表中出现，其值将被 *other* 中存储的值替换。
 
-**Note:** If *other* contains multiple entries with the same key then the final value of the key is undefined.
+**注意:** 如果 *other* 中同一键关联多个元素，则该键的最终值未定义。
 
-This function was introduced in Qt 5.15.
+Qt 5.15 中引入该函数。
 
 ### bool QHash::isEmpty() const
 
-Returns `true` if the hash contains no items; otherwise returns false.
+如果哈希表中不包含元素，返回 `true`；否则返回 `false`。
 
-**另请参阅** [size](QHash.md#int-qhashsize-const)().
+**另请参阅** [size](QHash.md#int-qhashsize-const)()。
 
 ### const Key QHash::key(const T &*value*) const
 
-Returns the first key mapped to *value*.
+返回与值 *value* 对应的第一个键。
 
-If the hash contains no item with the *value*, the function returns a [default-constructed key](../../C/Container_Classes/Container_Classes.md#容器类).
+如果哈希表不包含值为 *value* 的元素，函数返回[默认构造的键](../../C/Container_Classes/Container_Classes.md#容器类).
 
-This function can be slow ([linear time](../../C/Container_Classes/Container_Classes.md#算法复杂度)), because [QHash](QHash.md#qhash-哈希函数)'s internal data structure is optimized for fast lookup by key, not by value.
+该函数可能会比较慢（[线性时间](../../C/Container_Classes/Container_Classes.md#算法复杂度)），因为 [QHash ](QHash.md#qhash-哈希函数)的内部数据结构是以快速查找键而不是值为目标来优化的。
 
-**另请参阅** [value](QHash.md#const-t-qhashvalueconst-key-key-const)() and [keys](QHash.md#qlistkey-qhashkeys-const)().
+**另请参阅** [value](QHash.md#const-t-qhashvalueconst-key-key-const)() and [keys](QHash.md#qlistkey-qhashkeys-const)()。
 
 ### const Key QHash::key(const T &*value*, const Key &*defaultKey*) const
 
-This is an overloaded function.
+这是一个重载函数。
 
-Returns the first key mapped to *value*, or *defaultKey* if the hash contains no item mapped to *value*.
+返回与值 *value* 对应的第一个键，如果哈希表不包含值为 *value* 的元素，返回 *defaultKey*。
 
-This function can be slow ([linear time](../../C/Container_Classes/Container_Classes.md#算法复杂度)), because [QHash](QHash.md#qhash-哈希函数)'s internal data structure is optimized for fast lookup by key, not by value.
+该函数可能会比较慢（[线性时间](../../C/Container_Classes/Container_Classes.md#算法复杂度)），因为 [QHash](QHash.md#qhash-哈希函数) 的内部数据结构是以快速查找键而不是值为目标来优化的。
 
-This function was introduced in Qt 4.3.
+Qt 4.3 中引入该函数。
 
 ### [QHash::key_iterator](../../H/QHash/QHash-key-iterator.md) QHash::keyBegin() const
 
-Returns a const [STL-style iterator](../../C/Container_Classes/Container_Classes.md#STL-风格迭代器) pointing to the first key in the hash.
+返回常量类型的 [STL 风格迭代器](../../C/Container_Classes/Container_Classes.md#STL-风格迭代器)，指向哈希表中的第一个键。
 
-This function was introduced in Qt 5.6.
+Qt 5.6 中引入该函数。
 
-**另请参阅** [keyEnd](QHash.md#qhashkey_iterator-qhashkeyend-const)().
+**另请参阅** [keyEnd](QHash.md#qhashkey_iterator-qhashkeyend-const)()。
 
 ### [QHash::key_iterator](../../H/QHash/QHash-key-iterator.md) QHash::keyEnd() const
 
-Returns a const [STL-style iterator](../../C/Container_Classes/Container_Classes.md#STL-风格迭代器) pointing to the imaginary item after the last key in the hash.
+返回常量类型的 [STL 风格迭代器](../../C/Container_Classes/Container_Classes.md#STL-风格迭代器)，指向哈希表中的最后一个元素之后的假想元素的键。
 
-This function was introduced in Qt 5.6.
+Qt 5.6 中引入该函数。
 
-**另请参阅** [keyBegin](QHash.md#qhashkey_iterator-qhashkeybegin-const)().
+**另请参阅** [keyBegin](QHash.md#qhashkey_iterator-qhashkeybegin-const)()。
 
 ### [QHash::key_value_iterator](QHash.md#typedef-qhashkey_value_iterator) QHash::keyValueBegin()
 
-Returns an [STL-style iterator](../../C/Container_Classes/Container_Classes.md#STL-风格迭代器) pointing to the first entry in the hash.
+返回 [STL 风格迭代器](../../C/Container_Classes/Container_Classes.md#STL-风格迭代器)，指向哈希表中的第一项。
 
-This function was introduced in Qt 5.10.
+Qt 5.10 中引入该函数。
 
-**另请参阅** [keyValueEnd](QHash.md#qhashkey_value_iterator-qhashkeyvalueend)().
+**另请参阅** [keyValueEnd](QHash.md#qhashkey_value_iterator-qhashkeyvalueend)()。
 
 ### [QHash::const_key_value_iterator](QHash.md#typedef-qhashconst_key_value_iterator) QHash::keyValueBegin() const
 
-Returns a const [STL-style iterator](../../C/Container_Classes/Container_Classes.md#STL-风格迭代器) pointing to the first entry in the hash.
+返回常量类型的 [STL 风格迭代器](../../C/Container_Classes/Container_Classes.md#STL-风格迭代器)，指向哈希表中的第一项。
 
-This function was introduced in Qt 5.10.
+Qt 5.10 中引入该函数。
 
-**另请参阅** [keyValueEnd](QHash.md#qhashkey_value_iterator-qhashkeyvalueend)().
+**另请参阅** [keyValueEnd](QHash.md#qhashkey_value_iterator-qhashkeyvalueend)()。
 
 ### [QHash::key_value_iterator](QHash.md#typedef-qhashkey_value_iterator) QHash::keyValueEnd()
 
-Returns an [STL-style iterator](../../C/Container_Classes/Container_Classes.md#STL-风格迭代器) pointing to the imaginary entry after the last entry in the hash.
+返回 [STL 风格迭代器](../../C/Container_Classes/Container_Classes.md#STL-风格迭代器)，指向哈希表中最后一项之后的假想项。
 
-This function was introduced in Qt 5.10.
+Qt 5.10 中引入该函数。
 
-**另请参阅** [keyValueBegin](QHash.md#qhashkey_value_iterator-qhashkeyvaluebegin)().
+**另请参阅** [keyValueBegin](QHash.md#qhashkey_value_iterator-qhashkeyvaluebegin)()。
 
 ### [QHash::const_key_value_iterator](QHash.md#typedef-qhashconst_key_value_iterator) QHash::keyValueEnd() const
 
-Returns a const [STL-style iterator](../../C/Container_Classes/Container_Classes.md#STL-风格迭代器) pointing to the imaginary entry after the last entry in the hash.
+返回常量类型的 [STL 风格迭代器](../../C/Container_Classes/Container_Classes.md#STL-风格迭代器)，指向哈希表中最后一项之后的假想项。
 
-This function was introduced in Qt 5.10.
+Qt 5.10 中引入该函数。
 
-**另请参阅** [keyValueBegin](QHash.md#qhashkey_value_iterator-qhashkeyvaluebegin)().
+**另请参阅** [keyValueBegin](QHash.md#qhashkey_value_iterator-qhashkeyvaluebegin)()。
 
 ### [QList](../../L/QList/QList.md)<Key> QHash::keys() const
 
-Returns a list containing all the keys in the hash, in an arbitrary order. Keys that occur multiple times in the hash (because the method is operating on a [QMultiHash](../../M/QMultiHash/QMultiHash.md)) also occur multiple times in the list.
+以任意顺序返回哈希表中所有键的列表。在哈希表中多次出现的键（当该方法应用在 [QMultiHash ](../../M/QMultiHash/QMultiHash.md)时）也会在列表中多次出现。
 
-The order is guaranteed to be the same as that used by [values](QHash.md#qlistt-qhashvalues-const)().
+键的顺序将确保与通过 [values](QHash.md#qlistt-qhashvalues-const)() 返回的值的顺序相同。
 
-**另请参阅** [QMultiMap::uniqueKeys](../../M/QMultiMap/QMultiMap.md#qlistkey-qmultimapuniquekeys-const)(), [values](QHash.md#qlistt-qhashvalues-const)(), and [key](QHash.md#const-key-qhashkeyconst-t-value-const)().
+**另请参阅** [QMultiMap::uniqueKeys](../../M/QMultiMap/QMultiMap.md#qlistkey-qmultimapuniquekeys-const)(), [values](QHash.md#qlistt-qhashvalues-const)(), and [key](QHash.md#const-key-qhashkeyconst-t-value-const)()。
 
 ### [QList](../../L/QList/QList.md)<Key> QHash::keys(const T &*value*) const
 
-This is an overloaded function.
+这是一个重载函数。
 
-Returns a list containing all the keys associated with value *value*, in an arbitrary order.
+以任意顺序返回所有与值 *value* 相关联的键的列表。
 
-This function can be slow ([linear time](../../C/Container_Classes/Container_Classes.md#算法复杂度)), because [QHash](QHash.md#qhash-哈希函数)'s internal data structure is optimized for fast lookup by key, not by value.
+该函数可能会比较慢（[线性时间](../../C/Container_Classes/Container_Classes.md#算法复杂度)），因为 [QHash](QHash.md#qhash-哈希函数) 的内部数据结构是以快速查找键而不是值为目标来优化的。
 
 ### int QHash::remove(const Key &*key*)
 
-Removes all the items that have the *key* from the hash. Returns the number of items removed which is 1 if the key exists in the hash, and 0 otherwise.
+从哈希表中移除所有键为 *key* 的元素。返回被移除的元素个数，如果键存在，则为1，否则为0。
 
-**另请参阅** [clear](QHash.md#void-qhashclear)(), [take](QHash.md#t-qhashtakeconst-key-key)(), and [QMultiHash::remove](../../M/QMultiHash/QMultiHash.md#int-qmultihashremoveconst-key-key-const-t-value)().
+**另请参阅** [clear](QHash.md#void-qhashclear)(), [take](QHash.md#t-qhashtakeconst-key-key)(), and [QMultiHash::remove](../../M/QMultiHash/QMultiHash.md#int-qmultihashremoveconst-key-key-const-t-value)()。
 
 ### void QHash::reserve(int *size*)
 
@@ -716,7 +715,7 @@ Ensures that the [QHash](QHash.md#qhash-哈希函数)'s internal hash table cons
 
 This function is useful for code that needs to build a huge hash and wants to avoid repeated reallocation. For example:
 
-```
+```c++
 QHash<QString, int> hash;
 hash.reserve(20000);
 for (int i = 0; i < 20000; ++i)
@@ -727,13 +726,13 @@ Ideally, *size* should be slightly more than the maximum number of items expecte
 
 In general, you will rarely ever need to call this function. [QHash](QHash.md#qhash-哈希函数)'s internal hash table automatically shrinks or grows to provide good performance without wasting too much memory.
 
-**另请参阅** [squeeze](QHash.md#void-qhashsqueeze)() and [capacity](QHash.md#int-qhashcapacity-const)().
+**另请参阅** [squeeze](QHash.md#void-qhashsqueeze)() and [capacity](QHash.md#int-qhashcapacity-const)()。
 
 ### int QHash::size() const
 
-Returns the number of items in the hash.
+返回哈希表中的元素个数。
 
-**另请参阅** [isEmpty](QHash.md#bool-qhashisempty-const)() and [count](QHash.md#int-qhashcount-const)().
+**另请参阅** [isEmpty](QHash.md#bool-qhashisempty-const)() and [count](QHash.md#int-qhashcount-const)()。
 
 ### void QHash::squeeze()
 
@@ -741,205 +740,205 @@ Reduces the size of the [QHash](QHash.md#qhash-哈希函数)'s internal hash tab
 
 The sole purpose of this function is to provide a means of fine tuning [QHash](QHash.md#qhash-哈希函数)'s memory usage. In general, you will rarely ever need to call this function.
 
-**另请参阅** [reserve](QHash.md#void-qhashreserveint-size)() and [capacity](QHash.md#int-qhashcapacity-const)().
+**另请参阅** [reserve](QHash.md#void-qhashreserveint-size)() and [capacity](QHash.md#int-qhashcapacity-const)()。
 
 ### void QHash::swap([QHash](QHash.md#qhashqhash)<K, V> &*other*)
 
-Swaps hash *other* with this hash. This operation is very fast and never fails.
+将哈希表 *other* 与本哈希表。该操作非常快，永远不失败。
 
-This function was introduced in Qt 4.8.
+Qt 4.8 中引入该函数。
 
 ### T QHash::take(const Key &*key*)
 
-Removes the item with the *key* from the hash and returns the value associated with it.
+从哈希表中移除键为 *key* 的元素，返回键 *key* 所关联的值。
 
-If the item does not exist in the hash, the function simply returns a [default-constructed value](../../C/Container_Classes/Container_Classes.md#容器类). If there are multiple items for *key* in the hash, only the most recently inserted one is removed.
+如果哈希表中不存在该元素，该函数简单返回一个[默认构造的值](../../C/Container_Classes/Container_Classes.md#容器类)。如果哈希表中有多个键为 key 的元素，只移除最新插入的元素并返回值。
 
-If you don't use the return value, [remove](QHash.md#int-qhashremoveconst-key-key)() is more efficient.
+如果不使用返回值，使用 [remove](QHash.md#int-qhashremoveconst-key-key)() 更高效一些。
 
-**另请参阅** [remove](QHash.md#int-qhashremoveconst-key-key)().
+**另请参阅** [remove](QHash.md#int-qhashremoveconst-key-key)()。
 
 ### const T QHash::value(const Key &*key*) const
 
-Returns the value associated with the *key*.
+返回键 *key* 关联的值。
 
-If the hash contains no item with the *key*, the function returns a [default-constructed value](../../C/Container_Classes/Container_Classes.md#容器类). If there are multiple items for the *key* in the hash, the value of the most recently inserted one is returned.
+如果哈希表不包含键为 *key* 的元素，该函数返回[默认构造的值](../../C/Container_Classes/Container_Classes.md#容器类)。如果哈希表中有多个键为 key 的元素，返回最新插入的元素的值。
 
-**另请参阅** [key](QHash.md#const-key-qhashkeyconst-t-value-const)(), [values](QHash.md#qlistt-qhashvalues-const)(), [contains](QHash.md#bool-qhashcontainsconst-key-key-const)(), and [operator[\]](QHash.md#t-qhashoperatorconst-key-key)().
+**另请参阅** [key](QHash.md#const-key-qhashkeyconst-t-value-const)(), [values](QHash.md#qlistt-qhashvalues-const)(), [contains](QHash.md#bool-qhashcontainsconst-key-key-const)(), and [operator[\]](QHash.md#t-qhashoperatorconst-key-key)()。
 
 ### const T QHash::value(const Key &*key*, const T &*defaultValue*) const
 
-This is an overloaded function.
+这是一个重载函数。
 
-If the hash contains no item with the given *key*, the function returns *defaultValue*.
+如果哈希表不包含键为 *key* 的元素，该函数返回 *defaultValue*。
 
 ### [QList](../../L/QList/QList.md)<T> QHash::values() const
 
-Returns a list containing all the values in the hash, in an arbitrary order. If a key is associated with multiple values, all of its values will be in the list, and not just the most recently inserted one.
+以任意顺序返回哈希表中所有值的列表。如果一个键关联到多个值，该键的所有值都将被放入列表中，而不只是最新插入的值。
 
-The order is guaranteed to be the same as that used by [keys](QHash.md#qlistkey-qhashkeys-const)().
+顺序将确保与通过 [keys](QHash.md#qlistkey-qhashkeys-const)() 返回的键的顺序相同。
 
-**另请参阅** [keys](QHash.md#qlistkey-qhashkeys-const)() and [value](QHash.md#const-t-qhashvalueconst-key-key-const)().
+**另请参阅** [keys](QHash.md#qlistkey-qhashkeys-const)() and [value](QHash.md#const-t-qhashvalueconst-key-key-const)()。
 
 ### bool QHash::operator!=(const [QHash](QHash.md#qhashqhash)<K, V> &*other*) const
 
-Returns `true` if *other* is not equal to this hash; otherwise returns `false`.
+如果 *other* 与本哈希表不相等，返回 `true`，否则返回 `false`。
 
-Two hashes are considered equal if they contain the same (key, value) pairs.
+如果两个哈希表包含相同的键值对，则认为二者相等。
 
-This function requires the value type to implement `operator==()`.
+该函数需要值类型实现 `operator==()`。
 
-**另请参阅** [operator==](QHash.md#bool-qhashoperatorconst-qhashk-v-other-const-1)().
+**另请参阅** [operator==](QHash.md#bool-qhashoperatorconst-qhashk-v-other-const-1)()。
 
 ### bool QHash::operator==(const [QHash](QHash.md#qhashqhash)<K, V> &*other*) const
 
-Returns `true` if *other* is equal to this hash; otherwise returns false.
+如果 *other* 与本哈希表相等，返回 `true`，否则返回 `false`。
 
-Two hashes are considered equal if they contain the same (key, value) pairs.
+如果两个哈希表包含相同的键值对，则认为二者相等。
 
-This function requires the value type to implement `operator==()`.
+该函数需要值类型实现 `operator==()`。
 
-**另请参阅** [operator!=](QHash.md#bool-qhashoperatorconst-qhashk-v-other-const)().
+**另请参阅** [operator!=](QHash.md#bool-qhashoperatorconst-qhashk-v-other-const)()。
 
 ### T &QHash::operator[](const Key &*key*)
 
-Returns the value associated with the *key* as a modifiable reference.
+返回键 *key* 所关联的值的可修改引用。
 
-If the hash contains no item with the *key*, the function inserts a [default-constructed value](../../C/Container_Classes/Container_Classes.md#容器类) into the hash with the *key*, and returns a reference to it. If the hash contains multiple items with the *key*, this function returns a reference to the most recently inserted value.
+如果哈希表不包含键为 *key* 的元素，该函数用键 *key* 插入一个[默认构造的值](../../C/Container_Classes/Container_Classes.md#容器类)，并返回该值的引用。如果哈希表包含多个键为 *key* 的元素，该函数返回最新插入的那个值的引用。
 
-**另请参阅** [insert](QHash.md#qhashiterator-qhashinsertconst-key-key-const-t-value)() and [value](QHash.md#const-t-qhashvalueconst-key-key-const)().
+**另请参阅** [insert](QHash.md#qhashiterator-qhashinsertconst-key-key-const-t-value)() and [value](QHash.md#const-t-qhashvalueconst-key-key-const)()。
 
 ### const T QHash::operator[](const Key &*key*) const
 
-This is an overloaded function.
+这是一个重载函数。
 
-Same as [value](QHash.md#const-t-qhashvalueconst-key-key-const)().
+同 [value](QHash.md#const-t-qhashvalueconst-key-key-const)()。
 
-## Related Non-Members
+## 相关非成员函数
 
 ### int qGlobalQHashSeed()
 
-Returns the current global [QHash](QHash.md#qhash-哈希函数) seed.
+返回当前全局 [QHash](QHash.md#qhash-哈希函数) 种子。
 
 The seed is set in any newly created [QHash](QHash.md#qhash-哈希函数). See [qHash](QHash.md#qhash-哈希函数) about how this seed is being used by [QHash](QHash.md#qhash-哈希函数).
 
-This function was introduced in Qt 5.6.
+Qt 5.6 中引入该函数。
 
-**另请参阅** [qSetGlobalQHashSeed](QHash.md#void-qsetglobalqhashseedint-newseed).
+**另请参阅** [qSetGlobalQHashSeed](QHash.md#void-qsetglobalqhashseedint-newseed)。
 
 ### [uint](../../G/QtGlobal/QtGlobal.md#typedef-uint) qHash(const [QUrl](../../U/QUrl/QUrl.md) &*url*, [uint](../../G/QtGlobal/QtGlobal.md#typedef-uint) *seed* = 0)
 
-Returns the hash value for the *url*. If specified, *seed* is used to initialize the hash.
+为 *url* 返回哈希值。If specified, *seed* is used to initialize the hash.
 
-This function was introduced in Qt 5.0.
+Qt 5.0 中引入该函数。
 
 ### template <typename Key, typename T> [uint](../../G/QtGlobal/QtGlobal.md#typedef-uint) qHash(const [QHash](QHash.md#qhashqhash)<Key, T> &*key*, [uint](../../G/QtGlobal/QtGlobal.md#typedef-uint) *seed* = 0)
 
-Returns the hash value for the *key*, using *seed* to seed the calculation.
+为 *key* 返回哈希值，使用 *seed* 来 seed 计算。
 
-Type `T` must be supported by qHash().
+类型 `T` 必须被 qHash() 支持。
 
-This function was introduced in Qt 5.8.
+Qt 5.8 中引入该函数。
 
 ### [uint](../../G/QtGlobal/QtGlobal.md#typedef-uint) qHash(const [QBitArray](../../B/QBitArray/QBitArray.md) &*key*, [uint](../../G/QtGlobal/QtGlobal.md#typedef-uint) *seed* = 0)
 
-Returns the hash value for the *key*, using *seed* to seed the calculation.
+为 *key* 返回哈希值，使用 *seed* to seed the calculation.
 
-This function was introduced in Qt 5.0.
+Qt 5.0 中引入该函数。
 
 ### [uint](../../G/QtGlobal/QtGlobal.md#typedef-uint) qHash(char *key*, [uint](../../G/QtGlobal/QtGlobal.md#typedef-uint) *seed* = 0)
 
-Returns the hash value for the *key*, using *seed* to seed the calculation.
+为 *key* 返回哈希值，使用 *seed* to seed the calculation.
 
-This function was introduced in Qt 5.0.
+Qt 5.0 中引入该函数。
 
 ### [uint](../../G/QtGlobal/QtGlobal.md#typedef-uint) qHash(const [QDateTime](../../D/QDateTime/QDateTime.md) &*key*, [uint](../../G/QtGlobal/QtGlobal.md#typedef-uint) *seed* = 0)
 
-Returns the hash value for the *key*, using *seed* to seed the calculation.
+为 *key* 返回哈希值，使用 *seed* to seed the calculation.
 
-This function was introduced in Qt 5.0.
+Qt 5.0 中引入该函数。
 
 ### [uint](../../G/QtGlobal/QtGlobal.md#typedef-uint) qHash([QLatin1String](../../L/QLatin1String/QLatin1String.md) *key*, [uint](../../G/QtGlobal/QtGlobal.md#typedef-uint) *seed* = 0)
 
-Returns the hash value for the *key*, using *seed* to seed the calculation.
+为 *key* 返回哈希值，使用 *seed* to seed the calculation.
 
-This function was introduced in Qt 5.0.
+Qt 5.0 中引入该函数。
 
 ### [uint](../../G/QtGlobal/QtGlobal.md#typedef-uint) qHash([uchar](../../G/QtGlobal/QtGlobal.md#typedef-uchar) *key*, [uint](../../G/QtGlobal/QtGlobal.md#typedef-uint) *seed* = 0)
 
-Returns the hash value for the *key*, using *seed* to seed the calculation.
+为 *key* 返回哈希值，使用 *seed* to seed the calculation.
 
-This function was introduced in Qt 5.0.
+Qt 5.0 中引入该函数。
 
 ### [uint](../../G/QtGlobal/QtGlobal.md#typedef-uint) qHash(const [QDate](../../D/QDate/QDate.md) &*key*, [uint](../../G/QtGlobal/QtGlobal.md#typedef-uint) *seed* = 0)
 
-Returns the hash value for the *key*, using *seed* to seed the calculation.
+为 *key* 返回哈希值，使用 *seed* to seed the calculation.
 
-This function was introduced in Qt 5.0.
+Qt 5.0 中引入该函数。
 
 ### [uint](../../G/QtGlobal/QtGlobal.md#typedef-uint) qHash(signed char *key*, [uint](../../G/QtGlobal/QtGlobal.md#typedef-uint) *seed* = 0)
 
-Returns the hash value for the *key*, using *seed* to seed the calculation.
+为 *key* 返回哈希值，使用 *seed* to seed the calculation.
 
-This function was introduced in Qt 5.0.
+Qt 5.0 中引入该函数。
 
 ### [uint](../../G/QtGlobal/QtGlobal.md#typedef-uint) qHash(const [QTime](../../T/QTime/QTime.md) &*key*, [uint](../../G/QtGlobal/QtGlobal.md#typedef-uint) *seed* = 0)
 
-Returns the hash value for the *key*, using *seed* to seed the calculation.
+为 *key* 返回哈希值，使用 *seed* to seed the calculation.
 
-This function was introduced in Qt 5.0.
+Qt 5.0 中引入该函数。
 
 ### template <typename T> [uint](../../G/QtGlobal/QtGlobal.md#typedef-uint) qHash(const [QSet](../../S/QSet/QSet.md)<T> &*key*, [uint](../../G/QtGlobal/QtGlobal.md#typedef-uint) *seed* = 0)
 
-Returns the hash value for the *key*, using *seed* to seed the calculation.
+为 *key* 返回哈希值，使用 *seed* to seed the calculation.
 
 The hash value is independent of the order of elements in *key*, that is, sets that contain the same elements hash to the same value.
 
-This function was introduced in Qt 5.5.
+Qt 5.5 中引入该函数。
 
 ### template <typename T> [uint](../../G/QtGlobal/QtGlobal.md#typedef-uint) qHash(const T **key*, [uint](../../G/QtGlobal/QtGlobal.md#typedef-uint) *seed* = 0)
 
-Returns the hash value for the *key*, using *seed* to seed the calculation.
+为 *key* 返回哈希值，使用 *seed* to seed the calculation.
 
-This function was introduced in Qt 5.0.
+Qt 5.0 中引入该函数。
 
 ### [uint](../../G/QtGlobal/QtGlobal.md#typedef-uint) qHash([ushort](../../G/QtGlobal/QtGlobal.md#typedef-ushort) *key*, [uint](../../G/QtGlobal/QtGlobal.md#typedef-uint) *seed* = 0)
 
-Returns the hash value for the *key*, using *seed* to seed the calculation.
+为 *key* 返回哈希值，使用 *seed* to seed the calculation.
 
-This function was introduced in Qt 5.0.
+Qt 5.0 中引入该函数。
 
 ### [uint](../../G/QtGlobal/QtGlobal.md#typedef-uint) qHash(short *key*, [uint](../../G/QtGlobal/QtGlobal.md#typedef-uint) *seed* = 0)
 
-Returns the hash value for the *key*, using *seed* to seed the calculation.
+为 *key* 返回哈希值，使用 *seed* to seed the calculation.
 
-This function was introduced in Qt 5.0.
+Qt 5.0 中引入该函数。
 
 ### [uint](../../G/QtGlobal/QtGlobal.md#typedef-uint) qHash([uint](../../G/QtGlobal/QtGlobal.md#typedef-uint) *key*, [uint](../../G/QtGlobal/QtGlobal.md#typedef-uint) *seed* = 0)
 
-Returns the hash value for the *key*, using *seed* to seed the calculation.
+为 *key* 返回哈希值，使用 *seed* to seed the calculation.
 
-This function was introduced in Qt 5.0.
+Qt 5.0 中引入该函数。
 
 ### template <typename T1, typename T2> [uint](../../G/QtGlobal/QtGlobal.md#typedef-uint) qHash(const [QPair](../../P/QPair/QPair.md)<T1, T2> &*key*, [uint](../../G/QtGlobal/QtGlobal.md#typedef-uint) *seed* = 0)
 
-Returns the hash value for the *key*, using *seed* to seed the calculation.
+为 *key* 返回哈希值，使用 *seed* to seed the calculation.
 
-Types `T1` and `T2` must be supported by qHash().
+类型 `T1` 和 `T2` 必须被 qHash() 支持。
 
-This function was introduced in Qt 5.0.
+Qt 5.0 中引入该函数。
 
 ### [uint](../../G/QtGlobal/QtGlobal.md#typedef-uint) qHash(int *key*, [uint](../../G/QtGlobal/QtGlobal.md#typedef-uint) *seed* = 0)
 
-Returns the hash value for the *key*, using *seed* to seed the calculation.
+为 *key* 返回哈希值，使用 *seed* to seed the calculation.
 
-This function was introduced in Qt 5.0.
+Qt 5.0 中引入该函数。
 
 ### template <typename T1, typename T2> [uint](../../G/QtGlobal/QtGlobal.md#typedef-uint) qHash(const std::pair<T1, T2> &*key*, [uint](../../G/QtGlobal/QtGlobal.md#typedef-uint) *seed* = 0)
 
-Returns the hash value for the *key*, using *seed* to seed the calculation.
+为 *key* 返回哈希值，使用 *seed* to seed the calculation.
 
-Types `T1` and `T2` must be supported by qHash().
+类型 `T1` 和 `T2` 必须被 qHash() 支持。
 
 **Note:** The return type of this function is *not* the same as that of
 
@@ -949,79 +948,79 @@ qHash(qMakePair(key.first, key.second), seed);
 
 The two functions use different hashing algorithms; due to binary compatibility constraints, we cannot change the [QPair](../../P/QPair/QPair.md) algorithm to match the std::pair one before Qt 6.
 
-This function was introduced in Qt 5.7.
+Qt 5.7 中引入该函数。
 
 ### [uint](../../G/QtGlobal/QtGlobal.md#typedef-uint) qHash(const [QVersionNumber](../../V/QVersionNumber/QVersionNumber.md) &*key*, [uint](../../G/QtGlobal/QtGlobal.md#typedef-uint) *seed* = 0)
 
-Returns the hash value for the *key*, using *seed* to seed the calculation.
+为 *key* 返回哈希值，使用 *seed* to seed the calculation.
 
-This function was introduced in Qt 5.6.
+Qt 5.6 中引入该函数。
 
 ### [uint](../../G/QtGlobal/QtGlobal.md#typedef-uint) qHash([ulong](../../G/QtGlobal/QtGlobal.md#typedef-ulong) *key*, [uint](../../G/QtGlobal/QtGlobal.md#typedef-uint) *seed* = 0)
 
-Returns the hash value for the *key*, using *seed* to seed the calculation.
+为 *key* 返回哈希值，使用 *seed* to seed the calculation.
 
-This function was introduced in Qt 5.0.
+Qt 5.0 中引入该函数。
 
 ### [uint](../../G/QtGlobal/QtGlobal.md#typedef-uint) qHash(long *key*, [uint](../../G/QtGlobal/QtGlobal.md#typedef-uint) *seed* = 0)
 
-Returns the hash value for the *key*, using *seed* to seed the calculation.
+为 *key* 返回哈希值，使用 *seed* to seed the calculation.
 
-This function was introduced in Qt 5.0.
+Qt 5.0 中引入该函数。
 
 ### [uint](../../G/QtGlobal/QtGlobal.md#typedef-uint) qHash([quint64](../../G/QtGlobal/QtGlobal.md#typedef-quint64) *key*, [uint](../../G/QtGlobal/QtGlobal.md#typedef-uint) *seed* = 0)
 
-Returns the hash value for the *key*, using *seed* to seed the calculation.
+为 *key* 返回哈希值，使用 *seed* to seed the calculation.
 
-This function was introduced in Qt 5.0.
+Qt 5.0 中引入该函数。
 
 ### [uint](../../G/QtGlobal/QtGlobal.md#typedef-uint) qHash([qint64](../../G/QtGlobal/QtGlobal.md#typedef-qint64) *key*, [uint](../../G/QtGlobal/QtGlobal.md#typedef-uint) *seed* = 0)
 
-Returns the hash value for the *key*, using *seed* to seed the calculation.
+为 *key* 返回哈希值，使用 *seed* to seed the calculation.
 
-This function was introduced in Qt 5.0.
+Qt 5.0 中引入该函数。
 
 ### [uint](../../G/QtGlobal/QtGlobal.md#typedef-uint) qHash(float *key*, [uint](../../G/QtGlobal/QtGlobal.md#typedef-uint) *seed* = 0)
 
-Returns the hash value for the *key*, using *seed* to seed the calculation.
+为 *key* 返回哈希值，使用 *seed* to seed the calculation.
 
-This function was introduced in Qt 5.3.
+Qt 5.3 中引入该函数。
 
 ### [uint](../../G/QtGlobal/QtGlobal.md#typedef-uint) qHash(double *key*, [uint](../../G/QtGlobal/QtGlobal.md#typedef-uint) *seed* = 0)
 
-Returns the hash value for the *key*, using *seed* to seed the calculation.
+为 *key* 返回哈希值，使用 *seed* to seed the calculation.
 
-This function was introduced in Qt 5.3.
+Qt 5.3 中引入该函数。
 
 ### [uint](../../G/QtGlobal/QtGlobal.md#typedef-uint) qHash(long double *key*, [uint](../../G/QtGlobal/QtGlobal.md#typedef-uint) *seed* = 0)
 
-Returns the hash value for the *key*, using *seed* to seed the calculation.
+为 *key* 返回哈希值，使用 *seed* to seed the calculation.
 
-This function was introduced in Qt 5.3.
+Qt 5.3 中引入该函数。
 
 ### [uint](../../G/QtGlobal/QtGlobal.md#typedef-uint) qHash(const [QChar](../../C/QChar/QChar.md) *key*, [uint](../../G/QtGlobal/QtGlobal.md#typedef-uint) *seed* = 0)
 
-Returns the hash value for the *key*, using *seed* to seed the calculation.
+为 *key* 返回哈希值，使用 *seed* to seed the calculation.
 
-This function was introduced in Qt 5.0.
+Qt 5.0 中引入该函数。
 
 ### [uint](../../G/QtGlobal/QtGlobal.md#typedef-uint) qHash(const [QByteArray](../../B/QByteArray/QByteArray.md) &*key*, [uint](../../G/QtGlobal/QtGlobal.md#typedef-uint) *seed* = 0)
 
-Returns the hash value for the *key*, using *seed* to seed the calculation.
+为 *key* 返回哈希值，使用 *seed* to seed the calculation.
 
-This function was introduced in Qt 5.0.
+Qt 5.0 中引入该函数。
 
 ### [uint](../../G/QtGlobal/QtGlobal.md#typedef-uint) qHash(const [QString](../../S/QString/QString.md) &*key*, [uint](../../G/QtGlobal/QtGlobal.md#typedef-uint) *seed* = 0)
 
-Returns the hash value for the *key*, using *seed* to seed the calculation.
+为 *key* 返回哈希值，使用 *seed* to seed the calculation.
 
-This function was introduced in Qt 5.0.
+Qt 5.0 中引入该函数。
 
 ### [uint](../../G/QtGlobal/QtGlobal.md#typedef-uint) qHash(const [QStringRef](../../S/QStringRef/QStringRef.md) &*key*, [uint](../../G/QtGlobal/QtGlobal.md#typedef-uint) *seed* = 0)
 
-Returns the hash value for the *key*, using *seed* to seed the calculation.
+为 *key* 返回哈希值，使用 *seed* to seed the calculation.
 
-This function was introduced in Qt 5.0.
+Qt 5.0 中引入该函数。
 
 ### [uint](../../G/QtGlobal/QtGlobal.md#typedef-uint) qHashBits(const void **p*, size_t *len*, [uint](../../G/QtGlobal/QtGlobal.md#typedef-uint) *seed* = 0)
 
@@ -1029,7 +1028,7 @@ Returns the hash value for the memory block of size *len* pointed to by *p*, usi
 
 Use this function only to implement [qHash](QHash.md#uint-qhashconst-qurl-url-uint-seed--0)() for your own custom types. For example, here's how you could implement a [qHash](QHash.md#uint-qhashconst-qurl-url-uint-seed--0)() overload for std::vector<int>:
 
-```
+```c++
 inline uint qHash(const std::vector<int> &key, uint seed = 0)
 {
     if (key.empty())
@@ -1043,9 +1042,9 @@ This takes advantage of the fact that std::vector lays out its data contiguously
 
 It bears repeating that the implementation of qHashBits() - like the [qHash](QHash.md#uint-qhashconst-qurl-url-uint-seed--0)() overloads offered by Qt - may change at any time. You **must not** rely on the fact that qHashBits() will give the same results (for the same inputs) across different Qt versions.
 
-This function was introduced in Qt 5.4.
+Qt 5.4 中引入该函数。
 
-**另请参阅** [qHashRange](QHash.md#template-typename-inputiterator-uint-qhashrangeinputiterator-first-inputiterator-last-uint-seed--0)() and [qHashRangeCommutative](QHash.md#template-typename-inputiterator-uint-qhashrangecommutativeinputiterator-first-inputiterator-last-uint-seed--0)().
+**另请参阅** [qHashRange](QHash.md#template-typename-inputiterator-uint-qhashrangeinputiterator-first-inputiterator-last-uint-seed--0)() and [qHashRangeCommutative](QHash.md#template-typename-inputiterator-uint-qhashrangecommutativeinputiterator-first-inputiterator-last-uint-seed--0)()。
 
 ### template <typename InputIterator> [uint](../../G/QtGlobal/QtGlobal.md#typedef-uint) qHashRange(InputIterator *first*, InputIterator *last*, [uint](../../G/QtGlobal/QtGlobal.md#typedef-uint) *seed* = 0)
 
@@ -1053,13 +1052,13 @@ Returns the hash value for the range [*first*,*last*), using *seed* to seed the 
 
 The return value of this function depends on the order of elements in the range. That means that
 
-```
+```c++
 {0, 1, 2}
 ```
 
 and
 
-```
+```c++
 {1, 2, 0}
 ```
 
@@ -1067,7 +1066,7 @@ hash to **different** values. If order does not matter, for example for hash tab
 
 Use this function only to implement [qHash](QHash.md#uint-qhashconst-qurl-url-uint-seed--0)() for your own custom types. For example, here's how you could implement a [qHash](QHash.md#uint-qhashconst-qurl-url-uint-seed--0)() overload for std::vector<int>:
 
-```
+```c++
 inline uint qHash(const std::vector<int> &key, uint seed = 0)
 {
     return qHashRange(key.begin(), key.end(), seed);
@@ -1076,9 +1075,9 @@ inline uint qHash(const std::vector<int> &key, uint seed = 0)
 
 It bears repeating that the implementation of qHashRange() - like the [qHash](QHash.md#uint-qhashconst-qurl-url-uint-seed--0)() overloads offered by Qt - may change at any time. You **must not** rely on the fact that qHashRange() will give the same results (for the same inputs) across different Qt versions, even if [qHash](QHash.md#uint-qhashconst-qurl-url-uint-seed--0)() for the element type would.
 
-This function was introduced in Qt 5.5.
+Qt 5.5 中引入该函数。
 
-**另请参阅** [qHashBits](QHash.md#uint-qhashbitsconst-void-p-size_t-len-uint-seed--0)() and [qHashRangeCommutative](QHash.md#template-typename-inputiterator-uint-qhashrangecommutativeinputiterator-first-inputiterator-last-uint-seed--0)().
+**另请参阅** [qHashBits](QHash.md#uint-qhashbitsconst-void-p-size_t-len-uint-seed--0)() and [qHashRangeCommutative](QHash.md#template-typename-inputiterator-uint-qhashrangecommutativeinputiterator-first-inputiterator-last-uint-seed--0)()。
 
 ### template <typename InputIterator> [uint](../../G/QtGlobal/QtGlobal.md#typedef-uint) qHashRangeCommutative(InputIterator *first*, InputIterator *last*, [uint](../../G/QtGlobal/QtGlobal.md#typedef-uint) *seed* = 0)
 
@@ -1086,13 +1085,13 @@ Returns the hash value for the range [*first*,*last*), using *seed* to seed the 
 
 The return value of this function does not depend on the order of elements in the range. That means that
 
-```
+```c++
 {0, 1, 2}
 ```
 
 and
 
-```
+```c++
 {1, 2, 0}
 ```
 
@@ -1100,7 +1099,7 @@ hash to the **same** values. If order matters, for example, for vectors and arra
 
 Use this function only to implement [qHash](QHash.md#uint-qhashconst-qurl-url-uint-seed--0)() for your own custom types. For example, here's how you could implement a [qHash](QHash.md#uint-qhashconst-qurl-url-uint-seed--0)() overload for std::unordered_set<int>:
 
-```
+```c++
 inline uint qHash(const std::unordered_set<int> &key, uint seed = 0)
 {
     return qHashRangeCommutative(key.begin(), key.end(), seed);
@@ -1109,9 +1108,9 @@ inline uint qHash(const std::unordered_set<int> &key, uint seed = 0)
 
 It bears repeating that the implementation of qHashRangeCommutative() - like the [qHash](QHash.md#uint-qhashconst-qurl-url-uint-seed--0)() overloads offered by Qt - may change at any time. You **must not** rely on the fact that qHashRangeCommutative() will give the same results (for the same inputs) across different Qt versions, even if [qHash](QHash.md#uint-qhashconst-qurl-url-uint-seed--0)() for the element type would.
 
-This function was introduced in Qt 5.5.
+Qt 5.5 中引入该函数。
 
-**另请参阅** [qHashBits](QHash.md#uint-qhashbitsconst-void-p-size_t-len-uint-seed--0)() and [qHashRange](QHash.md#template-typename-inputiterator-uint-qhashrangeinputiterator-first-inputiterator-last-uint-seed--0)().
+**另请参阅** [qHashBits](QHash.md#uint-qhashbitsconst-void-p-size_t-len-uint-seed--0)() and [qHashRange](QHash.md#template-typename-inputiterator-uint-qhashrangeinputiterator-first-inputiterator-last-uint-seed--0)()。
 
 ### void qSetGlobalQHashSeed(int *newSeed*)
 
@@ -1125,22 +1124,22 @@ The seed is set in any newly created [QHash](QHash.md#qhash-哈希函数). See [
 
 If the environment variable `QT_HASH_SEED` is set, calling this function will result in a no-op.
 
-This function was introduced in Qt 5.6.
+Qt 5.6 中引入该函数。
 
-**另请参阅** [qGlobalQHashSeed](QHash.md#int-qglobalqhashseed).
+**另请参阅** [qGlobalQHashSeed](QHash.md#int-qglobalqhashseed)。
 
 ### template <typename Key, typename T> [QDataStream](../../D/QDataStream/QDataStream.md) &operator<<([QDataStream](../../D/QDataStream/QDataStream.md) &*out*, const [QHash](QHash.md#qhashqhash)<Key, T> &*hash*)
 
-Writes the hash *hash* to stream *out*.
+将哈希表 *hash* 写出到流 *out*。
 
-This function requires the key and value types to implement `operator<<()`.
+该函数需要键和值类型实现 `operator<<()`。
 
-**另请参阅** [Serializing Qt Data Types](../../D/QDataStream/datastreamformat.md).
+**另请参阅** [Serializing Qt Data Types](../../D/QDataStream/datastreamformat.md)。
 
 ### template <typename Key, typename T> [QDataStream](../../D/QDataStream/QDataStream.md) &operator>>([QDataStream](../../D/QDataStream/QDataStream.md) &*in*, [QHash](QHash.md#qhashqhash)<Key, T> &*hash*)
 
-Reads a hash from stream *in* into *hash*.
+从流 *in* 读入数据到哈希表 *hash*。
 
-This function requires the key and value types to implement `operator>>()`.
+该函数需要键和值类型实现 `operator>>()`。
 
-**另请参阅** [Serializing Qt Data Types](../../D/QDataStream/datastreamformat.md).
+**另请参阅** [Serializing Qt Data Types](../../D/QDataStream/datastreamformat.md)。

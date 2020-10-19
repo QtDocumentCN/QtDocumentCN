@@ -7,7 +7,6 @@ QMap 类是一种模板类，提供基于红黑树的字典类结构。[更多�
 | 头文件:       | #include <QMap>                                    |
 | -------------: | :-------------------------------------------------- |
 | qmake:        | QT += core                                         |
-|   基类: | [QObject](../../O/QObject/QObject.md)         |
 | 派生类: | [QMultiMap](../../M/QMultiMap/QMultiMap.md) |
 
 - [所有成员列表，包括继承的成员](../../M/QMap/QMap-members.md)
@@ -283,7 +282,7 @@ inline bool operator<(const Employee &e1, const Employee &e2)
 
 ### typedef QMap::const_key_value_iterator
 
-QMap::const_key_value_iterator 为 [QMap](../../M/QMap/QMap.md) 和 [QMultiMap](../../M/QMultiMap/QMultiMap.md) 提供 STL 风格迭代器。
+QMap::const_key_value_iterator 类型定义为 [QMap](../../M/QMap/QMap.md) 和 [QMultiMap](../../M/QMultiMap/QMultiMap.md) 提供 STL 风格迭代器。
 
 除了 operator *() 运算符返回的是键值对而不是值之外，QMap::const_key_value_iterator 基本和 [QMap::const_iterator](../../M/QMap/QMap-const-iterator.md) 相同。
 
@@ -301,7 +300,7 @@ Key 的类型别名。为兼容 STL 提供。
 
 ### typedef QMap::key_value_iterator
 
-QMap::key_value_iterator 为 [QMap](../../M/QMap/QMap.md) 和 [QMultiMap](../../M/QMultiMap/QMultiMap.md) 提供 STL 风格迭代器。
+QMap::key_value_iterator 类型定义为 [QMap](../../M/QMap/QMap.md) 和 [QMultiMap](../../M/QMultiMap/QMultiMap.md) 提供 STL 风格迭代器。
 
 除了 operator *() 运算符返回的是键值对而不是值之外，QMap::key_value_iterator 基本和 [QMap::iterator](../../M/QMap/QMap-iterator.md) 相同。
 
@@ -327,7 +326,7 @@ int 的类型别名。为兼容 STL 提供。
 
 ### QMap::QMap([QMap](QMap.md#qmapqmap)<Key, T> &&*other*)
 
-移动构造一个 QMap 实例，使实例指向 *other* 所指向的同一对象。
+移动构造一个 QMap 实例，使该实例指向 *other* 所指向的同一对象。
 
 Qt 5.2 中引入该函数。
 
@@ -571,9 +570,9 @@ Qt 5.1 中引入该函数。
 
 将 *map* 中的所有元素插入到本 map 中。
 
-如果一个键同时在两个 map 中出现，其值将被传入的 *map* 中的值替换。
+如果一个键同时在两个 map 中出现，其值将被传入的 *map* 中存储的值替换。
 
-**注意:** 如果传入的 *map* 同一键关联多个元素，则该键的最终值未定义。
+**注意:** 如果传入的 *map* 中同一键关联多个元素，则该键的最终值未定义。
 
 Qt 5.15 中引入该函数。
 
@@ -591,7 +590,7 @@ Qt 5.15 中引入该函数。
 
 返回与值 *value* 对应的第一个键，如果 map 不包含值为 *value* 的元素，返回 *defaultKey*。如果没有提供 *defaultKey*，函数返回[默认构造的键](../../C/Container_Classes/Container_Classes.md#容器类)。
 
-该函数可能会比较慢 ([线性时间](../../C/Container_Classes/Container_Classes.md#算法复杂度))，因为 [QMap](../../M/QMap/QMap.md) 的内部数据结构是以快速查找键而不是值为目标来优化的。
+该函数可能会比较慢（[线性时间](../../C/Container_Classes/Container_Classes.md#算法复杂度)），因为 [QMap](../../M/QMap/QMap.md) 的内部数据结构是以快速查找键而不是值为目标来优化的。
 
 Qt 4.3 中引入该函数。
 
@@ -659,7 +658,7 @@ Qt 5.10 中引入该函数。
 
 以升序返回所有与值 *value* 相关联的键的列表。
 
-该函数可能会比较慢 ([线性时间](../../C/Container_Classes/Container_Classes.md#算法复杂度))，因为 [QMap](../../M/QMap/QMap.md) 的内部数据结构是以快速查找键而不是值为目标来优化的。
+该函数可能会比较慢（[线性时间](../../C/Container_Classes/Container_Classes.md#算法复杂度)），因为 [QMap](../../M/QMap/QMap.md) 的内部数据结构是以快速查找键而不是值为目标来优化的。
 
 ### T &QMap::last()
 
@@ -792,7 +791,7 @@ map.upperBound(999);    // 返回 end()
 
 ### [QList](../../L/QList/QList.md)\<T\> QMap::values() const
 
-按照键升序返回 map 中所有值的列表。如果键关联到多个值，所有值都会放入列表中，而不只是最新插入的那个。
+按照键升序返回 map 中所有值的列表。如果一个键关联到多个值，该键的所有值都将被放入列表中，而不只是最新插入的值。
 
 **另请参阅** [keys](QMap.md#qlistkey-qmapkeys-const)() 和 [value](QMap.md#const-t-qmapvalueconst-key-key-const-t-defaultvalue--t-const)()。
 
@@ -834,7 +833,7 @@ map.upperBound(999);    // 返回 end()
 
 ### template <typename Key, typename T> [QDataStream](../../D/QDataStream/QDataStream.md) &operator<<([QDataStream](../../D/QDataStream/QDataStream.md) &*out*, const [QMap](QMap.md#qmapqmap)<Key, T> &*map*)
 
-将 *map* 数据写出到流 *out*。
+将 *map* 写出到流 *out*。
 
 该函数需要键和值类型实现 `operator<<()`。
 
