@@ -1,15 +1,15 @@
-# QKeyValueIterator Class
+# QKeyValueIterator 类
 
 template <typename Key, typename T, typename Iterator> class QKeyValueIterator
 
-Iterator over the key/value pairs of an associative container. [更多内容...](QKeyValueIterator.md#详细描述)
+关联容器的键值对类型的迭代器。[更多内容...](QKeyValueIterator.md#详细描述)
 
 | 头文件: | #include <QKeyValueIterator> |
 | -------: | :---------------------------- |
 | qmake:  | QT += core                   |
 | Since:  | Qt 5.10                      |
 
-This class was introduced in Qt 5.10.
+Qt 5.10 中引入该类。
 
 - [所有成员列表，包括继承的成员](../../K/QKeyValueIterator/QKeyValueIterator-members.md)
 
@@ -40,11 +40,11 @@ This class was introduced in Qt 5.10.
 
 ## 详细描述
 
-The QKeyValueIterator class provides an STL-style iterator for returning key/value pairs from associative containers like [QHash](https://doc.qt.io/qt-5/qhash.html#qhash) and [QMap](../../M/QMap/QMap.md). It supports the same API as the STL associative containers, i.e. getting a key/value pair when iterating through the container.
+QKeyValueIterator 类 provides an STL-style iterator for returning key/value pairs from associative containers like [QHash](https://doc.qt.io/qt-5/qhash.html#qhash) and [QMap](../../M/QMap/QMap.md). It supports the same API as the STL associative containers, i.e. getting a key/value pair when iterating through the container.
 
 This will allow for better interoperability between [QMap](../../M/QMap/QMap.md), [QHash](https://doc.qt.io/qt-5/qhash.html#qhash) and friends and STL-style algorithms.
 
-**警告：** Iterators on implicitly shared containers do not work exactly like STL-iterators. You should avoid copying a container while iterators are active on that container. For more information, read [Implicit sharing iterator problem](https://doc.qt.io/qt-5/containers.html#implicit-sharing-iterator-problem).
+**警告：** 隐式共享容器的迭代器的工作方式和 STL 迭代器不完全相同。当容器的迭代器还处于活动状态时，应该避免拷贝容器。更多信息请参阅[隐式共享迭代器问题](../../C/Container_Classes/Container_Classes.md#隐式共享迭代器问题)。
 
 ## 成员函数文档
 
@@ -74,7 +74,7 @@ The prefix ++ operator (`++i`) advances the iterator to the next item in the con
 
 ### [QKeyValueIterator](QKeyValueIterator.md#qkeyvalueiteratorqkeyvalueiterator)<Key, T, Iterator> QKeyValueIterator::operator++(*int*)
 
-This is an overloaded function.
+这是一个重载函数。
 
 The postfix ++ operator (`i++`) advances the iterator to the next item in the container and returns the iterator's prior value.
 
@@ -90,7 +90,7 @@ The prefix -- operator (`--i`) backs the iterator up to the previous item in the
 
 ### [QKeyValueIterator](QKeyValueIterator.md#qkeyvalueiteratorqkeyvalueiterator)<Key, T, Iterator> QKeyValueIterator::operator--(*int*)
 
-This is an overloaded function.
+这是一个重载函数。
 
 The postfix -- operator (`i--`) backs the iterator up to the previous item in the container and returns the iterator's prior value.
 
@@ -100,20 +100,20 @@ The postfix -- operator (`i--`) backs the iterator up to the previous item in th
 
 Returns the current entry as a pointer-like object to the pair.
 
-This function was introduced in Qt 5.15.
+Qt 5.15 中引入该函数。
 
-**另请参阅** [operator*](QKeyValueIterator.md#stdpairkey-t-qkeyvalueiteratoroperator-const)().
+**另请参阅** [operator*](QKeyValueIterator.md#stdpairkey-t-qkeyvalueiteratoroperator-const)()。
 
 ## 相关非成员函数
 
 ### bool operator!=([QKeyValueIterator](QKeyValueIterator.md#qkeyvalueiteratorqkeyvalueiterator)<Key, T, Iterator> *lhs*, [QKeyValueIterator](QKeyValueIterator.md#qkeyvalueiteratorqkeyvalueiterator)<Key, T, Iterator> *rhs*)
 
-Returns `true` if *rhs* points to a different item than *lhs* otherwise returns `false`.
+如果 *rhs* 与 *lhs* 指向的元素不同，返回 `true`，否则返回 `false`。
 
-**另请参阅** [operator==](QKeyValueIterator.md#bool-operatorqkeyvalueiteratorkey-t-iterator-lhs-qkeyvalueiteratorkey-t-iterator-rhs-1)().
+**另请参阅** [operator==](QKeyValueIterator.md#bool-operatorqkeyvalueiteratorkey-t-iterator-lhs-qkeyvalueiteratorkey-t-iterator-rhs-1)()。
 
 ### bool operator==([QKeyValueIterator](QKeyValueIterator.md#qkeyvalueiteratorqkeyvalueiterator)<Key, T, Iterator> *lhs*, [QKeyValueIterator](QKeyValueIterator.md#qkeyvalueiteratorqkeyvalueiterator)<Key, T, Iterator> *rhs*)
 
-Returns `true` if *rhs* points to the same item as *lhs* otherwise returns `false`.
+如果 *rhs* 与 *lhs* 指向的元素相同，返回 `true`，否则返回 `false`。
 
-**另请参阅** [operator!=](QKeyValueIterator.md#bool-operatorqkeyvalueiteratorkey-t-iterator-lhs-qkeyvalueiteratorkey-t-iterator-rhs)().
+**另请参阅** [operator!=](QKeyValueIterator.md#bool-operatorqkeyvalueiteratorkey-t-iterator-lhs-qkeyvalueiteratorkey-t-iterator-rhs)()。
