@@ -47,7 +47,7 @@ for (i = hash.constBegin(); i != hash.constEnd(); ++i)
 
 与通过键的大小有序存储元素的 [QMap](../../M/QMap/QMap.md) 不同，[QHash](../../H/QHash/QHash.md) 无序存储元素。唯一的保证是共享同一键的元素（通过 [QMultiHash](../../M/QMultiHash/QMultiHash.md) 的函数插入）将按照从最新到最早插入值的顺序连续出现。
 
-同一 hash 可以使用多个迭代器。然而，be aware that any modification performed directly on the [QHash](../../H/QHash/QHash.md) has the potential of dramatically changing the order in which the items are stored in the hash, as they might cause [QHash](../../H/QHash/QHash.md) to rehash its internal data structure. If you need to keep iterators over a long period of time, we recommend that you use [QMap](../../M/QMap/QMap.md) rather than [QHash](../../H/QHash/QHash.md).
+同一哈希表可以使用多个迭代器。然而，需要注意任何对 [QHash](../../H/QHash/QHash.md) 的直接修改都可能完全改变哈希表中存储的元素顺序，因为该操作可能引起 [QHash](../../H/QHash/QHash.md) 重新散列其内部数据结构。如果需要长时间持有迭代器，建议使用 [QMap](../../M/QMap/QMap.md) 而非 [QHash](../../H/QHash/QHash.md)。
 
 **警告：**隐式共享容器迭代器的工作方式和 STL 迭代器不完全相同。当容器的迭代器还处于活动状态时，应该避免拷贝容器。更多信息请参阅[隐式共享迭代器问题](../../C/Container_Classes/Container_Classes.md#隐式共享迭代器问题)。
 
@@ -95,7 +95,7 @@ for (i = hash.constBegin(); i != hash.constEnd(); ++i)
 
 ### [const_iterator](QHash-const-iterator.md#const_iteratorconst_iterator) &const_iterator::operator++()
 
-前置 ++ 运算符（`++i`）将迭代器向前移动到 hash 中的下一个元素并返回指向新位置元素的迭代器。
+前置 ++ 运算符（`++i`）将迭代器向前移动到哈希表中的下一个元素并返回指向新位置元素的迭代器。
 
 对 [QHash::end](../../H/QHash/QHash.md#qhashiterator-qhashend)() 调用该函数将导致未定义结果。
 
@@ -105,7 +105,7 @@ for (i = hash.constBegin(); i != hash.constEnd(); ++i)
 
 这是一个重载函数。
 
-后置 ++ 运算符（`i++`）将迭代器向前移动到 hash 中的下一个元素并返回指向旧位置元素的迭代器。
+后置 ++ 运算符（`i++`）将迭代器向前移动到哈希表中的下一个元素并返回指向旧位置元素的迭代器。
 
 ### const T *const_iterator::operator->() const
 

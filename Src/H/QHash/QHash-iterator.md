@@ -32,7 +32,7 @@ class [QHash](../../H/QHash/QHash.md)::iterator
 
 [QHash](../../H/QHash/QHash.md)<Key, T>::iterator 用来遍历 [QHash](../../H/QHash/QHash.md) (或 [QMultiHash](../../M/QMultiHash/QMultiHash.md)) 并修改与特定键相关联的值（不能修改键）。如果想遍历常量 [QHash](../../H/QHash/QHash.md)，应该使用 [QHash::const_iterator](../../H/QHash/QHash-const-iterator.md)。对于非常量 [QHash](../../H/QHash/QHash.md)，使用 [QHash::const_iterator](../../H/QHash/QHash-const-iterator.md) 通常是也好的编程实践，除非需要在遍历时改变 [QHash](../../H/QHash/QHash.md)。常量类型的迭代器稍快一些并可以提高代码可读性。
 
-[QHash::iterator](../../H/QHash/QHash-iterator.md) 的默认构造函数创建一个未初始化的迭代器。必须在开始遍历前使用 [QHash::begin](../../H/QHash/QHash.md#qhashiterator-qhashbegin)()， [QHash::end](../../H/QHash/QHash.md#qhashiterator-qhashend)()，或 [QHash::find](../../H/QHash/QHash.md#qhashiterator-qhashfindconst-key-key)() 等 [QHash](../../H/QHash/QHash.md) 函数初始化它。下面是一个典型的循环，该循环打印出 hash 中的所有键值对：
+[QHash::iterator](../../H/QHash/QHash-iterator.md) 的默认构造函数创建一个未初始化的迭代器。必须在开始遍历前使用 [QHash::begin](../../H/QHash/QHash.md#qhashiterator-qhashbegin)()， [QHash::end](../../H/QHash/QHash.md#qhashiterator-qhashend)()，或 [QHash::find](../../H/QHash/QHash.md#qhashiterator-qhashfindconst-key-key)() 等 [QHash](../../H/QHash/QHash.md) 函数初始化它。下面是一个典型的循环，该循环打印出哈希表中的所有键值对：
 
 ```c++
 QHash<QString, int> hash;
@@ -68,7 +68,7 @@ while (i != hash.end()) {
 }
 ```
 
-对 [QHash::erase](../../H/QHash/QHash.md#qhashiterator-qhasheraseqhashconst_iterator-pos)() 的调用从 hash 中移除迭代器所指元素，返回指向下一个元素的迭代器。下面是另一个在遍历时移除元素的方法：
+对 [QHash::erase](../../H/QHash/QHash.md#qhashiterator-qhasheraseqhashconst_iterator-pos)() 的调用从哈希表中移除迭代器所指元素，返回指向下一个元素的迭代器。下面是另一个在遍历时移除元素的方法：
 
 ```c++
 QHash<QString, int>::iterator i = hash.begin();
@@ -93,7 +93,7 @@ while (i != hash.end()) {
 
 然而，这会导致程序在 `++i` 处崩溃，因为调用完 [erase](../../H/QHash/QHash.md#qhashiterator-qhasheraseqhashconst_iterator-pos)() 后，`i`成为悬空迭代器。
 
-同一 hash 可以使用多个迭代器。However, be aware that any modification performed directly on the [QHash](../../H/QHash/QHash.md) has the potential of dramatically changing the order in which the items are stored in the hash, as they might cause [QHash](../../H/QHash/QHash.md) to rehash its internal data structure. There is one notable exception: [QHash::erase](../../H/QHash/QHash.md#qhashiterator-qhasheraseqhashconst_iterator-pos)(). This function can safely be called while iterating 和 won't affect the order of items in the hash. If you need to keep iterators over a long period of time, we recommend that you use [QMap](../../M/QMap/QMap.md) rather than [QHash](../../H/QHash/QHash.md).
+同一哈希表可以使用多个迭代器。然而，需要注意任何对 [QHash](../../H/QHash/QHash.md) 的直接修改都可能完全改变哈希表中存储的元素顺序，因为该操作可能引起 [QHash](../../H/QHash/QHash.md) 重新散列其内部数据结构。有一个例外是 [QHash::erase](../../H/QHash/QHash.md#qhashiterator-qhasheraseqhashconst_iterator-pos)()。该函数可以在迭代时安全调用，不会影响哈希表中元素的顺序。如果需要长时间持有迭代器，建议使用 [QMap](../../M/QMap/QMap.md) 而非 [QHash](../../H/QHash/QHash.md)。
 
 **警告：**隐式共享容器迭代器的工作方式和 STL 迭代器不完全相同。当容器的迭代器还处于活动状态时，应该避免拷贝容器。更多信息请参阅[隐式共享迭代器问题](../../C/Container_Classes/Container_Classes.md#隐式共享迭代器问题)。
 
@@ -156,7 +156,7 @@ if (i.key() == "Hello")
 
 ### [iterator](QHash-iterator.md#iteratoriterator) &iterator::operator++()
 
-前置 ++ 运算符（`++i`）将迭代器向前移动到 hash 中的下一个元素并返回指向新位置元素的迭代器。
+前置 ++ 运算符（`++i`）将迭代器向前移动到哈希表中的下一个元素并返回指向新位置元素的迭代器。
 
 对 [QHash::end](../../H/QHash/QHash.md#qhashiterator-qhashend)() 调用该函数将导致未定义结果。
 
@@ -166,7 +166,7 @@ if (i.key() == "Hello")
 
 这是一个重载函数。
 
-后置 ++ 运算符（`i++`）将迭代器向前移动到 hash 中的下一个元素并返回指向旧位置元素的迭代器。
+后置 ++ 运算符（`i++`）将迭代器向前移动到哈希表中的下一个元素并返回指向旧位置元素的迭代器。
 
 ### T *iterator::operator->() const
 
