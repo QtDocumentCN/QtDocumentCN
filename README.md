@@ -58,7 +58,7 @@
 | [吴冬亮](https://github.com/abc881858) | 200￥    |
 | 匿名Z | 100￥|
 | 赵江涛| 50￥|
-| [Rzself](htpps://github.com/Rzself) | 50￥ |
+| [Rzself](https://github.com/Rzself) | 50￥ |
 
 
 
