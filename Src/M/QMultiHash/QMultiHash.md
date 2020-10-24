@@ -1,13 +1,13 @@
-# QMultiHash Class
+# QMultiHash 类
 
 template <typename Key, typename T> class QMultiHash
 
-The QMultiHash class is a convenience [QHash](../../H/QHash/QHash.md) subclass that provides multi-valued hashes. [更多内容...](QMultiHash.md#详细描述)
+QMultiHash 类是一个便利的 [QHash](../../H/QHash/QHash.md) 派生类，提供多值哈希表功能。[更多内容...](QMultiHash.md#详细描述)
 
 | 头文件:   | #include <QMultiHash>                      |
 | ---------: | :------------------------------------------ |
 | qmake:    | QT += core                                 |
-| 派生类: | [QHash](../../H/QHash/QHash.md) |
+| 基类: | [QHash](../../H/QHash/QHash.md) |
 
 - [所有成员列表，包括继承的成员](../../H/QHash/QMultiHash-members.md)
 
@@ -49,15 +49,15 @@ The QMultiHash class is a convenience [QHash](../../H/QHash/QHash.md) subclass t
 
 ## 详细描述
 
-QMultiHash<Key, T> is one of Qt's generic [容器类](../../C/Container_Classes/Container_Classes.md). It inherits [QHash](../../H/QHash/QHash.md) and extends it with a few convenience functions that make it more suitable than [QHash](../../H/QHash/QHash.md) for storing multi-valued hashes. A multi-valued hash is a hash that allows multiple values with the same key.
+QMultiHash<Key, T> 是一种 Qt 泛型[容器类](../../C/Container_Classes/Container_Classes.md)。它继承 [QHash](../../H/QHash/QHash.md) 并扩展了一些便利的功能，使之比 [QHash](../../H/QHash/QHash.md) 更适合存储多值哈希。多值哈希是一种允许将多个值关联到同一个键的哈希。
 
-Because QMultiHash inherits [QHash](../../H/QHash/QHash.md), all of [QHash](../../H/QHash/QHash.md)'s functionality also applies to QMultiHash. For example, you can use [isEmpty](../../H/QHash/QHash.md#bool-qhashisempty-const)() to test whether the hash is empty, and you can traverse a QMultiHash using [QHash](../../H/QHash/QHash.md)'s iterator classes (for example, [QHashIterator](../../H/QHashIterator/QHashIterator.md)). But opposed to [QHash](../../H/QHash/QHash.md), it provides an [insert](QMultiHash.md#typename-qhashkey-titerator-qmultihashinsertconst-key-key-const-t-value)() function will allow the insertion of multiple items with the same key. The [replace](QMultiHash.md#typename-qhashkey-titerator-qmultihashreplaceconst-key-key-const-t-value)() function corresponds to [QHash::insert](../../H/QHash/QHash.md#qhashiterator-qhashinsertconst-key-key-const-t-value)(). It also provides convenient operator+() and operator+=().
+因为 QMultiHash 继承 [QHash](../../H/QHash/QHash.md)，所有 [QHash](../../H/QHash/QHash.md) 的功能也适用于 QMultiHash。例如，可以使用 [isEmpty](../../H/QHash/QHash.md#bool-qhashisempty-const)() 测试哈希表是否为空，可以使用 [QHash](../../H/QHash/QHash.md) 的迭代器类（例如 [QHashIterator](../../H/QHashIterator/QHashIterator.md)）遍历 QMultiHash。但是与 [QHash](../../H/QHash/QHash.md) 不同，QMultiHash 提供的 [insert](QMultiHash.md#typename-qhashkey-titerator-qmultihashinsertconst-key-key-const-t-value)() 函数允许同一个键插入多个元素。而 [replace](QMultiHash.md#typename-qhashkey-titerator-qmultihashreplaceconst-key-key-const-t-value)() 函数对应于 [QHash::insert](../../H/QHash/QHash.md#qhashiterator-qhashinsertconst-key-key-const-t-value)()。此外，该类还提供便利的 operator+() 和 operator+=() 运算符。
 
-Unlike [QMultiMap](../../M/QMultiMap/QMultiMap.md), QMultiHash does not provide and ordering of the inserted items. The only guarantee is that items that share the same key will appear consecutively, from the most recently to the least recently inserted value.
+与 [QMultiMap](../../M/QMultiMap/QMultiMap.md) 不同，QMultiHash 不对插入的元素排序。唯一的保证是共享同一键的元素将按照从最新到最早插入的顺序连续出现。
 
-Example:
+例子：
 
-```
+```c++
 QMultiHash<QString, int> hash1, hash2, hash3;
 
 hash1.insert("plenty", 100);
@@ -71,21 +71,21 @@ hash3 = hash1 + hash2;
 // hash3.size() == 3
 ```
 
-Unlike [QHash](../../H/QHash/QHash.md), QMultiHash provides no operator[]. Use [value](../../H/QHash/QHash.md#const-t-qhashvalueconst-key-key-const)() or [replace](QMultiHash.md#typename-qhashkey-titerator-qmultihashreplaceconst-key-key-const-t-value)() if you want to access the most recently inserted item with a certain key.
+与 [QHash](../../H/QHash/QHash.md) 不同，QMultiHash 不提供 operator[] 运算符。如果想用特定键访问最新插入的元素，使用 [value](../../H/QHash/QHash.md#const-t-qhashvalueconst-key-key-const)() 或 [replace](QMultiHash.md#typename-qhashkey-titerator-qmultihashreplaceconst-key-key-const-t-value)()。
 
-If you want to retrieve all the values for a single key, you can use values(const Key &key), which returns a [QList](../../L/QList/QList.md)<T>:
+如果想取得单个键关联的所有值，可以使用 values(const Key &key)，该函数返回一个 [QList](../../L/QList/QList.md)<T>：
 
-```
+```c++
 QList<int> values = hash.values("plenty");
 for (int i = 0; i < values.size(); ++i)
     cout << values.at(i) << Qt::endl;
 ```
 
-The items that share the same key are available from most recently to least recently inserted.
+共享同一键的元素按照从最新到最早插入的顺序返回。
 
-A more efficient approach is to call [find](QMultiHash.md#typename-qhashkey-titerator-qmultihashfindconst-key-key-const-t-value)() to get the STL-style iterator for the first item with a key and iterate from there:
+更有效的方法是传递键调用 [find](QMultiHash.md#typename-qhashkey-titerator-qmultihashfindconst-key-key-const-t-value)() 取得第一个元素的 STL 风格迭代器，从该元素开始遍历：
 
-```
+```c++
 QMultiHash<QString, int>::iterator i = hash.find("plenty");
 while (i != hash.end() && i.key() == "plenty") {
     cout << i.value() << Qt::endl;
@@ -93,152 +93,152 @@ while (i != hash.end() && i.key() == "plenty") {
 }
 ```
 
-QMultiHash's key and value data types must be [可赋值数据类型](../../C/Container_Classes/Container_Classes.md#容器类). You cannot, for example, store a [QWidget](../../W/QWidget/QWidget.md) as a value; instead, store a [QWidget](../../W/QWidget/QWidget.md) *. In addition, QMultiHash's key type must provide operator==(), and there must also be a [qHash](../../H/QHash/QHash.md#qhash-哈希函数)() function in the type's namespace that returns a hash value for an argument of the key's type. See the [QHash](../../H/QHash/QHash.md) documentation for details.
+QMultiHash 键和值的数据类型必须是[可赋值数据类型](../../C/Container_Classes/Container_Classes.md#容器类)。不能存储类似 [QWidget](../../W/QWidget/QWidget.md) 这样的对象作为值；应该存储 [QWidget](../../W/QWidget/QWidget.md) *。另外，QMultiHash 的键类型必须提供 operator==() 运算符， 并且在键类型的命名空间内还必须有一个为键类型参数返回哈希值的 [qHash](../../H/QHash/QHash.md#qhash-哈希函数)() 函数。具体请参考 [QHash](../../H/QHash/QHash.md) 文档。
 
-**另请参阅** [QHash](../../H/QHash/QHash.md), [QHashIterator](../../H/QHashIterator/QHashIterator.md), [QMutableHashIterator](../../M/QMutableHashIterator/QMutableHashIterator.md), and [QMultiMap](../../M/QMultiMap/QMultiMap.md).
+**另请参阅** [QHash](../../H/QHash/QHash.md)，[QHashIterator](../../H/QHashIterator/QHashIterator.md)，[QMutableHashIterator](../../M/QMutableHashIterator/QMutableHashIterator.md) 和 [QMultiMap](../../M/QMultiMap/QMultiMap.md)。
 
 ## 成员函数文档
 
 ### QMultiHash::QMultiHash(const [QHash](../../H/QHash/QHash.md)<Key, T> &*other*)
 
-Constructs a copy of *other* (which can be a [QHash](../../H/QHash/QHash.md) or a QMultiHash).
+构造一个 *other* 的副本（可能是一个 [QHash](../../H/QHash/QHash.md) 或 QMultiHash）。
 
-**另请参阅** [operator=](../../H/QHash/QHash.md#qhashk-v-qhashoperatorconst-qhashk-v-other)().
+**另请参阅** [operator=](../../H/QHash/QHash.md#qhashk-v-qhashoperatorconst-qhashk-v-other)()。
 
 ### template <typename InputIterator> QMultiHash::QMultiHash(InputIterator *begin*, InputIterator *end*)
 
-Constructs a multi-hash with a copy of each of the elements in the iterator range [*begin*, *end*). Either the elements iterated by the range must be objects with `first` and `second` data members (like `QPair`, `std::pair`, etc.) convertible to `Key` and to `T` respectively; or the iterators must have `key()` and `value()` member functions, returning a key convertible to `Key` and a value convertible to `T` respectively.
+用迭代器范围 [*begin*, *end*) 内每个元素的副本构造一个多值哈希表。需要满足下列两个条件之一：迭代范围内的元素是包含 `first` 和 `second` 数据成员的对象（像 `QPair`，`std::pair`等），分别可以转换为 `Key` 类型和 `T` 类型；或者迭代器必须含有 `key()` 和 `value()` 成员函数，分别返回可以转换为 `Key` 类型的键 `T` 类型的值。
 
-This function was introduced in Qt 5.14.
+Qt 5.14 中引入该函数。
 
 ### QMultiHash::QMultiHash(std::initializer_list<std::pair<Key, T> > *list*)
 
-Constructs a multi-hash with a copy of each of the elements in the initializer list *list*.
+用初始化列表 *list* 中每个元素的副本构造一个哈希表。
 
-This function is only available if the program is being compiled in C++11 mode.
+只有当程序在 C++11 模式下编译时，该函数才可用。
 
-This function was introduced in Qt 5.1.
+Qt 5.1 中引入该函数。
 
 ### QMultiHash::QMultiHash()
 
-Constructs an empty hash.
+构造一个空哈希表。
 
 ### typename [QHash](../../H/QHash/QHash.md)<Key, T>::const_iterator QMultiHash::constFind(const Key &*key*, const T &*value*) const
 
-Returns an iterator pointing to the item with the *key* and the *value* in the hash.
+返回迭代器，指向哈希表中键为 *key*，值为 *value* 的元素。
 
-If the hash contains no such item, the function returns [constEnd](../../H/QHash/QHash.md#qhashconst_iterator-qhashconstend-const)().
+如果哈希表中不包含这样的元素，该函数返回 [constEnd](../../H/QHash/QHash.md#qhashconst_iterator-qhashconstend-const)()。
 
-This function was introduced in Qt 4.3.
+Qt 4.3 中引入该函数。
 
 **另请参阅** [QHash::constFind](../../H/QHash/QHash.md#qhashconst_iterator-qhashconstfindconst-key-key-const)().
 
 ### bool QMultiHash::contains(const Key &*key*, const T &*value*) const
 
-Returns `true` if the hash contains an item with the *key* and *value*; otherwise returns `false`.
+如果该哈希表包含键为 *key*，值为 *value* 的元素，返回 `true`；否则返回 `false`。
 
-This function was introduced in Qt 4.3.
+Qt 4.3 中引入该函数。
 
 **另请参阅** [QHash::contains](../../H/QHash/QHash.md#bool-qhashcontainsconst-key-key-const)().
 
 ### int QMultiHash::count(const Key &*key*, const T &*value*) const
 
-Returns the number of items with the *key* and *value*.
+返回键为 *key*，值为 *value* 的元素个数。
 
-This function was introduced in Qt 4.3.
+Qt 4.3 中引入该函数。
 
 **另请参阅** [QHash::count](../../H/QHash/QHash.md#int-qhashcount-const)().
 
 ### typename [QHash](../../H/QHash/QHash.md)<Key, T>::iterator QMultiHash::find(const Key &*key*, const T &*value*)
 
-Returns an iterator pointing to the item with the *key* and *value*. If the hash contains no such item, the function returns [end](../../H/QHash/QHash.md#qhashiterator-qhashend)().
+返回迭代器，指向键为 *key*，值为 *value* 的元素。如果哈希表中不包含这样的元素，该函数返回 [end](../../H/QHash/QHash.md#qhashiterator-qhashend)()。
 
-If the hash contains multiple items with the *key* and *value*, the iterator returned points to the most recently inserted item.
+如果哈希表包含多个键为 *key*，值为 *value* 的元素，迭代器指向最新插入的元素。
 
-This function was introduced in Qt 4.3.
+Qt 4.3 中引入该函数。
 
 **另请参阅** [QHash::find](../../H/QHash/QHash.md#qhashiterator-qhashfindconst-key-key)().
 
 ### typename [QHash](../../H/QHash/QHash.md)<Key, T>::const_iterator QMultiHash::find(const Key &*key*, const T &*value*) const
 
-This is an overloaded function.
+这是一个重载函数。
 
-This function was introduced in Qt 4.3.
+Qt 4.3 中引入该函数。
 
 ### typename [QHash](../../H/QHash/QHash.md)<Key, T>::iterator QMultiHash::insert(const Key &*key*, const T &*value*)
 
-Inserts a new item with the *key* and a value of *value*.
+用键 *key* 和值 *value* 插入一个新元素。
 
-If there is already an item with the same key in the hash, this function will simply create a new one. (This behavior is different from [replace](QMultiHash.md#typename-qhashkey-titerator-qmultihashreplaceconst-key-key-const-t-value)(), which overwrites the value of an existing item.)
+如果哈希表中已经存在相同键的元素，该函数将创建一个新元素。（这与 [replace](QMultiHash.md#typename-qhashkey-titerator-qmultihashreplaceconst-key-key-const-t-value)() 不同，replace() 是覆盖已经存在元素的值。)
 
-**另请参阅** [replace](QMultiHash.md#typename-qhashkey-titerator-qmultihashreplaceconst-key-key-const-t-value)().
+**另请参阅** [replace](QMultiHash.md#typename-qhashkey-titerator-qmultihashreplaceconst-key-key-const-t-value)()。
 
 ### int QMultiHash::remove(const Key &*key*, const T &*value*)
 
-Removes all the items that have the *key* and the value *value* from the hash. Returns the number of items removed.
+从哈希表中移除所有键为 *key*，值为 *value* 的元素。返回被移除元素的个数。
 
-This function was introduced in Qt 4.3.
+Qt 4.3 中引入该函数。
 
-**另请参阅** [QHash::remove](../../H/QHash/QHash.md#int-qhashremoveconst-key-key)().
+**另请参阅** [QHash::remove](../../H/QHash/QHash.md#int-qhashremoveconst-key-key)()。
 
 ### typename [QHash](../../H/QHash/QHash.md)<Key, T>::iterator QMultiHash::replace(const Key &*key*, const T &*value*)
 
-Inserts a new item with the *key* and a value of *value*.
+用键 *key* 和值 *value* 插入一个新元素。
 
-If there is already an item with the *key*, that item's value is replaced with *value*.
+如果已经存在键为 *key* 的元素，该元素的值将被 *value* 替换。
 
-If there are multiple items with the *key*, the most recently inserted item's value is replaced with *value*.
+如果有多个键为 *key* 的元素，最新插入的元素的值将被 *value* 替换。
 
-**另请参阅** [insert](QMultiHash.md#typename-qhashkey-titerator-qmultihashinsertconst-key-key-const-t-value)().
+**另请参阅** [insert](QMultiHash.md#typename-qhashkey-titerator-qmultihashinsertconst-key-key-const-t-value)()。
 
 ### void QMultiHash::swap([QMultiHash](QMultiHash.md#qmultihashqmultihash)<K, V> &*other*)
 
-Swaps hash *other* with this hash. This operation is very fast and never fails.
+将 *other* 哈希表与本哈希表。该操作非常快，永远不失败。
 
-This function was introduced in Qt 4.8.
+Qt 4.8 中引入该函数。
 
 ### [QList](../../L/QList/QList.md)<Key> QMultiHash::uniqueKeys() const
 
-Returns a list containing all the keys in the map. Keys that occur multiple times in the map occur only once in the returned list.
+以升序返回哈希表中所有键的列表。在哈希表中多次出现的键在返回的列表中只出现一次。
 
-This function was introduced in Qt 5.13.
+Qt 5.13 中引入该函数。
 
-**另请参阅** [keys](../../H/QHash/QHash.md#qlistkey-qhashkeys-const)() and [values](QMultiHash.md#qlistt-qmultihashvaluesconst-key-key-const)().
+**另请参阅** [keys](../../H/QHash/QHash.md#qlistkey-qhashkeys-const)() 和 [values](QMultiHash.md#qlistt-qmultihashvaluesconst-key-key-const)()。
 
 ### [QMultiHash](QMultiHash.md#qmultihashqmultihash)<K, V> &QMultiHash::unite(const [QMultiHash](QMultiHash.md#qmultihashqmultihash)<K, V> &*other*)
 
-Inserts all the items in the *other* hash into this hash and returns a reference to this hash.
+将 *other* 哈希表中的所有元素插入到本哈希表中，返回本哈希表的引用。
 
-This function was introduced in Qt 5.13.
+Qt 5.13 中引入该函数。
 
-**另请参阅** [insert](QMultiHash.md#typename-qhashkey-titerator-qmultihashinsertconst-key-key-const-t-value)().
+**另请参阅** [insert](QMultiHash.md#typename-qhashkey-titerator-qmultihashinsertconst-key-key-const-t-value)()。
 
 ### [QList](../../L/QList/QList.md)<T> QMultiHash::values(const Key &*key*) const
 
-This is an overloaded function.
+这是一个重载函数。
 
-Returns a list of all the values associated with the *key*, from the most recently inserted to the least recently inserted.
+按照从最新到最早插入的顺序，返回所有与键 *key* 相关联的值的列表。
 
-**另请参阅** [count](QMultiHash.md#int-qmultihashcountconst-key-key-const-t-value-const)() and [insert](QMultiHash.md#typename-qhashkey-titerator-qmultihashinsertconst-key-key-const-t-value)().
+**另请参阅** [count](QMultiHash.md#int-qmultihashcountconst-key-key-const-t-value-const)() 和 [insert](QMultiHash.md#typename-qhashkey-titerator-qmultihashinsertconst-key-key-const-t-value)().
 
 ### [QMultiHash](QMultiHash.md#qmultihashqmultihash)<K, V> QMultiHash::operator+(const [QMultiHash](QMultiHash.md#qmultihashqmultihash)<K, V> &*other*) const
 
-Returns a hash that contains all the items in this hash in addition to all the items in *other*. If a key is common to both hashes, the resulting hash will contain the key multiple times.
+返回一个哈希表，该哈希表包含本哈希表和 *other* 哈希表中的所有元素。如果一个键在两个哈希表中同时存在，结果哈希表将多次包含这个键。
 
-**另请参阅** [operator+=](QMultiHash.md#qmultihashk-v-qmultihashoperatorconst-qmultihashk-v-other)().
+**另请参阅** [operator+=](QMultiHash.md#qmultihashk-v-qmultihashoperatorconst-qmultihashk-v-other)()。
 
 ### [QMultiHash](QMultiHash.md#qmultihashqmultihash)<K, V> &QMultiHash::operator+=(const [QMultiHash](QMultiHash.md#qmultihashqmultihash)<K, V> &*other*)
 
-Inserts all the items in the *other* hash into this hash and returns a reference to this hash.
+将 *other* 哈希表中的所有元素插入到本哈希表中，返回本哈希表的引用。
 
-**另请参阅** [unite](QMultiHash.md#qmultihashk-v-qmultihashuniteconst-qmultihashk-v-other)() and [insert](QMultiHash.md#typename-qhashkey-titerator-qmultihashinsertconst-key-key-const-t-value)().
+**另请参阅** [unite](QMultiHash.md#qmultihashk-v-qmultihashuniteconst-qmultihashk-v-other)() 和 [insert](QMultiHash.md#typename-qhashkey-titerator-qmultihashinsertconst-key-key-const-t-value)()。
 
 ## 相关非成员函数
 
-### template <typename Key, typename T> [uint](https://doc.qt.io/qt-5/qtglobal.html#uint-typedef) qHash(const [QMultiHash](QMultiHash.md#qmultihashqmultihash)<Key, T> &*key*, [uint](https://doc.qt.io/qt-5/qtglobal.html#uint-typedef) *seed* = 0)
+### template <typename Key, typename T> [uint](../../G/QtGlobal/QtGlobal.md#typedef-uint) qHash(const [QMultiHash](QMultiHash.md#qmultihashqmultihash)<Key, T> &*key*, [uint](../../G/QtGlobal/QtGlobal.md#typedef-uint) *seed* = 0)
 
-Returns the hash value for the *key*, using *seed* to seed the calculation.
+返回 *key* 的哈希值，使用 *seed* 来随机化计算结果。
 
-Type `T` must be supported by qHash().
+类型 `T` 必须被 qHash() 支持。
 
-This function was introduced in Qt 5.8.
+Qt 5.8 中引入该函数。

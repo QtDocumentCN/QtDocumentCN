@@ -49,7 +49,7 @@ for (i = hash.constBegin(); i != hash.constEnd(); ++i)
 
 同一哈希表可以使用多个迭代器。然而，需要注意任何对 [QHash](../../H/QHash/QHash.md) 的直接修改都可能完全改变哈希表中存储的元素顺序，因为该操作可能引起 [QHash](../../H/QHash/QHash.md) 重新散列其内部数据结构。如果需要长时间持有迭代器，建议使用 [QMap](../../M/QMap/QMap.md) 而非 [QHash](../../H/QHash/QHash.md)。
 
-**警告：**隐式共享容器迭代器的工作方式和 STL 迭代器不完全相同。当容器的迭代器还处于活动状态时，应该避免拷贝容器。更多信息请参阅[隐式共享迭代器问题](../../C/Container_Classes/Container_Classes.md#隐式共享迭代器问题)。
+**警告：** 隐式共享容器迭代器的工作方式和 STL 迭代器不完全相同。当容器的迭代器还处于活动状态时，应该避免拷贝容器。更多信息请参阅[隐式共享迭代器问题](../../C/Container_Classes/Container_Classes.md#隐式共享迭代器问题)。
 
 **另请参阅** [QHash::iterator](../../H/QHash/QHash-iterator.md) 和 [QHashIterator](../../H/QHashIterator/QHashIterator.md)。
 

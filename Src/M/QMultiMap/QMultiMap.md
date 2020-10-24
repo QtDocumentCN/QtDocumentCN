@@ -2,7 +2,7 @@
 
 template <typename Key, typename T> class QMultiMap
 
-QMultiMap 类是 [QMap](../../M/QMap/QMap.md) 的派生类，提供多值映射功能。[更多内容...](QMultiMap.md#详细描述)
+QMultiMap 类是一个便利的 [QMap](../../M/QMap/QMap.md) 派生类，提供多值映射功能。[更多内容...](QMultiMap.md#详细描述)
 
 | 头文件: | #include <QMultiMap>         |
 | ------: | :---------------------------- |
@@ -43,7 +43,7 @@ QMultiMap 类是 [QMap](../../M/QMap/QMap.md) 的派生类，提供多值映射�
 
 QMultiMap<Key, T> 是一种 Qt 泛型[容器类](../../C/Container_Classes/Container_Classes.md)。它继承 [QMap](../../M/QMap/QMap.md) 并扩展了一些功能，使之可以存储多值映射。多值映射是一种允许将多个值关联到同一个键的映射；[QMap](../../M/QMap/QMap.md) 不允许多值映射。
 
-因为 QMultiMap 继承 [QMap](../../M/QMap/QMap.md)，所有  [QMap](../../M/QMap/QMap.md) 的功能也适用于 QMultiMap。例如，可以使用 [isEmpty](../../M/QMap/QMap.md#bool-qmapisempty-const)() 测试 map 是否为空，可以使用 [QMap](../../M/QMap/QMap.md)的迭代器类（例如 [QMapIterator](../../M/QMapIterator/QMapIterator.md)）遍历 QMultiMap。除此之外，它还提供一种 [insert](QMultiMap.md#typename-qmapkey-titerator-qmultimapinsertconst-key-key-const-t-value)() 函数，可以插入但不会覆盖属于同一键的之前插入的值，还有 [replace](QMultiMap.md#typename-qmapkey-titerator-qmultimapreplaceconst-key-key-const-t-value)() 函数，如果 map 中已经存在同一键的元素，该函数会覆盖已经存在的值。该类还提供方便的 operator+() 和 operator+=() 运算符。
+因为 QMultiMap 继承 [QMap](../../M/QMap/QMap.md)，所有  [QMap](../../M/QMap/QMap.md) 的功能也适用于 QMultiMap。例如，可以使用 [isEmpty](../../M/QMap/QMap.md#bool-qmapisempty-const)() 测试 map 是否为空，可以使用 [QMap](../../M/QMap/QMap.md) 的迭代器类（例如 [QMapIterator](../../M/QMapIterator/QMapIterator.md)）遍历 QMultiMap。除此之外，它还提供 [insert](QMultiMap.md#typename-qmapkey-titerator-qmultimapinsertconst-key-key-const-t-value)() 函数来插入值，如果要插入的键已经存在，该函数不会覆盖已有的值，而 [replace](QMultiMap.md#typename-qmapkey-titerator-qmultimapreplaceconst-key-key-const-t-value)() 函数则不同，如果 map 中已经存在要插入的键，该函数会覆盖已经存在的值。此外，该类还提供方便的 operator+() 和 operator+=() 运算符。
 
 例子：
 
@@ -61,7 +61,7 @@ map3 = map1 + map2;
 // map3.size() == 3
 ```
 
-与 [QMap](../../M/QMap/QMap.md) 不同，QMultiMap 不提供 operator[]。如果想用特定键访问最新插入的元素，使用 [value](../../M/QMap/QMap.md#const-t-qmapvalueconst-key-key-const-t-defaultvalue--t-const)() 或 [replace](QMultiMap.md#typename-qmapkey-titerator-qmultimapreplaceconst-key-key-const-t-value)()。
+与 [QMap](../../M/QMap/QMap.md) 不同，QMultiMap 不提供 operator[] 运算符。如果想用特定键访问最新插入的元素，使用 [value](../../M/QMap/QMap.md#const-t-qmapvalueconst-key-key-const-t-defaultvalue--t-const)() 或 [replace](QMultiMap.md#typename-qmapkey-titerator-qmultimapreplaceconst-key-key-const-t-value)()。
 
 如果想取得单个键关联的所有值，可以使用 values(const Key &key)，该函数返回一个 [QList](../../L/QList/QList.md)<T>：
 
@@ -73,7 +73,7 @@ for (int i = 0; i < values.size(); ++i)
 
 共享同一键的元素按照从最新到最早插入的顺序返回。
 
-如果习惯用 STL 风格迭代器，可以调用 [find](QMultiMap.md#typename-qmapkey-titerator-qmultimapfindconst-key-key-const-t-value)() 取得共享同一键的多个元素中首元素的迭代器，然后从该元素开始遍历：
+如果习惯用 STL 风格迭代器，可以传递键调用 [find](QMultiMap.md#typename-qmapkey-titerator-qmultimapfindconst-key-key-const-t-value)() 取得第一个元素的迭代器，从该元素开始遍历：
 
 ```c++
 QMultiMap<QString, int>::iterator i = map.find("plenty");
@@ -83,7 +83,7 @@ while (i != map.end() && i.key() == "plenty") {
 }
 ```
 
-QMultiMap 键和值的数据类型必须是[可赋值数据类型](../../C/Container_Classes/Container_Classes.md#容器类)。这涵盖了大多数可能会遇到的数据类型，但是编译器不会存储 [QWidget](../../W/QWidget/QWidget.md) 这样的对象作为值，应该存储 [QWidget](../../W/QWidget/QWidget.md) *。另外，QMultiMap 的键类型必须提供 operator<() 运算符。 具体请参考 [QMap](../../M/QMap/QMap.md) 文档。
+QMultiMap 键和值的数据类型必须是[可赋值数据类型](../../C/Container_Classes/Container_Classes.md#容器类)。这涵盖了大多数可能会遇到的数据类型，但是编译器不会允许存储类似 [QWidget](../../W/QWidget/QWidget.md) 这样的对象作为值，应该存储 [QWidget](../../W/QWidget/QWidget.md) *。另外，QMultiMap 的键类型必须提供 operator<() 运算符。 具体请参考 [QMap](../../M/QMap/QMap.md) 文档。
 
 **另请参阅** [QMap](../../M/QMap/QMap.md)，[QMapIterator](../../M/QMapIterator/QMapIterator.md)，[QMutableMapIterator](../../M/QMutableMapIterator/QMutableMapIterator.md) 和 [QMultiHash](../../M/QMultiHash/QMultiHash.md)。
 
@@ -139,7 +139,7 @@ Qt 4.3 中引入该函数。
 
 如果 map 中不包含这样的元素，该函数返回 [end](../../M/QMap/QMap.md#qmapiterator-qmapend)()。
 
-如果 map 包含多个键为 *key* 的元素，函数返回指向最新插入的那个值的迭代器。
+如果 map 包含多个键为 *key* （译者注：以及值为 *value*）的元素，函数返回指向最新插入的那个值的迭代器。
 
 Qt 4.3 中引入该函数。
 
@@ -153,7 +153,7 @@ Qt 4.3 中引入该函数。
 
 如果 map 中不包含这样的元素，该函数返回 [end](../../M/QMap/QMap.md#qmapiterator-qmapend)()。
 
-如果 map 包含多个键为 *key* 的元素，函数返回指向最新插入的那个值的常量迭代器。
+如果 map 包含多个键为 *key*（译者注：以及值为 *value*）的元素，函数返回指向最新插入的那个值的常量迭代器。
 
 Qt 4.3 中引入该函数。
 
@@ -163,7 +163,7 @@ Qt 4.3 中引入该函数。
 
 用键 *key* 和值 *value* 插入一个新元素。
 
-如果 map 中已经存在相同键的元素，该函数将创建一个新元素。（这与 [replace](QMultiMap.md#typename-qmapkey-titerator-qmultimapreplaceconst-key-key-const-t-value)() 不同，replace() 是覆盖已经存在的元素的值。)
+如果 map 中已经存在相同键的元素，该函数将创建一个新元素。（这与 [replace](QMultiMap.md#typename-qmapkey-titerator-qmultimapreplaceconst-key-key-const-t-value)() 不同，replace() 是覆盖已经存在元素的值。)
 
 **另请参阅** [replace](QMultiMap.md#typename-qmapkey-titerator-qmultimapreplaceconst-key-key-const-t-value)()。
 
@@ -215,11 +215,11 @@ Qt 4.2 中引入该函数。
 
 ### [QList](../../L/QList/QList.md)<T> QMultiMap::values(const Key &*key*) const
 
-按照从最新到最早插入的顺序，返回与键 *key* 相关联的所有值的列表。
+按照从最新到最早插入的顺序，返回所有与键 *key* 相关联的值的列表。
 
 ### [QMultiMap](QMultiMap.md#qmultimapqmultimap)<K, V> QMultiMap::operator+(const [QMultiMap](QMultiMap.md#qmultimapqmultimap)<K, V> &*other*) const
 
-返回一个 map，该 map 包含本 map 和 *other* 中的所有元素。如果一个键在两个 map 中同时存在，结果 map 将多次包含这个键。
+返回一个 map，该 map 包含本 map 和 *other* map 中的所有元素。如果一个键在两个 map 中同时存在，结果 map 将多次包含这个键。
 
 **另请参阅** [operator+=](QMultiMap.md#qmultimapk-v-qmultimapoperatorconst-qmultimapk-v-other)()。
 
