@@ -77,7 +77,7 @@ qDeleteAll(hash2.keyBegin(), hash2.keyEnd());
 
 ### key_iterator &key_iterator::operator++()
 
-前置 ++ 运算符（`++i`）将迭代器向前移动到 hash 中的下一个元素并返回指向新位置元素的迭代器。
+前置 ++ 运算符（`++i`）将迭代器向前移动到哈希表中的下一个元素并返回指向新位置元素的迭代器。
 
 对 [QHash::keyEnd](../../H/QHash/QHash.md#qhashkey_iterator-qhashkeyend-const)() 调用该函数将导致未定义结果。
 
@@ -87,7 +87,7 @@ qDeleteAll(hash2.keyBegin(), hash2.keyEnd());
 
 这是一个重载函数。
 
-后置 ++ 运算符（`i++`）将迭代器向前移动到 hash 中的下一个元素并返回指向旧位置元素的迭代器。
+后置 ++ 运算符（`i++`）将迭代器向前移动到哈希表中的下一个元素并返回指向旧位置元素的迭代器。
 
 ### const Key *key_iterator::operator->() const
 

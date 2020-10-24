@@ -40,9 +40,9 @@ Qt 5.10 中引入该类。
 
 ## 详细描述
 
-QKeyValueIterator 类 provides an STL-style iterator for returning key/value pairs from associative containers like [QHash](https://doc.qt.io/qt-5/qhash.html#qhash) and [QMap](../../M/QMap/QMap.md). It supports the same API as the STL associative containers, i.e. getting a key/value pair when iterating through the container.
+QKeyValueIterator 类为关联容器如 [QHash](https://doc.qt.io/qt-5/qhash.html#qhash) 和 [QMap](../../M/QMap/QMap.md) 返回的键值对提供 STL 风格的迭代器。该类支持与 STL 关联容器相同的接口，即遍历容器时取得键值对。
 
-This will allow for better interoperability between [QMap](../../M/QMap/QMap.md), [QHash](https://doc.qt.io/qt-5/qhash.html#qhash) and friends and STL-style algorithms.
+这将改善 [QMap](../../M/QMap/QMap.md)，[QHash](https://doc.qt.io/qt-5/qhash.html#qhash) 及其相关类与 STL 风格算法之间的互操作性。
 
 **警告：** 隐式共享容器的迭代器的工作方式和 STL 迭代器不完全相同。当容器的迭代器还处于活动状态时，应该避免拷贝容器。更多信息请参阅[隐式共享迭代器问题](../../C/Container_Classes/Container_Classes.md#隐式共享迭代器问题)。
 
@@ -50,25 +50,25 @@ This will allow for better interoperability between [QMap](../../M/QMap/QMap.md)
 
 ### QKeyValueIterator::QKeyValueIterator(Iterator *o*)
 
-Constructs a QKeyValueIterator on top of *o*.
+在迭代器 *o* 之上构造 QKeyValueIterator。
 
 ### QKeyValueIterator::QKeyValueIterator()
 
-Constructs a default QKeyValueIterator.
+构造一个默认 QKeyValueIterator。
 
 ### Iterator QKeyValueIterator::base() const
 
-Returns the underlying iterator this [QKeyValueIterator](../../K/QKeyValueIterator/QKeyValueIterator.md) is based on.
+返回该 [QKeyValueIterator](../../K/QKeyValueIterator/QKeyValueIterator.md) 基于的底层迭代器。
 
 ### std::pair<Key, T> QKeyValueIterator::operator*() const
 
-Returns the current entry as a pair.
+以键值对返回当前元素。
 
 ### [QKeyValueIterator](QKeyValueIterator.md#qkeyvalueiteratorqkeyvalueiterator)<Key, T, Iterator> &QKeyValueIterator::operator++()
 
-The prefix ++ operator (`++i`) advances the iterator to the next item in the container and returns the iterator.
+前置 ++ 运算符（`++i`）将迭代器向前移动到容器中的下一个元素并返回迭代器。
 
-**注意：** Advancing the iterator past its container's end() constitutes undefined behavior.
+**注意：** 将迭代器向前移动到容器的 end() 之后将导致未定义行为。
 
 **另请参阅** [operator--](QKeyValueIterator.md#qkeyvalueiteratorkey-t-iterator-qkeyvalueiteratoroperator--)().
 
@@ -76,15 +76,15 @@ The prefix ++ operator (`++i`) advances the iterator to the next item in the con
 
 这是一个重载函数。
 
-The postfix ++ operator (`i++`) advances the iterator to the next item in the container and returns the iterator's prior value.
+后置 ++ 运算符（`i++`）将迭代器向前移动到容器中的下一个元素并返回指向旧位置元素的迭代器。
 
-**注意：** Advancing the iterator past its container's end() constitutes undefined behavior.
+**注意：** 将迭代器向前移动到容器的 end() 之后将导致未定义行为。
 
 ### [QKeyValueIterator](QKeyValueIterator.md#qkeyvalueiteratorqkeyvalueiterator)<Key, T, Iterator> &QKeyValueIterator::operator--()
 
-The prefix -- operator (`--i`) backs the iterator up to the previous item in the container and returns the iterator.
+前置 -- 运算符（`--i`）将迭代器向后前移动到容器中的前一个元素并返回迭代器。
 
-**注意：** Backing up an iterator to before its container's begin() constitutes undefined behavior.
+**注意：** 将迭代器向后移动到容器的 begin() 之前将导致未定义行为。
 
 **另请参阅** [operator++](QKeyValueIterator.md#qkeyvalueiteratorkey-t-iterator-qkeyvalueiteratoroperator)().
 
@@ -92,13 +92,13 @@ The prefix -- operator (`--i`) backs the iterator up to the previous item in the
 
 这是一个重载函数。
 
-The postfix -- operator (`i--`) backs the iterator up to the previous item in the container and returns the iterator's prior value.
+后置 -- 运算符（`i--`）将迭代器向后前移动到容器中的前一个元素并返回指向旧位置元素的迭代器。
 
-**注意：** Backing up an iterator to before its container's begin() constitutes undefined behavior.
+**注意：** 将迭代器向后移动到容器的 begin() 之前将导致未定义行为。
 
 ### QKeyValueIterator::pointer QKeyValueIterator::operator->() const
 
-Returns the current entry as a pointer-like object to the pair.
+返回指向当前元素的键值对类型的指针。
 
 Qt 5.15 中引入该函数。
 
