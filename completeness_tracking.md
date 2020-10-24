@@ -17,6 +17,7 @@
 | [QAbstractAudioInput](Src/A/QAbstractAudioInput/QAbstractAudioInput.md) | [CryFeiFei](https://github.com/CryFeiFei)     | **待完善** | see also部分待添加链接             |
 | [QAbstractAnimation](Src/A/QAbstractAnimation/QAbstractAnimation.md) | [CryFeiFei](https://github.com/CryFeiFei)     | **待完善** | see also部分待添加链接             |
 | [QAbstractItemModel](Src/A/QAbstractItemModel/QAbstractItemModel.md) | [FlyWM](https://github.com/FlyWM)             | **待完善** | 待完善跳转链接 |
+| [QAbstractItemView](Src/A/QAbstractItemView/QAbstractItemView.md) | [chenjiqing](https://github.com/chenjiqing) | 编写中 | 完成链接，开始翻译 |
 | [QAbstractSocket](Src/A/QAbstractSocket/QAbstractSocket.md) | [skykeyjoker](https://github.com/skykeyjoker) | **待完善** | 跨页跳转需待对应页面完成后进行校正 |
 | **B** |  |  |  |
 | **C** |  |  |  |
