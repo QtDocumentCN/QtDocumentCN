@@ -35,11 +35,11 @@
 | [QGenericArgument](Src/G/QGenericArgument/QGenericArgument.md) | [ZgblKylin](https://github.com/ZgblKylin) | **待完善** | 跨页跳转需待对应页面完成后进行校正 |
 | [QGenericReturnArgument](Src/G/QGenericReturnArgument/QGenericReturnArgument.md) | [ZgblKylin](https://github.com/ZgblKylin) | **待完善** | 跨页跳转需待对应页面完成后进行校正 |
 | **H** |  |  |  |
-| [QHash](Src/H/QHash/QHash.md) | [chenjq](https://github.com/chenjiqing) | 编写中 | 完成链接和部分翻译 |
-| [QHash::const_iterator](Src/H/QHash/QHash-const-iterator.md) | [chenjq](https://github.com/chenjiqing) | 编写中 | 完成链接和部分翻译 |
-| [QHash::iterator](Src/H/QHash/QHash-iterator.md) | [chenjq](https://github.com/chenjiqing) | 编写中 | 完成链接和部分翻译 |
-| [QHash::key_iterator](Src/H/QHash/QHash-key-iterator.md) | [chenjq](https://github.com/chenjiqing) | 编写中 | 完成链接和部分翻译 |
-| [QHashIterator](Src/H/QHashIterator/QHashIterator.md) | [chenjq](https://github.com/chenjiqing) | 编写中 | 完成链接和部分翻译 |
+| [QHash](Src/H/QHash/QHash.md) | [chenjiqing](https://github.com/chenjiqing) | **待完善** |  |
+| [QHash::const_iterator](Src/H/QHash/QHash-const-iterator.md) | [chenjiqing](https://github.com/chenjiqing) | **待完善** |  |
+| [QHash::iterator](Src/H/QHash/QHash-iterator.md) | [chenjiqing](https://github.com/chenjiqing) | **待完善** |  |
+| [QHash::key_iterator](Src/H/QHash/QHash-key-iterator.md) | [chenjiqing](https://github.com/chenjiqing) | **待完善** |  |
+| [QHashIterator](Src/H/QHashIterator/QHashIterator.md) | [chenjiqing](https://github.com/chenjiqing) | **待完善** |  |
 | **I** |  |  |  |
 | [QIODevice](Src/I/QIODevice/QIODevice.md) | [skykeyjoker](https://github.com/skykeyjoker) | 编写中 | 占位中，待填充，截止时间2020-10-31 |
 | **J** |  |  |  |
@@ -49,7 +49,7 @@
 | [QJsonParseError](Src/J/QJsonParseError/QJsonParseError.md) | [ruihuanming](https://github.com/hqwx2018) | **待完善** | 缺跳转 |
 | [QJsonValue](Src/J/QJsonValue/QJsonValue.md) | [ruihuanming](https://github.com/hqwx2018) | 占位中 | 占位中，待填充，截止时间2020-08-15 |
 | **K** |  |  |  |
-| [QKeyValueIterator](Src/K/QKeyValueIterator/QKeyValueIterator.md) | [chenjq](https://github.com/chenjiqing) | 编写中 | 完成链接和部分翻译 |
+| [QKeyValueIterator](Src/K/QKeyValueIterator/QKeyValueIterator.md) | [chenjiqing](https://github.com/chenjiqing) | **待完善** |  |
 | **L** |  |  |  |
 | [QLabel](Src/L/QLabel/QLabel.md) | [leytou](https://github.com/leytou) | 编写中 | 占位中，待填充，截止时间2020-07-31 |
 | [QLibrary](Src/L/QLibrary/QLibrary.md) | [顾晓](https://github.com/chenyanzz) | **待完善** | 跨页跳转需待对应页面完成后进行校正 |
@@ -57,21 +57,21 @@
 | [QList::iterator](Src/L/QList/QList_Iterator.md) | [xyz1001](https://github.com/xyz1001) | 编写中 | 占位中，待填充，截止时间2020-07-31 |
 | [QList::const_iterator](Src/L/QList/QList_Const_Iterator.md) | [xyz1001](https://github.com/xyz1001) | 编写中 | 占位中，待填充，截止时间2020-07-31 |
 | **M** |  |  |  |
-| [QMap](Src/M/QMap/QMap.md) | [chenjq](https://github.com/chenjiqing) | **待完善** |  |
-| [QMap::const_iterator](Src/M/QMap/QMap-const-iterator.md) | [chenjq](https://github.com/chenjiqing) | **待完善** |  |
-| [QMap::iterator](Src/M/QMap/QMap-iterator.md) | [chenjq](https://github.com/chenjiqing) | **待完善** |  |
-| [QMap::key_iterator](Src/M/QMap/QMap-key-iterator.md) | [chenjq](https://github.com/chenjiqing) | **待完善** |  |
-| [QMapIterator](Src/M/QMapIterator/QMapIterator.md) | [chenjq](https://github.com/chenjiqing) | **待完善** |  |
+| [QMap](Src/M/QMap/QMap.md) | [chenjiqing](https://github.com/chenjiqing) | **待完善** |  |
+| [QMap::const_iterator](Src/M/QMap/QMap-const-iterator.md) | [chenjiqing](https://github.com/chenjiqing) | **待完善** |  |
+| [QMap::iterator](Src/M/QMap/QMap-iterator.md) | [chenjiqing](https://github.com/chenjiqing) | **待完善** |  |
+| [QMap::key_iterator](Src/M/QMap/QMap-key-iterator.md) | [chenjiqing](https://github.com/chenjiqing) | **待完善** |  |
+| [QMapIterator](Src/M/QMapIterator/QMapIterator.md) | [chenjiqing](https://github.com/chenjiqing) | **待完善** |  |
 | [QMetaClassInfo](Src/M/QMetaClassInfo/QMetaClassInfo.md) | [ZgblKylin](https://github.com/ZgblKylin) | **待完善** | 跨页跳转需待对应页面完成后进行校正 |
 | [QMetaMethod](Src/M/QMetaMethod/QMetaMethod.md) | [ZgblKylin](https://github.com/ZgblKylin) | **待完善** | 跨页跳转需待对应页面完成后进行校正 |
 | [QMetaObject](Src/M/QMetaObject/QMetaObject.md) | [ZgblKylin](https://github.com/ZgblKylin) | **待完善** | 跨页跳转需待对应页面完成后进行校正 |
 | [QMetaObject::Connection](M/QMetaObject/Connection.md)       | [ZgblKylin](https://github.com/ZgblKylin)     | **待完善** | 跨页跳转需待对应页面完成后进行校正 |
 | [QMetaProperty](../../M/QMetaProperty/QMetaProperty.md)      | [ZgblKylin](https://github.com/ZgblKylin)     | **待完善** | 跨页跳转需待对应页面完成后进行校正 |
 | [QMetaType](Src/M/QMetaType/QMetaType.md)                    | [ZgblKylin](https://github.com/ZgblKylin)     | **待完善** | 跨页跳转需待对应页面完成后进行校正 |
-| [QMultiHash](Src/M/QMultiHash/QMultiHash.md) | [chenjq](https://github.com/chenjiqing) | 编写中     | 完成链接和部分翻译 |
-| [QMultiMap](Src/M/QMultiMap/QMultiMap.md) | [chenjq](https://github.com/chenjiqing) | **待完善** |                                    |
-| [QMutableHashIterator](Src/M/QMutableHashIterator/QMutableHashIterator.md) | [chenjq](https://github.com/chenjiqing) | 编写中 | 完成链接和部分翻译                 |
-| [QMutableMapIterator](Src/M/QMutableMapIterator/QMutableMapIterator.md) | [chenjq](https://github.com/chenjiqing) | 编写中 | 完成链接和部分翻译                 |
+| [QMultiHash](Src/M/QMultiHash/QMultiHash.md) | [chenjiqing](https://github.com/chenjiqing) | **待完善** |  |
+| [QMultiMap](Src/M/QMultiMap/QMultiMap.md) | [chenjiqing](https://github.com/chenjiqing) | **待完善** |                                    |
+| [QMutableHashIterator](Src/M/QMutableHashIterator/QMutableHashIterator.md) | [chenjiqing](https://github.com/chenjiqing) | **待完善** |                  |
+| [QMutableMapIterator](Src/M/QMutableMapIterator/QMutableMapIterator.md) | [chenjiqing](https://github.com/chenjiqing) | **待完善** |                  |
 | [QMutex](Src/M/QMutex/QMutex.md)                             | [Ryan-rlm](https://github.com/Ryan-rlm)       | **已完成** | 已完成                             |
 | [QMutexLocker](Src/M/QMutexLocker/QMutexLocker.md)           | [Ryan-rlm](https://github.com/Ryan-rlm)       | **已完成** | 已完成                             |
 | [Why Does Qt use Moc for Signals and Slots](Src/M/Why_Does_Qt_Use_Moc_for_Signals_and_Slots/Why_Does_Qt_Use_Moc_for_Signals_and_Slots.md) | [ZgblKylin](https://github.com/ZgblKylin)     | **待完善** | 跨页跳转需待对应页面完成后进行校正 |
