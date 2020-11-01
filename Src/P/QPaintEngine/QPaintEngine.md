@@ -138,3 +138,40 @@ PaintEngineFeatures类型是QFlags<`PaintEngineFeature`>的typedef 。它存储P
 
 ---
 
+## enum QPaintEngine::PolygonDrawMode
+
+|枚举类型	|枚举值	|描述|
+| :---: | :--------- |:---:| 
+|Constant|	Value|	Description|
+|QPaintEngine::OddEvenMode|	0	|多边形应使用OddEven填充规则绘制|
+|QPaintEngine::WindingMode|	1	|多边形应使用绕线填充规则绘制。|
+|QPaintEngine::ConvexMode|	2|多边形是凸多边形，可以使用可用的专用算法进行绘制。|
+|QPaintEngine::PolylineMode	|3	|仅应绘制多边形的轮廓。|
+
+## enum QPaintEngine::Type
+
+|枚举类型	|枚举值	|描述|
+| :---: | :--------- |:---:| 
+|Constant|	Value|	Description|
+|QPaintEngine::X11|	0	 |  |
+|QPaintEngine::Windows|	1|  |	 
+|QPaintEngine::MacPrinter|	4|	 
+|QPaintEngine::CoreGraphics|	3|macOS的Quartz2D（CoreGraphics）|
+|QPaintEngine::QuickDraw|	2	|macOS的QuickDraw|
+|QPaintEngine::QWindowSystem|	5	|嵌入式Linux的Qt|
+|QPaintEngine::PostScript|	6	|（不再支持）|
+|QPaintEngine::OpenGL|	7	| |
+|QPaintEngine::Picture|	8|	QPicture 格式|
+|QPaintEngine::SVG|	9|	可伸缩矢量图形XML格式|
+|QPaintEngine::Raster|	10	 | |
+|QPaintEngine::Direct3D|	11 |仅Windows，基于Direct3D的引擎|
+|QPaintEngine::Pdf	|12|	PDF格式|
+|QPaintEngine::OpenVG	|13	 | |
+|QPaintEngine::User	|50	| 用戶自定义的最小美剧|
+|QPaintEngine::MaxUser	|100	|用戶自定义的最大美剧|
+|QPaintEngine::OpenGL2	|14	 | |
+|QPaintEngine::PaintBuffer	|15	 | |
+|QPaintEngine::Blitter	|16	 | |
+|QPaintEngine::Direct2D	|17	|仅Windows，基于Direct2D的引擎|
+
+
