@@ -174,4 +174,116 @@ PaintEngineFeatures类型是QFlags<`PaintEngineFeature`>的typedef 。它存储P
 |QPaintEngine::Blitter	|16	 | |
 |QPaintEngine::Direct2D	|17	|仅Windows，基于Direct2D的引擎|
 
+# 成员函数
+
+### QPaintEngine::QPaintEngine(QPaintEngine::PaintEngineFeatures caps = PaintEngineFeatures())
+
+使用`caps`来创建一个绘制引擎
+
+---
+
+### [virtual] QPaintEngine::~QPaintEngine()
+销毁这个绘制引擎
+
+---
+
+### [pure virtual] bool QPaintEngine::begin(QPaintDevice *pdev)
+
+在设备`QPaintDevice`上来初始化绘制引擎。成功返回`true`，失败返回`false`
+
+---
+
+### [virtual] void QPaintEngine::drawEllipse(const QRectF &rect)
+
+重新实现此功能以绘制矩形rect中可以包含的最大椭圆。
+
+默认实现调用`drawPolygon()`。
+
+---
+
+### [virtual] void QPaintEngine::drawEllipse(const QRect &rect)
+该函数的默认实现调用此函数的浮点版本
+
+---
+
+### [virtual] void QPaintEngine::drawImage(const QRectF &rectangle, const QImage &image, const QRectF &sr, Qt::ImageConversionFlags flags = Qt::AutoColor)
+
+重新实现此功能，以使用给定的转换标志flags在给定的矩形中绘制sr矩形指定的图像部分，以将其转换为像素图。
+
+---
+
+### [virtual] void QPaintEngine::drawLines(const QLineF *lines, int lineCount)
+
+`drawlines`的默认实现实际上是调用函数`drawPath()` or `drawPolygon()`。 但是还是取决于设置的paintengine的一些特性
+
+译者：QPaintEngine的drawlines的默认实现实际上就是调用的drawPath或者drawPolygon。有兴趣可以看看这的源码实现。
+
+---
+
+### [virtual] void QPaintEngine::drawLines(const QLine *lines, int lineCount)
+
+默认调用这个函数的浮点数版本。
+
+### 
+
+[virtual] void QPaintEngine::drawPath(const QPainterPath &path)
+The default implementation ignores the path and does nothing.
+[pure virtual] void QPaintEngine::drawPixmap(const QRectF &r, const QPixmap &pm, const QRectF &sr)
+Reimplement this function to draw the part of the pm specified by the sr rectangle in the given r.
+
+[virtual] void QPaintEngine::drawPoints(const QPointF *points, int pointCount)
+Draws the first pointCount points in the buffer points
+
+[virtual] void QPaintEngine::drawPoints(const QPoint *points, int pointCount)
+Draws the first pointCount points in the buffer points
+The default implementation converts the first pointCount QPoints in points to QPointFs and calls the floating point version of drawPoints.
+
+[virtual] void QPaintEngine::drawPolygon(const QPointF *points, int pointCount, QPaintEngine::PolygonDrawMode mode)
+Reimplement this virtual function to draw the polygon defined by the pointCount first points in points, using mode mode.
+Note: At least one of the drawPolygon() functions must be reimplemented.
+
+[virtual] void QPaintEngine::drawPolygon(const QPoint *points, int pointCount, QPaintEngine::PolygonDrawMode mode)
+This is an overloaded function.
+Reimplement this virtual function to draw the polygon defined by the pointCount first points in points, using mode mode.
+Note: At least one of the drawPolygon() functions must be reimplemented.
+
+[virtual] void QPaintEngine::drawRects(const QRectF *rects, int rectCount)
+Draws the first rectCount rectangles in the buffer rects. The default implementation of this function calls drawPath() or drawPolygon() depending on the feature set of the paint engine.
+
+[virtual] void QPaintEngine::drawRects(const QRect *rects, int rectCount)
+This is an overloaded function.
+The default implementation converts the first rectCount rectangles in the buffer rects to a QRectF and calls the floating point version of this function.
+
+[virtual] void QPaintEngine::drawTextItem(const QPointF &p, const QTextItem &textItem)
+This function draws the text item textItem at position p. The default implementation of this function converts the text to a QPainterPath and paints the resulting path.
+
+[virtual] void QPaintEngine::drawTiledPixmap(const QRectF &rect, const QPixmap &pixmap, const QPointF &p)
+Reimplement this function to draw the pixmap in the given rect, starting at the given p. The pixmap will be drawn repeatedly until the rect is filled.
+
+[pure virtual] bool QPaintEngine::end()
+Reimplement this function to finish painting on the current paint device. Return true if painting was finished successfully; otherwise return false.
+See also begin() and isActive().
+
+bool QPaintEngine::hasFeature(QPaintEngine::PaintEngineFeatures feature) const
+Returns true if the paint engine supports the specified feature; otherwise returns false.
+bool QPaintEngine::isActive() const
+Returns true if the paint engine is actively drawing; otherwise returns false.
+See also setActive().
+
+QPaintDevice *QPaintEngine::paintDevice() const
+Returns the device that this engine is painting on, if painting is active; otherwise returns nullptr.
+
+QPainter *QPaintEngine::painter() const
+Returns the paint engine's painter.
+void QPaintEngine::setActive(bool state)
+Sets the active state of the paint engine to state.
+See also isActive().
+
+[pure virtual] QPaintEngine::Type QPaintEngine::type() const
+Reimplement this function to return the paint engine Type.
+
+[pure virtual] void QPaintEngine::updateState(const QPaintEngineState &state)
+Reimplement this function to update the state of a paint engine.
+When implemented, this function is responsible for checking the paint engine's current state and update the properties that are changed. Use the QPaintEngineState::state() function to find out which properties that must be updated, then use the corresponding get function to retrieve the current values for the given properties.
+See also QPaintEngineState. 
 
