@@ -106,6 +106,8 @@
 | [QSemaphore](Src/S/QSemaphore/QSemaphore.md)                 | [Ryan-rlm](https://github.com/Ryan-rlm)       | **已完成** | 已完成 |
 | [QSctpServer](Src/S/QSctpServer/QSctpServer.md)              | [skykeyjoker](https://github.com/skykeyjoker) | **待完善** | 跨页跳转需待对应页面完成后进行校正 |
 | [QSctpSocket](Src/S/QSctpSocket/QSctpSocket.md)              | [skykeyjoker](https://github.com/skykeyjoker) | **待完善** | 跨页跳转需待对应页面完成后进行校正 |
+| [QSerialPort](Src/S/QSerialPort/QSerialPort.md) | [carenic](https://github.com/carenic) | **待完善** | 跨页跳转需待对应页面完成后进行校正 |
+| [QSerialPortInfo](Src/S/QSerialPortInfo/QSerialPortInfo.md) | [carenic](https://github.com/carenic) | **待完善** | 跨页跳转需待对应页面完成后进行校正 |
 | [QSql](Src/S/QSql/QSql.md)                                   | [JackLovel](https://github.com/JackLovel)     | **已完成** |     已完成                  |
 | [Signals and Slots](Src/S/Signals_and_Slots/Signals_and_Slots.md) | [ZgblKylin](https://github.com/ZgblKylin) | **待完善** | 跨页跳转需待对应页面完成后进行校正 |
 | [QSqlDatabase](Src/S/QSqlDatabase/QSqlDatabase.md)           | [JackLovel](https://github.com/JackLovel)     | **已完成**    | 已完成                            |
