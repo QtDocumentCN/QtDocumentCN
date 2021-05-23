@@ -192,7 +192,7 @@ QAbstractItemModel类为项模型类提供了抽象接口。[更多...]()
 这个枚举可以用来控制 [QAbstractItemModel::checkIndex()]() 执行的检查。
 
 | 常量 | 值 | 描述 |
-| ---- | ---- | ---- | ---- |
+| ---- | ---- | ---- |
 | QAbstractItemModel::CheckIndexOption::NoOption | 0x0000 | 没有指定检查选项。|
 | QAbstractItemModel::CheckIndexOption::IndexIsValid | 0x0001 | 传递给 [QAbstractItemModel::checkIndex()]() 的模型索引被检查为有效的模型索引。|
 | QAbstractItemModel::CheckIndexOption::DoNotUseParent | 0x0002 | 不执行任何涉及到传递给 [QAbstractItemModel::checkIndex()]() 的父索引的使用的检查。|
