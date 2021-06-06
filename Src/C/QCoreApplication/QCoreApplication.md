@@ -63,7 +63,7 @@ QCoreApplication包含主事件循环，这些来自于操作系统（如定时�
 
 您应该通过arguments()来获取传递给QCoreApplication构造函数的命令行参数。
 
-注意：QCoreApplication将移除**-qmljsdebugger="..."**选项。它会解析**qmljsdebugger**参数，然后删除此选项及其参数。
+注意：QCoreApplication将移除 **-qmljsdebugger="..."** 选项。它会解析 **qmljsdebugger** 参数，然后删除此选项及其参数。
 
 对于一些更加高级的命令行参数的处理，请创建一个[QCommandLineParser](../QCommandLineParser/QCommandLineParser.md)。
 
