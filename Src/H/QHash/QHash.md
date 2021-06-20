@@ -4,7 +4,7 @@ template <typename Key, typename T> class QHash
 
 QHash 类是一种模板类，提供基于哈希表的字典类结构。[更多内容...](QHash.md#详细描述)
 
-| 头文件:   | #include <QHash>                                     |
+| 头文件:   | #include \<QHash>                                     |
 | -------------: | :---------------------------------------------------- |
 | qmake:        | QT += core                                           |
 | 派生类: | [QMultiHash](../../M/QMultiHash/QMultiHash.md) |
