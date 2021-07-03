@@ -129,7 +129,7 @@ while (i.findNext(widget)) {
 
 对位于容器末端的迭代器调用该函数将导致未定义结果。
 
-**另请参阅** [hasNext](QHashIterator.md#bool-qhashiteratorhasnext-const)() 和 [next](QHashIterator.md#qhashiteratoritem-qhashiteratornext)(。
+**另请参阅** [hasNext](QHashIterator.md#bool-qhashiteratorhasnext-const)() 和 [next](QHashIterator.md#qhashiteratoritem-qhashiteratornext)()。
 
 ### const T &QHashIterator::value() const
 
