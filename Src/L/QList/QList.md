@@ -6,7 +6,7 @@ QList 类是一个用于提供列表支持的模板类。[更多...](QList.md#de
 
 |               |                                                                                                                                          |
 | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
-| 头文件:       | #include <QList>                                                                                                                      |
+| 头文件:       | #include \<QList>                                                                                                                      |
 | qmake:        | QT += core                                                                                                                               |
 | 子类: | [QByteArrayList](../../B/QByteArrayList/QByteArrayList.md), [QItemSelection](../../I/QItemSelection/QItemSelection.md), [QQueue](../../Q/QQueue/QQueue.md) 和 [QStringList](../../S/QStringList/QStringList.md) |
 
