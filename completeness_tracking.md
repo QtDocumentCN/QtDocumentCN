@@ -129,7 +129,7 @@
 | [QTcpSocket](Src/T/QTcpSocket/QTcpSocket.md)                 | [skykeyjoker](https://github.com/skykeyjoker) | **待完善** | 跨页跳转需待对应页面完成后进行校正 |
 | [QTcpServer](Src/T/QTcpServer/QTcpServer.md)                 | [skykeyjoker](https://github.com/skykeyjoker) | **待完善** | 跨页跳转需待对应页面完成后进行校正 |
 | [QTimer](Src/T/QTimer/QTimer.md) | [ruihuanming](https://github.com/hqwx2018) | **待完善** | 跨页跳转需待对应页面完成后进行校正 |
-| [QText2DEntity](Src/T/QText2DEntity/QText2DEntity.md) | [acmic7](https://github.com/acmic7) | **待完善** |  |
+| [QText2DEntity](Src/T/QText2DEntity/QText2DEntity.md) | [acmic7](https://github.com/acmic7) | **待完善** |   |
 | **U** |  |  |  |
 | [QUdpSocket](Src/U/QUdpSocket/QUdpSocket.md)                 | [skykeyjoker](https://github.com/skykeyjoker) | **待完善** | 跨页跳转需待对应页面完成后进行校正 |
 | **V** |  |  |  |
