@@ -39,7 +39,7 @@ QText2DEntity 允许在 3D 空间中创建 2D 文本。 [更多的...](QText2DEn
 |     |   |
 |  ----  | ----  |
 |void	|[**colorChanged**](QText2DEntity.md#颜色:QColor)(const QColor &color)	|
-|void	|[**fontChanged**](QText2DEntity.md#字体:QFont)(const QFont &font)		|
+|void	|[**fontChanged**](QText2DEntity.md#字体:QFont)(const QFont &font)	|
 |void	|[**heightChanged**](QText2DEntity.md#高度:float)(float height)		|
 |void	|[**textChanged**](QText2DEntity.md#文本:QString)(const QString &text)	|
 |void	|[**widthChanged**](QText2DEntity.md#宽度:float)(float width)			|
