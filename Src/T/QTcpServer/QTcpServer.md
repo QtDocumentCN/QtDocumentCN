@@ -158,7 +158,7 @@ QTcpServer 类提供了一个基于 TCP 协议的服务器。
 
 ---
 
-### *[virtual protected]* void QTcpServer::**incomingConnection**(qintptr*socketDescriptor*)
+### *[virtual protected]* void QTcpServer::**incomingConnection**(qintptr *socketDescriptor*)
 
 当有新的连接到达时， QTcpServer 会调用该虚函数。 *socketDescriptor* 参数是为该连接指定的本机套接字描述符。
 
