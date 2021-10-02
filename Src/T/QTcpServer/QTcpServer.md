@@ -317,7 +317,7 @@ QTcpServer 类提供了一个基于 TCP 协议的服务器。
 
 如果服务器正在使用 [QNetworkProxy](../../N/QNetworkProxy/QNetworkProxy.md) ，返回的套接字描述符可能并不能在本地套接字函数中使用。
 
-另外您也可以在 [setSocketDescriptor()](../../A/QAbstractSocket/QAbstractSocket.md#virtual-bool-qabstractsocketsetsocketdescriptorqintptr-socketdescriptor-qabstractsocketsocketstate-socketstate--connectedstate-qiodeviceopenmode-openmode--readwrite)() 和 [isListening](#bool-qtcpserverislistening-const)() 函数介绍中找到相关信息。
+另外您也可以在 [setSocketDescriptor](../../A/QAbstractSocket/QAbstractSocket.md#virtual-bool-qabstractsocketsetsocketdescriptorqintptr-socketdescriptor-qabstractsocketsocketstate-socketstate--connectedstate-qiodeviceopenmode-openmode--readwrite)() 和 [isListening](#bool-qtcpserverislistening-const)() 函数介绍中找到相关信息。
 
 ---
 
