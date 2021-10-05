@@ -8,7 +8,7 @@ QTimer提供了重复和信号槽的定时器。
 
 | 属性     | 方法                                  |
 | -------- | ------------------------------------- |
-| 头文件： | #include <QTimer>                     |
+| 头文件： | #include \<QTimer>                     |
 | qmake:   | QT += core                            |
 | 继承：   | [QObject](../../O/QObject/QObject.md) |
 
