@@ -4,7 +4,7 @@ QFile 类提供读写文件的接口。
 
 | 属性 | 方法 |
 | ------------- | ------------------------------------------------------------ |
-| Header:       | #include <QFile>                                             |
+| Header:       | #include \<QFile>                                             |
 | qmake:        | QT += core                                                   |
 | Inherits:     | [QFileDevice](https://doc.qt.io/qt-5/qfiledevice.html)       |
 | Inherited By: | [QTemporaryFile](https://doc.qt.io/qt-5/qtemporaryfile.html) |
