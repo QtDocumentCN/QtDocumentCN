@@ -4,7 +4,7 @@ template <typename Key, typename T, typename Iterator> class QKeyValueIterator
 
 关联容器的键值对类型的迭代器。[更多内容...](QKeyValueIterator.md#详细描述)
 
-| 头文件: | #include <QKeyValueIterator> |
+| 头文件: | #include \<QKeyValueIterator> |
 | -------: | :---------------------------- |
 | qmake:  | QT += core                   |
 | Since:  | Qt 5.10                      |
