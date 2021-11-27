@@ -4,7 +4,7 @@ template <typename Key, typename T> class QMap
 
 QMap 类是一种模板类，提供基于红黑树的字典类结构。[更多内容...](QMap.md#详细描述)
 
-| 头文件:       | #include <QMap>                                    |
+| 头文件:       | #include \<QMap>                                    |
 | -------------: | :-------------------------------------------------- |
 | qmake:        | QT += core                                         |
 | 派生类: | [QMultiMap](../../M/QMultiMap/QMultiMap.md) |
