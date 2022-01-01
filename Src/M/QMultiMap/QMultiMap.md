@@ -4,7 +4,7 @@ template <typename Key, typename T> class QMultiMap
 
 QMultiMap 类是一个便利的 [QMap](../../M/QMap/QMap.md) 派生类，提供多值映射功能。[更多内容...](QMultiMap.md#详细描述)
 
-| 头文件: | #include <QMultiMap>         |
+| 头文件: | #include \<QMultiMap>         |
 | ------: | :---------------------------- |
 |  qmake: | QT += core                   |
 |   基类: | [QMap](../../M/QMap/QMap.md) |
@@ -33,7 +33,7 @@ QMultiMap 类是一个便利的 [QMap](../../M/QMap/QMap.md) 派生类，提供�
 | void                                  | **[swap](QMultiMap.md#void-qmultimapswapqmultimapkey-t-other)**(QMultiMap<Key, T> &*other*) |
 | QList<Key>                            | **[uniqueKeys](QMultiMap.md#qlistkey-qmultimapuniquekeys-const)**() const |
 | QMultiMap<K, V> &                     | **[unite](QMultiMap.md#qmultimapk-v-qmultimapuniteconst-qmultimapk-v-other)**(const QMultiMap<K, V> &*other*) |
-| QList<T>                              | **[values](QMultiMap.md#qlistt-qmultimapvaluesconst-key-key-const)**(const Key &*key*) const |
+| QList\<T>                              | **[values](QMultiMap.md#qlistt-qmultimapvaluesconst-key-key-const)**(const Key &*key*) const |
 | QMultiMap<K, V>                       | **[operator+](QMultiMap.md#qmultimapk-v-qmultimapoperatorconst-qmultimapk-v-other-const)**(const QMultiMap<K, V> &*other*) const |
 | QMultiMap<K, V> &                     | **[operator+=](QMultiMap.md#qmultimapk-v-qmultimapoperatorconst-qmultimapk-v-other)**(const QMultiMap<K, V> &*other*) |
 
