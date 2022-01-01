@@ -4,7 +4,7 @@ template <typename Key, typename T> class QMultiHash
 
 QMultiHash 类是一个便利的 [QHash](../../H/QHash/QHash.md) 派生类，提供多值哈希表功能。[更多内容...](QMultiHash.md#详细描述)
 
-| 头文件:   | #include <QMultiHash>                      |
+| 头文件:   | #include \<QMultiHash>                      |
 | ---------: | :------------------------------------------ |
 | qmake:    | QT += core                                 |
 | 基类: | [QHash](../../H/QHash/QHash.md) |
@@ -31,9 +31,9 @@ QMultiHash 类是一个便利的 [QHash](../../H/QHash/QHash.md) 派生类，提
 | int                                    | **[remove](QMultiHash.md#int-qmultihashremoveconst-key-key-const-t-value)**(const Key &*key*, const T &*value*) |
 | typename QHash<Key, T>::iterator       | **[replace](QMultiHash.md#typename-qhashkey-titerator-qmultihashreplaceconst-key-key-const-t-value)**(const Key &*key*, const T &*value*) |
 | void                                   | **[swap](QMultiHash.md#void-qmultihashswapqmultihashk-v-other)**(QMultiHash<K, V> &*other*) |
-| QList<Key>                             | **[uniqueKeys](QMultiHash.md#qlistkey-qmultihashuniquekeys-const)**() const |
+| QList\<Key>                             | **[uniqueKeys](QMultiHash.md#qlistkey-qmultihashuniquekeys-const)**() const |
 | QMultiHash<K, V> &                     | **[unite](QMultiHash.md#qmultihashk-v-qmultihashuniteconst-qmultihashk-v-other)**(const QMultiHash<K, V> &*other*) |
-| QList<T>                               | **[values](QMultiHash.md#qlistt-qmultihashvaluesconst-key-key-const)**(const Key &*key*) const |
+| QList\<T>                               | **[values](QMultiHash.md#qlistt-qmultihashvaluesconst-key-key-const)**(const Key &*key*) const |
 | QMultiHash<K, V>                       | **[operator+](QMultiHash.md#qmultihashk-v-qmultihashoperatorconst-qmultihashk-v-other-const)**(const QMultiHash<K, V> &*other*) const |
 | QMultiHash<K, V> &                     | **[operator+=](QMultiHash.md#qmultihashk-v-qmultihashoperatorconst-qmultihashk-v-other)**(const QMultiHash<K, V> &*other*) |
 
