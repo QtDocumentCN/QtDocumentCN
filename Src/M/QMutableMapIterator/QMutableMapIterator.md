@@ -4,7 +4,7 @@ template <typename Key, typename T> class QMutableMapIterator
 
 QMutableMapIterator 类为 [QMap](../../M/QMap/QMap.md) 和 [QMultiMap](../../M/QMultiMap/QMultiMap.md) 提供 Java 风格的非常量迭代器。[更多内容...](QMutableMapIterator.md#详细描述)
 
-| 头文件: | #include <QMutableMapIterator> |
+| 头文件: | #include \<QMutableMapIterator> |
 | ------: | :------------------------------ |
 |  qmake: | QT += core                     |
 
