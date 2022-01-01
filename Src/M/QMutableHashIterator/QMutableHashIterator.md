@@ -4,7 +4,7 @@ template <typename Key, typename T> class QMutableHashIterator
 
 QMutableHashIterator 类为 [QHash](../../H/QHash/QHash.md) 和 [QMultiHash](../../M/QMultiHash/QMultiHash.md) 提供 Java 风格的非常量迭代器。[更多内容...](QMutableHashIterator.md#详细描述)
 
-| 头文件: | #include <QMutableHashIterator> |
+| 头文件: | #include \<QMutableHashIterator> |
 | -------: | :------------------------------- |
 | qmake:  | QT += core                      |
 
