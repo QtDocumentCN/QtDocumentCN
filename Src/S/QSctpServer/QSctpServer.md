@@ -8,7 +8,7 @@ QSctpServer 提供了一个基于 QSCTP 协议的服务器。
 
 | 属性     | 方法                                           |
 | -------- | ---------------------------------------------- |
-| 头文件   | `include <QSctpServer>`                        |
+| 头文件   | `#include <QSctpServer>`                        |
 | qmake    | QT += network                                  |
 | 引入版本 | Qt5.8                                          |
 | 继承自   | [QTcpServer](../../T/QTcpServer/QTcpServer.md) |
