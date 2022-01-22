@@ -231,7 +231,7 @@ Qt 官方示例如下：
 
 该函数最初在 Qt 5.4版本引入。
 
-This function was introduced in Qt 5.4.
+
 
 ---
 
