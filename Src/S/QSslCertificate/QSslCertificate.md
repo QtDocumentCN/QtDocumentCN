@@ -291,7 +291,7 @@ Qt 官方示例如下：
 
 ### [QList](../../L/QList/QList.md)\<[QByteArray](../../B/QByteArray/QByteArray.md)\> QSslCertificate::**issuerInfoAttributes**() const
 
-返回发行信息中有值的属性的列表。与一个给定属性先关联的信息可以使用 [issuerInfo()](#qstringlist-qsslcertificateissuerinfoqsslcertificatesubjectinfo-subject-const)() 函数来查看。请注意，此列表可能包含 SSL 后端未知的任何元素的 OID 。
+返回发行信息中有值的属性的列表。与一个给定属性先关联的信息可以使用 [issuerInfo()](#qstringlist-qsslcertificateissuerinfoqsslcertificatesubjectinfo-subject-const) 函数来查看。请注意，此列表可能包含 SSL 后端未知的任何元素的 OID 。
 
 该函数最初在 Qt 5.0版本引入。
 
