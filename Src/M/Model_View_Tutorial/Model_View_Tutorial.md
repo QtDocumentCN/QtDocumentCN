@@ -28,7 +28,7 @@
 模型/视图是一种将数据从视图中分离出来，来处理数据集的一种技术。标准部件并不是为将数据从视图中分离出来而设计的，这就是为什么 `Qt` 会有两种不同类型的部件。这两种部件看起来都一样，但是它们与数据之间的交互方式是不同的。
 
 <div class="table"><table class="generic">
-<tbody><tr class="odd" valign="top"><td>标准部件使用的数据最为部件的一部分。</td><td><p class="centerAlign"><img alt="" src="standardwidget.png"></p></td></tr>
+<tbody><tr class="odd" valign="top"><td>标准部件使用的数据作为部件的一部分。</td><td><p class="centerAlign"><img alt="" src="standardwidget.png"></p></td></tr>
 <tr class="even" valign="top"><td>视图类操作的是外部的数据（模型）。</td><td><p class="centerAlign"><img alt="" src="modelview.png"></p></td></tr>
 </tbody></table></div>
 
