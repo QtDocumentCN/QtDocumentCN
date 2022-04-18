@@ -164,75 +164,9 @@ git pull --rebase
 
 ----
 
-### 引用链接
+### <del>引用链接</del>
 
-#### 页内跳转
-
-Markdown 页内标题跳转较为简便，语法如下：
-
-```markdown
-[页内跳转](本文档名#页内跳转标题)
-```
-
-页内跳转：[中英混排](CONTRIBUTING.md#中英混排)
-
-省略本文件名称时，通常也可进行跳转，但有的场景会无法正确生成跳转链接，因此不建议省略。
-
-#### 跨页跳转
-
-编写引用链接时，Markdown 支持直接链接跳转至目标页面的标题，语法如下：
-
-相对路径：
-
-```Markdown
-跨页跳转：[真实范例](S/Signals_and_Slots/Signals_and_Slots.md#真实范例)
-```
-跨页跳转：[真实范例](S/Signals_and_Slots/Signals_and_Slots.md#真实范例)
-
-注：在相对路径中您可以使用`../`进行上层目录访问。
-
-绝对路径：
-
-```Markdown
-跨页跳转：[QAbstractSocket::socketDescriptor()](https://github.com/QtDocumentCN/QtDocumentCN/blob/master/A/QAbstractSocket/QAbstractSocket.md#qabstractsocketsockettype-qabstractsocketsockettype-const)
-```
-跨页跳转：[QAbstractSocket::socketDescriptor()](https://github.com/QtDocumentCN/QtDocumentCN/blob/master/A/QAbstractSocket/QAbstractSocket.md#qabstractsocketsockettype-qabstractsocketsockettype-const)
-
-注意：
-1. `#`后的标题名称，与文本可能并不一致。若直接使用标题文本无法成功跳转，可尝试：
-
-   1. 将`.md`导出至`.html`，在标题处右键——检查元素，使用该元素的 html tag 中`id`字段值；
-   2. （推荐此种方法）提交至 GitHub 后，直接复制标题左方的超链接图标所指向的地址并进行修改。
-
-2. 为方便生成其它不依赖 GitHub 的发布页面，建议使用相对路径跳转而非绝对路径。
-
-2. 不同工具导出的 html 标签字段并不一致，GitHub 生成的中文标题标签会比 Typora 的多`user-content-`前缀。实测无需该前缀也能完成跳转，因此建议不添加此前缀，以减少对特定导出工具的依赖。待本项目发布至 GitBook 后，需要再次检查跳转链接是否能正确运作。
-
-3. 若要跨页跳转的目标页尚未完成，可以先采用规则进行目标地址的推算，待目标页完成后再进行检查。
-
-原标题：
-> ```
-> ### *[override virtual]* bool **QAbstractSocket**::waitForBytesWritten(int *msecs* = 30000)
-> ### bool **QAbstractSocket**::bind(const QHostAddress &*address*, quint16 *port* = 0, QAbstractSocket::BindMode *mode* = DefaultForPlatform)
-> ```
-
-跳转路径：
-> ```
-> #override-virtual-bool-qabstractsocketwaitforbyteswrittenint-msecs--30000
-> #bool-qabstractsocketbindconst-qhostaddress-address-quint16-port--0-qabstractsocketbindmode-mode--defaultforplatform
-> ```
-
-从以上示例我们可以推导出跳转规则：
-* `* ：() & [] =` 等所有符号直接省略；
-* 大写全部改为小写；
-* `空格` 改为 `-`。
-
-此外，中文标题请改为 `%` 转义格式，如 `[更多内容...](#详细描述)` 应改为 `[更多内容...](#%E8%AF%A6%E7%BB%86%E6%8F%8F%E8%BF%B0)`。
-
-#### 第三方链接
-
-除 Qt 原文档中的第三方链接，根据翻译需求添加的 `译者注：` 中，**只应**引用其它官方组织的文档，如 [CppReference](https://en.cppreference.com/w/) 或 [MSDN](https://docs.microsoft.com/en-us/windows/win32/api/processthreadsapi/nf-processthreadsapi-getcurrentthreadid)，**不可**添加个人博客等非官方组织的链接。
-
+可先留空，后期项目组使用脚本统一处理。
 
 
 ## Markdown 编辑器
