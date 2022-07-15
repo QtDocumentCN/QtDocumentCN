@@ -85,7 +85,7 @@
 | **N** |  |  |  |
 | **O** |  |  |  |
 | [QObject](Src/O/QObject/QObject.md) | [ZgblKylin](https://github.com/ZgblKylin) | 编写中 | 占位中，待填充，截止时间2020-08-31 |
-| [QOpenGLShaderProgram](Src/O/QOpenGLShaderProgram/QOpenGLShaderProgram.md) | [ZgblKylin](https://github.com/ZgblKylin) | 编写中 | 占位中，待填充，截止时间2020-08-31 |
+| [QOpenGLShaderProgram](Src/O/QOpenGLShaderProgram/QOpenGLShaderProgram.md) | [KentKong123](https://github.com/KentKong123) | 编写中 | 占位中，待填充，截止时间2022-07-31 |
 | **P** |  |  |  |
 | [QPainter](Src/P/QPainter) | [CryFeiFei](https://github.com/CryFeiFei) | 编写中 | 占位中，待填充，截止时间2020-09-30 |
 | [QPaintEngine](Src/P/QPaintEngine) | [CryFeiFei](https://github.com/CryFeiFei) | 编写中 | 占位中，待填充，截止时间2020-09-30 |
