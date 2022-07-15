@@ -90,7 +90,6 @@
 | [QPainter](Src/P/QPainter) | [CryFeiFei](https://github.com/CryFeiFei) | 编写中 | 占位中，待填充，截止时间2020-09-30 |
 | [QPaintEngine](Src/P/QPaintEngine) | [CryFeiFei](https://github.com/CryFeiFei) | 编写中 | 占位中，待填充，截止时间2020-09-30 |
 | [QPaintDevice](Src/P/QPaintDevice) | [CryFeiFei](https://github.com/CryFeiFei) | 编写中 | 占位中，待填充，截止时间2020-09-30 |
-| [The Property System](Src/P/The_Property_System/The_Property_System.md) | [KentKong123](https://github.com/KentKong123) | 编写中 | 占位中，待填充，截止时间2022-07-31 |
 | [QPluginLoader](Src/P/QPluginLoader/QPluginLoader.md) | [miRoox](https://github.com/miRoox) | **待完善** | 跨页跳转需待对应页面完成后进行校正 |
 | [QtPlugin](Src/P/QtPlugin/QtPlugin.md) | [miRoox](https://github.com/miRoox) | **待完善** | 跨页跳转需待对应页面完成后进行校正 |
 | **Q** |  |  |  |
