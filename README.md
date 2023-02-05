@@ -32,7 +32,9 @@
 ### 加入社区
 可以通过[发起issue](https://github.com/QtDocumentCN/QtDocumentCN/issues/new)的方式建立讨论。
 
-此外，我们组建了 `QtDocumentCN-社区组` 微信群，可以添加[@CryFeiFei](https://github.com/CryFeiFei) 的微信`Perfect_Cheung`，备注QtDoc，待邀请入群后在群里详细聊。
+此外，我们组建了 `QtDocumentCN-社区组` 微信群，可以添加[@CryFeiFei](https://github.com/CryFeiFei) 的微信备注QtDoc，待邀请入群后在群里详细聊。
+![WeDoc](xiaofeiwx.png)
+
 
 项目初期有可能有很多不完善的地方，希望各位开发提出不合理的地方。
 
